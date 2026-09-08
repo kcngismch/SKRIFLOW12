@@ -1180,6 +1180,84 @@ export function getResearchFoundationBriefSnapshot(): string {
 }
 
 /**
+ * Export ALL Skriflow localStorage keys as one JSON string (backup / pindah device).
+ * Covers skriflow_* keys; foreign keys (theme, dsb.) tidak ikut.
+ */
+export function exportAllData(): string {
+  const payload: Record<string, string> = {};
+  if (typeof window !== "undefined" && window.localStorage) {
+    const keys: string[] = [];
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const k = window.localStorage.key(i);
+      if (k && k.startsWith("skriflow_")) keys.push(k);
+    }
+    for (const k of keys) {
+      const v = window.localStorage.getItem(k);
+      if (v !== null) payload[k] = v;
+    }
+  } else {
+    for (const k of Object.keys(memoryStorage)) {
+      if (k.startsWith("skriflow_")) payload[k] = memoryStorage[k];
+    }
+  }
+  return JSON.stringify(
+    { app: "skriflow", schemaVersion: 1, exportedAt: new Date().toISOString(), data: payload },
+    null,
+    2
+  );
+}
+
+/**
+ * Import data dari exportAllData(). Return jumlah key yang dipulihkan.
+ * Unknown keys di dalam file diabaikan (harus prefix skriflow_).
+ */
+export function importAllData(json: string): { restored: number; error?: string } {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(json);
+  } catch {
+    return { restored: 0, error: "File bukan JSON yang valid." };
+  }
+  const obj = parsed as { app?: string; data?: Record<string, unknown> };
+  if (!obj || typeof obj !== "object" || obj.app !== "skriflow" || !obj.data || typeof obj.data !== "object") {
+    return { restored: 0, error: "Struktur file bukan backup Skriflow yang dikenali." };
+  }
+  let restored = 0;
+  for (const [k, v] of Object.entries(obj.data)) {
+    if (!k.startsWith("skriflow_") || typeof v !== "string") continue;
+    setStorageItem(k, v);
+    restored++;
+  }
+  return { restored };
+}
+
+/**
+ * Hapus SEMUA data Skriflow dari localStorage (skriflow_* saja).
+ */
+export function clearAllData(): number {
+  let removed = 0;
+  if (typeof window !== "undefined" && window.localStorage) {
+    const keys: string[] = [];
+    for (let i = 0; i < window.localStorage.length; i++) {
+      const k = window.localStorage.key(i);
+      if (k && k.startsWith("skriflow_")) keys.push(k);
+    }
+    for (const k of keys) {
+      removeStorageItem(k);
+      removed++;
+    }
+  } else {
+    for (const k of Object.keys(memoryStorage)) {
+      if (k.startsWith("skriflow_")) {
+        delete memoryStorage[k];
+        removed++;
+      }
+    }
+  }
+  return removed;
+}
+
+/**
  * Returns a stable snapshot string for useSyncExternalStore.
  */
 export function getToolDataSnapshot(slug: string): string {

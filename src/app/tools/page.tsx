@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { ToolCatalog } from "@/components/ToolCatalog";
 import { LockedSection } from "@/components/LockedSection";
+import { DataBackupCard } from "@/components/generator/DataBackupCard";
 import { ACTIVE_TOOLS } from "@/data/tools";
 import { Sparkles } from "lucide-react";
 
@@ -37,6 +38,11 @@ export default function ToolsDashboardPage() {
 
         {/* Coming Soon Locked Phases */}
         <LockedSection />
+
+        {/* Data & Backup */}
+        <div className="mt-10">
+          <DataBackupCard />
+        </div>
       </div>
     </div>
   );
