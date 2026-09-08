@@ -878,34 +878,34 @@ export function assembleLiteraturePromptB(
 ${contextBlock}
 
 KELAYAKAN & PRINSIP:
-- Jangan menuntut kesempurnaan. Artikel tidak harus memuat seluruh tabel statistik agar dapat digunakan. Untuk artikel empiris, cukup metode atau konteks data serta hasil/kesimpulan utama dapat dibaca dan dikutip. Untuk review/SLR, metode peninjauan dan hasil sintesis harus dapat dikenali.
+- Artikel empiris cukup jika metode/konteks data & hasil utamanya terbaca untuk dikutip; review/SLR cukup jika metode tinjauan & sintesisnya terkenali.
 - Kategori sumber:
   * INTI: relevan langsung, metode/hasil terbaca.
   * PENDUKUNG (maks. 5): tak langsung / konteks teori / metode.
   * PERLU CEK MANUAL: metadata/akses butuh konfirmasi.
   * ABAIKAN: Research Report AI, duplikat, retracted, atau tanpa badan artikel.
-- Jika INTI <8: tetap susun Paket Bukti sementara dari sumber valid, jelaskan aspek yang masih kurang, jangan STOP sebelum hasil ditampilkan.
+- Jika INTI <8: tetap susun Paket Bukti sementara dari sumber valid; jelaskan yang kurang, jangan STOP.
 
 LARANGAN KERAS:
-- Dilarang mengarang sumber atau membuat klaim tanpa sitasi.
-- Dilarang membuat gap otomatis, kesimpulan final, judul, novelty, variabel final, atau hubungan kausal yang tidak dilaporkan sumber.
+- Dilarang mengarang sumber atau klaim tanpa sitasi.
+- Dilarang membuat gap otomatis, kesimpulan final, judul, novelty, variabel final, atau klaim kausal di luar sumber.
 - Dilarang menggunakan Research Report AI sebagai artikel akademik.
-- Jangan gunakan kata "membuktikan". Gunakan frasa: "penelitian melaporkan", "hasil analisis menunjukkan", "pada sampel dan periode penelitian tersebut", atau "temuan ini belum tentu berlaku pada konteks lain".
+- Jangan kata "membuktikan". Pakai: "penelitian melaporkan", "hasil analisis menunjukkan", atau batasi ke sampel/periode.
 
 OUTPUT:
 1. REKONSILIASI
-INTI + PENDUKUNG + PERLU CEK MANUAL + ABAIKAN = TOTAL NOTEBOOK. Tulis jumlah, ID, dan alasan sumber diabaikan/dicek manual.
+INTI + PENDUKUNG + PERLU CEK MANUAL + ABAIKAN = TOTAL NOTEBOOK. Cantumkan jumlah, ID, dan alasannya.
 
 2. SOURCE REGISTER
-ID | Kategori | Judul lengkap | Penulis-tahun | Jenis | Publikasi | Sampel/periode/metode | Bukti keterbacaan.
+ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Metode/sampel | Bukti keterbacaan.
 Review/SLR bukan bukti empiris independen; labeli preprint/working paper/tesis.
 
 3. MATRIKS BUKTI (maks. 16)
-ID | Fungsi | Klaim netral (pada sampel/periode tertentu, tanpa kata "membuktikan") | ID sumber + sitasi native NotebookLM | Lokasi (ragu: "TIDAK DAPAT DIPASTIKAN") | Konteks | Batas penggunaan.
+ID | Fungsi | Klaim netral (tanpa kata "membuktikan") | ID sumber + sitasi native NotebookLM | Lokasi (ragu: TIDAK DAPAT DIPASTIKAN) | Konteks | Batas penggunaan.
 Satu klaim-satu sumber; tanpa sitasi dilarang.
 
 4. PERBANDINGAN
-Bandingkan hanya jika setara. Jika proksi/metode/sampel berbeda, tulis "tidak dapat dibandingkan langsung".
+Bandingkan hanya jika setara; jika tidak, tulis "tidak dapat dibandingkan langsung".
 
 5. PENUTUP
 "Paket bukti sementara disusun; keputusan penelitian belum ditetapkan. STOP."`;
@@ -922,34 +922,34 @@ Prodi:  | Area:
 Fenomena: 
 
 KELAYAKAN & PRINSIP:
-- Jangan menuntut kesempurnaan. Artikel tidak harus memuat seluruh tabel statistik agar dapat digunakan. Untuk artikel empiris, cukup metode atau konteks data serta hasil/kesimpulan utama dapat dibaca dan dikutip. Untuk review/SLR, metode peninjauan dan hasil sintesis harus dapat dikenali.
+- Artikel empiris cukup jika metode/konteks data & hasil utamanya terbaca untuk dikutip; review/SLR cukup jika metode tinjauan & sintesisnya terkenali.
 - Kategori sumber:
   * INTI: relevan langsung, metode/hasil terbaca.
   * PENDUKUNG (maks. 5): tak langsung / konteks teori / metode.
   * PERLU CEK MANUAL: metadata/akses butuh konfirmasi.
   * ABAIKAN: Research Report AI, duplikat, retracted, atau tanpa badan artikel.
-- Jika INTI <8: tetap susun Paket Bukti sementara dari sumber valid, jelaskan aspek yang masih kurang, jangan STOP sebelum hasil ditampilkan.
+- Jika INTI <8: tetap susun Paket Bukti sementara dari sumber valid; jelaskan yang kurang, jangan STOP.
 
 LARANGAN KERAS:
-- Dilarang mengarang sumber atau membuat klaim tanpa sitasi.
-- Dilarang membuat gap otomatis, kesimpulan final, judul, novelty, variabel final, atau hubungan kausal yang tidak dilaporkan sumber.
+- Dilarang mengarang sumber atau klaim tanpa sitasi.
+- Dilarang membuat gap otomatis, kesimpulan final, judul, novelty, variabel final, atau klaim kausal di luar sumber.
 - Dilarang menggunakan Research Report AI sebagai artikel akademik.
-- Jangan gunakan kata "membuktikan". Gunakan frasa: "penelitian melaporkan", "hasil analisis menunjukkan", "pada sampel dan periode penelitian tersebut", atau "temuan ini belum tentu berlaku pada konteks lain".
+- Jangan kata "membuktikan". Pakai: "penelitian melaporkan", "hasil analisis menunjukkan", atau batasi ke sampel/periode.
 
 OUTPUT:
 1. REKONSILIASI
-INTI + PENDUKUNG + PERLU CEK MANUAL + ABAIKAN = TOTAL NOTEBOOK. Tulis jumlah, ID, dan alasan sumber diabaikan/dicek manual.
+INTI + PENDUKUNG + PERLU CEK MANUAL + ABAIKAN = TOTAL NOTEBOOK. Cantumkan jumlah, ID, dan alasannya.
 
 2. SOURCE REGISTER
-ID | Kategori | Judul lengkap | Penulis-tahun | Jenis | Publikasi | Sampel/periode/metode | Bukti keterbacaan.
+ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Metode/sampel | Bukti keterbacaan.
 Review/SLR bukan bukti empiris independen; labeli preprint/working paper/tesis.
 
 3. MATRIKS BUKTI (maks. 16)
-ID | Fungsi | Klaim netral (pada sampel/periode tertentu, tanpa kata "membuktikan") | ID sumber + sitasi native NotebookLM | Lokasi (ragu: "TIDAK DAPAT DIPASTIKAN") | Konteks | Batas penggunaan.
+ID | Fungsi | Klaim netral (tanpa kata "membuktikan") | ID sumber + sitasi native NotebookLM | Lokasi (ragu: TIDAK DAPAT DIPASTIKAN) | Konteks | Batas penggunaan.
 Satu klaim-satu sumber; tanpa sitasi dilarang.
 
 4. PERBANDINGAN
-Bandingkan hanya jika setara. Jika proksi/metode/sampel berbeda, tulis "tidak dapat dibandingkan langsung".
+Bandingkan hanya jika setara; jika tidak, tulis "tidak dapat dibandingkan langsung".
 
 5. PENUTUP
 "Paket bukti sementara disusun; keputusan penelitian belum ditetapkan. STOP."`;

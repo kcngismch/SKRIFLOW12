@@ -1,0 +1,5699 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+FAKULTAS ILMU KESEHATAN (FIKES) 
+ 
+UNIVERSITAS DR. SOEBANDI 
+YAYASAN JEMBER INTERNATIONAL SCHOOL (JIS) 
+ 
+ 
+i Web : www.fikes.uds.ac.id 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+BUKU PANDUAN TUGAS AKHIR 
+002/FIKES-UDS/DOK/X/2024 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ketua Komite: 
+Kustin, S.KM., M.Kes 
+ 
+ 
+Sekretaris Komite:  
+Yuni Handayani, S.ST., M.Kes  
+ 
+Anggota Komite 
+1. Apt Lindawati Setyaningrum, M.Farm 
+2. Apt. Ayu Angger Putri M.Sholeh., M.Farm  
+3. Apt. Nafisah Isnawati, M.Si 
+4. Dr. Yugi Hari Candra Purnama, M.Si 
+5. Ns. Zidni Nuris Yuhbaba, S.Kep., M.Kep 
+6. Ns. Wike Rosalini, S.Kep., M.Kes 
+7. Ns. Roby Aji, S.Kep., M.Kep 
+8. Ns. Rida Darotin, S.Kep., M.Kep 
+9. Ns. Ainul Hidayati, S.Kep., M.K.M 
+10. Yuningsih, S.ST., M.Keb 
+11. Ernawati Anggraeni, S.ST., M.Kes 
+12. Hartalina Mufidah, S.Si., M.Si 
+ 
+ 
+ 
+ 
+ 
+ii 
+TIM PENYUSUN 
+BUKU PANDUAN TUGAS AKHIR 
+FAKULTAS ILMU KESEHATAN 
+UNIVERSITAS dr. SOEBANDI 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Buku Panduan Tugas Akhir disahkan pada : 
+Hari Selasa, 01 Oktober 2024 
+Hari 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ iii
+HALAMAN PENGESAHAN 
+
+ 
+ 
+
+
+DAFTAR ISI 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Cover....................................................................................................... i 
+Tim Penyusun .......................................................................................... ii 
+Halaman Pengesahan ............................................................................... iii 
+SK Penetapan .......................................................................................... iv 
+Daftar Isi ................................................................................................. v 
+BAB 1 Pendahuluan................................................................................... 1 
+BAB 2 Ketentuan Umum Penulisan Tugas Akhir........................................... 9 
+BAB 3 Prosedur Penyusunan Tugas Akhir.................................................... 13 
+BAB 4 Sistematika Penulisan Proposal......................................................... 22 
+BAB 5 Sistematika Penulisan Skripsi............................................................ 37 
+ BAB 6 Format Penulisan Akhir..................................................................... 40 
+ BAB 7 Format Penulisan Skripsi................................................................... 41 
+ BAB 8 Pelaksanaan Ujian Skripsi................................................................. 55 
+ DAFTAR PUSTAKA .................................................................................... 70 
+  LAMPIRAN  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+v 
+1 
+ 
+ 
+ 
+ 
+BAB 1 PENDAHULUAN 
+ 
+1.1 Latar Belakang 
+Penyusunan karya ilmiah merupakan salah satu ciri pokok dari kegiatan  
+perguruan tinggi. Karya ilmiah adalah karya tulis atau bentuk lainnya yang telah  
+diakui dalam bidang pengetahuan, teknologi, atau seni yang ditulis atau dikerjakan 
+sesuai dengan tata cara ilmiah, dan mengikuti pedoman atau dikerjakan sesuai  
+konvensi ilmiah yang telah disepakati atau ditetapkan (Saukah dkk, 2017; 
+Hermawan, 2019). 
+Tugas akhir merupakan karya tulis ilmiah hasil penelitian maupun kajian  
+ilmiah yang dilakukan mahasiswa sebagai salah satu persyaratan dalam 
+menyelesaikan studi bagi mahasiswa sesuai dengan jenjang program pendidikan  
+tinggi sebagaimana Peraturan Menteri Pendidikan dan Kebudayaan Republik 
+Indonesia No. 3 Tahun 2020. Universitas dr. Soebandi mewajibkan mahasiswa pada 
+Program Sarjana menyusun skripsi sebagai salah satu syarat penyelesaian studi. 
+Penulisan tugas akhir didasari pemikiran bahwa pelaksanaan karya tulis 
+ilmiah yang dimulai dengan usulan penelitian, pengumpulan data, pengolahan data, 
+dan analisis data serta penuangan dalam bentuk laporan ilmiah merupakan proses  
+pembelajaran yang berguna dalam melatih mahasiswa untuk mampu membentuk  
+pemikirannya. Penyusunan tugas akhir dilakukan secara mandiri oleh mahasiswa di 
+bawah bimbingan dari dosen pembimbing (Mansyur, 2018). 
+Sebagaimana bentuk karya ilmiah lainnya, skripsi harus memenuhi syarat  
+keilmuan seperti penalaran logika, sistematika, prosedur, dan metode baku serta  
+menggunakan ragam bahasa ilmiah sehingga diperlukan suatu pedoman yang 
+disebut dengan Pedoman Penulisan Tugas Akhir Mahasiswa. Buku pedoman ini  
+diterbitkan sebagai pedoman yang wajib diikuti oleh mahasiswa dalam menempuh  
+tugas akhir serta pihak -pihak terkait sesuai dengan tugas dan fungsinya masing - 
+masing agar pelaksanaan tugas akhir dapat berjalan dengan lancar dan efektif. Buku 
+pedoman ini juga disusun dengan harapan dapat menyeragamkan tata tulis tugas  
+akhir dan memperkaya kemampuan mahasiswa, khususnya dalam merangkum dan 
+mengaplikasikan semua pengalaman yang diperoleh selama menempuh pendidikan 
+2 
+ 
+ 
+ 
+ 
+di Universitas dr. Soebandi sesuai keahlian/bidang studi tertentu dan berlandaskan 
+konsep dan sikap ilmiah. 
+ 
+1.2 Tujuan Penyusunan Pedoman Penulisan Tugas Akhir Mahasiswa 
+Penyusunan dan penerbitan buku Pedoman Penulisan Tugas Akhir 
+Mahasiswa ini memiliki tujuan sebagai berikut: 
+1) Sarana informasi dan komunikasi tentang ketentuan ilmiah yang disepakati  
+dan ditetapkan dalam  penulisan tugas  akhir yang berlaku di lingkungan 
+Universitas dr. Soebandi sehingga menghasilkan tata tulis yang seragam, 
+2) Pedoman umum bagi mahasiswa dalam menyusun tugas akhir dalam bentuk  
+karya tulis ilmiah yang sistematis dan metodologis sesuai dengan etika 
+penelitian dan kaidah bidang ilmu masing-masing, 
+3) Meningkatkan dan mengembangkan sikap ilmiah dan tradisi akademik di  
+kalangan mahasiswa pada khususnya dan seluruh sivitas akademik pada  
+umumnya, 
+4) Sarana dalam menyebarluaskan pengetahuan dari Universitas dr. Soebandi  
+kepada kalangan yang membutuhkan maupun masyarakat luas. 
+ 
+1.3 Jenis-Jenis Tugas Akhir 
+Berdasarkan Peraturan Menteri Pendidikan, Kebudayaan, Riset, dan 
+Teknologi Republik Indonesia Nomor 53 tahun 2023 tentang Penjaminan Mutu  
+Pendidikan Tinggi bahwa mahasiswa pada program sarjana atau sarjana terapan  
+dapat diberikan tugas akhir dalam bentuk skripsi atau karya prestasi mahasiswa. 
+a. Skripsi/Karya Tulis Ilmiah 
+ 
+Karya tulis ilmiah adalah karya yang disusun dalam bentuk laporan tertulis  
+dari hasil penelitian, kajian, atau pemikiran untuk menjawab permasalahan tertentu 
+sesuai dengan landasan teori dan metode ilmiah. Karya tulis yang dapat 
+digolongkan sebagai karya tulis ilmiah secara umum terbagi dalam dua bagian,  
+yaitu karya tulis berupa hasil penelitian dan karya tulis yang bukan berasal dari hasil 
+penelitian atau bersifat hasil pemikiran. Karya tulis yang berupa hasil penelitian 
+3 
+ 
+yaitu seperti skripsi, tesis, disertasi, artikel, makalah, dan laporan hasil penelitian 
+lainnya. Sedangkan karya tulis yang bukan berasal dari hasil penelitian yaitu seperti 
+artikel teoritik, makalah teoritik, buku ajar, dan lain-lain (Hermawan, 2019). 
+Beberapa jenis karya tulis ilmiah yang umumnya diterapkan di lingkungan 
+perguruan tinggi di Indonesia adalah diantaranya adalah makalah, paper atau lembar 
+kerja, laporan penelitian lapangan atau laporan praktik, skripsi, tesis, disertasi, 
+buku, dan karya ilmiah popular. Karya tulis ilmiah yang  ditetapkan untuk 
+dilaksanakan di lingkungan Universitas dr. Soebandi saat ini adalah skripsi. 
+Penyusunan skripsi diwajibkan bagi mahasiswa pada Program Sarjana sebagai salah 
+satu syarat penyelesaian studi. 
+b. Karya Prestasi 
+Pertama : Rekognisi Karya Prestasi Mahasiswa dalam kegiatan kreativitas dan  
+penalaran meliputi : 
+1. Ekuivalensi proposal kreativitas dan penalaran dan laporan akhir yang didanai 
+oleh Pusat Prestasi Nasional/Direktorat Belmawa Kemendikbud sebagai 
+ketua/anggota tim atau penulis utama/anggota dengan mata kuliah  tertentu 
+yang relevan mendapat nilai A ; dan 
+2. Ekuivalensi prestasi mahasiswa dengan perolehan pendanaan pada program  
+kreativitas dan penalaran Pusat Prestasi Nasional/Direktorat Belmawa 
+Kemendikbud sebagai Ketua Tim atau Penulis Utama sebagai bentuk 
+pengganti Skripsi dan atau Tugas Akhir dengan nilai yang ditentukan melalui  
+Ujian Tugas Akhir. 
+Kedua : Rekognisi Karya prestasi mahasiswa dalam Kegiatan Kewirausahaan 
+meliputi : 
+1. Ekuivalensi proposal dan laporan akhir program kewirausahaan yang didanai 
+Kemendikbud sebagai ketua/anggota tim atau penulis utama/anggota dengan  
+mata kuliah tertentu yang relevan mendapat nilai A; 
+2. Ekuivalensi prestasi mahasiswa dengan perolehan medali program 
+kewirausahaan dari Kemendikbud sebagai ketua tim atau penulis utama 
+sebagai bentuk pengganti skripsi atau tugas akhir dengan nilai ditentukan  
+melalui ujian tugas akhir; dan 
+4 
+ 
+3. Ekuivalensi kegiatan kewirausahaan tingkat Universitas, Nasional atau sejenis 
+diluar pendanaan Direktorat Belmawa yang pelaksanaannya minimal 4 bulan 
+dengan mata kuliah yang relevan mendapat nilai A. 
+4. Ekuivalensi kegiatan kewirausahaan secara mandiri dengan pendanaan diluar  
+pendanaan Direktorat Belmawa yang pelaksanaannya minimal 1 tahun dengan 
+minimal mempunyai 2 karyawan dan pelaporan keuangan yang terstruktur 
+sebagai bentuk pengganti skripsi atau tugas akhir dengan nilai  ditentukan 
+melalui ujian tugas akhir. 
+Ketiga : Rekognisi Karya Prestasi mahasiswa dalam kegiatan Karya Inovatif 
+meliputi : 
+1. Ekuivalensi kegiatan yang mewujudkan karya inovatif dari perlombaan yang  
+diselenggarakan oleh Kemendikbud sebagai ketua/anggota atau penilus 
+utama/anggota dengan mata kuliah tertentu yang relevan dengan nilai A; dan 
+2. Ekuivalensi prestasi mahasiswa dengan perolehan medali dalan perlombaan  
+tingkat nasional/internasional Kemendikbud sebagai ketua tim atau penulis  
+utana sebagai bentuk pengganti skripsi dan atau Tugas Akhir dengan nilai yang 
+ditentukan melalui Ujian Tugas Akhir. 
+Keempat : Rekognisi Karya Prestasi Mahasiswa dalam Kegiatan Perlombaan yaitu: 
+1. Ekuivalensi prestasi mahasiswa dengan perolehan medali dalam perlombaan  
+yang diselenggarakan oleh Kemendikbud di tingkat nasional/internasional 
+sebagai ketua/anggota atau penulis utama/anggota dengan mata kuliah tertentu 
+yang relevan mendapat nilai A; dan 
+2. Ekuivalensi pemusatan Latihan nasional atau sejenis yang pelaksanaannya  
+minimal 6 (enam) bulan dengan mata kuliah Kuliah Kerja Nyata (KKN)  
+dan/atau mata kuliah lain yang relevan mendapat nilai A. 
+Kelima : Rekognisi karya Prestasi Mahasiswa dalam bentuk artikel ilmiah meliputi 
+: 
+1. Ekuivalensi karya berupa artikel ilmiah yang relevan dengan bidang 
+ilmu/keahlian sebagai penulis pertama dan diterbitkan oleh Jurnal 
+Internasional terindeks Scopus dan/atau Web of Science sebagai bentuk 
+pengganti skripsi dengan nilai A; 
+5 
+ 
+2. Ekuivalensi karya berupa artikel ilmiah yang relevan dengan bidang 
+ilmu/keahlian sebagai penulis pertama dan diterbitkan oleh jurnal nasional  
+terakreditasi minimal SINTA 2 sebagai pengganti skripsi atau tugas akhir  
+dengan nilai yang ditentukan melalui ujian skripsi 
+3. Ekuivalensi karya berupa artikel ilmiah yang relevan dengan bidang 
+ilmu/keahlian sebagai penulis pertama dan diterbitkan oleh prosiding 
+internasional terindeks scopus dan/atau Web of Science dengan mata kuliah  
+yang relevan mendapat nilai A; dan 
+4. Ekuivalensi karya berupa artikel/makalah ilmiah yang disajikan dalam seminar 
+nasional dan internasional dengan mata kuliah yang relevan dengan mendapat 
+nilai A. 
+Keenam : Ekuivalensi karya cipta berupa paten (granted) dan paten sederhana  
+(grandted) sebagai bentuk pengganti skripsi atau tugas akhir dengan nilai yang  
+ditentukan melalui ujian skripsi. 
+1.4 Etika Penulisan 
+Pertanggungjawaban akademik dari sivitas akademika dalam proses 
+pendidikan salah satunya adalah mempertanggungjawabkan kegiatan pendidikan  
+secara akademik pula, termasuk  dalam pelaksanaan  tugas akhir dalam bentuk  
+penyusunan karya tulis ilmiah (Wibowo, 2016). Bentuk pertanggungjawaban yang 
+dimaksud adalah penyusunan karya tulis ilmiah yang mengikuti kaidah ilmiah tanpa 
+melanggar etika penulisan. Etika penulisan adalah seperangkat norma yang berlaku 
+dalam penulisan karya tulis ilmiah. Norma -norma yang harus diperhatikan dan  
+ditaati antara lain menyangkut pengutipan dan rujukan, perizinan terhadap bahan  
+yang digunakan, penyebutan sumber data atau informasi, serta kaidah lainnya yang 
+masih saling terkait seperti bentuk dan format, sistematika, ukuran kertas dan huruf, 
+Bahasa Indonesia baku, serta ejaan yang disempurnakan (Mansyur, 2018; 
+Hermawan, 2019, Rif’ah dkk, 2019). 
+1.4.1 Etika Pengambilan Data 
+Beberapa aspek yang mungkin menjadi faktor permasalahan etika terkait  
+pengambilan data (khususnya pengambilan data primer dalam original research), 
+diantaranya yaitu berhubungan dengan subjek uji yang rentan ( vulnerable), hewan 
+uji, embrio hewan, dan benturan kepentingan (conflict ofinterest) (Pauwels, 2007). 
+6 
+ 
+Benturan kepentingan dapat terjadi ketika peneliti terlalu  menonjolkan 
+keunggulan penelitiannya tanpa menyampaikan risiko kepada responden ketika  
+berupaya memperoleh izin termaklum dari calon partisipan. Dalam upaya 
+meminimalisir permasalahan etika, maka sebelum melaksanakan penelitian yang  
+melibatkan partisipan (terutama dengan kondisi rentan), hewan uji, dan embrio  
+hewan sebagai subjek penelitian, peneliti harus memperoleh ethical clearance dari 
+Tim Komisi Etik PenelitianKesehatan di Universitas dr. Soebandi. 
+Partisipan selaku subjek penelitian dengan tingkat kerentanan yang tinggi  
+seperti pasien cacat mental atau pasien dengan risiko jatuh yang tinggi,harus diberi 
+informasi sejelas -jelasnya mengenai tujuan dan prosedur penelitian  yang akan  
+dilaksanakan beserta dampaknya (risiko dan ketidaknyamanan yang akan dialami). 
+Tindakan ini bertujuan agar partisipan memaklumi sehingga peneliti memperoleh 
+izin termaklum ( informed consent ), baik dari partisipan itu sendiri  maupun dari 
+orang yang diangkat  menjadi walinya. Identitas narasumber atau  informan perlu 
+dipertimbangkan untuk  tidak disebutkan jika pencantumannya dapat merugikan 
+pihak yang bersangkutan. Izin termaklum juga perlu diperoleh  untuk penelitian 
+yang menggunakan materi genetika manusia atau sampel hayati. Hal ini digunakan 
+untuk menjamin validitas data yang akan diperoleh dan menjamin tidak ada 
+penolakan atas hasil penelitian di kemudian hari. 
+Penelitian yang melibatkan hewan uji atau embrio hewan, harus 
+mencantumkan prosedur perlakuan, jumlah yang digunakan, jumlah yang 
+dikorbankan, cara pemusnahan, dengan tetap memperhatikan prinsip 3R dalam  
+protokol penelitian, yaitu replacement, reduction, dan refinement. Peneliti harus  
+mempertimbangkan dengan sungguh-sungguh penggunaan hewan  coba dalam 
+penelitian (Stevani, 2016). 
+Adapun proses uji etik yang dilakukan calon peneliti harus memenuhi usulan 
+protokol etik yang akan di masukkan ke Komite Etik Penelitian Kesehatan  
+Universitas dr. Soebandi. Usulan protokol yang masuk meliputi manual 48 isian  
+protokol, pengisian ceklist etik penelitian dengan penerapan 3 Prinsip, 7 Standar,  
+dan 25 Pedoman: Kriteria/Dasar Pengambilan Keputusan Persetujuan Usulan 
+Protokol: Laik Etik (KEPPKN-2018), Informed Consent Mendapatkan Persetujuan 
+Setelah Penjelasan: Informasi esensial untuk calon peserta penelitian  (WHO-
+CIOMS 2016) terdapat pada lampiran 49, serta formulir Infomed Concent  35 butir 
+yaitu Persetujuan Setelah Penjelasan ( Informed Consent ) seperti pada   
+lampiran 49. 
+7 
+ 
+Aspek lain yang perlu diperhatikan oleh peneliti dalam proses pengambilan  
+data yaitu: 
+1) Penulis wajib bersikap sopan dalam proses pengambilan sumber data primer  
+dari narasumber atau informan, 
+2) Tindak kecurangan seperti melakukan intervensi kepada responden dalam 
+pengisian kuesioner atau kecurangan lainnya dalam bentuk apapun selama 
+proses pengambilan data tidak diperkenankan, 
+3) Tindak fabrication (melaporkan data dan hasil yang tidak sebenarnya) dan  
+falsification (memanipulasi bahan, peralatan, atau prosedur penelitian, maupun  
+mengubah atau menghapus data atau hasil sehingga penelitian tidak terwakili  
+secara akurat) tidak diperkenankan, 
+4) Penulis wajib mencantumkan semua sumber data (terutama data sekunder) yang 
+digunakan dalam penelitian. 
+1.4.2 Pencegahan Plagiasi 
+Pencegahan plagiasi adalah upaya yang bersifat preventif terhadap tindakan  
+plagiasi. Pada pelaksanaan penyusunan karya tulis ilmiah, penulis harus secara jujur 
+menyebutkan rujukan bahan atau pikiran yang diambil darisumber lain atau  pihak 
+lain sebagaimana yang tercantum dalam Peraturan Menteri Pendidikan Nasional 
+Republik Indonesia No. 17 Tahun 2010 tentang Pencegahan dan Penanggulangan 
+Plagiat di Perguruan Tinggi. Pemakaian bahan atau pikiran dari  sumber atau pihak 
+lain tanpa disertai sumber rujukan termasuk kecurangan atau  pencurian karena 
+mengakui tulisan, temuan, atau hasil pemikiran pihak lain sebagai karya intelektual 
+sendiri. 
+Penulis harus meminta izin, jika menggunakan bahan dari seseorang atau  
+suatu sumber milik orang lain (sebaiknya secara tertulis). Jika pemilik tidak dapat  
+dijangkau, penulis harus menyebutkan sumbernya dan menjelaskan bahan yang  
+digunakan akan diambil secara utuh, sebagian, dimodifikasi, atau bersifat 
+pengembangan. Universitas dr. Soebandi mewajibkan mahasiswa untuk 
+melakukanpemeriksaan plagiasi di LPPM Universitas dr. Soebandi pada seluruh  
+bagianinti dari tugas akhir yaitu meliputi BAB 1 hingga BAB 7 untuk penelitian  
+original research . Batas nilai plagiasi yang ditetapkan untuk mahasiswa adalah  
+tidak lebih dari 25%. 
+8 
+ 
+Mahasiswa yang melakukan kecurangan atau ketidakjujuran akandikenakan  
+sanksi, berupa sanksi administrasi hingga sanksi pembatalan gelar. Apabila karya  
+tulis ilmiah dinyatakan tidak asli atau mahasiswa melakukan duplikasi maupun  
+plagiat, maka ujian dibatalkan dan mahasiswa diharuskan menyusun Karya Tulis  
+Ilmiah baru. Bagi mahasiswa yang telah lulus dan terbukti melakukan duplikasi atau 
+plagiat, maka gelar akademik dan ijazah yang diperoleh dibatalkan. 
+1.5 Sistematika Isi Buku Pedoman Penulisan Tugas Akhir Mahasiswa 
+Buku Pedoman ini mencakup ketentuan umum tentang penyusunan tugas  
+akhir, prosedur penyusunan  tugas akhir, sistematika  penulisan dan penjabaran  
+bagian tugas akhir, format penulisan tugas akhir dan pelaksanaan ujian tugas akhir. 
+Buku pedoman ini juga disusun dengan harapan dapat menyeragamkan tata 
+pemahaman mengenai jenis, sistematika, isi, dan tata cara penulisan karya tulis  
+ilmiah sebagai tugas akhir mahasiswa di lingkungan Universitas dr. Soebandi.  
+Pedoman ini bersifat rujukan yang diikuti oleh seluruh sivitas akademika, namun  
+memungkinkan untuk disesuaikan  kembali dengan kondisi  khusus pada setiap  
+program studi. 
+9 
+ 
+BAB 2 KETENTUAN UMUM PENULISAN TUGAS AKHIR 
+ 
+2.1 Kedudukan Tugas Akhir dan Bobot Satuan Kredit Semester (SKS) 
+2.1.1 KedudukanTugas Akhir 
+Tugas akhir mempunyai kedudukan yang sama dengan mata kuliah 
+lain, namun berbeda bentuk pada proses pembelajaran dan cara penilaiannya. 
+2.1.2 Bobot SKS 
+Penetapan bobot tugas akhir disesuaikan dengan bentuknya berdasarkan 
+kurikulum yang berlaku di masing-masing program studi. Bobot tugas akhir 
+ditetapkan 4-6 SKS yang setara dengan kegiatan akademik setiap minggu 16-
+20 jam (bagi yang 4 SKS) atau 24 -30 jam (bagi yang 6 SKS)  selama satu 
+semester. 
+2.2 Syarat Penyusunan Tugas Akhir 
+2.2.1 Persyaratan Akademik 
+Setiap mahasiswa diwajibkan untuk melakukan penyusunan skripsi 
+apabila telah memenuhi persyaratan sebagai berikut: 
+1) Status mahasiswa aktif, yaitu telah terdaftar sebagai mahasiswa pada 
+semester yang berjalan; 
+2) Jumlah SKS minimal 105 SKS untuk Program Sarjana; 
+3) Indeks Prestasi Kumulatif (IPK) minimal 3,00; 
+4) Telah lulus mata kuliah Metodologi Penelitian. 
+Syarat tersebut di atas diperlukan bukti Kartu Hasil Studi (KHS) yang discan 
+dan diunggah ke Sistem Informasi Akademik Mahasiswa (SIAM) pada menu 
+skripsi. 
+2.2.2 Persyaratan Administratif 
+Mahasiswa yang menempuh Mata Kuliah  Skripsi harus memenuhi 
+persyaratan administratif seperti di bawah ini: 
+1) Telah memenuhi persyaratan akademik; 
+2) Memiliki Kartu Rencana Studi (KRS) sesuai semester yang berlaku  
+dengan mencantumkan Mata Kuliah Proposal/Skripsi yang telah 
+ditandatangani oleh dosen wali; 
+3) Telah menyelesaikan persyaratan administrasi keuangan yang 
+ditunjukkan dengan bukti pembayaran lunas SPP semester 1 -6 bagi  
+Program Sarjana; 
+10 
+ 
+4) Telah lunas pembiayaan tugas akhir. 
+2.3 Dosen Pembimbing dan Penguji 
+2.3.1 Personalia Pembimbing 
+1) Dalam penulisan skripsi atau tugas akhir, mahasiswa dibimbing oleh  
+satu dosen pembimbing utama  
+2) Dosen pembimbing dapat digantikan dosen lain dengan persetujuan  
+komisi bimbingan berdasarkan alasan yang dapat diterima setelah 
+melalui konfirmasi dengan dosen yang bersangkutan. Pergantian 
+pembimbing tersebut harus melalui tahapan usul mahasiswa yang 
+diketahui komisi bimbingan dan penerbitan Surat Keputusan (SK) 
+penetapan pembimbing baru yang ditandatangani dekan. 
+2.3.2 Persyaratan Dosen Pembimbing dan Penguji 
+1) Persyaratan Dosen Pembimbing Utama 
+(1) Merupakan dosen tetap program studi dengan jabatan fungsional  
+minimal asisten ahli dan berpendidikan minimal S2 dengan 
+bidang ilmu yang sesuai; 
+(2) Pembimbing utama harus memiliki bidang keilmuan dan/atau  
+keahlian yang linier dengan topik penelitian mahasiswa. Bidang  
+keilmuan dapat dilihat dari ijazah terakhir dosen yang 
+bersangkutan sedangkan bidang keahlian tercermin dari penelitian 
+yang ditekuni selama ini; 
+(3) Apabila belum ada dosen tetap yang memenuhi persyaratan 
+sebagai dosen pembimbing utama sebagaimana yang tercantum 
+pada nomor (1), maka sementara waktu rektor menetapkan 
+kebijakan pengecualian yaitu dengan meminjam dosen dari 
+institusi lain sambil tetap meningkatkan kompetensi dosen tetap  
+yang ada; 
+(4) Dalam upaya penjaminan mutu, ditetapkan bahwa dalam satu  
+tahun akademik minimal 60% dari keseluruhan pembimbing 
+utama adalah setara dengan lektor kepala atau S3; 
+11 
+ 
+(5) Pada kebutuhan tertentu seperti program kerja sama dengan 
+universitas atau lembaga mitra dan program Merdeka Belajar  
+Kampus Merdeka (MBKM), maka pembimbing skripsi program  
+akademik dengan komposisi pembimbing pertama adalah dosen  
+Universitas dr. Soebandi dan pembimbing kedua adalah dosen  
+dari universitas atau lembaga mitra. 
+2) Persyaratan Dosen Penguji 
+Persyaratan yang ditetapkan bagi dosen penguji adalah sebagai berikut: 
+(1) Ketua penguji merupakan dosen yang memiliki jabatan akademik 
+dosen lebih tinggi atau sekurang-kurangnya sama dengan 
+kualifikasi dosen pembimbing utama dan mempunyai keahlian  
+yang relevan dengan bidang kajian mahasiswa; 
+(2) Anggota penguji merupakan dosen/praktisi yang mempunyai 
+keahlian khusus dan sesuai dengan bidang ilmu (latar belakang  
+pendidikan/pengalaman/pelatihan). 
+2.3.3 Tugas dan Tanggung Jawab Dosen Pembimbing 
+1) Tugas dan tanggung jawab pembimbing utama meliputi: 
+(1) Membimbing mahasiswa mulai menyusun rancangan (proposal) 
+tugas akhir hingga penyusunan laporan hasil tugas akhir; 
+(2) Menyediakan waktu dan memberikan bimbingan selama proses  
+penulisan tugas akhir; 
+(3) Mengarahkan dan membantu mahasiswa bimbingannya 
+memperdalam telaah kepustakaan, pemanfaatan data dan 
+menekankan pada metodologi; 
+(4) Memberikan pengarahan dalam melakukan penelitian di lapangan 
+dan/atau perpustakaan serta pemanfaatan data; 
+(5) Memberi arahan dan masukan kepada mahasiswa bimbingannya  
+dalam materi tugas akhirnya; 
+(6) Memutuskan kesiapan mahasiswa untuk mengikuti ujian tugas  
+akhir. 
+(7) Membimbing sistematika penulisan tugas akhir; 
+(8) Membimbing pengorganisasian tugas akhir; 
+(9) Menjadi fasilitator antara mahasiswa dan penguji pada saat ujian 
+skripsi dan tugas akhir. 
+ 
+ 
+12 
+ 
+2.4 Pelaksanaan Kegiatan Pembimbingan 
+1) Tiap pembimbing dibolehkan membimbing minimal 8 (delapan) pada proposal 
+dan minimal 8 (delapan) pada hasil mahasiswa  per semester atau disesuaikan 
+dengan kondisi prodi dengan memperhatikan  pemerataan dan jabatan 
+akademik; 
+2) Pembimbingan dimulai dari pembuatan proposal penelitian sampai dengan  
+pengesahan skripsi/tugas akhir; 
+3) Tiap kali kegiatan konsultasi (diskusi), pembimbing membubuhkan paraf  
+pada lembar monitoring skripsi, serta mencantumkan saran perbaikan yang 
+diperlukan; 
+4) Proses pembimbingan dilakukan  melalui edufecta (SOP) terlampir 
+2.5 Desain Tugas Akhir 
+Dalam rangka memperlancar pengerjaan tugas akhir mahasiswa, dosen 
+pembimbing dapat membantu mengarahkan mahasiswanya untuk memilih  
+model/desain yang digunakan dalam penyusunan tugas akhir. Beberapa hal  
+yang menjadi pertimbangan dalam memilih desain tugas akhir yaitu 
+possibility untuk pelaksanaan penelitian sesuai dengan topik yang diambil,  
+ketersediaan data di lapangan, ataupun pertimbangan khusus lainnya 
+(mahasiswa yang telah melampaui target waktu kelulusan). Model/desain  
+tugas akhir dapat dipilih salah satu di antara desain berikut: 
+2.5.1 Studi dengan Data Primer 
+Data primer dapat dilaksanakan di lingkungan mahasiswa yang aman,  
+atau data dapat diperoleh tanpa ada kontak langsung dengan subjek, dengan  
+alternatif metode pengumpulan data seperti pengisian kuesioner via google 
+form atau wawancara melalui telepon. Studi di laboratorium dapat 
+dilaksanakan dengan pertimbangan khusus dan penerapan kewaspadaan yang 
+tinggi, serta mendapatkan izin dari pihak terkait. 
+2.5.2 Studi dengan Data Sekunder 
+Penelitian dapat menggunakan data sekunder seperti data survei 
+lokal/nasional yang ter publish secara umum ataupun data milik perorangan  
+yang belum digunakan untuk membuat karya tulis ilmiah, dengan izin pemilik 
+data. Penggunaan data sekunder seperti rekam medis diharapkan dapat dikaji 
+ulang terkait dengan kemungkinan diberikanya perizinan penelitian dari pihak 
+penyedia pelayanan kesehatan. 
+13 
+ 
+ 
+BAB 3 PROSEDUR PENYUSUNAN TUGAS AKHIR 
+ 
+3.1 Penentuan Judul Tugas Akhir 
+Penentuan judul tugas akhir memiliki ketentuan sebagai berikut: 
+1) Setiap mahasiswa menentukan area penelitian berdasarkan pembagian bidang 
+keilmuan. Bagi mahasiswa Program Studi Ilmu Keperawatan bidang ilmu  
+dibagi menjadi Keperawatan Dasar, Manajemen Keperawatan, Keperawatan  
+Medikal Bedah, Keperawatan Kritis, Keperawatan Komunitas, Keperawatan  
+Jiwa, Keperawatan Anak, Keperawatan Keluarga, Keperawatan Gerontik,  
+Keperawatan Maternitas dan Keperawatan Holistik. Bagi mahasiswa Program 
+Studi Sarjana Farmasi bidang keilmuan dibagi menjadi Farmasi  Klinis dan 
+Komunitas, Kimia Farmasi, Teknologi Farmasi, dan Biologi Farmasi. Bagi 
+mahasiswa Program Studi Teknologi Laboratorium Medik bidang keilmuan 
+dibagi menjadi Hematologi, Kimia Klinik, Mikrobiologi  (Bakteriologi, 
+Mikologi, Parasitologi), Imunoserologi, Toksikologi Klinik,  Biokimia, 
+Biologi molekuler, dan Sitohistoteknologi. Bagi mahasiswa Program Studi 
+Sarjana Kebidanan bidang ilmu dibagi menjadi asuhan kebidanan kehamilan, 
+asuhan kebidanan persalinan, asuhan kebidanan nifas, asuhan kebidanan bayi, 
+balita, dan anak prasekolah, asuhan kebidanan kesehatan reproduksi, asuhan 
+kebidanan kegawatdaruratan maternal dan neonatal, asuhan kebidanan KB, 
+dan asuhan kebidanan komunitas; 
+2) Mahasiswa mengumpulkan rencana judul penelitian skripsi kepada komisi  
+bimbingan; 
+3) Komisi bimbingan akan menentukan dosen pembimbing utama dan 
+pembimbing anggota berdasarkan hasil rekap unggahan judul-judul dari 
+mahasiswa; 
+4) Mahasiswa dapat menemui masing -masing pembimbing untuk melakukan  
+konsultasi terkait tema atau judul penelitian yang akan diambil dengan 
+menekankan pada keterbaruan masalah; 
+14 
+ 
+ 
+ 
+5) Judul penelitian yang telah disetujui antara pembimbing dan mahasiswa 
+segera dilaporkan kepada komisi bimbingan untuk menghindari 
+kesamaan judul dengan mahasiswa lainnya; 
+6) Bila judul penelitian dalam butir (5) tidak dapat diterima oleh komisi  
+bimbingan karena alasan tertentu, maka mahasiswa yang bersangkutan 
+menggunakan alternatif judul lain berdasarkan butir (2) untuk dipilih  
+kembali oleh mahasiswa bersama-sama dengan dosen pembimbing. 
+3.2 Pelaksanaan Kegiatan Pembimbingan 
+1) Pelaksanaan bimbingan dapat dilakukan secara online atau offline; 
+2) Waktu dan tempat kegiatan bimbingan sebaiknya dilaksanakan pada jam  
+efektif kerja dan bertempat di area kampus Universitas dr. Soebandi; 
+3) Bila butir nomor (2) tersebut di atas tidak dapat dipenuhi, pembimbing dan  
+mahasiswa secara bersama-sama dapat menentukan waktu dan tempat 
+kegiatan bimbingan; 
+4) Kegiatan bimbingan dapat dimulai dari menyusun rancangan 
+penelitian/penetapan judul; 
+5) Setiap kali melakukan kegiatan bimbingan, mahasiswa wajib membawa 
+lembar bimbingan skripsi dan tugas akhir (format terlampir). Mahasiswa  
+mengisi lembar bimbingan sesuai ketentuan dan pembimbing membubuhkan 
+paraf pada lembar bimbingan skripsi dan tugas akhir tersebut sebagai bukti  
+telah dilaksanakannya kegiatan bimbingan; 
+6) Mahasiswa, pembimbing utama, dan pembimbing anggota wajib melakukan  
+pertemuan secara bersama, minimal 1 kali tatap muka, dapat secara online 
+atau offline, dibuktikan dengan menulis di lembar bimbingan skripsi dan tugas 
+akhir (format terlampir). 
+3.3 Pengajuan Izin Penelitian 
+3.3.1 Izin Penelitian Berbasis Penelitian Komunitas 
+1) Mahasiswa meminta surat pengantar dari Fakultas Ilmu Kesehatan 
+Universitas dr. Soebandi; 
+15 
+ 
+2) Mahasiswa mengurus surat perizinan penelitian ke Badan Kesatuan 
+Bangsa dan Politik (Bakesbangpol); 
+3) Mahasiswa mengurus surat perizinan penelitian di tempat 
+dilaksanakannya penelitian, misal di rumah sakit, puskesmas, atau 
+fasilitas pelayanan kesehatan yang lainnya. 
+3.3.2 Izin Penelitian Berbasis Penelitian Laboratorium 
+1) Mahasiswa mengurus surat perizinan penggunaan laboratorium (format 
+terlampir), surat peminjaman alat dan/atau instrument yang akan 
+digunakan di laboratorium yang terkait, serta surat penggunaan bahan  
+untuk kepentingan penelitian; 
+2) Mahasiswa yang akan melakukan penelitian di laboratorium wajib 
+membuat surat pernyataan izin orang tua atau wali dan mengunggah  
+pada link yang akan diatur dan diinformasikan kemudian; 
+3) Mahasiswa bebas COVID-19 dibuktikan dengan surat keterangan sehat 
+yang berasal dari fasilitas kesehatan yang ada di  area Jember dan 
+menunjukkan    hasil    pemeriksaan    COVID-19    ―negatif‖    dengan 
+pemeriksaan minimal swab antigen; 
+4) Pada hari pertama melakukan penelitian di laboratorium, mahasiswa  
+wajib mengunggah surat hasil pemeriksaan COVID -19 melalui link 
+yang diinformasikan kemudian, untuk selanjutnya mendapatkan surat  
+keterangan bebas COVID-19 dari Satuan Tugas COVID-19 Universitas 
+dr. Soebandi. 
+3.4 Penggantian Dosen Pembimbing 
+Dalam proses penyelesaian skripsi terdapat kejadian khusus yang 
+mengharuskan terjadinya penggantian/pengunduran diri dosen pembimbing. 
+Pergantian pembimbing dimungkinkan apabila terjadi hal-hal sebagai berikut: 
+1) Apabila sejak konsultasi pertama setelah penetapan pembimbing, kemudian 
+pembimbing karena sesuatu dan lain hal tidak dapat melaksanakan tugas  
+membimbing, misal karena sakit atau studi lanjut, maka komisi bimbingan 
+16 
+ 
+dapat mengusulkan pembimbing pengganti dengan berkoordinasi dengan 
+pihak Fakultas Ilmu Kesehatan Universitas dr. Soebandi; 
+2) Proses bimbingan tidak berjalan secara efektif yang dibuktikan dengan surat 
+pernyataan dari mahasiswa dan bukti kronologis masalah; 
+3) Pembimbing tidak bersedia menjadi pembimbing berdasarkan surat rujukan 
+atau kesediaan. 
+Prosedur penggantian pembimbing/penguji tugas akhir: 
+1) Mahasiswa berdiskusi dengan dosen pembimbing (dapat didampingi oleh  
+pihak program studi) terkait dengan permohonan pergantian/pengunduran  
+dosen pembimbing; 
+2) Apabila dosen yang mengundurkan diri harus menjelaskan alasan 
+pengunduran diri tersebut, sedangkan apabila mahasiswa yang mengajukan  
+permohonan penggantian dosen pembimbing mahasiswa harus menjelaskan  
+alasan permohonan penggantian; 
+3) Mahasiswa membuat surat pernyataan untuk permohonan mengganti 
+pembimbing, ditujukan kepada komisi bimbingan. Surat pernyataan diberi  
+materai Rp 10.000, dan disertai dengan lampiran yang memuat kronologi dan 
+alasan pemohon mengganti pembimbing (format surat pernyataan terlampir); 
+4) Komisi bimbingan bersama pihak program studi melakukan konfirmasi 
+kepada dosen pembimbing  yang bersangkutan sebelum memproses surat  
+permohonan; 
+5) Apabila surat tersebut telah disetujui, maka program studi dapat memberikan 
+surat pengantar pengajuan pergantian pembimbing untuk diproses pergantian 
+dosen pembimbing skripsi; 
+6) Pemilihan dan konfirmasi kesediaan dosen pembimbing baru dilaksanakan  
+oleh komisi bimbingan; 
+7) Pembuatan SK untuk dosen pembimbing baru. 
+8) Mahasiswa yang telah menerima pergantian dosen kemudian memproses  
+dengan mengontak dosen pembimbing baru. 
+17 
+ 
+3.5 Pengajuan Ujian Seminar Proposal dan Seminar Hasil 
+3.5.1 Seminar Proposal 
+Pada bagian ini  akan diuraikan tentang  syarat dan tata tertib pada  
+seminar proposal. Syarat untuk dapat mengikuti seminar proposal antara lain: 
+1) Seminar proposal dapat dilakukan apabila proposal yang dibuat telah  
+memperoleh persetujuan dari pembimbing utama yang dibuktikan 
+dengan lembar bimbingan proposal skripsi  dan tanda tangan 
+pembimbing pada lembar persetujuan seminar proposal; 
+2) Seminar proposal bersifat sidang terbuka dan wajib dihadiri minimal 10 
+mahasiswa dan didalamnya terdiri dari 1 orang opponent; 
+3) Seminar proposal diuji oleh ketua penguji, anggota penguji dan 
+pembimbing utama, seluruh penguji akan menguji dalam waktu yang 
+bersamaan dan berada dalam satu ruang (luring/daring); 
+4) Mahasiswa mengajukan permohonan seminar proposal yang diajukan  
+kepada komisi bimbingan, dengan mengisi form blanko permohonan 
+pelaksanaan seminar proposal (format terlampir), minimal 3 hari 
+sebelum seminar proposal berlangsung dengan menunjukkan bukti 
+ACC pembimbing; 
+5) Proposal diserahkan selambat-lambatnya 3 (tiga) hari sebelum seminar; 
+6) Mahasiswa sekurang-kurangnya telah melakukan bimbingan proposal 
+sebanyak 8 (delapan) kali dengan dosen pembimbing, dibuktikan 
+dengan menyerahkan lembar bimbingan proposal skripsi; atau laporan 
+tugas akhir (format terlampir) yang telah disetujui oleh kedua pembimbing; 
+7) Mahasiswa yang akan mengikuti seminar proposal sekurang-kurangnya 
+telah pernah menghadiri 3 (tiga) kali seminar proposal mahasiswa lain  
+dan pernah menjadi opponent minimal 1 kali yang dibuktikan dengan  
+menyerahkan lembar mengikuti seminar proposal (format terlampir).  
+Persyaratan ini tidak berlaku bagi 3 (tiga) peserta yang melaksanakan  
+seminar proposal paling awal; 
+8) Teknis pelaksanaan seminar  proposal yang dilakukan dengan cara 
+online harus memenuhi syarat sebagai berikut: 
+(1) Menggunakan Aplikasi Zoom, Google meet, atau WebEx; 
+(2) Tidak diperkenankan menggunakan aplikasi Video Call 
+Whatsapp; 
+ 
+ 
+ 
+18 
+ 
+9) Pelaksanaan seminar dipimpin oleh moderator (pembimbing).  Bila 
+moderator ingin menggunakan haknya sebagai penguji, maka ia  
+menjadi penguji setelah anggota penguji lainnya mengajukan 
+pertanyaan. Moderator bertugas untuk: 
+(1) Memimpin jalannya sidang; 
+(2) Mengatur waktu dalam uji sidang; 
+(3) Rekapitulasi nilai dari masing-masing penguji; 
+(4) Menyerahkan nilai pada komisi bimbingan; 
+10) Seminar proposal dilangsungkan selama ±60 menit dengan alokasi 
+waktu sebagai berikut: 
+(1) Pembukaan oleh moderator: 5 menit; 
+(2) Penyajian oleh mahasiswa: 10 menit; 
+(3) Tanya jawab: 45 menit; 
+11) Ketentuan slide presentasi seminar proposal penelitian, diantaranya: 
+(1) Jumlah slide presentasi dapat dibuat sebanyak 5 hingga 10 slide; 
+(2) Slide dibuat dalam bentuk power point, dapat meliputi tulisan, 
+gambar, grafik, tabel  dan lain -lain; Materi yang disampaikan 
+diantaranya memuat latar belakang proposal penelitian dan alasan 
+proposal tersebut perlu diteliti.  Materi juga mencakup 
+permasalahan dari penelitian yang akan  dilakukan, literatur 
+maupun referensi dari penelitian terdahulu, teori yang digunakan, 
+serta metodologi penelitian yang digunakan; 
+12) Hasil masukan pada waktu seminar dicatat dan digunakan untuk 
+menyempurnakan proposal. Perbaikan proposal penelitian 
+diselesaikan dalam kurun waktu maksimal 1 minggu setelah ujian. 
+Setelah proposal dinyatakan layak, mahasiswa dapat melanjutkan 
+kegiatan penelitian termasuk penyusunan laporan skripsi  dan tugas 
+akhir. 
+3.5.2 Seminar Hasil 
+Seminar hasil (Sidang akhir tugas akhir) bersifat komprehensif dan  
+tertutup bagi umum, sidang ini hanya diikuti oleh pembimbing utama, 
+pembimbing anggota, penguji, serta mahasiswa yang akan mempresentasikan 
+hasil penelitiannya. Syarat untuk dapat mengikuti seminar hasil penelitian  
+sesuai dengan ketentuan berikut: 
+ 
+ 
+19 
+ 
+1) Tercatat aktif sebagai mahasiswa Universitas dr. Soebandi; 
+2) Telah menyelesaikan segala proses administrasi baik akademik dan 
+keuangan; 
+3) IPK minimal 3,00; 
+4) Nilai minimal C pada semua mata kuliah; 
+5) Seminar hasil penelitian dapat dilakukan apabila skripsi yang disusun  
+telah memperoleh persetujuan dari pembimbing utama dan 
+pembimbing anggota, yang dibuktikan dengan tandatangan pada lembar 
+persetujuan seminar hasil penelitian (format terlampir); 
+6) Permohonan seminar hasil penelitian diajukan kepada koordinator kelas 
+pada masing-masing program studi dengan mengisi form permohonan 
+pelaksanaan seminar hasil penelitian (format terlampir), minimal 3 hari 
+sebelum seminar hasil penelitian berlangsung dengan  menunjukkan 
+bukti ACC dan pendukung lainnya; 
+7) Berkas hasil penelitian  yang telah dijilid softcover warna biru tua  
+(Program Studi S1 Keperawatan), warna merah muda (Program Studi  
+Sarjana Kebidanan), dan biru langit (Program Studi Sarjana Farmasi)  
+warna krem (Program Studi Teknologi Laboratorium Medik) 
+digandakan sebanyak 4 eksemplar (2 untuk pembimbing, 1 penguji dan 
+1 untuk arsip mahasiswa). Cetakan gambar pada isi harus berwarna dan 
+diserahkan selambat -lambatnya 3 (tiga) hari sebelum ujian seminar  
+hasil penelitian; 
+8) Mahasiswa yang telah melakukan bimbingan penelitian minimal 
+sebanyak 8 (delapan) kali, dibuktikan dengan menyerahkan lembar 
+bimbingan hasil skripsi dan laporan tugas akhir (format terlampir); 
+9) Seminar hasil penelitian dihadiri oleh dosen pembimbing utama 
+(moderator), penguji dan penguji anggota; 
+10) Pelaksanaan seminar hasil penelitian dipimpin oleh moderator 
+(pembimbing utama). Bila moderator ingin menggunakan haknya  
+sebagai penguji, maka ia menjadi penguji setelah anggota penguji 
+lainnya mengajukan pertanyaan. Moderator yang bertugas untuk: 
+(1) Memimpin jalannya sidang; 
+(2) Mengatur waktu dalam uji sidang; 
+(3) Rekapitulasi nilai dari masing-masing penguji; 
+(4) Menyerahkan nilai pada Komisi Bimbingan; 
+ 
+20 
+ 
+11) Seminar hasil penelitian dilaksanakan selama ± 60 menit dengan 
+alokasi waktu sebagai berikut: 
+(1) Pembukaan oleh moderator: 5 menit; 
+(2) Penyajian materi oleh mahasiswa: 10 menit; 
+(3) Tanya jawab: 45 menit; 
+12) Hasil masukan pada waktu seminar hasil penelitian dicatat dan 
+digunakan untuk menyempurnakan naskah skripsi. Perbaikan draft  
+skripsi diselesaikan dalam kurun waktu maksimal 1 minggu 
+setelah pelaksanaan seminar hasil. 
+13) Naskah Hasil Perbaikan 
+Mahasiswa yang telah selesai melakukan perbaikan pada naskah 
+skripsinya dan telah ditandatangani, wajib melakukan pemeriksaan 
+plagiasi di komisi skripsi  Universitas dr. Soebandi dengan batas 
+nilai plagiasi  tidak boleh lebih dari 25% sebagai persyaratan 
+yudisium. Selanjutnya, mahasiswa wajib cetak naskah skripsi asli 
+sebanyak 1 eksemplar (eksemplar arsip perpustakaan), serta file naskah 
+skripsi diserahkan bersama dengan naskah eksemplar ke bagian  
+perpustakaan. 
+3.6 Penjadwalan Penyusunan Skripsi Beserta Ujian 
+ 
+Kegiatan 
+Ganjil 2024/2025 Genap 2024/2025 
+Okt Nov Des Jan Feb Mar Apr Mei Jun Jul 
+Pengajuan Judul dan 
+Pembimbing 
+          
+Observasi 
+pendahuluan 
+          
+Penyusunan proposal           
+Sidang proposal           
+Pengajuan Etik           
+Penelitian/ pengambilan 
+data 
+          
+Penyusunan hasil dan 
+pembahasan 
+          
+Sidang akhir skripsi           
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+21 
+ 
+3.7 Yudisium 
+Yudisium dilakukan oleh program studi apabila hasil nilai skripsi dinyatakan 
+lulus (minimal B) dan telah direvisi dengan bukti persetujuan revisi dari masing - 
+masing dosen pembimbing dan penguji. Pendaftaran yudisium dilakukan melalui  
+program studi masing-masing. Mahasiswa diminta untuk mengisi form persyaratan 
+mengikuti yudisium dan melengkapi dokumen-dokumen yang dipersyaratkan. 
+Form persyaratan dan dokumen yang dipersyaratkan dikumpulkan di bagian 
+akademik Fakultas Ilmu Kesehatan Universitas dr. Soebandi. 
+22 
+ 
+BAB 4 
+SISTEMATIKA PENULISAN PROPOSAL 
+ 
+4.1 Sistematika Penulisan Proposal Skripsi 
+4.1.1 Sistematika Penulisan Proposal Skripsi (Original Research 
+  Menggunakan Hewan Coba/Tanpa Subjek Manusia) 
+1) Bagian Awal 
+(1) Halaman Sampul 
+Pada sampul memuat judul skripsi, jenis Karya Tulis Ilmiah, logo 
+universitas, identitas penulis berupa nama dan NIM mahasiswa, 
+identitas program studi, fakultas, universitas, kota dan tahun 
+penulisan. 
+(2) Halaman Judul 
+Halaman judul berisikan komponen dan susunan yang sama dengan 
+halaman sampul disertai dengan kalimat prasyarat gelar sesuai 
+program studi masing-masing. 
+(3) Halaman Persetujuan 
+(Lihat lampiran pada bagian halaman persetujuan) 
+(4) Halaman Pengesahan 
+(Lihat lampiran pada bagian halaman pengesahan) 
+(5) Lembar Pernyataan Orisinalitas 
+Halaman pernyataan orisinalitas memuat pernyataan orisinalitas 
+skripsi dengan isi dan format seperti pada lampiran dan dilengkapi 
+tanda tangan serta materi Rp 10.000. 
+(6) Kata Pengantar 
+Kata pengantar memuat rasa syukur, uraian singkat proses penulisan, 
+menggunakan Bahasa Indonesia baku, pengantaran kepada pembaca 
+untuk memahami isi, harapan dan kritik penyempurnaan serta 
+manfaat bagi berbagai pihak dan ucapan terima kasih kepada semua 
+pihak yang telah memberikan bantuan selama proses penyelesaian. 
+(7) Daftar Isi 
+Halaman daftar isi memuat keseluruhan judul komponen skripsi 
+mulai dari bagian awal, bagian inti, dan bagian akhir skripsi yang 
+diikuti dengan penunjukan halaman. 
+ 
+ 
+23 
+ 
+(8) Daftar Tabel 
+Halaman daftar tabel memuat urutan judul tabel yang diikuti dengan 
+penunjukan halaman. 
+(9) Daftar Gambar 
+Halaman daftar gambar memuat urutan lampiran yang diikuti 
+dengan penunjukan halaman. 
+(10) Daftar Lampiran 
+Halaman daftar lampiran memuat urutan lampiran yang diikuti 
+dengan penunjukan halaman. 
+(11) Daftar Singkatan dan Simbol (jika ada) 
+Bagian ini berisi daftar simbol dan singkatan yang digunakan dalam 
+naskah. 
+2) Bagian Inti 
+(1) BAB 1 PENDAHULUAN 
+ 1.1 Latar Belakang 
+Latar belakang berisi landasan kontekstual yang 
+melatarbelakangi penelitian dengan menggambarkan 
+sistematika pemikiran yang mengarah pada pemilihan 
+masalah penelitian (umum ke khusus), menunjukkan alasan 
+penting dari penelitian dan dikaitkan dengan pengeta huan 
+terkini, atau justifikasi yang terkait dengan masalah dalam 
+penelitian, dilengkapi dengan penjabaran bahwa 
+permasalahan tersebut dapat diselesaikan dengan penelitian. 
+ 1.2 Rumusan Masalah 
+Bagian ini menjelaskan apa yang menjadi masalah dalam 
+penelitian. Rumusan masalah dirumuskan berdasarkan gejala 
+masalah yang muncul. Gejala tersebut kemudian didukung 
+dengan teori dan logika berpikir yang tepat, sehingga rumusan 
+masalah dapat tersampaikan secara akurat. Terdapat tiga 
+kriteria untuk menilai kualitas dari rumusan masalah: relevan, 
+dapat dijalankan dalam realitasnya, dan menarik. Rumusan 
+masalah dapat dikatakan relevan jika dapat berguna dari sudut 
+pandang praktis, teoritis, atau keduanya. 
+ 
+ 
+ 
+24 
+ 
+ 1.3 Tujuan Penelitian 
+  1.3.1 Tujuan Umum 
+Tujuan umum berisi tentang penyataan tujuan, keinginan atau 
+harapan yang merupakan jawaban atas permasalahan yang 
+dikemukakan pada rumusan masalah. 
+  1.3.2 Tujuan Khusus 
+Tujuan khusus berisi tentang penyataan -pernyataan secara 
+terperinci tentang tujuan, keinginan atau harapan yang 
+merupakan jawaban atas permasalahan yang dikemukakan 
+pada rumusan masalah. 
+ 1.4 Manfaat Penelitian 
+Bagian ini menjelaskan apa manfaat penelitian bagi 
+perkembangan ilmu pengetahuan dan pelaksanaan 
+pembangunan dalam arti yang lebih luas. 
+ 1.5 Keaslian Penelitian 
+Memuat uraian sistematis tentang temuan penelitian - 
+penelitian terdahulu yang mempunyai hubungan dengan 
+penelitian yang dilakukan. Pada bagian ini sebaiknya dibuat 
+dalam bentuk tabel yang berisi persamaan dan perbedaan 
+antara penelitian terdahulu dengan pe nelitian yang akan 
+dilakukan. 
+(2) BAB 2 TINJAUAN PUSTAKA 
+Mengemukakan teori -teori atau temuan -temuan ilmiah dari 
+buku ilmiah, jurnal, hasil penelitian (skripsi, tesis, disertasi), 
+yang berkaitan dengan permasalahan atau pertanyaan 
+penelitian. Dalam hubungan ini, pemilihan bahan pustaka 
+didasarkan pada dua kriteria, yaitu prinsip kemuktahiran dan 
+prinsip relevansi dengan t opik yang diteliti. Untuk penelitian 
+yang menguji hipotesis, maka peneliti dapat membuat 
+kesimpulan teori dan atau model teoritis sehingga tinjauan 
+empiris dapat dicantumkan sesuai dengan kebutuhan 
+penelitian. Bilamana memungkinkan, dinyatakan pula dalam 
+model hipotesis dan atau langsung dalam suatu perumusan 
+hipotesis. Sedangkan penelitian yang kualitatif, peneliti dapat 
+membuat kerangka pemikiran dari konsep -konsep dalam 
+tinjauan pustaka. 
+25 
+ 
+(3) BAB 3 KERANGKA KONSEP 
+Bagian ini terdiri dari kerangka konsep dan hipotesis  
+penelitian. 
+ 3.1 Kerangka Konsep 
+Bagian ini merupakan suatu uraian dan visualisasi tentang 
+hubungan atau kaitan antara konsep -konsep atau variabel - 
+variabel yang akan diamati atau diukur melalaui penelitian 
+yang dilakukan. 
+ 3.2 Hipotesis Penelitian (jika ada) 
+Hipotesis adalah pernyataan singkat yang disimpulkan dari 
+landasan teori tentang jawaban sementara terhadap suatu 
+masalah. Hipotesis dikembangkan berdasarkan: teori -teori 
+yang relevan, logika kausal yang didasarkan pada teori yang 
+ada, danpenelitian sebelu mnya. Pembuatan hipotesis yang 
+ilmiah hendaknya dilakukan dengan cermat, teliti, terarah 
+secara logis, dan dapat diuji. 
+ 
+(4) BAB 4 METODE PENELITIAN 
+Metode penelitian berisi uraian tentang desain penelitian, 
+populasi dan sampel yang digunakan, bahan atau materi 
+penelitian, alat penelitian, variabel, tempat dan waktu 
+penelitian, definisi operasional, teknik pengumpulan data, dan 
+teknik analisa data yang dikumpulkan. Tujuan dari bagian ini 
+adalah untuk memberikan informasi k epada pembaca 
+mengenai metode yang digunakan dalam proses 
+mengumpulkan dan menganalisis data. 
+ 4.1 Desain Penelitian 
+ 4.2 Populasi dan Sampel 
+ 4.3 Variabel Penelitian 
+ 4.4 Tempat Penelitian 
+ 4.5 Waktu Penelitian 
+ 4.6 Definisi Operasional 
+ 4.7 Teknik Pengumpulan Data 
+ 4.8 Teknik Analisa Data 
+26 
+ 
+ 
+ 
+2) Bagian Akhir 
+Bagian akhir proposal merupakan bagian akhir yang tidak ditandai oleh 
+judul BAB, namun penomoran halamannya melanjutkan nomor halaman 
+sebelumnya. Bagian ini terdiri dari daftar pustaka dan lampiran. 
+(1) Daftar Pustaka 
+Daftar pustaka hanya memuat pustaka yang diacu dalam proposal 
+penelitian dan disusun ke bawah menurut abjad berdasarkan nama 
+belakang penulis atau pengarang. Kepustakaan yang digunakan 
+dapat bersumber dari textbook Bahasa Indonesia maupun textbook 
+Bahasa I nggris, jurnal, majalah, buletin, atau hasil penelitian 
+(skripsi, tesis dan disertasi) terbitan 10 (sepuluh) tahun terakhir. 
+(2) Lampiran 
+ Bagian ini diawali halaman kosong yang ditandai dengan kata 
+lampiran yang diletakkan di tengah bidang pengetikan. Halaman ini 
+tidak diberi nomor, tetapi ikut dihitung. 
+Lampiran merupakan bagian yang menyajikan berbagai bahan yang 
+digunakan dalam penyusunan proposal. Lampiran memberikan 
+beberapa penjelasan -penjelasan yang lebih detail yang dianggap 
+perlu di dalam penulisan proposal tugas akhir, tetapi dirasa 
+mengganggu ji ka diletakkan di dalam proposal. Lampiran harus 
+diberi nomor dan judul lampiran sesuai dengan pengelompokan 
+ataupun kumpulan berkas yang disertakan. 
+ 
+4.1.2 Sistematika Penulisan Proposal Skripsi (Original Research 
+Menggunakan Subjek Manusia) 
+1) Bagian Awal 
+(1) Halaman Sampul 
+Pada sampul memuat judul skripsi, jenis Karya Tulis Ilmiah, logo 
+universitas, identitas penulis berupa nama dan NIM mahasiswa, 
+identitas program studi, fakultas, universitas, kota dan tahun 
+penulisan. 
+(2) Halaman Judul 
+Halaman judul berisikan komponen dan susunan yang sama dengan 
+halaman sampul disertai dengan kalimat prasyarat gelar sesuai 
+27 
+ 
+program studi masing-masing. 
+(3) Halaman Persetujuan 
+(Lihat lampiran pada bagian halaman persetujuan) 
+(4) Halaman Pengesahan 
+(Lihat lampiran pada bagian halaman pengesahan) 
+(5) Lembar Pernyataan Orisinalitas 
+Halaman pernyataan orisinalitas memuat pernyataan orisinalitas 
+skripsi dengan isi dan format seperti pada lampiran dan dilengkapi 
+tanda tangan serta materi Rp 10.000 
+(6) Kata Pengantar 
+Kata pengantar memuat rasa syukur, uraian singkat proses penulisan, 
+menggunakan Bahasa Indonesia baku, pengantaran kepada pembaca 
+untuk memahami isi, harapan dan kritik penyempurnaan serta 
+manfaat bagi berbagai pihak dan ucapan terima kasih kepada semua 
+pihak yang telah memberikan bantuan selama proses penyelesaian. 
+(7) Daftar Isi 
+Halaman daftar isi memuat keseluruhan judul komponen skripsi 
+mulai dari bagian awal, bagian inti, dan bagian akhir skripsi yang 
+diikuti dengan penunjukan halaman. 
+(8) Daftar Tabel 
+Halaman daftar tabel memuat urutan judul tabel yang diikuti dengan 
+penunjukan halaman. 
+(9) Daftar Gambar 
+Halaman daftar gambar memuat urutan lampiran yang diikuti 
+dengan penunjukan halaman. 
+(10) Daftar Lampiran 
+Halaman daftar lampiran memuat urutan lampiran yang diikuti 
+dengan penunjukan halaman. 
+(11) Daftar Singkatan dan Simbol (jika ada) 
+Bagian ini berisi daftar simbol dan singkatan yang digunakan dalam 
+naskah. 
+ 
+ 
+ 
+ 
+ 
+28 
+ 
+2) Bagian Inti 
+A. JUDUL PENELITIAN 
+1.1 Lokasi 
+Bagian ini memuat lokasi penelitian. 
+1.2 Pesetujuan etik 
+Bagian ini memuat keterangan jenis penelitian multi-senter atau 
+tidak. Selain itu, jika multi-senter perlu dideskripsikan apakah 
+sudah mendapatkan persetujuan etik dari senter/institusi yang 
+lain (lampirkan jika sudah). 
+ 
+B. IDENTIFIKASI  
+2.1 CV penelitian 
+Bagian ini memuat identitas/curriculum vitae (CV) peneliti 
+utama, anggota peneliti, serta lembaga sponsor (nama lembaga 
+dan alamat). 
+ 
+C. PROTOKOL PENELITIAN 
+3.1 Ringkasan  
+Ringkasan dalam 200 kata, (ditulis dalam bahasa yang mudah   
+difahami   oleh   ―awam‖   bukan   dokter/profesional 
+kesehatan). Ringkasan memuat latar belakang, tujuan penelitian, 
+metode, dan luaran penelitian (minimal dokumen manuskrip 
+yang terpublish di repository UDS). 
+3.2 Latar Belakang 
+Bagian ini memuat alasan mengapa penelitian ini harus 
+dilakukan (urgensi penelitian), justifikasi masalah, dan 
+identifikasi masalah penelitian (dimulai dari lingkup yang luas 
+misalnya negara, wilayah, ke lokal). 
+ 
+D. ISU ETIK PENELITIAN 
+Bagian ini memuat pendapat peneliti tentang isyu etik yang 
+mungkin dihadapi dalam penelitian, dan bagaimana cara 
+menanganinya. 
+ 
+ 
+ 
+29 
+ 
+E. KAJIAN PUSTAKA 
+5.1 Tinjauan Pustaka 
+Bagian ini berisi konsep teori yang berkaitan dengan penelitian 
+dan ringkasan hasil-hasil studi sebelumnya yang sesuai topik 
+penelitian, baik yang sudah maupun yang sudah dipublikasikan, 
+termasuk jika ada kajian-kajian pada hewan.  
+5.2 Kerangka Teori 
+Bagian ini memuat kerangka teori penelitian.  
+5.3 Kerangka Konsep 
+Bagian ini memuat kerangka konsep penelitian. 
+ 
+F. KONDISI LAPANGAN 
+6.1 Lokasi Penelitian 
+Bagian ini berisi gambaran singkat tentang lokasi penelitian. 
+6.2 Fasilitas 
+  Bagian ini memuat informasi ketersediaan fasilitas yang tersedia 
+di lapangan yang menunjang penelitian. 
+6.3 Demografis 
+Bagian ini menjelaskan informasi 
+demografis/epidemiologis yang relevan tentang daerah 
+penelitian. 
+ 
+G. DESAIN PENELITIAN 
+7.1 Tujuan Penelitian 
+Pada bagian ini menjelaskan tentang tujuan penelitian umum dan 
+tujuan penelitian khusus. 
+7.2 Hipotesis 
+Pada bagian ini menjelaskan tentang hipotesa penelitian. 
+7.3 Pertanyaan Penelitian 
+Pada bagian ini menjelaskan tentang pertanyaan 
+penelitian (rumusan masalah). 
+7.4 Asumsi & Variabel Penelitian 
+Pada bagian ini menjelaskan tentang asumsi dan variabel  
+penelitian. 
+ 
+ 
+30 
+ 
+7.5 Desain Penelitian 
+Bagian ini menjelaskan deskripsi detil tentang desain penelitian. 
+7.6 Metode 
+Bagian ini memuat deskripsi metode (bila uji coba klinis) 
+tentang apakah kelompok treatmen ditentukan secara  random 
+dan apakah blinded atau terbuka. 
+ 
+H. SAMPLING 
+8.1 Subjek Penelitian 
+Bagian ini berisi tentang penentuan sampel, perhitungan sampel, 
+dan metode pengambilan sampel secara statistik. 
+8.2 Kriteria Partisipan 
+Bagian berisi tentang kriteria partisipan atau subyek dan 
+justifikasi exclude/include-nya. 
+8.3 Sampling Kelompok Rentan 
+Bagian ini menjelaskan tentang alasan melibatkan anak anak 
+atau orang dewasa yang tidak mampu memberikan   persetujuan   
+setelah   penjelasan,   atau  kelompok rentan, serta langkah 
+langkah bagaimana  meminimalisir bila terjadi resiko (tulis 
+“tidak relevan” bila penelitian tidak mengikutsertakan kelompok 
+rentan). 
+ 
+I. INTERVENSI 
+9.1  Deskripsi Intervensi 
+Bagian ini mendeskripsikan dan menjelaskan semua intervensi 
+(metode administrasi treatmen, termasuk rute administrasi, 
+dosis, interval dosis, dan masa treatmen produk yang digunakan 
+(tulis “Tidak relevan” bila bukan penelitian intervensi). 
+Selain itu, bagian ini juga berisi rencana dan jastifikasi untuk 
+meneruskan atau menghentikan standar terapi/terapi  baku 
+selama penelitian. Treatmen/Pengobatan lain yang mungkin 
+diberikan atau diperbolehkan, atau menjadi kontraindikasi, 
+selama penelitian juga harus dijelaskan. Bagian ini juga harus 
+mendeskripsikan test klinis atau lab atau  test lain yang harus 
+dilakukan. 
+ 
+31 
+ 
+J. MONITORING PENELITIAN 
+10.1  Monitoring Penelitian 
+Bagian ini berisi pencatatan treatment pada subjek yang 
+diberikan perlakukan. Selain itu, sampel dari form laporan kasus 
+yang sudah distandarisir, metode pencataran respon terapeutik 
+(deskripsi dan evaluasi metode dan frekuensi pengukuran), 
+prosedur follow- up, dan, bila mungkin, ukuran yang diusulkan 
+untuk menentukan tingkat kepatuhan subyek yang menerima 
+treatmen perlu dicantumkan. 
+ 
+K. PENGHENTIAN PENELITIAN 
+11.1  Penghentian Penelitian 
+Bagian ini berisi tentang aturan atau kriteria kapan subyek bisa 
+diberhentikan dari penelitian atau uji klinis, atau, dalam hal studi 
+multi senter, kapan sebuah pusat/lembaga di non aktipkan, dan 
+kapan penelitian bisa dihentikan. 
+11.2 Alasan 
+Bagian ini memuat tentang alasan penghentian penelitian. 
+ 
+L. ADVERSE EVENT & KOMPLIKASI 
+12.1  Metode Pencatatan dan Pelaporan 
+Bagian ini memuat metode pecacatan dan pelaporan adverse 
+events atau reaksi, dan syarat penanganan komplikasi. 
+12.2  Resiko 
+Bagian ini berisi tentang resiko -resiko yang diketahui dari 
+adverse events, termasuk resiko yang terkait dengan masing 
+masing rencana intervensi, dan terkait dengan obat, vaksin, atau 
+terhadap prosudur yang 
+akan diuji cobakan. 
+ 
+M. PENANGANAN KOMPLIKASI 
+13.1  Penanganan 
+Bagian ini memuat rencana detil bila ada resiko lebih dari 
+minimal/luka fisik, membuat rencana detil, adanya asuransi, 
+adanya fasilitas pengobatan/biaya pengobatan, dan kompensasi 
+jika terjadi disabilitas atau kematian. 
+32 
+ 
+ 
+N. MANFAAT 
+14.1  Manfaat Penelitian 
+Bagian ini memuat manfaat penelitian secara pribadi bagi 
+subyek dan bagi yang lainnya. 
+14.2  Manfaat Aplikatif 
+Bagian ini berisi tentang manfaat penelitian bagi penduduk, 
+termasuk pengetahuan baru yang kemungkinan dihasilkan oleh 
+penelitian. 
+ 
+O. JAMINAN KEBERLANJUTAN 
+15.1  Keberlanjutan 
+Bagian ini berisi tentang deskripsi kemungkinan keberlanjutan 
+akses bila hasil intervensi menghasilkan manfaat yang 
+signifikan, moodalitas yang tersedia, pihak -pihak yang akan 
+mendapatkan keberlansungan pengobatan, organisasi yang akan 
+membayar, serta lama waktunya. 
+  
+P. INFORMED CONSENT 
+16.1 Cara Memperoleh Informed Consent 
+Bagian ini memuat tentang cara untuk mendapatkan informed 
+consent dan prosudur yang direncanakan untuk 
+mengkomunikasikan informasi penelitian (Penjelasan Sebelum 
+Persetujuan/PSP) kepada calon subyek, termasuk nama dan 
+posisi wali bagi yang tidak bisa memberikannya. 
+16.2 Perencanaan Monitoring Kesehatan Ibu dan Anak 
+Pada bagian ini menjelaskan tentang adanya perencanaan untuk 
+memonitor kesehatan ibu dan kesehatan anak jangka pendek 
+maupun jangka panjang (diisi jika penelitian melibatkan ibu 
+hamil). 
+ 
+Q. WALI 
+17.1  Wali/Orang Tua 
+Bagian ini menjelaskan tentang adanya wali yang berhak bila 
+calon subyek tidak bisa memberikan informed consent, atau 
+orang tua atau wali yang berhak bila anak paham tentang 
+33 
+ 
+informed consent tapi belum cukup umur. 
+ 
+R. BUJUKAN 
+18.1 Deskripsi Bujukan 
+Bagian ini memuat deskripsi bujukan atau insentif (bahan 
+kontak) bagi calon subyek untuk ikut berpartisipasi, seperti uang, 
+hadiah, layanan gratis, atau yang lainnya. Besaran insentif harus 
+terbilang (nominal rupiah) dalam dekripsi bujukan. 
+18.2 Rencana dan Prosedur 
+Bagian ini menjelaskan tentang rencana dan prosedur, serta 
+orang yang betanggung jawab untuk menginformasikan bahaya 
+atau keuntungan peserta, atau tentang riset lain tentang topik 
+yang sama, yang bisa mempengaruhi keberlansungan 
+keterlibatan subyek dalam penelitian. 
+18.3 Perencanaan Menginformasikan Hasil Penelitian Bagian ini 
+berisi tentang perencanaan untuk  menginformasikan hasil 
+penelitian pada subyek atau partisipan. 
+ 
+S. PENJAGAAN KERAHASIAAN 
+19.1 Proses Rekrutmen Subjek 
+Bagian ini menjelaskan tentang proses rekrutmen subyek 
+(misalnya lewat iklan), serta langkah langkah untuk menjaga 
+privasi dan kerahasiaan selama rekrutmen. 
+19.2 Proteksi Kerahasiaan Data 
+Pada bagian ini mendeskripsikan langkah -langkah proteksi 
+kerahasiaan data pribadi, dan penghormatan privasi orang, 
+termasuk kehati-hatian untuk mencegah bocornya rahasia hasil 
+test genetik pada keluarga kecuali atas izin dari yang 
+bersangkutan. 
+19.3 Informasi Koding 
+Bagian ini menjelaskan tentang informasi koding; bila ada, untuk 
+identitas subyek, di mana di simpan dan kapan, bagaimana dan 
+oleh siapa bisa dibuka bila terjadi emergensi. 
+19.4 Penggunaan Data Personal/Material Biologis 
+Bagian ini harus mendeskripsikan kemungkinan penggunaan 
+lebih jauh dari data personal atau material biologis/BBT. 
+34 
+ 
+ 
+T. RENCANA ANALISIS 
+20.1  Analisis Statistik 
+Bagian ini berisi tentang rencana analisa statistik, dan kreteria 
+bila atau dalam kondisi bagaimana akan terjadi penghentian dini 
+keseluruhan penelitian. 
+ 
+U. MONITOR KEAMANAN 
+21.1  Rencana Monitoring Keamanan Obat/Intervensi 
+Bagian ini memuat tentang rencana untuk memonitor 
+keberlansungan keamanan obat atau intervensi lain yang 
+dilakukan dalam penelitian atau trial, dan, bila diperlukan, 
+pembentukan komite independen untuk data dan safety 
+monitoring. 
+  
+V. KONFLIK KEPENTINGAN 
+22.1  Regulasi Konflik 
+Bagian ini berisi tentang pengaturan untuk mengatasi konflik 
+finansial atau yang lainnya yang bisa mempengaruhi keputusan 
+para peneliti atau personil lainya; menginformasikan pada 
+komite lembaga tentang adanya conflict of interest; komite 
+mengkomunikasikannya ke komite etik dan kemudian 
+mengkomunikasikan pada para peneliti tentang langkah langkah 
+berikutnya yang harus dilakukan. 
+ 
+W. MANFAAT SOSIAL 
+23.1 Manfaat Sosial 
+Bagian ini menjelaskan tentang manfaat sosial untuk penelitian 
+yang dilakukan pada seting sumberdaya lemah, kontribusi yang 
+dilakukan sponsor untuk capacity building untuk review ilmiah 
+dan etika dan untuk riset-riset kesehatan di negara tersebut; dan 
+jaminan bahwa tujuan capacity building adalah agar sesuai nilai 
+dan harapan para partisipan dan komunitas tempat penelitian. 
+23.2 Protokol Penelitian (Dokumen) 
+Protokol penelitian (dokumen) yang dikirim ke komite etik harus 
+meliputi deskripsi rencana pelibatan komunitas, dan 
+35 
+ 
+menunjukkan sumber-sumber yang dialokasikan untuk aktivitas 
+aktivitas pelibatan tersebut. Dokumen ini menjelaskan apa yang 
+sudah dan yang akan dilakukan, kapan dan oleh siapa, untuk 
+memastikan bahwa masyarakat dengan jelas terpetakan untuk 
+memudahkan pelibatan mereka selama riset, untuk memastikan 
+bahwa tujuan riset sesuai kebutuhan masyarakat dan diterima 
+oleh mereka. Bila perlu masyarakat harus dilibatkan dalam 
+penyusunan protokol atau dokumen ini. 
+  
+X. HAK ATAS DATA 
+24.1  Hak Publikasi Hasil Riset 
+Bagian ini menguraikan tentang pernyataan pemilik hak publiksi 
+hasil riset, dan kewajiban untuk menyiapkan bersama dan 
+diberikan pada para PI draft laporan hasil riset. 
+ 
+Y. PUBLIKASI 
+25.1  Rencana Publikasi 
+Bagian ini menjelaskan tentang rencana publikasi hasil pada 
+bidang tertentu (seperti epidemiology, generik, sosiologi). Selain 
+itu, pada bagian ini juga harus memaparkan rencana publikasi 
+bila hasil riset negatif. 
+ 
+Z. PENDANAAN 
+Bagian berisi tentang penjabaran sumber dan jumlah dana riset; 
+lembaga funding/sponsor, dan deskripsi komitmen finansial sponsor 
+pada kelembagaan penelitian, pada para peneliti, para subyek riset, 
+dan, bila ada, pada komunitas. 
+ 
+AA. KOMITMEN ETIK 
+27.1 Pernyataan Peneliti 
+Bagian ini memuat pernyataan peneliti utama bahwa prinsip -
+prinsip yang tertuang dalam pedoman ini akan dipatuhi 
+(lampirkan scan Surat Pernyataan). 
+27.2 Riwayat Usulan Review Protokol Etik 
+Bagian ini berisi tentang riwayat usulan review protokol etik 
+sebelumnya dan hasilnya (isi dengan judul dan tanggal 
+36 
+ 
+penelitian, dan hasil review Komite Etik) (lampirkan Daftar 
+Riwayat Usulan Kaji Etiknya). 
+27.3 Pernyataan Tidak Ada Pemalsuan Data 
+Bagian ini berisi tentang pernyataan bahwa bila terdapat bukti 
+adanya pemalsuan data akan ditangani sesuai peraturan 
+/ketentuan yang berlaku. 
+ 
+BB. DAFTAR PUSTAKA 
+Daftar pustaka hanya memuat pustaka yang diacu dalam proposal 
+penelitian dan disusun ke bawah menurut abjad berdasarkan nama 
+belakang penulis atau pengarang. Kepustakaan yang digunakan dapat 
+bersumber dari textbook Bahasa Indonesia maupun textbook Bahasa 
+Inggris, jurnal, majalah, buletin, atau hasil penelitian (skripsi, tesis 
+dan disertasi) terbitan 10 (sepuluh) tahun terakhir. Penulisan sitasi 
+dan daftar pustaka harus menggunakan perangkat lunak referencing 
+manager, misalnya EndNote, Mendeley, atau Zotero. 
+ 
+CC. LAMPIRAN 
+Bagian ini diawali halaman kosong yang ditandai dengan kata 
+lampiran yang diletakkan di tengah bidang pengetikan. Halaman ini 
+tidak diberi nomor, tetapi ikut dihitung. Lampiran merupakan bagian 
+yang menyajikan berbagai bahan yang digunakan dalam penyusunan 
+proposal. Lampiran memberikan beberapa penjelasan - penjelasan 
+yang lebih detail yang dianggap perlu di dalam penulisan proposal 
+tugas akhir, tetapi dirasa mengganggu jika diletakkan di dalam 
+proposal. Lampiran harus diberi nomor dan judul lampiran sesuai 
+dengan pengelompokan ataupun kumpulan berkas yang disertakan. 
+Berikut merupakan lampiran yang wajib disertakan di proposal 
+skripsi: 
+1. CV Peneliti Utama 
+2. CV Anggota Peneliti 
+3. Daftar Lembaga Sponsor 
+4. Surat-surat pernyataan 
+5. Formulir Laporan kasus/Kuesioner, dll 
+6. Informed Consent 35 butir
+37 
+ 
+BAB 5 SISTEMATIKA PENULISAN SKRIPSI 
+ 
+Judul Artikel ditulis dengan Bahasa Indonesia maksimal 15 kata, hindari 
+simgkatan dan rumus yang tidak dikenal secara luas. Judul artikel 
+ditulis dengan ketentuan: Center, Bold, Times New Roman font 14. 
+ 
+The title is written in English with a maximum of 15 words, Avoid using 
+abbreviations and formulas that are not widely known. Center, Bold, Times 
+New Roman font 14. 
+ 
+Nama Penulis1*, Nama Penulis 2, Nama Penulis 3 
+1Program Studi, Fakultas (jika ada), Universitas …………, email……………… 
+2Program Studi, Fakultas (jika ada), Universitas …………, email……………… 
+3Program Studi, Fakultas (jika ada), Universitas …………, email……………… 
+*Korespondensi Penulis : email@gmail.com 
+ 
+Received:                        Accepted:                   Published: 
+ 
+Abstrak 
+Latar Belakang: Abstrak ditulis dalam Bahasa Indonesia dengan jumlah kata 100 -250 kata. Abstrak 
+ditulis dalam 1 paragraf dengan urutan latar belakang, tujuan, metode, hasil, kesimpulan. (Times New 
+Roman; 10 pt; spasi 1). Abstrak dilengkapi dengan Keywords, terdiri dari 3-5 kata.  
+Tujuan: 
+Metode: 
+Hasil: 
+Kesimpulan: 
+ 
+Kata Kunci: ………..; ………….; ………….; …………..; …………. 
+ 
+Abstract 
+Background: The Abstract is written in English and Indonesia with word limitation 100 to 250 words. 
+It should be prepared in one paragraph covers introduction, objectives, method, result, and 
+conclusions made in one paragraph. (Times New Roman; 10 pt; space 1). The abstract is equipped 
+with keywords consisting of 3-5 words. 
+Purpose: 
+Methods: 
+Results: 
+Conclusions: 
+ 
+Keywords: ………..; ………….; ………….; …………..; …………. 
+ 
+PENDAHULUAN  
+Penjelasan tentang latar belakang penelitian dan didukung oleh literatur yang relevan. 
+Menjelaskan studi -studi sebelumnya mengapa penelitian/studi Anda perlu dilakukan. 
+Menjelaskan pentingnya penelitian dilakukan yang dapat bermanfaat bagi masyarakat. Latar 
+belakang disusun menggunakan skema piramida terbalik dari informasi umum ke informasi  
+yang spesifik. Salah satu penyebabnya adalah jumlah pendonor darah di PMI Sleman baru 
+mencapai 1% dari jumlah penduduk di Sleman.(1) 
+Tujuan penelian harus dirumuskan dengan jelas dan merupakan turunan dari tema yang 
+diangkat dalam artikel. (Times New Roman; 12 pt; spasi 1,5).  
+ 
+ 
+38 
+ 
+METODE 
+Penjelasan tentang waktu dan lokasi penelitian. Penjelasan jenis penelitian yang 
+digunakan (kuantitatif, kualitatif, atau campuran) dan rancangan penelitian yang dipilih. 
+Penjelasan populasi, sampel dan teknik pengambilan sampel yang digunakan.  
+Penjelasan tentang instrumen, alat, atau kuesioner yang digunakan dalam pengumpulan 
+data. Menjelaskan prosedur pengumpulan data. Menjelaskan metode analisis data dan alat yang 
+digunakan untuk mengolah data. Jika metode penelitian mengacu pada prosedur stan dar, maka 
+ditulis standarnya. (Times New Roman; 12 pt; spasi 1,5).  
+ 
+HASIL DAN PEMBAHASAN 
+Menjelaskan karakteristik responden dan hasil analisis data. Hasil penelitian dapat berupa 
+tabel atau gambar atau keduanya. Tabel terbuka dan sederhana, serta gambar yang difokuskan 
+pada objek yang diteliti dengan ukuran yang proporsional (diupayakan dalam format JPG). Baik 
+tabel maupun gambar diberi nomor urut dan sumbernya. Untuk kepentingan kualitas tampilan 
+naskah, tabel diformatkan dalam Microsoft word atau excel dan gambar diformatkan dalam JPG 
+resolusi minimal 300 dpi. Tabel dan gambar tidak boleh terputus, harus di satu halaman. (Times 
+New Roman; 12 pt; spasi 1,5). 
+Tabel 1. Karakteristik responden …….(subjek penelitian) (Times New Roman; 11 pt; spasi 1). 
+Karakteristik  n (%) 
+Umur (Tahun)    
+17-25 1 100 
+26-35   
+36-45   
+46-55   
+56-65   
+Jenis Kelamin   
+Laki-laki   
+Perempuan   
+Pendidikan   
+dst 
+ 
+Intepretasi hasil penelitian/studi, hubungannya dengan penelitian sebelumnya, dan 
+implikasi hasil penelitian terhadap bidang kesehatan masyarakat. Jelaskan juga kekuatan dan 
+keterbatasan penelitian/studi Anda.  
+ 
+39 
+ 
+ 
+Gambar 1. Xxxxxxx 
+ 
+ 
+KESIMPULAN  
+Penelitian ini menyimpulkan bahwa ……………………… Jelaskan saran untuk 
+kesempurnaan penelitian selanjutnya. (Times New Roman; 12 pt; spasi 1,5). 
+ 
+ACKNOWLEDGEMENTS  
+ Jika ada yang menjelaskan tentang ucapan terima kasih kepada intitusi/instansi yang 
+telah mendanai penelitian serta asisten peneliti yang terlibat dalam penelitian . (Times New 
+Roman; 12 pt; spasi 1,5). 
+ 
+DAFTAR PUSTAKA 
+Penulisan daftar pustakan menggunakan reference manager (EndNote, Mendeley, Zotero, etc.) 
+dengan style American Psychological Association (APA). Jumlah referensi minimal 12, sebanyak 80% 
+adalah sumber jurnal dalam kurun waktu 5 tahun terakhir. Sumber buku dapat digunakan dalam kurun 
+waktu minimal 10 tahun terakhir). Penulisan Referensi Buku, Tesis, Disertasi, dan Website 
+menyesuaikan dengan reference manager (EndNote, Mendeley, Zotero, etc.) menggunakan style 
+American Psychological Association (APA). (Times New Roman; 11 pt; spasi 1). 
+ 
+Pebriarti, I. W. 2018. Hubungan Kadar Serum Indoxyl Sulfate dengan Lama Menjalani 
+Hemodialisis pada Pasien Penyakit Ginjal Kronik di RSD dr Soebandi. Tesis. Program 
+Magister Farmasi Klinik Universitas Airlangga. Surabaya. 
+Sari, L. P. 2021. Hubungan Waktu Tunggu Pelayanan Resep dengan Kepuasan  Pasien di 
+Instalasi Rawat Jalan Rumah Sakit Bhayangkara Bondowoso. Skripsi. Program Studi 
+Sarjana Farmasi Fakultas Ilmu Kesehatan Universitas dr Soebandi. Jember. 
+Fujii, H., K. Nakai, and M. Fukagawa. 2011. Role of Oxidative Stress and Indoxyl Sulfate in 
+Progression of Cardiovascular Disease in Chronic Kidney Disease.  Therapeutic 
+Apheresis and Dialysis. 15(2): 125–128. 
+Ohtake, T. and S. Kobayashi. 2017. Impact of Vascular Calcification on Cardiovascular 
+Mortality in Hemodialysis Patients: Clinical Significance. Mechanisms and Possible 
+Strategies for Treatment. Renal Replacement Therapy. 3(13): 1–11. 
+
+40 
+ 
+BAB 6 FORMAT PENULISAN AKHIR 
+ 
+1. BAGIAN 1 
+Protokol (sesuai ketentuan pada BAB 4) 
+2. BAGIAN 2  
+Manuskrip (sesuai ketentuan pada BAB 5) 
+DAFTAR PUSTAKA  
+(menggunakan style American Psychological Association (APA); Times New Roman; 11 pt; spasi 1). 
+LAMPIRAN 
+(sesuai contoh pada halaman lampiran) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+BAB 7 FORMAT PENULISAN SKRIPSI 
+41 
+ 
+ 
+ 
+6.1 Bahan dan Ukuran Kertas 
+ 
+Bahan yang digunakan adalah kertas HVS  berat 80 gram. Ukuran kertas yang  
+digunakan adalah A4 (210 mm x 297 mm). Sampul skripsi menggunakan bahan buffalo 
+yang diperkuat dengan karton jepang dan dilengkapi dengan laminasi plastik. Pembatas  
+antara bab yang satu dengan bab yang lain menggunakan kertas doorslag dengan warna 
+sesuai yang ditetapkan oleh masing-masing progam studi. 
+6.2 Penggunaan Bahasa 
+ 
+Proposal skripsi harus disusun dengan memperhatikan kaidah bahasa. Penulisan  
+yang disusun sesuai kaidah bahasa bertujuan agar pembaca dapat memahami maksud yang 
+disampaikan oleh penulis dengan baik. Penggunaan bahasa dalam penyusunanSkripsi 
+mengikuti ketentuan sebagai berikut: 
+1) Bahasa yang digunakan merupakan bahasa baku sebagaimana yang tercantum  
+dalam Pedoman Umum Ejaan Bahasa Indonesia (PUEBI); 
+2) Kalimat yang disusun memiliki subjek, predikat, objek dan/atau keterangan; 
+ 
+3) Kalimat disusun secara efektif menggunakan pemilihan kata yang tepat; 
+ 
+4) Satu paragraf hanya memiliki 1 pokok pikiran atau gagasan; 
+ 
+5) Setiap paragraf minimal terdiri dari 2 kalimat, yaitu kalimat utama dan kalimat 
+penjelas yang saling terkait dan berhubungan; 
+6) Istilah yang digunakan adalah istilah dalam Bahasa Indonesia atau kataserapan  
+yang sudah baku sesuai KBBI; 
+7) Pemakaian bahasa asing ditulis dengan huruf miring/italic bila belum ada  
+padanannya dalam Bahasa Indonesia; 
+8) Penggunaan istilah yang belum dibakukan dalam Bahasa Indonesia dapat 
+disertai kata penjelas/konfirmasi istilah dan diletakkan dalam kurung bila dirasa 
+sangat perlu dan hanya pada kali pertama penulisan; 
+9) Penggunaan tanda hubung dan tanda baca seperti koma, titik, titik koma, titik  
+dua dan lain-lain tidak didahului oleh spasi, tetapi diberi spasi setelahnya; 
+10) Penggunaan tanda petik dan tanda kurung tidak dipisah/diberi spasi dengan  
+bagian yang diapit; 
+11) Bilangan dalam kalimat yang dapat dinyatakan dengan satu atau dua kata dapat 
+ditulis dengan huruf, kecuali bila digunakan secara berurutan seperti  dalam 
+perincian; 
+ 
+42 
+ 
+12) Bilangan, lambang, atau rumus kimia yang mengawali kalimat harus dieja 
+dengan huruf; 
+13) Bilangan desimal ditandai dengan koma, bukan dengan titik; 
+ 
+14) Beberapa hal yang harus dihindari: 
+ 
+(1) Penggunaan kata ganti yang tidak tepat; 
+ 
+(2) Penggunaan kata hubung dan kata depan di awal kalimat yang tidak 
+tepat; 
+(3) Penggunaan kata-kata yang tidak tepat sebagai penghubung seperti: di 
+mana atau yang mana; 
+(4) Penyusunan kalimat majemuk bertingkat yang tidak benar. 
+6.3 Pengetikan dan Penjilidan 
+ 
+Pengetikan dimulai dari batas tepi kiri hingga ke batas tepi kanan sehingga ruang  
+yang terdapat dalam naskah terisi penuh, kecuali bila memasukkan rumus, persamaan,  
+tabel, gambar. Kata pertama dalam sebuah kalimat diawali dengan huruf kapital. 
+Pengetikan terkait batas tepi, jenis huruf, alenia baru, jarak baris diuraikan lebih lanjut. 
+6.3.1 Batas Tepi 
+ 
+Batas-batas pengetikan naskah ditinjau dari tepi kertas menggunakan 
+layout sebagai berikut: 
+1) Tepi atas (top) : 4 cm 
+2) Tepi bawah (bottom) : 3 cm 
+3) Tepi kanan (right) : 3 cm 
+4) Tepi kiri (left) : 4 cm 
+ 
+6.3.2 Jenis Huruf dan Ukuran 
+ 
+Naskah dicetak pada satu muka kertas (tidak diperbolehkan bolak - balik), 
+kecuali untuk keperluan diskusi, diperbolehkan bolak-balik untuk menghemat kertas. 
+Naskah diketik menggunakan komputer dengan programMicrosoft Word. 
+Jenis huruf adalah Times New Roman dengan pengaturan sebagai berikut: 
+1) Ukuran 14 dan tebal untuk judul skripsi maksimal 17 kata; 
+2) Ukuran 12 dan tebal untuk judul bab, judul sub bab, dan judul sub- subbab; 
+3) Ukuran 12 untuk isi naskah; 
+43 
+ 
+4) Ukuran 10 untuk catatan kaki dan keterangan sumber pada tabel maupun 
+gambar; 
+5) Bagian lainnya yang tidak diuraikan diatur sebagaimana contoh pada 
+lampiran. 
+6.3.3 Alinea Baru 
+ 
+Alinea baru ditulis menjorok sebanyak lima ketukan dari batas tepi kiribidang 
+pengetikan atau menggunakan pengaturan otomatis tab. Alinea yang satu dengan  
+alinea lain (dalam satu sub bab maupun dalam satu sub -sub bab) tidak dipisahkan  
+oleh spasi kosong. 
+6.3.4 Jarak Baris 
+Jarak antara judul bab dan kalimat pertama dari naskah skripsi maupunjarak  
+antara judul bab dengan sub bab (bila secara langsung diikuti oleh sub bab) adalah 
+empat spasi. Masing-masing bab disusun pada halaman baru. 
+Jarak antara judul sub bab terhadap baris pertama kalimat uraiannya adalah dua 
+spasi. Jarak antara judul sub -subbab dengan kalimat pertama uraiannya adalah  dua 
+spasi. Jarak antara kalimat terakhir uraian sub bab dengan sub bab berikutnya adalah 
+empat spasi. Sedangkan jarak antara kalimat terakhir uraian sub-sub bab dengan sub-
+sub bab berikutnya menggunakan dua spasi. 
+Jarak baris pada bagian awal, isi dan bagian akhir skripsi menggunakan 
+pengaturan sebagai berikut: 
+1) Bagian Awal 
+Bagian awal dari skripsi yaitu sampul, halaman judul, halaman persetujuan,  
+halaman pengesahan (jika telah lulus seminar hasil skripsi), lembar pernyataan 
+orisinalitas, lembar pembimbingan, lembar persembahan, kata pengantar, 
+daftar isi, daftar tabel, daftar gambar, daftar lampiran, dan daftar singkatan dan 
+simbol (bila ada) menggunakan aturan spasi sebagai berikut: 
+(1) Lembar pernyataan orisinalitas menggunakan satu spasi; 
+(2) Kata pengantar menggunakan dua spasi; 
+(3) Daftar isi, daftar tabel, daftar gambar, daftar lampiran dan daftar 
+singkatan dan simbol (bila ada) disusun dengan menggunakan satu spasi; 
+(4) Bagian awal lainnya yang tidak diuraikan diatur sebagaimana contoh  
+pada lampiran. 
+44 
+ 
+2) Bagian Isi 
+Bagian isi dari proposal Skripsi meliputi BAB I, BAB II, BAB III, dan  
+BAB IV (pada penelitian Original Research yang menggunakan hewan 
+coba/tanpa menggunakan subjek manusia). Sedangkan, pada penelitian yang  
+menggunakan subjek manusia terdiri dari bagian A – CC (format protokol  
+etik). Penulisan pada bagian ini disusun menggunakan 1 spasi. Isi atau 
+uraiannya dibuat sejajar dengan batas tepi kiri bidang pengetikan dengan alenia 
+pada awal kalimatnya ditulismenjorok sebanyak lima ketukan. 
+Format skripsi ditulis menggunakan format artikel/ manuscript sebagai 
+luaran hasil penelitian. Template artikel dapat diunduh melalui website atau 
+dapat mengikuti template manuscript pada jurnal nasional atau internasional. 
+3) Bagian Akhir 
+Daftar pustaka dan lampiran merupakan bagian akhir dari proposal Skripsi.  
+Daftar pustaka disusun menggunakan satu spasi dengan indensi gantung. Jarak 
+antar referensi satu dengan yang lain adalah dua spasi. Lampiran disusun 
+dengan satu spasi atau menyesuaikan bentuk atau jenis lampiran. 
+6.3.5 Judul dan Sub judul 
+1) Judul disusun tanpa singkatan dan tidak diakhiri tanda titik. Penulisan 
+―BAB  I  –  BAB  IV‖  dan  kata  ―A  -  CC‖  serta  judul  seluruhnya  diketik 
+menggunakan  huruf  kapital.  Judul  ―BAB‖  dan  ―A-CC‖  diletakkan  sejajar 
+dengan penunjuk judul. Penunjuk judul dan judul dicetak tebal dan 
+menggunakan huruf kapital pada huruf pertama setiap kata ( capitalize each 
+word), kecuali kata penghubung dan kata depan; 
+2) Sub Judul diketik pada posisi sejajar dengan batas tepi kiri tanpa diakhiri  
+tanda titik. Judul sub bab dicetak tebal dan menggunakan huruf kapital pada  
+huruf pertama setiap kata (capitalize each word), kecuali kata penghubung dan 
+kata depan. Sub bab judul tidak boleh ditempatkan pada akhir halaman  (kaki 
+halaman). Sub bab judul pada  ―kaki halaman‖ harus diikuti minimum dua 
+baris teks; 
+6.3.6 Ketentuan Lain 
+1) Sampul luar (hard cover) 
+Sampul luar pada naskah skripsi menggunakan warna biru tua untuk Program  
+Studi S1 Ilmu Keperwatan, warna merah muda untuk Program Studi Sarjana  
+Kebidanan, warna krem untuk Program Studi Teknologi Laboratorium Medik, 
+dan warna biru langit untuk Program Studi Sarjana Farmasi dengan  tulisan 
+berwarna hitam. Tulisan yang terdapat pada sampul luar ditentukan 
+45 
+ 
+sebagai berikut: 
+(1) Judul Skripsi ditulis tepat pada margin atas menggunakan jenis huruf  
+Times New Roman ukuran 14, huruf kapital, maksimal terdiri dari 17 kata 
+dengan susunan berbentuk piramida terbalik; 
+(2) Keterangan jenis Karya Tulis Ilmiah menggunakan jenis huruf 
+Times New Roman, ukuran 14, dan huruf kapital; 
+(3) Lambang institusi pendidikan menggunakan ukuran 5 x 5 cm; 
+(4) Identitas penulis menggunakan jenis huruf Times New Roman 
+ukuran 12, jarak baris satu spasi; 
+(5) Nama Program Studi menggunakan jenis huruf Times New Roman, 
+ukuran 12, dan huruf kapital; 
+(6) Nama Fakultas menggunakan jenis huruf Times New Roman, ukuran 
+12, dan huruf kapital; 
+(7) Nama institusi pendidikan menggunakan jenis huruf Times New 
+Roman, ukuran 12, dan huruf kapital; 
+(8) Tahun menggunakan jenis huruf Times New Roman ukuran 12. Kalimat 
+atau kata di atas dicetak tebal dan ditempatkan pada tengah -tengah halaman 
+bidang pengetikan. 
+2) Halaman judul 
+Halaman judul dicetak pada kertas putih ukuran A4 80 gram dengan tulisan  
+berwarna hitam. Tulisan yang terdapat pada halaman judul meliputi: 
+(1) Judul Skripsi, ditulis tepat pada margin atas, jenis huruf Times New  
+Roman ukuran 14,  huruf kapital,  maksimal terdiri dari 17  kata dan 
+dicetak tebal dengan susunan berbentuk piramida terbalik; 
+(2) Keterangan jenis Karya Tulis Ilmiah menggunakan jenis huruf Times 
+New Roman ukuran 14, huruf kapital, dicetak tebal; 
+(3) Keterangan tujuan penulisan Skripsi (untuk memperoleh gelar Sarjana  
+Farmasi misal pada Program Studi S1 Farmasi) menggunakan jenis huruf 
+Times New Roman ukuran 12 dengan jarak satu spasi; 
+(4) Lambang institusi pendidikan menggunakan ukuran 5 x 5 cm; 
+(5) Identitas penulis Skripsi menggunakan jenis huruf Times New Roman 
+ukuran 12, huruf kapital, dicetak tebal dengan jarak satu spasi; 
+46 
+ 
+(6) Nama Program Studi menggunakan jenis huruf Times New Roman, 
+ukuran 12, dan huruf kapital yang dicetak tebal; 
+(7) Nama Fakultas menggunakan jenis huruf Times New Roman, ukuran 
+12, dan huruf capital yang dicetak tebal; 
+(8) Nama institusi pendidikan menggunakan jenis huruf Times New 
+Roman, ukuran 12, dan huruf capital yang dicetak tebal; 
+(9) Tahun menggunakan jenis huruf Times New Roman, ukuran 12, dan  
+dicetak tebal. 
+ 
+Kalimat   atau   kata   yang   telah   disebutkan   di   atas   ditempatkan pada 
+tengah-tengah halaman. 
+6.4 Enumerasi 
+ 
+Enumerasi pada skripsi harus digunakan secara konsisten dan tidak boleh 
+dicampuradukkan. Enumerasi meliputi penomoran BAB I-BAB II atau A-CC, tabel, 
+gambar, dan lampiran dengan menggunakan sistem headings hierarchy yaitu penulisan 
+yang dibuat sejajar dengan batas tepi kiri bidang pengetikan. 
+Penomoran BAB I-BAB II atau A-CC dan judul menggunakan angka Arab dengan  
+sistem digital hingga tiga deret digit. Digit terakhir pada penomoran deret digital yang lebih 
+dari satu digit tidak diikuti oleh tanda baca titik. Struktur penomoran BAB I -BAB IV, A-
+CC dan bagian seterusnya diatur sebagai berikut: 
+1) Setiap judul bab diberi nomor sesuai urutan (BAB I, dan seterusnya hingga BAB 
+IV atau A, B, C dan seterusnya hingga CC); 
+2) Nomor sub judul ditulis menggunakan sistem dua digit (2.1, 2.2, 2.3 dan 
+seterusnya); 
+3) Nomor sub-sub judul ditulis menggunakan sistem tiga digit (4.2.1, 4.2.2 dan 
+seterusnya); 
+4) Penomoran   pada bagian   lain   jika   sudah melebihi tiga   deret   digit yaitu 
+menggunakan 1), 2), 3), dan seterusnya, kemudian (1), (2), (3), dan seterusnya. 
+Contoh struktur dan penomoran bab dan bagiannya dapat dilihat sebagai berikut: 
+47 
+ 
+ 
+ 
+ 
+Tabel diberi nomor dengan angka Arab dan diletakkan dua spasi di bawah bagian akhir 
+uraian. Nomor tabel terdiri dari dua digit. Digit pertama menunjukkan nomor bab  sesuai 
+posisi tabel dan digit kedua menunjukkan nomor urut tampilnya tabel pada bab  tersebut. 
+Tabel 5.1 berarti posisi tabel berada pada bab 5 dengan nomor urut tampilan 1. 
+Gambar diberi nomor dengan angka Arab dan diletakkan dua spasi di bawah bagian  
+akhir uraian. Nomor tabel terdiri dari dua digit. Digit pertama menunjukkan nomor bab  
+sesuai posisi gambar dan digit kedua menunjukkan nomor urut tampilnya gambar pada bab 
+tersebut. Gambar 2.3 berarti posisi tabel berada pada bab 2 dengan nomor urut 3. 
+6.5 Penomoran Halaman 
+ 
+Ketentuan-ketentuan dalam penomoran halaman, seperti halaman bagian awal, 
+halaman judul bab, halaman teks utama, dan lain sebagainya, adalah sebagai berikut: 
+(pada penelitian menggunakan hewan coba/tanpa subjek manusia) 
+BAB I 
+JUDUL 
+2.1 Sub Judul 
+2.2 Sub Judul 
+2.2.1 Sub-Sub Judul 
+1) 
+2) 
+(1) 
+(2) 
+ 
+(pada penelitian menggunakan subjek manusia) 
+A JUDUL 
+2.1 Sub Judul 
+2.2 Sub Judul 
+2.2.1 Sub-Sub Judul 
+1) 
+2) 
+(1) 
+(2) 
+48 
+ 
+1) Bagian awal Skripsi diberi nomor halaman berupa angka Romawi kecil (i, ii,iii, dan 
+seterusnya) dan ditempatkan di tengah halaman bagian bawah. Halaman judul tidak  
+diberi nomor, tetapi tetap dihitung sebagai halaman i; 
+2) Bagian isi yaitu mulai BAB I atau A sampai dengan halaman terakhir daftar pustaka 
+(CC) diberi nomor halaman berupa angka Arab (1, 2, 3, dan seterusnya). Nomor  
+halaman ditempatkan di pojok kanan atas pada setiap halaman, kecuali halaman  
+pertama setiap bab yang ditulis pada tengah halaman bagian bawah; 
+3) Penomoran halaman pada lampiran merupakan kelanjutan dari nomor halaman 
+bagian utama. 
+6.6 Tabel, Gambar, dan Lampiran 
+Berikut ini beberapa hal yang harus diperhatikan terkait penulisan tabel, gambar, dan 
+lampiran: 
+1) Judul dan subbab dari tabel, gambar, dan lampiran diawali dengan huruf kapital; 
+2) Judul tabel beserta nomor tabel menggunakan Times New Roman 12 dan ditempatkan 
+di atas tabel dengan jarak satu spasi tanpa diakhiri dengan titik. Judul tabel diletakkan 
+di tengah apabila hanya terdiri dari satu baris. Judul tabel yang  terdiri dari dua baris 
+ditulis dengan format  menggantung ( indent) dengan jarak  antar baris yang 
+digunakan adalah satu spasi; 
+3) Tabel disajikan di tengah, simetris dengan batas tepi kiri dan kanan bidang 
+pengetikan. Ukuran huruf dalam tabel/gambar dapat diperkecil dari teks sebelum dan 
+sesudahnya sampai ukuran 10 menggunakan satu spasi. Tabel disajikan tanpa  garis 
+tegak. Garis datar hanya tampak pada baris awal, di bawah judul kolom, dan  baris 
+akhir pada tabel; 
+4) Sumber tabel (khusus untuk data sekunder) diletakkan di bawah tabel yaitu setelah  
+keterangan tabel dan menggunakan Times New Roman ukuran 10; 
+5) Gambar dalam naskah Skripsi dapat berupa bagan, grafik, peta, diagram, ataufoto.  
+Judul gambar beserta nomornya ditempatkan di bawah gambar dengan jarak satu  
+spasi tanpa diakhiri dengan titik. Judul gambar beserta gambar berjarak empat spasi  
+dari uraian sebelum dan sesudahnya; 
+6) Judul gambar diletakkan di tengah apabila hanya terdiri dari satu baris. Judul gambar 
+yang terdiri dari dua baris ditulis dengan format menggantung (indent) dengan jarak 
+antar baris yang digunakan adalah satu spasi; 
+49 
+ 
+7) Gambar diletakkan pada paragraf yang terpisah dari uraian dengan posisi tengah 
+secara horizontal; 
+8) Sumber gambar dan keterangan (bila ada) diletakkan sebelum judul gambar 
+menggunakan Times New Roman ukuran 10; 
+9) Judul lampiran beserta dengan nomornya menggunakan Times New Roman 
+12 dan ditempatkan di atas lampiran tanpa diakhiri tanda baca titik. 
+6.7 Penulisan Kutipan dan Referensi pada Teks Utama 
+Pencantuman sumber rujukan adalah salah satu bentuk tanggung jawab akademis  
+penulis sekaligus merupakan bentuk apresiasi terhadap hal-hal yang pernah 
+dipublikasikan, ditulis, atau disampaikan oleh pemberi informasi. Cara penulisan sumber  
+rujukan dalam naskah terdiri dari kutipan langsung dan kutipan tidak langsung. 
+Kutipan langsung adalah kutipan pendapat, hasil penelitian atau hasil karya orang  
+lain yang disajikan sama persis dengan teks asli yang dikutip. Penulisan sumber kutipan  
+pada teks utama terdiri dari nama pengarang, tahun penerbitan, dan nomor  halaman. 
+Penulisan sumber untuk kutipan langsung dijelaskan sebagaiberikut: 
+1) Jika kutipan tidak lebih dari tiga baris, maka ditulis dengan jarak dua spasi dan diberi 
+tanda petik. Contoh: 
+ 
+2) Jika kutipan mencapai lebih dari tiga baris, maka kutipan diketik sejajar dengan  
+awal alenia baru, menggunakan jarak satu spasi, dan tanpa tanda petik. Contoh: 
+ 
+Akrom  (2014:55)  menyatakan  bahwa  ―Data  dikatakan  memiliki  distribusi 
+ 
+normal apabila perbandingan SD/rerata memiliki nilai skor <30%‖ 
+Menurut Parwata (2016:17), dalam pengobatan tradisional di Bali fungsi obat 
+akan mendasari takaran/perbandingan bahan obat, sebagai berikut: 
+Takaran/perbandingan bahan obat didasari atas fungsi obat tersebut  
+apakah sebagai obat dalam (oral/ masuk mulut) atau obat luar. Jika  
+dipergunakan sebagai obat luar (kulit) maka perbandingan tiap 
+unsurnya mempergunakan perbandingan angka 7, 9, 11 sedangkan bila 
+dipergunakan sebagai obat dalam (masuk mulut) maka memakai  
+perbandingan angka 1, 3, atau 5. 
+50 
+ 
+Kutipan tidak langsung adalah kutipan yang disusun dengan menuliskan buah 
+pikiran, hasil penelitian, karya atau pendapat seseorang (kelompok) dengan menggunakan 
+bahasa sendiri tanpa mengubah maknanya. Jarak pada kutipan tidak langsung 
+menggunakan dua spasi (sama dengan jarak baris dalam uraian/naskah) tanpa diberi tanda 
+kutip. Penulisan sumber untuk kutipan tidak langsung dijelaskan sebagai berikut: 
+3) Jika kutipan dituliskan dahulu, maka nama pengarang ditulis pada bagian akhir  
+kalimat dengan menyebutkan nama keluarga/belakang pengarang diikuti oleh tanda  
+baca koma dan tahun yang diapit oleh tanda kurung. Contoh: 
+ 
+4) Nama keluarga/belakang pengarang diikuti tahun yang diapit oleh tanda kurung, jika 
+kutipan dituliskan pada bagian akhir kalimat. Contoh: 
+5) Penulisan sumber rujukan dengan dua orang pengarang yaitu dengan mencantumkan  
+nama  akhir  kedua  pengarang  menggunakan  tanda  hubung  ―and‖ atau ―dan‖. 
+Contoh: 
+ 
+ 
+ 
+ 
+Sebanyak 40–50% kematian pada populasi yang menjalani dialisis 
+ 
+disebabkan oleh penyakit kardiovaskuler (Niwa, 2010). 
+Niwa (2010) menyatakan bahwa sebanyak 40–50% kematian pada populasi 
+yang menjalani dialisis disebabkan oleh penyakit kardiovaskuler. 
+Toksin uremik berperan dalam kerusakan kardiovaskuler yang merupakan 
+penyebab utama kematian pada penyakit ginjal kronis (Glorieux and 
+Vanholder, 2011). 
+Smeltzer and Bare (2012) menyatakan bahwa tindakan hemodialisis tidak  
+dapat merubah perjalanan alami yang mendasari penyakit ginjal dan juga tidak 
+dapatmengembalikan fungsi ginjal secara keseluruhan. 
+Indonesia termasuk negara yang mengalami peningkatan prevalensi gagal ginjal 
+kronis setiap tahunnya (Firmansyah dan Gatot, 2010). 
+51 
+ 
+6) Penulisan sumber rujukan dengan lebih dari dua orang pengarang yaitu dengan 
+mencantumkan nama akhir pengarang pertama diikuti singkatan ―et al.” atau dkk. 
+Contoh: 
+ 
+ 
+6.8 Penulisan Daftar Pustaka 
+ 
+Ketentuan umum penulisan daftar pustaka dalam Skripsi adalah sebagai 
+berikut: 
+1) Daftar referensi harus memuat semua sumber referensi yang digunakan dalam naskah 
+Skripsi; 
+2) Gelar pengarang tidak dicantumkan dengan keterangan tahun menggunakan empat 
+digit; 
+3) Daftar referensi disusun berdasarkan urutan abjad menggunakan jarak satu spasi; 
+4) Penulisan daftar pustaka menggunakan American Psychological Association Style; APA 
+5) Penulisan sitasi dan daftar pustaka harus menggunakan perangkat lunak referencing 
+manager, misalnya EndNote, Mendeley, atau Zotero. 
+6) Setiap pustaka acuan dalam daftar pustaka sedapatnya mencantumkan data 
+bibliografi sumber informasinya selengkap mungkin. Data yang perlu dicantumkan  
+adalah: 
+(1) Nama lengkap pengarang/penulis, editor atau lembaga yang bertanggung 
+jawab atas penerbitan pustaka tersebut; 
+(2) Judul buku/ artikel, bab/bagian dari buku atau majalah; 
+ 
+(3) Data penerbitan untuk buku/ berikut jilid, edisi, tahun terbit/penerbit, kota, dan 
+tebal atau jumlah halaman buku; 
+(4) Data penerbitan untuk majalah adalah judul majalah, volume/tahun, nomor,  
+tahun terbit, dan halaman artikel tersebut (yang dikutip); 
+7) Jika literatur ditulis oleh satu orang, nama penulis ditulis nama belakangnya lebih  
+dulu, kemudian diikuti singkatan (inisial) nama depan dan nama tengah,dilanjutkan  
+penulisan tahun, judul, dan identitas lain dari literatur/pustaka yang dirujuk; 
+Hemodialisis maupun hemodiafiltrasi tidak efektif dalam membantu 
+ 
+pembersihan serum indoxyl sulfate (Lin et al, 2011). 
+52 
+ 
+8) Jika penulis lebih dari dua orang, nama penulis pertama ditulis seperti aturan―6)‖, 
+dilanjutkan penulisan nama penulis kedua dan seterusnya; 
+9) Penulisan daftar pustaka tidak boleh menggunakan ―et al‖. sebagai penggantinama 
+penulis kedua dan seterusnya; 
+10) Beberapa contoh penulisan daftar pustaka berdasarkan bentuk sumber rujukan: 
+(1) Buku teks: 
+ 
+Daugirdas, J. T., P. G. Blake, and T. S. Ing. 2007. Handbook of Dialysis. 4th Edition. 
+Phildelphia. Lipincott William & Wilkins. 
+Hudson, J. Q. and L. D. Wanzy. 2014. Chronic Kidney Disease In Pharmacotherapy 
+A Pathophysiologic Approach. 9th Edition. The McGraw- Hill Education Inc. 
+Skorecki, K. 2012. Chronic Kidney Disease In Harrison's Principles of Internal  
+Medicine. 8th Edition. The McGraw-Hill Companies Inc. 
+(2) Buku teks terjemah: 
+ 
+Ansel, H. C. and S. J. Prince. 2004. Pharmaceutical Calculations: The 
+Pharmacist’s Handbook . Lippincot Williams & Wilkins. Philadelphia.  
+Terjemahan Aisyah, C. dan E. Elviana. 2006. Kalkulasi Farmasetik 
+Panduan Untuk Apoteker Cetakan I. EGC: Jakarta. 
+(3) Buku terbitan lembaga/badan/organisasi: 
+ 
+Indonesian Renal Registry. 2015. 8th Report of Indonesian Renal Registry 2015. 
+Perhimpunan Nefrologi Indonesia (PERNEFRI). Jakarta. 
+(4) Artikel dalam jurnal: 
+ 
+Fujii, H., K. Nakai, and M. Fukagawa. 2011. Role of Oxidative Stress and Indoxyl 
+Sulfate in Progression of Cardiovascular Disease in Chronic Kidney Disease.  
+Therapeutic Apheresis and Dialysis. 15(2): 125–128. 
+Ohtake, T. and S. Kobayashi. 2017. Impact of Vascular Calcification on 
+Cardiovascular Mortality in Hemodialysis Patients: Clinical Significance. 
+Mechanisms and Possible Strategies for Treatment. Renal Replacement  
+Therapy. 3(13): 1–11. 
+53 
+ 
+(5) Skripsi/tesis/disertasi: 
+ 
+Pebriarti, I. W. 2018. Hubungan Kadar Serum Indoxyl Sulfate dengan Lama 
+Menjalani Hemodialisis pada Pasien Penyakit Ginjal Kronik di RSD dr 
+Soebandi. Tesis. Program Magister Farmasi Klinik Universitas Airlangga.  
+Surabaya. 
+Sari, L. P. 2021. Hubungan Waktu Tunggu Pelayanan Resep dengan Kepuasan  
+Pasien di Instalasi Rawat Jalan Rumah Sakit Bhayangkara Bondowoso. 
+Skripsi. Program Studi Sarjana Farmasi Fakultas Ilmu Kesehatan Universitas  
+dr Soebandi. Jember. 
+(6) Artikel dari internet: 
+ 
+Priyambodo, B. 2016. Lama Obat Bisa Digunakan Setelah Segel Terbuka. 14 
+Agustus 2016. www.tribunjogja.com dan http://farmasi.ugm.ac.id. 16 
+Oktober 2020 (7:11). 
+(7) Artikel dari majalah atau surat kabar: 
+ 
+Setyanto, D. B. 2020. Asma pada Anak dan Terapi Nebulisasi Kortikosteroid. 
+Medisina. Edisi XXXVI. 3 Juli. Halaman 28–29. Jakarta. 
+(8) Berita dari majalah atau surat kabar: 
+ 
+Koran KOMPAS. 2021. Menuju Kekebalan Komunitas Nusantara. Harian Kompas. 
+18 Januari. Halaman 8. Jakarta. 
+54 
+ 
+BAB 8 PELAKSANAAN UJIAN SKRIPSI 
+ 
+7.1 Pelaksanaan Ujian 
+7.1.1 Sifat Ujian 
+Ujian skripsi/skripsi bersifat komprehensif dalam artian bahwa ujian  
+bersifat menyeluruh selagi berkaitan dengan materi skripsi dan 
+dilaksanakan secara lisan dan dihadiri oleh dosen pembimbing dan  
+penguji secara bersamaan. Masing-masing dosen penguji dan 
+pembimbing memberikan pertanyaan sesuai waktu yang telah 
+ditetapkan. 
+7.1.2 Kehadiran Penguji 
+Ujian dilaksanakan oleh suatu tim dan dapat dilangsungkan jika dihadiri 
+dosen pembimbing utama, ketua penguji dan penguji anggota. Dosen 
+pembimbing utama bertindak sebagai pimpinan sidang saat ujian. 
+7.1.3 Atribut Ujian 
+1) Peserta ujian memakai pakaian rapi dan sopan dengan ketentuan  
+mengenakan seragam batik dan jas almamater Universitas dr. 
+Soebandi. 
+2) Penguji memakai batik atau kemeja atau mengenakan blazer bagi  
+wanita. 
+7.1.4 Prosedur Pelaksanaan Ujian 
+1) Paling lambat setengah jam sebelum ujian Skripsi berlangsung 
+mahasiswa wajib hadir dan mempersiapkan diri; 
+2) Saat ujian berpakaian rapi, jas almamater, dan bersepatu; 
+3) Saat ujian membawa laptop sendiri dan menyiapkan power point 
+untuk persentasi ujian Skripsi; 
+4) Saat ujian mahasiswa membawa Log Book penelitiannya; 
+5) Ujian Skripsi berlangsung ± 60 menit, 10-15 menit  pertama 
+diberikan kesempatan   seluas-luasnya   kepada   mahasiswa untuk
+mempresentasikan hal-hal pokok dari Skripsinya; 
+6) Pembimbing anggota selaku pimpinan sidang memimpin ujian  
+Skripsi (membuka dan menutup pelaksanaan ujian); 
+55 
+ 
+7) Pimpinan sidang memberikan waktu kepada mahasiswa untuk 
+menyajikan skripsi selama 10-15 menit; 
+8) Tim dosen penguji mengajukan pertanyaan atau komentar kepada 
+mahasiswa setelah disilahkan oleh pimpinan sidang; 
+9) Mahasiswa disilahkan menyampaikan respon terhadap 
+pertanyaan atau komentar dari dosen penguji; 
+10) Setelah ujian selesai mahasiswa wajib memberikan laporan 
+kepada Komisi Bimbingan. 
+ 
+ 
+7.1.5 Penilaian Ujian 
+Penguji memberikan penilaian berdasarkan format yang telah disiapkan 
+dengan ketentuan sebagai berikut: 
+1) Tiap penguji memberikan hasil penilaiannya pada tiap komponen 
+dalam bentuk angka 0—10 pada kolom nilai dalam format 
+penilaian ujian Skripsi; 
+2) Selisih nilai yang diberikan oleh para penguji dan pembimbing  
+tidak melebihi 15, jika lebih maka nilai tersebut harus ditinjau  
+ulang. Tim penguji membuat kesepakatan hasil ujian secara 
+terbuka tanpa dihadiri oleh mahasiswa; 
+3) Penguji mengisi dan memberikan format penilaian kepada 
+pimpinan sidang. Nilai dari penguji selanjutnya direkap oleh 
+pimpinan sidang; 
+4) Nilai akhir ujian skripsi adalah nilai rerata dari para penguji  
+dengan pembulatan ke bawah dua desimal; 
+5) Pada ujian akhir, nilai lulus adalah A atau B. Mahasiswa yang  
+memperoleh nilai kurang dari 70,00 dinyatakan tidak lulus. 
+7.2 Pengumuman Hasil Ujian 
+1) Pengumuman hasil ujian skripsi/skripsi disampaikan oleh segera setelah ujian 
+selesai dengan dihadiri oleh tim penguji; 
+2) Apabila ada alasan tertentu,  pengumuman hasil ujian dapat ditunda atas  
+persetujuan semua penguji; 
+3) Mahasiswa yang tidak lulus ujian akhir pada kesempatan pertama, diberi  
+kesempatan mengulang 2 (dua) kali jika batas masa pendidikan maksimal  
+belum terlampaui. 
+56 
+ 
+7.3 Perbaikan Naskah Skripsi 
+Perbaikan naskah Skripsi ditetapkan dengan ketentuan sebagai berikut: 
+1) Peserta ujian yang dinyatakan lulus berkewajiban segera memperbaiki naskah 
+skripsi dan berkonsultasi dengan dosen pembimbing dalam kurun waktu  
+paling lama satu bulan; 
+2) Mahasiswa wajib menyatakan bahwa skripsinya bukan merupakan hasil 
+plagiat yang dibuktikan dengan pemeriksaan plagiasi di LPPM Universitas  
+dr. Soebandi dilengkapi dengan surat pernyataan yang ditandatangani oleh  
+mahasiswa di atas materai Rp 10.000,- 
+57 
+ 
+DAFTAR PUSTAKA 
+ 
+ 
+Akrom. 2014. Dasar-Dasar Evidence Based Medicine Bagi Mahasiswa Farmasi. 
+Pustaka Imany. Yogyakarta. 
+ 
+Ansel, H. C. and S. J. Prince. 2004. Pharmaceutical Calculations: The 
+Pharmacist’s Handbook . Lippincot Williams & Wilkins. Philadelphia.  
+Terjemahan Aisyah, C. dan E. Elviana. 2006. Kalkulasi Farmasetik 
+Panduan Untuk Apoteker Cetakan I. EGC: Jakarta. 
+ 
+Aprilyana, C. D. T. 2021. Uji Antiinflamasi dan Analgesik Ekstrak Etil Asetat Daun 
+Cabai Rawit ( Capsicum frutescens L.) Pada Mencit dengan Metode Induksi  
+Formalin. Skripsi. Program Studi Sarjana Fakultas Ilmu Kesehatan 
+Universitas dr. Soebandi. Jember. 
+ 
+Daugirdas, J. T., P. G. Blake, and T. S. Ing. 2007. Handbook of Dialysis. 4th Edition. 
+Phildelphia. Lipincott William & Wilkins. 
+ 
+Fakultas Ilmu Administrasi Universitas Brawijaya. 2021. Buku Pedoman Penulisan 
+Skripsi 2020/2021. Fakultas Ilmu Administrasi Universitas Brawijaya. 
+Malang. 
+ 
+Firmansyah, M. A. dan D. Gatot. 2010. Usaha Memperlambat Perburukan Penyakit 
+Ginjal Kronik ke Penyakit Stadium Akhir. Cermin Dunia Kedokteran: 
+Jakarta. 
+ 
+Fujii, H., K. Nakai, and M. Fukagawa. 2011. Role of Oxidative Stress and Indoxyl 
+Sulfate in Progression of Cardiovascular Disease in Chronic Kidney Disease. 
+Therapeutic Apheresis and Dialysis. Vol. 15(2): 125–128. 
+ 
+Glorieux, G., and R. Vanholder. 2011. New Uremic Toxins-Which Solutes Should 
+be Removed?. Contrib Nephrol. Vol.168: 117 – 128. 
+ 
+Hermawan, I. 2019. Teknik Menulis Karya Ilmiah Berbasis Aplikasi dan 
+Metodologi. Penerbit Hidayatul Quran Kuningan. Kuningan. 
+ 
+Hudson, J. Q. and L. D. Wanzy. 2014. Chronic Kidney Disease In 
+Pharmacotherapy A Pathophysiologic Approach . 9th Edition. The McGraw - 
+Hill Education Inc. 
+ 
+Indonesian Renal Registry. 2015. 8th Report of Indonesian Renal Registry 2015. 
+Perhimpunan Nefrologi Indonesia (PERNEFRI). Jakarta 
+ 
+Koran KOMPAS. 2021. Menuju Kekebalan Komunitas Nusantara. Harian 
+Kompas. 18 Januari. Halaman 8. Jakarta. 
+ 
+ 
+Lin, C.J., C. K. Chuang, H. L. Liu, T. J. Wang, H. H. Chen, F. J. Sun, and C. J. Wu. 
+2011. The Serum Levels of P-Cresol and Indoxyl Sulfate in Different 
+Hemodialysis Vintage. Journal of Clinical Medicine and Research. Vol. 3 (8): 
+114 – 119. 
+ 
+Mansyur, U. 2018. Kiat dan Teknik Penulisan Skripsi Bagi Mahasiswa. 
+https://osf.io/preprints/inarxiv/juds7/download. 24 Oktober 2021. 
+ 
+Niwa, T.. 2010. Uremic Toxicity of Indoxyl Sulfate. Nagoya J Med Sci. Vol. 72: 1 
+– 11. 
+ 
+Ohtake, T. and S. Kobayashi. 2017. Impact of Vascular Calcification on 
+Cardiovascular Mortality in Hemodialysis Patients: Clinical Significance.  
+Mechanisms and Possible Strategies for Treatment. Renal Replacement  
+Therapy. Vol. 3(13): 1–11. 
+ 
+Parwata, I. M. D. 2016. Diktat Obat Tradisional . Laboratorium Kimia Organik  
+FMIPA Universitas Udayana. Bali. 
+ 
+Pebriarti, I. W. 2018. Hubungan Kadar Serum Indoxyl Sulfate dengan Lama 
+Menjalani Hemodialisis pada Pasien Penyakit Ginjal Kronik di RSD dr 
+Soebandi. Tesis. Program Magister Farmasi Klinik Universitas Airlangga.  
+Surabaya. 
+ 
+Peraturan Menteri Pendidikan dan Kebudayaan Republik Indonesia Nomor 3 Tahun 
+2020. Standar Nasional Pendidikan Tinggi . 28 Januari 2020. Berita  Negara 
+Tahun 2020 Nomor 47. Jakarta. 
+ 
+Priyambodo, B. 2016. Lama Obat Bisa Digunakan Setelah Segel Terbuka. 14 
+Agustus 2016. www.tribunjogja.com dan http://farmasi.ugm.ac.id. 16 
+Oktober 2020 (7:11). 
+ 
+Rif’ah, E. N., A. M. Wati., dan D.A. Kusumawardani, 2019. Panduan Penulisan 
+Ilmiah. UPT Percetakan & Penerbitan Universitas Jember. Jember. 
+ 
+Sari, L. P. 2021. Hubungan Waktu Tunggu Pelayanan Resep dengan Kepuasan  
+Pasien di Instalasi Rawat Jalan Rumah Sakit Bhayangkara Bondowoso. 
+Skripsi. Program Studi Sarjana Farmasi Fakultas Ilmu Kesehatan Universitas 
+dr Soebandi. Jember. 
+ 
+Saukah, A., Y. Basthomi, I. A. Basuki, Efendi, N. Hidayah, W. Kamdi, A. 
+Mukhadis, dan Suyono. 2017. Pedoman Penulisan Karya Ilmiah: Skripsi,  
+Skripsi, Tesis, Disertasi, Artikel, Makalah, dan Laporan Penelitian . Edisi  
+Keenam. Universitas Negeri Malang Press. Malang. 
+ 
+Setyanto, D. B. 2020. Asma pada Anak dan Terapi Nebulisasi Kortikosteroid. 
+Medisina. Edisi XXXVI. 3 Juli. Halaman 28–29. Jakarta. 
+ 
+Skorecki, K. 2012. Chronic Kidney Disease In Harrison's Principles of Internal  
+Medicine. 8th  Edition. The McGraw-Hill Companies Inc. 
+ 
+Smeltzer, S.C., and B. G. Bare. 2002. Buku Ajar Keperawatan Medikal Bedah  
+Brunner dan Suddarth, 8th Edition. Vol. 1,2. Alih bahasa oleh Waluyo, A.  
+Jakarta: EGC. 
+ 
+Stevani, H., 2016,  Modul Bahan Ajar Cetak Farmasi Praktikum Farmakologi,  
+Kementrian Kesehatan RI, Jakarta 
+ 
+Vitaliati, T., I. A. Silvanasari, Y. Handayani, D. A. Susanti, F. Ekaprasetia, S.  
+Mayasari, N. Isnawati, R. Darotin, A. E. Pranata, A. Fatarona, F. Novitasari, 
+W. Anggitasari, E. Anggraeni. 2020. Buku Pedoman Penulisan Skripsi 
+Mahasiswa. STIKES dr. Soebandi Jember. Jember. 
+ 
+Wibowo, R., Zulfikar, H. Paramu, D. Rato, H. S. Addy, E. Sulistyaningsih, S.  
+Bukhori, A. Tallapessy, N. D. Gianawati, Siswoyo, A. Rijadi, dan Nawiyanto, 
+2016. Pedoman Penulisan Karya Ilmiah. UPT Penerbitan Universitas Jember. 
+Jember. 
+Lampiran 1 Contoh Halaman Sampul 
+HUBUNGAN WAKTU TUNGGU PELAYANAN RESEP DENGAN 
+KEPUASAN PASIEN DI INSTALASI RAWAT JALAN 
+RUMAH SAKIT X KABUPATEN JEMBER 
+(Huruf Times New Roman, bold, ukuran 14, satu spasi) 
+(bentuk piramida terbalik) (Tiga spasi) 
+ 
+ 
+ 
+ 
+(Tiga spasi) 
+SKRIPSI/LAPORAN TUGAS AKHIR 
+(Huruf Times New Roman, bold, ukuran 14) 
+ 
+ 
+ 
+(Ukuran: 5cm x 5cm) 
+ 
+ 
+Oleh: 
+Lintang Purnama Sari 
+NIM 21050012 
+(Huruf Times New Roman, bold, ukuran 12, satu spasi) 
+ 
+ 
+ 
+ 
+PROGRAM STUDI ……………. 
+FAKULTAS ILMU KESEHATAN 
+UNIVERSITAS dr. SOEBANDI 
+JEMBER 
+2024 
+(Huruf Times New Roman, bold, ukuran 12, satu spasi) 
+
+Lampiran 2 Contoh Halaman Judul 
+HUBUNGAN WAKTU TUNGGU PELAYANAN RESEP DENGAN 
+KEPUASAN PASIEN DI INSTALASI RAWAT JALAN 
+RUMAH SAKIT X KABUPATEN JEMBER 
+(Huruf Times New Roman, bold, ukuran 14, satu spasi) 
+(bentuk piramida terbalik) (Tiga spasi) 
+ 
+ 
+(Dua spasi) SKRIPSI/LAPORAN TUGAS AKHIR 
+(Huruf Times New Roman, bold, ukuran 14) 
+ 
+Untuk Memenuhi Persyaratan 
+Memperoleh Gelar ………………………. 
+(Huruf Times New Roman, ukuran 12, satu spasi) 
+ 
+(Ukuran: 5cm x 5cm) 
+ 
+Oleh: 
+Lintang Purnama Sari 
+NIM 21050012 
+(Huruf Times New Roman, bold, ukuran 12, satu spasi) 
+ 
+ 
+PROGRAM STUDI ……………. 
+FAKULTAS ILMU KESEHATAN 
+UNIVERSITAS dr. SOEBANDI 
+JEMBER 
+2024 
+(Huruf Times New Roman, bold, ukuran 12, satu spasi) 
+
+Lampiran 3 Contoh Halaman Persetujuan Pembimbing 
+ 
+ 
+LEMBAR PERSETUJUAN 
+ 
+ 
+ 
+ 
+Proposal penelitian/Hasil penelitian ini telah diperiksa oleh pembimbing 
+dan telah disetujui untuk mengikuti seminar proposal/seminar hasil 
+pada Program Studi ........................... Universitas dr.Soebandi 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Jember,… ............. 2024 
+Pembimbing Utama, 
+(.......................................) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Lampiran 4 Contoh Halaman Pengesahan 
+ 
+ 
+ 
+HALAMAN PENGESAHAN 
+ 
+ 
+Skripsi/Laporan Tugas Akhir yang berjudul Hubungan Waktu Tunggu 
+Pelayanan Resep dengan Kepuasan Pasien di Instalasi Rawat Jalan 
+Rumah Sakit X Kabupaten Jember telah diuji dan disahkan oleh Dekan 
+Fakultas Ilmu Kesehatan pada: 
+Nama : 
+ 
+NIM : 
+ 
+Hari, Tanggal : 
+ 
+Program Studi : Nama Program Studi…… 
+Universitas dr. Soebandi 
+ 
+Tim Penguji 
+Ketua Penguji, 
+ 
+ 
+ 
+Penguji II, Penguji III, 
+ 
+ 
+ 
+ 
+ 
+ 
+Mengesahkan, 
+Dekan Fakultas Ilmu Kesehatan, 
+Universitas dr. Seobandi 
+Lampiran 5 Lembar Pernyataan Orisinalitas 
+ 
+ 
+PERNYATAAN ORISINALITAS SKRIPSI/LAPORAN TUGAS AKHIR 
+ 
+ 
+Yang bertandantangan di bawah ini: 
+ 
+Nama : ………………………………………… 
+ 
+NIM : …………………………………………. 
+ 
+Program Studi : …………………………………………. 
+ 
+Menyatakan dengan sesungguhnya bahwa skripsi/laporan tugas akhir yang 
+saya tulis ini benar-benar merupakan hasil karya saya sendiri dan bukan 
+merupakan pengambilalihan tulisan atau hasil tulisan orang lain. 
+Apabila di kemudian hari terbukti atau dapat dibuktikan bahwa sebagian 
+atau keseluruhan skripsi/laporan tugas akhir ini adalah karya orang lain atau 
+ditemukan adanya pelanggaran terhadap etika keilmuan dalam skripsi/laporan 
+tugas akhir ini, maka saya bersedia menerima sanksi atas perbuatan tersebut. 
+Demikian pernyataan ini saya buat dengan sebenar-benarnya. 
+ 
+ 
+Jember, ……………… 
+Yang menyatakan, 
+ 
+ 
+ 
+ 
+ 
+(Materai 10.000) 
+Lampiran 6 Contoh Abstrak 
+ 
+ 
+ABSTRAK 
+ 
+ 
+Dinda Tyan Aprilyana, Candra* Aprila Fajrin, Fifteen** Weni Pebriarti, 
+Iski***.2021. Uji Aktivitas Analgesik Ekstrak Etil Asetat Daun Cabai Rawit  
+(Capsicum frutescens L.) pada Mencit (Mus musculus) dengan Metode Induksi 
+Formalin. Skripsi. Program Studi Sarjana Farmasi Universitas dr. Soebandi. 
+ 
+ 
+Daun cabai rawit ( Capsicum frutescens L.) merupakan salah satu obat herbal  
+sebagai analgesik yang terbukti mengandung senyawa golongan flavonoid dengan 
+mekanisme kerja menghambat sintesis enzim siklooksigenase -2(COX-2) pada 
+jalur metabolisme asam arakidonat. Tujuan penelitian ini untuk mengamati  
+aktivitas ekstrak etil asetat daun cabai rawit sebagai analgesik dengan parameter  
+penurunan waktu menjilat (licking time). Desain penelitian ini adalah true 
+experimental dengan metode induksi formalin untuk memicu timbulnya rasa nyeri 
+30 menit setelah pemberian perlakuan. Hewan uji yang digunakan adalah 24 ekor 
+mencit putih (Mus musculus) jantan yang dibagi dalam 6 kelompok yaitu  kontrol 
+normal (CMC Na0,5%), kontrol negatif (CMC Na 0,5%), kontrol positif  (natirum 
+diklofenak 3, 25mg/kgBB), serta tiga kelompok perlakuan dosis ekstrak  75 
+mg/kgBB, 150 mg/kgBB, dan 300 mg/kgBB. Uji analgesik dengan Mann- Whitney 
+U menunjukkan bahwa ekstrak etil asetat daun cabai rawit memiliki  perbedaan 
+yang bermakna dan signifikan dengan kelompok kontrol negatif pada  setiap 
+dosisnya (p<0,05). Dosis ekstrak 300mg/kgBB merupakan dosis dengan  aktivitas 
+analgesik terbaik. Ekstrak etil asetat daun cabai rawit (Capsicum frutescens L.) 
+dapat memberikan aktivitas analgesik pada mencit yang diinduksi formalin. 
+ 
+ 
+Kata Kunci: Capsicum frutescens L., analgesik, induksi formalin 
+*Peneliti 
+**Pembimbing  Utama
+Lampiran 7 Contoh Abstract 
+ 
+ 
+ABSTRACT 
+ 
+Fawzia Khairunnisa, Salwa* Suprapti, Budi** Weni Pebriarti, Iski***.2021 . The 
+Relationship Between Serum Level of Indoxyl Sulfate With Duration of 
+Undergoing Hemodialysis in Patients With Chronic Kidney Disease (CKD) at  
+Dr. Soebandi Hospital. Essay. Pharmacy Undergraduate Study Program, 
+University of dr. Soebandi. 
+ 
+ 
+Indoxyl sulfate belong to the group of protein -bound uremic toxin and accumulate 
+as renal function declines. Several studies have demonstrated that indoxyl sulfate  
+induce vascular inflammation, endothelial dysfunction, and vascular calcification,  
+which may explain the association with the development of CVD anddeath in CKD 
+patients. Due to its high protein bound fraction and high distribution volume  
+resulting in low dialytic clearance, indoxyl sulfate is poorly removed by 
+hemodialysis. Consequently, indoxyl sulfate may accumulate in the serum in 
+patients undergo hemodialysis. This study aims to analyze the correlation between  
+serum level of indoxyl sulfate with duration of undergoing hemodialysis in CKD  
+patients at dr. Soebandi Hospital. This was an observational cross sectional 
+prospective study that analyzedcorrelation between serum level of indoxyl sulfate  
+with duration of undergoing  hemodialysis in CKD patients. Blood samples from  
+54 patients who met the inclusion and exclusion criteria were taken immediately 
+before hemodialysis. Serum levels of indoxyl sulfate were measured using ELISA  
+Sandwich and Human Indoxyl Sulfate. The correlation analysis was perform by  
+using Pearson correlationif data were normally distributed, or Spearman’s Test if  
+data were not normally distributed. The mean serum level of indoxyl sulfate was 
+37.062 µg/mL ± 23.205 µg/mL. The serum level of indoxyl sulfate was significantly 
+and positivelycorrelated with duration of hemodialysis treatment (p <  0.05). Our 
+result inferred that patients undergoing longer hemodialysis maylead to  higher 
+serum level of indoxyl sulfate. 
+Keywords: Indoxyl Sulfate, Chronic Kidney Disease, Hemodialysis 
+*Author 
+ 
+**Main supervisor 
+ 
+Lampiran 8 Contoh Kata Pengantar 
+ 
+ 
+ 
+ 
+KATA PENGANTAR 
+ 
+ 
+Alhamdulillah, segala puji dan syukur bagi Allah SWT yang telah 
+melimpahkan rahmat serta hidayah-Nya sehingga penyusunan Proposal 
+Skripsi/Skripsi/Laporan Tugas Akhir ini dapat terselesaikan. Proposal 
+Skripsi/Skripsi/Laporan Tugas Akhir ini disusun untuk memenuhi persyaratan 
+memperoleh gelar Sarjana Farmasi di Program Studi Farmasi Fakultas Ilmu 
+Kesehatan Universitas dr. Soebandi degan judul ―Uji Aktivitas Analgesik Ekstrak 
+Etil Asetat Daun Cabai Rawit (Capsicum frutescens L.) pada Mencit (Mus 
+musculus) dengan Metode Induksi Formalin‖. 
+Selama proses penyusunan penulis dibantu dan dibimbing oleh berbagai 
+pihak, oleh karena itu penulis mengucapkan terima kasih kepada: 
+1. Andi Eka Pranata, S.ST., S.Kep., Ns., M.Kes selaku Rektor Universitas 
+dr. Soebandi  
+2. Ai Nur Zannah, S.ST., M. Keb selaku Dekan Fakultas Ilmu Kesehatan 
+Universitas dr. Soebandi 
+3. apt. Dhina Ayu Susanti, S.Farm., M.Kes selaku Ketua Program Studi Sarjana 
+Farmasi Universitas dr. Soebandi 
+4. Selaku pembimbing utama  
+5. Selaku ketua penguji 
+6. Selaku penguji anggota 
+Penulis tentu menyadari bahwa Proposal Skripsi/Skripsi/Laporan Tugas 
+Akhir ini masih jauh dari kata sempurna. Penulis mengharapkan kritik serta saran  
+dari semua pihak demi kesempurnaan Proposal Skripsi/Skripsi/Laporan Tugas 
+Akhir ini. 
+Semoga Proposal Skripsi/Skripsi/Laporan Tugas Akhir ini dapat 
+bermanfaat. Akhir kata penulis mengucapkan terima kasih. 
+Jember, ...................... 2024 
+Lampiran 9 Contoh Daftar Isi 
+ 
+ 
+ 
+DAFTAR ISI 
+Halaman 
+HALAMAN SAMPUL .....................................................................................................i 
+HALAMAN JUDUL ...................................................................................................... ii 
+HALAMAN PERSETUJUAN PEMBIMBING .......................................................... iii 
+HALAMAN PENGESAHAN ........................................................................................iv 
+HALAMAN PERNYATAAN ORISINALITAS ........................................................... v 
+HALAMAN PEMBIMBINGAN SKRIPSI ..................................................................vi 
+HALAMAN PERSEMBAHAN ................................................................................... vii 
+MOTTO ....................................................................................................................... viii 
+ABSTRAK ......................................................................................................................iv 
+ABSTRACT ...................................................................................................................... x 
+KATA PENGANTAR ....................................................................................................xi 
+DAFTAR ISI ................................................................................................................. xii 
+DAFTAR TABEL ........................................................................................................ xiii 
+DAFTAR GAMBAR ....................................................................................................xiv 
+DAFTAR LAMPIRAN ................................................................................................. xv 
+DAFTAR SINGKATAN ..............................................................................................xvi 
+BAB I PENDAHULUAN ................................................................................................ 1 
+1.1 (Judul Subbab) ............................................................................................................ 1 
+1.2 (Judul Subbab) ............................................................................................................ 5 
+1.3 (Judul Subbab) ............................................................................................................ 5 
+1.3.1 (Judul Sub-Subbab) .................................................................................................. 6 
+1.3.2 (Judul Sub-Subbab) .................................................................................................. 7 
+dan seterusnya…. 
+Lampiran 10 Contoh Daftar Tabel 
+ 
+ 
+ 
+DAFTAR TABEL 
+ 
+ 
+ 
+Halaman 
+Tabel 1.1 Keaslian Penelitian ............................................................................................ 6 
+Tabel 4.1 Definisi Operasional ........................................................................................ 33 
+Tabel 5.1 Hasil Pengukuran Rata – rata Tebal Plantar dan Nilai SD .............................. 51 
+Tabel 5.2 Hasil    Rata–rata    %    Daya    Antiinflamasi   Tiap    Kelompok 
+Perlakuan ............................................................................................................... 55 
+Lampiran 11 Contoh Daftar Gambar 
+ 
+ 
+ 
+ 
+DAFTAR GAMBAR 
+ 
+ 
+Halaman 
+2.1 Tumbuhan Cabai Rawit ............................................................................................... 7 
+2.2 Patofisiolog iInflamasi .............................................................................................. 12 
+2.3 Patofisiologi Nyeri .................................................................................................... 16 
+2.4 Struktur Kimia Formalin ........................................................................................... 18 
+2.5 Struktur Kimia Natrium Diklofenak ......................................................................... 20 
+2.6 Mencit (Mus musculus) ............................................................................................. 25 
+3.1 Kerangka Konsep ...................................................................................................... 27 
+4.1 Alur Pengolahan Data ............................................................................................... 44 
+Lampiran 12 Contoh Daftar Lampiran 
+ 
+DAFTAR LAMPIRAN 
+Halaman 
+Lampiran 1 Determinasi Tanaman .................................................................................. 85 
+Lampiran 2 Etika Penelitian ............................................................................................ 86 
+Lampiran 3 Perhitungan Dosis Natrium Diklofenak ....................................................... 87 
+Lampiran 4 Tabel Hasil Pengukuran Tebal Plantar Mencit ............................................ 90 
+Lampiran 5 Tabel Hasil Perhitungan Daya Antiinflamasi .............................................. 92 
+Lampiran 13 Contoh Daftar Singkatan/Simbol 
+ 
+DAFTAR SINGKATAN 
+ 
+ 
+ 
+AF : Atrial Fibrillation 
+AGEs : Advanced Glycation End-Products 
+AV : Arterio Venousa 
+AVG : Arterio Venous Graft 
+BUN : Blood Urea Nitrogen 
+CCP : Calciprotein Particle 
+CHF : Congestive Heart Failure 
+CRP : C-reactive Protein 
+CYP2E1 : Cytochrome P450 2E1 
+DCM : Dilated Cardiomyopathy 
+ELISA : Enzyme Linked Immunosorbent Assays 
+ERK : Extracellular-Signal Regulated Kinase 
+HD : Hemodialisis 
+HIV : Human Immunodeficiency 
+HUVECs : Human Vascular Endotelial Cells 
+ICAM-1 : Intercellular Adhesion Molcule-1 
+IL-6 : Interleukin-6 
+IL-1β : Interleukin-1β 
+Lampiran 14 Contoh Inform Consent 
+ 
+ 
+ 
+ 
+SURAT PERMOHONAN KESEDIAAN MENJADI RESPONDEN 
+ 
+ 
+Kepada: 
+Yth. Bapak/Ibu/Saudara/i 
+di- Desa ……………………. 
+Kecamatan …………………. 
+ 
+ 
+Dengan hormat, 
+Yang bertanda tangan dibawah ini adalah mahasiswa Program Studi Ilmu 
+Keperawatan Universitas dr. Soebandi: 
+Nama : …………………………………………………… 
+NIM : …………………………………………………… 
+Akan  melakukan   penelitian   tentang   ―………………………………………… 
+………………………………………………………………… ………………….‖  
+maka saya mengharapkan bantuan Bapak/Ibu/Saudara/i untuk berpartisipasi dalam 
+penelitian ini dengan responden pada penelitian ini. 
+Partisipasi Bapak/Ibu/Saudara/i bersifat bebas artinya tanpa adanya sanksi  
+apapun. Semua informasi dan data pribadi Bapak/Ibu/Saudara/i atas penelitian ini  
+tetap dirahasiakan oleh peneliti. 
+Jika Bapak/Ibu/Saudara/i bersedia menjadi responden dalam penelitian kami 
+mohon untuk menandatangani formulir persetujuan menjadi peserta penelitian.  
+Demikian permohonan saya, atas kerjasama dan perhatiannya saya ucapkan terima 
+kasih. 
+Jember, ...................... 2024 
+Peneliti, 
+Lampiran 15 Contoh Persetujuan Menjadi Responden 
+ 
+ 
+PERSETUJUAN MENJADI RESPONDEN 
+ 
+ 
+Yang bertandatangan di bawah ini: 
+Nama : ……………………………………….. 
+Umur : ………………………………………... 
+Menyatakan bersedia menjadi subjek (responden) dalam penelitian yang dilakukan oleh 
+mahasiswa Program Studi Ilmu Keperawatan Universitas dr. Soebandi yang tertanda di  
+bawah ini: 
+Nama   : ………………………………………… 
+NIM     : ………………………………………… 
+Judul : ……………………………………………………………………… 
+ 
+……………………………………………………………………… 
+ 
+Saya telah mendapatkan informasi tentang penelitian tersebut dan mengerti 
+tujuan dari penelitian tersebut, demikian pula kemungkinan manfaat dan resiko 
+dari keikutsertaan saya. Saya telah mendapatkan kesempatan untuk bertanya dan 
+seluruh pertanyaan saya telah dijawab dengan cara yang saya mengerti. 
+Saya mengerti bahwa keikutsertaan saya ini adalah suka rela dan saya bebas 
+untuk berhenti setiap saat, tanpa memberikan alasan apapun. Dengan 
+menandatangani formulir ini, saya juga menjamin bahwa informasi yang saya 
+berikan adalah benar. 
+ 
+ 
+ 
+Jember, ...................... 2024 
+Responden, 
+Lampiran 16 Form Usulan Kepeminatan Departemen (Nama Program Studi) 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Lampiran 17 Contoh Form Usulan Judul Penelitian 
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+ 
+FORM USULAN JUDUL PENELITIAN 
+ 
+Nama Mahasiswa : ....................................................................................................................... 
+NIM : ....................................................................................................................... 
+Usulan Judul 
+Penelitian : .......................................................................................................................
+          
+....................................................................................................................... 
+Pembimbing I : ....................................................................................................................... 
+Menyatakan bahwa Usulan Judul Penelitian (Skripsi) mahasiswa tersebut di atas telah mendapat 
+rekomendasi dari kedua pembimbing untuk dilanjutkan menjadi proposal penelitian. 
+ 
+Pembimbing Utama 
+ 
+_________________________ 
+Tanggal 
+ 
+_________________________ 
+Mengetahui, 
+Komisi Bimbingan 
+ 
+ 
+ 
+_________________________ 
+ 
+ 
+Tanggal 
+ 
+ 
+ 
+_________________________ 
+ 
+ 
+ 
+Lampiran 18 Contoh Form Usul Studi Pendahuluan dan Penelitian  
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+FORM USULAN STUDI PENDAHULUAN DAN PENELITIAN 
+ 
+Nama Mahasiswa :......................................................................................................... 
+NIM   :......................................................................................................... 
+Keperluan Surat : (Studi Pendahuluan/Izin Penelitian) 
+Lokasi    :......................................................................................................... 
+Waktu   :......................................................................................................... 
+Usulan Judul  :........................................................................................................ 
+............................................................................................................................................. 
+     
+............................................................................................................................................. 
+     
+............................................................................................................................................. 
+ 
+Mengetahui, 
+Komisi Bimbingan 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(.....................................................) 
+NIK 
+ Jember ,                              2024 
+Mahasiswa Yang Mengajukan 
+ 
+ 
+ 
+ 
+ 
+ 
+(.........................................................) 
+NIM 
+ 
+ 
+ 
+Lampiran 19 Contoh Form Persyaratan Pendaftaran Ujian Proposal 
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+FORM PERSYARATAN 
+PENDAFTARAN UJIAN PROPOSAL 
+ 
+NAMA MAHASISWA : …....................................................... 
+NIM    : ……………………………………. 
+No. PERSYARATAN TTD TANGGAL 
+1 PEMBIMBING AKADEMIK 
+(Lulus PKK,Target Kompetensi 75%) 
+*Sesuai Prodi  
+ 
+ 
+……………………………… 
+ 
+2 BEBAS ADMINISTRASI  
+…………………………… 
+ 
+3 BEBAS AKADEMIK (SEKPRODI) 
+(Lulus semua nilai mata kuliah 100%) 
+ 
+…………………………… 
+ 
+4 Mengikuti seminar proposal minimal 
+3x dan menjadi Opponent minimal 1 x 
+ 
+……………………………… 
+ 
+5 PEMBIMBING UTAMA 
+(Minimal 8 x konsultasi) 
+ 
+……………………………… 
+ 
+ Jember, …………………………..2024 
+Mahasiswa, 
+ 
+ 
+(………………………………………….) 
+  
+Lampiran 20 Contoh Form Persyaratan Pendaftaran Ujian Sidang Skripsi 
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+FORM PERSYARATAN 
+PENDAFTARAN UJIAN SIDANG SKRIPSI 
+NAMA MAHASISWA : …....................................................... 
+NIM    : ……………………………………… 
+No. PERSYARATAN TTD TANGGAL 
+1 PEMBIMBING AKADEMIK 
+(Lulus PKK, Target Kompetensi 100%) 
+*sesuai Prodi 
+ 
+ 
+……………………………… 
+ 
+2 BEBAS ADMINISTRASI  
+…………………………….. 
+ 
+3 BEBAS AKADEMIK (SEKPRODI) 
+(Lulus semua nilai mata kuliah 100% , 
+IPK min 3,00) 
+ 
+ 
+…………………………….. 
+ 
+5 PEMBIMBING UTAMA 
+(Minimal 8 x konsultasi post penelitian) 
+ 
+……………………………… 
+ 
+6 TOEFL  
+……………………………… 
+ 
+7 POIN SKPI  
+……………………………… 
+ 
+8 Surat Uji Etik  
+……………………………… 
+ 
+ Jember, …………………………..2024 
+Mahasiswa, 
+ 
+ 
+(………………………………………….) 
+Lampiran 21 Contoh Form Kehadiran Seminar Proposal 
+ 
+ 
+ 
+ 
+ 
+
+Lampiran 22 Contoh Form Berita Acara Pelaksanaan Ujian 
+ 
+ 
+ 
+ 
+
+Lampiran 23 Contoh Form Daftar Hadir Penguji dan Peserta Ujian 
+ 
+ 
+ 
+ 
+ 
+
+Lampiran 24 Parameter Penilaian Bimbingan Proposal 
+ 
+ 
+PARAMETER PENILAIAN BIMBINGAN PROPOSAL 
+ 
+NO ASPEK YANG DINILAI Parameter 
+ Perencanaan kegiatan Proposal 
+Skripsi 
+Mampu menyampaikan pemikiran peneliti 
+pada saat proses bimbingan; 
+Kesesuaian pelaksanaan dengan jadwal yang 
+direncanakan oleh peneliti. 
+ Pengajuan rancangan penelitian yang 
+sistematis 
+Pengajuan penelitian secara runtut/urut serta 
+kemampuan berpikir kritis yang mengacu 
+pada perkembangan ilmu yang ada. 
+3. Penelitian berdasarkan evidance 
+based 
+Terdapat dasar dalam menentukan masalah 
+dengan membawa bukti/data. 
+4. Pemanfaatan waktu yang efektif, 
+efisien serta komitmen yang tinggi 
+Kedisiplinan, kualitas dan kontinuitas dalam 
+proses bimbingan. 
+5. Penyelesaian setiap pokok Proposal 
+Skripsi secara tepat waktu 
+Terdapat follow up tentang pembahasan 
+yang lalu dan selesai secara tepat waktu. 
+Lampiran 25 Parameter Penilaian Bimbingan Skripsi 
+ 
+ 
+PARAMETER PENILAIAN BIMBINGAN SKRIPSI 
+ 
+NO ASPEK YANG DINILAI Parameter 
+1. Kegiatan revisi Skripsi Ketepatan (waktu dan konten) dalam 
+merevisi hasil penelitian skripsi; 
+Kesesuaian pelaksanaan dengan jadwal yang 
+direncanakan oleh peneliti. 
+2. Konsep berpikir kritis yang mengacu 
+pada perkembangan penelitian terkait 
+Terdapat diskusi dalam proses konsultasi (2 
+arah). 
+3. Penelitian berdasarkan evidance 
+based 
+Terdapat dasar dalam pembahasan hasil 
+penelitian dengan membawa bukti/data. 
+4. Pemanfaatan waktu yang efektif, 
+efisien serta komitmen yang tinggi 
+Kedisiplinan, kualitas dan kontinuitas dalam 
+proses bimbingan. 
+5. Penyelesaian setiap pokok Skripsi 
+secara tepat waktu 
+Terdapat follow up tentang pembahasan 
+yang lalu dan selesai secara tepat waktu. 
+Lampiran 26 Parameter Penilaian Proposal 
+ 
+ 
+PARAMETER PENILAIAN PROPOSAL 
+ 
+NO. ASPEK YANG DINILAI PARAMETER 
+Penguasaan Penulisan Proposal 
+1. Sistematika penulisan Sesuai tata urutan yang berlaku: 
+Bagian muka: halaman judul,, halaman persetujuan, kata 
+pengantar, daftar isi dan lain-lain; 
+Bagian tubuh: pendahuluan, tinjauan teori, kerangka konseptual 
+dan hpipotesis, metodologi penelitian, hasil penelitian, dan 
+pembahasan, kesimpulan, dan saran; 
+Bagian belakang: daftar pustaka dan lampiran-lampiran. 
+2. Ketepatan penulisan 
+bahasa, istilah, dan kutipan 
+Pungtuasi (penggunaan tanda baca yang tepat); 
+Diksi (pemilihan kata yang tepat); 
+Cara menulis kutipan yang tepat. 
+Segi Ilmiah Tulisan Proposal 
+3. Judul Dalam lingkup riset kesehatan; 
+Memungkinkan untuk diteliti (penyelesaian masalah-masalah 
+kesehatan); 
+Memberikan kontribusi terhadap pengembangan praktik dan 
+ilmu kesehatan; 
+Orisinalitas. 
+4. Urutan dalam latar 
+belakang 
+Pernyataan masalah jelas; 
+Ada skala/justifikasi masalah; 
+Kronologis masalah (sebab dan akibat); 
+Konsep solusi. 
+5. Rumusan masalah Ringkas, jelas, dan sederhana; 
+Dapat diukur secara empiris dan objekti; 
+Memungkinkan untuk dijawab/diuji secara ilmiah; 
+Dalam bentuk kalimat pertanyaan; 
+Tiap kata di dalam kalimat pertanyaan hendaknya definitif (tidak 
+menimbulkan aneka tafsiran); 
+Bahasa dan kata-katanya dimengerti oleh orang lain. 
+6. Tujuan Menjawab dari pertanyaan masalah; 
+Ringkas, jelas, dan sederhana; 
+Menggunakan kata kerja yang operasional; 
+Dapat dicapai; 
+Spesifik. 
+7. Manfaat penelitian Diungkapkan secara teoritis dan praktis; 
+Tertulis manfaat bagi praktek dan pengembangan ilmu. 
+8. Relevansi Relevan dengan isu sekarang; 
+Relevansi teori dengan bidang keahlian. 
+9. Tinjauan teori Semua variabel dan faktor yang berhubungan dengan masalah 
+yang diteliti dituliskan sesuai update terkini; 
+Setiap pernyataan didukung oleh pustaka yang sesuai 
+(pengarang, tahun dan nomor halaman); 
+ 
+ 
+ 
+ 
+  Kejelasan dalam membuat parafrase dalam setiap penyataan. 
+10. Penyusunan kerangka Berdasarkan teori atau model secara umum; 
+Menggambarkan semua yang tertulis pada tinjauan teori; 
+Mengembangkan pernyataan hubungan. 
+11. Perumusan hipotesis Hipotesis dinyatakan dalam bentuk pernyataan (statement), 
+bukan dalam bentuk kalimat tanya; 
+Hipotesis harus tumbuh dari ilmu pengetahuan yang diteliti; 
+Hipotesis harus dapat diuji; 
+Hipotesis harus sederhana dan terbatas. 
+12. Penggunaan desain 
+penelitian dirumuskan 
+secara baik 
+Pemilihan desain/rancangan penelitian yang tepat; 
+Diuraikan desain penelitian secara teori; 
+Diuraikan desain penelitian yang dipakai di penelitian ini; 
+Dijelaskan pendekatan dalam proses meneliti. 
+13. Kerangka kerja (frame 
+work) 
+Pembuatan kerangka kerja yang tepat; 
+Dijelaskan pengertian kerangka kerja; 
+Diuraikan kegiatan yang dilakukan dari penentuan populasi 
+sampai dengan pembuatan simpulan; 
+Dibuat dalam diagram panah. 
+14. Variabel penelitian Variabel yang diukur dinyatakan dengan jelas; 
+Dijelaskan variabel penelitian secara umum secara jelas; 
+Dijelaskan variabel penelitian secara khusus secara jelas 
+Variabel independen: 
+Dijelaskan pengertian dari variabel independen; 
+Diuraikan variabel yang dipakai dalam penelitian ini dengan 
+jelas, singkat, dan padat. 
+Variabel dependen: 
+Dijelaskan pengertian dari variabel dependen; 
+Diuraikan variabel yang dipakai dalam penelitian ini dengan 
+jelas, singkat, dan padat. 
+15. Definisi Operasional Adanya definisi operasional yang jela; 
+Adanya gambaran mengenai definisi variabel, indikator, alat 
+ukur, dan skor dengan jelas. 
+16. Desain sampling Disebutkan populasi penelitian, sampel penelitian, dan jenis 
+sampling yang dipakai dengan jelas 
+Populasi 
+Diuraikan definisi populasi dengan jelas; 
+Diuraikan definisi populasi yang dipakai dalam penelitian ini 
+(apa, siapa, di mana, dan kapan penelitian akan diambil); 
+Diuraikan kurun waktu secara jelas atau besar populasi yang 
+akan diambil. 
+Sampel 
+Diuraikan definisi sampel dengan jelas; 
+Diuraikan sampel yang dipakai dalam penelitian ini; 
+Diuraikan kriteria pengambilan sampel. 
+Sampling 
+Dijelaskan pengertian sampling; 
+Ditentukan sampling yang dipakai dengan benar. 
+ 
+ 
+ 
+ 
+17. Pengumpulan dan Analisa 
+data 
+Dijelaskan pengumpulan dan pengolahan data yang tepat; 
+Dijelaskan piranti yang digunakan untuk menganalisa (manual 
+atau digital); 
+Dijelaskan uji statistik yang digunakan; 
+Dijelaskan pembacaan hasil uji. 
+18. Etik penelitian Penulisan ethical clearance minimal ada surat persetujuan 
+responden, anonimity, dan confidentiality. 
+19. Keterbatasan Dituliskan keterbatasan (sampling desain, instrument, dan 
+feasibility). 
+20 Penggunaan kepustakaan Konsisten dengan model penulisan pustaka yang digunakan 
+(misal Harvard); 
+Pustaka diambil dari tahun terbit maksimal 10 tahun terakhir; 
+Pustaka yang dianjurkan adalah jurnal-jurnal hasil penelitian 
+terbaru. 
+Penyajian Proposal 
+21 Penggunaan media dalam 
+penyajian 
+Tampilan menarik, sederhana, mudah dibaca dan mudah 
+dipahami; 
+Untuk proposal jumlah slide 7-10. 
+22 Kewibawaan Softskill 
+23 Penyampaian dengan lugas 
+dan mudah dimengerti 
+Berbicara dengan jelas; 
+Menyampaikan materi mudah dipahami oleh orang lain. 
+24 Relevansi penyajian 
+dengan karya tulis ilmiah 
+Kesamaan antara yang disajikan/presentasi sama dengan yang 
+ditulis/paper. 
+25 Kemampuan menjawab 
+dengan rasional, ilmiah, 
+dan berdasarkan evidance 
+based 
+Mampu menjawab dengan tepat secara ilmiah; 
+Mampu menjawab berdasarkan bukti (evidance based). 
+26 Terbuka dengan masukan 
+yang konstruktif dan 
+mengintegrasikan dalam 
+karyanya 
+Mampu menerima fakta baru secara terbuka; 
+Menerima pendapat lain secara kritis; 
+Mampu menerima fakta baru secara terbuka. 
+27 Komunikasi yang efektif 
+dan efisien 
+Mampu dalam menekankan beberapa hal yang penting; 
+Berkomunikasi atau dialog dengan benar; 
+Mampu menarik perhatian penguji untuk mendengarkan hasil 
+karyanya. 
+28 Bertanggung jawab dengan 
+hasil karya ilmiahnya 
+Plagiat 
+ 
+ 
+ 
+Lampiran 27 Parameter Penilaian Skripsi 
+ 
+PARAMETER PENILAIAN SKRIPSI 
+ 
+NO. ASPEK YANG DINILAI PARAMETER 
+Penguasaan Penulisan Skripsi 
+1. Sistematika penulisan Sesuai tata urutan yang berlaku: 
+Bagian muka: halaman judul, halaman pernyataan, halaman 
+persetujuan, halaman pengesahan, kata pengantar, daftar isi 
+dan abstrak dan lain-lain; 
+Bagian tubuh: pendahuluan, tinjauan teori, kerangka 
+konseptual dan hipotesis, metodologi penelitian, hasil 
+penelitian, dan pembahasan, kesimpulan, dan saran; 
+Bagian belakang: daftar pustaka dan lampiran-lampiran. 
+2. Ketepatan penulisan bahasa, 
+istilah, dan kutipan 
+Pungtuasi (penggunaan tanda baca yang tepat); 
+Diksi (pemilihan kata yang tepat); 
+Cara menulis kutipan yang tepat. 
+Segi Ilmiah Tulisan Skripsi 
+3. Judul Dalam lingkup riset kesehatan; 
+Memungkinkan untuk diteliti (penyelesaian masalah-masalah 
+kesehatan); 
+Memberikan kontribusi terhadap pengembangan praktik dan 
+ilmu kesehatan; 
+Orisinalitas. 
+4. Urutan dalam latar belakang Pernyataan masalah jelas; 
+Ada skala/justifikasi masalah; 
+Kronologis masalah (sebab dan akibat); 
+Konsep solusi. 
+5. Rumusan masalah Ringkas, jelas, dan sederhana; 
+Dapat diukur secara empiris dan objektif; 
+Memungkinkan untuk dijawab/diuji secara ilmiah; 
+Dalam bentuk kalimat pertanyaan; 
+Tiap kata di dalam kalimat pertanyaan hendaknya definitif 
+(tidak menimbulkan aneka tafsiran); 
+Bahasa dan kata-katanya dimengerti oleh orang lain. 
+6. Tujuan Menjawab dari pertanyaan masalah; 
+Ringkas, jelas, dan sederhana; 
+Menggunakan kata kerja yang operasional; 
+Dapat dicapai; 
+Spesifik. 
+7. Manfaat penelitian Diungkapkan secara teoritis dan praktis; 
+Tertulis manfaat bagi praktek dan pengembangan ilmu. 
+8. Relevansi Relevan dengan isu sekarang; 
+Relevansi teori dengan bidang keahlian. 
+9. Tinjauan teori Semua variabel dan faktor yang berhubungan dengan masalah 
+yang diteliti ditulis ses.uai update terkini; 
+ 
+ 
+ 
+ 
+  Setiap pernyataan didukung oleh pustaka yang sesuai 
+(pengarang, tahun dan nomor halaman); 
+Kejelasan dalam membuat parafrase dalam setiap penyataan. 
+10. Penyusunan kerangka Berdasarkan teori atau model secara umum; 
+Menggambarkan semua yang tertulis pada tinjauan teori; 
+Mengembangkan pernyataan hubungan. 
+11. Perumusan hipotesis Hipotesis dinyatakan dalam bentuk pernyataan (statement), 
+bukan dalam bentuk kalimat tanya; 
+Hipotesis harus tumbuh dari ilmu pengetahuan yang diteliti; 
+Hipotesis harus dapat diuji; 
+Hipotesis harus sederhana dan terbatas. 
+12. Penggunaan desain penelitian 
+dirumuskan secara baik 
+Pemilihan desain/rancangan penelitian yang tepat; 
+Diuraikan desain penelitian secara teori; 
+Diuraikan desain penelitian yang dipakai dipenelitian ini; 
+Dijelaskan pendekatan dalam proses meneliti. 
+13. Kerangka kerja (frame work) Pembuatan kerangka kerja yang tepat; 
+Dijelaskan pengertian kerangka kerja; 
+Diuraikan kegiatan yang dilakukan dari penentuan populasi 
+sampai dengan pembuatan simpulan; 
+Dibuat dalam diagram panah. 
+14. Variabel penelitian Variabel yang diukur dinyatakan dengan jelas; 
+Dijelaskan variabel penelitian secara umum secara jelas; 
+Dijelaskan variabel penelitian secara khusus secara jelas 
+Variabel independen: 
+Dijelaskan pengertian dari variabel independen; 
+Diuraikan variabel yang dipakai dalam penelitian ini dengan 
+jelas, singkat, dan padat. 
+Variabel dependen: 
+Dijelaskan pengertian dari variabel dependen; 
+Diuraikan variabel yang dipakai dalam penelitian ini dengan 
+jelas, singkat, dan padat. 
+15. Definisi Operasional Adanya definisi operasional yang jelas; 
+Adanya gambaran mengenai definisi variabel, indikator, alat 
+ukur, dan skor dengan jelas. 
+16. Desain sampling Disebutkan populasi penelitian, sampel penelitian, dan jenis 
+sampling yang dipakai dengan jelas 
+Populasi 
+Diuraikan definisi populasi dengan jelas; 
+Diuraikan definisi populasi yang dipakai dalam penelitian ini 
+(apa, siapa, di mana, dan kapan penelitian akan diambil); 
+Diuraikan kurun waktu secara jelas atau besar populasi yang 
+akan diambil. 
+Sampel 
+Diuraikan definisi sampel dengan jelas; 
+Diuraikan sampel yang dipakai dalam penelitian ini; 
+Diuraikan kriteria pengambilan sampel. 
+Sampling 
+Dijelaskan pengertian sampling; 
+Ditentukan sampling yang dipakai dengan benar. 
+ 
+ 
+ 
+ 
+17. Pengumpulan dan Analisa 
+data 
+Dijelaskan pengumpulan dan pengolahan data yang tepat; 
+Dijelaskan piranti yang digunakan untuk menganalisa (manual 
+atau digital); 
+Dijelaskan uji statistik yang digunakan; 
+Dijelaskan pembacaan hasil uji. 
+18. Etik penelitian Penulisan ethical clearance minimal ada surat persetujuan 
+responden, anonimity, dan confidentiality. 
+19. Keterbatasan Dituliskan keterbatasan (sampling desain, instrument, dan 
+feasibility). 
+20. Kemampuan menuliskan hasil 
+penelitian 
+Ada data umum (karakteristik tempat penelitian dan 
+karakteristik responden yang diteliti); 
+Ada data khusus sesuai dengan tujuan penelitian; 
+Analisa data berdasarkan hasil (mencari data yang 
+menonjol/menyimpang); 
+Hanya menjelaskan what (tidak ada penjelasan why dan how). 
+21. Kemampuan dalam 
+pembahasan 
+Menganalisa makna penelitian dihubungkan dengan tujuan 
+penelitian (menjelaskan why dan how); 
+Penulisan mengandung unsur: fakta (hasil penelitian), opini 
+(pendapat peneliti) dan teori (pustaka yang mendukung opini 
+peneliti); 
+Isi tulisan disesuaikan dengan tujuan khusus penelitian. 
+22. Kemampuan dalam menarik 
+kesimpulan dan saran 
+Kesimpulan ditulis untuk menjawab tujuan penelitian; 
+Saran ditulis berdasarkan hasil dan pembahasan; 
+Ringkas dan jelas (dengan meminimalkan penulisan angka- 
+angka hasil uji statistik). 
+23. Penggunaan kepustakaan Konsisten dengan model penulisan pustaka yang digunakan 
+(misal Harvard); 
+Pustaka diambil dari tahun terbit maksimal 10 tahun terakhir; 
+Pustaka yang dianjurkan adalah jurnal-jurnal hasil penelitian 
+terbaru. 
+Penyajian Skripsi 
+24 Penggunaan media dalam 
+penyajian 
+Tampilan menarik, sederhana, mudah dibaca dan mudah 
+dipahami; 
+Untuk KTI jumlah slide 9 -12. 
+25 Kewibawaan Softskill 
+26 Penyampaian dengan lugas 
+dan mudah dimengerti 
+Berbicara dengan jelas; 
+Menyampaikan materi mudah dipahami oleh orang lain. 
+27 Relevansi penyajian dengan 
+karya tulis ilmiah 
+Kesamaan antara yang disajikan/presentasi sama dengan yang 
+ditulis/paper 
+28 Kemampuan menjawab 
+dengan rasional, ilmiah, dan 
+berdasarkan evidance based 
+Mampu menjawab dengan tepat secara ilmiah; 
+Mampu menjawab berdasarkan bukti (evidance based). 
+29 Terbuka dengan masukan 
+yang konstruktif dan 
+Mampu menerima fakta baru secara terbuka; 
+Menerima pendapat lain secara kritis; 
+ 
+ 
+ 
+ 
+ mengintegrasikan dalam 
+karyanya 
+Mampu menerima fakta baru secara terbuka. 
+30 Komunikasi yang efektif dan 
+efisien 
+Mampu dalam menekankan beberapa hal yang penting; 
+Berkomunikasi atau dialog dengan benar; 
+Mampu menarik perhatian penguji untuk mendengarkan hasil 
+karyanya. 
+31 Bertanggung jawab dengan 
+hasil karya ilmiahnya 
+Plagiat 
+Lampiran 28 Contoh Form Penilaian Bimbingan Proposal 
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+ 
+PENILAIAN BIMBINGAN PROPOSAL 
+ 
+Nama Peserta : .......................................................................................................................... 
+NIM   : .......................................................................................................................... 
+Tanggal Ujian : .......................................................................................................................... 
+Judul Skripsi : .......................................................................................................................... 
+      .......................................................................................................................... 
+ 
+NO ASPEK YANG DINILAI Nilai 
+Maksimal Skor 
+1. Perencanaan kegiatan Proposal Skripsi 20  
+2. Pengajuan rancangan penelitian yang sistematis 20  
+3. Penelitian berdasarkan evidance based  20  
+4. Pemanfaatan waktu yang efektif, efisien serta komitmen 
+yang tinggi 
+20  
+5.  Penyelesaian setiap pokok Proposal Skripsi secara tepat 
+waktu 
+20  
+Jumlah Nilai 100  
+ 
+ 
+ 
+ 
+ 
+ 
+Jember, ......................................2024 
+Pembimbing Utama 
+ 
+ 
+ 
+ 
+NIDN/NIK ……………………....... 
+ 
+Keterangan: 
+A  ≥  80 
+AB = 75 –79,9 
+B = 70 – 74,9 
+Batas nilai kelulusan adalah 70 (B) 
+Lampiran 29 Contoh Form Penilaian Bimbingan Hasil Skripsi 
+ 
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+PENILAIAN BIMBINGAN HASIL SKRIPSI 
+ 
+Nama Peserta : .......................................................................................................................... 
+NIM   : .......................................................................................................................... 
+Tanggal Ujian : .......................................................................................................................... 
+Judul Skripsi  : .......................................................................................................................... 
+      .......................................................................................................................... 
+ 
+NO ASPEK YANG DINILAI 
+Nilai 
+Maksimal Skor 
+1. Kegiatan revisi Skripsi 20  
+2. Konsep berpikir kritis yang mengacu pada 
+perkembangan penelitian terkait 
+20  
+3. Penelitian berdasarkan evidance based 20  
+4. Pemanfaatan waktu yang efektif, efisien serta 
+komitmen yang tinggi 
+20  
+5. Penyelesaian setiap pokok Skripsi secara tepat 
+waktu 
+20  
+Jumlah Nilai 100  
+ 
+ 
+ 
+ 
+ 
+ 
+Jember, ......................................2024 
+Pembimbing Utama 
+ 
+ 
+ 
+ 
+NIDN/NIK ……………………....... 
+ 
+Keterangan: 
+A     ≥  80 
+AB  = 75 –79,9 
+B     = 70 – 74,9 
+Batas nilai kelulusan adalah 70 (B) 
+Lampiran 30 Contoh Form Nilai Ujian Seminar Proposal 
+ 
+ 
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+NILAI UJIAN SEMINAR PROPOSAL 
+Nama Peserta : .......................................................................................................................... 
+NIM  : .......................................................................................................................... 
+Tanggal Ujian : .......................................................................................................................... 
+Judul Skripsi : .......................................................................................................................... 
+     .......................................................................................................................... 
+NO ASPEK YANG DINILAI Nilai 
+Maksimal Skor 
+Penulisan Proposal   
+1 Sistematika penulisan 10  
+2 Ketepatan penggunaan bahasa dan istilah 10  
+Segi Ilmiah Tulisan Proposal   
+3 Judul dan latar belakang penelitian 10  
+4 Ketepatan menuliskan tinjauan teori dan kepustakaan 10  
+5  Penyusunan kerangka konseptual dan hipotesis 10  
+6 Penggunaan metodologi penelitian yang tepat 10  
+Penyajian Proposal   
+7 Penggunaan media dalam penyajian 10  
+8 Penyampaian dengan Lugas dan mudah dimengerti 10  
+9 Kemampuan menjawab dengan rasional, ilmiah, dan 
+berdasar evidance based  
+10  
+10 Terbuka dengan masukan yang konstruktif dan 
+mengintegrasikan dalam karyanya 
+10  
+Jumlah Nilai 100  
+ 
+ 
+ 
+ 
+ 
+Jember, ......................................2024 
+Ketua Penguji/Penguji II/Penguji III* 
+ 
+ 
+ 
+ 
+NIDN/NIK ……………………....... 
+ 
+Keterangan : 
+A   ≥  80 
+AB  = 75 –79,9 
+B  = 70 – 74,9 
+Batas nilai kelulusan adalah 70 (B) 
+Lampiran 35 Contoh Form Nilai Akhir Proposal Skripsi 
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+NILAI UJIAN SIDANG SKRIPSI 
+Nama Peserta : .......................................................................................................................... 
+NIM  : .......................................................................................................................... 
+Tanggal Ujian : .......................................................................................................................... 
+Judul Skripsi : .......................................................................................................................... 
+                                      .......................................................................................................................... 
+ 
+NO ASPEK YANG DINILAI Nilai 
+Maksimal Skor 
+Penulisan Skripsi   
+1 Sistematika penulisan 10  
+2 Ketepatan penggunaan bahasa dan istilah 10  
+Segi Ilmiah Tulisan Skripsi   
+3 Kemampuan menuliskan hasil penelitian 10  
+4 Kemampuan dalam pembahasan 10  
+5  Kemampuan dalam menarik kesimpulan dan saran 10  
+6 Penggunaan kepustakaan 10  
+Penyajian Skripsi   
+7 Penggunaan media dalam penyajian 10  
+8 Penyampaian dengan Lugas dan mudah dimengerti 10  
+9 Kemampuan menjawab dengan rasional, ilmiah, dan 
+berdasar evidance based  
+10  
+10 Terbuka dengan masukan yang konstruktif dan 
+mengintegrasikan dalam karyanya 
+10  
+Jumlah Nilai 100  
+ 
+ 
+ 
+ 
+  Jember, ......................................2024 
+Ketua Penguji/Penguji II/Penguji III* 
+ 
+ 
+ 
+ 
+NIDN/NIK ……………………....... 
+ 
+Keterangan: 
+A  ≥  80 
+AB = 75 –79,9 
+B  = 70 – 74,9 
+Batas nilai kelulusan adalah 70 (B) 
+Lampiran 35 Contoh Form Nilai Akhir Proposal Skripsi 
+ 
+ 
+ 
+ 
+ 
+
+Lampiran 33 Contoh Form Nilai Ujian Sidang Skripsi 
+ 
+ 
+ 
+UNIVERSITAS dr. SOEBANDI 
+FAKULTAS ILMU KESEHATAN DAN FAKULTAS EKONOMI DAN BISNIS 
+Jl. Dr Soebandi No. 99 Jember, Telp/Fax. (0331) 483536, 
+E_mail : info@uds.ac.id Website : http://www.uds.ac.id 
+ 
+ 
+ 
+ 
+NILAI AKHIR SKRIPSI 
+PROGRAM STUDI ………………………. 
+UNIVERSITAS dr. SOEBANDI 
+Nama    : 
+NIM    : 
+Judul     : 
+Penguji   : 
+Pembimbing  Utama   : 
+Pembimbing  Anggota : 
+ 
+PENILAIAN Nilai 
+Bimbingan Skripsi  
+Sidang Skripsi  
+Total Nilai ............. / 2 
+NILAI AKHIR  
+NILAI MUTU  
+  
+ 
+Lampiran 34 Contoh Form Lembar Konsultasi Pembimbingan Proposal Skripsi/Tugas Akhir 
+ 
+
+ 
+ 
+Lampiran 35 Contoh Form Lembar Konsultasi Pembimbingan Skripsi/Tugas Akhir 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+Lampiran 36 Contoh Form Surat Permohonan Izin Penggunaan 
+Laboratorium 
+
+Lampiran 37 Contoh Form Informed Consent untuk Calon Peserta Penelitian 
+ 
+ 
+ 
+ 
+ 
+
+Lampiran 38 Contoh Form Penyataan Persetujuan Ikut Penelitian 
+ 
+ 
+ 
+ 
+
+Lampiran 39 Contoh  Form Etik Penelitian Hewan Coba 
+ 
+ 
+ 
+
+Lampiran 40 Contoh Form Keterangan Kelaikan Etik 
+ 
+ 
+ 
+
+ 
+ 
+Lampiran 41 Prisma Check List 
+ 
+ 
+Section/topic 
+ 
+# 
+ 
+Checklistitem 
+Reported on 
+page# 
+TITLE  
+Title 1 Identify the report as a systematic review, meta-analysis,or both.  
+ABSTRACT  
+Structured summary 2 Provide a structured summary including, as applicable: background; objectives; data  
+sources; study eligibility criteria, participants, and interventions; study appraisal and 
+synthesis methods; results; limitations; conclusions and implications of key findings; 
+systematic review registration number. 
+ 
+INTRODUCTION  
+Rationale 3 Describe the rationale for the review in the context of what is already known.  
+Objectives 4 Provide an explicit statement of questions being addressed with reference to participants, 
+interventions, comparisons, outcomes, and study design (PICOS). 
+ 
+METHODS  
+Protocol and registration 5 Indicate if a review protocol exists,if and where it can be accessed (e.g.,Web address), and, 
+if available, provide registration information including registration number. 
+ 
+Eligibility criteria 6 Specify study characteristics (e.g., PICOS, length of follow-up) and report characteristics 
+(e.g., years considered, language,publication status) used as criteria for eligibility,giving 
+rationale. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Information sources 7 Describe all information sources (e.g., databases with dates of coverage, contact with study 
+authors to identify additional studies) in the search and date last searched. 
+ 
+Search 8 Present full electronic search strategy for at least one database, including any limits 
+used,such that it could be repeated. 
+ 
+Study selection 9 State theprocess forselectingstudies(i.e.,screening, eligibility, included in systematic review, 
+and,if applicable, included in the meta-analysis). 
+ 
+Data collection process 10 Describe method of data extraction from reports (e.g., piloted forms, independently, in 
+duplicate) and any processes for obtaining and confirming data from investigators. 
+ 
+Data items 11 Listand define all variables for which data were sought (e.g., PICOS, funding sources) and 
+any assumptions and simplifications made. 
+ 
+ 
+Roadmap Penelitian Program Studi Ilmu Keperawatan Tahun 2021-2025 
+ 
+Roadmap Penelitian Pengembangan Model Pemberdayaan Remaja Putri sebagai Upaya 
+Peningkatan Kesehatan Reproduksi berbasis Keluarga 
+ 
+ 
+Tahap 1 (2021) Tahap 2 
+(2022) 
+Tahap 3 (2023) Tahap 4 (2024) Tahap 5 (2025) 
+Pengkajian kesehatan 
+reproduksi pada 
+remaja putri 
+Faktor-faktor 
+yang 
+mempengaruhi 
+kesehatan 
+reproduksi 
+pada  remaja 
+putri berbasis 
+Friedman 
+Uji Pakar Modul 
+Pemberdayaan Remaja 
+Putri sebagai Upaya 
+Peningkatan 
+Kesehatan Reproduksi 
+berbasis Keluarga 
+Uji Coba Modul 
+Pemberdayaan Remaja 
+Putri sebagai Upaya 
+Peningkatan 
+Kesehatan Reproduksi 
+berbasis Keluarga 
+Efektifitas 
+modul 
+pemberdayaan 
+remaja putri 
+terhadap 
+kesehatan 
+reproduksi 
+ Faktor-faktor 
+yang 
+mempengaruhi 
+kesehatan 
+reproduksi 
+pada  remaja 
+putri berbasis 
+sunrise model 
+   
+ Faktor-faktor 
+yang 
+mempengaruhi 
+kesehatan 
+reproduksi 
+pada  remaja 
+putri berbasis 
+teori 
+pemberdayaan 
+   
+ 
+Roadmap Penelitian Pengembangan Model Penatalaksanaan Penyakit Tidak Menular 
+pada Lansia 
+ 
+Tahap 1 (2021) Tahap 2 (2022) Tahap 3 (2023) Tahap 4 (2024) Tahap 5 (2025) 
+Pengkajian 
+penyakit 
+tida 
+k 
+menular 
+pad 
+alansia 
+Faktor-faktor 
+yang 
+mempengaruhi 
+penatalaksanaan 
+penyakit 
+tida 
+kmenular 
+berbasisteori 
+komprehensif 
+Carol Miller 
+Uji Pakar 
+Modul 
+penatalaksanaan 
+penyakit tidak 
+menularpada lansia 
+Uji Coba 
+Modul 
+penatalaksanaa 
+npenyakit tidak 
+menular  pada 
+lansia 
+Efektifitas 
+mod 
+ul penatalaksanaan 
+penyakit tidak  menular 
+terhadap status 
+kesehatan lansia 
+ Faktor-faktor 
+yang 
+mempengaruhi 
+penatalaksanaan 
+penyakit 
+tidak 
+menular 
+berbasisteori 
+keluarg 
+a 
+Friedman 
+   
+ Faktor-faktor 
+yang 
+mempengaruhi 
+penatalaksanaan 
+penyakit 
+tidak 
+menular 
+berbasisteori 
+protectio 
+n 
+motivation Roger 
+   
+ 
+Roadmap Penelitian Pengembangan Sekolah Gawat Darurat (SEGAAR) 
+ 
+Tahap 1 
+(2021) 
+Tahap 2 
+(2022) 
+Tahap 3 (2023) Tahap 4 (2024) Tahap 5 (2025) 
+Pengkajian Pengemba Pengembangan Uji pakar modul dan Produksi modul 
+Sekolah Gawat ngan modul sekolah gawat system informasi dan system 
+Darurat di Sistem darurat sekolah gawat darurat informasi sekolah 
+kabupaten informasi   gawat darurat 
+Jember terintegras    
+ i sekolah    
+ gawat    
+ darurat    
+Analisis Pengemba Pengembangan Uji pakar modul dan Efektifitas 
+faktor-faktor ngan media teknologi medi teknologi pengembangan 
+yang kurikulum pembelajaran First pembelajaran First Aid Sekolah Gawat 
+mempengaruhi First Aid Aid pada siswa SD pada siswa SD Darurat sebagai 
+tingkat pada siswa   upaya peningkatan 
+pengetahuan SD   By Stander First 
+siswa tentang    Aid di tingkat SD 
+First Aid     
+Analisis Pengemba Pengembangan Uji pakar modul dan Efektifitas 
+faktor-faktor ngan media teknologi media teknologi pengembangan 
+yang kurikulum pembelajaran First pembelajaran First Aid Sekolah Gawat 
+mempengaruhi First Aid Aid pada siswa SMP pada siswa SMP Darurat sebagai 
+tingkat pada siswa   upaya peningkatan 
+pengetahuan SMP   By Stander First 
+siswa tentang    Aid di tingkat SMP 
+CPR     
+ Pengemba Pengembangan Uji pakar modul dan Efektifitas 
+ngan media teknologi media teknologi pengembangan 
+kurikulum pembelajaran First pembelajaran First Aid Sekolah Gawat 
+First Aid Aid pada siswa SMP pada siswa SMA Darurat sebagai 
+pada siswa   upaya peningkatan 
+SMA   Bystander First Aid 
+   di tingkat SMA 
+ Pengemba Pengembangan Uji pakar modul dan Efektifitas 
+ngan media teknologi media teknologi pengembangan 
+kurikulum pembelajaran CPR pembelajaran CPR pada Sekolah Gawat 
+CPR pada pada siswa SD siswa SD Darurat sebagai 
+siswa SD   upaya peningkatan 
+   Bystander CPR di 
+   tingkat SD 
+ Pengemba Pengembangan Uji pakar modul dan Efektifitas 
+ngan media teknologi media teknologi pengembangan 
+kurikulum pembelajaran CPR pembelajaran CPR pada Sekolah Gawat 
+CPR pada pada siswa SMP siswa SMP Darurat sebagai 
+siswa SMP   upaya peningkatan 
+   Bystander CPR di 
+   tingkat SMP 
+ 
+     
+ Pengemba 
+ngan 
+kurikulum 
+CPR pada 
+siswa 
+SMA 
+Pengembangan 
+media teknologi 
+pembelajaran CPR 
+pada siswa SMA 
+Uji pakar modul dan 
+media teknologi 
+pembelajaran CPR pada 
+siswa SMA 
+Efektifitas 
+pengembangan 
+Sekolah Gawat 
+Darurat sebagai 
+upaya peningkatan  
+Bystander CPR di 
+tingkat SMA 
+    Paten Produk 
+1. Kurikulum 
+First Aid di 
+SD, SMP, 
+SMA 
+2. Kuriulum 
+CPR di SD, 
+SMP, SMA 
+3. Modul, 
+Video, dan 
+Aplikasi 
+First Aid 
+4. Modul, 
+Video, dan 
+Aplikasi 
+CPR 
+ 
+Roadmap Penelitian Pengembangan Kesehatan Jiwa dengan Pendekatan Holistik 
+ 
+Tahap 1 (2021) Tahap 2 (2022) Tahap 3 (2023) Tahap 4 (2024) Tahap 5 (2025) 
+Pelayanankes 
+wapada 
+kelompokseha 
+tjiwa; 
+1. Infant 
+Mental 
+Health/earl 
+ychildhood 
+mentalheal 
+th 
+2. Preschool 
+and school 
+agementalh 
+ealth 
+3. Adolescent 
+smental 
+health 
+4. Adultmenta 
+lhealth 
+5. Elderlymen 
+talhealth 
+Pelayanankeswap 
+ada 
+kelompoksehatji 
+wa; 
+1. Infant Mental 
+Health/earlyc 
+hildhood 
+mentalhealth 
+2. Preschool and 
+school 
+agementalhea 
+lth 
+3. Adolescentsm 
+ental health 
+4. Adultmentalhe 
+alth 
+5. Elderlymental 
+health 
+Pelayanankeswa 
+pada 
+kelompoksehatji 
+wa; 
+1. Infant 
+Mental 
+Health/early 
+childhood 
+mentalhealth 
+2. Preschool 
+and school 
+agementalhe 
+alth 
+3. Adolescents 
+mental 
+health 
+4. Adultmental 
+health 
+5. Elderlyment 
+alhealth 
+Pelayanankeswa 
+pada 
+kelompoksehatj 
+iwa; 
+1. Infant 
+Mental 
+Health/early 
+childhood 
+mentalhealth 
+2. Preschool 
+and school 
+agementalhe 
+alth 
+3. Adolescents 
+mental 
+health 
+4. Adultmental 
+health 
+5. Elderlyment 
+alhealth 
+Pelayanankeswapada 
+kelompoksehatjiwa; 
+1. Infant Mental 
+Health/earlychildho 
+od mentalhealth 
+2. Preschool and 
+school 
+agementalhealth 
+3. Adolescentsmental 
+health 
+4. Adultmentalhealth 
+5. Elderlymentalhealt 
+h 
+Pengkajian dan 
+deteksi dini 
+pelayanan 
+kewaspadaan 
+kelompok sehat 
+jiwa. 
+ 
+1. Infant 
+Mental 
+Health/e 
+arlychil 
+dhood 
+mentalh 
+ealth 
+2. Prescho 
+ol and 
+school 
+agement 
+alhealth 
+3. Adolesc 
+entsmen 
+tal 
+health 
+4. Adultme 
+ntalheal 
+th 
+5. Elderly 
+mentalh 
+ealth 
+Pengembang 
+an Model 
+berbasis 
+keperawatan 
+jiwa Holistik 
+pada 
+kelompok 
+Infant Mental 
+Health/earlyc 
+hildhood 
+mentalhealth 
+Uji pakar dan FGD 
+Pengembangan 
+Model berbasis 
+keperawatan   jiwa 
+Holistik   pada 
+kelompok  Infant 
+Mental 
+Health/earlychildh 
+ood mentalhealth 
+Efektifitas 
+pengembangan 
+model 
+keperawatan 
+kesehatan jiwa 
+holistik   pada 
+kelompok Infant 
+Mental 
+Health/earlychildh 
+ood mentalhealth 
+pada  kelompok 
+Infant Mental 
+Health/earlychildh 
+ood mentalhealth 
+Pengembangan  Model 
+keperawatan kesehatan jiwa  
+holistik berbasis media 
+teknologi pada kelompok 
+Infant Mental 
+Health/earlychildhood 
+mentalhealth pada kelompok 
+Infant Mental 
+Health/earlychildhood 
+mentalhealth 
+ 
+Analisis 
+faktor-faktor 
+yang 
+mempengaru 
+hi kesehatan 
+mental pada 
+kelompok 
+sehat jiwa 
+1. Infant 
+Mental 
+Health/ea 
+rlychildho 
+od 
+mentalhe 
+alth 
+2. Preschool 
+and 
+school 
+agementa 
+lhealth 
+3. Adolescen 
+tsmental 
+health 
+4. Adultment 
+alhealth 
+5. Elderlyme 
+ntalhealth 
+Pengembangan 
+Model berbasis 
+keperawatan  jiwa 
+Holistik  pada 
+kelompok 
+Preschool    and 
+school 
+agementalhealth 
+Uji pakar dan FGD 
+Pengembangan 
+Model berbasis 
+keperawatan  jiwa 
+Holistik  pada 
+kelompok 
+Preschool    and 
+school 
+agementalhealth 
+Efektifitas 
+pengembangan 
+model keperawatan 
+kesehatan jiwa 
+holistik pada 
+kelompok pada 
+kelompok pada 
+kelompok 
+Preschool  and 
+school 
+agementalhealth 
+Pengembangan Model 
+keperawatan kesehatan jiwa 
+holistik berbasis media 
+teknologi pada kelompok 
+pada kelompok pada 
+kelompok Preschool and 
+school agementalhealth 
+ Pengembangan 
+Model berbasis 
+keperawatan  jiwa 
+Holistik  pada 
+kelompok 
+Adolescentsmental 
+health 
+Uji pakar dan 
+FGD 
+Pengembangan 
+Model  berbasis 
+keperawatan 
+jiwa  Holistik 
+pada kelompok 
+Adolescentsment 
+al health 
+Efektifitas 
+pengembangan 
+model keperawatan 
+kesehatan jiwa 
+holistik pada 
+kelompok  pada 
+kelompok Infant 
+Mental 
+Health/earlychildh 
+ood mentalhealth 
+Pengembangan  Model 
+keperawatan kesehatan jiwa 
+holistik berbasis   media 
+teknologi  pada kelompok 
+pada kelompok Infant Mental 
+Health/earlychildhood 
+mentalhealth 
+ Pengembangan 
+Model berbasis 
+keperawatan  jiwa 
+Holistik  pada 
+kelompok 
+Adultmentalhealth 
+and 
+Elderlymentalheal 
+th 
+Uji pakar dan 
+FGD 
+Pengembangan 
+Model berbasis 
+keperawatan 
+jiwa Holistik 
+pada kelompok 
+Adultmentalhea 
+lth  and 
+Elderlymentalh 
+ealth 
+Efektifitas 
+pengembangan 
+model keperawatan 
+kesehatan jiwa 
+holistik pada 
+kelompok pada 
+kelompok 
+Adultmentalhealth 
+and 
+Elderlymentalhealt 
+h 
+Pengembangan  Model 
+keperawatan kesehatan jiwa 
+holistik berbasis media 
+teknologi pada kelompok 
+pada kelompok 
+Adultmentalhealth and 
+Elderlymentalhealth 
+1. Instrumendet 
+eksidinikese 
+hatanjiwa 
+2. Publikasidiju 
+rnalnasional 
+daninternasi 
+1. Pemo 
+delan 
+2. Modu 
+l 
+3. Publi 
+kasidi 
+1. ISBN 
+2. HAKI 
+3. Modul 
+1. Publikasidijurn 
+alnasionaldanin 
+ternasional 
+1. Paten 
+2. Publikasidijurnalnasional 
+daninternasional 
+3. HAKI 
+4. ISBN 
+5. Modul 
+6. Aplikasi 
+ 
+onal jurnal 
+nasio 
+nalda 
+ninter 
+nasio 
+nal 
+   
+ 
+ 
+Roadmap Penelitian Pengembangan Manajemen Keperawatan Berbasis Holistik Pada Praktik 
+Mandiri Perawat 
+ 
+TAHAP 1 
+(2021) 
+TAHAP 2 (2022) TAHAP 3 (2023) TAHAP 4 
+(2024) 
+TAHAP 5 (2025) 
+Pengkajian 
+fungsi 
+manajemen 
+dan sumber 
+daya pada 
+praktik 
+mandiri 
+perawat  di 
+Jawa Timur 
+Pengembangan 
+fungsi manajemen 
+dan sumber daya 
+pada  praktik 
+mandiri perawat 
+berbasis holistik 
+Pengembangan 
+modul implementasi 
+proses  manajemen 
+keperawatan berbasis 
+holistik pada praktik 
+mandiri perawat 
+Uji modul 
+implementas 
+i proses 
+manajemen 
+keperawatan 
+berbasis 
+holistik pada 
+praktik 
+mandiri 
+perawat 
+Efektifitas  proses 
+manajemen 
+keperawatan berbasis 
+holistik pada praktik 
+mandiri perawat 
+Analisis 
+faktor-faktor 
+yang 
+mempengaruhi 
+pengetahuan 
+perawat 
+praktik 
+mandiri 
+tentang 
+dokumentasi 
+asuhan 
+keperawatan 
+Pengembangan 
+sistem 
+pendokumentasia 
+n asuhan 
+keperawatan 
+berbasis 3S pada 
+praktik mandiri 
+perawat 
+Pengembangan model 
+dokumentasi 
+keperawatan 
+berdasarkan 3S 
+dalamaplikasiberbasi 
+s Komputer 
+Uji media 
+teknologi 
+model 
+dokumentasi 
+keperawatan 
+berdasarkan 
+3S dalam 
+aplikasi 
+berbasis 
+komputer 
+Implementasi  model 
+dokumentasi 
+keperawatan 
+berdasarkan 3S dalam 
+aplikasi berbasis 
+komputer dalam 
+tatanan praktik 
+mandiri perawat 
+Analisis 
+faktor-faktor 
+yang 
+mempengaruhi 
+pengetahuan 
+perawat 
+tentang 
+penggunaan 
+dokumentasi 
+asuhan 
+keperawatan 
+berbasis 3S 
+(SDKI, SLKI, 
+SIKI) dalam 
+praktik 
+    
+ 
+mandiri 
+perawat. 
+    
+Identifikasi 
+terapi 
+komplementer 
+/ 
+Complementer 
+And 
+Alternatife 
+Medicine 
+(CAM)  dan 
+Herbal dalam 
+praktik 
+perawat di Era 
+Pandemi dan 
+Post Pandemi 
+Potensi 
+pengembangan 
+keperawatan 
+holistik 
+(Komplementer 
+dan Herbal) di Era 
+pandemi dan post 
+pandemi 
+Pengembangan 
+modul keperawatan 
+holistik 
+(Komplementer  dan 
+Herbal)   di  Era 
+pandemi  dan post 
+pandemi 
+Uji publik 
+modul 
+Implementasi modul 
+keperawatan holistik 
+(Komplementer dan 
+Herbal) dan Evaluasi 
+    PATEN PRODUK: 
+1. Modul 
+manajemen 
+keperawatan 
+berbasis 
+holistik dalam 
+tatanan praktik 
+mandiri 
+perawat 
+2. Aplikasi 
+dokumentasi 
+keperawatan 
+berdasarkan 3S 
+berbasis 
+komputer pada 
+praktik mandiri 
+perawat. 
+3. Modul 
+keperawatan 
+holistik 
+(Komplemente 
+r dan Herbal) 
+di Era pandemi 
+dan post 
+pandemi 
+ 
+Roadmap Penelitian Pengembangan Dasar Keperawatan dan Profesionalitas Mahasiswa 
+Keperawatan UDS Dalam Meningkatkan Pelayanan Keperawatan 
+ 
+TAHAP 1 
+(2021) 
+TAHAP 2 
+(2022) 
+TAHAP 3 
+(2023) 
+TAHAP 4 
+(2024) 
+TAHAP 5 (2025) 
+Analisis 
+faktor-faktor 
+yang 
+mempengaruhi 
+perilaku caring 
+mahasiswa 
+keperawatan 
+engembangan 
+perilaku caring 
+mahasiswa 
+berbasis teori 
+Pelatihan 
+caring pada 
+mahasiswa 
+keperawatan 
+Diskusi pakar 
+terkait perilaku 
+caring 
+mahasiswa 
+Modul perilaku caring 
+mahasiswa 
+Analisis Pengembangan 
+dokumentasi 
+keperawatan 
+berbasis 3S 
+pada 
+mahasiswa 
+keperawatan 
+berbasis teori 
+Pelatihan Diskusi pakar Modelasuhan 
+faktor-faktor dokumentasi terkait keperawatanberbasis 3S 
+yang keperawatan dokumentasi (SDKI, SLKI, SIKI) pada 
+mempengaruhi berbasis 3S keperawatan nursing education dalam 
+kemampuan pada berbasis 3S aplikasi berbasis komputer 
+dokumentasi mahasiswa pada  
+keperawatan keperawatan mahasiswa  
+berbasis 3 S  keperawatan  
+(SDKI, SLKI,    
+SIKI) pada    
+mahasiswa    
+keperawatan    
+Identifikasi Pengembangan Pengembangan 
+modul   ilmu 
+dasar 
+keperawatan 
+meliputi 
+Komponen sel 
+dan jaringan, 
+Biomekanik, 
+Karbohidrat, 
+Lipid,  Protein 
+serta Anatomi 
+Fisiologi) 
+Diskusi/  Uji 
+pakar modul 
+ilmu   dasar 
+keperawatan 
+meliputi 
+Komponen sel 
+dan jaringan, 
+Biomekanik, 
+Karbohidrat, 
+Lipid,  Protein 
+serta Anatomi 
+Fisiologi) 
+Implementasi penyebab 
+masalah 
+perkembangan 
+ilmu dasar 
+keperawatan 
+bahan ajar ilmu 
+dasar 
+keperawatan 
+meliputi 
+Komponen sel 
+dan jaringan, 
+Biomekanik, 
+dan mekanisme sel serta 
+alternative 
+penyelesaiannya 
+(Eksposure dari radikal 
+bebas, Farmakokinetik dan 
+Farmakodinamik) 
+ Karbohidrat,  
+ Lipid, Protein  
+ serta Anatomi  
+ Fisiologi)  
+    PATEN PRODUK: 
+1. Modul perilaku 
+caring mahasiswa 
+kepada diri, teman 
+sejawat, lingkungan 
+akademisi dan klien 
+2. Aplikasi 
+dokumentasiasuhan 
+keperawatanberbasis 
+3S (SDKI, SLKI, 
+SIKI) pada nursing 
+education dalam 
+aplikasi berbasis 
+komputer 
+ 
+    3.   Modul dan bahan 
+ajar ilmu dasar 
+keperawatan 
+Roadmap Penelitian Kampung Tangguh Gizi 
+ 
+ 
+Tahap 1 (2021) Tahap 2 (2022) Tahap 3 (2023) Tahap 4 (2024) Tahap 5 (2025) 
+Gambaran 
+prevalensi stunting 
+di Kabupaten 
+Jember 
+Model 
+pengendalian faktor 
+resiko stunting 
+pada anak 
+Pemberdayaan 
+keluarga      berbasis 
+Family        Centered 
+Care tentang 
+Keluarga Sadar Gizi  
+(KADARZI) 
+Efektivitas 
+Pemberdayaan 
+keluarga 
+berbasis Family 
+Centered Care 
+tentang Keluarga 
+Sadar Gizi 
+(KADARZI) 
+Efektivitas aplikasi 
+deteksi dini stuting bagi 
+kader kesehatan di 
+Kampung Tangguh Gizi 
+Analisis   faktor 
+yang 
+mempengaruhi 
+kejadian  stunting 
+di Kabupaten 
+Jember 
+Peran petugas 
+kesehatan dalam 
+upaya pengendalian 
+stunting 
+Pengembangan 
+modul deteksi dini 
+stunting 
+Uji pakar modul  
+deteksi dini 
+stunting 
+Produksi poster daily 
+menu for stunting catch  
+up 
+Gambaran 
+pengetahuan orang 
+tua tentang 
+stunting 
+Evaluasi 
+pelaksanaan 
+skrining status gizi 
+di Kabupaten 
+Jember 
+Pemberdayaan kader  
+kesehatan dalam 
+deteksi dini stunting 
+Evaluasi 
+pemberdayaan 
+kader kesehatan 
+dalam deteksi 
+dini stunting 
+ 
+Gambaran 
+pengetahuan kader 
+tentang deteksi dini 
+keterlambatan 
+pertumbuhan 
+ Pengembangan 
+modul sadar gizi 
+dengan  inovasi 
+kearifan pangan 
+lokal 
+Uji pakar modul 
+sadar gizi 
+dengan inovasi 
+kearifan pangan 
+lokal 
+ 
+  Pengembangan 
+aplikasi deteksi dini 
+stuting bagi kader 
+kesehatan 
+Uji  pakar 
+aplikasi deteksi 
+dini stuting bagi 
+kader kesehatan 
+ 
+  Pengembangan 
+poster daily menu 
+for stunting catch up 
+ Paten Produk: 
+1. Modul sadar gizi 
+2. Modul deteksi dini 
+stunting 
+3. Aplikasi deteksi dini 
+stunting 
+4. Poster daily menu for 
+stunting catch up 
+Roadmap Penelitian Pengembangan Kampung Siaga Kanker Cervix 
+ 
+ 
+Tahap 1 (2021) Tahap 2 (2022) Tahap 3 (2023) Tahap 4 (2024) Tahap 5 (2025) 
+Gambaran 
+Pengetahuan 
+WUS tentang 
+Ca Cervix di 
+Kab Jember 
+Cakupan 
+pelaksanaan 
+IVA test di Kab 
+Jember 
+Pengembangan 
+media Teknologi 
+Audio  Visual 
+promosi kesehatan 
+tentang Ca Cervix 
+Uji pakar modul promosi 
+kesehatan berbasis 
+FCMC (Family Center 
+Maternity care) 
+Produksi modul 
+promosi kesehatan 
+berbasis FCMC 
+(Family Center 
+Maternity care) 
+Gambaran 
+Pengetahuan 
+WUS tentang 
+deteksi dini Ca 
+Cervix dengan 
+metode IVA test 
+Peran Petugas 
+Kesehatan 
+dalam  upaya 
+pencegahan Ca 
+Cervix 
+Pengembangan 
+media Teknologi 
+Audio  Visual 
+promosi kesehatan 
+tentang IVA test 
+Efektivitas promosi 
+kesehatan menggunakan 
+media Teknologi Audio 
+Visual tentang IVA test 
+Penerapan promosi 
+kesehatan 
+menggunakan  media 
+Teknologi  Audio 
+Visual tentang IVA test 
+di kampung Siaga 
+Kanker Cervix 
+Analisis faktor- 
+faktor  yang 
+mempengaruhi 
+motivasi WUS 
+dalam 
+pemeriksaan 
+IVA test 
+Evaluasi 
+pelaksanaan 
+pemeriksaan 
+IVA test di Kab 
+Jember 
+Pengembangan 
+modul  promosi 
+kesehatan berbasis 
+FCMC  (Family 
+Center Maternity 
+care) 
+Evaluasi efektivitas 
+Implementasi SGD 
+dalam meningkatkan 
+motivasi WUS dalam 
+pemeriksaan IVA test 
+Penerapan modul 
+promosi        kesehatan 
+berbasis FCMC 
+(Family Center 
+Maternity care) pada 
+tenaga kesehatan 
+ Upaya 
+Peningkatan 
+sikap WUS 
+dalam 
+melaksanakan 
+Deteksi dini Ca 
+Cervix 
+Implementasi SGD 
+dalam 
+meningkatkan 
+motivasi WUS 
+dalam 
+pemeriksaan  IVA 
+test 
+ Paten Produk 
+1. Modul promosi 
+kesehatan berbasis 
+FCMC (Family 
+Center Maternity 
+care) 
+2. Media promosi 
+kesehatan 
+menggunakan 
+Teknologi Audio 
+Visual 
+Roadmap Penelitian Pengembangan Pengembangan Intervensi Keperawatan pada Trend 
+ 
+Disease Berbasis Pendekatan Holistik 
+ 
+ 
+ 
+ 
+Tahap 1 (2021) 
+Riset Dasar 
+Tahap 2 (2022) 
+Teknologi 
+Tahap 3 (2023) 
+Uji Coba 
+Produk 
+Tahap 4 (2024) 
+Pembakuan Produk 
+Tahap 5 (2025)  
+Pengenalan dan 
+Pengembangan 
+ 
+Diabetes Mellitus 
+1. Pemetaan pola 
+deteksi dini 
+DM di 
+masyarakat 
+desa dan kota 
+2. Pemetaan 
+persepsi dan 
+pola 
+pengelolaan 
+DM  di 
+masyarakat 
+desa dan kota 
+3. Perbedaan Pola 
+Deteksi  Dini 
+Terhadap  DM 
+antara 
+Masyarakat 
+Desa dengan 
+Masyarakat 
+Kota 
+4. Analisis 
+Faktor-Faktor 
+yang 
+Mempengaruhi 
+Pola 
+Pengelolaan 
+DM  antara 
+Masyarakat 
+Desa dengan 
+Masyarakat 
+Kota 
+1. Pemetaan 
+faktor 
+dengan 
+CFA 
+(Confirmat 
+ory Factor 
+Analysis) 
+ 
+2. Proyeksi 
+faktor 
+terhadap 
+indikator 
+model 
+hingga 
+terbentuk 
+struktur pra 
+model H- 
+DM 
+ 
+3. Pembakuan 
+struktur pra 
+model H- 
+DM 
+melalui uji 
+public 
+ 
+4. Analisa 
+Persepsi 
+Pasca 
+Implementa 
+si Pra 
+Model H- 
+DM pada 
+Masyarakat 
+Desa 
+1. Penyempurna 
+an pra model - 
+H-DM 
+menjadi model 
+akhir 
+ 
+2. Uji expert dan 
+pengembanga 
+n secara IT 
+ 
+3. Uji  publik 
+pada 
+pengguna 
+(sasaran  DM 
+di Desa dan 
+Kota) 
+ 
+4. FGD dengan 
+pemegang 
+program dan 
+caregiver 
+terkait 
+pandangan 
+terhadap 
+model H-DM 
+ 
+5. Persepsi dan 
+Efektifitas 
+Model H-DM 
+antara 
+Masyarakat 
+Desa dan Kota 
+dalam 
+Meningkatkan 
+Literasi DM 
+1. Penetapan  fitur 
+baku model H-DM 
+untuk seluruh 
+kalangan 
+masyarakat 
+ 
+2. Pendaftaran Hak 
+Kekayaan 
+Intelektual  dan 
+Kompetisi 
+Nasional 
+ 
+3. Persiapan 
+pemaparan skala 
+besar 
+1. Sosialisasi 
+lintas sektor 
+terkait 
+pemanfaatan 
+model H-DM 
+ 
+2. Monitoring dan 
+evaluasi grafik 
+pemanfaatan 
+model H-DM 
+ 
+3. Uji akhir model 
+H-DM terhadap 
+kesejahteraan 
+kesehatan klien 
+DM 
+ 
+4. Perubahan 
+Kesejahteraan 
+Kesehatan 
+Klien DM di 
+Pedesaan 
+melalui  Model 
+H-DM 
+ 
+5. Perubahan 
+Kesejahteraan 
+Kesehatan 
+Klien DM di 
+Perkotaan 
+melalui  Model 
+H-DM 
+5. Analisa 
+Persepsi 
+Pasca 
+ 
+ Implementa 
+si Pra 
+Model    H- 
+DM pada 
+Masyarakat 
+Kota 
+   
+ 
+Onkologi /Kanker 
+(Penelitian Dasar) 
+Eksplorasi masalah 
+penyakit kronis 
+(Cancer, Covid-19, 
+DM) 
+1. Faktor-faktor 
+yang 
+mempengaruhi 
+keterlambatan 
+kunjungan atau 
+pemeriksaan 
+pasien kanker 
+kepada 
+pelayanan 
+kesehatan 
+2. Faktor-faktor 
+yang 
+mempengaruhi 
+kepatuhan 
+kemoterapi, efek 
+samping 
+kemoterapi, 
+kualitas hidup 
+dan Recurrency 
+kejadian kanker 
+1. Integrasi 
+keperawatan 
+holistic 
+dalam 
+mengatasi 
+efek samping 
+kemoterapi 
+pada pasien 
+kanker 
+2. Self 
+manajemen 
+edukasi pada 
+pasien 
+kanker 
+3. Perbandinga 
+n manajemen 
+kesehatan 
+pada 
+penyintas 
+Kanker 
+(cancer 
+survivor) 
+(Pilot study, Uji 
+Expert, validitas 
+reliabilitas tools) 
+1. Pembuatan 
+Inovasi dalam 
+keperawatan 
+holistik 
+dengan target 
+pasien kanker 
+(keterbaharua 
+n intervensi 
+keperawatan 
+non 
+farmakologi) 
+2. Penggunaan 
+self 
+management 
+edukasi untuk 
+meminimalisir 
+efek samping 
+kemoterapi 
+3. Cancer 
+survivor 
+supporting 
+group berbasis 
+Teknologi 
+Uji klinis dari produk  
+hasil pilot study pada  
+pasien kanker : 
+Randomized control 
+trial , Quasi 
+experiment 
+1. Self management 
+edukasi aplikasi 
+terhadap penurunan  
+efek samping 
+kemoterapi 
+2. Cancer survivor 
+supporting group 
+aplikasi terhadap 
+efek samping, 
+koping, dan kualitas 
+hidup pasien kanker 
+Output Produk → 
+Aplikasi berbasis 
+Teknologi,     SOP, 
+Prototype,   modul, 
+Booklet  sebagai 
+upaya 
+meningkatkan 
+Quality of Life , 
+Self Management, 
+Self Care    pasien 
+Kanker. 
+ 
+(Penggunaan 
+Produk Penelitian 
+oleh  Institusi 
+rekanan   dan 
+masyarakat luas) 
+Hipertensi: Hypertension Awareness 
+Eksplorasi 
+kebutuhan pasien 
+hipertensi 
+1. QoL 
+2. ADL 
+3. Self care 
+ability 
+4. Sphyrometri 
+data 
+(baseline) 
+1. Analisa 
+faktor- 
+faktor 
+QoL dan 
+ADL 
+2. Pengala 
+man 
+ipasien 
+hipertens 
+i 
+3. Need 
+assessme 
+nt 
+Pilot study & uji 
+expert 
+1. Booklet 
+pemantaua 
+n kesehatan 
+Hipertensi 
+2. Gym 
+therapy 
+terhadap 
+manajemen 
+hipertensi 
+3. Bekam 
+therapy 
+dalam 
+RCT & Quasi 
+experiment : 
+1. Booklet 
+pemantauan 
+kesehatan 
+pasien 
+hipertensi 
+2. Gym therapy 
+terhadap 
+manajemen 
+hipertensi 
+3. Bekam 
+therapy 
+terhadap 
+Paten produk dan 
+imlementasi 
+kepada institusi 
+mitra 
+1. Booklet 
+pemantauan 
+kesehatan 
+Hipertensi 
+2. Gym therapy 
+terhadap 
+terhadap 
+manajemen 
+hipertensi 
+ 
+  manajemen 
+hipertensi 
+manajemen 
+hipertensi 
+3. SOP: Bekam 
+therapy for 
+terhadap 
+manajemen 
+hipertensi 
+ 
+Roadmap Penelitian Program Studi Sarjana Kebidanan Dan Profesi Bidan Tahun 2021-2025 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+Roadmap Penelitian Program Studi Sarjana Farmasi Tahun 2021-2025 
+ 
+ 
+ 
+TAHUN 
+2021-2022 2022-2023 2023-2024 2024-2025 2025-2026 2026 
+Kajian 
+Skrining awal 
+Uji aktivitas in 
+vitro 
+Uji aktivitas 
+In vivo Uji toksisitas Optimasi sediaan Paten 
+Pemilihan 
+bahan alam 
+lokal sebagai 
+kandidat 
+antidiabetes 
+ 
+ 
+uji aktivitas in 
+vitro antiamilase 
+ 
+ 
+ 
+ 
+uji aktivitas 
+antidiabetes in 
+vivo tanaman 
+terpilih 
+ 
+ 
+uji toksisitas 
+akut 
+ 
+ 
+optimasi formula 
+sediaan 
+ 
+ 
+ 
+ 
+Sediaan 
+obat 
+antidiabet 
+es 
+Kajian skrining 
+fitokimia 
+Penetapan 
+senyawa 
+marker 
+ 
+ 
+uji aktivitas in 
+vitro alpha 
+glukosidase 
+ 
+LD50 
+ 
+ 
+evaluasi sifat fisik 
+sediaan Penetapan 
+aktivitas 
+antioksidan in 
+vitro 
+Pengamatan 
+hitopatologi 
+organ 
+ 
+ 
+ 
+ 
+ 
+ 
+  PENGEMBANGAN TANAMAN SEBAGAI ANTIMIKROBA  
+ 
+TAHUN 
+2021-2022 2022-2023 2023-2024 2024-2025 2025-2026 2026 
+ 
+Eksplorasi 
+Tanaman 
+ 
+Pengujian 
+Antimikroba 
+Analisis dan 
+Uji 
+Karakteristik 
+Sediaan 
+Formulasi 
+dan Uji 
+Mutu Fisik 
+Uji Mutu Fisik 
+dan Karakteristik 
+Lanjutan 
+ 
+Target 
+ 
+ 
+Eksplorasi 
+tanaman yang 
+berkhasiat 
+obat 
+ 
+ 
+Pengujian 
+efektivitas 
+atau aktivitas 
+antimikroba 
+Analisis 
+komponen 
+senyawa kimia 
+tanaman 
+menggunakan 
+GCMS-MS/ 
+LCMS-MS/ 
+HPLC dll 
+ 
+ 
+Formulasi 
+produk 
+sediaan gel, 
+krim, salep 
+ 
+ 
+Pengujian aktivitas 
+invivo 
+ 
+ 
+ 
+ 
+Sediaan Herbal 
+antimikroba 
+Identifikasi 
+senyawa 
+metabolit 
+sekunder 
+Penggunaan 
+beberapa 
+metode 
+ekstraksi 
+Uji 
+karakteristik 
+sediaan nano 
+partikel 
+Uji evaluasi 
+sediaan, Uji 
+mutu fisik 
+sediaan nano 
+ 
+Uji stabilitas 
+sediaan 
+GRAND DESAIGN RESEARCH PENGEMBANGAN BAHAN ALAM LOKAL SEBAGAI 
+ANTIDIABETES 
+ 
+(pengujian 
+secara 
+kualitatif atau 
+kuantitatif) 
+  partikel   
+Penggunaan 
+beberapa 
+metode 
+ekstraksi 
+Uji penentuan 
+nilai indeks 
+polidispersi 
+Substitusi 
+bahan exipien 
+pada formula 
+Uji sediaan 
+semisolid 
+nanopartikel 
+terstandar 
+ 
+ 
+ 
+ 
+TAHUN 
+2021-2022 2022-2023 2023-2024 2024-2025 2025-2026 2026 
+Eksplorasi Uji Skin-Aging 
+awal 
+Uji 
+antimikroba 
+Uji enzimatis 
+Skin-Aging Formulasi Paten 
+Optimasi metode 
+ekstraksi dan pelarut 
+ 
+Fraksinasi Bakteri : 
+Propionibacter 
+ium acnes, 
+Staphylococcu 
+s aureus, dan 
+Staphylococcu 
+s epidermidis 
+ 
+ 
+ 
+pengujian 
+enzimatis 
+antielastase, 
+antikolagenase 
+dan 
+antitirosinase 
+Optimasi 
+formula 
+sediaan 
+ 
+ 
+ 
+ 
+ 
+Produk 
+skincare 
+Pengujian total 
+fenol, total 
+flavonoid, total 
+alkaloid 
+Lanjutan : anti 
+oksidan ( FRAP, 
+ABTS,Beta 
+caroten bleaching 
+assay) 
+ 
+Karakteris 
+asi sediaan 
+Standarisasi spesifik 
+dan non spesifik Uji Skin aging 
+awal : SPF, 
+Eritema, 
+Pigmentasi 
+Jamur : 
+Candida 
+albicans,Malas 
+sezia furfur 
+Uji skin 
+anallizer 
+Skrining awal : 
+aktivitas antioksidan 
+DPPH 
+Uji 
+toksisitas 
+GRAND DESAIGN RESEARCH PENGEMBANGAN SKINCARE BERBASIS TANAMAN 
+LOKAL 
+ 
+ 
+ 
+TAHUN 
+2021-2022 2022-2023 2023- 
+2024 2024-2025 2025-2026 2026 
+ 
+ 
+Kajian Umum 
+ 
+ 
+Potensi dan 
+Penerimaan 
+CAMT 
+Evaluasi 
+tentang 
+pengguna 
+an 
+CAMT di 
+masyarak 
+at 
+Evaluasi 
+tentang 
+Penggunaan 
+CAMT di 
+Pelayanan 
+Kesehatan 
+ 
+ 
+Desain modul 
+ 
+ 
+Paten 
+ Perbandingan  
+ 
+ 
+ 
+ 
+Pengetahu 
+an, sikap 
+dan 
+tindakan 
+masyaraka 
+t dalam 
+pengguna 
+an CAMT 
+Studi tentang  
+ 
+ 
+ 
+ 
+ 
+ 
+Studi Penyusunan 
+modul penggunaan 
+CAMT/Therapy 
+modelling CAMT 
+ 
+ 
+ 
+ 
+ 
+ 
+Modul 
+penggunaan 
+CAMT/Therap 
+y modelling 
+CAMT 
+Studi preferensi penyelenggara 
+etnobotani/etnof masyarakat an pengobatan 
+armasi tanaman terhadap obat komplementer 
+obat pada tradisional dan di fasilitas 
+masyarakat obat 
+konvensional 
+pelayanan 
+kesehatan 
+ 
+ 
+Survei 
+pengetahuan dan 
+pengalaman 
+swamedikasi 
+ 
+ 
+Faktor-faktor 
+yang 
+mempengaruhi 
+pemilihan/pen 
+ggunaan obat 
+tradisional 
+CAMT 
+Studi 
+perbandingan 
+terapi 
+komplementer 
+dan terapi 
+modalitas 
+terhadap 
+obat tradisional keberhasilan 
+pada masyarakat terapi penyakit 
+ degeneratif di 
+ pelayanan 
+ kesehatan 
+GRAND DESIGN RESEARCH "COMPLEMENTARY AND ALTERNATIVE MEDICINE AND 
+THERAPY" 
+ 
+Tahap 1 
+(2021) 
+Tahap 2 
+(2021-2022) 
+Tahap 3 
+(2022-2023) 
+Tahap 4 
+(2023-2024) 
+Tahap 5 
+(2024-2025) 
+Tahap 6 
+(2026) 
+Pembuatan 
+bahan alami 
+hasil uji coba 
+menjadi 
+media serbuk 
+konvensional 
+Uji coba 
+media alami 
+dalam bentuk 
+konvensional 
+Pembuatan bahan 
+alami menjadi 
+media kemasan 
+Roadmap Grand Design Research Departemen Mikrobiologi (Media Alternatif Untuk Pertumbuhan Bakteri dan 
+Roadmap Penelitian Program Studi Teknologi Laboratorium Medik Tahun 2021-2025 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Identifikasi 
+Bahan Alami 
+Pembandingan 
+media standar 
+Pembandingan 
+media standar alami 
+dan ekstraksi 
+Identifikasi 
+bahan alami 
+untuk 
+pembuatan 
+media 
+alternatif 
+ 
+bakteri dan 
+jamur 
+Identifikasi 
+bahan alami 
+sebagai 
+antibakteri 
+dan antijamur 
+Pembuatan 
+media 
+alternatif dari 
+bahan alami 
+untuk 
+pertumbuhan 
+bakteri dan 
+jamur 
+Membanding- 
+kan media 
+standar dan 
+media 
+alternatif 
+Ekstraksi 
+kandungan 
+pada bahan 
+pembuatan 
+media 
+alternatif 
+Pembuatan 
+media 
+alternatif 
+dengan bahan 
+yang sudah 
+diektraksi 
+Pembandinga 
+n hasil 
+pertumbuhan 
+bakteri dan 
+jamur pada 
+media 
+ 
+Pembandingan 
+media standar dan 
+media alami 
+Paten 
+Membanding- 
+kan media 
+standar dan 
+media alami 
+dalam bentuk 
+konvensional 
+yang sudah 
+diproduksi 
+secara pabrik 
+Memberikan 
+hak paten 
+pada media 
+alami 
+konvensional 
+ 
+ 
+ 
+ 
+ 
+ 
+Identifikasi 
+Bahan Alami 
+Uji In Vitro Bahan 
+Alami Terhadap 
+Pertumbuhan 
+Mikroba 
+Pembuatan 
+salep bahan 
+alami dan uji 
+ 
+Roadmap Grand Design Research Departemen Mikrobiologi (Bahan Alami Sebagai Antibakteri dan 
+• Uji In Vitro 
+bahan 
+alami 
+terhadap 
+pertumbuh 
+an bakteri 
+dan jamur 
+• Identifikasi 
+bahan 
+alami 
+sebagai 
+antibakteri 
+dan 
+antijamur 
+• Ekstraksi 
+kandungan 
+senyawa 
+bahan 
+alami 
+• Memberika 
+n hak paten 
+pada salep 
+yang dibuat 
+• Melakukan 
+uji klinik 
+pada salep 
+yang dibuat 
+yang 
+meliputi uji 
+klinik fase 
+1, 2, 3 & 4 
+Uji Klinik 
+Pada Salep 
+Yang Dibuat 
+Uji Salep  
+Secara In 
+Vivo pada 
+• Melakukan 
+uji coba 
+terhadap 
+salep yang 
+dibuat 
+secara in 
+vivo pada 
+hewan 
+coba 
+ 
+Paten 
+• Pembuatan 
+salep dari 
+ekstrak 
+bahan 
+alami 
+• Uji in vitro 
+salep dari 
+ekstrak 
+bahan 
+alami 
+terhadap 
+pertumbuh 
+an bakteri 
+dan jamur 
+Tahap 
+1 
+Tahap 
+2 
+Tahap 3 
+(2022- 
+Tahap 
+4 
+Tahap 
+5 
+Tahap 6 
+(2026) 

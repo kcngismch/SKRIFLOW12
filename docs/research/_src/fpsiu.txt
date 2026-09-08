@@ -1,0 +1,3208 @@
+
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+i 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI 
+ 
+FAKULTAS PSIKOLOGI 
+UNIVERSITAS INDONESIA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA ii 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Sesuai dengan Pasal 9 dan Pasal 113 U ndang-Undang Republik Indonesia 
+Nomor 28 Tahun 2014 Tentang Hak Cipta, maka: 
+ Dilarang melakukan pembajakan, penerbitan, penerjemahan, pengadap -
+tasian, penggandaan, pendistribusian, penyewaan, dan/atau penggunaan 
+karya tulis ini dalam segala bentuknya untuk kepentingan komersial apapun 
+tanpa seizin Pemegang Hak Cipta. 
+ Setiap Orang yang dengan tanpa hak dan/atau tanpa izin Pemegang Hak 
+Cipta melakukan pelanggaran sebagaimana dimaksud butir di atas dapat 
+dipidana dengan pidana penjara paling lama 10 (sepuluh) tahun dan/atau 
+pidana denda paling banyak Rp 4.000.000.000,00 (empat miliar rupiah). 
+ 
+Hak Cipta buku Pedoman Penulisan Skripsi ini dipegang oleh 
+Fakultas Psikologi Universitas Indonesia 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+iii 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI 
+ 
+FAKULTAS PSIKOLOGI 
+UNIVERSITAS INDONESIA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA iv 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ISBN No. 978-602-19649-3-4 
+ 
+PEDOMAN PENULISAN SKRIPSI 
+FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+ 
+Copyright © Fakultas Psikologi Universitas Indonesia, 2018 
+Hak Cipta dilindungi oleh Undang-Undang 
+ 
+Diterbitkan oleh 
+Lembaga Pengembangan Sarana Pengukuran 
+dan Pendidikan Psikologi (LPSP3) 
+ Fakultas Psikologi Universitas Indonesia 
+ Kampus UI Depok 16424 Jawa Barat 
+Telp.  +62-21 7874740 ext. 1601 
+Fax.  +62-21 7874741 
+Surel.  lpsp3@ui.ac.id 
+ 
+  
+Edisi I — Cetakan I . 2018   
+Penulis Julia Suleeman & Laras Sekarasih 
+Penyunting Ilsiana S. Jatiputra & Edo S. Jaya 
+Desain Sampul Stephanie Yuanita Indrasari 
+Tataletak Ivan Sujana 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+v 
+ 
+PENGANTAR 
+ 
+Saya bersyukur dan menyambut gembira diterbitkannya buku Pedoman Penulisan 
+Skripsi sebagai acuan untuk mahasiswa, khususnya pada Program Sarjana Fakultas 
+Psikologi Universitas Indonesia. 
+Keberadaan buku pedoman ini merupakan salah satu usaha penjaminan mutu 
+proses pendidikan. Pa ra pe mbimbing skripsi, mahasiswa penyusun skripsi, dan 
+penguji skripsi akan memiliki pedoman dan pemahaman yang sama mengenai 
+bagaimana suatu skripsi disusun. 
+Apresiasi dan ucapan terima kasih  saya sampaikan kepada Dra. Julia Suleeman, 
+M.A., M.A., Ph.D. dan Laras Sekarasih, Ph.D., yang dengan penuh kesungguhan hati 
+telah menyelesaikan tugas ini.  Juga kepada Dr. Ilsiana Sulistya Jatiputra dan Dr. 
+phil. Edo Sebastian Jaya, M. Psi. , yang telah mem berikan waktunya untuk secara 
+saksama membaca dan memberikan masukan akhir terhadap naskah ini. 
+Buku Pedoman Penulisan Skripsi ini terwujud atas inisiatif dari pengelola Program 
+Sarjana, Prof. Dr. Frieda Maryam Mangunsong Siahaan, M.Ed. dan Adhityawarman 
+Menaldi, S.Psi., M.Psi. , yang telah melakukan berbagai usaha, termasuk 
+mengadakan kegiatan-kegiatan pembahasan draf Pedoman Penulisan Skripsi agar 
+pertanyaan-pertanyaan mengenai penulisan skripsi terakomodasi dalam buku 
+pedoman. Ucapan terima kasih saya hat urkan kepada keduanya, dan juga semua 
+pihak yang telah membantu terwujudnya buku ini. 
+Saya berharap dengan tersedianya buku Pedoman Penulisan Skripsi ini, hasil karya 
+penelitian mahasiswa dalam bentuk skripsi menjadi semakin berkualitas. 
+ 
+Depok, Desember 2017 
+ 
+Dr. Tjut Rifameutia Umar Ali, M.A., Psikolog 
+Dekan Fakultas Psikologi Universitas Indonesia  
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA vi 
+ 
+PRAKATA 
+ 
+Sejak diselenggarakannya Program Sarjana Psikologi di Universitas Indonesia, 
+skripsi merupakan salah satu syarat kelulusan mahasiswa. Skripsi adal ah ‘buku’ 
+pertama yang ditulis mahasiswa. Skripsi di lingkungan psikologi mewakili 
+kemandirian, ketelitian, kejujuran, dan keberhasilan mahasiswa menjadi peneliti. 
+Penulisan skripsi melalui tahap demi tahap penelitian dari mengenali gejala dan 
+masalah ting kah laku, melakukan studi literatur, menyusun hipotesis, 
+merencanakan metode dan prosedur, melaksanakan penelitian dalam bentuk 
+pengambilan data, hingga kemudian menganalisis data serta menginterpretasikan 
+hasilnya.  Petunjuk tentang pelaksanaan seluruh tahapan proses yang menguras 
+waktu dan pikiran ini, tentu akan sangat baik bila disajikan dengan jelas dan 
+sistematis.   
+Buku Pedoman Penulisan Skripsi ini ditulis dengan semangat membantu 
+mahasiswa mendapatkan kejelasan dan dapat menyelesaikan penulisan skr ipsi 
+tepat waktu, yaitu satu semester. Untuk itu, contoh -contoh penulisan tiap 
+komponen skripsi di tiap babnya diharapkan memberikan informasi yang memadai 
+agar penulisan skripsi bab demi bab dapat diselesaikan dengan baik. Buku ini 
+ditujukan bagi mahasiswa, dosen pembimbing, maupun dosen penguji skripsi. 
+Kami berharap Pedoman Penulisan Skripsi ini dapat menjadi acuan, sehingga 
+tercipta pemahaman yang serupa dalam mengerjakan, membimbing, menguji, dan 
+menilai skripsi mahasiswa Fakultas Psikologi UI. 
+Pedoman penulisan skripsi ini adalah untuk penelitian ilmiah yang menggunakan 
+pendekatan kuantitatif. Untuk skripsi yang menggunakan pendekatan kualitatif, 
+silakan menggunakan buku Metode Penelitian Kualitatif dari Santoso dan Royanto 
+(2009) sebagai rujukan. 
+Terima kasih kepada semua pihak yang telah memberikan dorongan dan masukan. 
+Secara khusus, tim penyusun menyampaikan terima kasih kepada Dr. Tjut 
+Rifameutia Umar Ali, M.A. selaku Dekan Fakultas Psikologi Universitas Indonesia 
+periode tahun 2014-2017, Prof. Sri Hartati R. Suradijono, Ph.D. selaku Wakil Dekan 
+Bidang Pendidikan, Penelitian, dan Kemahasiswaan Fakultas Psikologi UI periode 
+2016-2018. Terima kasih juga kami ucapkan kepada Prof. Dr. Frieda M. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+vii 
+Mangunsong, M.Ed. selaku Ketua Program Sarjana Prog ram Studi Psikologi  
+Fakultas Psikologi UI , serta para dosen lainnya di Fakultas Psikologi UI yang 
+mendorong ditulis dan diselesaikannya buku ini. Ucapan terima kasih yang tulus 
+juga disampaikan kepada Drs. Harry Susianto, Ph.D., Dra. Corina D. Riantoputra  
+M.Com., Ph.D., Dr. Ilsiana S. Jatiputra, dan Dr. phil. Edo S. Jaya yang sudah 
+memberikan komentar terhadap versi draf  buku ini. Kiranya buku ini turut 
+bermanfaat untuk meningkatkan kualitas skripsi di lingkungan Fakultas Psikologi 
+Universitas Indonesia.  
+ 
+Depok, 9 November 2017 
+ 
+Julia Suleeman 
+Laras Sekarasih 
+  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA viii 
+ 
+DAFTAR ISI 
+ 
+Pengantar  ……………………………………………………………………………………………… iiiv 
+Prakata  …………………………………………………………………………………………………. iivi 
+Daftar Isi  ……………………………………………………………………………………………….. viii 
+  
+BAB IIIV   MENGAPA HARUS MENULIS SKRIPSI 01 
+ Alasan Skripsi Diwajibkan pada Mahasiswa Strata Satu  …………………. 1 
+ Hakikat Skripsi  ………………………………………………………………………………. 2 
+ Tujuan Buku Pedoman Penulisan Skripsi dan Cakupannya  …………….. 3 
+   
+BAB IIIV   PERSIAPAN MENULIS SKRIPSI 5 
+ Kapan Mulai Memikirkan Topik Skripsi  ………………………………………….. 5 
+ Memilih Topik Skripsi  ……………………………………………………………………. 6 
+ Memilih Pembimbing Skripsi  …………………………………………………………. 10 
+ Menyusun Proposal Skripsi  ……………………………………………………………. 11 
+   
+BAB IIIV   MENULIS BAB 1  PENDAHULUAN 13 
+ Komponen Bab 1  …………………………………………………………………………… 13 
+ Ciri-ciri Pendahuluan yang Baik  ……………………………………………………… 14 
+   
+BAB IVII   MENULIS BAB 2  TINJAUAN KEPUSTAKAAN 21 
+ Struktur Tinjauan Kepustakaan  ……………………………………………………… 21 
+ Ciri-ciri Tinjauan Kepustakaan yang Baik  ……………………………………….. 22 
+ Mengapa Harus Menuliskan Sumber Referensi dalam Tulisan  ………. 25 
+ Merumuskan Hipotesis  …………………………………………………………………. 27 
+   
+BAB VIII   MENULIS BAB 3  METODE PENELITIAN 29 
+ Tipe dan Desain Penelitian  ……………………………………………………………. 29 
+ Partisipan Penelitian  ……………………………………………………………………… 30 
+ Instrumen Penelitian  ……………………………………………………………………… 32 
+ Prosedur Penelitian  ……………………………………………………………………….. 35 
+ Teknik Analisis Statistika  ……………………………………………………………….. 38 
+   
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+ix 
+ 
+BAB VIII   MENULIS BAB 4  HASIL PENELITIAN 39 
+ Gambaran Partisipan  …………………………………………………………………….. 39 
+ Hasil Analisis Penelitian  …………………………………………………………………. 43 
+   
+BAB VIII   MENULIS BAB 5  KESIMPULAN, DISKUSI, DAN SARAN 48 
+ Kesimpulan  ……………………………………………………………………………………. 48 
+ Diskusi dan Saran  …………………………………………………………………………… 48 
+   
+BAB VIII   MEMPERSIAPKAN ABSTRAK DAN KELENGKAPAN SKRIPSI 50 
+ Abstrak  ………………………………………………………………………………………….. 50 
+ Setelah Proses Menulis Draf Skripsi Selesai  …………………………………… 52 
+   
+Daftar Referensi  ……………………………………………………………………………………. 55 
+  
+LAMPIRAN 59 
+ Lampiran 1  Panduan Membuat Daftar Referensi  ………………………….. 60 
+ Lampiran 2  Format Penulisan Dokumen Naskah Ringkas & Makalah 66 
+ Lampiran 3  Prosedur Pengunggahan & Pengumpulan Tugas Akhir  .. 73 
+ Lampiran 4  Formulir Persetujuan Publikasi Naskah Ringkas  …………. 77 
+   
+Indeks  ……………..……………………………………………………………………………………. 78 
+ 
+  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA x 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+1 
+Alasan Skripsi Diwajibkan pada Mahasiswa Strata Satu 
+Kompetensi Umum Sarjana Strata Satu Bidang Psikologi:  
+Mampu merancang beragam intervensi non terapeutik berdasarkan 
+kajian ilmiah dan prinsip perubahan tingkah laku terhadap gejala 
+psikologik individu, kelompok, organisasi, dan masyarakat perkotaan 
+secara etis dan profesional. 
+KK-1.  Menganalisis gejala psikologik pada individu, kelompok, 
+organisasi, dan masyarakat perkotaan berdasarkan teori 
+psikologi yang sesuai. 
+KK-2. Melakukan penelitian ilmiah bidang psikologi pada individu, 
+kelompok, organisasi, dan masyarakat perkotaan. 
+KK-3.  Merancang intervensi non psikoterapeutik berdasarkan 
+prinsip perubahan tingkah laku pada individu, kelompok, 
+organisasi, dan masyarakat perkotaan. 
+ 
+BAB I 
+MENGAPA HARUS MENULIS SKRIPSI 
+ 
+ 
+ 
+Mahasiswa Strata Satu (jenjang S arjana) Fakultas Psikologi Universitas Indonesia 
+umumnya bertanya, mengapa diperlukan penulisan skripsi agar bisa lulus menjadi 
+sarjana psikologi, padahal di f akultas lainnya di lingkungan Universitas Indonesia, 
+ada pilihan untuk lulus jenjang Strata Satu tanpa menulis skripsi. Untuk menjawab 
+pertanyaan ini, kita perlu melihat pada rumusan kompetensi yang diharapkan dari 
+lulusan jenjang sarjana Fakultas Psikologi UI. Rumusan kompetensi ini dapat dilihat 
+pada Kurikulum 2012 Fakultas Psikologi Universitas Ind onesia yang berbunyi 
+sebagai berikut: 
+ 
+ 
+ 
+ 
+Kompetensi Umum ini dirinci lebih lanjut menjadi Kompetensi Khusus 1, 2, dan 3 
+dengan rumusan sebagai berikut: 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 2 
+Hakikat Skripsi 
+Perhatikan bahwa penulisan skripsi termasuk dalam Kompetensi Khusus 2 
+(melakukan penelitian ilmiah bidang psikologi) yang terdiri dari kompetensi -
+kompetensi sebagai berikut: identifikasi masalah, menentukan pendekatan atau 
+metode penelitian, menyusun instrumen penelitian/pengumpulan informasi, 
+mengambil data penelitian, serta menyusun dan menyajikan hasil penelitian.  
+Memang kompetensi melakukan penelitian ilmiah bida ng psiko logi tidak hanya 
+diberikan melalui penulisan skripsi, melainkan juga sudah diberikan melalui kuliah 
+lainnya seperti Metode Penelitian dan Statistik Deskriptif (semester 2), Metode 
+Penelitian dan Statistik Inferensial 1 (semester 3), Metode Observasi (semester 3), 
+Metode Wawancara (semester 3), Psikologi Lintas Budaya (semester 3), Metode 
+Penelitian dan Statistik Inferensial 2 (semester 4), dsb.  Namun, pengerjaan 
+penelitian ilmiah pada mata -mata kuliah tersebut penekanannya adalah pada 
+kompetensi yang dilatihkan sesuai dengan tujuan mata kuliah, dan bukan 
+kompetensi melakukan penelitian yang sifatnya komprehensif. Selain itu, 
+pengerjaannya umumnya dilakukan secara berkelompok, bukan perorang an. 
+Dalam penulisa n skripsi , mahasiswa bertanggung jawab untuk melakukan 
+penelitian ilmiah secara perorangan, tentunya dengan bimbingan pembimbing 
+skripsi. 
+Keterampilan meneliti ini juga menjadi salah satu bidang kerja lulusan Program 
+Studi Sarjana Fakultas Psikologi yang d irumuskan sebagai “menjadi peneliti 
+mengenai berbagai gejala psikologik.” 
+ 
+ 
+ 
+Senat Fakultas Psikologi Universitas Indonesia (September, 2017) merumuskan 
+skripsi sebagai “... laporan ilmiah hasil penelitian empiris dengan menggunakan 
+metode penelitian kuantitatif atau metode kualitatif berlandaskan teori psikologi 
+yang bertujuan untuk mengkaji fenomena psikologis sebagai salah satu syarat 
+untuk menyelesaikan pendidikan di Fakultas Psikologi Universitas Indonesia dan 
+memperoleh gelar Sa rjana Psikologi (S.Psi.).”  Sebagai suatu laporan hasil 
+penelitian ilmiah, skripsi memiliki ciri-ciri penting sebagai berikut: 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+3 
+Tujuan Buku Pedoman Penulisan Skripsi dan Cakupannya 
+1. Merupakan jawaban terhadap permasalahan psikologis. 
+2. Jawaban terhadap permasalahan psikologis ini disampaikan berdasarkan 
+pada pen elitian empiris yang dilakukan dengan menggunakan metode 
+penelitian yang tepat. 
+3. Dikerjakan selama minimal satu semester di bawah bimbingan berkala 
+dari pembimbing skripsi yang memiliki kompetensi yang memadai.  
+4. Mengikuti kaidah penulisan ilmiah.  
+5. Diuji di hadapan panitia ujian skripsi. Penguji skripsi akan melakukan 
+penilaian atas kemandirian mahasiswa dalam mempertanggungjawabkan 
+karyanya mulai dari perencanaan, pelaksanaan, dan penulisan laporan 
+penelitian.   
+Karena skripsi adalah syarat kelulusan mahasis wa jenjang sarjana psikologi dan 
+juga tidak bisa diselesaikan dalam waktu singkat, mahasiswa perlu memfokuskan 
+perhatian dan memberikan prioritas dalam proses penulisan skripsi. Menulis 
+skripsi bukanlah sekadar menulis, tapi melibatkan serangkaian aktivitas penelitian. 
+Untuk bisa menyelesaikan skripsi, mahasiswa perlu mempertahankan minat dan 
+konsentrasinya selama proses penelitian dan penulisan.  
+Skripsi bukan hanya mewakili akumulasi pengetahuan dan kompetensi mahasiswa 
+dalam menganalisis gejala psikologi k dan melakukan penelitian ilmiah di bidang 
+psikologi. Skripsi juga menjadi cerminan kesiapan mahasiswa untuk menjadi 
+seorang sarjana.  Oleh karena itu dalam proses penulisan  skripsi, sikap ilmiah 
+seperti kejujuran  ilmiah, keterbukaan  terhadap masukan , dan ketelitian dalam 
+menganalisis diharapkan menjadi terasah dan menjadi panduan  dalam 
+mengerjakan penulisan skripsi. Ketiga sikap ini juga akan dinilai sebagai salah satu 
+elemen penilaian dalam ujian skripsi, di samping penguasaan materi skripsi.  
+ 
+ 
+ 
+Buku ini bertujuan untuk memberikan gambaran kepada mahasiswa  jenjang 
+sarjana, dosen pembimbing skripsi, dan dosen penguji skripsi tentang isi skripsi dan 
+bagaimana menyusun isi skripsi itu. Skripsi umumnya terdiri dari lima bab tulisan  
+dan daftar pustaka . Bab 1 adalah pendahuluan yang berisi latar belakang, tujuan 
+dan manfaat penelitian, serta sistematika penulisan. Bab 2 adalah tinjauan  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 4 
+kepustakaan yang berisi definisi dan penjelasan konsep -konsep psikologi atau 
+variabel-variabel yang hendak diteliti. Bab 3 adalah metode penelitian yang berisi 
+tipe dan desain penelitian, partisipan pene litian, alat ukur dan instrumen 
+penelitian, prosedur penelitian, serta  metode analisis  data. Bab 4 adalah hasil 
+penelitian yang berisi gambaran umum partisipan penelitian, dan hasil analisis 
+penelitian. Bab 5 adalah kesimpulan, diskusi dan saran. Terakhir, daftar pustaka 
+adalah daftar referensi yang berisi sumber dan acuan yang digunakan disebut 
+dalam tulisan di bab 1 hingga bab 5.  
+Sebelum menuliskan bab -bab ini, mahasiswa perlu mulai memikirkan  hal-hal 
+berikut: memilih topik skripsi, menentukan topik skripsi , memilih pembimbing 
+skripsi, dan menyusun proposal skripsi.  Penjelasan lebih rinci tentang persiapan 
+menulis skripsi ini akan dibahas dalam Bab II Pedoman Penulisan Skripsi ini. Dalam 
+Bab III akan dijelaskan bagaim ana menyusun Pendahuluan atau bab 1 skripsi. 
+Berturut-turut dalam buku ini akan dibahas bagaimana menyusun bab 2 skripsi 
+(Tinjauan Kepustakaan), bab 3 (Metode Penelitian), bab 4 (Hasil Penelitian), bab 5 
+(Kesimpulan, Diskusi , Dan Saran ), mempersiapkan abstrak dan naskah ringkas. 
+Selain itu, dalam lampiran tercantum juga kelengkapan lain nya dari  skripsi agar 
+siap diuji dan diunggah di UI-ANA.  
+Pedoman Penulisan Skripsi ini membahas bagaimana menulis skripsi dalam ruang 
+lingkup di Fakultas Psikologi Universitas Indonesia, sedangkan hal -hal teknis 
+penulisan, seperti bagaimana menyusun daftar pustaka atau referensi, membuat 
+tabel dan gambar, silakan merujuk ke APA Publication Manual terbaru.  Karena itu, 
+hendaknya Pedoman Penulisan Skripsi ini digunakan berdampingan dengan 
+American Publication  Association (APA) Publication Manual  terbaru. Untuk saat 
+ini, tahun 2017, terbitan terbaru APA Publication Manual  adalah edisi keenam 
+tahun 2010. Bila di kemudian hari ada APA Publication Manual  yang lebih terkini 
+dari tahun 2010, hendaknya itulah yang dijadikan acuan.   
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+5 
+Kapan Mulai Memikirkan Topik Skripsi 
+ 
+BAB II 
+PERSIAPAN MENULIS SKRIPSI 
+ 
+Bab ini berisi hal -hal yang harus diperhitungkan sebelum penulisan skripsi bisa 
+dimulai.  Secara khusus, bab ini akan membahas kapan sebaiknya Anda mulai 
+memikirkan topik skripsi, bagaimana memilih topik skripsi, bagaimana memilih 
+pembimbing skripsi, dan bagaimana menyusun proposal skripsi. 
+ 
+ 
+ 
+Kapan sebaiknya mulai memikirkan skripsi sangatlah bervariasi antara mahasiswa 
+yang satu dengan mahasiswa lainnya. Ada yang sejak semester satu sudah 
+menyatakan tertarik pada topik tertentu sebagai topik skripsi.  Tentu ini adalah 
+pemikiran yang terlalu dini, karena pembekalan tentang ilmu psikologi baru mulai 
+diberikan. Sebaliknya, ada juga yang baru menemukan topik skripsi sehari sebelum 
+batas pengumpulan proposal skripsi.  Tentu ini adalah pemikiran yang tergesa -
+gesa, dan belum tentu ini topik yang akan betul-betul ditekuni sebagai topik skripsi 
+yang diselesaikannya sampai menjadi skripsi yang siap diuji. Di antara kedua kutub 
+ekstrim inilah biasanya mahasiswa mulai memikirkan tentang topik skripsi. 
+Merujuk pada syarat mahasiswa sudah menyelesaikan 110 satuan kredit semester 
+(sks) sebagai minimal jumlah sks yang harus dipe nuhi  untuk boleh memasukkan 
+proposal skripsi, maka sebaiknya Anda mulai memikirkan tentang skripsi saat 
+hampir menyelesaikan 110 sks.  Ini sama dengan kira -kira menjelang akhir 
+semester 5. Namun umumnya, mahasiswa mulai memikirkan topik skripsi pada 
+akhir semester 6 atau malah akhir semester 7. 
+  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 6 
+Memilih Topik Skripsi 
+INGIN LULUS DALAM TUJUH SEMESTER? 
+Kurikulum Berbasis Kompetensi 2012 Fakultas Psikologi Universitas 
+Indonesia mensyaratkan 144 satuan kredit semester (sks) sebagai 
+jumlah yang harus dimiliki mahasiswa sebelum dinyatakan lulus dari 
+Fakultas Psikologi Universitas Indonesia dan berhak menyandang 
+gelar Sarjana Psikologi. Jumlah 144 sks ini sudah termasuk 6 sks 
+untuk skripsi dan 8 sks untuk mata kuliah pilihan.  Pada semester 7 
+terdapat  mata kuliah Konstruksi Alat Ukur Psikologis yang bertujuan 
+membekali mahasiswa dengan kemahiran menyusun alat ukur untuk 
+mengukur suatu gejala psikologis. Pembekalan yang diperoleh dari 
+kuliah ini langsung dirasakan manfaatnya saat mahasiswa menyusun 
+skripsi yang tergolong sebagai skr ipsi empiris yang dilengkapi 
+dengan pengambilan data dengan menggunakan alat ukur yang 
+tepat. Pada semester 8, tidak ada kuliah yang dijadwalkan, dan 
+diharapkan pada semester 8 inilah mahasiswa menyelesaikan 
+penulisan skripsi. Jadi, KBK 2012 memang memberi  kemungkinan 
+kecil pada mahasiswa yang merencanakan untuk  menyelesaikan 
+seluruh studinya dalam 7 semester, asalkan penulisan skripsi sudah 
+dimulai sejak semester 6. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sebagai mahasiswa Fakultas Psikologi, Anda sudah diberi banyak kesempatan 
+untuk memilih topik makalah sesuai dengan arahan pengajar di mata -mata kuliah 
+yang Anda ikuti. Pengalaman ini tentunya menjadi bekal untuk memilih topik 
+skripsi.  
+Kapan mulai memikir kan topik skripsi tentunya terkait dengan minat terhadap 
+topik-topik tertentu. Darimana muncul ide untuk topik skripsi? Cara yang 
+dianjurkan oleh Sternberg dan Sternberg (2010) adalah berkonsultasi dengan staf 
+pengajar yang meneliti bidang yang Anda minati . Kemungkinan lainnya untuk 
+mendapatkan topik skripsi adalah dari para dosen yang mengumumkan to pik 
+payung tertentu.  Bila memang Anda berminat pada payung tersebut, bicaralah 
+dengan dosen yang bersangkutan untuk menjajagi kemungkinan Anda menjadi 
+anggota tim payungnya. Sejak tradisi payung penelitian dimulai pada akhir tahun 
+1990-an, sudah cukup banyak skripsi payung yang dihasilkan. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+7 
+PAYUNG PENELITIAN 
+Payung penelitian adalah penelitian skripsi yang berjumlah lebih dari 
+satu, yang satu sama lain saling terkait, idealnya tidak lebih dari 
+empat mahasiswa. Dalam penelitian payung, biasanya terdapat 
+kesamaan variabel utama  yang diteliti satu mahasiswa deng an 
+lainnya. Bisa juga meneliti konstruk psikologis pada kelompok 
+partisipan tertentu.  Payung penelitian ditawarkan oleh dosen yang 
+telah mendalami topik tertentu dan ingin mengeksplorasi lebih 
+lanjut. Dengan payung penelitian, mahasiswa mendapat manfaat 
+dengan memilliki rekan yang sama -sama meneliti variabel terkait. 
+Dengan adanya teman diskusi yang relatif mengerti variabel yang 
+diteliti, diskusi pun dapat menjadi lebih dalam dan tajam.  Dosen 
+juga  mendapatkan manfaat karena ia dapat membangun kepakaran 
+atau bidang keahliannya. Dengan payung penelitian,  dosen dan 
+mahasiswa bersama -sama meneliti gejala psikologik dengan 
+menjunjung etika penelitian dan memperhatikan prinsip authorship 
+untuk menghasilkan publikasi ilmiah yang berkualitas di jurnal 
+nasional atau internasional. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Selain itu, membaca artikel -artikel jurnal tentang topik yang Anda minati akan 
+memperluas wawasan tentang mungkin -tidaknya topik itu dijadikan topik skripsi 
+Anda.  
+Namun, cara yang biasanya paling dianjurkan adalah dengan m embaca langsung 
+jurnal ilmiah yang terbaru untuk melihat topik apa saja yang memang sedang 
+hangat untuk diteliti, dan apa latar belakangnya sehingga topik itu memancing 
+sejumlah penelitian lanjutan. Lunenburg dan Irby (2008) menyarankan untuk 
+mengkaji topi k-topik terkini dari sumber -sumber seperti Review of Educational 
+Research, Annual Review of Psychology , Review of Research in Education  dan 
+sejenisnya yang menyajikan referensi tentang topik tertentu. Biasanya, penulis -
+penulis artikel reviu seperti ini ada lah para ahli yang memang sudah diakui 
+kepakarannya dan karena itu diundang untuk menulis.   
+Cara lain untuk menemukan topik skripsi adalah karena ingin mengetahui apakah 
+suatu teori dapat diterapkan dalam sampel yang memiliki karakteristik tertentu. 
+Misalnya, teori Piaget tentang perkembangan  kognitif menyatakan bahwa tahap 
+sensorimotor berlaku dari kelahiran sampai kira-kira usia 2 tahun, dan berlanjut ke 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 8 
+tahap pra -operasional sampai dengan kira -kira usia 7 tahun. Bisa saja Anda 
+melakukan penelitian untuk mengetahui, pada usia berapa tahap pra -operasional 
+dialami oleh sekelompok anak yang mengalami tunarungu dibandingkan dengan 
+sekelompok anak lain yang mengalami tunanetra. Hasil penelitian seperti ini 
+bermanfaat untuk mengetahui apakah perkembangan kogni tif pada anak yang 
+tergolong difabel mengikuti pola yang sama dengan anak yang tidak tergolong 
+difabel.  
+Pengalaman sehari -hari dengan gejala tertentu dapat menjadi sumber ide yang 
+tiada habis -habisnya karena dari sini timbul rasa penasaran dan keingintahu an 
+(curiosity) yang tinggi, kekaguman terhadap sesuatu, atau malah ketidakpuasan 
+terhadap sesuatu. Contohnya, seorang mahasiswa yang menjadi guru piano, 
+memilih topik skripsi tentang proses kreatif yang dilalui saat musisi piano membuat 
+komposisi musik. Co ntoh lain, mahasiswa yang memiliki adik pecandu narkoba, 
+meneliti tentang mengapa pecandu narkoba sulit untuk sembuh. Mahasiswa yang 
+banyak membaca acapkali menemukan perbedaan antara apa yang ia baca dengan 
+apa yang diamati di lingkungan, sehingga timbul pertanyaan dan rasa penasaran 
+untuk memeriksa ‘kebenaran’ dengan menjadikannya sebagai topik penelitian 
+skripsi.  
+Cara lain untuk menemukan topik skripsi adalah melakukan replikasi, yaitu 
+meneliti ulang apa yang sudah diteliti oleh orang lain. Replikasi be rmanfaat untuk 
+mengetahui, apakah hasil yang sama akan diperoleh dalam konteks dan dengan 
+partisipan yang berbeda.  Tentu saja Anda harus memberikan penjelasan berbasis 
+literatur mengapa replikasi perlu dilakukan.  
+Topik skripsi yang dipilih umumnya akan diarahkan untuk menjawab satu 
+pertanyaan saja, walaupun mengembangkan lebih dari satu pertanyaan (2 -3 
+pertanyaan) juga sering ditemui dan dapat diterima selama mahasiswa mampu 
+menjawab seluruh pertanyaan yang ia ajukan dalam tulisan skripsinya.  
+Sering mahasiswa mendapat kesulitan saat mengintegrasikan berbagai informasi 
+yang diperoleh untuk menetapkan topik mana yang akhirnya dipilih. Berikut adalah 
+enam penuntun (5 w dan 1 h yaitu who, what, when, where, why, how ) yang 
+berguna untuk memilih dan membatasi topik penelitian, termasuk penelitian 
+untuk skripsi. Pertanyaan itu adalah: siapa, apa, kapan, dimana, m engapa, dan 
+bagaimana. Kembangkan pertanyaan -pertanyaan ini saat muncul rasa ingin tahu, 
+atau ketika menemukan perbedaan antara apa yang dibaca dengan apa yang 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+9 
+Pertanyaan dikembangkan dari prinsip who  
+1. Apa ciri-ciri psikologik yang membedakan tenaga 
+penjualan (sales) yang berhasil dan kurang berhasil? 
+ 
+Pertanyaan dikembangkan dari prinsip what 
+2. Apakah orangtua yang memiliki anak dengan 
+gangguan spektrum autistik (autistic spectrum 
+disorder) memiliki religious coping yang efektif?  
+ 
+Pertanyaan dikembangkan dari prinsip when 
+3. Kapan sebaiknya bimbingan pranikah mulai dilakukan?  
+ 
+Pertanyaan dikembangkan dari prinsip where 
+4. Di mana biasanya para remaja 
+mendapatkan informasi tentang seks? 
+ 
+Pertanyaan dikembangkan dari prinsip why 
+5. Mengapa banyak siswa SMA yang 
+memiliki body dissatisfaction?  
+ 
+Pertanyaan dikembangkan dari prinsip how 
+6. Bagaimana strategi pemasaran daring 
+menumbuhkan kepercayaan konsumen? 
+ditemukan di lingkungan.  Pertanyaan -pertanyaan awal ini dapat mendorong 
+munculnya ide. Perhatikan contoh-contoh berikut: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Dari sekian banyak topik skripsi yang Anda miliki, pilihlah satu yang memiliki 
+kriteria sebagai berikut:  
+1. Topik itu Anda minati secara pribadi, bukan sekadar dipilihkan oleh orang 
+lain. Ini berlaku walaupun topik itu adalah topik payung yang ditawarkan 
+oleh dosen. 
+2. Topik itu merupakan topik penelitian psikologi, bukan bidang ilmu lainnya. 
+3. Topik itu menjawab kebutuhan yang ada, misalnya untuk  mencari solusi 
+dari masalah tertentu yang muncul di masyarakat.  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 10 
+Memilih Pembimbing Skripsi 
+4. Selaku peneliti, Anda memiliki pengetahuan yang memadai tentang 
+konsep, konstruk, atau variabel penelitian. Paling tidak, dari berbagai 
+sumber yang ada, Anda mulai mendapatkan informasi yang memadai 
+untuk membangun pengetahuan tentang variabel penelitian y ang Anda 
+minati.  
+5. Ada instrumen penelitian yang dapat dipakai untuk mengukur variabel 
+penelitian tersebut. Instrumen ini bisa dicari dari skripsi atau artikel jurnal, 
+atau menghubungi langsung ke penulis skripsi atau artikel jurnal tersebut. 
+Bila memang ti dak ada instrumen yang tersedia, Anda dapat menyusun 
+sendiri, sesuai dengan pembekalan yang sudah diberikan di kuliah 
+Psikometri dan Konstruksi Alat Ukur Psikologi. Menyusun instrumen 
+penelitian sendiri akan membutuhkan lebih banyak waktu daripada 
+memakai instrumen penelitian yang sudah ada, karena perlu 
+dipertanggung jawabkan dengan baik.   
+ 
+ 
+ 
+Biasanya,  penetapan pembimbing  skripsi (PS) dilakukan oleh Koordinator Skripsi 
+atas nama Ketua Prodi Sarjana. Namun, Anda tetap dapat  mengajukan usulan 
+untuk memilih dosen tertentu sebagai PS dengan pertimbangan bahwa beliau 
+menguasai topik tersebut. Artinya, dengan pengetahuan yang dimiliki oleh dosen 
+itu, tentu Anda akan mendapatkan lebih banyak masukan dibandingkan bila Anda 
+dibimbing oleh dosen yang tidak memahami topik yang Anda ingin kaji.  
+Hal lain yang perlu Anda cermati adalah apakah Anda ingin mengerjakan skripsi 
+dalam satu semester atau dua semester.  Bila Anda ingin mengerjakan dalam satu 
+semester, sampaikan ini kepada calon pembimbing skripsi Anda untuk 
+mengetahui, apakah beliau mendukung ide Anda ini. Bila beliau menyatakan tidak 
+sanggup karena kesibukan yang dihadapi, lebih baik Anda mencari calon 
+pembimbing skripsi lainnya.  
+Namun sebenarnya keberhasilan mengerjakan skrips i dalam satu semester 
+tidaklah semata-mata bergantung kepada pembimbing skripsi, melainkan kepada 
+Anda sendiri.  Cukup banyak mahasiswa yang dibimbing oleh pembimbing skripsi 
+yang memberikan bimbingan dengan teratur, termasuk meminta progress report 
+dari mahasiswa bimbingannya dengan teratur, namun tetap sang mahasiswa tidak 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+11 
+Menyusun Proposal Skripsi 
+dapat menyelesaikan penulisan skripsi dalam satu semester.  Mengapa demikian?  
+Karena sang mahasiswa tidak fokus dalam pengerjaan skripsinya, artinya tidak 
+meluangkan waktu secara penuh  untuk skripsi, melainkan masih menyelesaikan 
+kuliah-kuliah, atau bekerja, dan hal -hal lainnya. Agar berhasil menyelesaikan 
+skripsi dalam satu semester, mahasiswa harus menempatkan penyelesaian 
+penulisan skripsi sebagai prioritas yang tidak diganggu oleh hal-hal lainnya. 
+ 
+ 
+ 
+Proposal skripsi disusun dengan mengikuti struktur penulisan sebagai berikut: 
+1. Halaman depan ( cover) berisi topik skripsi, nama pembimbing skripsi 
+(kalau ada) yang sudah menyatakan secara lisan bersedia membimbing 
+Anda, nama pembimbing akademis Anda, nama dan nomor mahasiswa 
+Anda, serta nomor telepon Anda yang masih aktif agar Anda dapat 
+dihubungi oleh Ketua Program Studi (atau Koordinator Skripsi).  
+2. Latar belakang mengapa topik itu dianggap tepat untuk diteliti. Tujuan 
+penyajian latar belakang adalah untuk meyakinkan Ketua Program Studi 
+(atau Koordinator Skripsi) bahwa Anda sudah menyiapkan diri untuk 
+mengerjakan topik ini, dan bukan sekadar memilih topik dengan terburu -
+buru.  Penjelasan latar belakang disampaikan dalam 2 -3 halaman dengan 
+menyertakan referensi yang mendukung bahwa topik tersebut perlu 
+diteliti, atau paling tidak, referensi yang menyataka n bahwa perlu 
+dilakukan penelitian lanjutan tentang topik itu.  
+3. Tinjauan pustaka berisi pengertian variabel -variabel penelitian yang 
+terkandung dalam topik penelitian, dan keterkaitan antar variabel. Besar 
+kemungkinan, Anda belum membaca terlalu banyak ten tang variabel -
+variabel ini, sehingga tidak bisa menuliskan dengan panjang lebar.  Karena 
+itu, yang Anda perlu lakukan adalah menuliskan minimal 5 referensi yang 
+dapat dijadikan rujukan untuk menuliskan Tinjauan Pustaka ini.  Dengan 
+demikian, Ketua Program Studi atau Koordinator Skripsi yakin bahwa Anda 
+sudah menyediakan waktu untuk mempelajari variabel -variabel ini 
+walaupun belum sempat menuliskannya menjadi Tinjauan Pustaka yang 
+rapi, jelas, dan dalam.  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 12 
+4. Metode yang akan dipakai dalam penelitian skripsi.  Tentu bagian metode 
+juga belum dapat dikerjakan dengan baik karena Anda masih dalam proses 
+membaca untuk memahami topik skripsi dengan lebih baik.  Paling tidak, 
+Anda mencantumkan kelompok partisipan yang ingin diteliti (usia, jumlah 
+partisipan, cara memper oleh atau cara merekrut sampel), instrumen 
+penelitian yang akan dipakai (apakah mengambil instrumen yang tersedia, 
+atau mau menyusun sendiri), dan metode analisis data yang akan dipakai 
+(apakah kuantitatif, dengan metode korelasional atau eksperimen,  
+dengan dilengkapi juga dengan teknik analisisnya).  
+ 
+Keseluruhan proposal skripsi ini biasanya tidak lebih dari 5 -8 halaman. Perhatikan 
+bahwa topik skripsi yang Anda ajukan melalui proposal ini masih bersifar tentatif, 
+artinya masih sementara. Pembimbing skripsi Anda akan menentukan apakah 
+proposal skripsi A nda perlu direvisi agar dapat dilanjutkan menjadi skripsi yang 
+layak dikerjakan oleh mahasiswa jenjang sarjana.   
+   
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+13 
+Komponen Bab 1 
+ 
+BAB III 
+MENULIS BAB 1 PENDAHULUAN 
+ 
+Dalam bab ini dijelaskan tentang bagaimana menuliskan bab 1 dalam skripsi yang 
+biasanya disebut sebagai Bab Pendahuluan. 
+ 
+ 
+ 
+Bab 1 umumnya terdiri dari 6 -8 halaman. Komponen penting yang ada di dalam 
+Bab 1 adalah: 
+1. Latar Belakang 
+ Latar belakang terdiri dari pengenalan gejala dan variabel yang hendak 
+diteliti, relevansi penelitian, dan pertanyaan penelitian. Secara umum, 
+pada subbab latar belakang ini penulis mengemukakan hal-hal berikut: 
+ memperkenalkan gejala yang akan diteliti dan memiliki kelayakan 
+untuk diteliti. 
+ menunjukkan bagaimana gejala itu terjadi di kehidupan sehari -
+hari dengan mendeskripsikan gejala berdasarkan pengamatan 
+atau menggunakan sumber seperti data statistik, berita di koran, 
+dan hasil wawancara terhadap sejumlah orang. 
+ memberi penjelasan bahwa gejala itu bisa didekati, diteliti, 
+dipahami dan dijelaskan sebagai sesuatu yang bersifat psikologis. 
+Penjelasan ini menjad i pengantar untuk masuk ke pembahasan 
+konsep atau teori yang menolong untuk memahami gejala itu. 
+ memperkenalkan variabel dan kaitan antar variabel, disertai 
+dengan definisi singkat tentang variabel -variabel yang akan 
+diteliti. Definisi singkat ini berguna untuk memberi gambaran 
+kepada pembaca tentang apa yang dimaksud dengan variabel -
+variabel itu dan bagaimana keterkaitan yang ada di antara 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 14 
+Ciri-ciri Pendahuluan yang Baik 
+mereka. Definisi tentang variabel yang lebih lengkap dapat 
+disampaikan di Bab Tinjauan Pustaka. 
+ menjelaskan mengapa gejala itu bermakna ilmiah untuk diteliti. 
+Dengan kata lain menjelaskan relevansi dan urgensi dari 
+penelitian terhadap gejala itu. 
+ memakai tinjauan teori mutakhir untuk memahami gejala. 
+Sebagai patokan, Pedoman Penulisan Tugas Akhir Universitas 
+Indonesia menyatakan bahwa 70% daftar pustaka yang dipakai 
+adalah yang terbit dalam 10 tahun terakhir; Namun, untuk 
+psikologi, hal ini sulit dipenuhi. Dalam ketentuan yang disepakati 
+oleh Senat Akademik Fakultas Psikologi Universitas Indonesia, 
+tinjauan pustaka dari skripsi diharapkan menggunakan minimal 
+40% pustaka yang diterbitkan dalam 10 tahun terakhir. 
+ menunjukkan gap atau kesenjangan yang ada di antara gejala -
+gejala yang ditemukan berdasarkan kajian terhadap studi 
+terdahulu atau kerangka teoritis yang digunakan. 
+ memberikan rumusan pertanyaan penelitian yang diletakkan di 
+bagian akhir dari latar belakang. 
+ memberikan deskripsi singkat tentang metode yang paling 
+memungkinkan untuk digunakan agar dapat menjawab 
+pertanyaan penelitian. 
+ 
+2. Tujuan Penelitian 
+ Tujuan penelitian bersifat searah dengan pertanyaan penelitian. Kata 
+kunci yang digunakan antara lain, mengg ambarkan, membuktikan, 
+menguji hubungan, menguji pengaruh, atau menguji interaksi antara 
+variabel A dan variabel B. 
+ 
+ 
+ 
+Pendahuluan yang baik memiliki ciri-ciri sebagai berikut: 
+1. Memberikan latar belakang mengapa topik ini tepat untuk diteliti 
+Tujuan penyajian latar belakang adalah agar pembaca dapat memahami 
+(untuk kemudian menyetujui) mengapa topik ini penting untuk diteliti. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+15 
+Untuk itu, Anda perlu membangun konteks ( frame of reference ) agar 
+pembaca mengerti posisi topik penelitian di tengah-tengah cakupan dan 
+isu-isu lain di bidang kajian tersebut. Ini dicapai dengan membuat 
+pernyataan-pernyataan umum tentang bidang kajian tersebut, lalu 
+dilanjutkan dengan menyampaikan secara ringkas apa saja yang sudah 
+dilakukan oleh orang lain untuk kajian tersebut. 
+ 
+2. Memperlihatkan kesenjangan penjelasan teoretik yang ada 
+ Setelah menyajikan latar belakang, sajikan data atau informasi tentang 
+kondisi yang ada di lapangan sehingga terlihat kesenjangan dengan 
+kondisi yang diharapkan (yaitu kondisi ideal).  Anda juga bisa menyajikan 
+informasi temuan-temuan empiris yang sudah ad a dan mutakhir terkait 
+variabel atau topik, kemudian menunjukkan kurangnya kajian ilmiah di 
+celah yang hendak Anda teliti. Kesenjangan itulah yang harus 
+dijembatani dengan topik yang Anda pilih. Untuk itu, penulisan subbab 
+ini menggunakan gaya penulisan ar gumentatif. Penyajian data atau 
+informasi hendaknya dari sumber yang kredibel (contoh: jurnal -jurnal 
+yang terakreditasi, jurnal internasional yang peer-reviewed, bukan 
+sekadar blog yang bersifat pribadi), dan bukan sekadar dari pengamatan 
+Anda yang bersifat subyektif. 
+ 
+3. Menyajikan alasan mengapa topik tersebut perlu diteliti 
+ Walaupun sudah diperlihatkan kesenjangan antara gejala -gejala 
+psikologik berdasarkan kajian teoritis, secara eksplisit Anda harus 
+memberikan alasan yang kuat mengapa topik ini perlu diteliti.   
+ 
+4. Ada rumusan pertanyaan penelitian 
+Pertanyaan penelitian ( research question) mengacu kepada pertanyaan 
+mengenai variabel atau hubungan antar variabel yang diteliti.   
+Rumusan pertanyaan penelitian adalah pertanyaan yang akan dijawab 
+dengan data em piris. Menurut Kerlinger dan Lee (2000), pertanyaan 
+penelitian yang dirumuskan dengan baik sudah menjadi sebagian 
+(bahkan separuh) dari pelaksanaan penelitian. Artinya, dari pertanyaan 
+yang dirumuskan ini, sudah dapat diperoleh gambaran seperti apa 
+penelitian yang akan dilakukan. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 16 
+Contoh: 
+ Apakah ada hubungan antara prestasi belajar        
+dan inteligensi pada siswa akselerasi? 
+ Apakah insentif berpengaruh terhadap          
+performa kerja pegawai Dirjen Pajak? 
+ Apakah siswa laki-laki lebih mendukung bullying 
+dibandingkan siswa perempuan di SMA Jakarta? 
+ Faktor-faktor apakah yang berperan                    
+dalam perilaku bullying di sekolah? 
+RUMUSAN PERTANYAAN PENELITIAN YANG BAIK 
+Kerlinger dan Lee (2000) menyatakan bahwa ada tiga kriteria yang 
+harus dipenuhi agar suatu rumusan pertanyaan penelitian dinyata-
+kan baik, yaitu: 
+1. Menyatakan hubungan antara dua atau lebih variabel. Secara 
+lebih spesifik, dapat dirumuskan sebagai berikut: Apakah A 
+berhubungan dengan B? Bagaimana A dan B berhubungan 
+dengan C? Bagaimana hubungan A dan B dalam kondisi C? 
+2. Masalah dinyatakan dengan jelas dalam bentuk pertanyaan, 
+bukan pernyataan . Contoh: Untuk siswa kelas 5 SD, apakah 
+metode membaca A menghasilkan pemahaman membaca 
+yang lebih tinggi  dibandingkan dengan metode membaca B? 
+Faktor apa yang mendorong remaja melakukan tawuran? 
+3. Pertanyaan penelitian yang sudah dirumuskan harus meng -
+isyaratkan adanya pengujian empiris. Artinya, harus dapat 
+dilakukan pengukuran terhadap variabel penelitian sehingga 
+dapat dibuat interpretasi dan kesimpulan berdasarkan hasil 
+pengukuran tersebut. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Karakteristik pertanyaan penelitian yang baik adalah: 
+ Dinyatakan dalam bentuk pertanyaan tentang           
+deskripsi variabel atau hubungan antar variabel 
+Dalam hal ini, menanyakan ‘perbedaan’ maupun ‘pengaruh’ 
+juga menunjukkan hubungan antar variabel. Pertanyaan yang 
+disusun harus spesifik, jelas, dan memungkinkan dilakukan 
+pengukuran terhadap variabel yang diteliti, serta mencakup 
+populasi penelitian (bukan sampel atau partisipan penelitian). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+17 
+Contoh: 
+1. Bagaimana dukungan sosial          
+pada remaja miskin di Jakarta? 
+2. Bagaimana pola asuh orang tua          
+pada remaja miskin di Jakarta? 
+3. Apakah ada hubungan antara dukungan sosial dan 
+pola asuh orang tua pada remaja miskin di Jakarta? 
+ Perhatikan tujuan penelitian dalam          
+membuat pertanyaan penelitian  
+Pertanyaan penelitian harus konsisten dengan tujuan 
+penelitian yang dituliskan pada bab 1. Tujuan penelitian harus 
+sudah dinyatakan secara eksplisit dalam latar belakang. 
+Misalnya, bila dalam latar belakang sudah dinyatakan b ahwa 
+konflik kerja -keluarga berpengaruh terhadap motivasi kerja, 
+maka seharusnya masalah penelitian ditulis “Apakah konflik 
+kerja-keluarga berpengaruh terhadap motivasi kerja perawat 
+RS?”, bukan “Apakah konflik kerja -keluarga berhubungan 
+dengan motivasi ke rja perawat RS?”   Ini disebabkan karena 
+peneliti telah menetapkan penyebab (konflik kerja -keluarga) 
+dan akibat (motivasi kerja), sedangkan pada masalah penelitian 
+terakhir, kedua variabel tidak ditentukan perannya. 
+ 
+ Tuliskan semua masalah yang ingin             
+dijawab dalam pertanyaan penelitian  
+Setiap pertanyaan penelitian ditulis untuk setiap deskripsi atau 
+hubungan antar variabel yang ingin diteliti. Oleh karena itu, 
+pertanyaan penelitian dapat saja berjumlah lebih dari satu. 
+Apabila lebih dari sat u, pertanyaan penelitian tidak boleh 
+bertentangan satu sama lain. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Penulisan ketiga pertanyaan di atas TIDAK TEPAT bila 
+dinyatakan dalam sebuah skripsi. Pertanyaan penelitian 1 dan 
+2 akan berfokus untuk mendeskripsikan masing -masing 
+variabel, tanpa melihat hubungan keduanya. Bila tujuan 
+peneliti adalah melihat hubungan antara kedua variabel, 
+tuliskan saja pertanyaan 3 sebagai pertanyaan penelitian. 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 18 
+Contoh: 
+1. Apakah ada hubungan antara dukungan sosial dan          
+pola asuh orang tua pada remaja miskin di Jakarta? 
+2. Apakah dukungan sosial instrumental berhubungan de-
+ngan pola asuh orang tua pada remaja miskin di Jakarta? 
+3. Apakah dukungan sosial informasi berhubungan dengan 
+pola asuh orang tua pada remaja miskin di Jakarta? 
+4. Apakah dukungan sosial penghargaan berhubungan de-
+ngan pola asuh orang tua pada remaja miskin di Jakarta? 
+5. Apakah dukungan sosial emosial berhubungan dengan  
+pola asuh orang tua pada remaja miskin di Jakarta? 
+ 
+Peneliti dapat saja membuat beberapa masalah penelitian 
+yang lebih spesifik, misalnya menanyakan hubungan suatu 
+dimensi variabel dengan variabel atau dimensi variabel lain. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Pada contoh di atas, kelima pertanyaan tersebut dapat 
+dinyatakan dalam sebuah skripsi, karena tidak bertentangan 
+satu sama lain. Pada pertanyaan penelitian 1, peneliti 
+menyatakan hubungan antarkedua variabel, sedangkan 
+pertanyaan penelitian 2 hingga 5 menyatakan hubungan setiap 
+dimensi dari variabel (dukungan sosial) dengan variabel lain 
+(pola asuh).  
+ 
+ Tidak ada ‘pertanyaan utama’ dan ‘pertanyaan tambahan’ 
+Penelitian dilakukan untuk menjawab semua pertanyaan 
+penelitian yang diajukan oleh peneliti. Oleh karena itu, semua 
+pertanyaan penelitian yang ingin dijawab harus dinyatakan 
+dalam bab 1, sehingga tidak ada yang menjadi utama atau 
+tambahan. Perlu diingat, b ahwa pertanyaan  penelitian 
+diajukan sesuai dengan pemaparan pada subbab latar 
+belakang, bukan dibuat setelah data terkumpul. 
+ 
+Dalam menuliskan pertanyaan penelitian, definisi mengenai pertanyaan 
+penelitian tidak perlu dituliskan. Begitu juga pada subbab lainnya (seperti 
+hipotesis, metode, prosedur, dll ), definisi dari subbab tidak perlu 
+dituliskan.   
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+19 
+Contoh Penulisan Subbab Pertanyaan Penelitian yang Tidak Tepat 
+3.1  Pertanyaan Penelitian 
+Berdasarkan definisi dari Kerlinger (1966), pertanyaan penelitian 
+adalah kalimat tanya yang menanyakan apakah ada hubungan 
+antara  dua  atau  lebih  variabel.   Oleh  karena  itu,  penulis             
+mengajukan masalah penelitian sebagai berikut: “Apakah            
+bystander berpengaruh terhadap tingkah laku menolong?” 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5. Memenuhi unsur relevan dan urgensi  
+ Maksud dari relevan adalah topik yang diteliti merupakan topik 
+psikologis dan bukan bidang ilmu lainnya. Maksud dari urgensi adalah 
+topik penelitian yang diusulkan merupakan jawaban yang penting dan 
+mendesak dilakukan untuk mengatasi kesenjangan yang ada. Urgensi 
+yang dimaksud di sini bisa urgensi teoretik atau praktis. 
+ 
+6. Topik yang dipilih bukanlah topik yang terlalu luas dan rumit 
+Topik yang Anda pilih ada lah topik yang tepat untuk dikerjakan oleh 
+mahasiswa jenjang sarjana, tidak terlalu luas ataupun rumit. Ini terkait 
+dengan batasan waktu yang tersedia untuk skripsi yaitu 1 semester, 
+maksimal 2 semester. Dalam kenyataannya, periode satu semester pun 
+masih terpotong untuk pengumpulan proposal, pengumuman 
+pembimbing skripsi, sehingga Anda hanya  memiliki waktu sekitar 12 
+minggu.  Namun, waktu penyelesaian skripsi akan sangat ditentukan oleh 
+kecepatan Anda dalam menguasai  konsep, merencanakan penelitian, 
+melaksanakan penelitian itu sendiri di samping melaporkannya. 
+ 
+7. Ada penjelasan bagaimana topik ini akan diteliti 
+Ini termasuk penjelasan tentang pendekatan penelitian yang dipilih, 
+metode yang dipakai, penetapan partisipan, dan analisis yang dipakai. 
+ 
+8. Ada rumusan tujuan penelitian 
+ Dalam merumuskan tujuan penelitian di bab pendahuluan, harus jelas 
+tergambar jenis penelitian yang diteliti dalam skripsi Anda. Merujuk pada 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 20 
+Kumar (2005), Gravetter dan Forzano (2009), tujuan dan jenis penelitian 
+dapat dibedakan menjadi: 
+ penelitian deskriptif dengan tujuan mendapatkan gambaran 
+tentang sesuatu (bisa berupa situasi, masalah, gejala, program, 
+kondisi yang dialami, sikap dari kelompok dengan karakteristik 
+tertentu terhadap sesuatu); 
+ penelitian korelasional dengan tuju an menemukan ada atau 
+tidaknya hubungan antara dua atau lebih variabel; 
+ penelitian eksplanatori dengan tujuan menemukan kejelasan 
+tentang mengapa dan bagaimana dua atau lebih variabel saling 
+berhubungan; 
+ penelitian eksploratori dengan tujuan mencari tahu apa saja yang 
+perlu dilakukan atau disiapkan sebelum melakukan penelitian 
+dalam skala yang lebih besar. 
+Penelitian korelasional dan eksplanatori umum dikerjakan sebagai skripsi 
+sarjana, sementara penelitian eksploratori lebih jarang dikerjakan 
+sebagai skripsi.  
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+21 
+Struktur Tinjauan Kepustakaan 
+ 
+BAB IV 
+MENULIS BAB 2 TINJAUAN KEPUSTAKAAN 
+ 
+Dalam skripsi Psikologi, Bab 2  berisi ulasan peneliti mengenai literature tentang 
+topik penelitian, yang menjadi basis hipotesis yang akan diuji. Bab IV Pedoman 
+Penulisan Skripsi ini berisi struktur tinjauan kepustakaan, ciri -ciri tinjauan 
+kepustakaan yang baik, mengapa harus menuliska n sumber referensi dalam 
+tulisan, menghindari plagiarisme, dan bagaimana menulis hipotesis. 
+ 
+ 
+ 
+Tinjauan kepustakaan merupakan ulasan teori dan temuan penelitian sebelumnya 
+yang menjadi landasan dan acuan dalam mengajukan hipotesis dan merancang 
+penelitian. Secara umum, tinjauan kepustakaan mengulas literatur tentang 
+variabel-variabel yang akan diuji  dalam penelitian. Peneliti pemula seperti 
+mahasiswa yang sedang menulis skripsi dapat memulai tinjauan kepustakaan 
+dengan membahas definisi variabel. Peneliti dapat menggunakan pendekatan 
+historis yang memuat perkembangan penelitian mengenai topik tersebu t sejak 
+penelitian yang paling tua hingga yang paling baru, atau menjabarkan aliran-aliran 
+atau tentang variabel dan gejala yang diteliti. Buatlah ulasan sekomprehensif 
+mungkin, dilengkapi dengan komponen, aspek, atau dimensi dari variabel, dan 
+bagaimana v ariabel tersebut biasanya diukur. Lebih penting lagi, ada ulasan 
+tentang temuan -temuan penelitian sebelumnya yang relevan dengan penelitian 
+Anda.  Pastikan bahwa seluruh ulasan yang Anda susun adalah tentang  literatur 
+yang penting dan mutakhir tentang variabel dan gejala yang diteliti.  
+Urutan variabel mana yang harus diulas terlebih dahulu tergantung dari variabel 
+mana yang dianggap sebagai “variabel terikat” atau outcome variable. Pada 
+penelitian korelasional, peneliti bergantung pada teori untuk menentu kan mana 
+yang dianggap sebagai variabel outcome dan mana yang dianggap sebagai 
+prediktor. Pada penelitian eksperimental, urutan variabel pertama dan kedua 
+dalam tinjauan kepustakaan lebih jelas. Peneliti dapat memulai tinjauan 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 22 
+Ciri-ciri Tinjauan Kepustakaan yang Baik 
+kepustakaan dengan mengulas v ariabel terikat dahulu, kemudian memposisikan 
+variabel bebas sebagai salah satu faktor yang mempengaruhi variabel terikat dan 
+penting untuk diteliti. Sebagai contoh, Rozendaal, Buijzen, dan Valkenburg (2010) 
+meneliti kompetensi kognitif anak dalam memahami  iklan. Pada bagian tinjauan 
+kepustakaan, Rozendaal et al. (2010) terlebih dahulu menyentuh isu kapabilitas 
+konsumen dalam memahami pesan komersial. Pembahasan kemudian dilanjutkan 
+dengan mendiskusikan studi -studi terdahulu mengenai kapasitas kognitif dan 
+kematangan anak-anak dari tahapan perkembangan yang berbeda —masa kanak-
+kanak awal, madya, dan praremaja—dalam mengolah informasi dalam iklan. Pada 
+penelitian mereka mengenai pengaruh fokus atensi ko -aktor terhadap performa, 
+Böckler, Knoblich, dan Sebanz (2 012) juga menggunakan struktur yang serupa, 
+yaitu memulai tulisan dengan membahas bagaimana manusia cenderung mem -
+pertimbangkan persepsi individu lain ketika melakukan suatu tugas, dilanjutkan 
+dengan pembahasan mengenai belum adanya penelitian mengenai bag aimana 
+perhatian dua orang yang mengerjakan tugas akan satu sama lain mempengaruhi 
+performa mereka masing -masing. Struktur yang membahas variabel terikat 
+sebelum variabel bebas relatif mudah dimengerti dan membantu peneliti dalam 
+menjaga alur pemikiran aga r tetap sistematis, walau tidak tertutup kemungkinan 
+untuk menggunakan struktur lain, selama alur penulisan koheren dan sinambung.  
+ 
+ 
+ 
+Tujuan dari melakukan tinjauan kepustakaan adalah agar Anda mampu 
+memaparkan  dan pembaca mendapatkan kejelasan tentang variabel -variabel 
+penelitian dan keterkaitannya satu sama lain. Untuk itu, penulisan tinjauan 
+kepustakaan yang baik memiliki hal-hal berikut: 
+1. Ada rumusan konsep dari variabel penelitian 
+Sebuah variabel boleh  jadi memiliki lebih dari satu konseptualisasi dan 
+definisi. Misalnya, menurut Belk (1985) materialisme merupakan sifat 
+(trait) sedangkan menurut Richins dan Dawson (1992) materialisme 
+adalah nilai (value). Pada tinjauan kepustakaan, Anda harus menjelaskan 
+definisi mana yang Anda gunakan dalam penelitian ini dan menyertakan 
+alasannya. Alasan yang Anda ajukan bukan sekadar perkiraan, klaim, 
+assertion, atau opini, melainkan harus didukung oleh teori dan 
+penelitian-penelitian yang ada. 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+23 
+2. Menggunakan sumber primer atau pertama 
+Sitasi dan kutipan harus didapatkan langsung dari sumbernya, bukan dari 
+sumber kedua apalagi ketiga. Misalnya, ketika mendefinisikan 
+perkembangan kognitif anak menurut Jean Piaget, bacalah buku yang 
+ditulis oleh Piaget, bukan mengutip Piaget dari  buku teks psikologi 
+perkembangan. Hindari menggunakan second-hand source atau tangan 
+kedua (e.g., Piaget, dalam Martorell & Papalia, 2013). Demikian pula 
+dengan artikel jurnal: bacalah artikel aslinya, bukan artikel lain yang 
+mengutip artikel tersebut. Me mbaca sumber asli sangat penting, sebab 
+seorang penulis akan selalu melakukan parafrase terhadap isi artikel asli 
+sesuai dengan konteks riset yang sedang dilakukan. Dengan demikian, 
+kutipan mengenai penelitian A yang kita baca di artikel jurnal B biasanya 
+sudah disesuaikan dengan konteks penelitian B. Dengan kata lain, sitasi 
+tersebut belum tentu sepenuhnya menggambarkan penelitian A dan 
+belum tentu cocok dengan penelitian yang sedang kita lakukan. Oleh 
+sebab itu, sangat penting untuk membaca artikel asli a gar kita benar -
+benar mengetahui apa isi penelitian yang hendak kita kutip tersebut. 
+Dengan penetrasi internet yang ada saat ini, kebanyakan buku dan artikel 
+jurnal dapat diakses, sehingga peneliti dapat membaca langsung sumber 
+aslinya. 
+Secara keseluruhan, tinjauan kepustakaan seharusnya berisi ulasan 
+mengenai literatur yang berhubungan dengan topik penelitian Anda yang 
+ditulis dalam kalimat -kalimat Anda sendiri. Dalam melakukan sitasi, 
+pastikan Anda melakukan parafrase, bukan hanya menyalin atau 
+menerjemahkan secara langsung dari naskah aslinya. Sekadar 
+menerjemahkan dari kalimat dari naskah asli tanpa melakukan kutipan 
+langsung merupakan bentuk plagiarisme. Mengutip langsung dari naskah 
+dapat dilakukan dengan mengacu pada tata cara sitasi menurut APA, dan 
+hanya dilakukan jika benar -benar dibutuhkan, contohnya pada istilah 
+spesifik atau khas yang diciptakan oleh seorang peneliti, yang digunakan 
+pada subbidang tertentu (misalnya, “ critical autonomy ” (Masterman, 
+1985, hal. 85)). Silakan merujuk APA Publication Manual (2010) untuk 
+petunjuk teknis melakukan sitasi untuk kalimat hasil parafrase dan 
+kutipan. Baik mengutip, memparafrase, atau meringkas ide yang 
+didapatkan dari  sumber lain harus disebut sumbernya. Jelas bahwa 
+sumber yang tidak kita baca tidak  boleh dimasukkan. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 24 
+3. Penjelasan yang detail mengenai penelitian-penelitian sebelumnya 
+ Penelitian merupakan “dialog” antara satu peneliti dengan peneliti 
+lainnya. Oleh sebab itu, penting bagi seorang peneliti untuk mampu 
+memetakan riset -riset sebelumnya pada topik  penelitiannya. Setelah 
+menggambarkan hubungan antara satu riset dengan yang lain – 
+terutama riset yang seminal atau baru – peneliti harus dapat 
+memposisikan di mana riset yang sedang dikerjakannya berada, dan 
+bagaimana riset ini berhubungan dengan penelit ian-penelitian yang 
+telah ada sebelumnya. Dalam menulis tinjauan kepustakaan, peneliti 
+perlu memberikan deskripsi tentang riset-riset sebelumnya yang menjadi 
+pijakan bagi penelitian yang sedang dilakukan. Jelaskan pertanyaan 
+penelitian apa yang dijawab dal am setiap riset, prosedur apa yang 
+dilakukan untuk memperoleh data, siapa partisipan dalam riset tersebut, 
+dan apa temuan atau hasilnya. Penjelasan ini harus dituliskan dengan 
+kalimat-kalimat Anda sendiri, bukan menerjemahkan dari abstrak artikel 
+yang bersangkutan 
+Anda boleh jadi akan menemukan ratusan, bahkan mungkin ribuan 
+artikel jurnal dan buku ketika melakukan penelusuran literatur. Tentu 
+saja tidak semua artikel atau buku dapat dan perlu diulas dalam tinjauan 
+kepustakaan. Dalam memilih literatur yang mana yang diikutsertakan ke 
+dalam tinjauan kepustakaan, Anda perlu berdiskusi dengan pembimbing 
+skripsi. Pembimbing Anda biasanya familiar dengan karya -karya canon 
+pada topik penelitian Anda yang harus Anda baca dan tinjau. Selain 
+naskah-naskah canon, Anda  juga perlu memasukkan penelitian -
+penelitian kontemporer dan mutakhir – biasanya naskah -naskah yang 
+berusia 10 tahun atau lebih muda – mengenai topik penelitian Anda. 
+Pertanyaan penelitian dan hipotesis Anda biasanya bertolak dari adanya 
+kesenjangan pada k arya-karya terkini, misalnya dari pertentangan hasil 
+dari beberapa penelitian, atau keberadaan satu atau dua faktor yang 
+penting dalam mempengaruhi variabel terikat namun masih jarang 
+diteliti.   
+ 
+4. Ulasan mengenai penelitian-penelitian sebelumnya 
+Dalam tinjauan kepustakaan, Anda perlu melakukan perbandingan 
+antara satu artikel dan artikel lainnya. Misalnya, perhatikan apa 
+kesamaan satu artikel dengan artikel berikutnya, apa perbedaannya, dan 
+mengapa beberapa artikel melaporkan hasil yang berbeda -beda 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+25 
+Mengapa Harus Menuliskan Sumber Referensi dalam Tulisan 
+meskipun alat ukur dan prosedurnya sama. Anda perlu berhati-hati agar 
+tinjauan kepustakaan Anda tidak menjadi kumpulan paragraf berisi 
+deskripsi berbagai artikel jurnal. Tinjaun kepustakaan hendaknya bukan 
+sekadar kumpulan potong dan gunting berbagai su mber literatur, tapi 
+menunjukkan kemampuan peneliti menurunkan isi pikirannya dalam 
+memahami berbagai sumber literatur itu. Melakukan elaborasi atau 
+ilustrasi dengan contoh, menginterpretasi pernyataan ahli, dan menarik 
+benang merah dari sejumlah teori atau temuan empiris adalah sejumlah 
+proses penting yang menandai kemampuan peneliti menurunkan isi 
+pikirannya ke dalam tulisan. Pada akhirnya, tinjauan kepustakaan bukan 
+hanya memindahkan ide dan pikiran orang lain, melainkan harus mampu 
+menggambarkan kesenja ngan dalam literatur, memperjelas kontribusi 
+atau keunikan studi riset yang sedang dilakukan.   
+ 
+ 
+ 
+Membangun pengetahuan bukan pekerjaan yang dimulai dari nol, melainkan dari 
+pengetahuan yang sudah  ada sebelumnya. Ibarat membangun rumah, 
+pengetahuan terdahulu merupakan fondasi yang dijadikan dasar seorang 
+peneliti/ilmuwan untuk menjawab suatu permasalahan. Oleh karena itu, literatur 
+merupakan sumber pengetahuan yang amat penting bagi peneliti. Ia da pat 
+membaca berbagai konsep teoretis atau penelitian terdahulu yang terkait atau 
+sejenis dengan permasalahan yang ingin ia jawab. Dengan perlahan tapi pasti, 
+seiring penguasaannya terhadap literatur, seorang peneliti akan mampu 
+memperoleh kerangka pikir ya ng jelas tentang arah penelitiannya. Proses ini 
+kemudian membantunya untuk merumuskan hipotesis atau dugaan sementara 
+yang akan ia uji.  
+Oleh karena itu, menyebutkan sumber dari pengetahuan terdahulu merupakan 
+aspek penting dalam suatu laporan penelitian, termasuk skripsi. Dapat dikatakan 
+bahwa menyebutkan sumber bernilai instrumental bagi peneliti, yang bukan saja 
+membangun kerangka pikir peneliti, tapi juga memfasilitasi tercapainya akurasi isi 
+pengetahuan yang disampaikan ulang. Menyebutkan sumber juga b ernilai etis 
+untuk melindungi hak kepemilikan intelektual.  Di sinilah sikap seorang peneliti 
+akan kejujuran dan tanggung jawab diuji. Ia mengakui bahwa deretan 
+pengetahuan dan untaian kalimat yang ia ketik sebenarnya ‘berasal’ dari (banyak) 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 26 
+orang sebelumn ya. Bukan hanya kejujuran, suatu tulisan yang mencantumkan 
+sumber yang dikutip merefleksikan kerendahatian penulis bahwa ia belajar dari 
+orang lain. Mencantumkan  sumber juga membangun kredibilitas penulis sebagai 
+peneliti, di mana pembaca bisa melihat dan  menilai apakah sumber-sumber yang 
+digunakan merupakan acuan utama yang penting, sekunder menunjang, atau 
+sebaliknya acuan yang tidak menunjang argumentasi penulis. 
+Menuliskan sumber sebenarnya mudah, apalagi saat ini panduan mengenai 
+tatacara mengutip dap at ditemukan dengan mudah dalam bentuk hard copy 
+maupun di berbagai laman di internet. Piranti lunak ( software) yang dapat 
+membantu peneliti untuk mengelola referensi dan sitasi seperti Mendeley, 
+Refworks, EndNote, atau Zotero pun tersedia. Namun, kemudaha n-kemudahan 
+teknologi ini tidak menggantikan tanggung jawab dan keterampilan peneliti untuk 
+mengutip langsung, memparafrase, dan meringkas. Hindari hanya mengutip 
+sehingga tinjauan kepustakaan terlihat seperti sekadar tambal -sulam kutipan 
+penelitian-penelitian sebelumnya. Mahasiswa perlu mengasah keterampilan agar 
+uraian berbagai literatur yang dijadikan fondasi dalam sebuah riset padu dan 
+mudah dipahami. 
+Dalam psikologi dan banyak cabang ilmu sosial lain, gaya sitasi yang digunakan 
+adalah pakem American Psychological Association (APA). Anda perlu membiasakan 
+diri untuk merujuk pada Publication Manual edisi terbaru yang dikeluarkan APA. 
+Saat Pedoman Penulisan Skripsi ini ditulis, Publication Manual terbaru adalah edisi 
+keenam, yang diterbitkan tahun 2010. Se perti yang disebutkan pada Bab I 
+Pedoman Penulisan Skripsi ini, Anda harus menggunakan buku ini berdampingan 
+dengan APA Publication Manual terbaru. Artinya, jika saat Anda membaca buku ini 
+telah terbit APA Publication Manual yang lebih baru, Anda harus mer ujuk ke 
+panduan tersebut, bukan ke manual edisi keenam terbitan 2010. 
+Menuliskan sumber dengan benar juga merupakan bagian dari kejujuran 
+akademik. Sebaliknya, tidak menyebutkan sumber atau basis literatur dalam 
+sebuah proposal atau laporan penelitian membuka kemungkinan telah terjadi 
+pelanggaran terhadap kejujuran akademik,  berupa plagiarisme. Dalam konteks 
+pendidikan tinggi di Indonesia, plagiarisme dan konsekuensinya diatur dalam 
+Peraturan Menteri Pendidikan Nasional Nomor 17 tahun 2010 mengenai 
+Pencegahan dan Penanggulangan Plagiarisme di Perguruan Tinggi. Peraturan ini 
+menyebutkan bahwa plagiarisme terjadi ketika seseorang atau sekelompok orang 
+dengan sengaja atau tidak sengaja mengutip sebagian atau seluruh hasil karya 
+orang lain namun mengakuinya sebagai hasil karya sendiri tanpa memberikan 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+27 
+Merumuskan Hipotesis 
+kredit kepada penulis atau pe ncipta aslinya. Jika terdapat indikasi plagiat, 
+perguruan tinggi dapat melakukan investigasi dengan membandingkan karya 
+ilmiah yang dicurigai merupakan hasil plagiat dan karya ilmiah yang diduga sebagai 
+sumber asli yang dijiplak. Jika dugaan plagiarisme terbukti, perguruan tinggi berhak 
+menjatuhkan sanksi bagi pelaku, baik dosen mau pun mahasiswa. 
+Dengan demikian, jelas bahwa saat kita mengutip, memparafrase, atau meringkas 
+ide yang didapat dari suatu sumber, maka sumber itu harus disebutkan. Jika kita 
+menuliskan ide atau kalimat orang lain, namun tidak menyebutkan sumbernya baik 
+dengan sengaja maupun tidak sengaja, kita dianggap melakukan plagiarisme.    
+ 
+ 
+ 
+Pengujian hipotesis lebih lazim dilakukan dalam penelitian kuantitatif. Hipotesis 
+adalah dugaan atau prediksi peneliti mengenai hubungan antara dua variabel atau 
+lebih yang didasarkan pada teori dan literatur atau penelitian yang telah ada. 
+Dalam merumuskan hipotesis, peneliti hendaknya memperhatikan panduan 
+berikut: 
+1. Hipotesis harus menyatakan secara eksplisit dugaan mengenai hubungan 
+antarvariabel (atau pengaruh variabel A terhadap variabel B). 
+2. Variabel-variabel yang hendak diuji harus tercantum dengan jelas pada 
+hipotesis. Perlu diingat bahwa hipotesis menyatakan dugaan akan 
+hubungan antarkonstruk, sehingga dalam skripsi tidak perlu adanya 
+penulisan hipotesis operasional. 
+3. Hipotesis hendaknya disertai dengan penjelasan atau rationale yang logis 
+dan berdasarkan literatur mengapa dan/atau bagaimana peneliti dapat 
+mengajukan hipot esis tersebut. Rationale ini kadang dikenal sebagai 
+“dinamika antarvariabel.” Dalam menuliskan rationale ini, peneliti 
+menjelaskan mekanisme psikologis yang mungkin terjadi, yang 
+menyebabkan terjadinya hubungan antara kedua variabel, atau pengaruh 
+variabel bebas pada variabel terikat.   
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 28 
+Contoh Hipotesis yang Baik: 
+ “Anak laki -laki lebih mungkin menjadi pelaku perundungan siber 
+(cyberbullying) dibandingkan anak perempuan.” (Lee & Shin, 2017, hal. 
+354) 
+ “Kami berhipotesis bahwa ibu dari kebudayaan yang mementingkan 
+relasi antarindividu akan menekankan tanggung jawab anak dalam 
+menjaga hubungan interpersonal dengan memberi tugas kepada anak 
+dengan intonasi yang serius dan instruktif ( assertive scaffolding ). 
+Selanjutnya, kami berhipotesis bahwa ibu dari ke budayaan yang 
+mementingkan otonomi, yang mementingkan kemandirian dan pilihan 
+individu anak, akan melakukan scaffolding dengan cara meminta, 
+memohon, dan memberi penjelasan kepada anak ( deliberate 
+scaffolding). Kami juga berhipotesis bahwa ibu dari kebuday aan 
+otonomi-relasi akan menggunakan kombinasi teknik assertive dan 
+deliberate scaffolding. ” (Köster, Cavalcante, Vera Cruz de Carvalho, 
+Dôgo Resende, & Kärtner, 2016, hal. 1729) 
+ “Ketika pemilih hanya memiliki informasi mengenai partai afiliasi 
+kandidat per empuan, stereotipe mengenai perempuan tidak akan 
+teraktivasi dibandingkan ketika pemilih memiliki informasi tentang 
+kandidat yang mencerminkan stereotipe perempuan.” (Bauer, 2015, 
+hal. 693) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Terdapat dua alternatif tempat menuliskan hipotesis dalam naskah skripsi . 
+Pertama, hipotesis dapat dituliskan di akhir tinjauan kepustakaan sebagai satu 
+subbab/section yang diletakkan di akhir tinjauan kepustakaan (lihat misalnya, Lee 
+& Shin, 2017, hal. 354 sebagai contoh model penulisan hipotesis seperti i ni). 
+Kedua, hipotesis juga dapat diletakkan di antara ( interspersed) subbab -subbab 
+mengenai variabel yang hendak diteliti (lihat, misalnya, Bauer, 2015, hal. 693-694; 
+Köster et al., 2016, hal. 1729). Diskusikan dengan pembimbing Anda, struktur mana 
+yang lebih tepat untuk penelitian Anda.  
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+29 
+Tipe dan Desain Penelitian 
+Contoh Penulisan Tipe dan Desain Penelitian yang Salah: 
+Berdasarkan penggolongan penelitian menurut Kumar (2005), penelitian 
+ini tergolong penelitian korelasional karena ingin melihat hubungan 
+antara dukungan sosial dan pola asuh, dimana tidak ada variabel yang 
+dianggap penyebab maupun akibat serta tidak ada variabel yang 
+dimanipulasi. P enelitian ini juga dapat digolongkan sebagai penelitian 
+kuantitatif karena variabel dukungan sosial dan pola asuh diukur 
+menggunakan kuesioner, lalu skor dari setiap kuesioner tersebut 
+digunakan untuk mengetahui besar dukungan sosial dan tipe pola asuh 
+dari setiap responden. 
+ 
+BAB V 
+MENULIS BAB 3 METODE PENELITIAN 
+ 
+Bab 3 dalam skripsi memaparkan tipe dan desain penelitian, karakteristik 
+partisipan, instrumen penelitian, prosedur penelitian, dan teknik analisis statistika. 
+Perhatikan bahwa judul untuk Bab 3 adalah “Metode Penelitian”, bukan 
+“Metodologi Penelitian”. Fokus penjelasan penulisan metode di buku ini adalah 
+penelitian dengan pendekatan kuantitatif. Untuk penulisan metode pada 
+penelitian kualitatif, silakan merujuk ke Santoso dan Royanto (2009). 
+ 
+ 
+ 
+Pada bagian ini peneliti mendeklarasikan tipe dan desain penelitian yang akan 
+digunakan untuk menguji hipotesis. Penelitian boleh berdesain eksperimental atau 
+non-eksperimental tergantung dari teori, riset -riset terdahulu, dan hipotesis yang 
+hendak diuji. Penjelasan tipe dan desain penelitian tidak perlu dilakukan dalam 
+subbab yang berbeda, melainkan dapat dijadikan satu. Sebagai laporan penelitian, 
+skripsi tidak perlu menuliskan deskripsi tipe -tipe dan pendekatan penelitian. 
+Misalnya, penelitian korelasional sudah pasti menguji hubungan dua variabel atau 
+lebih. Demikian pula dengan penelitian kuantitatif, tentu akan menggunakan 
+angka dalam menjawab pertanyaan penelitian.  
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 30 
+Partisipan Penelitian 
+Contoh Penulisan Tipe dan Desain Penelitian yang Benar: 
+Penelitian ini merupakan penelitian eksperimental between-subject, 
+posttest only, yang membandingkan tingkah laku agresif partisipan yang 
+berada dalam dua kelompok (iklan dengan appeal kelangkaan produk vs. 
+iklan tanpa appeal kelangkaan produk). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Pada bagian ini, penulis menyampaikan karakteristik partisipa n yang akan diteliti. 
+Menurut manual publikasi APA (American Psychological Association , 2010), 
+peneliti hendaknya menyebut individu yang turut serta dalam penelitian sebagai 
+“partisipan.” Penggunaan ‘subjek’ umumnya tidak ditemui lagi dalam jurnal 
+psikologi internasional yang peer-reviewed dalam 15 tahun terakhir. Pada 
+umumnya, data untuk skripsi Psikologi merupakan data primer yang dikumpulkan 
+sendiri oleh peneliti. Partisipan pun biasanya direkrut berdasarkan convenience 
+atau kemudahan akses dan jaringan sosial yang dimiliki peneliti. Strategi ini mirip 
+dengan yang dilakukan pada banyak penelitian psikologi yang dimuat di jurnal, 
+yang merekrut mahasiswa S1 sebagai partisipan penelitian. Penggunaan 
+convenience atau incidental sampling sebagai metode rekrutm en diperbolehkan, 
+selama peneliti jujur dan mendeskripsikan prosedur rekrutmen. 
+Dalam menjelaskan prosedur rekrutmen, peneliti perlu menjabarkan secara detil 
+apa saja yang dilakukan untuk mengundang individu -individu untuk berpartisipasi 
+dalam penelitian. Peneliti harus menjelaskan, misalnya, apakah ia menyebarkan 
+kuesioner di dalam kelas, atau memasang iklan di papan komunikasi, atau 
+menyebarkan undangan melalui media sosial. Peneliti perlu menyebutkan bulan 
+dan tahun dilakukannya rekrutmen. 
+ 
+Jumlah Sampel 
+Berapa banyak partisipan dalam penelitian turut menentukan keberhasilan dan 
+kekuatan (rigor) penelitian, serta berapa banyak instrumen, waktu, dan biaya yang 
+dibutuhkan untuk menyelesaikan penelitian. Oleh sebab itu, penting bagi peneliti 
+untuk merencanak an dengan saksama berapa banyak partisipan yang hendak 
+dilibatkan dalam survei atau eksperimen. Merekrut terlalu sedikit individu meng -
+undang terjadinya kesalahan Tipe II, sedangkan merekrut terlalu banyak dapat 
+memperbesar kesalahan Tipe I dan berpotensi tidak efisien dalam sumber daya.  
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+31 
+Penentuan jumlah sampel secara umum tergantung dari level of confidence yang 
+digunakan peneliti, effect size yang diperkirakan akan ditemukan berdasarkan 
+penelitian-penelitian sebelumnya, dan statistical power  yang hendak diperoleh. 
+Berkaitan dengan ini, peneliti perlu memperhatikan juga teknik statistik dan jenis 
+penelitian yang digunakan. Peneliti harus mencantumkan alasan serta literatur 
+penentuan jumlah sampel yang tepat digunakan dalam penelitian. Hindari 
+mengutip Guilford dan Fruchter (1978) yang mengatakan jumlah sampel minimal 
+sebanyak 30 orang, karena pernyataan tersebut bukan digunakan untuk 
+penentuan jumlah sampel. Perencanaan jumlah partisipan dapat dilakukan 
+berdasarkan power analysis . Salah satu software yang d apat digunakan dalam 
+melakukan power analysis ini adalah program GPower yang dikembangkan oleh 
+Universität Düsseldorf (Faul, Erdfelder, Lang, & Buchner, 2007; Faul, Erdfelder, 
+Buchner, & Lang, 2009). Program GPower ini dapat diakses secara gratis di 
+http://www.gpower.hhu.de/en.html. Jika terdapat perbedaan antara jumlah 
+partisipan yang direncanakan dengan yang akhirnya direkrut – misalnya jumlah 
+partisipan yang direkrut lebih sedikit daripada yang direnca nakan –  peneliti perlu 
+melaporkan keduanya. 
+ 
+Karakteristik Partisipan 
+Laporkan karakteristik partisipan yang relevan dengan penelitian. Atribut yang 
+biasanya muncul pada hampir semua penelitian adalah jenis kelamin, usia, dan 
+status sosial ekonomi (pendid ikan dan penghasilan). Karakteristik lainnya, seperti 
+agama, kelompok etnis, lokasi tempat tinggal, pekerjaan, jabatan, lama bekerja, 
+dan lain-lain, dilaporkan hanya jika ada kaitan dengan variabel-variabel penelitian. 
+Penjabaran karakteristik partisipan d apat dilakukan dalam paragraf dan/atau 
+dalam tabel. 
+Anda tidak perlu memberi penjelasan mengenai tahap perkembangan partisipan, 
+kecuali penelitian Anda memang berfokus pada kelompok usia atau tahap 
+perkembangan tertentu. Jika partisipan Anda rekrut semata berdasarkan akses 
+atau convenience, penjelasan mengenai tahap perkembangan tidak diperlukan. 
+Contohnya, jika penelitian Anda mengenai pengaruh framing berita terhadap 
+intensi memilih kandidat politik dengan partisipan mahasiswa, Anda menggunakan 
+partisipan mahasiswa karena kemudahan akses. Dalam penelitian seperti ini, Anda 
+tidak perlu menjelaskan tahap perkembangan kognitif atau emosional remaja 
+akhir atau dewasa muda.  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 32 
+Instrumen Penelitian 
+Berbeda halnya jika penelitian Anda adalah perilaku inovatif pada pegawai yang 
+memasuki masa persiapan pensiun atau jika Anda meneliti hubungan antara 
+jenjang karier ibu dengan aspirasi karier remaja putri. Jika kelompok usia tertentu 
+memang merupakan fokus penelitian Anda, Anda dapat memberikan penjelasan 
+ringkas mengenai tahap perkembangan  fisik, kognitif, atau emosional kelompok 
+usia tersebut. Penjelasan ini tentunya hanya penjelasan singkat, sebab pemaparan 
+yang lebih detail seharusnya sudah Anda lakukan pada tinjauan kepustakaan.  
+Dalam penelitian mengenai pegawai yang mendekati usia pens iun, terdapat 
+segmen usia spesifik yang merupakan bagian dari pertanyaan penelitian Anda, 
+sehingga Anda dapat memasukkan penjelasan mengenai perkembangan psikologis 
+pegawai berusia dewasa madya atau lanjut usia. Demikian pula dengan penelitian 
+mengenai peran jenjang karier ibu dalam memprediksi aspirasi karier anak perem-
+puannya, Anda dapat memberi penjelasan singkat tentang perkembangan psiko-
+logis apa yang terjadi pada remaja putri yang berpengaruh pada aspirasi kariernya. 
+ 
+ 
+ 
+Bagian ini memuat penjelasan mengenai instrumen penelitian, seperti stimulus 
+eksperimen (jika penelitian merupakan penelitian eksperimental) dan alat ukur. 
+Misalnya, pada alat ukur perlu disebutkan nama, jumlah soal, format soal, cara 
+skoring soal, dan skoring alat ukur.  
+ 
+Stimulus 
+Sebagian penelitian eksperimen menggunakan media (misalnya, potongan film, 
+klip iklan, artikel berita, dsb.) sebagai stimulus. Peneliti dapat mendeskripsikan 
+secara singkat stimulus ini pada Bab Metode. Replika dari stimulus yang  bersifat 
+visual seperti gambar atau tulisan dapat diletakkan di lampiran. Untuk stimulus 
+audio dan audiovisual, unggah stimulus ke repositori maya ( cloud drive ) dan 
+sertakan URL dalam tulisan agar pembaca dapat mengakses materi tersebut. 
+ 
+Alat Ukur 
+Peneliti perlu menjabarkan setiap alat ukur yang digunakan dalam penelitian. 
+Untuk alat ukur berupa kuesioner atau tes, sebutkan nama indeks/skala/tes 
+tersebut. Sebutkan pula apakah alat ukur yang digunakan asli atau merupakan 
+adaptasi. Berikan contoh buti r-butir pertanyaan atau pernyataan beserta skala 
+yang digunakan (misalnya, Likert, frekuensi, semantic differential). Jabarkan skala 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+33 
+dengan mendetail, termasuk interpretasi skor untuk alat ukur tersebut. Jelaskan 
+pula bagaimana peneliti menghitung skor unt uk setiap indeks yang digunakan 
+(misalnya, apakah skor dihitung dengan menjumlahkan ataukah menghitung rata-
+rata dari respons per item pada setiap partisipan).  
+Jika konstruk yang diteliti merupakan konstruk multidimensional, peneliti perlu 
+memberi contoh butir pertanyaan untuk setiap dimensi. Jika alat ukur memiliki 
+banyak butir, tidak perlu menampilkan keseluruhannya di Bab Metode, akan tetapi 
+masukkan ke dalam Lampiran, dan beri keterangan di Bab Metode agar pembaca 
+dapat merujuk ke Lampiran.  
+Setiap alat ukur, baik yang diadaptasi ataupun disusun sendiri, harus dilengkapi 
+dengan pengujian psikometri yang tepat. Pada bagian ini, teori psikometri tidak 
+perlu dijelaskan panjang lebar. Cantumkan referensi yang digunakan sebagai tolok 
+ukur batasan mengenai ha sil uji psikometri yang dianggap adekuat, misalnya 
+koefisien minimum Cronbach’s Alpha yang memenuhi syarat konsistensi internal 
+untuk uji reliabilitas. Penjelasan tentang pelaksanaan pengujian psikometri dan 
+hasil pengujian psikometri serta interpretasinya  perlu dituliskan. Bila 
+menggunakan bantuan software dalam pengujian psikometri, tuliskan nama dan 
+versinya (e.g., IBM SPSS 24, STATA 15). 
+Jika penelitian melibatkan adaptasi alat ukur, terutama untuk tes, indeks, dan 
+skala, peneliti perlu membedakan “tran slasi” dengan “adaptasi.” Beaton, 
+Bombardier, Guillemin, dan Ferraz (2000, hal. 3187 ) memberi panduan adaptasi 
+alat ukur sebagaimana dipaparkan dalam Tabel 1 pada halaman selanjutnya. 
+Perlu diingat bahwa terdapat berbagai metode adaptasi alat ukur; pendeka tan 
+adaptasi mana yang paling efektif bergantung pada preferensi dan sumberdaya 
+atau logistik yang dimiliki peneliti (Epstein, Santo, & Guillemin, 2015). Untuk 
+pembahasan lebih dalam mengenai proses adaptasi alat ukur, silakan merujuk ke 
+literatur terkini mengenai strategi adaptasi instrumen. Dalam naskah skripsi, 
+cantumkan referensi yang Anda gunakan dalam melakukan adaptasi. 
+ 
+ 
+ 
+  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 34 
+ 
+Tabel 1. Kemungkinan Pendekatan dalam Adaptasi Lintas-Budaya 
+Ingin menggunakan 
+kuesioner ke suatu 
+populasi dalam 
+kondisi: 
+Perubahan Adaptasi yang 
+dibutuhkan 
+Budaya Bahasa Negara 
+pengguna Translasi Adaptasi 
+budaya 
+Digunakan pada 
+populasi yang sama.  
+Tidak ada per-
+ubahan dalam 
+budaya, bahasa, 
+atau negara asal 
+kuesioner. 
+— — — — — 
+Digunakan untuk 
+imigran yang lama 
+bermukim di negara 
+asal kuesioner. 
+ — — —  
+Digunakan di 
+negara lain,   
+bahasa sama. 
+ —  —  
+Digunakan untuk 
+imigran baru,    
+beda bahasa,      
+tapi di negara     
+asal kuesioner. 
+  —   
+Digunakan di 
+negara lain dan 
+bahasa berbeda. 
+     
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+35 
+Prosedur Penelitian 
+Contoh Penulisan Prosedur Penelitian yang Salah: 
+3.7  Prosedur Penelitian 
+Setelah berdiskusi dengan  pembimbing dan membaca literatur, peneliti 
+memutuskan untuk meneliti tentang hubungan perilaku konsumerisme 
+dengan religiusitas pada remaja. Setelah mendapatkan surat ijin dari 
+fakultas, peneliti menyampaikan surat ijin tersebut kepada sekolah -
+sekolah yang kemungkinan bersedia menjadi tempat penelitian 
+ 
+ 
+Tuliskan prosedur/protokol penelitian secara detail, sehingga peneliti lain dapat 
+mereplikasi prosedur tersebut apabila ingin meneliti hal yang serupa. Protokol 
+penelitian dimulai sejak kedatangan partisipan ke lokasi penelitian (misa lnya, 
+laboratorium) atau sejak disebarkannya survei. Proses pembimbingan dan 
+membaca literatur tidak termasuk protokol sehingga tidak perlu diceritakan. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Peneliti perlu melaporkan apa yang dilakukan pada hari pengambilan data. 
+Komponen-komponen prosedur penelitian mencakup —namun tidak terbatas 
+pada—prosedur manipulasi, pengukuran variabel terikat, durasi manipulasi 
+dan/atau durasi pengisian kuesioner. Berikut akan disajikan sebagai contoh, 
+penulisan prosedur manipulasi yang dilakukan oleh Kristofferson et al. (2017, hal. 
+687 – 688) dalam penelitian m ereka mengenai efek appeal kelangkaan barang 
+dalam pesan promosi terhadap perilaku agresif individu .  Dalam menuliskan 
+prosedur penelitian, berikan deskripsi dan penjelasan yang detail seperti pada 
+contoh ini, terutama  untuk prosedur elisitasi dan pengukuran tingkah laku yang 
+menjadi variabel terikat. 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 36 
+Contoh Penulisan Prosedur Penelitian yang Benar: 
+Seratus empat puluh mahasiswa pemasaran dari Universitas British 
+Columbia (usia 18 – 56 , Musia = 22.7, 56.3% pere mpuan) berpartisipasi 
+dalam penelitian ini dengan imbalan kredit mata ajar, dan dibagi secara 
+acak ke satu dari dua kondisi eksperimen (promosi: dengan kelangkaan, 
+kontrol), yang dimanipulasi dengan rancangan between-participant. 
+Partisipan tiba di laboratorium dalam kelompok-kelompok beranggotakan 
+empat orang dan menjalani eksperimen secara individual di komputer -
+komputer yang terdapat di laboratorium. Mereka diberi tahu bahwa akan 
+terdapat sejumlah studi yang tidak berhubungan satu sama lain, dan studi 
+pertama adalah untuk memberikan umpan balik bagi toko buku 
+universitas dalam menawarkan promosi kepada konsumen.  Setelah itu, 
+partisipan diarahkan untuk membuka survei daring, dan mendapatkan 
+amplop tertutup yang berisi stimulus berupa pesan promosi, dan di minta 
+membuka amplop yang didapat setelah mereka mendapat instruksi dari 
+survei daring. 
+Manipulasi Kelangkaan 
+Partisipan melihat satu dari dua jenis pesan kelangkaan dari toko buku 
+UBC yang merupakan manipulasi kelangkaan dalam penelitian kami. Iklan 
+menawarkan iPhone 5 baru berkapasitas 64 GB seharga hanya $50 (angka 
+$650 yang dicoret ditampilkan pula dalam iklan; lihat lampiran untuk 
+melihat bentuk stimulus). Judul iklan “Obral Promosi” dipilih untuk 
+memastikan bahwa reaksi partisipan tidak disebabkan persepsi mengenai 
+Black Friday sebagai penyebab kelangkaan. Jumlah iPhone yang tersedia 
+menjadi manipulasi dalam penelitian ini. Pada kelompok eksperimen, 
+terdapat 3 unit iPhone yang tersedia, sedangkan pada kelompok kontrol, 
+iklan menyebutkan bahwa terdapat 3000+ iPhone yang akan dijual di toko 
+buku UBC. Informasi lain dalam kedua versi iklan identik. 
+Setelah membaca lembar iklan, partisipan menjawab cover story 
+mengenai berapa banyak kira -kira permintaan akan promosi di atas, dan 
+berapa luas promosi dari mulut ke mulut  mengenai penawaran iPhone 5 
+tersebut akan beredar. Akhirnya, partisipan menjawab pertanyaan 
+manipulation check  “Bagaimana menurut Anda ketersediaan iPhone 5 
+menurut iklan yang Anda baca?” dalam sebuah skala dengan rentang dari 
+1 (Sangat Langka) hingga 7 (Sangat Berlimpah).                                             . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+37 
+ETIK PENELITIAN 
+Tegaknya etik penelitian merupakan bagian yang sangat penting dalam 
+menjalankan riset ilmiah. Adanya proses kaji etik penelitian membantu 
+peneliti untuk melaksanakan riset dengan menjaga hak-hak partisipan serta 
+memberi perlindungan legal bagi peneliti dan institusi. Secara umum, 
+seorang peneliti perlu memikirkan dan mengusahakan dengan maksimal —
+jika bukan menjamin —keselamatan partisipan penelitian selama dan 
+setelah pengambilan data. Peneliti wajib memen uhi hak -hak partisipan, 
+seperti hak untuk menolak ikut dalam penelitian dan hak untuk mening -
+galkan penelitian atau membatalkan keikutsertaan. Selain itu, peserta juga 
+memiliki hak untuk tidak menjawab pertanyaan dalam wawancara maupun 
+kuesioner. Oleh sebab itu, kata-kata “periksa kembali jawaban Anda, jangan 
+sampai ada pertanyaan yang terlewat” h endaknya tidak digunakan lagi 
+dalam kuesioner. Untuk mengantisipasi adanya missing data akibat peserta 
+yang tidak menjawab kuesioner dengan lengkap, peneliti perlu mencari par-
+tisipan lebih banyak dari jumlah akhir partisipan yang diperlukan. Pada par-
+tisipan yang berusia di bawah 18 tahun atau masih duduk di bangku sekolah 
+(prasekolah sampai SMA/SMK), persetujuan aktif tertulis ( written active 
+consent) orangtua juga dibutuhkan selain persetujuan aktif dari partisipan 
+sendiri. Jika penelitian Anda melibatka n individu di bawah umur ( minors), 
+Anda harus memperhitungkan tambahan waktu yang dibutuhkan untuk 
+mengumpulkan persetujuan tertulis dari orangtua sebelum Anda melaku -
+kan kontak dengan anak. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Di Fakultas Psikologi UI, kaji etik dilakukan secara institusional oleh Komite Etik. 
+Secara umum, Komite Etik bertugas meninjau kesiapan peneliti untuk menjalankan 
+riset dengan aman dan menjaga hak-hak partisipan. Komite etik bertemu satu kali 
+dalam sebulan untuk meninjau aplikasi kaji etik penelitian untuk keperluan skripsi. 
+Jika seluruh dokumen dan berkas lengkap dan diisi dengan benar, proses kaji etik 
+ini membutuhkan waktu satu minggu sampai 10 hari kerja. Dalam proses penulisan 
+skripsi, baik mahasiswa maupun pembimbing perlu mempertimbangkan waktu  
+untuk melakukan kaji etik ini ke dalam perencanaan dan linimasa agar skripsi dapat 
+diselesaikan tepat pada waktunya. Pengambilan data hendaknya hanya dilakukan 
+jika protokol/prosedur penelitian sudah mendapat persetujuan dari Komite Etik. 
+Melakukan pengum pulan data setelah Komite Etik menyetujui protokol peng -
+ambilan data memberi rasa aman bagi peneliti dalam hal administratif jika peneliti 
+berniat mempublikasikan riset di jurnal ilmiah. Beberapa jurnal ilmiah internasio -
+nal mensyaratkan peneliti untuk men cantumkan dalam manuskrip tanggal di -
+setujuinya protokol penelitian oleh komite etik pada institusi tempatnya bernaung. 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 38 
+Teknik Analisis Statistika 
+Contoh Penulisan Rencana Analisis Statistika: 
+Untuk mengetahui perbedaan dukungan sosial orangtua pada remaja 
+miskin di kota dengan remaja miskin di desa, peneliti menggunakan 
+independent sample t-test pada IBM SPSS versi 24. 
+ 
+ 
+Pada bagian analisis statistika, peneliti hendaknya menjelaskan teknik analisis 
+statistika yang akan digunakan untuk menguji hipotesis dan termasuk alat bantu 
+atau software yang akan digunakan. Jelaskan secara singkat variabel-variabel yang 
+menjadi predikt or atau independent variable, variabel outcome/dependent 
+variable, dan variabel yang dikontrol secara statistik (jika ada). Tidak perlu 
+menuliskan rumus atau menguraikan alasan digunakannya teknik tersebut kecuali 
+teknik yang digunakan relatif baru dan/ata u terdapat kontroversi di antara para 
+ahli yang tercatat dalam literatur. Jika terdapat perdebatan antara para ahli 
+mengenai teknik analisis, cantumkan argumen dan referensi yang digunakan 
+sebagai justifikasi digunakannya teknik tersebut.  
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+39 
+Gambaran Partisipan 
+ 
+BAB VI 
+MENULIS BAB 4 HASIL PENELITIAN 
+ 
+Dalam skripsi, Bab 4 berisi hasil penelitian. Bab ini merupakan tempat peneliti 
+untuk memaparkan gambaran partisipan dan uji hipotesis. Panduan berikut 
+merupakan pedoman secara umum. Penulisan atau pelaporan hasil dapat berbeda 
+dari satu bidang penelitian dengan bidang yang lain (misalnya antara Psikologi 
+Klinis dengan Psikologi Media). Konsultasikan dengan pembimbing Anda, dan lihat 
+juga cara penulisan pada jurnal-jurnal utama di bidang penelitian Anda. 
+ 
+ 
+ 
+Pada penelitian survei non eksperimental, paparkan jumlah kuesioner yang 
+terkumpul, dan jumlah kuesioner yang dapat diolah serta alasannya. Contoh: 
+Dari 250 kuesioner yang  disebar, 175 kuesioner dikembalikan kepada 
+peneliti. Sebanyak 150 kuesioner yang dapat diolah, karena 5 kuesioner 
+tidak terbaca dan pada 20 kuesioner responden gagal menjawab 
+pertanyaan pemeriksa atensi (attention checker) dengan benar. 
+Tentu saja deskrip si berapa jumlah kuesioner yang disebar tidak berlaku pada 
+penelitian eksperimental atau pada penelitian yang menggunakan survei 
+online/daring. Pada penelitian yang menggunakan metode eksperimen, sebutkan 
+jumlah individu yang bersedia berpartisipasi, yang hadir dan ikut dalam 
+eksperimen, dan yang datanya dapat diolah: 
+Terdapat 120 partisipan yang bersedia mengikuti eksperimen, namun 
+pada pelaksanaan hanya 100 orang yang datang. Seratus partisipan 
+terbagi ke dalam empat kelompok penelitian, namun 3 partisipa n tidak 
+disertakan dalam analisis karena tidak membawa kacamata atau tidak 
+mengikuti instruksi dari peneliti. 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 40 
+Untuk penelitian eksperimental, distribusi demografi, seperti gender, usia, tingkat 
+pendidikan, disajikan baik secara umum, maupun per kelompok ek sperimen. 
+Penyajian atribut demografis partisipan per kelompok eksperimen bertujuan 
+menunjukkan keberhasilan random assignment. 
+Untuk data demografis yang bersifat kontinu (seperti: usia, masa kerja, dll) dapat 
+disajikan dalam kalimat, beserta nilai Mean ( M) dan simpang baku ( SD), contoh: 
+“Rentang usia responden adalah 20 sampai 54 tahun ( M = 31,73, SD = 3,52).” 
+Penulis dapat menggunakan tabel jika terdapat cukup banyak informasi yang 
+hendak disampaikan. Sajikan data yang memang relevan dengan pertanyaan 
+penelitian. Hindari mengopi tabel luaran (output) dari software statistika ataupun 
+membuat satu tabel untuk setiap variabel.  
+Responden 
+  
+Frequency Percent Valid Percent 
+Cumulative 
+Percent 
+Valid perempuan 26 57.8 57.8 57.8 
+laki-laki 19 42.2 42.2 100.0 
+Total 45 100.0 100.0  
+ 
+Tabel 6.1. Demografis Partisipan berdasarkan Jenis Kelamin 
+Karakteristik Data Partisipan Frekuensi Persentase 
+Jenis Kelamin Laki-laki 120 60% 
+ Perempuan 80 40% 
+Tabel 6.2. Demografis Partisipan berdasarkan Jabatan 
+Karakteristik Data Partisipan Frekuensi Persentase 
+Jabatan Manajer 5 2,5% 
+ Penyelia 30 15,0% 
+ Staf 160 80,0% 
+ Tidak diisi 5 2,5% 
+ 
+Tabel 6.1 dan Tabel 6.2 di atas seharusnya dapat digabung dalam satu tabel, seperti 
+berikut ini: 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+41 
+ 
+ 
+60%
+40%
+Jenis Kelamin
+Laki-laki
+Perempuan
+Tabel 6.3 
+Karakteristik Partisipan (N=200) 
+Karakteristik n % 
+Jenis Kelamin   
+Laki-laki 120 60,0 
+Perempuan 80 40,0 
+Jabatan   
+Manajer 5 2,5 
+Penyelia 30 15,0 
+Staf 160 80,0 
+Tidak diisi 5 2,5 
+ 
+Karakteristik partisipan yang telah ditampilkan dalam tabel, tidak perlu lagi dibuat 
+dalam grafik (batang, garis, lingkaran, dsb). Apalagi ditampilkan dalam tabel dan 
+juga grafik. Pada contoh di bawah, Anda tidak perlu mencantumkan grafik 
+lingkaran, cukup tabel saja. Intinya, grafik atau tabel disajikan untuk memudahkan 
+pembaca memahami data penelitian dan tidak mengulang informasi.  
+ 
+Tabel 6.4 
+Karakteristik Partisipan (N=200)  
+ 
+ 
+Jika peneliti hendak membuat  kategori untuk data demografis, hendaknya peneliti 
+mempertimbangkan lebih dulu apakah pengkategorian itu dibutuhkan.  Biasanya, 
+variabel yang diukur dengan skala continuous tidak lagi membutuhkan kategorisasi 
+(misalnya, tinggi, sedang, rendah). 
+Karakteristik n % 
+Jenis Kelamin   
+Laki-laki 120 60,0 
+Perempuan 80 40,0 
+Jabatan   
+Manajer 5 2,5 
+Penyelia 30 15,0 
+Staf 160 80,0 
+Tidak diisi 5 2,5 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 42 
+Contoh: 
+Konsep diri 250 siswa memiliki mean sebesar 7,04 (SD = 1,23). Dari 
+jumlah ini, 100 siswa (40%) teridentifikasi sebagai korban bullying 
+dan sisanya (60%) teridenfikasi sebagai saksi bullying. 
+ 
+Setelah gambaran data demografis, gambaran variabel perlu ditampilkan. Untuk 
+variabel kontinu,  perlu dituliskan statistik deskriptif seperti rata -rata (mean, M) 
+dan simpang baku (standard deviation, SD), sedangkan untuk variabel discrete atau 
+kategorikal, perlu dituliskan jenis serta jumlahnya. Sama seperti data demografis, 
+bila cukup banyak informasinya maka dapat disajikan dalam tabel. Bila informasi 
+hanya sedikit, cukup dijelaskan dalam kalimat. 
+ 
+ 
+ 
+ 
+ 
+Interpretasi dari statistik deskriptif harus disesuaikan dengan kegunaan masing -
+masing indeks. Misal, nilai mean untuk menunjukkan kecenderungan sentral, 
+sedangkan simpang baku (SD) menunjukkan kebervariasian data. Harap diperhati-
+kan bahwa besarnya nilai mean dan SD terkait dengan satuan dari variabel yang 
+diukur. Dengan demikian, nilai tersebut tidak dapat diperbandingkan dengan 
+variabel yang berbeda. Sebagai contoh, penghasilan (dalam rupiah) akan cende -
+rung memiliki mean dan SD yang lebih besar dibandingkan indeks prestasi (IP).  
+Untuk data variabel kontinu, hindari untuk membuat kategori skor (misalnya, 
+tinggi-rendah), bila nantinya tidak diperlukan dalam analisis. Pembuatan kategori 
+berdasarkan data yang diperoleh dalam penelitian (norma) harus dipergu nakan 
+secara hati -hati karena akan bergantung pada karakteristik responden yang 
+menjadi sampel. Pembuatan kategori menggunakan norma diperlukan pada 
+penelitian survei atau deskriptif, karena bertujuan memberikan deskripsi 
+mengenai responden pada variabel y ang diteliti. Pada penelitian korelasional dan 
+lainnya tidak diperlukan penormaan karena tujuannya melihat hubungan satu 
+variabel dengan variabel lainnya. Oleh karena itu, statistik deskriptif untuk setiap 
+variabel sudah cukup memberikan gambaran. 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+43 
+Hasil Analisis Penelitian 
+Contoh:  Hubungan in-role performance dengan          
+psychological capital pada karyawan bank   
+Berdasarkan perhitungan statistik, didapatkan nilai mean partisipan 
+mengenai in-role performance sebesar 19,62 (SD = 2,11). Gambaran 
+in-role performance  dibagi berdasarkan tingkat perilaku yang di -
+kategorikan rendah, sedang, dan tinggi. Pembuatan kategori didasar-
+kan pada nilai mean dan SD yang diketahui, yaitu rendah (<  -1z), 
+sedang (-1z hingga +1z), dan tinggi (>  +1z). Hasil kategorisasi ini di-
+tampilkan pada tabel 6.5. 
+Contoh: 
+Dalam penelitian ini, untuk semua uji statistik digunakan alfa atau 
+LOS sebesar 0,05. 
+t(101) = 2,43, p = 0,02 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Untuk hasil pengujian hipotesis, harus ditampilkan nilai ujinya, derajat bebas ( df), 
+serta nilai signifikansinya (p).  Jika pada output tertulis p = .000, maka yang ditulis 
+di laporan adalah p < ,001. 
+ 
+ 
+ 
+ 
+ 
+Beberapa contoh penulisan hasil analisis statistik dapat dilihat pada halaman 
+selanjutnya.  Untuk contoh penulisan uji statistik yang lain, dapat dilihat pada 
+Gravetter dan Wallnau (2007) atau referensi yang lain. 
+Selain itu, hindari menampilkan hasil uji statistik dalam tabel bila hanya terdiri dari 
+satu baris, seperti contoh di bawah ini: 
+ 
+Tabel 6.6 
+Korelasi antara Kepuasan Kerja dan Komitmen Kerja 
+Variabel r p r2 
+Korelasi Kepuasan Kerja dan Komitmen Kerja 0,80 0,03 0,64 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 44 
+Contoh Penulisan Berdasarkan Uji Statistik yang Dilakukan: 
+Korelasi 
+Dari 51 responden, konsep diri ( M = 51,80, SD = 15,20) dan sikap 
+terhadap matematika ( M = 6,59, SD = 2,66) berkorelasi sedang dan 
+signifikan, r(50) = 0,53, p < 0,001. 
+Independent sample t-test 
+ One-tailed hypothesis 
+Laki-laki homoseksual tidak memiliki kepercayaan diri lebih tinggi 
+secara signifikan ( M = 121, SD = 14,20) dibandingkan laki -laki 
+heteroseksual (M = 117, SD = 10,30), t(44) = 1,29, p = 0,09. 
+ Two-tailed hypothesis 
+Hasil independent sample t -test menunjukkan bahwa perbedaan 
+kepercayaan diri antara laki-laki homoseksual (M = 121, SD = 14,20) 
+dan laki -laki heteroseksual ( M = 117, SD = 10,30), tidak signifikan 
+secara statistik, t(44) = 1,29, p = 0,09. Dengan kata lain, tidak ada 
+perbedaan kepercayaan diri antara laki -laki homoseksual dan 
+heteroseksual. 
+One-way ANOVA omnibus F test 
+Hasil uji one-way ANOVA menunjukkan tidak ada perbedaan yang 
+signifikan pada kebisingan antara kelompok eksperimen 1 ( M = 55,15, 
+SD = 15,15), kelompok eksperimen 2 ( M = 48,50, SD = 15,042), dan 
+kelompok kontrol  (M = 52,44, SD = 15,72), F(2, 48) = 1,01, p = 0,371. 
+Kepuasan kerja memiliki korelasi yang positif dan signifikan 
+dengan komitmen kerja, r(29) = 0,80, p = 0,03. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Untuk Tabel 6.6, seharusnya dijabarkan dalam teks saja dengan kalimat sebagai 
+berikut: 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+45 
+ 
+ 
+Perhatikan bahwa tabel uji statistik tidak menampilkan interpretasi signifikan 
+maupun tidak signifikan. Sama seperti pada penulisan hasil uji statistik, dalam tabel 
+ditampilkan dengan salah satu cara: 1) nilai p diberikan, atau 2) membandingkan p 
+dengan nilai LOS. 
+ 
+Tabel 6.7  
+Regresi Berganda untuk Memprediksi Rasa Kesepian (loneliness) 
+Prediktor B β t p Interpretasi 
+Konstanta 2,375  22,060 0,000 Signifikan 
+Socio-economic status 0,020 0,168 2,894 0,004 Signifikan 
+Perceived social rank -0,021 -0,083 -1,438 0,151 Tidak signifikan 
+Konsumsi rokok 0,013 0,074 1,315 0,190 Tidak signifikan 
+ 
+Penulisan Tabel 6.7 dapat diperbaiki dengan menghilangkan kolom interpretasi, 
+sehingga menjadi: 
+ 
+Tabel 6.8  
+Regresi Berganda untuk Memprediksi Rasa Kesepian (loneliness)a 
+Prediktor B SE β t p 
+Konstanta 2,375 0,108  22,060 0,000 
+Socio-economic status 0,020 0,007 0,168 2,894 0,004 
+Perceived social rank -0,021 0,015 -0,083 -1,438 0,151 
+Konsumsi rokok 0,013 0,010 0,074 1,315 0,190 
+aF = 3,362, p = 0,019, R2 = 0,03 
+Atau, penulisan Tabel 6.8 juga dapat diperbaiki dengan tidak menuliskan nilai p, 
+sehingga menjadi:  
+ 
+Tabel 6.9  
+Regresi Berganda untuk Memprediksi Rasa Kesepian (loneliness)a 
+Prediktor B SE β 
+Konstanta 2,375 0,108  
+Socio-economic status 0,020 0,007 0,168 
+Perceived social rank -0,021 0,015 -0,083 
+Konsumsi rokok 0,013 0,010 0,074 
+aF = 3,362*, R2 = 0,03, * p < 0,05, ** p< 0,001 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 46 
+Kepuasan kerja memiliki korelasi yang positif dan signifikan dengan 
+komitmen kerja, r(29) = 0,80, p < 0,001. Dengan kata lain, H 1 
+didukung data. 
+ 
+Kepuasan kerja memiliki korelasi yang positif signifikan dengan 
+komitmen kerja, r(29) = 0,80, p < 0,001. Dengan kata lain, H0 ditolak 
+dan Ha diterima. 
+ 
+Contoh Penulisan Effect Size: 
+Effect size  untuk analisis ini sebesar d = 1,56, sehingga dapat 
+dikatakan termasuk large effect (d > 0,8) (Cohen, 1992). 
+ 
+Interpretasi uji statistik dilakukan dengan menyatakan apakah hipotesis alternatif 
+(H1, H2, dst.) didukung atau tidak didukung data.  Perhatikan contoh di bawah ini: 
+ 
+ 
+  
+Seharusnya: 
+ 
+ 
+ 
+ 
+ 
+Selain menuliskan hasil uji statistik atau hipotesis, peneliti juga harus menuliskan 
+effect size. Mengapa? Nilai uji statistik dipengaruhi oleh jumlah sampel dan besar 
+hubungan atau pengaruh yang diuji. Oleh karena itu, dapat saja pengaruh kecil 
+dapat signifikan secara statistik apabila diambil pada sampel yang besar (Gravetter 
+& Wallnau, 2007). Nilai effect size dicantumkan untuk semua uji statistik yang 
+dilakukan, baik pada penelitian eksperimental maupun non -eksperimental. 
+Penghitungan effect size  tergantung dari uji statistik yang digunakan, misalnya 
+untuk independent sample t -test dapat menggunak an d dari Cohen, sedangkan 
+ANOVA menggunakan η 2 (eta kuadrat). Mengenai effect size  dapat dilihat pada 
+Cohen (1992). 
+ 
+ 
+ 
+ 
+Pengujian asumsi statistik sebaiknya dilakukan agar hasil uji statistik yang diper -
+oleh dapat diinterpretrasikan dengan baik. Misalnya, untuk independent sample t-
+test salah satu asumsi yang perlu diuji adalah homogenitas varians ( homogeneity 
+of variance) antara kedua kelompok. Hasil pengujian asumsi disampaikan sebelum 
+hasil uji statistik diberikan. Perhatikan contoh tentang perbedaan dukungan sosial 
+orang tua antara remaja miskin di kota dengan remaja miskin di desa berikut ini: 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+47 
+Hasil uji Levene’s test menunjukkan varians kedua kelompok tidak setara, 
+F(1,115) = 8,551, p = 0,004. Oleh karena itu, akan digunakan independent 
+sample t-test yang tidak mengasumsikan kesetaraan varians. 
+ 
+Dalam penelitian ini, semua pengujian statistik menggunakan Alfa 
+sebesar 0,05. Hasil uji Levene’s test menunjukkan varians kedua kelompok 
+tidak setara, F(1,115) = 8,551, p = 0,004. Oleh karena itu, akan digunakan 
+independent sample t-test yang tidak mengasumsikan kesetaraan varians. 
+Hasil uji statistik menunjukkan ada perbedaan dukungan sosial orang tua 
+yang signifikan antara remaja miskin di kota dengan remaja miskin di desa 
+t(115) = 7,095, p < 0,001. Effect size untuk analisis ini sebesar d = 1,560, 
+dan tergolong large effect (d > 0,8) (Cohen, 1992). Hasil ini menunjukkan 
+bahwa remaja miskin di kota ( M = 8,160, SD = 1,730) memiliki dukungan 
+sosial dari orang tua yang lebih besar dibandingkan remaja miskin di desa 
+(M = 5,380, SD = 2,498). 
+ 
+Dari 51 responden,  skor penerimaan diri (M  = 6,59,  SD  = 2,66) dan skor 
+intensi bunuh diri ( M  =  0,60,  SD  =  0,49)  tidak memiliki korelasi yang 
+signifikan, r(50) = -0,16, p = 0,27. Walaupun tidak signifikan, penerimaan 
+diri berkorelasi negatif dengan intensi bunuh diri. 
+ 
+ 
+ 
+ 
+ 
+ 
+Contoh hasil penelitian perbedaan dukungan sosial orang tua antara remaja miskin 
+di kota dengan remaja miskin di desa ( two-tailed hypothesis ) apabila dituliskan 
+secara lengkap, akan menjadi: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Interpretasi terhadap pengujian hipotesis harus sesuai dengan hasil uji statistiknya. 
+Seringkali ditemui penulisan interpretasi dimana hasil uji statistik tidak signifikan, 
+namun dalam pembahasannya dikemukakan ada hubungan atau ada perbedaan. 
+ 
+ 
+ 
+ 
+ 
+Pernyataan di atas tidak tepat, karena ketika hasil korelasi tidak signifikan maka 
+artinya tidak ada korelasi, meskipun nilai korelasi yang diperoleh tidak sama 
+dengan nol. Penjelasan apakah korelasi tinggi atau rendah untuk hasil yang 
+diperoleh baru dapat dilakukan apabila ditemukan hasil korelasi yang signifikan. 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 48 
+Kesimpulan 
+Diskusi dan Saran 
+ 
+BAB VII 
+MENULIS BAB 5 KESIMPULAN, DISKUSI, DAN SARAN 
+ 
+ 
+ 
+Kesimpulan merupakan penutup skripsi. Pada bagian ini, penulis menjawab 
+dengan singkat pertanyaan penelitian dan membuat rangkuman dari analisis data 
+yang telah dilaporkan di Bab 4, bukan salin dan tempel dari analisis di Bab 4. 
+Pernyataan kesimpulan umumnya singkat dan tidak memunculkan sesuatu yang 
+baru yang belum dikemukakan sebelumnya. 
+ 
+ 
+ 
+Dalam Diskusi penulis berdiri dalam posisi mengevaluasi dan menginterpretasikan 
+implikasi dari temuan penelitiannya. Panduan publikasi APA ( Publication Manual 
+of the American Psychological Association ) (2010) memberi pedoman mengenai 
+struktur dan komponen yan g perlu dimasukkan dalam Diskusi. Diskusi dapat 
+dibuka dengan pernyataan singkat tentang hasil uji hipotesis penelitian: apakah 
+hipotesis didukung atau tidak didukung data. Jika hipotesis tidak didukung, penulis 
+harus memberikan kemungkinan penjelasan meng apa demikian. Jika hipotesis 
+didukung data, berikan penjelasan konseptual mengenai mekanisme psikologis 
+yang menerangkan mengapa hasil penelitian sesuai dengan hipotesis. Diskusi 
+merupakan tempat bagi peneliti untuk memposisikan hasil penelitiannya terhadap 
+penelitian-penelitian dan teori yang telah ada. Di sini peneliti membandingkan 
+temuannya dengan hasil-hasil riset sebelumnya. Hindari sekadar menuliskan ulang 
+temuan penelitian sendiri atau penelitian orang lain; bantu pembaca untuk 
+memahami kaitan temua n, pertanyaan, dan latar belakang penelitian. Dalam 
+menulis Diskusi, pastikan klaim mengenai kebaruan temuan ditulis dengan tepat, 
+tidak dikurangi, namun juga tidak dilebih-lebihkan.  
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+49 
+Dalam menginterpretasi hasil, peneliti perlu mempertimbangkan hal -hal berikut: 
+Pertama, adakah sumber bias yang dapat mengurangi validitas internal penelitian? 
+Kedua, apakah metode dan instrumen yang digunakan sudah akurat dan memiliki 
+presisi yang baik? Ketiga, masih berkaitan dengan instrumen, apakah setiap 
+instrumen yang digunakan benar mengukur konstruk yang berbeda, atau apakah 
+instrumen-instrumen tersebut memiliki tumpeng-tindih satu sama lain?  Keempat, 
+berapa besar effect size yang didapat? Kelima, apa keterbatasan atau kelemahan 
+penelitian?  
+Setiap penelitian memiliki keterbatasan, dan peneliti harus mengakui apa 
+kelemahan dan keterbatasan risetnya. Keterbatasan dapat bersumber dari desain, 
+alat ukur, maupun karakteristik partisipan. Pembahasan keterbatasan penelitian 
+meliputi generalisasi hasil penelitian ke populasi d an/atau konteks yang berbeda 
+dari konteks penelitian, durasi penelitian (misalnya, apakah penelitian berlangsung 
+terlalu pendek untuk dapat melihat efek yang secara teoretis seharusnya 
+muncul?), serta kemungkinan adanya penjelasan alternatif dari hasil pen elitian 
+(misalnya, reversed causality ). Dalam skripsi, kelemahan penelitian biasanya 
+bersumber dari desain, instrumen, dan/atau alat ukur. Pikirkan dan diskusikan 
+bersama pembimbing mengenai keterbatasan metodologis ini sebelum berpikir 
+mengenai sumber ket erbatasan lainnya, misalnya perbedaan budaya. Jika 
+perbedaan budaya memang merupakan penjelasan yang dianggap mumpuni, 
+peneliti perlu mengajukan kemungkinan mekanisme psikologisnya, bukan hanya, 
+misalnya, menyebutkan bahwa negara yang satu berorientasi kol ektivisme dan 
+negara yang lain berorientasi individualisme. Setelah mengakui kelemahan dan 
+keterbatasan penelitian, penulis dapat mengajukan saran metodologis untuk 
+memperbaiki atau mereplikasi penelitian di masa depan. 
+Diskusi diakhiri dengan pernyataan a tau komentar mengenai pentingnya temuan 
+yang didapat, implikasi atau saran praktis yang dapat diterapkan oleh individu atau 
+institusi yang relevan dengan topik penelitian. Jika ada, masalah atau pertanyaan 
+yang belum terjawab atau justru timbul dengan adan ya temuan baru dari 
+penelitian ini dapat diajukan sebagai penutup. 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+50 
+Abstrak 
+ 
+BAB VIII 
+MEMPERSIAPKAN ABSTRAK DAN KELENGKAPAN SKRIPSI 
+ 
+ 
+ 
+Abstrak diletakkan di halaman awal skripsi, sebelum masuk ke bab tulisan. Namun, 
+abstrak selalu dituliskan setelah semua bab selesai ditulis. Abstrak sangat penting 
+dan merupakan rangkuman ringkas atas  isi tulisan skripsi. Meskipun sifatnya 
+rangkuman, abstrak harus mencakup semua isi tulisan. Dengan demikian, pembaca 
+dapat langsung mendapat gambaran tentang penelitian yang telah dilakukan 
+penulis dan memberikan kesan awalnya terhadap isi tulisan. Dalam skripsi, abstrak 
+juga dipersiapkan dalam bahasa Inggri s selain bahasa Indonesia. Penulis harus 
+memastikan ia menerapkan bahasa Inggris yang benar, baik dalam aspek tata 
+bahasa dan kosa kata. Amat disarankan jika penulis meminta orang lain yang 
+bilingual untuk ikut membaca abstrak ini.  
+Isi abstrak harus benar -benar disiapkan dan dicek beberapa kali. Abstrak yang 
+disiapkan dengan baik dapat menjadi satu paragraf yang paling penting dalam 
+tulisan ( Publication Manual, 2010). Dalam katalog di perpustakaan, abstrak ini 
+yang akan diakses oleh pembaca. Ketika pembaca  melakukan studi literatur, 
+abstraklah yang dibaca (setelah judul) paling awal untuk kemudian dia putuskan 
+dibaca lebih lanjut atau tidak. Mahasiswa yang baru memulai penulisan skripsi 
+biasanya mencek apakah sudah ada penelitian skripsi sebelumnya yang melakukan 
+studi yang topiknya mirip atau sama dengan penelitian skripsi yang hendak ia 
+lakukan. Oleh karena itu, penting sekali untuk membuat abstrak yang baik. 
+Merujuk Publication Manual of APA (2010, hal. 26), abstrak yang baik memiliki ciri: 
+ Akurat. Artinya, abstrak harus merefleksikan tujuan dan isi tulisan. Jangan 
+memasukkan informasi yang tidak ada dalam isi tulisan. Jika studi me -
+rupakan studi lanjutan atau replikasi dari penelitian sebelumnya, nyatakan 
+hal ini dan tuliskan nama peneliti sebelumnya beserta tahun dari publikasi-
+nya yang relevan. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+51 
+ Tidak bersifat evaluatif . Sebuah abstrak pada dasarnya melaporkan, 
+bukan menilai, apalagi menambah komentar atas isi tulisan. 
+ Koheren dan bisa dibaca. Abstrak harus ditulis dengan bahasa yang jelas 
+dan padat. Dalam abstrak berbahasa Inggris, gunakan kata kerja daripada 
+kata benda yang sama artinya dan kata kerja aktif daripada kata kerja 
+pasif.  Juga gunakan present tense ketika memberikan kesimpulan atau ha-
+sil dengan implikasinya, sementara gunakan past tense ketika menuliskan 
+variabel bebas atau variabel terikat. 
+ Padat. Abstrak harus singkat dengan setiap kalimat di dalamnya 
+memberikan suatu informasi. Mulailah abstrak dengan poin penting, 
+jangan mengulangi judul. Masukkan hanya 4 -5 konsep, temuan, atau 
+implikasi penting.   
+Skripsi di psikologi pada dasarnya merupakan laporan atas penelitian empiris yang 
+telah dilakukan. Mengikuti Publication Manual of APA (2010), abstrak dalam skripsi 
+sebaiknya berisi penjelasan tentang: 
+1. Masalah yang diteliti, jika mungkin dalam satu kalimat. 
+2. Partisipan, dengan informasi karakteristik khusus,     
+seperti tahap usia, jenis kelamin, etnis. 
+3. Ciri utama metode yang digunakan. 
+4. Temuan-temuan utama, termasuk pengujian statistik dan/atau effect size. 
+5. Kesimpulan dan implikasi hasil penelitian.   
+Mengikuti Pedoman Teknis Penulisan Tugas Akhir Mahasiswa Universitas 
+Indonesia (2008), abstrak ditulis dengan mengikuti ketentuan berikut: 
+a. Abstrak adalah ringkasan atau inti atau ikhtisar dari Tugas Akhir. 
+b. Minimum 75 kata dan maksimum 100 kat a dalam 1 paragraf, diketik 
+dengan tipe Times New Roman 12 poin, spasi tunggal (line spacing: single). 
+c. Abstrak disusun dalam dua bahasa, yaitu bahasa Indonesia dan bahasa 
+Inggris. Setiap versi bahasa mengikuti ketentuan butir b. 
+d. Jika memungkinkan, pengetik an untuk abstraak bahasa Indonesia dan 
+Inggris diletakkan dalam satu halaman. 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+52 
+Setelah Proses Menulis Draf Skripsi Selesai 
+e. Nama mahasiswa (tanpa NPM) dan program studi ditulis di atas abstrak 
+dengan tambahan informasi berupa Judul Tugas Akhir. 
+f. Di bagian bawah abstrak dituliskan Kata Kunci.  Untuk abs trak dalam 
+bahasa Indonesia, kata kunci diberikan dalam bahasa Indonesia. Untuk 
+abstrak dalam bahasa Inggris, kata kunci diberikan dalam bahasa Inggris. 
+g. Semua istilah asing, kecuali nama, dicetak miring (italic). 
+h. Isi abstrak ditentukan oleh keilmuan masing-masing.   
+ 
+ 
+ 
+Selain abstrak, penulis di tahap akhir juga mempersiapkan kelengkapan lainnya , 
+antara lain: (1) daftar isi, (2) daftar tabel, (3) daftar gambar, (4) lampiran, (5) 
+halaman sampul, (6) halama n judul, (7) halaman pernyataan orisinalitas, (8) 
+halaman pengesahan, (9) kata pengantar/ucapan terima kasih, (10) halaman 
+pernyataan persetujuan publikasi karya ilmiah untuk kepentingan akademis.  
+Ketentuan bagaimana menuliskan seluruh kelengkapan skripsi  ini beserta contoh 
+terdapat  dalam Pedoman Teknis Penulisan Tugas Akhir Mahasiswa Universitas 
+Indonesia (2008). Mahasiswa sangat dianjurkan untuk membaca pedoman ini dan 
+dapat mengaksesnya di perpustakaan fakultas atau perpustakaan pusat.  
+Setelah skripsi  siap dari bab 1 hingga 5 disertai kelengkapan -kelengkapannya, 
+mahasiswa dapat mengajukan permohonan ujian skripsi kepada Adm inistrasi 
+Pendidikan. Alur proses pengajuan ujian skripsi akan mengikuti panduan prosedur 
+operasional baku termutakhir yang dikeluarkan oleh Administrasi Pendidikan. 
+Mahasiswa harus mengambil formulir ujian skripsi yang di dalamnya terdapat isian 
+persetujuan pembimbing skripsi dan pembimbing akademik bahwa mahasiswa 
+telah siap untuk  menempuh ujian skripsi.  Pembimbing skripsi biasanya akan 
+mengusulkan dua orang dosen penguji yang menuru tnya tepat dan menguasai 
+topik skripsi. Kewenangan menentukan penguji ada di tangan pembimbing skripsi, 
+meskipun mahasiswa dapat bertanya siapa yang nanti akan mengujinya.  
+Setelah proses pendaftaran selesai dan jadwal ujian dipersiapkan lewat 
+Administrasi Pendidikan, mahasiswa mengikuti ujian skripsi. Di awal ujian, 
+mahasiswa harus mempresentasikan penelitiannya dalam 15 menit. Ia dapat 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+53 
+menggunakan alat bantu, baik mini flipchart atau laptop dengan proyektor. Setelah 
+presentasi, penguji 1 dan 2 akan bertanya bergantian kepada mahasiswa mengenai 
+berbagai hal terkait penelitian, dari tujuan dan alasan penelitian, manfaat 
+penelitian alur berpikir peneliti, konsep/kontruk psikologis dan ketepatan metode 
+penelitian yang digunakan, proses pengambilan data, prose s analisis data dan 
+ketepatan analisis data, temuan utama, serta isi kesimpulan  dan implikasi.  Tujuan 
+seluruh pertanyaan ini adalah melihat sejauh mana mahasiswa menguasai 
+penelitiannya dan mampu mempertanggungjawabkan isi tulisannya. Selama 
+proses tanya jawab, pembimbing akan mencatat masukan -masukan penting dari 
+penguji dalam notulensi ujian. Nantinya notulensi ini dapat diperoleh salinannya di 
+Administrasi Pendidikan setelah ujian selesai.  
+Dalam penilaian, baik penguji maupun pembimbing akan memberika n nilai 
+masing-masing. Penguji akan lebih memperhatikan isi tulisan dan tanya jawab 
+selama ujian. Sementara pembimbing juga memberikan penilaian terhadap 
+seluruh proses pembimbingan.  Dalam proses tanya-jawab selama ujian, selain 
+penguasaan penelitian, sejauh man a sikap ilmiah —yaitu keterbukaan mahasiswa 
+sebagai peneliti terhadap kritik, perbedaan pendapat, kelemahan studinya —akan 
+dilihat.  Bukan berarti mahasiswa langsung menerima pendapat yang berbeda yang 
+dikemukakan penguji. Ia harus mengemukakan terlebih dahulu alasan dari langkah 
+penelitian yang diambil, lalu setelah diskusi terjadi, dan benar -benar mahasiswa 
+dapat ‘melihat’ sisi lain dari pendapat yang berbeda, ia dapat menerima pendapat 
+yang berbeda tersebut. 
+Setelah proses tanya -jawab selesai berlangsung, mahasiswa akan diminta keluar 
+ruangan sementara penguji dan pembimbing memberikan nilai. Mahasiswa akan 
+dipanggil kembali masuk ke dalam ruangan untuk diberitahu apakah ia lulus atau 
+tidak dalam ujian skripsi itu. Mahasiswa tidak diberitahu nilai skripsiny a. 
+Pemberitahuan nilai —apakah A atau B+ atau lainnya —diberitahukan  bersama -
+sama dengan mahasiswa lain yang juga ujian skripsi dalam momen judicium.  
+Setelah kelulusan diberitahukan, ujian dinyatakan selesai. Dalam waktu terbatas, 
+biasanya menyesuaikan  jadwal wisuda, mahasiswa harus memperbaiki skripsinya 
+sesuai masukan penguji dan pembimbing. Dalam proses perbaikan, mahasiswa 
+harus memperhatikan hal-hal penting dari masukan yang tercatat dalam notulensi 
+ujian yang sudah ia dapatkan salinannya. Mahasiswa juga harus berdiskusi dengan 
+pembimbing mengenai seluruh masukan tersebut. Setelah perbaikan selesai, 
+pembimbing akan me meriksa kembali seluruh hal yang telah diperbaiki dan 
+menandatangani halaman pengesahan skripsi. Mahasiswa kemudian dapat 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+54 
+menemui penguji, m elaporkan seluruh perbaikan yang ia lakukan, dan meminta 
+penguji menandatangani halaman pengesahan skripsi. Baru setelah itu, skripsi siap 
+untuk dijilid,  diserahkan 2 eksemplar ke Administrasi Pendidikan untuk diteruskan 
+ke Ketua Prodi dan kemudian, ke Deka n agar dapat ditanda tangani. Selain itu, 
+mahasiswa juga perlu menyampaikan skripsi dalam bentuk CD, termasuk berkas 
+lengkap dari alat ukur atau stimulus yang digunakan. Sebaiknya mahasiswa juga 
+menanyakan kepada  pembimbing apabila ia hendak menyimpan nas kah skripsi 
+dalam bentuk jilid (hardcopy) atau CD. Pembimbing umumnya menyimpan naskah 
+skripsi mahasiswa sebagai dokumen penting. 
+Selain itu, mahasiswa juga harus mempersiapkan naskah singkat menyerupai 
+artikel jurnal dari skripsi yang telah ia susun. Form at naskah singkat dapat dilihat 
+di Lampiran 2. Nantinya, naskah singkat yang sudah disusun akan diunggah ke UI -
+ANA yang ada di laman situs Perpustakaan Pusat UI sebagai repositori penelitian 
+UI. Dengan demikian, mahasiswa juga dianggap telah mempublikasikan penelitian-
+nya. Bagaimana cara mengunggah ke UI-ANA dapat dilihat di Lampiran 3. 
+Namun, sebaiknya didiskusikan dengan pembimbing apabila penelitian hendak 
+dipublikasikan di tempat lain yang jangkauannya dan nilai publikasi ilmiahnya lebih 
+tinggi, seperti jurnal nasional atau (jika memungkinkan) jurnal internasional. Hal 
+ini terutama baik bila dilakukan pada skripsi -skripsi yang berkualitas luar biasa 
+dengan temuan baru. Jika dipublikasikan di jurnal ilmiah yang terindeks di SCOPUS 
+atau Thomson Reuteurs CI , dengan mencantumkan nama Universitas Indonesia, 
+tentu lebih bermanfaat bagi universitas sebagai bagian dari komunitas ilmiah. 
+Apakah akan dipublikasikan di UI -ANA atau di jurnal lain, mahasiswa harus 
+menyerahkan formulir persetujuan publikasi naskah ring kas ke Perpustakaan UI.  
+Formulir ini dapat dilihat di Lampiran 4.  
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+55 
+ 
+DAFTAR REFERENSI 
+ 
+American Psychological Association. (2010). Publication Manual of the American 
+Psychological Association (6th ed). Washington DC: APA. 
+Bauer, N. M. (2015). Emotional, sensitive, and unfit for office? Gender stereotype 
+activation and support female c andidates. Political Psychology , 36(6), 691–
+708. doi:10.1111/pops.12186.  
+Beaton, D. E., Bombardier, C., Guillemin, F., &  Ferraz, M. B. (2000). Guidelines for 
+the process of cross-cultural adaptation of self-report measures. SPINE, 25(4), 
+3186 –3191. Retrieved from http://www.emgo.nl/kc/preparation/research% 
+20design/ vragenlijsten/Beaton.pdf. 
+Böckler, A., Knoblich , G., & Sebanz, N. (2012). Effects of a coactor's focus of 
+attention on task performance.  Journal of Experimental Psychology: Human 
+Perception and Performance, 38(6), 1404. 
+Direktorat Riset dan Pengabdian Masyarakat Universitas Indonesia. (2013). Kode 
+Etik Riset Universitas Indonesia  (Ed. 1). Depok , Indonesia: Badan Penerbit 
+Fakultas Kedokteran Universitas Indonesia.  
+Faul, F., Erdfelder, E., Lang, A. G., & Buchner, A. (2007). G* Power 3: A flexible 
+statistical power analysis program for the social, behavio ral, and biomedical 
+sciences, Behavior Research Methods, 39(2), 175-191. 
+Faul, F., Erdfelder, E., Buchner, A., & Lang, A. G. (2009). Statistical power analyses 
+using G* Power 3.1: Tests for correlation and regression analyses, Behavior 
+Research Methods, 41(4), 1149-1160. 
+Gravetter, F.  J. & Wallnau , L. B.  (2007). Statistics for the Behavioral S ciences. 
+Ontario, Canada: Thomson Wadsworth. 
+Gravetter, F., &  Forzano, L.  B. (2009). Research Methods for the Behavioral 
+Sciences. (4th ed.). Belmont, CA: Wadsworth, Cengage Learning.  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 56 
+Guilford, J.P., & Fruchter, B.  (1978).  Fundamental Statistics in Psychology and 
+Education. New York: McGraw-Hill.  
+Lee, C., & Shin, N. (2017). Prevalence of cyberbullying and predictors of 
+cyberbullying perpetration among Korean adolescents.  Computers in Human 
+Behavior, 68, 352-358. doi: https://doi.org/10.1016/j.chb.2016.11.047. 
+Lunenburg, F. C., & Irby, B. J. (2008). Writing a successful thesis or dissertation: Tips 
+and strategies for students in the social and behavioral sciences . Thousand 
+Oaks, CA: Corwin Press. 
+Keputusan Majelis Wali Amanat Universitas Indonesia Nomor 007/TAP/MWA -
+UI/2005 tentang Etika Riset bagi Sivitas Akademika Universitas Indonesia. 
+Keputusan Majelis Wali Amanat Universitas Indonesia Nomor 003/SK/MWA -
+UI/2008 tentang Kebijakan Riset Universitas Indonesia. 
+Kerlinger, F. N. (1966). Foundations of Behavioral Research . New York: Holt, 
+Rinehart and Winston.  
+Kerlinger, F. N., & Lee, H. B. (2000). Foundations of Behavioral Research  (4th ed.). 
+Fort Worth, TX: Harcourt College. 
+Kumar, R. (2005). Research Methodology: A Step-by-step Guide for Beginners (2nd 
+ed.). London, England: Sage.   
+Köster, M., Cavalcante, L., Vera Cruz de Carvalho, R., Dôgo Resende, B. & Kärtner, 
+J. (2016), Cultural influences on toddlers’ prosocial behavior: How maternal 
+task assignment relates to helping others. Child Development, 87 (6) 1727–
+1738. doi:10.1111/cdev.12636.  
+Kristofferson, K., McFerran, B., Morales, A. C., & Dahl, D. W. (2016). The Dark Side 
+of Scarcity Promotions: How Exposure to Limited -Quantity P romotions Can 
+Induce Aggression.  Journal of Consumer Research , 43(5), 683 -706. https:// 
+doi.org/10.1093/jcr/ucw056. 
+Masterman, L. (1985). Teaching the media. London: UK Routledge. 
+Nicol, A. A. M.,  & Pexman, P. M. (2010). Presenting your Findings: A Practical Guide 
+for Creating Tables (6th ed). Washington, DC: APA. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+57 
+Nicol, A. A. M.,  & Pexman, P. M. (2010). Displaying your Findings: A Practical Guide 
+for Creating Figures, Posters, and P resentations (6th ed). Washington, DC: 
+APA. 
+Rozendaal, E., Buijzen, M., & Valkenburg, P. (2010). Comparing children's and 
+adults' cognitive advertising competences in the Nethe rlands. Journal of 
+Children and Media, 4(1), 77-89. 
+Santoso, G. A., & Royanto, L. R. M. (2009). Teknik Penulisan Laporan Kualitatif . 
+Depok, Indonesia: LPSP3.  
+Setiadi, B., Matindas, R. M., &  Chairy, A. L. S. (1998). Pedoman Penulisan Skripsi 
+Psikologi. Depok, Indonesia: LPSP3. 
+SK Rektor Universitas Indonesia Nomor 628/SK/R/UI/2008 tanggal 16 Juni 2008 
+tentang Pedoman Teknis Penulisan Tugas Akhir Mahasiswa Universitas 
+Indonesia. 
+SK Rektor Universitas Indonesia Nomor 0394A/SK/R/UI/2010 tentang Komisi Etik 
+Riset Universitas Indonesia. 
+Sternberg, R. J., & Sternberg, K. (2010). The Psychologist's Companion: A Guide to 
+Professional Success for Students, Teachers, and Researchers . Cambridge 
+University Press. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 58 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+59 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+LAMPIRAN 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 60 
+ 
+LAMPIRAN 1 
+PANDUAN MEMBUAT DAFTAR REFERENSI 
+ 
+Salah satu ciri tulisan ilmiah adalah tulisan itu terikat atau mengikatkan diri pada 
+suatu sistem penulisan referensi. Dalam psikologi, sistem itu disepakati dan 
+dibakukan dalam Publication Manual of the American Psychological Association  
+dan terus-menerus diperbaharui. Saat ini, sistem referensi yang digunakan adalah 
+edisi ke -6 dari Publication Manual of the American Psychological Association  
+(2010). Di dalam buku panduan publikasi APA itu dijelaskan berbagai aspek yang 
+khas ditemui dalam sebuah penulisan naskah ilmiah, dari etika penulisan, standar 
+pelaporan hasil penelitian, pembuatan tabel dan gambar, penulisan simbol atau 
+rumus statistik, cara mengutip, hingga cara membuat daftar referensi. Cara 
+membuat daftar referensi akan dijelaskan dalam bab ini. 
+Isi Lampiran ini mengacu pada buku panduan publ ikasi APA edisi ke -6, juga 
+memperhatikan Pedoman Teknis Penulisan Tugas Akhir Mahasiswa Universitas 
+Indonesia yang dikeluarkan melalui Keputusan Rektor UI nomor 628 tahun 2008. 
+Dalam pedoman teknis penulisan tugas akhir tersebut  dituliskan bahwa setiap 
+fakultas/departemen berhak menentukan sendiri format penulisan kutipan yang 
+akan digunakan. Untuk Fakultas Psikologi Universitas Indonesia, pedoman teknis 
+penulisan tugas akhir tersebut juga memberikan contoh penulisan kutipan 
+berdasarkan format APA (selain M LA). Sistem penulisan ini dibangun atas dasar 
+konvensi, bahwa ilmuwan psikologi hendaknya  mengikuti panduan publikasi APA 
+agar memudahkan komunikasi antar-ilmuwan. Cara penulisan yang seragam jelas 
+akan mengatasi kebingungan. Bayangkan jika setiap penulis memiliki caranya 
+masing-masing dalam menulis, waktu kita akan habis terbuang untuk menangkap 
+sistem penulisan yang ia gunakan, bukan bersegera memahami isi tulisannya. 
+Padahal, ada banyak sekali naskah ilmiah yang harus dibaca. Sistem penulisan APA 
+juga cu kup detil, sehingga distraksi yang tidak perlu saat kita membaca suatu 
+naskah akan terhindarkan. Dengan segera, kita akan dapat  mengetahui jenis 
+referensi apa yang digunakan oleh penulis dengan melihat daftar referensinya. 
+Dengan demikian, fungsi daftar referensi sebagai acuan yang dapat ditelusuri oleh 
+pembaca dapat terpenuhi. Di samping itu, daftar referensi bukan sekadar kumpul-
+an bacaan yang telah digunakan penulis. Daftar referensi merupakan pertanggung-
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+61 
+Prinsip Membuat Daftar Referensi 
+jawaban akademis penulis tentang isi tulisan dan kekuatan argumennya, bahwa 
+tulisan yang ia paparkan bersumber dari ‘bangunan’ pengetahuan sebelumnya.  
+Berdasarkan diseminasi naskah, tulisan ilmiah secara umum dapat dibedakan 
+menjadi dua: dipublikasikan atau tidak dipublikasikan. Disebut dipublikasikan 
+apabila penulis mengirimkan tulisannya ke jurnal ilmiah atau menerbitkan 
+tulisannya dalam format buku yang bisa diakses khalayak.  Disebut tidak 
+dipublikasikan apabila penulis tidak melakukan kedua hal di atas, namun 
+mengirimkan tulisannya yang telah diperik sa isinya oleh dewan penguji ke 
+perpustakaan universitas. Dalam kedua jenis tulisan ilmiah itu, setiap tulisan tetap 
+bisa diakses oleh pembaca. Tulisan yang dipublikasikan dapat dibaca oleh 
+siapapun, sementara tulisan yang disimpan di perpustakaan dapat di baca oleh 
+anggota perpustakaan.  Tulisan itu telah menjadi milik publik, meski isinya 
+dipertanggungjawabkan oleh penulis. Di lingkungan Universitas Indonesia sendiri, 
+setiap skripsi atau tesis yang diselesaikan harus diunggah ke portal koleksi 
+perpustakaan dalam bentuk softcopy, sehingga bukan hanya dapat diakses oleh 
+anggota perpustakaan, tapi siapa saja yang mengakses portal tersebut. Oleh sebab 
+itu, tulisan harus memungkinkan pembaca untuk melihat dan menggunakan sum -
+ber referensi yang telah dicantumkan. Oleh karena itu, penting untuk memastikan 
+bahwa referensi yang kita buat dapat dipahami oleh pembaca, seragam dengan 
+standar penulisan yang berlaku, sehingga membantu para pembaca. 
+ 
+ 
+ 
+1. Pilihlah Referensi dengan Pertimbangan 
+Pelajari sumber yang hendak yang dikutip. Tidak semua layak dikutip, dan 
+perhatikan kredibilitas sumber dengan mengikuti tips berikut. Pertama, 
+sumber yang telah mengalami proses peer-review lebih baik. Peer-review 
+adalah proses yang digunakan oleh jurnal -jurnal akademik untuk 
+memastikan bahwa artikel -artikel yang akan dipublikasikan memiliki 
+kualitas ilmiah yang terbaik (www.lib.utexas.edu/lsl/help/modules/peer). 
+Ketika sebuah artikel dikirimkan ke sebuah jurnal yang bersifat peer-
+reviewed, editor dari jur nal tersebut akan mengirimkannya ke beberapa 
+ilmuwan ahli (disebut reviewer atau mitra bestari) di bidang yang sama 
+dengan topik artikel tersebut untuk mendapatkan opini mereka tentang 
+kualitas ilmiah dari artikel tersebut, relevansi, dan nilai kontribusi ilmiah-
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 62 
+nya. Para mitra bestari ini bersifat anomim, dengan kata lain tidak di -
+ketahui oleh penulis artikel. Jumlahnya biasanya lebih dari dua orang.  
+Komentar dan masukan dari mereka lalu akan dijadikan landasan untuk 
+memutuskan apakah draf artikel yang dikirimkan itu diterima atau ditolak 
+untuk dipublikasikan dalam suatu jurnal. Artikel yang diterima biasanya 
+akan melalui proses revisi berdasarkan masukan dari mereka. Proses revisi 
+dapat berjalan lebih dari satu kali untuk memastikan bahwa artikel yang 
+dipublikasikan memenuhi kualitas ilmiah yang terbaik. Untuk mengetahui 
+apakah jurnal yang kita akses merupakan jurnal yang peer-reviewed, kita 
+bisa melihatnya dari pernyataan editor atau instruksi bagi penulis ( author 
+guidelines) yang terdapat pada halaman muka website jurnal tersebut.  
+Kedua, penting untuk menggunakan sumber pertama saja. Suatu tulisan 
+yang penuh dengan sumber kedua mengesankan bahwa penu lis tidak 
+bersungguh-sungguh melakukan studi literatur dan kurang kreatif mencari 
+sumber lain yang setara. Ketiga, sumber adalah ahli ( experts), jelas 
+identitasnya, dan dapat mempertanggungjawabkan tulisannya. Oleh 
+karena itu, wikipedia, dan artikel -artikel di internet yang tidak jelas siapa 
+penulis dan keahlian penulisnya tidak boleh digunakan. 
+Ketiga, pilah -pilih sumber yang akan digunakan dengan memperhatikan 
+waktu publikasinya. Sebaiknya tidak menggunakan sumber yang out-of-
+date atau yang sudah tidak se suai dengan perkembangan riset mutakhir . 
+Memang kriteria waktu dapat berbeda, ada yang menetapkan 5 atau 10 
+tahun terakhir. Boleh atau tidaknya menggunakan sumber yang ‘tua’ 
+diperdebatkan. Namun Pedoman Teknis Penulisan Tugas Akhir Mahasiswa 
+Universitas In donesia dalam SK Rektor nomor 628/SK/R/UI/2008 meng -
+anjurkan agar 70% referensi yang digunakan merupakan terbitan terbaru, 
+minimal terbitan 2 tahun terakhir, dari jurnal ilmiah internasional. Namun, 
+untuk lingkungan Fakultas Psikologi Universitas Indonesia, ketentuan yang 
+sudah disepakati adalah 40% referensi yang digunakan merupakan 
+terbitan dari 10 tahun terakhir.  
+Di satu sisi, menggunakan sumber -sumber terbaru memungkinkan kita 
+mengikuti temuan terbaru di bidang yang diteliti.  Ilmu pengetahuan 
+adalah bidang yang selalu berkembang melalui riset, termasuk psikologi. 
+Mengikuti perkembangan ilmu adalah keniscayaan perkembangan ilmu, 
+terutama apabila universitas memiliki orientasi menjadi universitas kelas 
+dunia yang berbasis riset. Oleh karena itu kebaruan i lmu adalah hal yang 
+mutlak. Implikasi praktisnya, jika kita hendak melakukan penelitian , kita 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+63 
+tidak sekadar mengulangi penelitian yang sama yang telah dilakukan di 
+tempat lain, namun memperkokoh temuan penelitian itu, menguji ulang 
+temuan itu dengan memperhatikan kekhasan masyarakat kita, atau justru 
+menemukan suatu hal yang baru yang membantu pengembangan ilmu 
+pengetahuan.  
+Penggunaan sumber-sumber terbaru dimungkinkan apabila pihak univer -
+sitas (atau Direktorat Pendidikan Tinggi RI) berlangganan jurnal -jurnal 
+internasional atau perusahaan penyedia jurnal -jurnal elektronik yang 
+penting dan tinggi pengaruhnya di kalangan ilmiah. Apabila tidak, akan 
+sangat sulit kita mengikuti perkembangan ilmu, sementara jurnal -jurnal 
+ilmiah memperkaya kerangka teori dengan menyediakan bukti -bukti 
+empiris yang banyak dan kuat. 
+Kadang-kadang Pembimbing skripsi memiliki standar terkait lamanya 
+waktu publikasi sumber untuk suatu topik tertentu. Hal ini perlu 
+ditanyakan kepada pembimbing skripsi. Mahasiswa juga dapat menanya -
+kan referensi utama yang akan diacu, sehingga ada pemahaman bersama 
+tentang konsep -konsep yang akan dituliskan. Pembimbing biasanya 
+memberikan rekomendasi sejumlah kecil referensi utama, lalu mahasiswa 
+mengembangkan referensi tersebut sesuai kebutuhannya. Kadang-kadang 
+kita juga perlu mencari dan mengutip sumber yang paling awal. Misal, saat 
+melakukan penelitian tentang satu topik, kita menemukan seorang 
+profesor mempublikasikan hasil penelitiannya dengan paradigma spesifik 
+yang mengarahkan orientasi penelitian  di topik tersebut 10 -20 tahun 
+kemudian, bahkan hingga hari ini. Penelitian yang paling awal ini akan 
+sangat baik bila dikutip meski waktu publikasinya sudah cukup lama. 
+ 
+2. Hanya Memasukkan Sumber yang Digunakan untuk Menulis 
+Ketika kita melakukan penelitian , banyak sekali literatur yang kita baca. 
+Namun, tidak semua perlu dimasukkan ke dalam daftar referensi. Bedakan 
+daftar referensi dengan bibliografi. Daftar referensi adalah daftar literatur 
+yang diacu dalam persiapan artikel dan dikutip/disebut dalam teks. Daftar 
+referensi tidak lain adalah daftar acuan. Sementara bibliografi adalah 
+daftar seluruh literatur yang dapat membantu memahami, merencanakan, 
+dan melaksanakan studi, meskipun tidak dikutip/disebut dalam teks. 
+Bibliografi bersinonim dengan daftar pus taka atau kepustakaan yang 
+artinya semua buku, karangan, dan tulisan mengenai suatu bidang ilmu, 
+topik, gejala atau kejadian (KBBI, 2008). 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 64 
+Dalam skripsi, tesis, atau disertasi, sumber yang digunakan dalam menulis 
+atau disebut dalam teks harus ditulis lengk ap dalam daftar referensi. 
+Demikian juga, sumber yang terdaftar dalam daftar refensi harus disebut 
+dalam teks, baik sebagai kutipan, parafrase, atau ringkasan.  
+ 
+3. Konsisten 
+Sumber yang disebut di dalam teks tapi tidak ditulis di daftar referensi 
+menunjukkan bahwa penulis tidak teliti. Sementara sumber yang tidak ada 
+di dalam teks tapi ada dalam referensi menunjukkan adanya plagiarisme, 
+dimana penulis mengutip tanpa menyebutkan sumber acuannya. Penulis 
+yang mengutip sumber di dalam teks, namun tidak ditemukan  dalam 
+daftar referensi juga mengganggu pembaca. Daftar referensi membantu 
+pembaca untuk menelusuri bacaan lebih lanjut jika  ia tertarik pada topik 
+tulisan. Pembaca dapat menjadi gusar, menilai penulis tidak teliti dan tidak 
+membantu pembaca untuk menelusuri referensi yang penting. 
+ 
+4. Hal-hal Lain yang Perlu Dipertimbangkan 
+Masukkan seluruh sumber yang kita gunakan dalam menulis, apakah buku, 
+artikel jurnal, artikel koran/majalah, rekaman video yang diunggah di situs 
+internet, atau lainnya yang  sifatnya bisa ditelusuri kembali.  Namun, data 
+komunikasi personal, seperti surat, email, waw ancara langsung atau 
+memoranda tidak dimasukkan di dalam daftar referensi.  
+Daftar referensi mengandung komponen nama penulis, waktu publikasi, 
+judul tulisan, dan data publikas i. Bagaimana cara menuliskan empat 
+komponen ini akan dijelaskan dengan detil di bagian selanjutnya. 
+Para penulis buku seringkali memperbaharui isi buku mereka setiap 
+periode tertentu, terutama jika buku itu merupakan buku teks yang 
+dipakai di perguruan tinggi. Oleh karena itu, jika sumber yang kita gunakan 
+diperbaharui, cek kembali sumber itu, lalu perbaharui status publikasi agar 
+lebih dekat dengan waktu publikasi tulisan kita. Jika kita merujuk pada satu 
+buku yang kemudian muncul edisi terbarunya, maka se belum tulisan  
+dipublikasikan atau dikumpulkan ke perpustakaan, sebaiknya kita menge -
+cek kesesuaian isi edisi terbaru dengan edisi sebelumnya yang kita kutip. 
+Bila sesuai, lebih baik kita merujuk kutipan dan referensi pada sumber edisi 
+terbaru. Bila tidak sesuai, isi tulisan sebaiknya diperbaiki. 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+65 
+Selain disertasi dan tesis, skripsi sarjana kadang digunakan sebagai salah 
+satu rujukan dalam penulisan skripsi.  Namun, penggunaannya sebagai 
+rujukan sangat terbatas. Skripsi boleh digunakan jika dikutip hasil 
+penelitiannya atau jika instrumen penelitiannya akan digunakan. Penulis 
+skripsi tidak boleh mengutip teori -teori yang dikemukakan dalam skripsi. 
+Jika penulis tertarik dengan teori -teori yang dipaparkan dalam suatu 
+skripsi, maka ia harus merujuk langsung kepada referensi aslinya, apakah 
+buku atau artikel jurnal. Membaca langsung referensi asli merupakan sikap 
+ilmiah yang penting, bahwa seorang ilmuwan dapat memahami dengan 
+benar dan utuh naskah yang ia rujuk, dan bahwa ia dapat memper -
+tanggungjawabkan tulisannya sebagai hasil penguasaannya atas naskah 
+referensi yang ia rujuk. 
+Hal-hal teknis lainnya , seperti cara menuliskan hasil konferensi atau 
+simposium, cara menuliskan bila sebuah naskah memiliki lebih dari dua 
+penulis, dan sebagainya, silakan merujuk ke APA Pub lication Manual edisi 
+terkini.  
+  
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 66 
+ 
+LAMPIRAN 2 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+67 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 68 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+69 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 70 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+71 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 72 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+73 
+ 
+                    LAMPIRAN 3 
+ 
+ 
+ 
+ 
+ 
+I. KETENTUAN PENGUNGGAHAN FILE DIGITAL 
+ File digital diunggah ke Sistem UIANA yang beralamat dilib.ui.ac.id/unggah 
+ Untuk masuk ke sistem unggah, mahasiswa login dengan menggunakan user name dan 
+password SIAK mahasiswa (komputer akan menampilkan halaman SSO (single sign on)) 
+ 
+II. KETENTUAN ISI FILE DIGITAL 
+A. Konten File Digital Naskah Lengkap 
+Ketentuan file digital naskah lengkap : 
+ Isi file digital  harus sama dengan dokumen tercetak yang telah disetujui oleh 
+pembimbing dan penguji 
+ Format file dalam bentuk pdf tanpa enkripsi (tidak diberi security password) 
+ Pada halaman naskah lengkap tidak diberi watermark 
+ Dokumen naskah lengkap karya ilmiah, berisi teks lengkap dari halaman judul sampai 
+dengan lampiran. Halaman yang bertanda tangan harus dipindai ( scanning), dan 
+hasilnya disatukan pada file pdf yang lengkap dengan urutan halaman sesuai dengan 
+dokumen tercetak. Halaman yang di-scanning (dipindai) adalah: 
+1. Halaman Pernyataan Orisinalitas 
+2. Halaman Pengesahan  
+3. Halaman Pernyataan Persetujuan Publikasi             
+Karya Ilmiah untuk Kepentingan Akademis 
+ Tanda tangan pada halaman yang dipindai adalah asli bukan hasil cropping 
+ Hasil pemindaian ( scanning) halam an yang bertandatangan berkualitas baik (tidak 
+gelap, kapasitas file tidak terlalu besar/kecil tetapi disesuaikan dengan format awal) 
+ 
+B. Konten File Digital Naskah Ringkas 
+Ketentuan file digital naskah ringkas :  
+ Dokumen naskah ringkas karya ilmiah yaitu ringkasan tugas akhir karya ilmiah yang 
+sudah diubah formatnya ke dalam bentuk artikel jurnal 
+ Format file dalam bentuk doc/docx (word) 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 74 
+ Dalam mengunggah naskah ringkas, mahasiswa harus melampirkan hasil scanning 
+dari formulir ”Persetujuan dan Rencana Publik asi Naskah Ringkas”yang telah 
+ditandatangani oleh dosen pembimbing (formulir tersedia pada Sistem UIANA yang 
+beralamat di lib.ui.ac.id/unggah, dengan memilih menu Panduan Penulisan) 
+ 
+C. Penamaan File Digital 
+ Dokumen naskah lengkap, penamaannya terdiri atas nama penulis, jenis karya, sing-
+katan nama fakultas dan tahun lulus. Contoh: Monalisa Septiana -Skripsi-FIB-
+2013.pdf 
+ Dokumen naskah ringkas penamaanya terdiri atas nama penulis, jenis karya sing -
+katan nama fakultas dan tahun lulus. Contoh: Monalisa Septiana -Artikel Jurnal-
+FIB-2013.pdf 
+ Daftar singkatan nama fakultas tersedia pada Sistem UIANA yang beralamat di 
+lib.ui.ac.id/unggah, dengan memilih menu Panduan Penulisan 
+ 
+III. KETENTUAN KONTEN UNGGAH  
+Identifikasi tipe konten pada Sistem UIANA: 
+ Skripsi: merupakan karya ilmiah hasil penelitian dari mahasiswa program sarjana 
+(S1) untuk prasyarat memperoleh gelar sarjana.  
+ Makalah Seminar : merupakan karya ilmiah sebagai pengganti skripsi bagi 
+mahasiswa jalur nonskripsi. Makalah ini telah dipresentasikan da lam seminar 
+nasional/internasional (seperti lomba mahasiswa berprestasi, makalah yang 
+diterbitkan dalam sebuah prosiding, dan lain-lain). 
+ Makalah Non Seminar : merupakan karya ilmiah sebagai pengganti skripsi bagi 
+mahasiswa jalur nonskripsi. Makalah ini belum/tidak dipresentasikan dalam seminar. 
+Makalah dilengkapi dengan cover (halaman sampul) dan hasil scanning dari halaman 
+pengesahan serta halaman pernyataan persetujuan publikasi karya ilmiah untuk 
+kepentingan akademis.  
+Contoh: karya makalah dari Fakultas Ilmu Pengetahuan Budaya (FIB), karya makalah 
+dari Fakultas Ilmu Sosial dan Ilmu Politik (FISIP), karya ilmiah dari Program Khusus 
+Kelas Internasional-Fakultas Ekonomi (FE). 
+ Karya Akhir : merupakan karya ilmiah sebagai tugas akhir bagi mahasiswa dalam 
+bentuk rencana bisnis (business plan), rancangan proses (business process), poster, 
+atau karya ilmiah lain seperti: karya akhir, tugas akhir dan laporan magang. Ketentuan 
+format penulisan Karya Akhir sama dengan skripsi/tesis dan kelengkapan file digital 
+serta hasil scanning yang diunggah sesuai dengan ketentuan yang diuraikan di atas. 
+Contoh: karya akhir/tugas akhir dan laporan magang dari Fakultas Ekonomi (FE), 
+karya akhir/tugas akhir dari Fakultas Ilmu Sosial dan Ilmu Politik (FISIP), karya 
+akhir/tugas akhir dari Fakultas Ilmu Komputer (FASILKOM), karya akhir/tugas akhir 
+dari Program Khusus Kelas Internasional-Fakultas Teknik (FT). 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+75 
+ Profesi: merupakan karya ilmiah hasil praktek terprogram, terstruktur atau penelitian 
+dari program pendidikan profesi untuk prasyarat memperoleh kualifikasi profesi. 
+Ketentuan format penulisan karya profesi sama dengan skripsi/tesis dan kelengkapan 
+file digital serta hasil scanning yang diunggah sesuai dengan ketentuan yang telah 
+diuraikan di atas.  
+Contoh: Karya Ilmiah Akhir dari Fakultas Ilmu Keperawatan (FIK), Laporan Prakt Ik 
+Kerja dari Fakultas Farmasi (FF), dan karya profesi dari Fakultas Kedokteran (FK). 
+ Spesialis: merupakan karya ilmiah hasil praktek terprogram, terstruktur atau 
+penelitian dari program pendidikan spesialis untuk prasyarat memperoleh kualifikasi 
+spesialis. format penulisan karya spesialis sama  dengan skripsi/tesis dan 
+kelengkapan file digital serta hasil scanning yang diunggah sesuai dengan ketentuan 
+yang telah diuraikan di atas.  
+Contoh: karya spesialis dari Fakultas Kedokteran (FK), dan Karya Ilmiah Akhir dari 
+Fakultas Ilmu Keperawatan (FIK). 
+ Tesis: merupakan karya ilmiah hasil penelitian dari mahasiswa program pasca 
+sarjana tingkat magister (S2) untuk prasyarat memperoleh gelar magister. 
+ Disertasi: merupakan karya ilmiah hasil penelitian dari mahasiswa program pasca 
+sarjana tingkat doktor (S3) untuk prasyarat memperoleh gelar doktor. 
+ 
+IV. KETENTUAN PENYERAHAN DOKUMEN TERCETAK 
+Dokumen tercetak yang diserahkan ke Perpustakaan UI adalah karya ilmiah berupa 
+SKRIPSI, TESIS dan DISERTASI, sedangkan dokumen tercetak untuk karya ilmiah lainnya 
+tidak perlu diserahkan ke Perpustakaan UI.  
+ 
+Jumlah 
+Sivitas akademika UI (siva) menyerahkan s atu eksemplar dokumen tercetak SKRIPSI, 
+TESIS dan DISERTASI dengan kertas bolak balik 
+ 
+Sampul (Cover) 
+ Sampul (cover) hardcopy untuk skripsi berwarna putih. 
+ Sampul (cover) hardcopy untuk tesis dan disertasi berwarna coklat tua. 
+ 
+Tanda Terima 
+Tanda terima diberikan untuk mahasiswa yang menyerahkan dokumen tercetak 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 76 
+ 
+Prosedur Pengunggahan dan Pengumpulan Tugas Akhir
+Mahasiswa PPSI Bagian AkademikPerpustakaan
+Mulai
+Mengisi metadata 
+dan unggah file 
+digital
+Menghadapi 
+kesulitan? Help desk
+Menyerahkan 
+dokumen 
+tercetak?
+Menerima 
+dokumen tercetak
+Meminta verifikasi 
+berkas yang 
+diunggah
+Memeriksa 
+kelengkapan 
+berkas yang 
+diunggah
+Berkas 
+lengkap?
+Memberi 
+persetujuan atau 
+meminta 
+perbaikan berkas
+Memberikan tanda 
+terima untuk 
+dokumen tercetak 
+dengan berkas 
+unggah yang telah 
+lengkap
+Cetak bukti 
+unggah
+Menyerahkan 
+tanda terima dan 
+bukti unggah
+Memperbaiki 
+berkas unggah
+Memeriksa status 
+unggahan pada 
+bukti unggah dan 
+SIAK NG
+Diterima
+Selesai
+ya
+tidak
+ya
+tidak
+tidak
+ya
+ya
+tidak
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 
+77 
+ 
+                  LAMPIRAN 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PEDOMAN PENULISAN SKRIPSI — FAKULTAS PSIKOLOGI UNIVERSITAS INDONESIA 78 
+ 
+INDEKS 
+ 
+abstrak — 50-52 
+alat ukur — 32-33 
+APA — 23, 26, 70-71 
+ 
+Bab 1, komponen — 13-14 
+ 
+diskusi — 48-49 
+ 
+effect size — 31, 46 
+etika penelitian — 37 
+ 
+hasil analisis penelitian — 43-47 
+hipotesis — 27-28 
+ 
+instrumen penelitian — 32 
+stimulus — 32 
+ 
+jumlah sampel — 30-31 
+ 
+kesimpulan — 48 
+kompetensi umum sarjana            
+strata satu bidang psikologi — 1 
+partisipan penelitian — 30-32 
+gambaran partisipan — 39-41 
+karakteristik partisipan — 31-32 
+pendahuluan, ciri-ciri — 14-20 
+pertanyaan penelitian — 15-19 
+plagiarisme — 26-27  
+prosedur penelitian — 35-36 
+ 
+saran — 48-49 
+skripsi — 2-3 
+pembimbing skripsi — 10-11  
+proposal skripsi — 7-8 
+topik skripsi — 6-10 
+ 
+teknik analisis statistika — 38 
+uji asumsi statistik — 46-47 
+uji hipotesis/uji statistik — 43-46 
+tinjauan kepustakaan, ciri-ciri — 22-25 
+tipe dan desain penelitian — 29-30 
+ 
+ 
+ 

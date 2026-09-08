@@ -1,0 +1,1114 @@
+i Buku Pedoman Penulisan Karya Ilmiah 
+ 
+PEDOMAN PENULISAN 
+KARYA ILMIAH 
+ (TUGAS AKHIR)  
+  
+UIN RADEN MAS SAID SURAKARTA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+HALAMAN JUDUL 
+ 
+BIDANG AKADEMIK DAN PENGEMBANGAN LEMBAGA 
+ 
+UNIVERSITAS ISLAM NEGERI RADEN MAS SAID 
+SURAKARTA  
+
+ii 
+ Buku Pedoman Penulisan Karya Ilmiah 
+ 
+ 
+ 
+iii Buku Pedoman Penulisan Karya Ilmiah 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+iv 
+ Buku Pedoman Penulisan Karya Ilmiah 
+ 
+TAHUN 2021 
+TIM PENYUSUN 
+TIM PENYUSUN 
+ 
+Penanggung 
+jawab 
+: Rektor  
+ 
+Pengarah : Wakil Rektor II  
+   Wakil Rektor III  
+ 
+Ketua : Wakil Rektor I  
+ 
+Sekretaris : Kepala Bagian Akademik dan  
+  Kemahasiswaan 
+ 
+Anggota : Para Dekan 
+   Direktur Pascasarjana 
+   Para Wakil Dekan I 
+   Wakil Direktur Pascasarjana 
+   Ketua Lembaga Penjaminan Mutu 
+   Kepala Sub Bagian Akademik 
+ 
+v Buku Pedoman Penulisan Karya Ilmiah 
+ 
+PENGANTAR 
+ 
+Puji syukur kehadirat Allah SWT atas limpahan berkat dan 
+rahmat kepada kita sehingga penyusunan Buku Panduan 
+Penulisan Karya Ilmiah yang meliputi Skripsi, Tesis, Disertasi, dan 
+karya ilmiah pengganti skripsi UIN Raden Mas Said Surakarta  ini 
+dapat diselesaikan. Panduan ini merupakan revisi dari panduan 
+sebelumnya dengan melakukan perubahan, penambahan, dan 
+pengurangan pada bagian -bagian yang dipandang perlu. Hal ini 
+dilakukan untuk mengikuti perkembangan ipteks, dan memenuhi 
+tuntutan peningkatan kualitas karya ilmiah yang dihasilkan oleh 
+perguruan tinggi. 
+Buku Panduan ini disusun sebagai pedoman bagi 
+mahasiswa, dosen pembimbing, pimpinan institut, fakultas dan  
+pascasarjana dalam menyusun karya tulis ilmiah untuk memenuhi 
+tugas akhir baik berupa skripsi, tesis, disertasi, dan pengganti 
+skripsi seperti artikel jurnal, buku, atau proyek tugas akhir lainnya 
+di lingkungan UIN Raden Mas Said Surakarta. 
+Ucapan terimakasih kami sampaikan kepada tim penyusun 
+dan semua pihak yang telah bekerja keras memberikan kontribusi 
+dalam mewujudkan Buku Panduan Penulisan Karya Ilmiah UIN 
+Raden Mas Said Surakarta ini. 
+Semoga buku panduan ini menjadi amal kebaikan bagi 
+berbagai pihak dan memberikan manfaat bagi segenap civitas 
+akademika UIN Raden Mas Said Surakarta. Aamiin. 
+Surakarta, April 2021 
+Rektor, 
+ 
+vi 
+ Buku Pedoman Penulisan Karya Ilmiah 
+DAFTAR ISI 
+ 
+HALAMAN JUDUL ................................ ................................ ........ i 
+SURAT KEPUTUSAN REKTOR ................................ .................. ii 
+TIM PENYUSUN ................................ ................................ .......... iv 
+PENGANTAR ................................ ................................ ............... v 
+DAFTAR ISI ................................ ................................ ................. vi 
+ 
+BAB I PENDAHULUAN ................................ ................................  1 
+1.1 Skripsi ................................ ................................ .................... 1 
+1.1.1 Pengertian Skripsi ................................ ......................... 1 
+1.1.2 Tujuan Skripsi ................................ ...............................  2 
+1.2 Tesis ................................ ................................ ...................... 3 
+1.2.1 Pengertian Tesis ................................ ........................... 3 
+1.2.2 Tujuan Tesis ................................ ................................ . 3 
+1.3 Disertasi ................................ ................................ ................. 4 
+1.3.1 Pengertian Disertasi ................................ ...................... 4 
+1.3.2 Tujuan Disertasi ................................ ............................ 4 
+1.4 Ketentuan Umum Skripsi, Tesis, dan Disertasi ....................... 5 
+ 
+BAB II KARYA ILMIAH PENGGANTI SKRIPSI ........................... 7 
+2.1 Artikel Ilmiah ................................ ................................ .......... 7 
+2.1.1 Pengertian Artikel Ilmiah ................................ ............... 7 
+2.1.2 Ketentuan Artikel Ilmiah ................................ ................ 7 
+2.2 Buku................................ ................................ ....................... 8 
+2.2.1 Pengertian Buku ................................ ........................... 8 
+2.2.2 Ketentuan Penulisan Buku ................................ ............ 9 
+2.3 Proyek Akhir................................ ................................ ........... 9 
+2.3.1 Pengertian Proyek Akhir ................................ ............... 9 
+2.3.2 Ketentuan Proyek Akhir ................................ ................ 9 
+ 
+vii Buku Pedoman Penulisan Karya Ilmiah 
+ 
+BAB III PROSEDUR DAN PERSYARATAN ADMINISTRASI 
+PROPOSAL TUGAS AKHIR ................................ ............... 11 
+3.1 Proposal Skripsi/ Tesis/ Disertasi ................................ ......... 11 
+3.2 Persyaratan................................ ................................ .......... 12 
+ 
+BAB IV KETENTUAN BIMBINGAN ................................ ........... 13 
+4.1 Waktu Bimbingan ................................ ................................ . 13 
+4.2 Persyaratan Dosen Pembimbing ................................ .......... 13 
+4.3 Pergantian Dosen Pembimbing ................................ ............ 15 
+4.3.1 Berhalangan Tetap ................................ ..................... 15 
+4.3.2 Mengundurkan Diri ................................ ...................... 15 
+4.3.3 Ketentuan khusus ................................ ....................... 15 
+4.4 Akhir Bimbingan ................................ ................................ ... 16 
+4.5 Monitoring Pelaksanaan Tugas Akhir ................................ ... 16 
+ 
+BAB V PROSEDUR DAN PERSYARATAN                            
+UJIAN TUGAS AKHIR................................ ......................... 17 
+5.1 Ujian Seminar Proposal................................ ........................ 17 
+5.1.1 Prosedur Pendaftaran Ujian Seminar Proposal ........... 17 
+5.1.2 Persyaratan Pendaftaran Ujian Seminar Proposal ...... 18 
+5.1.3 Ketentuan dan Teknis Pelaksanaan Ujian Seminar 
+Proposal................................ ................................ ...... 19 
+5.1.4 Kewenangan Dewan Penguji ................................ ...... 19 
+5.1.5 Ketentuan Penilaian dan Kelulusan ............................. 20 
+5.2 Ujian Akhir (Munaqosah) ................................ ...................... 20 
+5.2.1 Prosedur Pendaftaran Ujian Akhir (Munaqosah) ......... 20 
+5.2.2 Persyaratan Pendaftaran Ujian Akhir (Munaqosah)..... 21 
+5.2.3 Ketentuan Pelaksanaan Ujian Akhir (Munaqosah) ...... 23 
+5.2.4 Penilaian Ujian Akhir ................................ ................... 24 
+5.3 Tata Tertib Ujian ................................ ................................ .. 25 
+5.4 Persyaratan Tim Penguji ................................ ...................... 26 
+viii 
+ Buku Pedoman Penulisan Karya Ilmiah 
+5.5 Sanksi – sanksi ................................ ................................ .... 27 
+ 
+BAB VI TATA CARA PENULISAN................................ ............. 28 
+6.1 Skripsi, Tesis, dan Disertasi ................................ ................. 28 
+6.2 Artikel Ilmiah ................................ ................................ ........ 28 
+6.3 Buku................................ ................................ ..................... 29 
+6.4 Proyek Akhir................................ ................................ ......... 29 
+ 
+BAB VII PENUTUP ................................ ................................ ..... 30 
+7.1 Pemberlakuan Buku Panduan ................................ .............. 30 
+7.2 Aturan Tambahan ................................ ................................  30 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+BAB I 
+PENDAHULUAN 
+ 
+Berdasarkan Standar Nasional Pendidikan Tinggi 
+(Permenristekdikti No 44/2015) dan Kerangka Kualifikasi Nasi onal 
+Indonesia (Perpres No. 8/2012) salah satu syarat yang harus 
+dipenuhi oleh mahasiswa untuk memperoleh derajat Sarjana (S -
+1)/ Magister (S -2)/ Doktor (S -3) pada akhir studinya adalah 
+dengan menyusun tugas akhir dalam bentuk karya ilmiah. Karya 
+ilmiah ada lah karya tulis hasil penelitian maupun kajian ilmiah 
+dalam bidang ilmu pengetahuan, teknologi, atau seni yang ditulis 
+atau dikerjakan sesuai dengan tata cara ilmiah, dan mengikuti 
+pedoman atau konvensi ilmiah yang telah disepakati atau 
+ditetapkan. Penulis an karya ilmiah merupakan salah satu ciri 
+pokok kegiatan perguruan tinggi. Karya ilmiah yang dijadikan 
+pedoman kelulusan UIN Raden Mas Said Surakarta  sesuai 
+dengan Kerangka Kualifikasi Nasional Indonesia (KKNI)  dalam 
+penyelesaian studi yaitu level 6 untuk skripsi, level 8 untuk tesis, 
+dan level 9 untuk disertasi. Berdasarkan ketentuan tersebut, 
+berikut dijelaskan secara singkat pengertian skripsi, tesis dan 
+disertasi. 
+ 
+1.1 Skripsi  
+1.1.1 Pengertian Skripsi 
+Skripsi merupakan tugas akhir dalam bentuk karya ilmiah 
+mahasiswa yang disusun untuk mengkaji suatu 
+permasalahan sesuai dengan kompetensi program studi 
+yang ditempuh. Penyusunan skripsi dilakukan secara 
+seksama dengan bimbingan seorang dosen pembimbing 
+sebagai salah satu syarat memperoleh gelar Sarjana (S1). 
+2 
+ Buku Pedoman Penulisan Karya Ilmiah 
+1.1.2 Tujuan Skripsi 
+1. Melatih mahasiswa agar mampu mengidentifikasi, 
+merumuskan, dan menemukan alternatif pemecahan 
+masalah serta pengambilan kesimpulan berdasarkan 
+bidang keilmuan yang ditekuni; 
+2. Melatih mahasiswa agar dapat berfikir logis dan sistematis 
+dengan mengguna kan metodologi penelitian yang benar 
+dalam merumuskan ide maupun kerangka berpikir dalam 
+bentuk karya tulis ilmiah; 
+3. Mengukur kemampuan mahasiswa terhadap kedalaman 
+pengetahuan dari hasil proses belajar mengajar secara 
+komprehensif; 
+4. Memenuhi salah satu syarat akademik untuk memperoleh 
+gelar sarjana; 
+5. Memberikan sumbangan pemikiran bagi pengembangan 
+ilmu pengetahuan dan pemecahan atas berbagai 
+permasalahan serta menambah khazanah pustaka bagi 
+lembaga pendidikan; 
+6. Menguji kemampuan mahasiswa dalam memecahkan 
+permasalahan atau problema ilmiah dalam bidang ilmu 
+yang ditekuni secara sistematis dan logis berdasarkan 
+teori-teori ilmiah; 
+7. Melatih mahasiswa untuk mempertanggungjawabkan 
+secara ilmiah atas hasil karya ilmiah skripsi; 
+8. Mengembangkan ilmu dan menyumbangkannya  dalam 
+perkembangan ilmu pengetahuan serta pembangunan 
+agama, nusa, dan bangsa. 
+ 
+ 
+ 
+3 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+1.2 Tesis 
+1.2.1 Pengertian Tesis 
+Tesis merupakan tugas akhir dalam bentuk karya ilmiah 
+mahasiswa yang disusun untuk mengkaji suatu 
+permasalahan sesuai dengan kompetensi program studi 
+yang ditempuh. Penyusunan tesis dilakukan secara 
+seksama dengan bimbingan seorang dosen pembimbing 
+sebagai salah satu syarat memperoleh gelar Magister (S2). 
+ 
+1.2.2 Tujuan Tesis 
+1. Melatih mahasiswa agar mampu mengidentifikasi dan 
+merumuskan masalah, mencari alterna tif pemecahan 
+masalah serta pengambilan kesimpulan berdasarkan 
+bidang keilmuan yang ditekuni terhadap pemecahan 
+masalah; 
+2. Mengetahui kemampuan mahasiswa dalam memecahkan 
+permasalahan atau problema ilmiah dalam bidang ilmu 
+yang ditekuninya secara sistematis dan logis berdasarkan 
+kriteria ilmiah. 
+3. Melatih mahasiswa untuk mempertanggungjawabkan 
+secara ilmiah atas hasil karya ilmiah tesis; 
+4. Mengembangkan ilmu dan menyumbangkannya dalam 
+perkembangan ilmu pengetahuan serta pembangunan 
+agama, nusa, dan bangsa; 
+5. Melatih mahasiswa agar dapat berfikir logis dan sistematis 
+dengan menggunakan metodologi yang benar di dalam 
+merumuskan ide dan hasil pemikirannya dalam bentuk 
+karya tulis ilmiah; 
+6. Mengukur kemampuan mahasiswa terhadap kedalaman 
+pengetahuan dari hasil proses bela jar mengajar secara 
+komprehensif; 
+4 
+ Buku Pedoman Penulisan Karya Ilmiah 
+7. Memenuhi salah satu syarat akademik untuk memperoleh 
+gelar magister; 
+8. Memberikan sumbangan pemikiran dalam pengembangan 
+ilmu dan khazanah pustaka bagi lembaga pendidikan 
+ 
+1.3 Disertasi 
+1.3.1 Pengertian Disertasi 
+Disertasi merupakan tugas akhir dalam bentuk karya ilmiah 
+mahasiswa yang disusun untuk mengkaji suatu 
+permasalahan sesuai dengan kompetensi program studi 
+yang ditempuh. Penyusunan disertasi dilakukan secara 
+seksama dengan bimbingan dua orang dosen pembimbing 
+(promotor) sebagai  salah satu syarat memperoleh gelar 
+Doktor (S3). 
+ 
+1.3.2 Tujuan Disertasi 
+1. Melatih mahasiswa agar mampu mengidentifikasi dan 
+merumuskan masalah, mencari alternatif pemecahan 
+masalah serta pengambilan kesimpulan berdasarkan 
+bidang keilmuan yang ditekuni terhadap pe mecahan 
+masalah; 
+2. Mengetahui kemampuan mahasiswa dalam memecahkan 
+permasalahan atau problema ilmiah dalam bidang ilmu 
+yang ditekuninya secara sistematis dan logis berdasarkan 
+kriteria ilmiah; 
+3. Melatih mahasiswa untuk mempertanggungjawabkan 
+secara ilmiah atas hasil karya ilmiah disertasi; 
+4. Mengembangkan ilmu dan menyumbangkannya dalam 
+perkembangan ilmu pengetahuan serta pembangunan 
+agama, nusa, dan bangsa; 
+5 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+5. Melatih mahasiswa agar dapat berfikir logis dan sistematis 
+dengan menggunakan metodologi yang benar di dal am 
+merumuskan ide dan hasil pemikirannya dalam bentuk 
+karya tulis ilmiah; 
+6. Mengukur kemampuan mahasiswa terhadap kedalaman 
+pengetahuan dari hasil proses belajar mengajar secara 
+komprehensif; 
+7. Memenuhi salah satu syarat akademik untuk memperoleh 
+gelar doktor; 
+8. Memberikan sumbangan pemikiran dalam pengembangan 
+ilmu dan khazanah pustaka bagi lembaga pendidikan. 
+ 
+1.4 Ketentuan Umum Skripsi, Tesis, dan Disertasi 
+1. Batasan karya tulis ilmiah berupa skripsi, tesis, dan 
+disertasi adalah sesuai bidang atau tema penelitian pa da 
+program studi yang ditempuh; 
+2. Memenuhi tahapan mulai dari pengajuan proposal 
+skripsi/tesis/disertasi, penelitian, dan penulisan laporan 
+akhir; 
+3. Tugas akhir dapat diujikan dalam sidang munaqasyah atau 
+ujian tertutup dan ujian terbuka dengan ketentuan: 
+a. Mahasiswa aktif program sarjana (S1) telah menempuh 
+semester 6 (masuk semester 7); 
+b. Mahasiswa aktif program magister (S2) telah 
+menempuh semester 3 (masuk semester 4); 
+c. Mahasiswa aktif program doktor (S3) telah menempuh 
+semester 5 (masuk semester 6) 
+4. Penyusunan n askah skripsi, tesis, dan disertasi wajib 
+memenuhi sistematika atau struktur penulisan karya ilmiah 
+yang berlaku; 
+5. Semua karya ilmiah tugas akhir harus memenuhi standard 
+cek similarity (plagiasi) sebelum diajukan kepada sidang 
+6 
+ Buku Pedoman Penulisan Karya Ilmiah 
+munaqasyah. Hasil cek similari ty bagian isi skripsi, tesis, 
+dan disertasi wajib memenuhi ketentuan sebagai berikut: 
+a. Skripsi maksimal 30%; 
+b. Tesis maksimal 25%; 
+c. Disertasi maksimal 25%. 
+6. Semua karya ilmiah sebagai tugas akhir mahasiswa 
+diujikan dalam forum sidang munaqasyah secara terbuka 
+(S1 dan S2), dan ujian tertutup serta ujian terbuka (S3); 
+7. Penentuan nilai kelulusan pada jenjang sarjana (S1), 
+magister (S2), dan doktor (S3) sebagai berikut: 
+a.  Dinyatakan lulus: 
+ Bagi Mahasiswa S1 IPK ≥ 2,00 
+ Bagi Mahasiswa S2 dan 
+S3 
+IPK ≥ 3,00 
+b Dinyatakan Lulus Memuaskan 
+ Bagi Mahasiswa S1 2,76 ≤ IPK ≥ 3,00  
+ Bagi Mahasiswa S2 dan 
+S3 
+3,00 ≤ IPK ≥ 3,50  
+c Dinyatakan Lulus Sangat Memuaskan 
+ Bagi Mahasiswa S1 3,01 ≤ IPK ≥ 3,50  
+ Bagi Mahasiswa S2 dan 
+S3 
+3,51 ≤ IPK ≥ 3,75  
+d Dinyatakan Lulus dengan Pujian (cumlaude) 
+ Bagi Mahasiswa S1 IPK ≥ 3,51 
+ Bagi Mahasiswa S2 dan 
+S3 
+IPK ≥ 3,76 
+ 
+7 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+BAB II 
+KARYA ILMIAH PENGGANTI SKRIPSI 
+ 
+Karya ilmiah pengganti skripsi adalah karya tulis ilmiah 
+mahasiswa yang mencerminkan kemampuan melakukan proses 
+dan pola berpikir ilm iah melalui kegiatan kajian atau rekayasa 
+dibawah bimbingan dosen yang dapat dipertanggungjawabkan 
+secara ilmiah. Karya ilmiah pengganti skripsi ini merupakan salah 
+satu pilihan yang dijadikan pedoman kelulusan pada UIN Raden 
+Mas Said Surakarta  yaitu dapat  berupa artikel jurnal, buku, atau 
+proyek akhir. 
+ 
+2.1 Artikel Ilmiah 
+2.1.1 Pengertian Artikel Ilmiah 
+Artikel ilmiah merupakan karya tulis yang dirancang 
+dengan tata cara ilmiah mengikuti pedoman yang telah 
+disepakati dan dimuat dalam jurnal yang dipublikasikan 
+secara online atau cetak. Penyusunan artikel ilmiah ini 
+dilakukan secara seksama dengan bimbingan seorang 
+dosen pembimbing sebagai salah satu syarat pilihan untuk 
+memperoleh gelar Sarjana (S -1), dan wajib untuk 
+memperoleh gelar Magister (S-2), dan Doktor (S-3).  
+2.1.2 Ketentuan Artikel Ilmiah 
+1. Artikel ilmiah yang disusun berdasarkan bimbingan dari 
+dosen pembimbing dan merupakan hasil riset yang dapat 
+dipilih oleh mahasiswa sebagai karya ilmiah selain skripsi 
+untuk mengkaji suatu permasalahan sesuai dengan 
+kompetensi program studi yang ditempuh;  
+2. Sistematika penulisan artikel ilmiah disesuaikan dengan 
+pedoman gaya selingkung karya ilmiah ( template) dari 
+8 
+ Buku Pedoman Penulisan Karya Ilmiah 
+jurnal yang dituju dan mencantumkan mahasiswa sebagai 
+penulis pertama sedangkan dosen pembimbing selaku 
+penulis ke-2 (dua), dan seterusnya; 
+3. Artikel ilmiah sebagai pengganti skripsi untuk memperoleh 
+gelar sarjana (S -1) harus dipublikasikan minimal di jurnal 
+nasional terindeks Ministry of Religious Affairs 
+Refferences (MORA-REF) ( https://moraref.kemenag.go.id/) 
+atau di portal garuda (http://garuda.ristekdikti.go.id/); 
+4. Artikel ilmiah wajib disusun sebagai syarat memperoleh 
+gelar Magister (S-2) dan dipublikasikan minimal di jurnal 
+nasional terakreditasi diunggah di portal Sinta. Artikel 
+ilmiah yang dipublikasikan tidak harus berdasarkan tesis, 
+namun didasarkan laporan penelitian atas bimbingan 
+dosen pembimbing dengan mencantumkan mahasiswa 
+sebagai penulis pertama, dan dosen pembimbin g sebagai 
+penulis ke-2 (dua) dan seterusnya; 
+5. Artikel ilmiah wajib disusun sebagai syarat memperoleh 
+gelar Doktor (S-3) dan dipublikasikan pada jurnal 
+internasional bereputasi atau minimal di jurnal terakreditasi 
+peringkat 3 yang terindeks di portal sinta dengan ketentuan 
+reviewer dan penulis jurnal minimal dari 2 negara, serta 
+karya ilmiah ditulis dengan menggunakan bahasa Inggris. 
+Penyusunan artikel ilimiah mencantumkan mahasiswa 
+selaku penulis pertama dan pembimbing selaku penulis 
+kedua dan seterusnya. 
+ 
+2.2  Buku 
+2.2.1 Pengertian Buku 
+Buku merupakan salah satu produk dari karya ilmiah yang 
+bersifat empiris dan obyektif. Buku dapat dijadikan sebagai 
+pilihan mahasiswa sebagai karya ilmiah selain skripsi 
+untuk mengkaji suatu permasalahan sesuai dengan 
+9 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+kompetensi progra m studi yang ditempuh. Penyusunan 
+buku dapat dilakukan secara seksama dengan bimbingan 
+seorang dosen pembimbing sebagai salah satu syarat 
+memperoleh gelar Sarjana (S1). 
+2.2.2 Ketentuan Penulisan Buku 
+1. Buku yang disusun sebagai pilihan pengganti skripsi 
+sebagai salah satu syarat memperoleh gelar sarjana (S1); 
+2. Buku disusun berdasar bimbingan dari dosen pembimbing. 
+Mahasiswa dalam penyusunan buku berperan sebagai 
+penulis, sedangkan dosen pembimbing berperan sebagai 
+editor; 
+3. Sistematika penyajian buku berdasarkan keten tuan 
+International Organization for Standardization (ISO); 
+4. Produk buku yang dihasilkan harus diterbitkan dan ber -
+ISBN. 
+ 
+2.3 Proyek Akhir  
+2.3.1 Pengertian Proyek Akhir 
+Produk keilmuan mahasiswa dalam melakukan penemuan, 
+pengembangan, aplikasi, atau penyempurnaan ilm u 
+pengetahuan dan teknologi yang bersifat terapan dan 
+praktis; karya tersebut dapat berupa prototipe, atau 
+rancang bangun yang disertai dengan deskripsi ilmiah 
+tentang karya tersebut. 
+2.3.2 Ketentuan Proyek Akhir  
+1. Rancangan atau desain, dapat berupa rancangan/de sain 
+produk sebagai bagian dari sistem yang kompleks atau 
+dapat pula berupa rancangan/desain suatu produk atau 
+alat dengan daya guna tinggi berdasarkan permasalahan 
+yang terjadi di masyarakat, dunia usaha/industri; 
+10 
+ Buku Pedoman Penulisan Karya Ilmiah 
+2. Produk yang sesuai dengan program studi y ang ditempuh 
+mahasiswa yang berbentuk barang dan jasa. Barang 
+antara lain berupa peralatan, konstruksi, material, 
+makanan, pakaian/busana, prototipe/model, perangkat 
+lunak sistem, karya seni, dan karya monumental lainnya. 
+Jasa dapat berupa perbaikan sistem , pemeliharaan, 
+maupun layanan dan lainnya lebih spesifik akan 
+dirumuskan oleh masing-masing Fakultas. 
+3. Evaluasi dan pengujian dilakukan untuk membuktikan 
+konsep atau menguji produk atau komponen. 
+ 
+11 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+BAB III 
+PROSEDUR DAN PERSYARATAN 
+ADMINISTRASI 
+PROPOSAL TUGAS AKHIR 
+ 
+Proses penyusunan Tugas Akhir (TA) baik dalam bentuk 
+skripsi, tesis, disertasi, maupun pengganti skripsi yang telah 
+ditetapkan, diawali dari tahap pengajuan masalah pokok penelitian 
+TA yang layak dikaji lebih mendalam melalui kegiatan penelitian.  
+Permasalahan penelitian ini digunakan sebagai pertimbangan 
+didalam menentukan judul TA yang tepat. Prosedur dan 
+persyaratan pengajuan TA dilakukan melalui langkah -langkah 
+berikut ini. 
+ 
+3.1 Proposal Skripsi/ Tesis/ Disertasi 
+Prosedur penyusunan proposal dilak ukan melalui tahapan 
+berikut: 
+1. Mahasiswa mengajukan rancangan masalah pokok 
+penelitian dan usulan dosen pembimbing kepada Ketua 
+Program Studi (Kaprodi); 
+2. Kaprodi melakukan penilaian kelayakan rancangan 
+masalah TA yang didasarkan atas: (1) relevansi; (2) 
+urgensi, (3) kelayakan untuk diteliti dengan 
+mempertimbangkan kedalaman permasalahan; (4) 
+keaslian dan kebaruan penelitian; dan (5) kemanfaatan 
+bagi pengembangan keilmuan prodi masing -masing 
+fakultas/pascasarjana;  
+3. Kaprodi menentukan Dosen Pembimbing TA untuk 
+masing-masing mahasiswa.  
+12 
+ Buku Pedoman Penulisan Karya Ilmiah 
+4. Kaprodi mengusulkan Dosen Pembimbing Proposal TA 
+kepada Dekan/ Direktur Pascasarjana untuk diterbitkan 
+Surat Tugas atau Surat Keputusan; 
+5. Mahasiswa melakukan bimbingan proposal kepada 
+Dosen Pembimbing secara langsung maupun secara 
+online; 
+6. Prodi menyelenggarakan monitoring dan evaluasi 
+penyusunan proposal TA secara berkala; 
+ 
+3.2 Persyaratan 
+Persyaratan pengajuan proposal skripsi/ tesis/ disertasi 
+sebagai berikut: 
+1. Her-registrasi sebagai mahasiswa aktif program sarjana 
+(S1), program magist er (S2) atau  program doktor (S3) 
+pada semester yang bersangkutan dibuktikan dengan 
+menyerahkan bukti registrasi dan fotokopi Kartu Rencana 
+Studi (KRS) semester terakhir; 
+2. Mencantumkan mata kuliah TA (Skripsi, Tesis, atau 
+Disertasi) dalam Kartu Rencana Studi  pada semester 
+berjalan; 
+3. Telah lulus minimal 120 sks dengan IPK minimal 2.75 (S1) 
+dan telah lulus 30 sks dengan IPK minimal 2.75 (S2/S3) 
+dibuktikan dengan menyerahkan fotokopi transkrip nilai 
+sementara; 
+4. Telah menempuh dan lulus mata kuliah Metodologi 
+Penelitian dan mata kuliah lainnya yang ditetapkan masing-
+masing fakultas/pascasarjana. 
+ 
+ 
+13 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+BAB IV 
+KETENTUAN BIMBINGAN 
+ 
+4.1 Waktu Bimbingan 
+Pelaksanaan bimbingan secara keseluruhan minimal 
+delapan (8) kali selama maksimal 9 (sembilan) bulan yang 
+dibuktikan dengan is ian lembar bimbingan pint out  atau 
+digital. Jika dalam kurun waktu tersebut pembimbingan 
+belum dapat diselesaikan maka proses pembimbingan 
+dapat diperpanjang maksimal selama 3 (tiga) bulan. 
+ 
+4.2 Persyaratan Dosen Pembimbing 
+Dosen pembimbing untuk mahasiswa program sarjana dan 
+magister berjumlah satu orang, sedangkan untuk 
+mahasiswa program doktor berjumlah dua orang yang 
+terdiri dari promotor dan co -promotor. Dosen yang 
+berwenang membimbing tugas akhir adalah dosen yang 
+memiliki persyaratan sebagi berikut. 
+1. Dosen Pembimbing Skripsi (S1) 
+a. Dosen Tetap UIN Raden Mas Said Surakarta  dari 
+masing-masing fakultas maupun dari lintas fakultas 
+yang memiliki kompetensi keahlian yang relevan 
+dengan tema/ permasalahan tugas akhir 
+mahasiswa yang dibimbing; 
+b. Jabatan fungsional min imal adalah Asisten Ahli 
+(AA); 
+c. Pendidikan terakhir minimal S2; 
+d. Membimbing maksimal 12 mahasiswa dalam satu 
+(1) semester; 
+14 
+ Buku Pedoman Penulisan Karya Ilmiah 
+e. Ditetapkan dengan Surat Keputusan Dekan atau 
+Rektor. 
+2. Dosen Pembimbing Tesis (S2) 
+a. Dosen Tetap UIN Raden Mas Said Surakarta  dari 
+pascasarjana maupun dari fakultas -fakultas di 
+lingkungan UIN Raden Mas Said Surakarta  yang 
+memiliki kompetensi keahlian yang relevan dengan 
+tema/ permasalahan tugas akhir mahasiswa yang 
+dibimbing; 
+b. Jabatan fungsional minimal adalah Lektor; 
+c. Pendidikan terakhir minimal S3; 
+d. Membimbing maksimal 10 mahasiswa dalam satu 
+(1) semester; 
+e. Ditetapkan dengan Surat Keputusan Direktur 
+Pascasarjana atau Rektor.  
+3. Dosen Pembimbing Disertasi (S3) 
+a. Dosen Tetap UIN Raden Mas Said Surakarta  dari 
+pascasarjana maupun dari fakultas -fakultas di 
+lingkungan UIN Raden Mas Said Surakarta  yang 
+memiliki kompetensi keahlian yang relevan dengan 
+tema/permasalahan tugas akhir mahasiswa yang 
+dibimbing; 
+b. Pendidikan terakhir minimal S3; 
+c. Jabatan fungsional sebagai Promotor adalah Guru 
+Besar atau Lektor Kepal a yang sudah memiliki ID 
+Scopus dan menjadi penulis utama pada jurnal 
+internasional bereputasi; 
+d. Jabatan fungsional sebagai co -Promotor adalah 
+Lektor Kepala; 
+e. Mempunyai karya ilmiah dalam jurnal terakreditasi 
+nasional atau jurnal internasional bereputasi dal am 
+lima (5) tahun terakhir; 
+15 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+f. Membimbing maksimal 8 mahasiswa dalam satu (1) 
+semester. 
+g. Ditetapkan dengan Surat Keputusan Direktur 
+Pascasarjana atau Rektor. 
+ 
+4.3 Pergantian Dosen Pembimbing 
+4.3.1 Berhalangan Tetap 
+Dosen pembimbing skripsi, tesis, atau disertasi disebut  
+berhalangan tetap apabila telah meninggal dunia, pensiun, 
+atau sakit menahun sehingga tidak dapat menjalankan 
+tugas sebagai pembimbing. 
+4.3.2 Mengundurkan Diri  
+Dosen pembimbing skripsi, tesis, atau disertasi dapat 
+mengajukan ketidaksanggupan dalam membimbing 
+mahasiswa apabila ada alasan yang dapat diterima secara 
+akademik. Misalnya tema usulan penelitian tidak sesuai 
+dengan kompetensi yang dimiliki, mendapatkan tugas 
+dinas dalam waktu yang lama, cuti, atau alasan lainnya 
+yang menjadikannya tidak dapat menjalank an tugas secar 
+optimal. 
+4.3.3 Ketentuan khusus 
+Jika proses bimbingan Tugas Akhir tidak dapat berjalan 
+secara efektif karena sesuatu hal, mahasiswa dapat 
+berkonsultasi dengan kaprodi tentang kemungkinan 
+pergantian pembimbing . Program studi dapat melakukan 
+evaluasi dan penggantian pembimbing apabila ditemukan 
+bukti-bukti bahwa proses pembimbingan tidak dapat 
+berjalan dengan baik dan mengganggu proses 
+penyelesaian studi mahasiswa. 
+ 
+ 
+16 
+ Buku Pedoman Penulisan Karya Ilmiah 
+4.4 Akhir Bimbingan 
+Proses bimbingan dianggap selesai apabila mahasiswa 
+yang bersangkutan telah mendapat persetujuan dari dosen 
+pembimbing untuk mengikuti ujian akhir atau munaqosah 
+(dibuktikan dengan adanya tanda tangan dosen 
+pembimbing). 
+ 
+4.5 Monitoring Pelaksanaan Tugas Akhir 
+Monitoring pelaksanaan tugas akhir  dimaksudkan untuk 
+menjamin ketepa tan waktu dan kualitas tugas akhir . 
+Monitoring dilakukan secara periodik oleh kaprodi. 
+Langkah-langkah monitoring pelaksanaan tugas akhir 
+adalah sebagai berikut. 
+1. Memastikan keterlaksanaan bimbingan secara efektif 
+dengan mengadakan monitoring secara berkala  
+minimal satu kali dalam satu semester antara prodi, 
+pembimbing, dan mahasiswa; 
+2. Memastikan proses bimbingan berjalan melalui 
+pemantauan buku bimbingan tugas akhir atau melalui 
+aplikasi yang ditentukan oleh masing -masing Fakultas 
+dan pascasarjana; 
+3. Memberikan solusi bagi mahasiswa yang bermasalah 
+dalam penyelesaian tugas akhir; 
+4. Memastikan bahwa naskah tugas akhir  yang disusun 
+bebas dari plagiasi; 
+5. Mahasiswa wajib menyampaikan laporan kemajuan 
+kepada pembimbing secara periodik dalam forum yang 
+difasilitasi prod i masing -masing fakultas dan 
+pascasarjana; 
+6. Hasil monitoring dievaluasi oleh Dekan atau Direktur 
+Pascasarjana. 
+17 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+BAB V 
+PROSEDUR DAN PERSYARATAN                            
+UJIAN TUGAS AKHIR 
+ 
+5.1 Ujian Seminar Proposal  
+5.1.1 Prosedur Pendaftaran Ujian Seminar Proposal 
+1. Program Sarjana (S1) 
+a. Mahasiswa yang telah mendapatkan persetujuan 
+dosen pembimbing untuk mengikuti ujian seminar 
+proposal melakukan pendaftaran ujian secara online 
+maupun offline di fakultas masing-masing; 
+b. Mahasiswa menyerahkan seluruh berkas persyaratan 
+ujian kepada Bagian Akademik fakultas; 
+c. Bagian Akademik melakukan verifikasi terhadap berkas 
+dan persyaratan untuk mengikuti ujian seminar 
+proposal; 
+d. Fakultas menentukan tim penguji dan menyusun jadwal 
+ujian seminar proposal; 
+e. Ketentuan teknis lebih rinci dapa t ditetapkan oleh 
+masing-masing fakultas. 
+ 
+2. Program Magister (S2) dan Doktor (S3) 
+a. Mahasiswa yang telah mendapatkan persetujuan 
+dosen pembimbing untuk mengikuti ujian seminar 
+proposal melakukan pendaftaran ujian secara online 
+maupun offline di pascasarjana; 
+b. Mahasiswa menyerahkan seluruh berkas persyaratan 
+ujian kepada Bagian Akademik Pascasarjana; 
+18 
+ Buku Pedoman Penulisan Karya Ilmiah 
+c. Pascasarjana menentukan tim penguji dan menyusun 
+jadwal ujian seminar proposal; 
+d. Ketentuan teknis lebih rinci dapat ditetapkan oleh 
+pascasarjana. 
+ 
+5.1.2 Persyaratan Pendaftaran Ujian Seminar Proposal 
+1. Program Sarjana (S1) 
+Mahasiswa yang akan mengajukan ujian, menunjukkan 
+persyaratan yang harus dipenuhi sebagai berikut: 
+a. Mahasiswa aktif minimal semester 6 dibuktikan dengan 
+Kartu Rencana Studi (KRS) dan bukti pembayaran 
+perkuliahan/regristasi; 
+b. Telah menyelesaikan minimal 120 SKS dibuktikan 
+dengan menyertakan transkrip nilai sementara; 
+c. Melengkapi syarat ujian: Sertifikat SKL Ibadah dan 
+Baca Al Qur’an, orientasi studi, dan partisipasi dalam 
+kegiatan ilmiah; 
+d. Menyerahkan naskah prop osal skripsi yang sudah 
+disetujui oleh dosen pembimbing sebanyak 3 
+eksemplar;  
+e. Persyaratan lain yang ditetapkan oleh masing -masing 
+fakultas. 
+ 
+2. Program Magister (S2) dan Doktor (S3) 
+a. Mahasiswa  aktif  minimal semester 3  dibuktikan  
+dengan Kartu Rencana Studi  (KRS) dan bukti 
+pembayaran perkuliahan/regristasi; 
+b. Telah menyelesaikan minimal 30 SKS dibuktikan 
+dengan menyertakan transkrip nilai sementara;  
+19 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+c. Menyerahkan empat (4) eksemplar naskah proposal 
+atau usulan penelitian yang sudah disetujui oleh dosen 
+pembimbing untuk diseminarkan; 
+d. Persyaratan lain yang ditetapkan oleh pascasarjana. 
+ 
+5.1.3 Ketentuan dan Teknis Pelaksanaan Ujian Seminar 
+Proposal 
+1. Ujian seminar proposal merupakan ujian terbuka sehingga 
+dapat diikuti oleh mahasiswa umum; 
+2. Ujian seminar proposal dilaksanak an dalam satu majlis 
+dengan dihadiri oleh Dewan Penguji yang terdiri dari tiga 
+(3) orang dosen untuk S1 dan S2, serta 4 orang dosen 
+untuk S3; 
+3. Dewan penguji seminar proposal terdiri dari penguji utama, 
+penguji I merangkap sebagai ketua sidang, dan penguji I I 
+merangkap sebagai sekretaris sidang; 
+4. Ketentuan teknis lebih rinci diatur oleh masing -masing 
+fakultas dan pascasarjana. 
+ 
+5.1.4 Kewenangan Dewan Penguji 
+1. Dewan penguji dapat mengajukan pertanyaan mengenai 
+metodologi penelitian dan keseluruhan isi yang terdapat 
+dalam naskah proposal yang diusulkan; 
+2. Dewan penguji dapat mengajukan pertanyaan yang 
+relevan terhadap tema penelitian yang diusulkan 
+(walaupun di luar isi naskah proposal) selama masih 
+termasuk ke dalam standar kompetensi bidang keilmuan 
+yang ditekuni pada program studi; 
+3. Dewan penguji dapat menentukan teknis pelaksanaan 
+ujian yang mencakup di dalamnya presentasi mahasiswa 
+20 
+ Buku Pedoman Penulisan Karya Ilmiah 
+dan tanya jawab secara lisan, serta perubahan waktu dan 
+tempat jika diperlukan; 
+4. Dewan penguji memberikan penilaian berdasarkan kualitas 
+naskah proposal, penguasaan isi materi proposal yang 
+diusulkan, dan kemampuan mahasiswa menjawab 
+pertanyaan dari dewan penguji. 
+5. Dewan penguji dapat memberikan saran perbaikan 
+proposal termasuk dengan perubahan fokus, lokus, dan 
+metodologi penelitian yang direncanakan. 
+ 
+5.1.5 Ketentuan Penilaian dan Kelulusan 
+1. Komponen Penilaian 
+Komponen penilaian ujian seminar proposal terdiri dari 
+metodologi penelitian, tata penulisan dan isi materi 
+proposal yang diusulkan; 
+2. Kelulusan Ujian Seminar Proposal 
+a. Mahasiswa dinyatakan lulus  seminar proposal apabila 
+mendapatkan nilai minimal 2.00 (C); 
+b. Mahasiswa yang tidak lulus ujian seminar proposal 
+wajib mengikuti ujian ulang pada periode berikutnya 
+berdasarkan kesepakatan dewan penguji. 
+ 
+5.2 Ujian Akhir (Munaqosah) 
+5.2.1 Prosedur Pendaftaran Ujian Akhir (Munaqosah) 
+1. Program Sarjana (S1) 
+a. Mahasiswa yang telah mendapatkan persetujuan 
+dosen pembimbing untuk mengikuti ujian akhir 
+(munaqosah) melakukan pendaftaran ujian secara 
+online atau offline ke bagian akademik fakultas; 
+21 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+b. Mahasiswa menyerahkan seluruh be rkas persyaratan 
+ujian kepada Bagian Akademik Fakultas dan dilakukan 
+verifikasi; 
+c. Fakultas menetapkan dewan penguji munaqasyah dan 
+jadwal pelaksanaan ujian munaqasyah.  
+d. Persyaratan khusus dan teknis lebih rinci ditetapkan 
+oleh fakultas. 
+2. Program Magister (S2) dan Doktor (S3) 
+a. Mahasiswa yang telah mendapatkan persetujuan 
+dosen pembimbing untuk mengikuti ujian akhir 
+(munaqosah) melakukan pendaftaran ujian secara 
+online atau offline ke bagian akademik pascasarjana; 
+b. Mahasiswa menyerahkan seluruh berkas persyara tan 
+ujian kepada Bagian Akademik Pascasarjana dan 
+dilakukan verifikasi; 
+c. Pascasarjana menetapkan dewan penguji tesis atau 
+disertasi beserta jadwal pelaksanaan ujian. 
+d. Persyaratan khusus dan teknis lebih rinci ditetapkan 
+oleh pascasarjana. 
+ 
+5.2.2 Persyaratan Pendaftaran Ujian Akhir (Munaqosah) 
+1. Program Sarjana (S1) 
+a. Mahasiswa aktif minimal semester 7  dibuktikan  
+dengan Kartu Rencana Studi (KRS) dan bukti 
+pembayaran perkuliahan/regristasi; 
+b. Telah menyelesaikan seluruh mata kuliah/SKS 
+perkuliahan yang ditetapkan program studi dibuktikan 
+dengan transkrip nilai; 
+c. Menyertakan laporan skripsi yang telah disetujui oleh 
+dosen pembimbing  (pengganti skripsi berupa buku 
+22 
+ Buku Pedoman Penulisan Karya Ilmiah 
+yang telah ber -ISBN, atau art ikel yang telah 
+dipublikasikan/fotokopi surat keterangan publikasi 
+ilmiah yang dinya takan diterima/ Letter of Acceptance / 
+LoA untuk diterbitkan dan menyerahkan fotokopi artikel 
+publikasi);  
+d. Telah lulus Standar Kompetensi Lulusan (SKL) yang 
+dibuktikan dengan sertifikat yang dikeluarkan oleh 
+institut; 
+e. Melampirkan bukti cek similarity dengan standar 
+maksimal 30% melalui UPT Perpustakaan UIN Raden 
+Mas Said Surakarta atau Perpustakaan Fakultas. 
+f. Persyaratan lain yang ditetapkan oleh program studi 
+atau fakultas. 
+2. Program Magister (S2) 
+a. Mahasiswa aktif minimal semester 4 dibuktikan dengan 
+Kartu Renca na Studi (KRS) dan bukti pembayaran 
+perkuliahan/regristasi; 
+b. Telah menyelesaikan seluruh mata kuliah/SKS 
+perkuliahan yang ditetapkan program studi dibuktikan 
+dengan transkrip nilai; 
+c. Menyertakan laporan tesis yang telah disetujui oleh 
+dosen pembimbing dan bukti penerimaan (Acceptance 
+letter ) atau bukti publikasi artikel pada jurnal ilmiah 
+minimal jurnal nasional terakreditasi SINTA; 
+d. Melampirkan bukti cek similarity dengan standar 
+maksimal 25% melalui UPT Perpustakaan UIN Raden 
+Mas Said Surakarta atau Perpustakaan Pascasarjana. 
+e. Persyaratan lain yang ditetapkan oleh program studi 
+atau pascasarjana. 
+ 
+23 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+3. Program Doktor (S3) 
+a. Mahasiswa aktif minimal semester 6 dibuktikan dengan 
+Kartu Rencana Studi (KRS) dan bukti pembayaran 
+perkuliahan/regristasi; 
+b. Telah menyelesaik an seluruh mata kuliah/SKS 
+perkuliahan yang ditetapkan program studi dibuktikan 
+dengan transkrip nilai; 
+c. Menyertakan laporan disertasi yang telah disetujui oleh 
+Promotor dan Co -Promotor, dan bukti penerimaan 
+(Acceptance letter  ) atau bukti publikasi artikel  pada 
+jurnal internasional bereputasi atau minimal jurnal 
+terakreditasi SINTA 3 yang berstandar internasional 
+(penulis dan editor minimal berasal dari dua negara); 
+d. Melampirkan bukti cek similarity dengan standar 
+maksimal 25% melalui UPT Perpustakaan UIN Raden 
+Mas Said Surakarta atau Perpustakaan Pascasarjana. 
+e. Persyaratan lain yang ditetapkan oleh program studi 
+atau pascasarjana. 
+ 
+5.2.3 Ketentuan Pelaksanaan Ujian Akhir (Munaqosah) 
+1. Program Sarjana (S1) dengan Tugas Akhir Skripsi 
+a. Ujian akhir merupakan ujian terbuka  dan bisa dihadiri 
+oleh mahasiswa lain; 
+b. Ujian akhir dilaksanakan dalam satu majlis dengan 
+dihadiri oleh Dewan Penguji yang terdiri dari tiga (3) 
+orang dosen; 
+c. Dewan penguji terdiri dari penguji utama, penguji I 
+merangkap sebagai ketua sidang, dan penguji II  
+merangkap sebagai sekretaris sidang yang ditetapkan 
+oleh fakultas; 
+24 
+ Buku Pedoman Penulisan Karya Ilmiah 
+d. Ketentuan teknis secara  lebih rinci ditetapkan oleh 
+fakultas. 
+2. Program Magister (S2) 
+a. Ujian akhir merupakan ujian terbuka dan bisa dihadiri 
+oleh mahasiswa lain; 
+b. Ujian akhir dilaksanakan dal am satu majlis dengan 
+dihadiri oleh Dewan Penguji yang terdiri dari empat (4) 
+orang dosen; 
+c. Dewan penguji terdiri dari ketua sidang, sekretaris 
+sidang, penguji I dan penguji II yang ditetapkan oleh 
+pascasarjana; 
+d. Ketentuan teknis secara lebih rinci ditetapka n oleh 
+pascasarjana. 
+3. Program Doktor (S3) 
+a. Ujian akhir terdiri dari Ujian Tertutup dan Ujian 
+Terbuka; 
+b. Ujian dilaksanakan oleh Dewan Penguji yang terdiri 
+dari lima (5) orang dosen penguji untuk ujian tertutup 
+dan tujuh (7) orang dosen penguji untuk ujian terbuka; 
+c. Dewan penguji dapat melibatkan penguji eksternal 
+yang sesuai dengan bidang keahlian yang diujikan. 
+d. Ketentuan teknis secara lebih rinci ditetapkan oleh 
+pascasarjana. 
+ 
+5.2.4 Penilaian Ujian Akhir 
+1. Program Sarjana (S1) 
+a. Komponen dan komposisi penilaian ujian mun aqasyah 
+dan tugas akhir pengganti skripsi ditetapkan oleh 
+fakultas. 
+25 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+b. Peserta ujian skripsi dan tugas akhir pengganti skripsi 
+dapat dinyatakan lulus minimal dengan nilai 2.00 (C). 
+c. Ujian ulang munaqasyah dapat diselenggarakan 
+apabila mahasiswa dinyatakan tida k lulus atau harus 
+melakukan revisi tetapi tidak dilaksanakan sampai 
+batas akhir yang ditentukan. 
+2. Program Magister (S2) 
+a. Komponen dan komposisi penilaian ujian Tesis 
+ditetapkan oleh pascasarjana. 
+b. Peserta ujian tesis dapat dinyatakan lulus minimal 
+dengan nilai 3.00 (B). 
+c. Ujian ulang tesis dapat diselenggarakan apabila 
+mahasiswa dinyatakan tidak lulus atau harus 
+melakukan revisi tetapi tidak dilaksanakan sampai 
+batas akhir yang ditentukan. 
+3. Program Doktor (S3) 
+a. Komponen dan komposisi penilaian ujian Disertasi 
+(tertutup dan terbuka) ditetapkan oleh pascasarjana. 
+b. Peserta ujian disertasi dapat dinyatakan lulus minimal 
+dengan nilai 3.00 (B). 
+c. Ujian ulang disertasi (tertutup dan terbuka) dapat 
+diselenggarakan apabila mahasiswa dinyatakan tidak 
+lulus atau harus melakukan  revisi tetapi tidak 
+dilaksanakan sampai batas akhir yang ditentukan. 
+ 
+5.3 Tata Tertib Ujian 
+Tata tertib ujian munaqasyah, ujian tesis, dan ujian disertasi 
+ditetapkan oleh masing-masing fakultas dan pascasarjana. 
+ 
+26 
+ Buku Pedoman Penulisan Karya Ilmiah 
+5.4 Persyaratan Tim Penguji  
+Tim penguji tugas akh ir harus memenuhi persyaratan 
+berikut: 
+1. Program Sarjana (S1) 
+a. Dosen Tetap UIN Raden Mas Said Surakarta  
+dengan kualifikasi pendidikan minimal bergelar 
+Magister (S2), dan menduduki jabatan fungsional 
+minimal Asisten Ahli; 
+b. Memiliki keahlian yang relevan dengan tema/judul 
+skripsi atau tugas akhir pengganti skripsi yang 
+diujikan; 
+c. Dosen penguji dapat berasal dari program studi 
+yang sama ataupun dari program studi lain di 
+lingkungan UIN Raden Mas Said Surakarta; 
+d. Mendapat surat tugas menguji dari dekan fakultas. 
+2. Program Magister (S2) dan Doktor (S3) 
+a. Dosen Tetap UIN Raden Mas Said  Surakarta, dengan 
+pendidikan minimal bergelar Doktor (S3) dan 
+menduduki jabatan fungsional minimal Lektor bagi 
+dosen penguji S2 dan jabatan fungsional minimal 
+Lektor Kepala bagi dosen penguji S3; 
+b. Memiliki keahlian yang relevan dengan tema/ judul 
+tesis atau disertasi yang diujikan; 
+c. Dosen penguji dapat berasal dari program studi yang 
+sama ataupun dari program studi lain di lingkungan 
+UIN Raden Mas Said Surakarta; 
+d. Dosen penguji disertasi dapat berasal dari lua r UIN 
+Raden Mas Said Surakarta dengan ketentuan memiliki 
+keahlian yang relevan dengan tema/judul disertasi 
+yang diujikan; 
+27 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+e. Mendapat surat tugas menguji dari direktur 
+pascasarjana. 
+ 
+5.5 Sanksi – sanksi 
+Apabila mahasiswa terbukti melakukan kecurangan atau 
+memalsukan persyaratan ujian ( sertifikat SKL/ hasil uji cek 
+similarity/ sertifikat bahasa asing atau yang sejenisnya ) 
+dalam proses pengajuan ujian munaqosah atau tugas akhir, 
+maka fakultas/pascasarjana berhak memberikan sanksi 
+sesuai ketentuan yang berlaku.  
+ 
+28 
+ Buku Pedoman Penulisan Karya Ilmiah 
+BAB VI 
+TATA CARA PENULISAN 
+ 
+6.1 Skripsi, Tesis, dan Disertasi 
+a. Tugas akhir dalam bentuk skripsi, tesis, dan disertasi 
+dapat ditulis dalam bahasa Indonesia, Inggris, atau Arab. 
+b. Penulisan proposal maupun laporan tugas akhir dalam 
+bentuk skripsi, tesis, dan diserta si menggunakan kaidah 
+penulisan karya ilmiah yang berlaku secara umum 
+dengan menerapkan mendeley atau zotero dalam 
+manajemen referensinya. 
+c. Proposal tugas akhir berupa skripsi, tesis, dan disertasi 
+dicetak dengan ukuran kertas A4 tidak bolak -balik. 
+Sedangkan untuk laporan akhirnya dapat dicetak dengan 
+ukuran A4 atau format ukuran buku.  
+d. Ketentuan lebih rinci terkait tata tulis dan pencetakan ini 
+ditetapkan oleh masing -masing fakultas dan 
+pascasarjana. 
+ 
+6.2 Artikel Ilmiah 
+a. Artikel ilmiah dapat ditulis dalam bahasa  Indonesia, 
+Inggris atau Arab. 
+b. Penulisan artikel ilmiah disesuaikan dengan gaya 
+selingkung atau template dari jurnal yang dituju untuk 
+dipublikasikan.  
+c. Artikel ilmiah sebagai pengganti skripsi maupun sebagai 
+syarat kelulusan pada program magister dan dokto r, 
+harus menuliskan nama dosen pembimbing sebagai 
+penulis ke dua dan seterusnya. 
+29 
+Buku Pedoman Penulisan Karya Ilmiah 
+ 
+d. Ketentuan lebih rinci terkait tata tulis dan 
+pencetakannya ditetapkan oleh masing-masing fakultas 
+dan pascasarjana. 
+ 
+6.3 Buku 
+a. Buku sebagai pengganti skripsi dapat ditulis dalam 
+bahasa Indonesia, Inggris, atau Arab. 
+b. Ukuran buku yang digunakan sebagai penganti skripsi 
+ditulis berdasarkan ketentuan International Organization 
+for Standardization (ISO) dan diterbitkan dengan ISBN. 
+c. Penulisan buku menggunakan kaidah penulisan karya 
+ilmiah yang berlaku umum dan menggunakan mendeley 
+atau zotero untuk manajemen referensinya. 
+d. Buku sebagai pengganti skripsi harus menuliskan dosen 
+pembimbingnya sebagai editor. 
+e. Ketentuan lebih rinci terkait tata tulis dan pencetakannya 
+ditetapkan oleh fakultas. 
+ 
+6.4 Proyek Akhir 
+a. Penulisan laporan dalam bentuk proyek akhir tetap 
+memperhatikan kaidah penulisan karya ilmiah secara 
+umum. 
+b. Proyek akhir yang diakui sebagai pengganti skripsi adalah 
+yang relevan dengan keahlian program studi. 
+c. Ketentuan lebih rinci terkait tata  tulis dan pencetakannya 
+ditetapkan oleh fakultas. 
+ 
+ 
+ 
+30 
+ Buku Pedoman Penulisan Karya Ilmiah 
+BAB VII 
+PENUTUP 
+ 
+7.1 Pemberlakuan Buku Panduan 
+Buku Panduan Penulisan Karya Ilmiah (Tugas Akhir) UIN 
+Raden Mas Said Surakarta  ini diberlakukan mulai Semester 
+Gasal Tahun Akademik 2021/2022. 
+ 
+7.2 Aturan Tambahan 
+Buku Panduan Penulisan Karya Ilmiah (Tugas Akhir) UIN 
+Raden Mas Said Surakarta  ini menjadi acuan bagi 
+penyusunan buku panduan penulisan skripsi, tesis atau 
+disertasi di masing -masing fakultas dan pascasarjana di 
+lingkungan UIN Raden Mas Sai d Surakarta . Hal -hal yang 
+belum diatur pada buku panduan ini dapat diatur kemudian 
+sesuai dengan kebutuhan dan direvisi apabila diperlukan. 
+ 
+ 

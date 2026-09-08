@@ -844,14 +844,16 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
       const normRes = normalizeEvidenceUrl(rawUrl);
 
       let finalUrl = "";
-      let isUrlInvalid = false;
 
       if (normRes.normalized === null) {
-        isUrlInvalid = true;
-        warnings.push(`Kandidat ${id} — Bukti ${evIdx}: URL '${rawUrl || "kosong"}' tidak valid.`);
-      } else {
-        finalUrl = normRes.normalized;
+        return {
+          success: false,
+          error: `FORMAT URL tidak valid — Kandidat ${id} — Bukti ${evIdx}: URL '${rawUrl || "kosong"}' tidak dapat diproses (${normRes.reason}). Gunakan URL HTTP/HTTPS yang valid.`,
+          structuralStatus: "Format tidak valid",
+          warnings,
+        };
       }
+      finalUrl = normRes.normalized;
 
       if (normRes.changed && normRes.reason !== "WHITESPACE_TRIMMED" && finalUrl) {
         urlCorrections.push({
@@ -872,9 +874,15 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
       }
 
       const rawSourceType = String(evObj.source_type || evObj.sourceType || "OFFICIAL_DATA").trim().toUpperCase();
-      const sourceType = (VALID_SOURCE_TYPES.includes(rawSourceType as ValidSourceType)
-        ? rawSourceType
-        : "OFFICIAL_DATA") as ValidSourceType;
+      if (!VALID_SOURCE_TYPES.includes(rawSourceType as ValidSourceType)) {
+        return {
+          success: false,
+          error: `Kandidat ${id} — Bukti ${evIdx}: source_type '${rawSourceType}' yang tidak valid. Gunakan salah satu dari: ${VALID_SOURCE_TYPES.join(", ")}.`,
+          structuralStatus: "Format tidak valid",
+          warnings,
+        };
+      }
+      const sourceType = rawSourceType as ValidSourceType;
 
       const evidenceLocation = typeof evObj.evidence_location === "string" && evObj.evidence_location.trim().length > 0
         ? evObj.evidence_location.trim()
@@ -886,8 +894,6 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
         ? evObj.access_note.trim()
         : typeof evObj.accessNote === "string" && evObj.accessNote.trim().length > 0
         ? evObj.accessNote.trim()
-        : isUrlInvalid
-        ? "URL tidak dapat diverifikasi"
         : "Tidak dapat dipastikan";
 
       validatedEvidence.push({
