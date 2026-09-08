@@ -1845,6 +1845,8 @@ Dilarang menghasilkan klaim absolut seperti:
 - "pasti novel"
 Default gunakan bahasa hati-hati yang berakar pada bukti paket.
 
+Kriteria gap yang sah: keterbatasan pengetahuan harus nyata secara substansi. Perbedaan minor semata — mengganti lokasi, objek, atau periode tanpa justifikasi mengapa perbedaan itu penting secara teoretis atau praktis — BUKAN gap yang sah (gap sintetis). Jika satu-satunya dasar kandidat gap adalah "belum ada yang meneliti X di lokasi/objek/periode Y", tandai gap_status PERLU_VERIFIKASI dan jelaskan pada verification_needed justifikasi substansi yang masih harus dibangun.
+
 [BATAS KLAIM (CLAIM BOUNDARY)]
 
 Setiap arah penelitian wajib memiliki batas klaim (claim_boundary):

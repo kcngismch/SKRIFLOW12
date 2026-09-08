@@ -66,3 +66,20 @@
 - scispace.com/pricing + aitoolsatlas.ai + costbench.com (Jun–Agu 2026)
 - konsultanedu.id, dosenik.com, classprogram.id (profil; harga BELUM DIVERIFIKASI)
 - literarily-apps.id: Gemini Pro gratis 1 tahun mahasiswa Indonesia 2026
+
+## 6. Lanskap Meta Ads (snapshot 2026-09-08, via Ad Library tanpa login)
+
+Metode: facebook.com/ads/library, keyword "skripsi" + "skripsweet", negara ID, iklan aktif. 29 iklan unik terkumpul (261 entri ter-parse sebelum virtualisasi DOM). Keyword match longgar (ada iklan non-skripsi nyempil), jadi jumlah jangan dikutip mentah.
+
+Temuan:
+- Pasar terbukti & evergreen: median umur iklan 73 hari, 12/29 tayang ≥90 hari, tertua 314 hari (JagoPrompt, sejak 29 Okt 2025). Iklan yang jalan berbulan-bulan = mereka untung di CAC.
+- Kategori dominan: **pendampingan manusia premium** — Belajarriset.id (6 iklan, "Platinum Graduate Class", private 1:1, simulasi sidang, monitoring progres buat ortu, framing "bukan joki"), KonsultanEdu (5), Educativa (1). Plus joki terang-terangan masih tayang ("Hi kamu yg malas ngerjain skripsi... dm admin" — Jasa Tugas Maha Siswa).
+- **Skripsita Ai**: 1 iklan aktif — copy pain-point spesifik: "Yang bikin capek bukan revisinya. Tapi daftar isi yang geser tiap kali ngedit... 75.000+ mahasiswa sudah pakai. Mulai 99rb/bulan." CTA: "Coba gratis tanpa daftar". Pola: pain spesifik + social proof + harga + trial tanpa friksi.
+- **Student Prompt**: model paling mirip Skriflow — jual PROMPT PACK via funnel IG: iklan "Komen 'PROMPT' kalau kamu mau panduannya... SELESAI SKRIPSI 3 BULAN" → link bio Instagram. Bukti prompt-as-product laku dipasarkan via Meta/IG.
+- **Skripsweet: 0 iklan** di Meta (keyword "skripsweet" = no results) — growth mereka via SEO/organik. Lane iklan Meta buat posisi "AI guided proses, bukan joki" masih kosong.
+
+Implikasi iklan buat Skriflow:
+1. Angle iklan yang terbukti: pain-point spesifik (bukan "AI bikin skripsi"). Kandidat sesuai riset internal: "stuck di BAB 1 karena fenomena gak ketemu" / "takut ditanya dosen pas bimbingan" (kesalahan #1 = fenomena tidak terbukti, docs/research/3).
+2. Funnel = "coba gratis tanpa login" (sudah jadi pola SAI; belum ada di prototype → prasyarat sebelum bakar budget).
+3. Framing "bukan joki" sudah dipakai semua orang — Skriflow bisa naik satu level: satu-satunya yang kasih **jejak proses terdeklarasi buat dosen** (UI PR 16/2025).
+4. Budget anchor kompetitor: jasa manusia jual paket 99rb+ dengan iklan jalan 3–10 bulan; produk digital murah + biaya AI nol = margin iklan lebih sehat.

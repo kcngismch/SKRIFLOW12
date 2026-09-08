@@ -68,6 +68,7 @@ import {
 } from "@/lib/promptAssembler";
 import { copyToClipboard } from "@/lib/clipboard";
 import { ResetConfirmModal } from "./ResetConfirmModal";
+import { AiUsageDeclaration } from "./AiUsageDeclaration";
 import {
   getStudentLabel,
   getStudentStatus,
@@ -2736,6 +2737,21 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               </table>
             </div>
           </div>
+
+          {/* 7.8 Deklarasi Penggunaan AI (jejak proses, bukan tulisan AI) */}
+          {parsedPayloadV2 && (
+            <AiUsageDeclaration
+              phenomenonSummary={
+                selectedPhenomenon?.phenomenonSummary ||
+                parsedPayloadV2.calibrated_phenomenon?.summary ||
+                ""
+              }
+              literatureCount={
+                (parsedPayloadV2.input_audit?.core_source_count || 0) +
+                (parsedPayloadV2.input_audit?.supporting_source_count || 0)
+              }
+            />
+          )}
 
           {/* 7.7 Confirmation & Final Save */}
           <div className="rounded-xl border border-[#70E1B6]/30 bg-[#080D1D] p-6 space-y-4">
