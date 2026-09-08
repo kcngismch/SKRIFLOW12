@@ -6,6 +6,7 @@ import { ToolGeneratorContainer } from "./generator/ToolGeneratorContainer";
 import { IdeaToolContainer } from "./generator/IdeaToolContainer";
 import { PhenomenonToolContainer } from "./generator/PhenomenonToolContainer";
 import { BedahToolContainer } from "./generator/BedahToolContainer";
+import { ToolStepper } from "./generator/ToolStepper";
 import {
   ArrowLeft,
   ChevronRight,
@@ -34,6 +35,9 @@ const getToolIcon = (iconName: Tool["iconName"]) => {
 export const ToolDetailShell: React.FC<ToolDetailShellProps> = ({ tool }) => {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      {/* Stepper: posisi dalam alur 4 tool */}
+      <ToolStepper currentStep={tool.slug} />
+
       {/* Navigation & Breadcrumbs */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <Link
