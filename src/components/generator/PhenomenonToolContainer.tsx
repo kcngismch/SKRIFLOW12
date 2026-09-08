@@ -52,6 +52,7 @@ import {
 } from "@/lib/phenomenonParser";
 import { copyToClipboard, copyPromptAndOpenPlatform, PLATFORM_URLS } from "@/lib/clipboard";
 import { ResetConfirmModal } from "./ResetConfirmModal";
+import { PromptExample } from "./PromptExample";
 import { ClipboardFallbackModal } from "./ClipboardFallbackModal";
 import { SequentialNavigation } from "./SequentialNavigation";
 import { resolveOptionLabel } from "@/data/researchOptions";
@@ -1361,6 +1362,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   <p className="mt-1 max-w-sm text-xs leading-relaxed">
                     Isi field wajib di panel kiri (Program Studi dan Area Eksplorasi), lalu klik tombol <strong>Generate Prompt</strong>.
                   </p>
+                  <PromptExample variant="single" />
                 </div>
               )}
             </div>

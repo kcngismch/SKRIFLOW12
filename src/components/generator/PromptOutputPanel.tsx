@@ -30,6 +30,7 @@ import {
 import { NOTEBOOKLM_LIMITS } from "@/config/promptLimits";
 import { getPromptManifest } from "@/config/promptRegistry";
 import { NotebookLMPromptBudgetIndicator } from "./NotebookLMPromptBudgetIndicator";
+import { PromptExample } from "./PromptExample";
 import { ClipboardFallbackModal } from "./ClipboardFallbackModal";
 
 interface PromptOutputPanelProps {
@@ -472,6 +473,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
               <p className="mt-1 text-[11px]">
                 Lengkapi formulir di samping untuk merakit Langkah 1 (Kumpulkan Literatur) dan Langkah 2 (Buat Paket Bukti).
               </p>
+              <PromptExample variant="notebooklm" />
             </div>
           )
         ) : (
@@ -542,6 +544,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
               <p className="mt-1 text-[11px]">
                 Lengkapi formulir di samping dan klik &quot;Buat Prompt&quot; untuk melihat prompt akademik siap pakai.
               </p>
+              <PromptExample variant="single" />
             </div>
           )
         )}

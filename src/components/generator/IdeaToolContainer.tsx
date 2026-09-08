@@ -58,6 +58,7 @@ import { ClipboardFallbackModal } from "./ClipboardFallbackModal";
 import { RejectionModal } from "./RejectionModal";
 import { AlternativePromptModal } from "./AlternativePromptModal";
 import { RecommendationPanel } from "./RecommendationPanel";
+import { PromptExample } from "./PromptExample";
 import { SequentialNavigation } from "./SequentialNavigation";
 import {
   getStudentLabel,
@@ -1361,6 +1362,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                       Isi form di samping lalu klik tombol &quot;Generate Prompt Cari Ide V3&quot; untuk
                       membuat prompt terstruktur.
                     </p>
+                    <PromptExample variant="single" />
                   </div>
                 )}
               </div>
