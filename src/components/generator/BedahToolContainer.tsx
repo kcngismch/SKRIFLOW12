@@ -69,6 +69,7 @@ import {
 import { copyToClipboard } from "@/lib/clipboard";
 import { ResetConfirmModal } from "./ResetConfirmModal";
 import { AiUsageDeclaration } from "./AiUsageDeclaration";
+import { safeHref } from "@/lib/xss";
 import {
   getStudentLabel,
   getStudentStatus,
@@ -873,9 +874,9 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                       </div>
                       {ev.claim && <p className="mt-1 text-[#FFF9EE]">{ev.claim}</p>}
                       {ev.observedDataOrEvent && <p className="mt-1 text-[11px] text-[#AAB4D0]">{ev.observedDataOrEvent}</p>}
-                      {ev.url && (
+                      {ev.url && safeHref(ev.url) && (
                         <a
-                          href={ev.url}
+                          href={safeHref(ev.url) as string}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="mt-2 inline-flex items-center gap-1 text-[11px] text-[#2959FF] hover:underline"

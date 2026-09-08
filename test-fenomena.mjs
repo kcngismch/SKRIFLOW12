@@ -189,8 +189,9 @@ assert(
 // =========================================================================
 console.log("\n=== 4. DEFECT 3 & DEFECT 4: EVIDENCE LOCATION, ACCESS NOTE, & CURRENT DATE ===");
 
-// Check current_date in prompt
-const todayStr = new Date().toISOString().split("T")[0];
+// Check current_date in prompt — pakai tanggal LOKAL (sama seperti app getLocalCurrentDate), bukan UTC
+const _now = new Date();
+const todayStr = `${_now.getFullYear()}-${String(_now.getMonth() + 1).padStart(2, "0")}-${String(_now.getDate()).padStart(2, "0")}`;
 assert(promptAllConstraints.includes(`* Tanggal Pencarian: ${todayStr}`), `Prompt memuat Tanggal Pencarian hari ini (${todayStr})`);
 assert(
   promptAllConstraints.includes("Tafsirkan 'tahun terakhir' berdasarkan Tanggal Pencarian. Bedakan tanggal publikasi sumber dari periode data yang dibahas."),

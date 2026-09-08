@@ -53,6 +53,7 @@ import {
 import { copyToClipboard, copyPromptAndOpenPlatform, PLATFORM_URLS } from "@/lib/clipboard";
 import { ResetConfirmModal } from "./ResetConfirmModal";
 import { PromptExample } from "./PromptExample";
+import { safeHref } from "@/lib/xss";
 import { ClipboardFallbackModal } from "./ClipboardFallbackModal";
 import { SequentialNavigation } from "./SequentialNavigation";
 import { resolveOptionLabel } from "@/data/researchOptions";
@@ -1874,9 +1875,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                       </span>
                                     </div>
 
-                                    {ev.url && (
+                                    {ev.url && safeHref(ev.url) && (
                                       <a
-                                        href={ev.url}
+                                        href={safeHref(ev.url) as string}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-1 rounded-md border border-[#2959FF] bg-[#2959FF]/10 px-2.5 py-1 text-[11px] font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/25 transition-colors focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
