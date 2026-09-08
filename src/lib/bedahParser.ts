@@ -1,0 +1,1602 @@
+import {
+  BedahTransferPayload,
+  LiteraturePackageValidationResult,
+  ResearchGapType,
+  ResearchGapStrength,
+  DirectionFitRating,
+  BedahInputStatus,
+  SelectedPhenomenon,
+  DirectionV2,
+  Bab1FoundationV1,
+  DataVerificationQuestionV2,
+  FeasibilityAnswerStatus,
+  DataReadinessOutcome,
+  ResearchGapTypeV2,
+  ResearchGapStrengthV2,
+  ComparabilityRating,
+  DirectionReadinessV2,
+  InputAuditStatusV2,
+  CandidateGapStatus,
+  DirectionConditionalBadge,
+  SourceWeight,
+  PhenomenonBasisStatus,
+  CandidateGapV2,
+} from "@/types/tool";
+
+// --- V1 Enum sets (Backward compatibility) ---
+export const VALID_GAP_TYPES: ResearchGapType[] = [
+  "EMPIRICAL",
+  "CONTEXTUAL",
+  "MEASUREMENT",
+  "DATA",
+  "METHODOLOGICAL",
+  "THEORETICAL",
+];
+
+export const VALID_GAP_STRENGTHS: ResearchGapStrength[] = [
+  "TERDUKUNG_KUAT",
+  "TERDUKUNG_SEMENTARA",
+  "PERLU_SUMBER_TAMBAHAN",
+  "TIDAK_CUKUP",
+];
+
+export const VALID_FIT_RATINGS: DirectionFitRating[] = [
+  "KUAT",
+  "SEDANG",
+  "LEMAH",
+  "PERLU_DIPERIKSA",
+];
+
+export const VALID_INPUT_STATUSES: BedahInputStatus[] = [
+  "BUKTI_CUKUP_UNTUK_DIBEDAH",
+  "BUKTI_TERBATAS",
+  "SUMBER_PERLU_DITAMBAH",
+  "FENOMENA_DAN_LITERATUR_TIDAK_SELARAS",
+];
+
+// --- V2 Enum sets ---
+export const VALID_INPUT_AUDIT_STATUSES_V2: InputAuditStatusV2[] = [
+  "BUKTI_TIDAK_CUKUP",
+  "CUKUP_UNTUK_EKSPLORASI",
+  "CUKUP_UNTUK_ARAH",
+];
+
+export const VALID_COMPARABILITY_RATINGS: ComparabilityRating[] = [
+  "SEBANDING",
+  "SEBANDING_SEBAGIAN",
+  "TIDAK_SEBANDING",
+];
+
+export const VALID_GAP_TYPES_V2: ResearchGapTypeV2[] = [
+  "EMPIRICAL_INCONSISTENCY",
+  "MEASUREMENT",
+  "CONTEXTUAL_BOUNDARY",
+  "TEMPORAL_OR_REGULATORY",
+  "METHODOLOGICAL_LIMITATION",
+  "EVIDENCE_COVERAGE",
+];
+
+export const VALID_GAP_STRENGTHS_V2: ResearchGapStrengthV2[] = [
+  "DIDUKUNG_DALAM_PAKET",
+  "TERDUKUNG_SEMENTARA",
+  "PERLU_SUMBER_TAMBAHAN",
+  "TIDAK_DAPAT_DIBANDINGKAN",
+  "TIDAK_DIDUKUNG",
+];
+
+export const VALID_DIRECTION_READINESS_V2: DirectionReadinessV2[] = [
+  "LAYAK_DIPERIKSA",
+  "PERLU_SUMBER_TAMBAHAN",
+  "RISIKO_TINGGI",
+  "JANGAN_DIBAWA",
+];
+
+export const VALID_GAP_STATUSES_V2: CandidateGapStatus[] = [
+  "TERINDIKASI",
+  "PERLU_VERIFIKASI",
+  "CUKUP_DIDUKUNG",
+];
+
+export const VALID_SOURCE_WEIGHTS: SourceWeight[] = [
+  "UTAMA",
+  "PENDUKUNG",
+  "PERLU_DIPERIKSA",
+];
+
+export const VALID_CONDITIONAL_BADGES: DirectionConditionalBadge[] = [
+  "Paling Dekat dengan Fenomena",
+  "Lebih Aman untuk Tenggat",
+  "Data Perlu Dicek",
+  "Perlu Fokus Lebih Sempit",
+  "Bukti Literatur Masih Terbatas",
+];
+
+/**
+ * Tolerantly validates the pasted Literature Evidence Package from NotebookLM.
+ */
+export function validateLiteratureEvidencePackage(
+  rawText: string
+): LiteraturePackageValidationResult {
+  const missingParts: string[] = [];
+
+  if (!rawText || rawText.trim().length === 0) {
+    return {
+      status: "PAKET_TIDAK_DIKENALI",
+      hasKonteks: false,
+      hasStatusSumber: false,
+      hasSourceRegister: false,
+      hasIntiSource: false,
+      hasMatriksBukti: false,
+      hasEvidence: false,
+      hasStopSentence: false,
+      isPromptAOutput: false,
+      isResearchReport: false,
+      missingParts: ["Teks paket bukti masih kosong"],
+      notes: ["Tempelkan output Prompt B dari NotebookLM."],
+    };
+  }
+
+  const text = rawText.trim();
+  const upper = text.toUpperCase();
+
+  // 1. Detect if user erroneously pasted Prompt A output (Search / Import Cards)
+  const isPromptAOutput =
+    upper.includes("SOURCE IMPORT CARDS") ||
+    upper.includes("AUTO-IMPORT") ||
+    (upper.includes("[PERAN]") && upper.includes("MENGUMPULKAN SUMBER AKADEMIK") && !upper.includes("MATRIKS BUKTI"));
+
+  if (isPromptAOutput) {
+    return {
+      status: "PAKET_TIDAK_DIKENALI",
+      hasKonteks: false,
+      hasStatusSumber: false,
+      hasSourceRegister: false,
+      hasIntiSource: false,
+      hasMatriksBukti: false,
+      hasEvidence: false,
+      hasStopSentence: false,
+      isPromptAOutput: true,
+      isResearchReport: false,
+      missingParts: ["Teks yang ditempel merupakan output Prompt A (Pencarian/Impor Sumber)"],
+      notes: [
+        "Jalankan Prompt B di NotebookLM terlebih dahulu untuk mengekstrak Paket Bukti Literatur, lalu tempel hasilnya ke sini.",
+      ],
+    };
+  }
+
+  // 2. Tolerant section matching
+  const hasKonteks =
+    upper.includes("A. KONTEKS") ||
+    upper.includes("A.KONTEKS") ||
+    upper.includes("### A. KONTEKS") ||
+    upper.includes("#### A. KONTEKS") ||
+    (upper.includes("KONTEKS") && (upper.includes("PRODI") || upper.includes("PROGRAM STUDI")));
+
+  const hasStatusSumber =
+    upper.includes("B. STATUS SUMBER") ||
+    upper.includes("B.STATUS SUMBER") ||
+    upper.includes("STATUS SUMBER") ||
+    upper.includes("TOTAL NOTEBOOK");
+
+  const hasSourceRegister =
+    upper.includes("C. SOURCE REGISTER") ||
+    upper.includes("C.SOURCE REGISTER") ||
+    upper.includes("SOURCE REGISTER") ||
+    upper.includes("DAFTAR SUMBER") ||
+    upper.includes("REGISTER SUMBER");
+
+  const hasIntiSource =
+    upper.includes("INTI") ||
+    upper.includes("PRIMARY") ||
+    upper.includes("CORE");
+
+  const hasMatriksBukti =
+    upper.includes("D. MATRIKS BUKTI") ||
+    upper.includes("D.MATRIKS BUKTI") ||
+    upper.includes("MATRIKS BUKTI") ||
+    upper.includes("EVIDENCE MATRIX") ||
+    /\|\s*B0?1\s*\|/i.test(text) ||
+    /B0?1\s*[:|]/i.test(text);
+
+  const hasEvidence =
+    /B0?1/i.test(text) ||
+    upper.includes("KLAIM NETRAL") ||
+    upper.includes("BATAS PENGGUNAAN") ||
+    upper.includes("TEMUAN");
+
+  const hasStopSentence =
+    upper.includes("STOP") ||
+    upper.includes("PAKET INI HANYA MEMETAKAN BUKTI") ||
+    upper.includes("BELUM DITETAPKAN RESEARCH GAP");
+
+  if (!hasKonteks) missingParts.push("Konteks (Bagian A)");
+  if (!hasStatusSumber) missingParts.push("Status Sumber (Bagian B)");
+  if (!hasSourceRegister) missingParts.push("Source Register (Bagian C)");
+  if (!hasIntiSource) missingParts.push("Sumber Inti (minimal 1 sumber INTI)");
+  if (!hasMatriksBukti) missingParts.push("Matriks Bukti (Bagian D)");
+  if (!hasEvidence) missingParts.push("Baris Bukti Matriks (minimal 1 bukti B01)");
+  if (!hasStopSentence) missingParts.push("Penutup / STOP (Bagian E)");
+
+  // Status decision
+  if (!hasSourceRegister || !hasMatriksBukti || !hasEvidence) {
+    return {
+      status: "PAKET_TIDAK_DIKENALI",
+      hasKonteks,
+      hasStatusSumber,
+      hasSourceRegister,
+      hasIntiSource,
+      hasMatriksBukti,
+      hasEvidence,
+      hasStopSentence,
+      isPromptAOutput: false,
+      isResearchReport: false,
+      missingParts,
+      notes: [
+        "Pastikan kamu menempel seluruh output Prompt B dari NotebookLM yang memuat tabel Source Register dan Matriks Bukti.",
+      ],
+    };
+  }
+
+  if (missingParts.length > 0) {
+    return {
+      status: "STRUKTUR_PERLU_DIPERIKSA",
+      hasKonteks,
+      hasStatusSumber,
+      hasSourceRegister,
+      hasIntiSource,
+      hasMatriksBukti,
+      hasEvidence,
+      hasStopSentence,
+      isPromptAOutput: false,
+      isResearchReport: false,
+      missingParts,
+      notes: [
+        `Beberapa bagian pendukung tidak terdeteksi: ${missingParts.join(", ")}. Pastikan teks output utuh sebelum lanjut.`,
+      ],
+    };
+  }
+
+  return {
+    status: "STRUKTUR_LENGKAP",
+    hasKonteks: true,
+    hasStatusSumber: true,
+    hasSourceRegister: true,
+    hasIntiSource: true,
+    hasMatriksBukti: true,
+    hasEvidence: true,
+    hasStopSentence: true,
+    isPromptAOutput: false,
+    isResearchReport: false,
+    missingParts: [],
+    notes: ["Paket Bukti Literatur dari NotebookLM valid dan terstruktur."],
+  };
+}
+
+/**
+ * Result structure of parseBedahTransfer.
+ */
+export interface BedahParseResult {
+  success: boolean;
+  version?: 1 | 2;
+  data?: DirectionV2 | BedahTransferPayload;
+  dataV2?: DirectionV2;
+  dataV1?: BedahTransferPayload;
+  error?: string;
+  errorDetails?: string[];
+  isNonCompliantWrapper?: boolean;
+}
+
+/**
+ * Parses Bedah Transfer JSON block for Tahap 4A (supports V2 with V1 backward compatibility).
+ */
+export function parseBedahTransfer(rawText: string): BedahParseResult {
+  if (!rawText || typeof rawText !== "string" || rawText.trim().length === 0) {
+    return {
+      success: false,
+      error: "Teks output masih kosong.",
+      errorDetails: ["Tempelkan output hasil Bedah dari ChatGPT atau Gemini."],
+    };
+  }
+
+  const v2Start = "=== BEGIN SKRIFLOW_DIRECTION_V2 ===";
+  const v2End = "=== END SKRIFLOW_DIRECTION_V2 ===";
+
+  const v1Start = "=== BEGIN SKRIFLOW_DIRECTION_V1 ===";
+  const v1End = "=== END SKRIFLOW_DIRECTION_V1 ===";
+
+  const idxV2Start = rawText.indexOf(v2Start);
+  const idxV2End = rawText.indexOf(v2End);
+
+  if (idxV2Start !== -1 && idxV2End !== -1 && idxV2End > idxV2Start) {
+    const jsonString = rawText.substring(idxV2Start + v2Start.length, idxV2End).trim();
+    const isNonCompliantWrapper = rawText.substring(0, idxV2Start).trim().length > 0 || rawText.substring(idxV2End + v2End.length).trim().length > 0;
+    return parseDirectionV2Json(jsonString, isNonCompliantWrapper);
+  }
+
+  const idxV1Start = rawText.indexOf(v1Start);
+  const idxV1End = rawText.indexOf(v1End);
+
+  if (idxV1Start !== -1 && idxV1End !== -1 && idxV1End > idxV1Start) {
+    const jsonString = rawText.substring(idxV1Start + v1Start.length, idxV1End).trim();
+    const isNonCompliantWrapper = rawText.substring(0, idxV1Start).trim().length > 0 || rawText.substring(idxV1End + v1End.length).trim().length > 0;
+    return parseDirectionV1Json(jsonString, isNonCompliantWrapper);
+  }
+
+  return {
+    success: false,
+    error: "Blok data transfer tidak ditemukan.",
+    errorDetails: [
+      "Pastikan output memuat penanda persis:",
+      "=== BEGIN SKRIFLOW_DIRECTION_V2 ===",
+      "...",
+      "=== END SKRIFLOW_DIRECTION_V2 ===",
+    ],
+  };
+}
+
+function parseDirectionV2Json(jsonString: string, isNonCompliantWrapper: boolean): BedahParseResult {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(jsonString);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return {
+      success: false,
+      error: "Format JSON V2 tidak valid.",
+      errorDetails: [
+        `Gagal membaca JSON di antara marker: ${msg}`,
+        "Pastikan model menggunakan double quotes dan tidak menyertakan trailing comma atau Markdown fence.",
+      ],
+    };
+  }
+
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return {
+      success: false,
+      error: "Payload harus berupa objek JSON.",
+      errorDetails: ["Format data transfer di antara marker bukan objek JSON valid."],
+    };
+  }
+
+  const payload = parsed as Partial<DirectionV2>;
+  const errorDetails: string[] = [];
+
+  if (payload.schema_version !== 2) {
+    errorDetails.push("schema_version wajib bernilai angka 2.");
+  }
+
+  if (payload.automatic_selection !== false) {
+    errorDetails.push("automatic_selection wajib bernilai false.");
+  }
+
+  // Input audit validation
+  if (!payload.input_audit || typeof payload.input_audit !== "object") {
+    errorDetails.push("input_audit wajib berupa objek audit kelayakan input.");
+  } else {
+    if (!payload.input_audit.status || !VALID_INPUT_AUDIT_STATUSES_V2.includes(payload.input_audit.status as InputAuditStatusV2)) {
+      errorDetails.push(`input_audit.status tidak valid. Harus salah satu dari: ${VALID_INPUT_AUDIT_STATUSES_V2.join(", ")}.`);
+    }
+  }
+
+  // Calibrated phenomenon validation
+  if (!payload.calibrated_phenomenon || typeof payload.calibrated_phenomenon !== "object") {
+    errorDetails.push("calibrated_phenomenon wajib berupa objek kalibrasi fenomena.");
+  } else {
+    if (!payload.calibrated_phenomenon.summary || payload.calibrated_phenomenon.summary.trim().length === 0) {
+      errorDetails.push("calibrated_phenomenon.summary wajib diisi.");
+    }
+    if (!payload.calibrated_phenomenon.empirical_problem || payload.calibrated_phenomenon.empirical_problem.trim().length === 0) {
+      errorDetails.push("calibrated_phenomenon.empirical_problem wajib diisi.");
+    }
+    if (!payload.calibrated_phenomenon.knowledge_problem || payload.calibrated_phenomenon.knowledge_problem.trim().length === 0) {
+      errorDetails.push("calibrated_phenomenon.knowledge_problem wajib diisi.");
+    }
+  }
+
+  // Candidate Gaps validation (Allow 0 gaps if input_audit status is BUKTI_TIDAK_CUKUP)
+  const gapIdSet = new Set<string>();
+  const isInsufficientEvidence = payload.input_audit?.status === "BUKTI_TIDAK_CUKUP";
+
+  if (!Array.isArray(payload.candidate_gaps)) {
+    if (!isInsufficientEvidence) {
+      errorDetails.push("candidate_gaps wajib berupa array berisi kandidat research gap.");
+    }
+  } else {
+    if (payload.candidate_gaps.length > 4) {
+      errorDetails.push("candidate_gaps maksimal berisi 4 kandidat.");
+    }
+    if (payload.candidate_gaps.length === 0 && !isInsufficientEvidence) {
+      errorDetails.push("candidate_gaps wajib memuat minimal 1 kandidat research gap (atau gunakan status input_audit 'BUKTI_TIDAK_CUKUP' jika bukti belum mencukupi).");
+    }
+
+    payload.candidate_gaps.forEach((gap, idx) => {
+      const label = `Gap #${idx + 1}`;
+      if (!gap.id || typeof gap.id !== "string" || gap.id.trim().length === 0) {
+        errorDetails.push(`${label}: ID gap tidak valid.`);
+      } else {
+        gapIdSet.add(gap.id.trim());
+      }
+
+      if (!gap.gap_type || !VALID_GAP_TYPES_V2.includes(gap.gap_type as ResearchGapTypeV2)) {
+        errorDetails.push(`${label}: gap_type '${gap.gap_type}' tidak valid. Harus salah satu dari: ${VALID_GAP_TYPES_V2.join(", ")}.`);
+      }
+
+      if (!gap.strength || !VALID_GAP_STRENGTHS_V2.includes(gap.strength as ResearchGapStrengthV2)) {
+        errorDetails.push(`${label}: strength '${gap.strength}' tidak valid. Dilarang menggunakan TERBUKTI. Harus: ${VALID_GAP_STRENGTHS_V2.join(", ")}.`);
+      }
+
+      if (!gap.statement || typeof gap.statement !== "string" || gap.statement.trim().length === 0) {
+        errorDetails.push(`${label}: statement wajib berupa teks tidak kosong.`);
+      }
+
+      if (!Array.isArray(gap.source_ids) || gap.source_ids.length === 0) {
+        errorDetails.push(`${label}: source_ids wajib memuat minimal 1 ID sumber.`);
+      }
+    });
+  }
+
+  // Directions validation
+  const directionIdSet = new Set<string>();
+  if (!Array.isArray(payload.directions)) {
+    if (!isInsufficientEvidence) {
+      errorDetails.push("directions wajib berupa array berisi 2–4 arah penelitian.");
+    }
+  } else {
+    const minDirections = isInsufficientEvidence ? 0 : 2;
+    if (payload.directions.length < minDirections || payload.directions.length > 4) {
+      errorDetails.push(`directions harus berisi ${minDirections}–4 arah penelitian (ditemukan: ${payload.directions.length}).`);
+    }
+
+    payload.directions.forEach((dir, idx) => {
+      const label = `Arah #${idx + 1}`;
+      if (!dir.id || typeof dir.id !== "string" || dir.id.trim().length === 0) {
+        errorDetails.push(`${label}: ID arah tidak valid.`);
+      } else {
+        directionIdSet.add(dir.id.trim());
+      }
+
+      if (!dir.name || typeof dir.name !== "string" || dir.name.trim().length === 0) {
+        errorDetails.push(`${label}: nama arah wajib diisi.`);
+      }
+
+      if (!Array.isArray(dir.gap_ids)) {
+        errorDetails.push(`${label}: gap_ids wajib berupa array.`);
+      } else if (!isInsufficientEvidence && dir.gap_ids.length === 0) {
+        errorDetails.push(`${label}: gap_ids wajib merujuk minimal 1 kandidat gap.`);
+      } else {
+        dir.gap_ids.forEach((gId) => {
+          if (!gapIdSet.has(gId.trim())) {
+            errorDetails.push(`${label}: gap_id '${gId}' tidak ditemukan di candidate_gaps.`);
+          }
+        });
+      }
+
+      if (!Array.isArray(dir.anchor_source_ids) || dir.anchor_source_ids.length === 0) {
+        errorDetails.push(`${label}: anchor_source_ids wajib diisi.`);
+      }
+
+      if (!dir.readiness || !VALID_DIRECTION_READINESS_V2.includes(dir.readiness as DirectionReadinessV2)) {
+        errorDetails.push(`${label}: readiness '${dir.readiness}' tidak valid.`);
+      }
+
+      if (!Array.isArray(dir.data_verification_questions) || dir.data_verification_questions.length === 0) {
+        errorDetails.push(`${label}: data_verification_questions wajib memuat pertanyaan verifikasi data.`);
+      }
+    });
+  }
+
+  if (errorDetails.length > 0) {
+    return {
+      success: false,
+      error: `Data transfer V2 tidak lolos validasi skema: ${errorDetails.join("; ")}`,
+      errorDetails,
+    };
+  }
+
+  const sanitized: DirectionV2 = {
+    schema_version: 2,
+    automatic_selection: false,
+    input_audit: {
+      status: payload.input_audit!.status as InputAuditStatusV2,
+      phenomenon_source_count: Number(payload.input_audit!.phenomenon_source_count) || 0,
+      core_source_count: Number(payload.input_audit!.core_source_count) || 0,
+      supporting_source_count: Number(payload.input_audit!.supporting_source_count) || 0,
+      ignored_source_count: Number(payload.input_audit!.ignored_source_count) || 0,
+      source_integrity_notes: Array.isArray(payload.input_audit!.source_integrity_notes) ? payload.input_audit!.source_integrity_notes : [],
+      main_limitations: Array.isArray(payload.input_audit!.main_limitations) ? payload.input_audit!.main_limitations : [],
+      recovery_actions: Array.isArray(payload.input_audit!.recovery_actions) ? payload.input_audit!.recovery_actions : [],
+    },
+    evidence_basis: payload.evidence_basis && typeof payload.evidence_basis === "object" ? {
+      observed_phenomenon: Array.isArray(payload.evidence_basis.observed_phenomenon) ? payload.evidence_basis.observed_phenomenon : [],
+      prior_study_findings: Array.isArray(payload.evidence_basis.prior_study_findings) ? payload.evidence_basis.prior_study_findings : [],
+      not_yet_established: Array.isArray(payload.evidence_basis.not_yet_established) ? payload.evidence_basis.not_yet_established : [],
+    } : {
+      observed_phenomenon: payload.calibrated_phenomenon?.summary ? [payload.calibrated_phenomenon.summary] : [],
+      prior_study_findings: (payload.knowledge_map?.established_knowledge || []).map((k) => k.statement),
+      not_yet_established: Array.isArray(payload.calibrated_phenomenon?.what_is_not_proven) ? payload.calibrated_phenomenon!.what_is_not_proven : [],
+    },
+    calibrated_phenomenon: {
+      summary: payload.calibrated_phenomenon!.summary.trim(),
+      empirical_problem: payload.calibrated_phenomenon!.empirical_problem.trim(),
+      knowledge_problem: payload.calibrated_phenomenon!.knowledge_problem.trim(),
+      scope: {
+        object_or_population: payload.calibrated_phenomenon!.scope?.object_or_population || "",
+        geography: payload.calibrated_phenomenon!.scope?.geography || "",
+        reference_period: payload.calibrated_phenomenon!.scope?.reference_period || "",
+        event_or_context: payload.calibrated_phenomenon!.scope?.event_or_context || "",
+      },
+      evidence: Array.isArray(payload.calibrated_phenomenon!.evidence) ? payload.calibrated_phenomenon!.evidence : [],
+      why_it_matters: Array.isArray(payload.calibrated_phenomenon!.why_it_matters) ? payload.calibrated_phenomenon!.why_it_matters : [],
+      what_is_not_proven: Array.isArray(payload.calibrated_phenomenon!.what_is_not_proven) ? payload.calibrated_phenomenon!.what_is_not_proven : [],
+      prohibited_claims: Array.isArray(payload.calibrated_phenomenon!.prohibited_claims) ? payload.calibrated_phenomenon!.prohibited_claims : [],
+    },
+    knowledge_map: {
+      established_knowledge: Array.isArray(payload.knowledge_map?.established_knowledge) ? payload.knowledge_map!.established_knowledge : [],
+      relatively_consistent_findings: Array.isArray(payload.knowledge_map?.relatively_consistent_findings) ? payload.knowledge_map!.relatively_consistent_findings : [],
+      differing_findings: Array.isArray(payload.knowledge_map?.differing_findings) ? payload.knowledge_map!.differing_findings : [],
+      measurement_limits: Array.isArray(payload.knowledge_map?.measurement_limits) ? payload.knowledge_map!.measurement_limits : [],
+      context_limits: Array.isArray(payload.knowledge_map?.context_limits) ? payload.knowledge_map!.context_limits : [],
+      data_limits: Array.isArray(payload.knowledge_map?.data_limits) ? payload.knowledge_map!.data_limits : [],
+      methodological_limits: Array.isArray(payload.knowledge_map?.methodological_limits) ? payload.knowledge_map!.methodological_limits : [],
+      conclusions_not_allowed: Array.isArray(payload.knowledge_map?.conclusions_not_allowed) ? payload.knowledge_map!.conclusions_not_allowed : [],
+    },
+    comparability_groups: Array.isArray(payload.comparability_groups) ? payload.comparability_groups : [],
+    candidate_gaps: (payload.candidate_gaps || []).map((g) => ({
+      id: g.id.trim(),
+      gap_type: g.gap_type as ResearchGapTypeV2,
+      statement: g.statement.trim(),
+      what_is_known: Array.isArray(g.what_is_known) ? g.what_is_known : [],
+      what_is_unexplained: (g.what_is_unexplained || "").trim(),
+      phenomenon_link: (g.phenomenon_link || "").trim(),
+      source_ids: Array.isArray(g.source_ids) ? g.source_ids : [],
+      comparability_basis: (g.comparability_basis || "").trim(),
+      strength: g.strength as ResearchGapStrengthV2,
+      gap_status: (() => {
+        if (g.gap_status && VALID_GAP_STATUSES_V2.includes(g.gap_status as CandidateGapStatus)) {
+          return g.gap_status as CandidateGapStatus;
+        }
+        if (g.strength === "DIDUKUNG_DALAM_PAKET") return "CUKUP_DIDUKUNG";
+        if (g.strength === "TERDUKUNG_SEMENTARA" || g.strength === "PERLU_SUMBER_TAMBAHAN") return "PERLU_VERIFIKASI";
+        return "TERINDIKASI";
+      })(),
+      scope_limits: Array.isArray(g.scope_limits) ? g.scope_limits : [],
+      verification_needed: Array.isArray(g.verification_needed) ? g.verification_needed : [],
+      prohibited_claims: Array.isArray(g.prohibited_claims) ? g.prohibited_claims : [],
+      assessment: g.assessment || {
+        phenomenon_relevance: "SEDANG",
+        traceability: "SEDANG",
+        comparability: "SEDANG",
+        evidence_strength: "SEDANG",
+        feasibility: "SEDANG",
+        overclaim_risk: "SEDANG",
+      },
+      gap_assessment: g.gap_assessment,
+    })),
+    directions: (payload.directions || []).map((d) => ({
+      id: d.id.trim(),
+      name: d.name.trim(),
+      problem_focus: d.problem_focus.trim(),
+      phenomenon_link: (d.phenomenon_link || "").trim(),
+      gap_ids: Array.isArray(d.gap_ids) ? d.gap_ids : [],
+      anchor_source_ids: Array.isArray(d.anchor_source_ids) ? d.anchor_source_ids : [],
+      potential_unit_of_analysis: Array.isArray(d.potential_unit_of_analysis) ? d.potential_unit_of_analysis : [],
+      potential_objects: Array.isArray(d.potential_objects) ? d.potential_objects : [],
+      potential_constructs: Array.isArray(d.potential_constructs) ? d.potential_constructs : [],
+      candidate_outcomes: Array.isArray(d.candidate_outcomes) ? d.candidate_outcomes : [],
+      measurement_focus: d.measurement_focus ? {
+        primary_outcome: (d.measurement_focus.primary_outcome || "").trim() || (d.candidate_outcomes?.[0] || "Outcome utama"),
+        supporting_outcome: d.measurement_focus.supporting_outcome ? d.measurement_focus.supporting_outcome.trim() : null,
+        non_equivalence_note: (d.measurement_focus.non_equivalence_note || "").trim() || "Hasil penelitian dengan ukuran berbeda tidak dapat dibandingkan secara langsung.",
+      } : {
+        primary_outcome: d.candidate_outcomes?.[0] || "Outcome utama",
+        supporting_outcome: d.candidate_outcomes?.[1] || null,
+        non_equivalence_note: "Hasil penelitian dengan ukuran berbeda tidak dapat dibandingkan secara langsung.",
+      },
+      claim_boundary: d.claim_boundary ? {
+        safe_to_say: Array.isArray(d.claim_boundary.safe_to_say) ? d.claim_boundary.safe_to_say : [],
+        not_safe_to_say: Array.isArray(d.claim_boundary.not_safe_to_say) ? d.claim_boundary.not_safe_to_say : [],
+      } : {
+        safe_to_say: d.problem_focus ? [`Fokus masalah: ${d.problem_focus}`] : [],
+        not_safe_to_say: [
+          "Belum aman menyatakan hubungan sebab-akibat langsung.",
+          "Belum aman menyatakan belum ada penelitian serupa.",
+        ],
+      },
+      conditional_badge: d.conditional_badge || undefined,
+      previously_used_proxies: Array.isArray(d.previously_used_proxies) ? d.previously_used_proxies : [],
+      data_needs: Array.isArray(d.data_needs) ? d.data_needs : [],
+      data_sources_to_check: Array.isArray(d.data_sources_to_check) ? d.data_sources_to_check : [],
+      possible_design_families: Array.isArray(d.possible_design_families) ? d.possible_design_families : [],
+      constraint_fit: d.constraint_fit || "SEDANG",
+      workload: d.workload || "SEDANG",
+      main_work: Array.isArray(d.main_work) ? d.main_work : [],
+      academic_risks: Array.isArray(d.academic_risks) ? d.academic_risks : [],
+      data_risks: Array.isArray(d.data_risks) ? d.data_risks : [],
+      scope_boundaries: d.scope_boundaries || { in_scope: [], out_of_scope: [] },
+      unresolved_items: Array.isArray(d.unresolved_items) ? d.unresolved_items : [],
+      data_verification_questions: Array.isArray(d.data_verification_questions) ? d.data_verification_questions : [],
+      phenomenon_connection: d.phenomenon_connection || d.phenomenon_link || undefined,
+      why_worth_considering: d.why_worth_considering || undefined,
+      workload_risk: d.workload_risk || undefined,
+      readiness: (d.readiness || "LAYAK_DIPERIKSA") as DirectionReadinessV2,
+    })),
+    comparison_summary: (payload.comparison_summary || "").trim(),
+    conditional_recommendation: payload.conditional_recommendation || {
+      recommended_direction_ids: [],
+      reasoning: "",
+      conditions: [],
+      not_a_selection: true,
+    },
+    guidance_points: Array.isArray(payload.guidance_points) ? payload.guidance_points : [],
+    recovery_actions: Array.isArray(payload.recovery_actions) ? payload.recovery_actions : [],
+    source_weights: Array.isArray(payload.source_weights)
+      ? payload.source_weights.map((sw) => ({
+          source_id: (sw.source_id || "").trim(),
+          document_type: sw.document_type ? sw.document_type.trim() : undefined,
+          weight: (VALID_SOURCE_WEIGHTS.includes(sw.weight as SourceWeight) ? sw.weight : "PENDUKUNG") as SourceWeight,
+          reason: sw.reason ? sw.reason.trim() : sw.note ? sw.note.trim() : undefined,
+          note: sw.note ? sw.note.trim() : sw.reason ? sw.reason.trim() : undefined,
+        }))
+      : undefined,
+    academic_audit: payload.academic_audit,
+    recovery_search: payload.recovery_search,
+  };
+
+  return {
+    success: true,
+    version: 2,
+    data: sanitized,
+    dataV2: sanitized,
+    isNonCompliantWrapper,
+  };
+}
+
+function parseDirectionV1Json(jsonString: string, isNonCompliantWrapper: boolean): BedahParseResult {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(jsonString);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return {
+      success: false,
+      error: "Format JSON tidak valid.",
+      errorDetails: [`Gagal membaca JSON di antara marker: ${msg}`],
+    };
+  }
+
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return {
+      success: false,
+      error: "Payload harus berupa objek JSON.",
+      errorDetails: ["Format data transfer di antara marker bukan objek JSON valid."],
+    };
+  }
+
+  const payload = parsed as Partial<BedahTransferPayload>;
+  const errorDetails: string[] = [];
+
+  if (payload.schema_version !== 1) {
+    errorDetails.push("schema_version wajib bernilai angka 1.");
+  }
+
+  const gapIdSet = new Set<string>();
+  if (Array.isArray(payload.candidate_gaps)) {
+    payload.candidate_gaps.forEach((gap) => {
+      if (gap.id) gapIdSet.add(gap.id.trim());
+    });
+  }
+
+  if (Array.isArray(payload.directions)) {
+    payload.directions.forEach((dir, idx) => {
+      const label = `Arah #${idx + 1}`;
+      if (Array.isArray(dir.gap_ids)) {
+        dir.gap_ids.forEach((gId) => {
+          if (!gapIdSet.has(gId.trim())) {
+            errorDetails.push(`${label}: gap_id '${gId}' tidak ditemukan dalam candidate_gaps.`);
+          }
+        });
+      }
+    });
+  }
+
+  if (errorDetails.length > 0) {
+    return {
+      success: false,
+      error: "Data transfer tidak lolos validasi skema.",
+      errorDetails,
+    };
+  }
+
+  const sanitized = payload as BedahTransferPayload;
+  return {
+    success: true,
+    version: 1,
+    data: sanitized,
+    dataV1: sanitized,
+    isNonCompliantWrapper,
+  };
+}
+
+/**
+ * Normalizes Bab 1 Foundation output according to canonical source weights and phenomenon basis status.
+ * Ensures consistent status across background_map, evidence_ledger, and paragraph_claims.
+ */
+export function normalizeBab1Foundation(
+  foundation: Bab1FoundationV1,
+  canonicalSourceWeights?: { source_id: string; weight: SourceWeight; document_type?: string }[] | Map<string, SourceWeight>,
+  options?: {
+    phenomenonBasisStatus?: PhenomenonBasisStatus;
+    dataReadiness?: DataReadinessOutcome;
+    candidateGaps?: CandidateGapV2[];
+    warnings?: string[];
+  }
+): Bab1FoundationV1 {
+  const canonicalMap = new Map<string, SourceWeight>();
+  if (canonicalSourceWeights instanceof Map) {
+    canonicalSourceWeights.forEach((w, id) => {
+      const clean = (id || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      if (clean && w) canonicalMap.set(clean, w);
+    });
+  } else if (Array.isArray(canonicalSourceWeights)) {
+    canonicalSourceWeights.forEach((sw) => {
+      const clean = (sw.source_id || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      if (clean && sw.weight) canonicalMap.set(clean, sw.weight);
+    });
+  }
+
+  const formatSourceWeightLabel = (w: string): string => {
+    if (w === "UTAMA") return "Sumber Utama";
+    if (w === "PENDUKUNG") return "Sumber Pendukung";
+    if (w === "PERLU_DIPERIKSA") return "Perlu Diperiksa";
+    return w;
+  };
+
+  const warnings: string[] = options?.warnings || (Array.isArray(foundation.normalization_warnings) ? [...foundation.normalization_warnings] : []);
+  const addWarning = (msg: string) => {
+    if (!warnings.includes(msg)) {
+      warnings.push(msg);
+    }
+  };
+
+  const normalized: Bab1FoundationV1 = {
+    ...foundation,
+    selected_direction: { ...foundation.selected_direction },
+    background_map: Array.isArray(foundation.background_map)
+      ? foundation.background_map.map((sec) => ({
+          ...sec,
+          missing_information: Array.isArray(sec.missing_information) ? [...sec.missing_information] : [],
+          safe_claims: Array.isArray(sec.safe_claims)
+            ? sec.safe_claims.map((sc) => ({
+                ...sc,
+                source_ids: Array.isArray(sc.source_ids) ? [...sc.source_ids] : [],
+              }))
+            : [],
+        }))
+      : [],
+    evidence_ledger: Array.isArray(foundation.evidence_ledger)
+      ? foundation.evidence_ledger.map((el) => ({
+          ...el,
+          source_ids: Array.isArray(el.source_ids) ? [...el.source_ids] : (el.source_id ? [el.source_id] : []),
+          source_weights: Array.isArray(el.source_weights) ? el.source_weights.map((sw) => ({ ...sw })) : [],
+        }))
+      : [],
+    paragraph_claims: Array.isArray(foundation.paragraph_claims)
+      ? foundation.paragraph_claims.map((pc) => ({
+          ...pc,
+          sourceIds: Array.isArray(pc.sourceIds) ? [...pc.sourceIds] : [],
+        }))
+      : undefined,
+    recovery_actions: Array.isArray(foundation.recovery_actions) ? [...foundation.recovery_actions] : [],
+  };
+
+  // 1. Reconcile source weights on evidence_ledger
+  normalized.evidence_ledger.forEach((el) => {
+    const resolvedWeights: import("@/types/tool").LedgerSourceWeightItem[] = [];
+
+    (el.source_ids || []).forEach((sid) => {
+      const cleanSid = sid.replace(/[\[\]]/g, "").trim().toUpperCase();
+      const outputWeightItem = Array.isArray(el.source_weights)
+        ? el.source_weights.find((sw) => (sw.source_id || "").replace(/[\[\]]/g, "").trim().toUpperCase() === cleanSid)
+        : undefined;
+      const outputWeight = outputWeightItem?.weight || (el.source_ids?.length === 1 ? el.source_weight : undefined);
+
+      let finalWeight: SourceWeight = "PERLU_DIPERIKSA";
+      if (canonicalMap.size > 0) {
+        const canonicalWeight = canonicalMap.get(cleanSid) || "PERLU_DIPERIKSA";
+        if (outputWeight && outputWeight !== canonicalWeight) {
+          addWarning(
+            `Bobot ${sid} disesuaikan dari ${formatSourceWeightLabel(outputWeight)} menjadi ${formatSourceWeightLabel(canonicalWeight)} agar sesuai dengan klasifikasi sumber pada Tool 4.`
+          );
+        }
+        finalWeight = canonicalWeight;
+      } else {
+        finalWeight = outputWeight || "PERLU_DIPERIKSA";
+      }
+      resolvedWeights.push({ source_id: sid, weight: finalWeight });
+    });
+
+    el.source_weights = resolvedWeights;
+    if (resolvedWeights.length > 0) {
+      el.source_weight = resolvedWeights[0].weight;
+    }
+
+    if (resolvedWeights.length > 0) {
+      const allNeedCheck = resolvedWeights.every((sw) => sw.weight === "PERLU_DIPERIKSA");
+      if (allNeedCheck) {
+        el.support_status = "NEEDS_VERIFICATION";
+      }
+
+      const isPrimaryClaim =
+        el.bab1_function?.toLowerCase().includes("fenomena") ||
+        el.bab1_function?.toLowerCase().includes("masalah") ||
+        el.bab1_function?.toLowerCase().includes("utama") ||
+        el.bab1_function === "EMPIRICAL_PHENOMENON" ||
+        el.bab1_function === "WHY_IT_IS_A_PROBLEM" ||
+        el.claim_type === "EMPIRICAL_FACT";
+
+      const allPendukung = resolvedWeights.every((sw) => sw.weight === "PENDUKUNG");
+      if (isPrimaryClaim && allPendukung) {
+        el.support_status = "NEEDS_VERIFICATION";
+      }
+    }
+  });
+
+  // 2. Reconcile data readiness and gaps
+  if (options?.dataReadiness === "DATA_BLOCKED") {
+    normalized.foundation_status = "BAB1_BLOCKED";
+    normalized.status_reason = "Status diturunkan menjadi BAB1_BLOCKED karena terdapat data primer/sekunder kritis yang tidak tersedia.";
+  } else if (options?.dataReadiness === "DATA_CONDITIONAL") {
+    if (normalized.foundation_status === "BAB1_READY") {
+      normalized.foundation_status = "BAB1_CONDITIONAL";
+      normalized.status_reason = "Status disesuaikan menjadi BAB1_CONDITIONAL karena akses data masih memerlukan konfirmasi/verifikasi lapangan.";
+    }
+  }
+
+  if (options?.candidateGaps && options.candidateGaps.length > 0) {
+    const allWeak = options.candidateGaps.every(
+      (g) => g.strength === "PERLU_SUMBER_TAMBAHAN" || g.strength === "TIDAK_DIDUKUNG" || g.strength === "TIDAK_DAPAT_DIBANDINGKAN"
+    );
+    if (allWeak && normalized.foundation_status === "BAB1_READY") {
+      normalized.foundation_status = "BAB1_CONDITIONAL";
+      normalized.status_reason = "Status dibatasi menjadi BAB1_CONDITIONAL karena kandidat research gap masih membutuhkan sumber tambahan.";
+    }
+  }
+
+  // 3. PATCH A: Phenomenon Basis Status Capping & Cross-Structure Normalization
+  const phenBasis: PhenomenonBasisStatus =
+    options?.phenomenonBasisStatus ||
+    normalized.phenomenon_basis_status ||
+    "VERIFIED_REAL_WORLD";
+  normalized.phenomenon_basis_status = phenBasis;
+
+  let phenomenonAdjusted = false;
+
+  if (phenBasis !== "VERIFIED_REAL_WORLD") {
+    // A1. Clamp status fondasi
+    if (phenBasis === "MISSING") {
+      normalized.foundation_status = "BAB1_BLOCKED";
+      normalized.status_reason = "Status diturunkan menjadi BAB1_BLOCKED karena belum tersedia dasar fenomena dunia nyata maupun petunjuk literatur.";
+      phenomenonAdjusted = true;
+    } else if (normalized.foundation_status === "BAB1_READY") {
+      normalized.foundation_status = "BAB1_CONDITIONAL";
+      normalized.status_reason = "Status disesuaikan menjadi BAB1_CONDITIONAL karena fenomena masih ditunjukkan oleh literatur dan belum diverifikasi sebagai kondisi dunia nyata.";
+      phenomenonAdjusted = true;
+    }
+
+    // A2. Normalisasi background_map
+    const phenomenonClaimIds = new Set<string>();
+
+    normalized.background_map.forEach((sec) => {
+      const isPhenSec =
+        sec.function === "EMPIRICAL_PHENOMENON" ||
+        sec.function?.toLowerCase().includes("fenomena");
+
+      if (isPhenSec) {
+        if (phenBasis === "MISSING") {
+          sec.readiness = "BLOCKED";
+          sec.missing_information = sec.missing_information || [];
+          if (!sec.missing_information.includes("Dasar fenomena belum tersedia. Silakan cari fenomena pada Tool 2.")) {
+            sec.missing_information.push("Dasar fenomena belum tersedia. Silakan cari fenomena pada Tool 2.");
+          }
+          phenomenonAdjusted = true;
+        } else {
+          if (sec.readiness !== "NEEDS_VERIFICATION") {
+            sec.readiness = "NEEDS_VERIFICATION";
+            phenomenonAdjusted = true;
+          }
+          sec.missing_information = sec.missing_information || [];
+          if (!sec.missing_information.includes("Bukti fenomena dunia nyata belum tersedia/terverifikasi dari Tool 2 (masih berupa petunjuk literatur).")) {
+            sec.missing_information.push("Bukti fenomena dunia nyata belum tersedia/terverifikasi dari Tool 2 (masih berupa petunjuk literatur).");
+          }
+        }
+
+        if (Array.isArray(sec.safe_claims)) {
+          sec.safe_claims.forEach((sc) => {
+            if (sc.claim_id) {
+              phenomenonClaimIds.add(sc.claim_id.trim());
+            }
+            if (sc.support_status !== "NEEDS_VERIFICATION") {
+              sc.support_status = "NEEDS_VERIFICATION";
+              phenomenonAdjusted = true;
+            }
+          });
+        }
+      }
+    });
+
+    // A3. Normalisasi evidence_ledger
+    normalized.evidence_ledger.forEach((el) => {
+      const isPhenClaim =
+        (el.claim_id && phenomenonClaimIds.has(el.claim_id.trim())) ||
+        el.bab1_function === "EMPIRICAL_PHENOMENON" ||
+        el.bab1_function?.toLowerCase().includes("fenomena");
+
+      if (isPhenClaim) {
+        if (phenBasis === "MISSING") {
+          el.support_status = "DO_NOT_USE";
+          phenomenonAdjusted = true;
+        } else {
+          if (el.support_status !== "NEEDS_VERIFICATION") {
+            el.support_status = "NEEDS_VERIFICATION";
+            phenomenonAdjusted = true;
+          }
+        }
+      }
+    });
+
+    // Sinkronisasi status support_status di background_map safe_claims dari evidence_ledger
+    normalized.background_map.forEach((sec) => {
+      if (Array.isArray(sec.safe_claims)) {
+        sec.safe_claims.forEach((sc) => {
+          if (sc.claim_id) {
+            const matchingLedger = normalized.evidence_ledger.find((el) => el.claim_id === sc.claim_id);
+            if (matchingLedger?.support_status) {
+              sc.support_status = matchingLedger.support_status;
+            }
+          }
+        });
+      }
+    });
+
+    // A4. Normalisasi paragraph_claims
+    if (Array.isArray(normalized.paragraph_claims)) {
+      normalized.paragraph_claims.forEach((pc) => {
+        const isPhenPc =
+          pc.function === "EMPIRICAL_PHENOMENON" ||
+          pc.function?.toLowerCase().includes("fenomena") ||
+          (pc.claimId && phenomenonClaimIds.has(pc.claimId.trim()));
+
+        if (isPhenPc) {
+          if (phenBasis === "MISSING") {
+            pc.readiness = "DO_NOT_USE";
+            phenomenonAdjusted = true;
+          } else {
+            if (pc.readiness !== "NEEDS_VERIFICATION") {
+              pc.readiness = "NEEDS_VERIFICATION";
+              phenomenonAdjusted = true;
+            }
+          }
+        }
+      });
+    }
+
+    // A5. Warning normalisasi fenomena
+    if (phenBasis === "LITERATURE_INDICATED" && phenomenonAdjusted) {
+      addWarning(
+        "Status klaim fenomena disesuaikan menjadi Perlu Diperiksa karena fenomena ini baru ditunjukkan oleh literatur dan belum diverifikasi sebagai kondisi dunia nyata."
+      );
+    }
+
+    if (phenBasis === "MISSING") {
+      if (!normalized.recovery_actions.some((a) => a.toLowerCase().includes("tool 2"))) {
+        normalized.recovery_actions.push("Kembali ke Tool 2 untuk mencari dan menetapkan bukti fenomena dunia nyata.");
+      }
+    } else if (phenBasis === "LITERATURE_INDICATED") {
+      if (!normalized.recovery_actions.some((a) => a.toLowerCase().includes("tool 2"))) {
+        normalized.recovery_actions.push("Kembali ke Tool 2 untuk memverifikasi bukti fenomena dunia nyata yang terstruktur.");
+      }
+    }
+  }
+
+  // 4. Update support_status for non-phenomenon safe_claims from evidence_ledger
+  normalized.background_map.forEach((sec) => {
+    if (Array.isArray(sec.safe_claims)) {
+      sec.safe_claims.forEach((sc) => {
+        if (sc.claim_id) {
+          const matchingLedger = normalized.evidence_ledger.find((el) => el.claim_id === sc.claim_id);
+          if (matchingLedger?.support_status) {
+            sc.support_status = matchingLedger.support_status;
+          }
+        }
+        if (!sc.support_status && sc.source_ids && sc.source_ids.length > 0) {
+          const allNeedCheck = sc.source_ids.every((sid) => {
+            const clean = sid.replace(/[\[\]]/g, "").trim().toUpperCase();
+            return (canonicalMap.get(clean) || "PERLU_DIPERIKSA") === "PERLU_DIPERIKSA";
+          });
+          if (allNeedCheck) {
+            sc.support_status = "NEEDS_VERIFICATION";
+          }
+        }
+      });
+    }
+  });
+
+  // 5. Update readiness for non-phenomenon paragraph claims if all sources are PERLU_DIPERIKSA
+  if (Array.isArray(normalized.paragraph_claims)) {
+    normalized.paragraph_claims.forEach((pc) => {
+      const isPhenPc =
+        pc.function === "EMPIRICAL_PHENOMENON" ||
+        pc.function?.toLowerCase().includes("fenomena");
+      if (!isPhenPc) {
+        const pcSources = (pc.sourceIds || []).map((s) => s.replace(/[\[\]]/g, "").trim().toUpperCase());
+        const pcWeights = pcSources.map((s) => canonicalMap.get(s) || "PERLU_DIPERIKSA");
+        const allPcNeedCheck = pcWeights.length > 0 && pcWeights.every((w) => w === "PERLU_DIPERIKSA");
+        const allPcPendukung = pcWeights.length > 0 && pcWeights.every((w) => w === "PENDUKUNG");
+        const isPcPrimary =
+          pc.function === "WHY_IT_IS_A_PROBLEM" ||
+          pc.function?.toLowerCase().includes("masalah") ||
+          pc.claimType === "EMPIRICAL_FACT";
+
+        if (allPcNeedCheck || (isPcPrimary && allPcPendukung)) {
+          pc.readiness = "NEEDS_VERIFICATION";
+        }
+      }
+    });
+  }
+
+  normalized.normalization_warnings = warnings.length > 0 ? warnings : undefined;
+  return normalized;
+}
+
+/**
+ * Parses Bab 1 Foundation transfer block for Tahap 4B.
+ */
+export function parseBab1FoundationTransfer(
+  rawText: string,
+  context?: {
+    expectedDirectionId?: string;
+    dataReadiness?: DataReadinessOutcome;
+    candidateGaps?: import("@/types/tool").CandidateGapV2[];
+    phenomenonBasisStatus?: import("@/types/tool").PhenomenonBasisStatus;
+    sourceWeights?: import("@/types/tool").SourceWeightItem[];
+    knownSourceIds?: string[];
+    literatureEvidencePackage?: string;
+  }
+): {
+  success: boolean;
+  data?: Bab1FoundationV1;
+  error?: string;
+  errorDetails?: string[];
+  warnings?: string[];
+  isNonCompliantWrapper?: boolean;
+} {
+  if (!rawText || typeof rawText !== "string" || rawText.trim().length === 0) {
+    return {
+      success: false,
+      error: "Teks output masih kosong.",
+      errorDetails: ["Tempelkan output hasil Susun Fondasi Bab 1 dari ChatGPT atau Gemini."],
+    };
+  }
+
+  const startMarker = "=== BEGIN SKRIFLOW_BAB1_FOUNDATION_V1 ===";
+  const endMarker = "=== END SKRIFLOW_BAB1_FOUNDATION_V1 ===";
+
+  const startIndex = rawText.indexOf(startMarker);
+  const endIndex = rawText.indexOf(endMarker);
+
+  if (startIndex === -1 || endIndex === -1 || endIndex <= startIndex) {
+    return {
+      success: false,
+      error: "Blok data fondasi Bab 1 tidak ditemukan.",
+      errorDetails: [
+        "Pastikan output memuat penanda persis:",
+        "=== BEGIN SKRIFLOW_BAB1_FOUNDATION_V1 ===",
+        "...",
+        "=== END SKRIFLOW_BAB1_FOUNDATION_V1 ===",
+      ],
+    };
+  }
+
+  const isNonCompliantWrapper = rawText.substring(0, startIndex).trim().length > 0 || rawText.substring(endIndex + endMarker.length).trim().length > 0;
+  const jsonString = rawText.substring(startIndex + startMarker.length, endIndex).trim();
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(jsonString);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return {
+      success: false,
+      error: "Format JSON Fondasi Bab 1 tidak valid.",
+      errorDetails: [
+        `Gagal membaca JSON di antara marker: ${msg}`,
+        "Pastikan model tidak menyertakan Markdown fence dan menggunakan double quotes.",
+      ],
+    };
+  }
+
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return {
+      success: false,
+      error: "Payload fondasi harus berupa objek JSON valid.",
+    };
+  }
+
+  const payload = parsed as Partial<Bab1FoundationV1>;
+  const errorDetails: string[] = [];
+  const warnings: string[] = [];
+
+  // Assemble known source IDs for hallucinated source detection (Patch 3)
+  const knownSourceIdSet = new Set<string>();
+  if (Array.isArray(context?.knownSourceIds)) {
+    context.knownSourceIds.forEach((id) => {
+      const clean = (id || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      if (clean) knownSourceIdSet.add(clean);
+    });
+  }
+  if (Array.isArray(context?.sourceWeights)) {
+    context.sourceWeights.forEach((sw) => {
+      const clean = (sw.source_id || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      if (clean) knownSourceIdSet.add(clean);
+    });
+  }
+  if (context?.literatureEvidencePackage) {
+    const matches = context.literatureEvidencePackage.match(/\b(ID-\d+|S\d+|S-\d+|[A-Z]+-\d+)\b/gi);
+    if (matches) {
+      matches.forEach((m) => {
+        const clean = m.replace(/[\[\]]/g, "").trim().toUpperCase();
+        if (clean) knownSourceIdSet.add(clean);
+      });
+    }
+  }
+
+  const checkUnknownSource = (sid: string, locationDesc: string) => {
+    if (knownSourceIdSet.size > 0) {
+      const clean = (sid || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      if (clean && !knownSourceIdSet.has(clean)) {
+        errorDetails.push(
+          `Sumber '${sid}' pada ${locationDesc} tidak ditemukan dalam Paket Bukti atau daftar sumber Tahap 4A. Jangan menambahkan sumber baru yang tidak terdaftar.`
+        );
+      }
+    }
+  };
+
+  if (payload.schema_version !== 1) {
+    errorDetails.push("schema_version wajib bernilai angka 1.");
+  }
+
+  // Selected direction verification
+  if (!payload.selected_direction || typeof payload.selected_direction !== "object") {
+    errorDetails.push("selected_direction wajib diisi.");
+  } else {
+    if (payload.selected_direction.student_selected !== true) {
+      errorDetails.push("selected_direction.student_selected wajib bernilai true.");
+    }
+    if (context?.expectedDirectionId && payload.selected_direction.id !== context.expectedDirectionId) {
+      errorDetails.push(`Arah pada hasil 4B (${payload.selected_direction.id}) berbeda dengan arah terpilih (${context.expectedDirectionId}).`);
+    }
+  }
+
+  // Problem structure validation
+  if (!payload.problem_structure || typeof payload.problem_structure !== "object") {
+    errorDetails.push("problem_structure wajib berupa objek struktur masalah.");
+  }
+
+  // Research logic chain (7 stages)
+  if (!Array.isArray(payload.research_logic_chain) || payload.research_logic_chain.length < 5) {
+    errorDetails.push("research_logic_chain wajib memuat alur rantai logika penelitian.");
+  }
+
+  // Research questions & objectives (1-to-1)
+  if (!Array.isArray(payload.candidate_research_questions) || payload.candidate_research_questions.length === 0) {
+    errorDetails.push("candidate_research_questions wajib memuat 1–3 rumusan masalah.");
+  } else if (payload.candidate_research_questions.length > 3) {
+    errorDetails.push("candidate_research_questions maksimal 3 item.");
+  }
+
+  if (!Array.isArray(payload.candidate_objectives) || payload.candidate_objectives.length === 0) {
+    errorDetails.push("candidate_objectives wajib diisi.");
+  }
+
+  if (Array.isArray(payload.candidate_research_questions) && Array.isArray(payload.candidate_objectives)) {
+    if (payload.candidate_research_questions.length !== payload.candidate_objectives.length) {
+      errorDetails.push(`Jumlah rumusan masalah (${payload.candidate_research_questions.length}) dan tujuan (${payload.candidate_objectives.length}) wajib 1-ke-1 berpasangan.`);
+    }
+  }
+
+  // Working title previews (max 3)
+  if (!Array.isArray(payload.working_title_previews) || payload.working_title_previews.length === 0) {
+    errorDetails.push("working_title_previews wajib memuat 1–3 gambaran bentuk judul.");
+  } else if (payload.working_title_previews.length > 3) {
+    errorDetails.push("working_title_previews maksimal 3 item.");
+  }
+
+  // Background map (7 to 9 items)
+  if (!Array.isArray(payload.background_map) || payload.background_map.length < 7 || payload.background_map.length > 9) {
+    const len = Array.isArray(payload.background_map) ? payload.background_map.length : 0;
+    errorDetails.push(`background_map wajib memuat tepat 7–9 bagian narasi latar belakang (ditemukan: ${len}).`);
+  }
+
+  // Evidence ledger verification & normalization (Patch 1, Patch 2 & Patch 3)
+  const ledgerClaimIdSet = new Set<string>();
+  const normalizedLedger: import("@/types/tool").EvidenceLedgerItem[] = [];
+
+  // Build canonicalSourceWeightMap strictly from context.sourceWeights (Tahap 4A)
+  const canonicalSourceWeightMap = new Map<string, SourceWeight>();
+  if (Array.isArray(context?.sourceWeights)) {
+    context.sourceWeights.forEach((sw) => {
+      const clean = (sw.source_id || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      if (clean && sw.weight) {
+        canonicalSourceWeightMap.set(clean, sw.weight);
+      }
+    });
+  }
+
+  if (!Array.isArray(payload.evidence_ledger) || payload.evidence_ledger.length === 0) {
+    errorDetails.push("evidence_ledger wajib memuat daftar bukti dan klaim yang digunakan.");
+  } else {
+    payload.evidence_ledger.forEach((rawItem, idx) => {
+      const item = { ...rawItem } as import("@/types/tool").EvidenceLedgerItem;
+
+      if (!item.claim_id) {
+        errorDetails.push(`Evidence Ledger #${idx + 1}: claim_id wajib diisi.`);
+      } else {
+        ledgerClaimIdSet.add(item.claim_id.trim());
+      }
+
+      // Backward compatibility normalization: source_id <-> source_ids
+      if (item.source_id && (!item.source_ids || item.source_ids.length === 0)) {
+        item.source_ids = [item.source_id.trim()];
+      } else if (item.source_ids && item.source_ids.length > 0 && !item.source_id) {
+        item.source_id = item.source_ids[0].trim();
+      }
+
+      // Default claim_type if missing
+      if (!item.claim_type) {
+        if (item.source_ids && item.source_ids.length > 1) {
+          item.claim_type = "CROSS_SOURCE_SYNTHESIS";
+        } else if (item.source_ids && item.source_ids.length === 1) {
+          item.claim_type = "EMPIRICAL_FACT";
+        } else {
+          item.claim_type = "RESEARCHER_DECISION";
+        }
+      }
+
+      // Validate sources according to claim type
+      if (item.claim_type !== "RESEARCHER_DECISION") {
+        if (!item.source_ids || item.source_ids.length === 0) {
+          errorDetails.push(`Evidence Ledger #${idx + 1}: source_ids wajib memuat minimal satu sumber.`);
+        } else {
+          item.source_ids.forEach((sid) => checkUnknownSource(sid, `evidence_ledger #${idx + 1} (${item.claim_id || "klaim"})`));
+        }
+      } else {
+        item.source_ids = item.source_ids || [];
+        const basis = (item.decision_basis || "").trim();
+        if (!basis) {
+          errorDetails.push(
+            `Keputusan sementara mahasiswa pada evidence_ledger #${idx + 1} (${item.claim_id || "tanpa ID"}) belum memiliki dasar keputusan. Isi decision_basis dengan alasan konkret, misalnya hasil pemilihan arah, kecocokan data, batas waktu, atau arahan dosen.`
+          );
+        }
+      }
+
+      normalizedLedger.push(item);
+    });
+  }
+
+  // Background map safe_claims validation & backward compatibility normalization (Patch 2 & Patch 3)
+  const normalizedBackgroundMap: import("@/types/tool").BackgroundMapItemV2[] = [];
+
+  if (Array.isArray(payload.background_map)) {
+    payload.background_map.forEach((sec, sIdx) => {
+      const normalizedSafeClaims: import("@/types/tool").BackgroundMapSafeClaim[] = [];
+
+      if (Array.isArray(sec.safe_claims)) {
+        sec.safe_claims.forEach((sc, cIdx) => {
+          const claim: import("@/types/tool").BackgroundMapSafeClaim = { ...sc };
+
+          // Backward compatibility: infer claim_type if missing
+          if (!claim.claim_type) {
+            if (claim.source_ids && claim.source_ids.length > 1) {
+              claim.claim_type = "CROSS_SOURCE_SYNTHESIS";
+            } else if (claim.source_ids && claim.source_ids.length === 1) {
+              claim.claim_type = "EMPIRICAL_FACT";
+            } else if (
+              sec.function === "URGENCY_AND_DIRECTION" ||
+              sec.function === "OBJECT_AND_SCOPE"
+            ) {
+              claim.claim_type = "RESEARCHER_DECISION";
+              claim.source_ids = [];
+            } else {
+              claim.claim_type = "EMPIRICAL_FACT";
+            }
+          }
+
+          if (claim.claim_type === "EMPIRICAL_FACT") {
+            if (!claim.source_ids || claim.source_ids.length === 0) {
+              errorDetails.push(
+                `Background Map Bagian #${sIdx + 1}, Klaim #${cIdx + 1}: Fakta empiris wajib memiliki minimal satu source_id.`
+              );
+            } else {
+              claim.source_ids.forEach((sid) => checkUnknownSource(sid, `background_map Bagian #${sIdx + 1}, Klaim #${cIdx + 1}`));
+            }
+            if (claim.claim_id && !ledgerClaimIdSet.has(claim.claim_id.trim())) {
+              errorDetails.push(`Claim '${claim.claim_id}' pada background_map tidak ditemukan di evidence_ledger.`);
+            }
+          } else if (claim.claim_type === "CROSS_SOURCE_SYNTHESIS") {
+            const uniqueSources = Array.from(new Set(claim.source_ids || []));
+            if (uniqueSources.length < 2) {
+              errorDetails.push(
+                `Background Map Bagian #${sIdx + 1}, Klaim #${cIdx + 1}: Sintesis lintas sumber wajib memuat minimal 2 source_id unik.`
+              );
+            } else {
+              uniqueSources.forEach((sid) => checkUnknownSource(sid, `background_map Bagian #${sIdx + 1}, Klaim #${cIdx + 1}`));
+            }
+            if (claim.claim_id && !ledgerClaimIdSet.has(claim.claim_id.trim())) {
+              errorDetails.push(`Claim '${claim.claim_id}' pada background_map tidak ditemukan di evidence_ledger.`);
+            }
+          } else if (claim.claim_type === "RESEARCHER_DECISION") {
+            claim.source_ids = claim.source_ids || [];
+            const basis = (claim.decision_basis || "").trim();
+            if (!basis) {
+              errorDetails.push(
+                `Keputusan sementara mahasiswa pada background_map Bagian #${sIdx + 1} (${sec.function || "tanpa fungsi"}), Klaim #${cIdx + 1} (${claim.claim_id || "tanpa ID"}) belum memiliki dasar keputusan. Isi decision_basis dengan alasan konkret, misalnya hasil pemilihan arah, kecocokan data, batas waktu, atau arahan dosen.`
+              );
+            }
+            // RESEARCHER_DECISION is not forced into evidence_ledger
+          }
+
+          // Link support_status from normalizedLedger or evaluate from canonical weights (Patch 1 & Patch 3)
+          if (claim.claim_id) {
+            const matchingLedger = normalizedLedger.find((el) => el.claim_id === claim.claim_id);
+            if (matchingLedger?.support_status) {
+              claim.support_status = matchingLedger.support_status;
+            }
+          }
+          if (!claim.support_status && claim.source_ids && claim.source_ids.length > 0) {
+            const allNeedCheck = claim.source_ids.every((sid) => {
+              const clean = sid.replace(/[\[\]]/g, "").trim().toUpperCase();
+              return (canonicalSourceWeightMap.get(clean) || "PERLU_DIPERIKSA") === "PERLU_DIPERIKSA";
+            });
+            if (allNeedCheck) {
+              claim.support_status = "NEEDS_VERIFICATION";
+            }
+          }
+
+          normalizedSafeClaims.push(claim);
+        });
+      }
+
+      normalizedBackgroundMap.push({
+        ...sec,
+        safe_claims: normalizedSafeClaims,
+      });
+    });
+  }
+
+  if (errorDetails.length > 0) {
+    return {
+      success: false,
+      error: "Data transfer Fondasi Bab 1 tidak lolos validasi skema.",
+      errorDetails,
+    };
+  }
+
+  const canonicalPhenStatus: import("@/types/tool").PhenomenonBasisStatus =
+    context?.phenomenonBasisStatus ||
+    payload.phenomenon_basis_status ||
+    "VERIFIED_REAL_WORLD";
+
+  if (
+    payload.phenomenon_basis_status &&
+    context?.phenomenonBasisStatus &&
+    payload.phenomenon_basis_status !== context.phenomenonBasisStatus
+  ) {
+    warnings.push(
+      `Status dasar fenomena pada output (${payload.phenomenon_basis_status}) diselaraskan kembali ke status Tool 4 (${context.phenomenonBasisStatus}).`
+    );
+  }
+
+  const initialSanitized: Bab1FoundationV1 = {
+    schema_version: 1,
+    foundation_status: payload.foundation_status || "BAB1_CONDITIONAL",
+    status_reason: payload.status_reason || "",
+    blocking_items: Array.isArray(payload.blocking_items) ? payload.blocking_items : [],
+    selected_direction: {
+      id: payload.selected_direction!.id.trim(),
+      name: payload.selected_direction!.name.trim(),
+      student_selected: true,
+      selection_reason: (payload.selected_direction!.selection_reason || "").trim(),
+      direction_readiness: (payload.selected_direction!.direction_readiness || "LAYAK_DIPERIKSA").trim(),
+      data_readiness: context?.dataReadiness || payload.selected_direction!.data_readiness || "DATA_CONDITIONAL",
+    },
+    problem_structure: payload.problem_structure as import("@/types/tool").Bab1ProblemStructure,
+    research_logic_chain: payload.research_logic_chain as import("@/types/tool").ResearchLogicChainItem[],
+    candidate_research_questions: payload.candidate_research_questions as import("@/types/tool").CandidateResearchQuestion[],
+    candidate_objectives: payload.candidate_objectives as import("@/types/tool").CandidateObjective[],
+    provisional_contributions: payload.provisional_contributions as import("@/types/tool").ProvisionalContributions,
+    tentative_scope: payload.tentative_scope as import("@/types/tool").TentativeScope,
+    working_title_previews: payload.working_title_previews as import("@/types/tool").WorkingTitlePreview[],
+    background_map: normalizedBackgroundMap,
+    evidence_ledger: normalizedLedger,
+    feasibility_summary: payload.feasibility_summary || { confirmed_data: [], unconfirmed_data: [], unavailable_data: [], implications: [] },
+    supervisor_questions: Array.isArray(payload.supervisor_questions) ? payload.supervisor_questions : [],
+    unresolved_decisions: Array.isArray(payload.unresolved_decisions) ? payload.unresolved_decisions : [],
+    prohibited_claims: Array.isArray(payload.prohibited_claims) ? payload.prohibited_claims : [],
+    recovery_actions: Array.isArray(payload.recovery_actions) ? [...payload.recovery_actions] : [],
+    phenomenon_basis_status: canonicalPhenStatus,
+    academic_audit: payload.academic_audit,
+    paragraph_claims: Array.isArray(payload.paragraph_claims) ? payload.paragraph_claims : undefined,
+  };
+
+  const finalNormalized = normalizeBab1Foundation(initialSanitized, context?.sourceWeights, {
+    phenomenonBasisStatus: canonicalPhenStatus,
+    dataReadiness: context?.dataReadiness,
+    candidateGaps: context?.candidateGaps,
+    warnings,
+  });
+
+  return {
+    success: true,
+    data: finalNormalized,
+    warnings: finalNormalized.normalization_warnings,
+    isNonCompliantWrapper,
+  };
+}
+
+/**
+ * Calculates deterministic data readiness status based on feasibility answers.
+ */
+export function calculateDataReadiness(
+  questions: DataVerificationQuestionV2[],
+  answers: Record<string, FeasibilityAnswerStatus>,
+  accessNotes: string
+): DataReadinessOutcome {
+  if (!questions || questions.length === 0) {
+    return (accessNotes || "").trim().length > 0 ? "DATA_READY" : "DATA_CONDITIONAL";
+  }
+
+  // Hard-block ONLY applies when at least one critical data need is TIDAK_TERSEDIA
+  const hasCriticalUnavailable = questions.some((q) => q.critical && answers[q.id] === "TIDAK_TERSEDIA");
+  if (hasCriticalUnavailable) {
+    return "DATA_BLOCKED";
+  }
+
+  // Non-critical data need marked TIDAK_TERSEDIA degrades to CONDITIONAL, not BLOCKED
+  const hasNonCriticalUnavailable = questions.some((q) => !q.critical && answers[q.id] === "TIDAK_TERSEDIA");
+  if (hasNonCriticalUnavailable) {
+    return "DATA_CONDITIONAL";
+  }
+
+  const criticalQuestions = questions.filter((q) => q.critical);
+  const allCriticalConfirmed =
+    criticalQuestions.length === 0 ||
+    criticalQuestions.every((q) => answers[q.id] === "SUDAH_DIPASTIKAN");
+
+  const hasAccessNote = (accessNotes || "").trim().length > 0;
+
+  if (allCriticalConfirmed && hasAccessNote) {
+    return "DATA_READY";
+  }
+
+  return "DATA_CONDITIONAL";
+}
+
+/**
+ * Generates prompt to fix format for Tahap 4A.
+ */
+export function generateBedahFixFormatPrompt4A(rawText: string, errorDetails?: string[]): string {
+  return `Format output yang kamu berikan belum terbaca dengan sempurna oleh sistem SKRIFLOW.
+
+Perbaiki hanya format penulisan tanpa mengubah temuan akademik, analisis bukti, gap, atau arah penelitian.
+
+Aturan Perbaikan:
+1. Bungkus seluruh data JSON valid di antara penanda persis berikut:
+=== BEGIN SKRIFLOW_DIRECTION_V2 ===
+{JSON}
+=== END SKRIFLOW_DIRECTION_V2 ===
+2. Gunakan JSON murni tanpa Markdown code fence (\`\`\`json).
+3. Jangan menambahkan pengantar, penjelasan, atau penutup di luar penanda.
+4. Gunakan double quotes dan pastikan tidak ada trailing comma.
+
+Detail kendala format sebelumnya:
+${(errorDetails || []).map((d) => `- ${d}`).join("\n")}
+
+Berikut adalah teks output sebelumnya yang perlu diformat ulang:
+${rawText}`;
+}
+
+/**
+ * Generates prompt to fix structure for Tahap 4A.
+ */
+export function generateBedahFixStructurePrompt4A(rawText: string, errorDetails?: string[]): string {
+  return `Struktur data pada output yang kamu berikan belum memenuhi skema evaluasi akademik SKRIFLOW_DIRECTION_V2.
+
+Perbaiki struktur JSON berikut dengan melengkapi field yang hilang:
+${(errorDetails || []).map((d) => `- ${d}`).join("\n")}
+
+Pastikan:
+- automatic_selection bernilai false
+- candidate_gaps memuat 1–4 gap dengan source_ids
+- directions memuat 2–4 arah penelitian dengan gap_ids dan data_verification_questions
+- Hasil dibungkus di antara:
+=== BEGIN SKRIFLOW_DIRECTION_V2 ===
+{JSON}
+=== END SKRIFLOW_DIRECTION_V2 ===
+
+Teks sebelumnya:
+${rawText}`;
+}
+
+/**
+ * Generates prompt to fix format for Tahap 4B.
+ */
+export function generateBab1FoundationFixFormatPrompt(rawText: string, errorDetails?: string[]): string {
+  return `Format output Susun Fondasi Bab 1 belum terbaca dengan sempurna oleh sistem SKRIFLOW.
+
+Perbaiki hanya format penulisan tanpa mengubah isi rumusan masalah, tujuan, peta latar belakang, atau evidence ledger.
+
+Aturan Perbaikan:
+1. Bungkus seluruh data JSON valid di antara penanda persis berikut:
+=== BEGIN SKRIFLOW_BAB1_FOUNDATION_V1 ===
+{JSON}
+=== END SKRIFLOW_BAB1_FOUNDATION_V1 ===
+2. Gunakan JSON murni tanpa Markdown code fence.
+3. Jangan menambahkan teks di luar penanda.
+
+Detail kendala format:
+${(errorDetails || []).map((d) => `- ${d}`).join("\n")}
+
+Teks sebelumnya:
+${rawText}`;
+}
+
+/**
+ * Generates prompt to fix structure for Tahap 4B.
+ */
+export function generateBab1FoundationFixStructurePrompt(rawText: string, errorDetails?: string[]): string {
+  return `Struktur data pada Paket Fondasi Bab 1 belum memenuhi standar SKRIFLOW_BAB1_FOUNDATION_V1.
+
+Perbaiki struktur JSON berikut dengan melengkapi field yang kurang:
+${(errorDetails || []).map((d) => `- ${d}`).join("\n")}
+
+Pastikan:
+- background_map memuat tepat 7–9 bagian narasi latar belakang
+- setiap safe_claim jenis EMPIRICAL_FACT atau CROSS_SOURCE_SYNTHESIS memuat source_ids dan claim_id yang terdaftar di evidence_ledger
+- safe_claim jenis RESEARCHER_DECISION memuat decision_basis (source_ids boleh kosong)
+- candidate_research_questions dan candidate_objectives berpasangan 1-ke-1 (maks 3)
+- working_title_previews maksimal 3
+- Hasil dibungkus di antara:
+=== BEGIN SKRIFLOW_BAB1_FOUNDATION_V1 ===
+{JSON}
+=== END SKRIFLOW_BAB1_FOUNDATION_V1 ===
+
+Teks sebelumnya:
+${rawText}`;
+}
+
+/**
+ * Computes a stable hash/fingerprint of the Bedah input package.
+ */
+export function computeBedahInputFingerprint(
+  selectedPhenomenon: SelectedPhenomenon | null | undefined,
+  literaturePackage: string,
+  constraints?: Record<string, string>,
+  supervisorDirection?: string
+): string {
+  const str = [
+    selectedPhenomenon?.candidateId || "",
+    selectedPhenomenon?.phenomenonSummary || "",
+    selectedPhenomenon?.name || "",
+    literaturePackage.trim(),
+    JSON.stringify(constraints || {}),
+    supervisorDirection || "",
+  ].join("|#|");
+
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash |= 0;
+  }
+  return `bedah_fp_${Math.abs(hash).toString(36)}`;
+}

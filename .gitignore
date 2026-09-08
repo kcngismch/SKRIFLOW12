@@ -1,0 +1,15 @@
+# deps
+node_modules/
+
+# next build
+.next/
+out/
+build/
+
+# misc
+*.tsbuildinfo
+next-env.d.ts
+scratch/
+
+# env
+.env*

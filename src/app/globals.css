@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #080D1D;
+  --bg-card: #11182D;
+  --bg-card-hover: #16213D;
+  --bg-card-muted: #0D1426;
+  --color-cobalt: #2959FF;
+  --color-cobalt-hover: #1E46D9;
+  --color-coral: #FF6F61;
+  --color-mint: #70E1B6;
+  --color-ivory: #FFF9EE;
+  --color-muted: #AAB4D0;
+  --color-border: #273352;
+  --color-border-subtle: #1C2742;
+  --color-border-focus: #3E5280;
+}
+
+@theme {
+  --color-brand-bg: var(--bg-main);
+  --color-brand-card: var(--bg-card);
+  --color-brand-card-hover: var(--bg-card-hover);
+  --color-brand-card-muted: var(--bg-card-muted);
+  --color-brand-cobalt: var(--color-cobalt);
+  --color-brand-cobalt-hover: var(--color-cobalt-hover);
+  --color-brand-coral: var(--color-coral);
+  --color-brand-mint: var(--color-mint);
+  --color-brand-ivory: var(--color-ivory);
+  --color-brand-muted: var(--color-muted);
+  --color-brand-border: var(--color-border);
+  --color-brand-border-subtle: var(--color-border-subtle);
+  --color-brand-border-focus: var(--color-border-focus);
+
+  --font-sans: var(--font-plus-jakarta), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--bg-main);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080D1D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #273352;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3E5280;
+}
+
+/* Accessible focus styling */
+:focus-visible {
+  outline: 2px solid #2959FF;
+  outline-offset: 2px;
+}
