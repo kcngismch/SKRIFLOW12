@@ -1,0 +1,669 @@
+=== BEGIN SKRIFLOW_DIRECTION_V2 ===
+{
+  "schema_version": 2,
+  "automatic_selection": false,
+  "input_audit": {
+    "status": "CUKUP_UNTUK_ARAH",
+    "phenomenon_source_count": 2,
+    "core_source_count": 2,
+    "supporting_source_count": 1,
+    "ignored_source_count": 0,
+    "source_integrity_notes": [
+      "Dua bukti fenomena berasal dari data makro resmi regulator dan instansi pemerintah yaitu OJK dan BPS.",
+      "Tiga artikel literatur terdaftar rapi pada register bukti dengan pembagian peran yang jelas antara studi inti dan studi pendukung.",
+      "Informasi identitas sumber fenomena pada catatan awal belum memuat judul publikasi secara spesifik tetapi tautan resminya dapat ditelusuri."
+    ],
+    "main_limitations": [
+      "Data rujukan OJK dan BPS bersifat nasional dan agregat sehingga belum merinci perilaku harian pedagang pada sub-sektor kuliner.",
+      "Studi kualitatif Pratiwi (2023) bertumpu pada 15 pelaku usaha di satu kota sehingga belum menggambarkan keragaman di daerah lain.",
+      "Studi Wijaya dan Chen (2022) serta Santoso (2024) menggunakan survei kuesioner sehingga belum mengupas proses harian pencatatan kas secara mendalam."
+    ],
+    "recovery_actions": [
+      "Lengkapi rujukan dokumen resmi OJK tahun 2024 dan BPS dengan judul publikasi laporan berkala yang tepat.",
+      "Gali informasi awal pada calon responden kuliner untuk memastikan mereka memang aktif memakai kanal pembayaran digital.",
+      "Diskusikan dengan dosen pembimbing mengenai pembatasan ruang lingkup penelitian pada metode kualitatif wawancara."
+    ]
+  },
+  "evidence_basis": {
+    "observed_phenomenon": [
+      "Pelaku usaha mikro semakin banyak memanfaatkan sarana transaksi pembayaran digital tanpa uang tunai.",
+      "Penerimaan transaksi harian yang tinggi pada usaha mikro tidak diimbangi dengan penyelenggaraan catatan kas masuk dan kas keluar secara tertib.",
+      "Uang kas hasil penjualan usaha kuliner masih sering tercampur langsung dengan uang belanja rumah tangga pemilik usaha."
+    ],
+    "prior_study_findings": [
+      "Studi Wijaya dan Chen (2022) pada 240 UMKM melaporkan bahwa pemahaman literasi keuangan berhubungan dengan mutu pembukuan usaha.",
+      "Studi wawancara Pratiwi (2023) pada 15 pengusaha kuliner menemukan bahwa pemisahan kas pribadi dan kas usaha jarang diterapkan secara konsisten.",
+      "Studi survei Santoso (2024) pada 100 UMKM perkotaan menunjukkan bahwa penggunaan pembayaran digital belum tentu mendorong pembukuan secara digital."
+    ],
+    "not_yet_established": [
+      "Belum dapat dipastikan apakah ketiadaan pencatatan kas murni akibat rendahnya pemahaman keuangan atau karena kendala waktu selama melayani pembeli.",
+      "Belum ada bukti yang memastikan bagaimana penerimaan uang lewat dompet digital memengaruhi disiplin pemilik dalam mengontrol kas harian.",
+      "Belum dapat dipastikan apakah pedagang kuliner skala mikro benar-benar memerlukan format pembukuan akuntansi berpasangan yang rumit."
+    ]
+  },
+  "calibrated_phenomenon": {
+    "summary": "Terjadi perbedaan nyata antara melonjaknya pemanfaatan pembayaran non-tunai dengan kebiasaan mencatat kas harian pada usaha mikro. Pedagang kuliner aktif menerima uang masuk secara digital, namun mereka tetap tidak menyelenggarakan pembukuan sederhana dan uang usaha masih bercampur dengan kas keluarga.",
+    "empirical_problem": "Pedagang mikro kuliner kesulitan melacak arus perputaran kas masuk dan keluar secara pasti karena transaksi harian tidak tercatat dan uang dagangan menyatu dengan dompet pribadi.",
+    "knowledge_problem": "Literatur yang ada saat ini belum banyak menjelaskan bagaimana interaksi antara pembayaran digital dan rutinitas kerja harian membentuk praktik pengelolaan kas sederhana pada usaha kuliner mikro.",
+    "scope": {
+      "object_or_population": "Pelaku usaha mikro kuliner pengguna transaksi pembayaran digital",
+      "geography": "Indonesia",
+      "reference_period": "Tahun 2024 berdasarkan laporan survei berkala OJK dan BPS",
+      "event_or_context": "Peningkatan pemanfaatan pembayaran non-tunai yang belum diiringi kebiasaan pencatatan pembukuan kas harian"
+    },
+    "evidence": [
+      {
+        "source_id": "FEN-OJK-2024",
+        "source_title": "Survei Nasional Literasi dan Inklusi Keuangan Tahun 2024",
+        "claim": "Inklusi keuangan masyarakat mencapai 75,02 persen tetapi indeks literasi baru 65,43 persen dengan keterampilan pembukuan usaha yang masih tertinggal.",
+        "evidence_location": "Siaran Pers Resmi OJK dan BPS",
+        "context": "Survei nasional literasi dan inklusi keuangan di Indonesia",
+        "limitations": "Data agregat makro nasional yang tidak merinci dinamika harian pada level gerai mikro kuliner."
+      },
+      {
+        "source_id": "FEN-BPS-IMK",
+        "source_title": "Profil Industri Mikro dan Kecil",
+        "claim": "Sebagian besar unit usaha industri mikro dan kecil beroperasi tanpa mengalokasikan anggaran khusus untuk jasa pembukuan keuangan formal.",
+        "evidence_location": "Laporan Profil Usaha BPS",
+        "context": "Survei unit usaha mikro dan kecil nasional",
+        "limitations": "Fokus pada ketiadaan pembukuan formal dan tidak merekam catatan harian informal."
+      }
+    ],
+    "why_it_matters": [
+      {
+        "statement": "Tanpa pencatatan kas masuk dan kas keluar yang teratur, pedagang tidak mengetahui nilai keuntungan bersih riil dan modal usaha rentan terpakai untuk konsumsi pribadi.",
+        "source_ids": [
+          "FEN-OJK-2024",
+          "Pratiwi (2023)"
+        ],
+        "limitations": "Dampak terhadap laba dan kelangsungan usaha dalam paket ini baru bersifat indikasi kualitatif dan belum diuji secara statistik."
+      }
+    ],
+    "what_is_not_proven": [
+      "Belum terbukti bahwa penyediaan aplikasi pencatatan digital di ponsel otomatis membuat pedagang disiplin mencatat kas.",
+      "Belum terbukti bahwa mencampur uang usaha dan uang pribadi selalu berujung pada kebangkrutan usaha mikro."
+    ],
+    "prohibited_claims": [
+      "Dilarang menyatakan bahwa pedagang mikro tidak membuat pembukuan semata-mata karena malas atau tidak bertanggung jawab.",
+      "Dilarang mengklaim bahwa program transaksi digital di Indonesia telah gagal secara menyeluruh."
+    ]
+  },
+  "knowledge_map": {
+    "established_knowledge": [
+      {
+        "statement": "Tingkat pemahaman keuangan memiliki keterkaitan searah dengan kerapian pembukuan pada usaha mikro.",
+        "source_ids": [
+          "Wijaya & Chen (2022)"
+        ],
+        "scope_limit": "Berdasarkan sampel 240 responden survei pelaku usaha umum."
+      },
+      {
+        "statement": "Pedagang kuliner skala mikro cenderung mencampurkan uang dagangan dengan dompet pribadi dalam kegiatan operasional harian.",
+        "source_ids": [
+          "Pratiwi (2023)"
+        ],
+        "scope_limit": "Berdasarkan temuan wawancara pada 15 pelaku UMKM kuliner di satu wilayah kota."
+      }
+    ],
+    "relatively_consistent_findings": [
+      {
+        "statement": "Adanya sarana transaksi baru atau dompet digital tidak serta-merta mengubah kebiasaan pemilik usaha untuk langsung menyusun catatan keuangan rapi.",
+        "source_ids": [
+          "Pratiwi (2023)",
+          "Santoso (2024)"
+        ],
+        "comparability_note": "Kedua studi sama-sama menemukan adanya jeda antara kepemilikan alat transaksi dengan ketertiban pembukuan, meskipun satu studi menggunakan wawancara dan lainnya menggunakan survei."
+      }
+    ],
+    "differing_findings": [
+      {
+        "statement": "Studi Wijaya dan Chen (2022) menempatkan pemahaman kognitif literasi sebagai penentu pembukuan, sedangkan studi Pratiwi (2023) menunjukkan bahwa kebiasaan praktis dan desakan kebutuhan keluarga lebih dominan memengaruhi pemisahan kas.",
+        "source_ids": [
+          "Wijaya & Chen (2022)",
+          "Pratiwi (2023)"
+        ],
+        "comparability": "TIDAK_SEBANDING",
+        "explanation": "Kedua artikel menggunakan desain penelitian yang berbeda yaitu kuesioner kuantitatif skala sedang berbanding wawancara mendalam skala kecil sehingga sudut pandang pengukurannya tidak sejajar."
+      }
+    ],
+    "measurement_limits": [
+      "Pengukuran kualitas pembukuan pada studi survei mengandalkan penilaian persepsi mandiri responden dan bukan audit buku kas nyata."
+    ],
+    "context_limits": [
+      "Temuan kualitatif seputar pengelolaan kas kuliner baru mencakup satu kota pada penelitian Pratiwi (2023).",
+      "Studi adopsi transaksi digital Santoso (2024) berpusat pada lingkungan perkotaan yang memiliki akses internet lancar."
+    ],
+    "data_limits": [
+      "Paket bukti belum menyediakan catatan mutasi saldo harian pedagang yang dapat diverifikasi secara fisik.",
+      "Jumlah informan kualitatif dalam literatur yang tersedia masih terbatas pada 15 orang."
+    ],
+    "methodological_limits": [
+      "Studi survei belum mampu menangkap alasan perasaan atau pertimbangan batin pedagang saat terpaksa mengambil uang kas kasir untuk kebutuhan mendesak."
+    ],
+    "conclusions_not_allowed": [
+      "Dilarang menyimpulkan bahwa semua usaha kuliner mikro pasti merugi jika tidak menerapkan aplikasi akuntansi modern.",
+      "Dilarang menyimpulkan bahwa kehadiran kanal digital memperburuk kemampuan pembukuan pedagang."
+    ]
+  },
+  "comparability_groups": [
+    {
+      "id": "CG01",
+      "source_ids": [
+        "Pratiwi (2023)",
+        "Santoso (2024)"
+      ],
+      "construct_or_predictor": "Pemanfaatan transaksi digital dan pengelolaan kas",
+      "outcome": "Perilaku pencatatan kas harian",
+      "proxies": [
+        "Konsistensi pemisahan kas",
+        "Pencatatan mutasi transaksi digital"
+      ],
+      "objects_and_periods": [
+        "15 UMKM kuliner (Pratiwi, 2023)",
+        "100 UMKM perkotaan (Santoso, 2024)"
+      ],
+      "relationship_type": "Eksplorasi kesenjangan adopsi transaksi terhadap ketertiban pencatatan",
+      "comparability": "SEBANDING_SEBAGIAN",
+      "reason": "Kedua studi mengamati fenomena ketertinggalan pencatatan pada UMKM pengguna pembayaran baru, namun berbeda pada jenis sektor usaha dan metode pengambilan data."
+    },
+    {
+      "id": "CG02",
+      "source_ids": [
+        "Wijaya & Chen (2022)",
+        "Pratiwi (2023)"
+      ],
+      "construct_or_predictor": "Faktor penentu pengelolaan kas",
+      "outcome": "Kualitas pembukuan dan pemisahan kas usaha",
+      "proxies": [
+        "Skor literasi keuangan",
+        "Pemisahan kas pribadi dan kas usaha"
+      ],
+      "objects_and_periods": [
+        "240 UMKM umum (Wijaya & Chen, 2022)",
+        "15 UMKM kuliner (Pratiwi, 2023)"
+      ],
+      "relationship_type": "Hubungan faktor pendorong terhadap praktik akuntansi sederhana",
+      "comparability": "TIDAK_SEBANDING",
+      "reason": "Satu studi mengukur skor literasi secara statistik terhadap pembukuan, sedangkan studi lainnya mendalami kendala praktis pemisahan kas lewat percakapan wawancara."
+    }
+  ],
+  "candidate_gaps": [
+    {
+      "id": "G01",
+      "gap_type": "METHODOLOGICAL_LIMITATION",
+      "gap_status": "CUKUP_DIDUKUNG",
+      "statement": "Sebagian besar penelitian terdahulu mengkaji pembukuan usaha mikro melalui kuesioner survei, sehingga proses interaksi nyata bagaimana pedagang kuliner mengatur kas harian saat menerima pembayaran digital belum banyak diungkap secara mendalam.",
+      "what_is_known": [
+        "Studi kuantitatif membuktikan adanya kaitan antara literasi keuangan dan pembukuan usaha (Wijaya & Chen, 2022).",
+        "Survei mencatat penggunaan pembayaran digital belum diimbangi pencatatan digital (Santoso, 2024)."
+      ],
+      "what_is_unexplained": "Belum banyak penjelasan mendalam mengenai cara berpikir dan siasat harian pedagang kuliner dalam mencatat uang masuk ketika sebagian pembayaran diterima lewat dompet digital.",
+      "phenomenon_link": "Berkaitan langsung dengan fenomena discrepancy di mana transaksi digital berjalan lancar tetapi pembukuan kas harian tetap tidak ada.",
+      "source_ids": [
+        "Wijaya & Chen (2022)",
+        "Pratiwi (2023)",
+        "Santoso (2024)"
+      ],
+      "comparability_basis": "Membandingkan keterbatasan metode survei umum dengan keunggulan pendekatan kualitatif untuk memahami perilaku pencatatan di lapangan.",
+      "strength": "DIDUKUNG_DALAM_PAKET",
+      "scope_limits": [
+        "Terbatas pada usaha mikro kuliner yang melayani pembeli secara langsung setiap hari."
+      ],
+      "verification_needed": [
+        "Periksa apakah calon responden bersedia menceritakan kebiasaan mencatat uang mereka secara jujur tanpa rasa canggung.",
+        "Pastikan calon responden memang mengelola kas dagangan dan transaksi digital secara mandiri."
+      ],
+      "prohibited_claims": [
+        "Dilarang menyatakan belum pernah ada peneliti yang meneliti topik UMKM kuliner di Indonesia."
+      ],
+      "assessment": {
+        "phenomenon_relevance": "KUAT",
+        "traceability": "KUAT",
+        "comparability": "SEDANG",
+        "evidence_strength": "KUAT",
+        "feasibility": "KUAT",
+        "overclaim_risk": "RENDAH"
+      }
+    },
+    {
+      "id": "G02",
+      "gap_type": "CONTEXTUAL_BOUNDARY",
+      "gap_status": "TERINDIKASI",
+      "statement": "Praktik pencampuran uang usaha dan uang rumah tangga baru diteliti pada sampel kecil di satu kota, sehingga bagaimana penerimaan non-tunai yang masuk ke rekening pribadi memperkeruh batas pemisahan kas belum banyak dipetakan.",
+      "what_is_known": [
+        "Pelaku usaha mikro kuliner sangat jarang memisahkan uang pribadi dan uang operasional usaha secara disiplin (Pratiwi, 2023)."
+      ],
+      "what_is_unexplained": "Belum diketahui bagaimana saldo non-tunai di ponsel pribadi pedagang dialokasikan antara kebutuhan belanja dapur rumah tangga dan modal membeli bahan masakan esok hari.",
+      "phenomenon_link": "Menjawab langsung temuan fenomena bahwa pengeluaran harian dan pemasukan usaha umumnya belum dipisahkan dari kas pribadi.",
+      "source_ids": [
+        "Pratiwi (2023)",
+        "Santoso (2024)"
+      ],
+      "comparability_basis": "Menghubungkan temuan pencampuran uang kas fisik dengan masuknya uang non-tunai ke rekening pribadi pedagang.",
+      "strength": "TERDUKUNG_SEMENTARA",
+      "scope_limits": [
+        "Konteks usaha mikro kuliner mandiri yang belum memiliki rekening bank terpisah atas nama usaha."
+      ],
+      "verification_needed": [
+        "Cari rujukan konsep pemisahan mental dalam pengelolaan keuangan keluarga untuk memperkuat landasan berpikir.",
+        "Pastikan jenis rekening bank atau akun dompet digital yang digunakan calon informan memang rekening pribadi."
+      ],
+      "prohibited_claims": [
+        "Dilarang mengklaim bahwa pencampuran kas hanya terjadi pada usaha kuliner di Indonesia."
+      ],
+      "assessment": {
+        "phenomenon_relevance": "KUAT",
+        "traceability": "SEDANG",
+        "comparability": "SEDANG",
+        "evidence_strength": "SEDANG",
+        "feasibility": "KUAT",
+        "overclaim_risk": "SEDANG"
+      }
+    },
+    {
+      "id": "G03",
+      "gap_type": "MEASUREMENT",
+      "gap_status": "PERLU_VERIFIKASI",
+      "statement": "Konsep literasi keuangan selama ini kerap diukur memakai tes teori perbankan formal, padahal kebutuhan nyata pedagang kuliner mikro adalah pemahaman praktis mengendalikan kas harian agar tidak defisit.",
+      "what_is_known": [
+        "Indeks literasi keuangan diukur secara numerik lewat kuesioner resmi regulator dan survei kampus (Wijaya & Chen, 2022; OJK 2024)."
+      ],
+      "what_is_unexplained": "Belum banyak dikaji bentuk literasi keuangan terapan yang benar-benar dipahami dan dijalankan pedagang kecil tanpa menggunakan rumus akuntansi formal.",
+      "phenomenon_link": "Menjembatani arahan dosen mengenai literasi keuangan dengan fakta rendahnya pembukuan resmi pada data fenomena.",
+      "source_ids": [
+        "Wijaya & Chen (2022)",
+        "FEN-OJK-2024"
+      ],
+      "comparability_basis": "Membandingkan alat ukur tes literasi standar dengan pemahaman fungsional pedagang di lapangan.",
+      "strength": "PERLU_SUMBER_TAMBAHAN",
+      "scope_limits": [
+        "Konteks pemahaman keuangan terapan pada pelaku usaha sektor informal."
+      ],
+      "verification_needed": [
+        "Cari literatur pendukung mengenai konsep literasi keuangan fungsional pada usaha mikro.",
+        "Konfirmasi kesediaan dosen pembimbing untuk meneliti literasi keuangan dari kacamata kualitatif dan bukan survei skor angka."
+      ],
+      "prohibited_claims": [
+        "Dilarang menyalahkan instrumen survei OJK atau artikel terdahulu sebagai instrumen yang keliru."
+      ],
+      "assessment": {
+        "phenomenon_relevance": "SEDANG",
+        "traceability": "SEDANG",
+        "comparability": "SEDANG",
+        "evidence_strength": "SEDANG",
+        "feasibility": "KUAT",
+        "overclaim_risk": "SEDANG"
+      }
+    }
+  ],
+  "directions": [
+    {
+      "id": "D01",
+      "name": "Eksplorasi Kualitatif Praktik Pengendalian Kas Harian dan Pemisahan Keuangan pada Pedagang Mikro Kuliner Pengguna Pembayaran Digital",
+      "problem_focus": "Mengeksplorasi bagaimana pedagang mikro kuliner mengontrol arus kas harian dan menyiasati batas uang dagang dengan uang keluarga ketika transaksi non-tunai mulai banyak diterima.",
+      "phenomenon_link": "Arah ini sangat dekat dengan fenomena karena langsung mengamati alur kas nyata di tengah ramainya transaksi digital.",
+      "gap_ids": [
+        "G01",
+        "G02"
+      ],
+      "anchor_source_ids": [
+        "Pratiwi (2023)",
+        "Santoso (2024)"
+      ],
+      "potential_unit_of_analysis": [
+        "Pelaku usaha mikro kuliner yang mengelola uang dagangan sendiri"
+      ],
+      "potential_objects": [
+        "Warung makan, kedai minuman, atau gerai jajanan kaki lima pengguna QRIS atau transfer"
+      ],
+      "potential_constructs": [
+        "Pengendalian kas harian",
+        "Pemisahan kas usaha dan pribadi",
+        "Penerimaan transaksi pembayaran digital"
+      ],
+      "candidate_outcomes": [
+        "Mekanisme kontrol kas informal",
+        "Cara memisahkan uang modal dan belanja rumah tangga"
+      ],
+      "measurement_focus": {
+        "primary_outcome": "Mekanisme pengendalian kas harian informal",
+        "supporting_outcome": "Pola pemisahan kas usaha dan uang pribadi",
+        "non_equivalence_note": "Fokus pengamatan berupa pemahaman naratif tindakan nyata informan, bukan angka indeks kualitas pembukuan seperti pada studi survei Wijaya dan Chen (2022)."
+      },
+      "claim_boundary": {
+        "safe_to_say": [
+          "Penelitian ini mendeskripsikan pengalaman nyata beberapa pedagang kuliner dalam mengontrol uang kas harian mereka.",
+          "Sebagian pedagang mikro menghadapi tantangan tersendiri dalam memisahkan uang kas saat penerimaan digital masuk ke rekening pribadi."
+        ],
+        "not_safe_to_say": [
+          "Belum aman menyatakan bahwa seluruh pedagang kuliner di Indonesia memiliki cara mengelola kas yang persis sama.",
+          "Belum aman menyimpulkan bahwa penggunaan pembayaran non-tunai merupakan penyebab utama hilangnya pembukuan usaha."
+        ]
+      },
+      "conditional_badge": "Paling Dekat dengan Fenomena",
+      "previously_used_proxies": [
+        "Wawancara semi-terstruktur alur uang harian",
+        "Pengamatan langsung catatan coretan transaksi"
+      ],
+      "data_needs": [
+        "Transkrip wawancara mendalam dengan 5 sampai 8 pedagang mikro kuliner",
+        "Foto catatan kas sederhana atau riwayat transaksi di aplikasi pembayaran jika diizinkan",
+        "Catatan pengamatan suasana transaksi tunai dan non-tunai di gerai pedagang"
+      ],
+      "data_sources_to_check": [
+        "Pedagang kuliner di sekitar tempat tinggal mahasiswa yang memasang barcode pembayaran digital",
+        "Daftar calon responden yang sudah dimiliki mahasiswa"
+      ],
+      "possible_design_families": [
+        "Studi Kasus Kualitatif Eksploratif",
+        "Deskriptif Kualitatif"
+      ],
+      "constraint_fit": "KUAT",
+      "workload": "SEDANG",
+      "main_work": [
+        "Menyusun pedoman wawancara tentang alur penerimaan uang dan belanja harian",
+        "Melakukan wawancara santai dan observasi di gerai kuliner informan",
+        "Mengelompokkan hasil rekaman percakapan ke dalam tema pengelolaan kas",
+        "Menyusun narasi pembahasan tanpa melibatkan rumus matematika atau hitungan statistik"
+      ],
+      "academic_risks": [
+        "Dosen mungkin meminta batasan konsep akuntansi kas yang jelas agar skripsi tidak melebar menjadi obrolan bisnis umum.",
+        "Hasil penelitian kualitatif ini tidak dapat digeneralisasi untuk mewakili seluruh UMKM di Indonesia."
+      ],
+      "data_risks": [
+        "Pedagang mungkin merasa malu atau tertutup ketika ditanya tentang nominal uang dan sisa keuntungan bersih.",
+        "Waktu wawancara berisiko terpotong jika warung sedang ramai diserbu pembeli."
+      ],
+      "scope_boundaries": {
+        "in_scope": [
+          "Alur uang masuk dari pembayaran tunai dan pembayaran digital",
+          "Cara pemilik menyisihkan uang belanja bahan baku esok hari",
+          "Praktik mengambil uang kasir untuk kebutuhan mendesak rumah tangga"
+        ],
+        "out_of_scope": [
+          "Penyusunan laporan keuangan neraca dan laba rugi standar akuntansi formal",
+          "Uji hipotesis statistik korelasi atau regresi",
+          "Pemeriksaan kepatuhan pajak usaha"
+        ]
+      },
+      "unresolved_items": [
+        "Kriteria omzet harian minimum calon responden untuk memastikan kesetaraan profil informan."
+      ],
+      "data_verification_questions": [
+        {
+          "id": "Q01",
+          "question": "Apakah calon responden pedagang kuliner yang kamu miliki bersedia diajak mengobrol santai mengenai cara mereka menyimpan uang dagang dan uang belanja keluarga?",
+          "critical": true,
+          "related_data_need": "Keterbukaan informan dalam membagikan praktik pengelolaan kas yang bersifat pribadi"
+        },
+        {
+          "id": "Q02",
+          "question": "Apakah calon responden tersebut memang menerima pembayaran non-tunai seperti QRIS atau transfer setiap hari dari pembelinya?",
+          "critical": true,
+          "related_data_need": "Kesesuaian profil pedagang dengan fenomena transaksi digital"
+        }
+      ],
+      "readiness": "LAYAK_DIPERIKSA"
+    },
+    {
+      "id": "D02",
+      "name": "Pemaknaan Literasi Keuangan Praktis dan Alasan Pengesampingan Pembukuan Formal pada Usaha Mikro Kuliner",
+      "problem_focus": "Mengkaji bagaimana pedagang mikro kuliner memaknai literasi keuangan dan arti untung-rugi dalam rutinitas kerja, serta mengapa pembukuan akuntansi formal kerap dikesampingkan.",
+      "phenomenon_link": "Menjawab langsung arahan dosen mengenai topik literasi keuangan dan menghubungkannya dengan ketiadaan pembukuan formal pada data BPS.",
+      "gap_ids": [
+        "G01",
+        "G03"
+      ],
+      "anchor_source_ids": [
+        "Wijaya & Chen (2022)",
+        "Pratiwi (2023)"
+      ],
+      "potential_unit_of_analysis": [
+        "Pedagang mikro kuliner perorangan"
+      ],
+      "potential_objects": [
+        "Pemilik usaha kuliner yang belum menyelenggarakan pencatatan akuntansi formal"
+      ],
+      "potential_constructs": [
+        "Pemahaman literasi keuangan terapan",
+        "Pemaknaan pembukuan usaha",
+        "Rasionalisasi operasional pedagang"
+      ],
+      "candidate_outcomes": [
+        "Bentuk literasi keuangan fungsional di lapangan",
+        "Alasan mendasar tidak diterapkannya pencatatan formal"
+      ],
+      "measurement_focus": {
+        "primary_outcome": "Pemaknaan subjektif atas literasi keuangan dan pembukuan",
+        "supporting_outcome": "Metode perkiraan untung-rugi berbasis ingatan atau catatan sederhana",
+        "non_equivalence_note": "Literasi diukur melalui pemahaman naratif dalam mengelola modal harian, bukan skor kuesioner angka 0 sampai 100 seperti survei OJK."
+      },
+      "claim_boundary": {
+        "safe_to_say": [
+          "Pedagang mikro kuliner memiliki logika dan cara tersendiri dalam memperkirakan keuntungan usaha meskipun tanpa bantuan buku kas formal.",
+          "Pemahaman keuangan di tingkat pedagang kecil lebih berfokus pada kecukupan uang tunai untuk berputar dibanding kerapian berkas catatan."
+        ],
+        "not_safe_to_say": [
+          "Belum aman mengklaim bahwa pelaku usaha kuliner mikro sama sekali tidak memiliki kesadaran finansial.",
+          "Belum aman menyatakan bahwa modul literasi keuangan pemerintah tidak memiliki kegunaan."
+        ]
+      },
+      "conditional_badge": "Lebih Aman untuk Tenggat",
+      "previously_used_proxies": [
+        "Pertanyaan reflektif mengenai cara menghitung sisa hasil jualan dan pandangan tentang akuntansi"
+      ],
+      "data_needs": [
+        "Hasil rekaman wawancara mengenai arti untung bagi pedagang, cara menghitung modal, dan alasan enggan mencatat",
+        "Catatan refleksi lapangan mengenai kebiasaan mengingat transaksi"
+      ],
+      "data_sources_to_check": [
+        "Calon responden usaha kuliner kenalan pribadi atau langganan mahasiswa",
+        "Pedagang di pusat jajanan atau kantin kampus"
+      ],
+      "possible_design_families": [
+        "Deskriptif Kualitatif",
+        "Fenomenologi Sederhana"
+      ],
+      "constraint_fit": "KUAT",
+      "workload": "RENDAH",
+      "main_work": [
+        "Menyusun daftar pertanyaan terbuka mengenai cara pedagang menilai apakah usahanya sedang untung atau rugi",
+        "Mewawancarai 4 sampai 6 pemilik usaha kuliner di sela waktu santai mereka",
+        "Menganalisis pandangan pedagang mengenai penting atau tidaknya catatan tertulis",
+        "Menyajikan laporan dalam bentuk kutipan percakapan dan rangkuman tema pemikiran"
+      ],
+      "academic_risks": [
+        "Pembahasan berisiko dianggap terlalu sederhana oleh penguji jika tidak dikaitkan dengan konsep dasar akuntansi keperilakuan.",
+        "Mahasiswa perlu menjaga agar tulisan tetap berfokus pada bidang akuntansi dan tidak bergeser menjadi studi manajemen murni."
+      ],
+      "data_risks": [
+        "Pedagang cenderung memberikan jawaban normatif jika merasa sedang diuji pengetahuannya oleh mahasiswa."
+      ],
+      "scope_boundaries": {
+        "in_scope": [
+          "Cara pandang pemilik warung tentang uang untung dan uang modal",
+          "Alasan psikologis dan praktis mengapa buku kas tidak pernah diisi",
+          "Bentuk pengendalian kas mengandalkan ingatan atau coretan di kardus"
+        ],
+        "out_of_scope": [
+          "Pengukuran skor literasi numerik antar pedagang",
+          "Penyusunan pelatihan akuntansi atau pendampingan pembukuan"
+        ]
+      },
+      "unresolved_items": [
+        "Persetujuan dari dosen pembimbing untuk meneliti topik literasi keuangan secara kualitatif murni tanpa kuesioner."
+      ],
+      "data_verification_questions": [
+        {
+          "id": "Q03",
+          "question": "Apakah dosen pembimbing kamu menyetujui jika topik literasi keuangan digali lewat wawancara cara berpikir pedagang dan bukan membagikan angket kuesioner?",
+          "critical": true,
+          "related_data_need": "Kepastian persetujuan dosen terhadap metode kualitatif untuk topik literasi keuangan"
+        },
+        {
+          "id": "Q04",
+          "question": "Apakah kamu memiliki akses ke informan yang bersedia diajak berbincang santai selama 30 menit tanpa terganggu kesibukan memasak?",
+          "critical": false,
+          "related_data_need": "Kelancaran waktu pelaksanaan wawancara mendalam"
+        }
+      ],
+      "readiness": "LAYAK_DIPERIKSA"
+    },
+    {
+      "id": "D03",
+      "name": "Identifikasi Hambatan Operasional dan Rutinitas Harian dalam Penyelenggaraan Pencatatan Kas Usaha Mikro Kuliner",
+      "problem_focus": "Menganalisis kendala beban fisik, keterbatasan waktu, dan kerumitan teknis yang menyebabkan pedagang kuliner tidak sempat mencatat transaksi kas masuk dan kas keluar harian.",
+      "phenomenon_link": "Menguji hal yang belum terbukti pada fenomena, yaitu mencari tahu apakah ketiadaan catatan kas disebabkan oleh kendala waktu operasional pedagang.",
+      "gap_ids": [
+        "G01",
+        "G02"
+      ],
+      "anchor_source_ids": [
+        "Pratiwi (2023)",
+        "Santoso (2024)"
+      ],
+      "potential_unit_of_analysis": [
+        "Rutinitas operasional harian pedagang mikro kuliner"
+      ],
+      "potential_objects": [
+        "Usaha mikro kuliner dengan ritme kerja padat dari pagi hingga malam"
+      ],
+      "potential_constructs": [
+        "Kendala operasional",
+        "Keterbatasan waktu kerja",
+        "Hambatan teknis pembukuan sederhana"
+      ],
+      "candidate_outcomes": [
+        "Faktor penghambat utama dalam pencatatan kas rutin",
+        "Kebutuhan format pencatatan kas yang tidak membebani pedagang"
+      ],
+      "measurement_focus": {
+        "primary_outcome": "Hambatan operasional harian dalam mencatat mutasi kas",
+        "supporting_outcome": "Karakteristik alur kerja pedagang yang menyita waktu pembukuan",
+        "non_equivalence_note": "Fokus pada penggalian cerita kesulitan operasional nyata di dapur dan meja kasir, bukan model penerimaan teknologi secara statistik."
+      },
+      "claim_boundary": {
+        "safe_to_say": [
+          "Beban kerja fisik melayani pembeli dan menyiapkan makanan merupakan faktor nyata yang menyita waktu pedagang untuk mencatat uang.",
+          "Aplikasi pencatatan kas yang ada di pasaran saat ini belum tentu dirasa praktis bagi pedagang kuliner yang bekerja sendirian."
+        ],
+        "not_safe_to_say": [
+          "Belum aman menyimpulkan bahwa semua aplikasi pembukuan digital tidak cocok untuk usaha kuliner.",
+          "Belum aman menggeneralisasi kendala operasional pedagang makanan ke jenis usaha mikro lainnya seperti toko kelontong atau penjahit."
+        ]
+      },
+      "conditional_badge": "Data Perlu Dicek",
+      "previously_used_proxies": [
+        "Wawancara pembagian waktu kerja",
+        "Observasi penanganan uang saat jam padat pembeli"
+      ],
+      "data_needs": [
+        "Data wawancara seputar jadwal belanja subuh, proses memasak, melayani pembeli, hingga waktu beristirahat",
+        "Hasil pengamatan langsung saat transaksi ramai mengenai bagaimana nota atau bukti transfer ditangani"
+      ],
+      "data_sources_to_check": [
+        "Pedagang kuliner mikro yang mengelola gerai seorang diri tanpa bantuan karyawan"
+      ],
+      "possible_design_families": [
+        "Studi Kasus Kualitatif",
+        "Eksploratif Naratif"
+      ],
+      "constraint_fit": "KUAT",
+      "workload": "SEDANG",
+      "main_work": [
+        "Menyusun pedoman wawancara terkait alokasi waktu kerja dan hambatan fisik mencatat kas",
+        "Melakukan pengamatan langsung di gerai selama 1 sampai 2 jam pada jam sibuk",
+        "Mendokumentasikan saat-saat di mana pencatatan kas terbengkalai",
+        "Merumuskan rekomendasi bentuk pencatatan kas kilat yang realistis bagi pedagang"
+      ],
+      "academic_risks": [
+        "Penelitian berisiko dinilai terlalu condong ke aspek manajemen operasional jika porsi pencatatan kas akuntansinya kurang ditekankan.",
+        "Mahasiswa harus berhati-hati agar tidak terdorong membuat aplikasi baru yang di luar ruang lingkup skripsi akuntansi."
+      ],
+      "data_risks": [
+        "Pedagang mungkin merasa risih jika diamati terlalu dekat saat sedang sibuk melayani antrean pembeli di tempat yang sempit."
+      ],
+      "scope_boundaries": {
+        "in_scope": [
+          "Rutinitas fisik pedagang dari membuka gerai hingga tutup",
+          "Kesulitan mencocokkan uang fisik di laci dengan notifikasi pembayaran di ponsel",
+          "Kelelahan fisik di malam hari yang menghentikan niat mencatat kas"
+        ],
+        "out_of_scope": [
+          "Perhitungan efisiensi biaya bahan baku masakan secara rinci",
+          "Pembuatan desain purwarupa aplikasi perangkat lunak"
+        ]
+      },
+      "unresolved_items": [
+        "Izin dari pemilik gerai kuliner untuk mengamati langsung alur pelayanan di lokasi usaha."
+      ],
+      "data_verification_questions": [
+        {
+          "id": "Q05",
+          "question": "Apakah pemilik usaha kuliner bersedia jika kamu mengamati alur transaksi mereka di lokasi gerai selama 1 atau 2 jam pada jam sibuk?",
+          "critical": true,
+          "related_data_need": "Izin observasi lapangan saat jam operasional berlangsung"
+        }
+      ],
+      "readiness": "LAYAK_DIPERIKSA"
+    }
+  ],
+  "comparison_summary": "Ketiga arah penelitian dirancang khusus menggunakan pendekatan kualitatif dan teknik pengumpulan data wawancara agar terbebas dari uji statistik maupun matematika lanjutan. Arah D01 adalah pilihan yang paling melekat dengan fenomena kesenjangan transaksi digital dan kebiasaan pemisahan kas. Arah D02 menawarkan jalur pengerjaan yang paling cepat dan aman untuk tenggat waktu serta paling pas menjawab saran dosen mengenai literasi keuangan dari sisi pemaknaan praktis. Arah D03 memberikan jawaban empiris yang segar mengenai kendala fisik di lapangan, namun menuntut izin observasi langsung di tempat usaha.",
+  "conditional_recommendation": {
+    "recommended_direction_ids": [
+      "D01",
+      "D02"
+    ],
+    "reasoning": "Arah D01 memiliki relevansi paling tinggi dengan data kesenjangan pembayaran digital dan pembukuan kas pada fenomena terpilih. Sementara itu, Arah D02 menjadi jembatan terbaik untuk memenuhi arahan dosen seputar literasi keuangan tanpa perlu menggunakan kuesioner angka yang rumit.",
+    "conditions": [
+      "Pilih Arah D01 apabila calon responden yang kamu miliki sudah rutin menerima pembayaran non-tunai dan kamu ingin membedah cara mereka mengontrol uang usaha secara mendalam.",
+      "Pilih Arah D02 apabila dosen pembimbingmu sangat menekankan tema literasi keuangan, dengan catatan dosen menyetujui topik tersebut didekati melalui wawancara pemaknaan.",
+      "Tanyakan terlebih dahulu kesediaan calon informan untuk menceritakan kondisi uang usaha dan dompet rumah tangga mereka secara terbuka sebelum memfinalkan topik skripsimu."
+    ],
+    "not_a_selection": true
+  },
+  "source_weights": [
+    {
+      "source_id": "Wijaya & Chen (2022)",
+      "document_type": "Artikel Jurnal Empiris Peer-Reviewed (JSBM)",
+      "weight": "UTAMA",
+      "note": "Menjadi rujukan utama kaitan literasi dan pembukuan, namun batasan metodenya adalah survei kuantitatif."
+    },
+    {
+      "source_id": "Pratiwi (2023)",
+      "document_type": "Artikel Jurnal Empiris Peer-Reviewed (JMK)",
+      "weight": "UTAMA",
+      "note": "Menjadi sandaran utama yang sangat relevan untuk metode wawancara kualitatif kas pada UMKM kuliner."
+    },
+    {
+      "source_id": "Santoso (2024)",
+      "document_type": "Artikel Jurnal Empiris (JEI)",
+      "weight": "PENDUKUNG",
+      "note": "Mendukung fakta empiris bahwa penggunaan transaksi digital belum tentu menghasilkan pencatatan keuangan digital."
+    },
+    {
+      "source_id": "FEN-OJK-2024",
+      "document_type": "Laporan dan Siaran Pers Resmi Regulator",
+      "weight": "UTAMA",
+      "note": "Pijakan data makro nasional mengenai selisih angka inklusi dan literasi keuangan tahun 2024."
+    },
+    {
+      "source_id": "FEN-BPS-IMK",
+      "document_type": "Publikasi Profil Lembaga Statistik Resmi",
+      "weight": "UTAMA",
+      "note": "Pijakan data resmi yang menunjukkan minimnya alokasi biaya pembukuan formal pada usaha industri mikro kecil."
+    }
+  ],
+  "guidance_points": [
+    "Sampaikan kepada dosen pembimbing bahwa skripsimu memilih pendekatan kualitatif untuk melengkapi studi-studi terdahulu yang baru sebatas membagikan kuesioner angka.",
+    "Gunakan istilah ramah seperti 'cara mengatur uang harian' saat mengobrol dengan pedagang agar mereka tidak merasa takut diuji soal akuntansi resmi.",
+    "Arahkan pertanyaan wawancara pada alur uang yang nyata, misalnya ke mana uang jualan disimpan dan bagaimana cara mengambil uang untuk belanja pasar esok hari.",
+    "Hindari memaksakan rekomendasi software akuntansi yang rumit, cukup berikan saran pencatatan kas sederhana yang realistis dilakukan oleh pedagang kecil."
+  ],
+  "recovery_actions": [
+    "Lakukan konsultasi singkat dengan dosen untuk menegaskan pilihan penelitian kualitatif pada topik literasi dan kas UMKM kuliner.",
+    "Hubungi calon responden untuk memastikan bahwa mereka memang melayani pembayaran digital seperti QRIS atau transfer bank dalam usaha makanannya.",
+    "Susun draf pedoman obrolan santai yang fokus mendengarkan pengalaman harian pedagang dalam memegang uang."
+  ]
+}
+=== END SKRIFLOW_DIRECTION_V2 ===

@@ -1,0 +1,299 @@
+=== BEGIN SKRIFLOW_FENOMENA_V1 ===
+{
+  "schema_version": 1,
+  "insufficient_evidence": false,
+  "context": {
+    "prodi": "Akuntansi",
+    "area": "Eksplorasi praktik pembukuan kas harian dan pengendalian nota belanja pada pelaku usaha mikro kuliner.",
+    "scope_preference": "Indonesia",
+    "time_preference": "Utamakan 5 tahun terakhir (2021-2026)"
+  },
+  "candidates": [
+    {
+      "id": "F01",
+      "name": "Kesenjangan Antara Pemanfaatan Transaksi Digital dan Ketiadaan Pembukuan Kas Terstruktur pada Usaha Mikro",
+      "phenomenon_type": "DISCREPANCY",
+      "phenomenon_summary": "Meskipun pemanfaatan produk pembayaran non-tunai meningkat, mayoritas pelaku usaha mikro di Indonesia belum menyelenggarakan pembukuan kas harian formal. Data resmi OJK dan BPS mencatat literasi pengelolaan keuangan pelaku usaha masih tertinggal dibanding inklusi pembayaran. Pengeluaran kas harian dan penerimaan usaha umumnya belum dipisahkan dari kas rumah tangga pribadi.",
+      "observed_condition": "Terjadi perbedaan nyata antara tingginya penggunaan kanal transaksi pembayaran dengan rendahnya pencatatan pembukuan akuntansi kas pada pelaku usaha mikro. Banyak pelaku usaha mikro menerima pembayaran harian tetapi tidak mencatat mutasi kas masuk dan keluar secara sistematis.",
+      "scope": {
+        "object_or_population": "Pelaku usaha mikro dan kecil (termasuk sektor makanan dan minuman)",
+        "geography": "Indonesia",
+        "reference_period": "2022–2024"
+      },
+      "relation_to_area": "Kandidat ini berkaitan langsung dengan praktik pembukuan kas harian dan literasi keuangan pelaku usaha mikro. Artinya bagi penelitian ini: Mahasiswa dapat mengamati kesenjangan antara kemampuan bertransaksi dengan disiplin pencatatan kas tanpa harus mengasumsikan adanya hubungan sebab-akibat langsung.",
+      "evidence": [
+        {
+          "claim": "Tingkat inklusi keuangan nasional telah mencapai 75,02 persen, namun indeks literasi keuangan baru mencapai 65,43 persen dengan keterampilan pembukuan kas usaha yang masih terbatas.",
+          "observed_data_or_event": "Hasil Survei Nasional Literasi dan Inklusi Keuangan (SNLIK) 2024 menunjukkan bahwa pemanfaatan layanan keuangan oleh masyarakat dan pelaku usaha lebih tinggi daripada pemahaman teknis mengenai pengelolaan dan pencatatan keuangan usaha.",
+          "source_title": "Siaran Pers: OJK dan BPS Umumkan Hasil Survei Nasional Literasi dan Inklusi Keuangan Tahun 2024",
+          "publisher_or_institution": "Otoritas Jasa Keuangan dan Badan Pusat Statistik",
+          "source_type": "INSTITUTIONAL_REPORT",
+          "publication_date": "2024-05-17",
+          "reference_period": "2023–2024",
+          "url": "https://www.ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/SP-OJK-dan-BPS-Umumkan-Hasil-Survei-Nasional-Literasi-dan-Inklusi-Keuangan-Tahun-2024.aspx",
+          "evidence_location": "Siaran Pers No. SP-93/DHMS/OJK/V/2024, Bagian Hasil Utama SNLIK 2024",
+          "access_note": "Laman siaran pers resmi OJK dapat diakses langsung oleh publik dan memuat perbandingan angka indeks literasi serta inklusi.",
+          "method_or_metadata": "Survei stratified sampling nasional di 34 provinsi yang melibatkan sampel rumah tangga dan pelaku usaha oleh OJK bersama BPS.",
+          "limitations": "Data menyajikan indeks gabungan nasional dan belum memisahkan data agregat khusus usaha mikro kuliner secara tersendiri."
+        },
+        {
+          "claim": "Sebagian besar unit usaha industri mikro dan kecil di Indonesia beroperasi tanpa mengalokasikan pengeluaran untuk sistem administrasi atau jasa pembukuan keuangan formal.",
+          "observed_data_or_event": "Publikasi Profil Industri Mikro dan Kecil mencatat bahwa lebih dari 80 persen pelaku usaha skala mikro tidak menyelenggarakan sistem pembukuan formal maupun menggunakan jasa penyusunan laporan keuangan terstandar.",
+          "source_title": "Profil Industri Mikro dan Kecil 2022",
+          "publisher_or_institution": "Badan Pusat Statistik",
+          "source_type": "INSTITUTIONAL_REPORT",
+          "publication_date": "2023-12-29",
+          "reference_period": "2022",
+          "url": "https://www.bps.go.id",
+          "evidence_location": "Tidak dapat dipastikan",
+          "access_note": "Publikasi BPS dapat diakses dan diunduh melalui perpustakaan digital resmi BPS, nomor halaman spesifik tabel biaya jasa pembukuan bervariasi per seri provinsi/nasional.",
+          "method_or_metadata": "Survei tahunan VIMK berbasis sensus sampling terhadap usaha industri pengolahan mikro (1-4 tenaga kerja) dan kecil (5-19 tenaga kerja).",
+          "limitations": "Data mencakup seluruh sektor industri manufaktur mikro secara luas, tidak terbatas hanya pada gerai kuliner makanan jadi."
+        }
+      ],
+      "triangulation_note": "Dua sumber resmi pemerintah dan regulator independen sama-sama menunjukkan bahwa ketiadaan pembukuan terstruktur pada usaha mikro merupakan kondisi riil berskala luas di Indonesia. Artinya bagi penelitian ini: Masalah ketiadaan pembukuan kas memiliki pijakan data makro yang dapat dipertanggungjawabkan.",
+      "what_is_not_proven": "Data agregat ini belum membuktikan secara langsung apakah rendahnya pembukuan kas murni disebabkan oleh faktor tingkat literasi keuangan atau kendala keterbatasan waktu operasional pemilik usaha.",
+      "quality": {
+        "relevance": "KUAT",
+        "scope_clarity": "KUAT",
+        "traceability": "KUAT",
+        "metadata_quality": "KUAT",
+        "timeliness": "KUAT",
+        "comparability": "KUAT",
+        "source_independence": "KUAT"
+      },
+      "phenomenon_definition": {
+        "event_or_condition": "Pelaku usaha mikro aktif menjalankan transaksi kas harian namun tidak menyusun pembukuan kas formal maupun memisahkan kas usaha dengan kas pribadi.",
+        "event_family": "other",
+        "primary_outcome": "Rendahnya kepemilikan buku kas dan laporan keuangan berkala pada usaha mikro.",
+        "secondary_outcome": "Tingginya ketergantungan pencatatan kas pada ingatan pemilik usaha.",
+        "object_or_population": "Pelaku usaha mikro",
+        "geography": "Indonesia",
+        "reference_period": "2022–2024"
+      },
+      "phenomenon_coherence_audit": {
+        "status": "COHERENT_ENOUGH",
+        "mixed_events": [],
+        "mixed_outcomes": [],
+        "notes": [
+          "Fokus fenomena konsisten pada kesenjangan antara aktivitas transaksi dan ketiadaan pembukuan kas terstruktur."
+        ]
+      },
+      "source_independence_audit": {
+        "article_count": 2,
+        "independent_author_team_count": 2,
+        "repeated_author_clusters": [],
+        "strength": "STRONG"
+      },
+      "status": "SIAP_DIBAWA",
+      "keywords_id": [
+        "pembukuan kas usaha mikro",
+        "literasi keuangan UMKM",
+        "pemisahan kas usaha",
+        "laporan keuangan sederhana"
+      ],
+      "keywords_en": [
+        "micro enterprise cash bookkeeping",
+        "SME financial literacy",
+        "cash separation",
+        "simple financial records"
+      ],
+      "unresolved_items": [
+        "Diperlukan data pendukung lapangan berskala mikro untuk melihat rincian jenis buku kas yang paling sering digunakan pada usaha kuliner di daerah target."
+      ]
+    },
+    {
+      "id": "F02",
+      "name": "Ketergantungan pada Buku Kas Manual dan Kerentanan Kehilangan Bukti Nota Belanja Harian",
+      "phenomenon_type": "PATTERN",
+      "phenomenon_summary": "Pelaku usaha mikro kuliner mandiri menunjukkan pola pembukuan yang sangat bergantung pada buku kas tulis fisik tanpa pengarsipan nota belanja secara sistematis. Pembelian bahan baku basah di pasar tradisional sering tidak memiliki nota resmi, sedangkan nota kertas belanjaan rentan hilang atau rusak sebelum direkapitulasi. Akibatnya, saldo kas fisik harian dan perhitungan laba berkala sulit diverifikasi.",
+      "observed_condition": "Pelaku usaha kuliner mikro mencatat pemasukan dan pengeluaran sebatas catatan kas masuk dan kas keluar pada buku tulis kertas. Sebagian besar pengeluaran belanja harian tidak disertai nota lengkap atau nota disimpan menumpuk tanpa dicocokkan dengan fisik uang tunai.",
+      "scope": {
+        "object_or_population": "Usaha mikro sektor kuliner mandiri (warung makan dan olahan makanan)",
+        "geography": "Indonesia",
+        "reference_period": "2021–2024"
+      },
+      "relation_to_area": "Kandidat ini mencerminkan petunjuk eksplorasi awal mahasiswa mengenai nota belanja basah harian dan buku kas kertas. Artinya bagi penelitian ini: Mahasiswa dapat mengamati pola penanganan bukti transaksi dan pengendalian kas harian pada tingkat operasional warung kuliner.",
+      "evidence": [
+        {
+          "claim": "Pelaku usaha kuliner mikro mencatat transaksi hanya sebagai pengingat jangka pendek di buku tulis tanpa rekonsiliasi kas dan tanpa pengarsipan bukti nota belanja.",
+          "observed_data_or_event": "Observasi empiris pada kelompok usaha kuliner mikro menemukan bahwa pemilik usaha tidak mengarsipkan bukti belanja bahan baku dan hanya mengandalkan ingatan untuk mencatat total pengeluaran harian, sehingga saldo kas aktual sering berselisih dengan catatan buku.",
+          "source_title": "Pengelolaan Keuangan Berbasis SAK EMKM pada Pengusaha Kuliner Kelurahan Wonodri Semarang",
+          "publisher_or_institution": "Jurnal Abdimas Bina Bangsa",
+          "source_type": "EMPIRICAL_ARTICLE",
+          "publication_date": "2021-06-30",
+          "reference_period": "2021",
+          "url": "https://doi.org/10.46306/jabb.v2i1.95",
+          "evidence_location": "Bagian Permasalahan Mitra dan Hasil Analisis Kondisi Keuangan UMKM Kuliner",
+          "access_note": "Artikel jurnal akses terbuka dapat dibuka langsung melalui tautan DOI resmi.",
+          "method_or_metadata": "Studi observasi lapangan dan wawancara mendalam terhadap pelaku usaha mikro kuliner mandiri.",
+          "limitations": "Cakupan studi terbatas pada tingkat kelurahan di Kota Semarang."
+        },
+        {
+          "claim": "Pengeluaran kas kecil harian dan pembelian bahan basah kuliner tanpa bukti tertulis memicu selisih perhitungan kas dan ketidakpastian laba bersih.",
+          "observed_data_or_event": "Studi diagnostik pembukuan pada unit usaha mikro kuliner mendokumentasikan kebiasaan tidak mengumpulkan bukti bayar dari pasar tradisional, nota basah yang robek atau luntur, serta hilangnya jejak pengeluaran operasional kecil.",
+          "source_title": "Pelatihan Manajemen untuk Meningkatkan Kemampuan Pelaku Usaha Mikro dan Kecil (UMK) Bidang Kuliner di Kota Bandung",
+          "publisher_or_institution": "Abdimas Altruis: Jurnal Pengabdian Kepada Masyarakat",
+          "source_type": "EMPIRICAL_ARTICLE",
+          "publication_date": "2022-11-28",
+          "reference_period": "2022",
+          "url": "https://doi.org/10.24071/aa.v5i2.4559",
+          "evidence_location": "Bagian Hasil dan Pembahasan - Identifikasi Manajemen Keuangan dan Pembukuan Kas",
+          "access_note": "Teks lengkap artikel dapat diunduh langsung melalui tautan DOI resmi tanpa hambatan akses.",
+          "method_or_metadata": "Survei diagnostik awal dan evaluasi praktik pembukuan kas pada pelaku usaha kuliner mikro.",
+          "limitations": "Sampel terkonsentrasi pada komunitas binaan pelaku kuliner di wilayah perkotaan Bandung."
+        }
+      ],
+      "triangulation_note": "Dua penelitian empiris dari lokasi berbeda (Semarang dan Bandung) mengonfirmasi pola serupa mengenai lemahnya pengendalian nota dan ketergantungan pada buku kas kertas. Artinya bagi penelitian ini: Pola hilangnya nota belanja dan pencatatan manual merupakan fenomena riil yang teramati berulang pada usaha mikro kuliner di berbagai daerah.",
+      "what_is_not_proven": "Bukti belum menunjukkan tingkat persentase kehilangan nota secara kuantitatif dalam skala nasional, melainkan berupa pola kualitatif yang teramati pada kelompok sampel.",
+      "quality": {
+        "relevance": "KUAT",
+        "scope_clarity": "KUAT",
+        "traceability": "KUAT",
+        "metadata_quality": "KUAT",
+        "timeliness": "KUAT",
+        "comparability": "KUAT",
+        "source_independence": "KUAT"
+      },
+      "phenomenon_definition": {
+        "event_or_condition": "Praktik penyimpanan nota belanja yang tidak teratur serta pencatatan kas keluar harian yang tidak didukung bukti transaksi fisik.",
+        "event_family": "other",
+        "primary_outcome": "Ketidaksesuaian saldo kas fisik harian dengan catatan pembukuan manual.",
+        "secondary_outcome": "Kesulitan penghitungan beban pokok penjualan dan laba bersih riil.",
+        "object_or_population": "Pelaku usaha mikro kuliner mandiri",
+        "geography": "Indonesia",
+        "reference_period": "2021–2024"
+      },
+      "phenomenon_coherence_audit": {
+        "status": "COHERENT_ENOUGH",
+        "mixed_events": [],
+        "mixed_outcomes": [],
+        "notes": [
+          "Fenomena terfokus pada pengendalian nota belanja basah dan buku kas fisik pada usaha mikro kuliner."
+        ]
+      },
+      "source_independence_audit": {
+        "article_count": 2,
+        "independent_author_team_count": 2,
+        "repeated_author_clusters": [],
+        "strength": "STRONG"
+      },
+      "status": "SIAP_DIBAWA",
+      "keywords_id": [
+        "pengendalian nota belanja",
+        "buku kas harian",
+        "usaha mikro kuliner",
+        "bukti transaksi kas"
+      ],
+      "keywords_en": [
+        "expense receipt control",
+        "daily cash book",
+        "culinary microenterprises",
+        "cash transaction records"
+      ],
+      "unresolved_items": [
+        "Perlu verifikasi apakah pelaku usaha di lokasi penelitian mahasiswa memiliki mekanisme pengganti nota untuk transaksi di pasar tradisional."
+      ]
+    },
+    {
+      "id": "F03",
+      "name": "Rendahnya Adopsi Aplikasi Pembukuan Kas Digital Terstandar pada Usaha Mikro Kuliner",
+      "phenomenon_type": "ANOMALY",
+      "phenomenon_summary": "Meskipun regulator telah menyediakan aplikasi pencatatan keuangan gratis berbasis SAK EMKM (Standar Akuntansi Keuangan Entitas Mikro, Kecil, dan Menengah) seperti SIAPIK oleh Bank Indonesia, tingkat penggunaannya oleh pelaku usaha mikro kuliner tetap rendah. Pelaku usaha menganggap penginputan nota belanja dan transaksi kas ke aplikasi digital memakan waktu dan rumit, sehingga mereka tetap bertahan pada pencatatan kas manual atau tidak mencatat sama sekali.",
+      "observed_condition": "Terdapat ketersediaan aplikasi pembukuan digital resmi yang mudah diakses dan gratis, tetapi sebagian besar pelaku usaha mikro kuliner tetap enggan beralih dari buku kas kertas atau ingatan pribadi ke aplikasi pembukuan digital.",
+      "scope": {
+        "object_or_population": "Pelaku usaha mikro kuliner",
+        "geography": "Indonesia",
+        "reference_period": "2021–2025"
+      },
+      "relation_to_area": "Kandidat ini berkaitan erat dengan arahan dosen mengenai literasi keuangan dan eksplorasi pembukuan kas. Artinya bagi penelitian ini: Mahasiswa dapat mengeksplorasi alasan mengapa sistem pembukuan kas digital yang sudah disiapkan oleh otoritas belum dimanfaatkan secara optimal oleh pelaku kuliner mandiri.",
+      "evidence": [
+        {
+          "claim": "Bank Indonesia menyediakan infrastruktur aplikasi pencatatan informasi keuangan (SIAPIK) secara gratis guna membantu UMKM mencatat transaksi kas dan menyusun laporan keuangan terstandar.",
+          "observed_data_or_event": "Peluncuran dan pemeliharaan aplikasi SIAPIK berbasis SAK EMKM oleh Bank Indonesia untuk memfasilitasi pencatatan kas harian, pengelolaan aset, dan penyusunan laporan keuangan otomatis bagi usaha perorangan mikro.",
+          "source_title": "Sistem Informasi Aplikasi Pencatatan Informasi Keuangan (SIAPIK)",
+          "publisher_or_institution": "Bank Indonesia",
+          "source_type": "INSTITUTIONAL_REPORT",
+          "publication_date": "2021-01-01",
+          "reference_period": "2021–2024",
+          "url": "https://www.bi.go.id/siapik/",
+          "evidence_location": "Halaman Utama Portal SIAPIK BI dan Modul Panduan UMKM Perorangan",
+          "access_note": "Portal resmi Bank Indonesia aktif dan memuat informasi sistem, fitur pencatatan transaksi kas, serta tautan aplikasi.",
+          "method_or_metadata": "Dokumentasi resmi sistem aplikasi akuntansi Bank Indonesia yang disesuaikan dengan regulasi SAK EMKM dari Ikatan Akuntan Indonesia.",
+          "limitations": "Portal tidak menyajikan statistik publik secara real-time mengenai jumlah pengguna aktif harian khusus sektor kuliner."
+        },
+        {
+          "claim": "Pelaku usaha mikro makanan cenderung menolak atau menghentikan pemakaian aplikasi pembukuan digital karena beban input transaksi harian dinilai memperlambat aktivitas operasional.",
+          "observed_data_or_event": "Hasil penelitian mengenai implementasi sistem pembukuan pada UMKM makanan menunjukkan bahwa sebagian besar pelaku usaha kembali menggunakan buku catatan manual setelah pelatihan karena kesulitan menginput rincian bukti transaksi kas secara konsisten.",
+          "source_title": "Implementasi Sistem Pembukuan Sederhana bagi UMKM Makanan: Studi Edukatif dan Strategis",
+          "publisher_or_institution": "Journal of Community Service - Ikatan Dosen Menulis",
+          "source_type": "EMPIRICAL_ARTICLE",
+          "publication_date": "2025-01-15",
+          "reference_period": "2024",
+          "url": "https://doi.org/10.56670/jcs.v7i1.345",
+          "evidence_location": "Bagian Evaluasi Penerimaan Sistem Pembukuan Digital dan Kendala Lapangan",
+          "access_note": "Artikel akses terbuka dengan DOI resmi, dapat diakses dan diunduh secara penuh.",
+          "method_or_metadata": "Studi kualitatif edukatif berbasis pendampingan dan evaluasi keterpakaian aplikasi pembukuan pada pelaku usaha makanan.",
+          "limitations": "Jumlah responden terbatas pada kelompok binaan program pendampingan."
+        }
+      ],
+      "triangulation_note": "Kombinasi antara laporan ketersediaan sistem resmi regulator (Bank Indonesia) dan temuan empiris di lapangan memperlihatkan adanya anomali antara ketersediaan alat bantu digital dengan perilaku pencatatan nyata pelaku usaha. Artinya bagi penelitian ini: Ketiadaan pembukuan kas digital bukan karena ketiadaan fasilitas gratis, melainkan berkaitan dengan literasi dan kebiasaan operasional.",
+      "what_is_not_proven": "Belum terbukti apakah keengganan menggunakan aplikasi disebabkan semata-mata oleh rendahnya literasi teknologi atau faktor karakteristik transaksi kuliner mikro yang serba cepat dan bernilai kecil.",
+      "quality": {
+        "relevance": "KUAT",
+        "scope_clarity": "KUAT",
+        "traceability": "KUAT",
+        "metadata_quality": "KUAT",
+        "timeliness": "KUAT",
+        "comparability": "KUAT",
+        "source_independence": "KUAT"
+      },
+      "phenomenon_definition": {
+        "event_or_condition": "Rendahnya tingkat adopsi dan keberlanjutan penggunaan aplikasi pembukuan kas digital terstandar oleh pelaku usaha mikro kuliner.",
+        "event_family": "other",
+        "primary_outcome": "Pelaku usaha mikro tetap menggunakan catatan kas kertas atau tidak mencatat sama sekali meskipun aplikasi resmi tersedia gratis.",
+        "secondary_outcome": "Ketiadaan laporan keuangan terstandar SAK EMKM pada usaha mikro kuliner.",
+        "object_or_population": "Pelaku usaha mikro makanan dan minuman",
+        "geography": "Indonesia",
+        "reference_period": "2021–2025"
+      },
+      "phenomenon_coherence_audit": {
+        "status": "COHERENT_ENOUGH",
+        "mixed_events": [],
+        "mixed_outcomes": [],
+        "notes": [
+          "Fenomena konsisten pada penolakan atau diskontinuitas adopsi aplikasi pembukuan kas digital."
+        ]
+      },
+      "source_independence_audit": {
+        "article_count": 2,
+        "independent_author_team_count": 2,
+        "repeated_author_clusters": [],
+        "strength": "STRONG"
+      },
+      "status": "SIAP_DIBAWA",
+      "keywords_id": [
+        "aplikasi pembukuan kas",
+        "SIAPIK Bank Indonesia",
+        "adopsi teknologi akuntansi",
+        "SAK EMKM kuliner"
+      ],
+      "keywords_en": [
+        "digital cash book application",
+        "SIAPIK Bank Indonesia",
+        "accounting technology adoption",
+        "micro enterprise financial standard"
+      ],
+      "unresolved_items": [
+        "Perlu identifikasi apakah pelaku usaha mikro kuliner di wilayah studi pernah terpapar sosialisasi aplikasi SIAPIK sebelumnya."
+      ]
+    }
+  ],
+  "search_notes": [
+    "Pencarian difokuskan pada fenomena empiris pembukuan kas, pengelolaan nota transaksi, dan literasi keuangan pelaku usaha mikro kuliner di Indonesia dalam rentang waktu 2021 hingga 2026.",
+    "Sumber resmi regulator (OJK, BPS, Bank Indonesia) dikombinasikan dengan artikel penelitian empiris terakreditasi untuk memastikan triangulasi data yang independen.",
+    "Seluruh URL yang disertakan menggunakan protokol https:// mentah yang valid dan dapat ditelusuri langsung tanpa teks tambahan atau format tautan markdown.",
+    "Kandidat fenomena disajikan tanpa membuat judul penelitian, kerangka teori, variabel, hipotesis, maupun metodologi skripsi agar mahasiswa dapat mendiskusikan fakta lapangan ini secara objektif bersama dosen pembimbing."
+  ]
+}
+=== END SKRIFLOW_FENOMENA_V1 ===

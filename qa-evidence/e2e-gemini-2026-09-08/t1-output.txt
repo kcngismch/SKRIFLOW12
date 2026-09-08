@@ -1,0 +1,663 @@
+=== BEGIN SKRIFLOW_IDEA_V3 ===
+{
+  "schema_version": 3,
+  "areas": [
+    {
+      "id": "A01",
+      "name": "Praktik Pembukuan Sederhana dan Pengendalian Kas Harian pada UMKM Kuliner",
+      "scope_summary": "Mengeksplorasi bagaimana pelaku usaha kuliner skala mikro dan kecil mencatat transaksi pemasukan serta pengeluaran harian mereka. Area ini mencakup cara pemilik memantau arus kas, kendala fisik dalam mengumpulkan nota belanja bahan baku yang cepat basi, serta bagaimana mereka mengetahui perkiraan laba harian tanpa sistem akuntansi formal.",
+      "area_role": "CLOSEST_TO_ORIGINAL_INTEREST",
+      "focus_continuity": {
+        "original_interest_elements": [
+          "Pengelolaan keuangan UMKM",
+          "Pembukuan kas usaha",
+          "Usaha kuliner skala kecil"
+        ],
+        "retained_elements": [
+          "Pembukuan sederhana",
+          "Pengelolaan kas harian UMKM kuliner"
+        ],
+        "shifted_elements": [
+          "Tidak ada pergeseran fokus yang signifikan"
+        ],
+        "shift_status": "SAME_CORE",
+        "explanation": "Area ini mempertahankan inti minat awal mahasiswa secara utuh pada pembukuan dan arus kas UMKM kuliner tanpa menggeser fokus ke bidang lain."
+      },
+      "academic_connection": "Sangat relevan dengan mata kuliah Akuntansi Keuangan Dasar, Akuntansi Biaya, dan Pengendalian Internal pada entitas skala mikro.",
+      "interest_connection": "Sangat selaras dengan minat awal mahasiswa yang ingin mengamati langsung kebiasaan pencatatan kas harian pada pemilik warung makan.",
+      "data_provenance": [
+        {
+          "data_form": "Transkrip wawancara mendalam pemilik UMKM kuliner",
+          "origin": "PRIMARY_RESPONDENT",
+          "access_status": "INDICATED",
+          "methodological_note": "Data primer diperoleh langsung dari wawancara pemilik usaha kuliner sekitar kampus yang sudah menyatakan bersedia menjadi responden."
+        },
+        {
+          "data_form": "Buku catatan kas manual atau arsip nota belanja harian",
+          "origin": "PRIMARY_RESPONDENT",
+          "access_status": "NEEDS_CHECKING",
+          "methodological_note": "Artefak fisik catatan internal pemilik; ketersediaan dan kerelaan pemilik untuk memperlihatkan buku catatan perlu dipastikan saat wawancara."
+        }
+      ],
+      "research_context": {
+        "potential_actors": [
+          "Pemilik warung kuliner",
+          "Pengelola kasir",
+          "Juru masak pengelola belanja harian"
+        ],
+        "potential_entities": [
+          "UMKM kuliner sekitar kampus",
+          "Warung makan skala mikro",
+          "Kedai makanan dan minuman mandiri"
+        ],
+        "potential_documents": [
+          "Buku kas harian manual",
+          "Nota pembelian bahan pangan",
+          "Daftar rekap penjualan harian"
+        ],
+        "potential_data_artifacts": [
+          "Selisih kas fisik dengan catatan",
+          "Frekuensi pencatatan pembukuan",
+          "Format catatan keuangan informal"
+        ],
+        "potential_geographies": [
+          "Area sekitar kampus",
+          "Indonesia"
+        ]
+      },
+      "scope_boundary": {
+        "in_scope": [
+          "Pencatatan kas masuk dan kas keluar harian",
+          "Pengendalian bukti transaksi fisik seperti nota belanja",
+          "Cara menghitung laba kotor harian secara mandiri"
+        ],
+        "out_of_scope": [
+          "Penyusunan laporan keuangan standar SAK EMKM lengkap",
+          "Audit kepatuhan perpajakan formal",
+          "Penggunaan perangkat lunak akuntansi enterprise ERP"
+        ],
+        "boundary_note": "Fokus dibatasi pada praktik pencatatan kas internal nyata yang dilakukan pemilik, bukan kepatuhan pelaporan keuangan resmi."
+      },
+      "phenomenon_search_brief": "Memeriksa laporan institusional dan data resmi mengenai kepemilikan catatan keuangan serta ketahanan arus kas usaha mikro sektor makanan.",
+      "phenomenon_search_directions": [
+        {
+          "label": "Tingkat Kepemilikan Buku Catatan Kas pada Usaha Mikro",
+          "direction_type": "PRACTICE_CHANGE",
+          "search_question": "Bagaimana data resmi pemerintah atau dinas terkait memotret persentase usaha mikro kuliner yang masih mencatat kas secara manual dibandingkan yang tidak mencatat sama sekali?",
+          "observable_signals": [
+            "Survei profil usaha mikro oleh BPS",
+            "Laporan Kementerian Koperasi dan UKM tentang pembukuan usaha mikro"
+          ],
+          "priority_source_types": [
+            "OFFICIAL_DATA",
+            "INSTITUTIONAL_REPORT"
+          ]
+        },
+        {
+          "label": "Kerentanan Arus Kas Harian Usaha Kuliner",
+          "direction_type": "DISCREPANCY",
+          "search_question": "Apakah pemberitaan ekonomi terpercaya melaporkan maraknya penutupan usaha kuliner mikro akibat kegagalan memantau arus kas harian dan biaya bahan baku?",
+          "observable_signals": [
+            "Berita penutupan gerai kuliner mikro",
+            "Laporan asosiasi pedagang kuliner terkait kendala modal kerja harian"
+          ],
+          "priority_source_types": [
+            "REPUTABLE_NEWS",
+            "INSTITUTIONAL_REPORT"
+          ]
+        }
+      ],
+      "literature_search_seeds": {
+        "concepts": [
+          "Akuntansi usaha mikro",
+          "Pengendalian kas internal",
+          "Pembukuan kas sederhana",
+          "Siklus kas operasional",
+          "Akuntansi mental pemilik usaha"
+        ],
+        "keywords_id": [
+          "pembukuan kas UMKM",
+          "pengelolaan keuangan warung kuliner",
+          "catatan kas harian usaha mikro",
+          "pencatatan akuntansi sederhana"
+        ],
+        "keywords_en": [
+          "cash management in MSMEs",
+          "informal bookkeeping small business",
+          "cash flow control food stall",
+          "micro enterprise accounting practice"
+        ]
+      },
+      "research_shape_preview": {
+        "possible_focus": "Eksplorasi dinamika pencatatan transaksi harian dan pengendalian kas pada usaha kuliner mandiri.",
+        "likely_evidence_needed": [
+          "Petikan narasi wawancara pemilik usaha",
+          "Dokumentasi foto bentuk buku kas atau nota",
+          "Deskripsi alur pengelolaan uang tunai harian"
+        ],
+        "illustrative_title_pattern": "Eksplorasi [praktik pembukuan dan pengendalian kas] pada [usaha mikro kuliner di wilayah sekitar kampus].",
+        "unresolved_before_title": [
+          "Fenomena empiris",
+          "Bukti literatur",
+          "Akses data",
+          "Objek atau cakupan",
+          "Kelayakan metodologis"
+        ],
+        "warning": "Ilustrasi bentuk judul — belum layak diajukan ke dosen."
+      },
+      "constraint_fit": {
+        "status": "SELARAS_SEMENTARA",
+        "reason": "Sangat sesuai dengan calon responden yang sudah dimiliki di sekitar kampus, menggunakan pendekatan wawancara kualitatif, serta tidak melibatkan statistika.",
+        "assumptions": [
+          "Pemilik usaha bersedia memperlihatkan pola pencatatan kas",
+          "Calon responden memiliki waktu luang untuk diwawancarai secara mendalam"
+        ],
+        "risks": [
+          "Pemilik usaha mungkin enggan memperlihatkan catatan jika merasa pembukuannya berantakan"
+        ]
+      },
+      "constraint_fit_assessment": {
+        "data_origin_fit": "ALIGNED",
+        "fieldwork_fit": "ALIGNED",
+        "time_fit": "ALIGNED",
+        "overall": "SELARAS_SEMENTARA",
+        "reasons": [
+          "Responden sudah tersedia dan menyatakan bersedia",
+          "Metode murni wawancara dan observasi kualitatif",
+          "Bebas dari rumus statistik dan matematika lanjutan"
+        ]
+      },
+      "unresolved_items": [
+        "Tingkat keterbukaan responden terhadap rahasia uang kas",
+        "Ketersediaan buku fisik versus sekadar ingatan hafalan pemilik",
+        "Pedoman wawancara yang tidak mengintimidasi responden"
+      ],
+      "not_decided": [
+        "Judul",
+        "Variabel",
+        "Teori",
+        "Metode",
+        "Objek final",
+        "Sampel",
+        "Teknik analisis"
+      ],
+      "handoff_to_phenomenon": {
+        "area_text": "Eksplorasi praktik pembukuan kas harian dan pengendalian nota belanja pada pelaku usaha mikro kuliner.",
+        "actor_text": "Pemilik warung kuliner dan juru masak",
+        "entity_text": "Usaha mikro kuliner mandiri",
+        "document_text": "Buku kas manual dan nota pembelian bahan baku",
+        "data_artifact_text": "Format pencatatan kas dan selisih penerimaan harian",
+        "initial_clue": "Banyak usaha kuliner mikro kesulitan menghitung laba bersih akibat hilangnya bukti nota belanja basah harian.",
+        "observable_signals": [
+          "Tingginya penggunaan buku kas kertas",
+          "Hilangnya jejak pengeluaran kecil harian"
+        ],
+        "in_scope": [
+          "Pencatatan kas masuk-keluar",
+          "Pengendalian nota fisik"
+        ],
+        "out_of_scope": [
+          "Laporan keuangan standar SAK EMKM",
+          "Perhitungan pajak penghasilan"
+        ],
+        "priority_source_types": [
+          "OFFICIAL_DATA",
+          "INSTITUTIONAL_REPORT",
+          "REPUTABLE_NEWS"
+        ]
+      }
+    },
+    {
+      "id": "A02",
+      "name": "Pemanfaatan Transaksi Pembayaran Digital (QRIS) dalam Kebiasaan Pencatatan Kas UMKM Kuliner",
+      "scope_summary": "Mengeksplorasi bagaimana adopsi sistem pembayaran non-tunai seperti QRIS memengaruhi kebiasaan pemilik usaha kuliner dalam mencatat keuangan. Area ini memeriksa apakah riwayat mutasi digital pada aplikasi perbankan atau dompet digital dimanfaatkan sebagai pengganti buku kas manual, atau justru menimbulkan kebingungan saat mencocokkan uang fisik di laci dengan saldo digital.",
+      "area_role": "ADJACENT_MORE_FEASIBLE",
+      "focus_continuity": {
+        "original_interest_elements": [
+          "Pembukuan UMKM",
+          "Pengelolaan kas usaha kuliner"
+        ],
+        "retained_elements": [
+          "Pengelolaan dan pencatatan kas UMKM kuliner"
+        ],
+        "shifted_elements": [
+          "Menggeser fokus dari pembukuan kertas manual murni ke pencatatan berbantuan mutasi transaksi digital QRIS"
+        ],
+        "shift_status": "ADJACENT_SHIFT",
+        "explanation": "Fokus digeser ke interaksi antara pencatatan kas dengan teknologi pembayaran yang nyata digunakan sehari-hari oleh pedagang kuliner kampus. Trade-off: Mengharuskan mahasiswa memahami fitur mutasi aplikasi merchant, namun mempermudah akses bukti transaksi karena riwayat transaksi tersimpan otomatis di ponsel responden."
+      },
+      "academic_connection": "Relevan dengan Sistem Informasi Akuntansi (SIA) pada usaha kecil, Rekonsiliasi Kas, dan Transformasi Digital dalam Akuntansi.",
+      "interest_connection": "Tetap berfokus pada pembukuan UMKM kuliner, tetapi jauh lebih konkret karena pedagang kuliner di sekitar kampus hampir semuanya telah memasang QRIS.",
+      "data_provenance": [
+        {
+          "data_form": "Transkrip wawancara pemilik UMKM mengenai cara membaca mutasi QRIS",
+          "origin": "PRIMARY_RESPONDENT",
+          "access_status": "INDICATED",
+          "methodological_note": "Wawancara dengan pelaku usaha kuliner pengguna QRIS di sekitar kampus yang sudah terhubung dengan peneliti."
+        },
+        {
+          "data_form": "Tangkapan layar rekap riwayat transaksi pada aplikasi merchant",
+          "origin": "PRIMARY_RESPONDENT",
+          "access_status": "NEEDS_CHECKING",
+          "methodological_note": "Artefak digital pada ponsel responden; peneliti hanya memerlukan visualisasi riwayat rekap harian tanpa meminta data rahasia PIN atau nomor rekening."
+        },
+        {
+          "data_form": "Statistik adopsi QRIS merchant mikro dari Bank Indonesia",
+          "origin": "PUBLIC_SECONDARY",
+          "access_status": "INDICATED",
+          "methodological_note": "Data publik agregat yang disediakan resmi oleh regulator pembayaran digital sebagai latar fenomena makro."
+        }
+      ],
+      "research_context": {
+        "potential_actors": [
+          "Pemilik gerai kuliner",
+          "Kasir pengguna QRIS",
+          "Konsumen mahasiswa"
+        ],
+        "potential_entities": [
+          "UMKM kuliner pengguna QRIS",
+          "Penyedia Jasa Pembayaran",
+          "Bank penerbit QRIS merchant"
+        ],
+        "potential_documents": [
+          "Tangkapan layar riwayat mutasi harian",
+          "Bukti pencairan saldo settlement QRIS"
+        ],
+        "potential_data_artifacts": [
+          "Volume transaksi non-tunai harian",
+          "Selisih waktu pencairan dana ke rekening",
+          "Rekapitulasi penjualan mingguan"
+        ],
+        "potential_geographies": [
+          "Kawasan sekitar kampus perguruan tinggi",
+          "Indonesia"
+        ]
+      },
+      "scope_boundary": {
+        "in_scope": [
+          "Pemanfaatan notifikasi dan mutasi QRIS untuk mencatat penjualan",
+          "Kendala rekonsiliasi antara uang tunai di laci dan saldo di aplikasi",
+          "Perubahan kebiasaan pembukuan setelah memakai pembayaran digital"
+        ],
+        "out_of_scope": [
+          "Keamanan siber algoritma enkripsi pembayaran",
+          "Integrasi sistem Point-of-Sale (POS) berbayar kelas korporasi",
+          "Regulasi perizinan perbankan tingkat nasional"
+        ],
+        "boundary_note": "Fokus hanya pada bagaimana pemilik usaha memanfaatkan rekam jejak digital tersebut untuk keperluan pembukuan internal harian mereka."
+      },
+      "phenomenon_search_brief": "Menelusuri publikasi resmi Bank Indonesia dan berita ekonomi tentang lonjakan adopsi QRIS oleh pedagang mikro serta tantangan pencairan dananya.",
+      "phenomenon_search_directions": [
+        {
+          "label": "Tren Pertumbuhan Merchant QRIS Sektor Kuliner Mikro",
+          "direction_type": "ADOPTION",
+          "search_question": "Bagaimana data Bank Indonesia atau laporan asosiasi pedagang memotret pertumbuhan penggunaan QRIS pada pedagang mikro makanan dan minuman di area pendidikan?",
+          "observable_signals": [
+            "Statistik jumlah merchant QRIS kategori Usaha Mikro (UMI) oleh BI",
+            "Kewajiban kepemilikan QRIS di sentra kuliner kampus"
+          ],
+          "priority_source_types": [
+            "OFFICIAL_DATA",
+            "REGULATION",
+            "INSTITUTIONAL_REPORT"
+          ]
+        },
+        {
+          "label": "Kebiasaan Pengendapan Saldo dan Rekonsiliasi Kas",
+          "direction_type": "PRACTICE_CHANGE",
+          "search_question": "Apakah terdapat liputan berita kredibel atau kajian mengenai kendala pedagang kecil saat saldo QRIS tidak langsung cair di hari yang sama untuk belanja modal esok hari?",
+          "observable_signals": [
+            "Berita keluhan pedagang tentang waktu settlement H+1",
+            "Praktik pedagang yang tetap memisahkan uang tunai untuk belanja pasar subuh"
+          ],
+          "priority_source_types": [
+            "REPUTABLE_NEWS",
+            "INSTITUTIONAL_REPORT"
+          ]
+        }
+      ],
+      "literature_search_seeds": {
+        "concepts": [
+          "Adopsi pembayaran digital UMKM",
+          "Sistem informasi akuntansi kas digital",
+          "Rekonsiliasi kas usaha mikro",
+          "Kemudahan pencatatan akuntansi digital"
+        ],
+        "keywords_id": [
+          "pembayaran digital UMKM",
+          "adopsi QRIS usaha mikro",
+          "pencatatan kas digital warung kuliner",
+          "rekonsiliasi saldo QRIS"
+        ],
+        "keywords_en": [
+          "QRIS adoption MSME",
+          "digital cash recording small business",
+          "digital payment impact on bookkeeping",
+          "cash reconciliation micro traders"
+        ]
+      },
+      "research_shape_preview": {
+        "possible_focus": "Eksplorasi pemanfaatan riwayat pembayaran digital sebagai sarana bantu pencatatan keuangan UMKM kuliner.",
+        "likely_evidence_needed": [
+          "Cerita pengalaman responden mengelola mutasi QRIS",
+          "Contoh visual rekap riwayat transaksi aplikasi",
+          "Catatan perbandingan uang kas fisik vs uang di rekening"
+        ],
+        "illustrative_title_pattern": "Eksplorasi [pemanfaatan transaksi pembayaran digital dalam pencatatan kas] pada [pelaku usaha kuliner di sekitar kampus].",
+        "unresolved_before_title": [
+          "Fenomena empiris",
+          "Bukti literatur",
+          "Akses data",
+          "Objek atau cakupan",
+          "Kelayakan metodologis"
+        ],
+        "warning": "Ilustrasi bentuk judul — belum layak diajukan ke dosen."
+      },
+      "constraint_fit": {
+        "status": "SELARAS_SEMENTARA",
+        "reason": "Sangat fisibel karena fenomena QRIS terlihat jelas di setiap gerai kuliner sekitar kampus, data kualitatif mudah digali, dan artefak mutasi digital sangat konkret.",
+        "assumptions": [
+          "Warung kuliner target riset aktif menerima pembayaran QRIS setiap hari",
+          "Pemilik memeriksa aplikasi mutasi secara mandiri di ponselnya"
+        ],
+        "risks": [
+          "Pemilik usaha mungkin hanya bertindak sebagai pengelola sementara akun rekening QRIS dipegang keluarga lain"
+        ]
+      },
+      "constraint_fit_assessment": {
+        "data_origin_fit": "ALIGNED",
+        "fieldwork_fit": "ALIGNED",
+        "time_fit": "ALIGNED",
+        "overall": "SELARAS_SEMENTARA",
+        "reasons": [
+          "Objek penelitian sangat mudah ditemui dan diamati di sekitar kampus",
+          "Responden tidak terbebani pertanyaan matematika atau rumus rumit",
+          "Tersedia bukti fisik digital yang jelas dan mudah diakses"
+        ]
+      },
+      "unresolved_items": [
+        "Kepemilikan akun rekening QRIS (apakah atas nama pribadi pemilik atau pihak lain)",
+        "Seberapa intensif responden mengecek rekapitulasi penjualan digital",
+        "Apakah responden mencatat ulang mutasi ke kertas atau membiarkannya di aplikasi"
+      ],
+      "not_decided": [
+        "Judul",
+        "Variabel",
+        "Teori",
+        "Metode",
+        "Objek final",
+        "Sampel",
+        "Teknik analisis"
+      ],
+      "handoff_to_phenomenon": {
+        "area_text": "Pemeriksaan dampak penggunaan pembayaran digital QRIS terhadap kebiasaan rekonsiliasi dan pencatatan kas UMKM kuliner.",
+        "actor_text": "Pedagang kuliner mikro pengguna QRIS",
+        "entity_text": "Usaha kuliner skala mikro",
+        "document_text": "Riwayat transaksi aplikasi pembayaran",
+        "data_artifact_text": "Notifikasi transaksi dan mutasi saldo harian",
+        "initial_clue": "Transaksi QRIS menghasilkan rekaman mutasi otomatis, namun pedagang kerap kesulitan memisahkan uang belanja modal harian.",
+        "observable_signals": [
+          "Keberadaan stiker barcode QRIS di meja kasir",
+          "Pengecekan notifikasi masuk di ponsel kasir"
+        ],
+        "in_scope": [
+          "Pencatatan kas via mutasi digital",
+          "Kendala rekonsiliasi kas harian"
+        ],
+        "out_of_scope": [
+          "Audit teknis gateway pembayaran",
+          "Pajak digital e-commerce"
+        ],
+        "priority_source_types": [
+          "OFFICIAL_DATA",
+          "REGULATION",
+          "REPUTABLE_NEWS"
+        ]
+      }
+    },
+    {
+      "id": "A03",
+      "name": "Literasi Keuangan dan Praktik Pemisahan Kas Pribadi dengan Kas Usaha pada UMKM Kuliner",
+      "scope_summary": "Mengeksplorasi pemahaman literasi keuangan pelaku usaha kuliner dalam memisahkan uang pribadi atau rumah tangga dari uang kas operasional usaha. Area ini mengakomodasi penuh arahan dosen mengenai literasi keuangan dengan pendekatan kualitatif, mengamati bagaimana pemilik mengalokasikan keuntungan, mengambil uang untuk kebutuhan dapur pribadi, serta menjaga kelangsungan modal usaha tanpa rumus matematika.",
+      "area_role": "CONSTRAINT_SAFE_ALTERNATIVE",
+      "focus_continuity": {
+        "original_interest_elements": [
+          "Pengelolaan keuangan UMKM",
+          "Wawancara pemilik kuliner"
+        ],
+        "retained_elements": [
+          "Pengelolaan kas usaha kuliner",
+          "Subjek pemilik UMKM kuliner sekitar kampus"
+        ],
+        "shifted_elements": [
+          "Mengalihkan fokus dari rincian teknik pembukuan nota ke perilaku literasi keuangan dan disiplin pemisahan dompet kas"
+        ],
+        "shift_status": "ADJACENT_SHIFT",
+        "explanation": "Menjembatani minat mahasiswa dengan arahan spesifik dosen pembimbing terkait topik literasi keuangan. Trade-off: Mengurangi fokus pada teknis buku kas fisik, namun memberikan perlindungan maksimal dari penolakan dosen pembimbing serta melindungi mahasiswa dari risiko responden yang malu jika tidak memiliki pembukuan rapi."
+      },
+      "academic_connection": "Relevan dengan Akuntansi Keperilakuan (Behavioral Accounting), Literasi Keuangan Entitas Mikro, dan Manajemen Keuangan Usaha Kecil.",
+      "interest_connection": "Menjawab arahan dosen tentang literasi keuangan namun tetap berada dalam kenyamanan mahasiswa melalui studi kualitatif wawancara mendalam tanpa rumus angka rumit.",
+      "data_provenance": [
+        {
+          "data_form": "Transkrip wawancara mendalam mengenai keputusan pemisahan uang usaha dan kebutuhan rumah tangga",
+          "origin": "PRIMARY_RESPONDENT",
+          "access_status": "INDICATED",
+          "methodological_note": "Data primer dari pemilik kuliner yang sudah bersedia diwawancarai tentang kebiasaan mengelola uang keluarga dan usaha."
+        },
+        {
+          "data_form": "Buku tabungan terpisah atau amplop pos keuangan fisik milik responden",
+          "origin": "PRIMARY_RESPONDENT",
+          "access_status": "NEEDS_CHECKING",
+          "methodological_note": "Metode pemisahan fisik seperti amplop atau rekening berbeda; diobservasi jika pemilik bersedia menceritakan polanya."
+        },
+        {
+          "data_form": "Laporan Survei Nasional Literasi dan Inklusi Keuangan (SNLIK) dari OJK",
+          "origin": "PUBLIC_SECONDARY",
+          "access_status": "INDICATED",
+          "methodological_note": "Data sekunder publik resmi yang memotret indeks literasi keuangan sektor UMKM di Indonesia secara makro."
+        }
+      ],
+      "research_context": {
+        "potential_actors": [
+          "Pemilik usaha kuliner",
+          "Anggota keluarga pengelola kas",
+          "Pengelola belanja dapur rumah tangga"
+        ],
+        "potential_entities": [
+          "Unit usaha mikro kuliner keluarga",
+          "Otoritas Jasa Keuangan (OJK)",
+          "Lembaga keuangan mikro lokal"
+        ],
+        "potential_documents": [
+          "Pedoman Literasi Keuangan OJK",
+          "Catatan penarikan uang pribadi (prive informal)"
+        ],
+        "potential_data_artifacts": [
+          "Frekuensi pengambilan uang kas toko untuk keluarga",
+          "Jumlah rekening bank yang digunakan",
+          "Pemahaman konsep keuntungan bersih"
+        ],
+        "potential_geographies": [
+          "Kawasan sekitar kampus perguruan tinggi",
+          "Indonesia"
+        ]
+      },
+      "scope_boundary": {
+        "in_scope": [
+          "Pemahaman dasar pemilik tentang konsep modal versus laba",
+          "Metode memisahkan uang usaha dan uang belanja dapur rumah tangga",
+          "Disiplin alokasi kas untuk membayar bahan baku pemasok"
+        ],
+        "out_of_scope": [
+          "Pengukuran kuantitatif skor literasi dengan kuesioner skala numerik",
+          "Analisis regresi ekonometrika",
+          "Pengelolaan portofolio investasi pasar modal"
+        ],
+        "boundary_note": "Fokus pada pemahaman kualitatif dan kebiasaan mental memisahkan uang, bebas dari pengujian statistik kuantitatif."
+      },
+      "phenomenon_search_brief": "Memeriksa laporan berkala OJK mengenai tingkat literasi keuangan pelaku UMKM dan fenomena pencampuran uang modal usaha dengan belanja keluarga.",
+      "phenomenon_search_directions": [
+        {
+          "label": "Kesenjangan Literasi Keuangan Usaha Mikro Menurut OJK",
+          "direction_type": "DISCREPANCY",
+          "search_question": "Bagaimana publikasi resmi OJK memotret kesenjangan antara tingginya inklusi keuangan dengan rendahnya literasi pengelolaan uang pada pelaku usaha mikro?",
+          "observable_signals": [
+            "Laporan SNLIK OJK terbaru",
+            "Data perbandingan indeks inklusi vs literasi sektor UMKM"
+          ],
+          "priority_source_types": [
+            "OFFICIAL_DATA",
+            "INSTITUTIONAL_REPORT"
+          ]
+        },
+        {
+          "label": "Fenomena Pencampuran Kas Usaha dan Kebutuhan Rumah Tangga",
+          "direction_type": "PRACTICE_CHANGE",
+          "search_question": "Apakah terdapat kajian institusional atau liputan media kredibel mengenai kebiasaan pedagang makanan mengambil uang kas toko secara langsung untuk kebutuhan mendesak keluarga?",
+          "observable_signals": [
+            "Artikel liputan tentang kehabisan modal akibat uang usaha terpakai konsumsi",
+            "Kajian pendampingan UMKM oleh dinas koperasi dan perbankan mikro"
+          ],
+          "priority_source_types": [
+            "INSTITUTIONAL_REPORT",
+            "REPUTABLE_NEWS"
+          ]
+        }
+      ],
+      "literature_search_seeds": {
+        "concepts": [
+          "Literasi keuangan usaha mikro",
+          "Akuntansi mental pemilik usaha",
+          "Pemisahan entitas ekonomi usaha mikro",
+          "Pengelolaan prive informal",
+          "Disiplin kas usaha keluarga"
+        ],
+        "keywords_id": [
+          "literasi keuangan UMKM",
+          "pemisahan keuangan pribadi dan usaha",
+          "akuntansi mental pedagang",
+          "pengelolaan kas usaha keluarga"
+        ],
+        "keywords_en": [
+          "financial literacy MSME owners",
+          "separation of business and personal finances",
+          "mental accounting microenterprises",
+          "owner withdrawal behavior"
+        ]
+      },
+      "research_shape_preview": {
+        "possible_focus": "Eksplorasi pemahaman literasi keuangan dan dinamika pemisahan kas pribadi dengan kas usaha pada pelaku UMKM kuliner.",
+        "likely_evidence_needed": [
+          "Petikan wawancara tentang pandangan uang usaha",
+          "Contoh kasus nyata saat kas usaha terpakai keperluan keluarga",
+          "Strategi mandiri pemilik dalam membatasi penarikan uang pribadi"
+        ],
+        "illustrative_title_pattern": "Pemaknaan [literasi keuangan dan pemisahan kas usaha] menurut [pemilik usaha mikro kuliner keluarga].",
+        "unresolved_before_title": [
+          "Fenomena empiris",
+          "Bukti literatur",
+          "Akses data",
+          "Objek atau cakupan",
+          "Kelayakan metodologis"
+        ],
+        "warning": "Ilustrasi bentuk judul — belum layak diajukan ke dosen."
+      },
+      "constraint_fit": {
+        "status": "SELARAS_SEMENTARA",
+        "reason": "Sangat aman terhadap batasan dosen (topik literasi keuangan) dan batasan mahasiswa (kualitatif, bebas statistik, responden kuliner sudah siap).",
+        "assumptions": [
+          "Responden bersedia menceritakan kebiasaan pembagian uang dapur dan uang toko secara terbuka",
+          "Dosen pembimbing menyetujui pendekatan literasi keuangan melalui wawancara kualitatif"
+        ],
+        "risks": [
+          "Topik uang keluarga bisa menjadi sensitif jika pewawancara kurang membangun hubungan saling percaya di awal"
+        ]
+      },
+      "constraint_fit_assessment": {
+        "data_origin_fit": "ALIGNED",
+        "fieldwork_fit": "ALIGNED",
+        "time_fit": "ALIGNED",
+        "overall": "SELARAS_SEMENTARA",
+        "reasons": [
+          "Memenuhi anjuran dosen pembimbing mengenai literasi keuangan",
+          "Murni pendekatan kualitatif dengan teknik wawancara mendalam",
+          "Tidak memerlukan kuesioner angka maupun pengujian hipotesis statistik"
+        ]
+      },
+      "unresolved_items": [
+        "Konfirmasi kesepakatan dosen terhadap metode kualitatif untuk literasi keuangan",
+        "Kesiapan responden membahas urusan keuangan dapur keluarga",
+        "Teknik penyusunan pertanyaan wawancara agar tidak terkesan menguji kecerdasan responden"
+      ],
+      "not_decided": [
+        "Judul",
+        "Variabel",
+        "Teori",
+        "Metode",
+        "Objek final",
+        "Sampel",
+        "Teknik analisis"
+      ],
+      "handoff_to_phenomenon": {
+        "area_text": "Eksplorasi pemaknaan literasi keuangan dalam praktik pemisahan uang usaha kuliner dan uang belanja rumah tangga.",
+        "actor_text": "Pemilik usaha kuliner dan pengelola belanja keluarga",
+        "entity_text": "Usaha mikro kuliner keluarga",
+        "document_text": "Laporan literasi keuangan OJK dan catatan penarikan prive informal",
+        "data_artifact_text": "Pola pembagian pos dompet kas fisik",
+        "initial_clue": "Pelaku usaha kuliner kerap merasa usahanya ramai pembeli namun modal belanja habis karena tercampur kebutuhan belanja dapur.",
+        "observable_signals": [
+          "Pengambilan uang laci kasir untuk belanja keperluan anak",
+          "Penggunaan satu rekening bank bersama untuk semua urusan"
+        ],
+        "in_scope": [
+          "Pemisahan kas usaha dan pribadi",
+          "Pemahaman nilai modal kerja"
+        ],
+        "out_of_scope": [
+          "Uji korelasi statistik literasi",
+          "Pengukuran skor literasi kuantitatif"
+        ],
+        "priority_source_types": [
+          "OFFICIAL_DATA",
+          "INSTITUTIONAL_REPORT",
+          "REPUTABLE_NEWS"
+        ]
+      }
+    }
+  ],
+  "comparison": [
+    {
+      "area_id": "A01",
+      "interest_fit": "SANGAT_DEKAT",
+      "study_program_fit": "KUAT",
+      "data_fit": "SELARAS_SEMENTARA",
+      "collection_burden": "RENDAH_SEMENTARA",
+      "methodological_uncertainty": "RENDAH",
+      "main_check_next": "Memeriksa apakah pemilik usaha kuliner memiliki buku catatan fisik atau semata-mata mengandalkan ingatan kasir."
+    },
+    {
+      "area_id": "A02",
+      "interest_fit": "DEKAT",
+      "study_program_fit": "KUAT",
+      "data_fit": "SELARAS_SEMENTARA",
+      "collection_burden": "RENDAH_SEMENTARA",
+      "methodological_uncertainty": "SEDANG",
+      "main_check_next": "Memeriksa apakah responden rutin membuka aplikasi mutasi QRIS untuk merekonsiliasi uang kas harian."
+    },
+    {
+      "area_id": "A03",
+      "interest_fit": "CUKUP_DEKAT",
+      "study_program_fit": "KUAT",
+      "data_fit": "SELARAS_SEMENTARA",
+      "collection_burden": "RENDAH_SEMENTARA",
+      "methodological_uncertainty": "SEDANG",
+      "main_check_next": "Memastikan dosen pembimbing sepakat bahwa isu literasi keuangan dieksplorasi secara kualitatif tanpa uji statistika."
+    }
+  ],
+  "selection_guidance": [
+    "Pertimbangkan Area A01 jika Anda ingin mempertahankan minat awal murni pada pencatatan transaksi manual dan pembukuan kas warung makan.",
+    "Pertimbangkan Area A02 jika Anda menginginkan objek yang sangat mudah diamati dan memiliki bukti fisik konkret berupa mutasi QRIS yang kini terpasang di hampir semua warung sekitar kampus.",
+    "Pertimbangkan Area A03 jika prioritas utama Anda adalah menyelaraskan riset dengan anjuran dosen pembimbing terkait literasi keuangan, tanpa harus berhadapan dengan rumus statistika kuantitatif."
+  ]
+}
+=== END SKRIFLOW_IDEA_V3 ===
