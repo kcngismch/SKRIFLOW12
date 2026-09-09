@@ -47,28 +47,26 @@ function removeStorageItem(key: string): void {
   delete memoryStorage[key];
 }
 
+const FNV_OFFSET_BASIS_64 = 14695981039346656037n;
+const FNV_PRIME_64 = 1099511628211n;
+const MASK_64 = 0xffffffffffffffffn;
+
 /**
- * Menghitung hash SHA-256 (hex lowercase) dari kode akses.
+ * Menghitung hash FNV-1a 64-bit (hex lowercase 16 karakter) dari kode akses.
  * Kode di-trim dan di-normalize ke UPPERCASE (format SKRIFLOW-XXXX-XXXX).
- * Menggunakan browser native Web Crypto API (crypto.subtle.digest).
+ * Pure JS (BigInt), aman berjalan di insecure context (HTTP).
  */
-export async function hashCode(code: string): Promise<string> {
+export function hashCode(code: string): string {
   const normalized = (code || "").trim().toUpperCase();
-  const encoder = new TextEncoder();
-  const data = encoder.encode(normalized);
+  const bytes = new TextEncoder().encode(normalized);
+  let hash = FNV_OFFSET_BASIS_64;
 
-  const cryptoObj =
-    typeof window !== "undefined" && window.crypto?.subtle
-      ? window.crypto
-      : globalThis.crypto;
-
-  if (!cryptoObj?.subtle) {
-    throw new Error("Web Crypto API (crypto.subtle) tidak tersedia.");
+  for (let i = 0; i < bytes.length; i++) {
+    hash ^= BigInt(bytes[i]);
+    hash = (hash * FNV_PRIME_64) & MASK_64;
   }
 
-  const hashBuffer = await cryptoObj.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("").toLowerCase();
+  return hash.toString(16).padStart(16, "0");
 }
 
 /**
@@ -114,7 +112,7 @@ export async function activatePass(code: string): Promise<boolean> {
   }
 
   try {
-    const hash = await hashCode(code);
+    const hash = hashCode(code);
     if (VALID_ACCESS_HASHES.includes(hash)) {
       const record: PassRecord = {
         hash,

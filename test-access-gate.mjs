@@ -21,37 +21,37 @@ console.log("=== Test Suite: Skriflow Access Gate (Pass v1) ===");
 // ---------------------------------------------------------------------------
 // 1. DETERMINISTIC HASH CODE
 // ---------------------------------------------------------------------------
-await test("hashCode menghasilkan SHA-256 hex lowercase 64-karakter secara deterministik", async () => {
+await test("hashCode menghasilkan FNV-1a 64-bit hex lowercase 16-karakter secara deterministik", () => {
   const code = "SKRIFLOW-DEMO-2026-0001";
-  const hash1 = await hashCode(code);
-  const hash2 = await hashCode(code);
+  const hash1 = hashCode(code);
+  const hash2 = hashCode(code);
 
   assert.strictEqual(typeof hash1, "string");
-  assert.strictEqual(hash1.length, 64);
-  assert.match(hash1, /^[0-9a-f]{64}$/);
+  assert.strictEqual(hash1.length, 16);
+  assert.match(hash1, /^[0-9a-f]{16}$/);
   assert.strictEqual(hash1, hash2, "Hash harus deterministik pada input yang sama");
 });
 
 // ---------------------------------------------------------------------------
 // 2. NORMALISASI (LOWERCASE & SPASI)
 // ---------------------------------------------------------------------------
-await test("hashCode menormalisasi lowercase dan whitespace (spasi, tab, newline)", async () => {
+await test("hashCode menormalisasi lowercase dan whitespace (spasi, tab, newline)", () => {
   const canonical = "SKRIFLOW-DEMO-2026-0001";
-  const baseHash = await hashCode(canonical);
+  const baseHash = hashCode(canonical);
 
-  const lowerHash = await hashCode("skriflow-demo-2026-0001");
+  const lowerHash = hashCode("skriflow-demo-2026-0001");
   assert.strictEqual(lowerHash, baseHash, "Kode lowercase harus menghasilkan hash yang sama");
 
-  const spacedHash = await hashCode("   SKRIFLOW-DEMO-2026-0001   ");
+  const spacedHash = hashCode("   SKRIFLOW-DEMO-2026-0001   ");
   assert.strictEqual(spacedHash, baseHash, "Kode dengan spasi di awal/akhir harus menghasilkan hash yang sama");
 
-  const mixedHash = await hashCode("\t\n  skriflow-demo-2026-0001 \r\n  ");
+  const mixedHash = hashCode("\t\n  skriflow-demo-2026-0001 \r\n  ");
   assert.strictEqual(mixedHash, baseHash, "Kode lowercase dengan ragam whitespace harus tetap cocok");
 
   // Cocok dengan hash yang tersimpan di config
   assert.strictEqual(baseHash, VALID_ACCESS_HASHES[0], "Hash demo 1 harus cocok dengan config");
 
-  const demo2Hash = await hashCode("skriflow-demo-2026-0002");
+  const demo2Hash = hashCode("skriflow-demo-2026-0002");
   assert.strictEqual(demo2Hash, VALID_ACCESS_HASHES[1], "Hash demo 2 harus cocok dengan config");
 });
 
