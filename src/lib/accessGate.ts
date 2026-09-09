@@ -47,9 +47,9 @@ function removeStorageItem(key: string): void {
   delete memoryStorage[key];
 }
 
-const FNV_OFFSET_BASIS_64 = 14695981039346656037n;
-const FNV_PRIME_64 = 1099511628211n;
-const MASK_64 = 0xffffffffffffffffn;
+const FNV_OFFSET_BASIS_64 = BigInt("14695981039346656037");
+const FNV_PRIME_64 = BigInt("1099511628211");
+const MASK_64 = BigInt("18446744073709551615");
 
 /**
  * Menghitung hash FNV-1a 64-bit (hex lowercase 16 karakter) dari kode akses.
