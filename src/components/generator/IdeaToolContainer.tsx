@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useSyncExternalStore, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useRef, useSyncExternalStore, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import {
   Tool,
@@ -194,6 +194,14 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
   const recommendationPanelRef = useRef<HTMLDivElement | null>(null);
   const recommendationHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const areaCardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const outputPanelRef = useRef<HTMLDivElement | null>(null);
+
+  // Auto-scroll to output panel on mobile (< 1024px) after prompt generation
+  useEffect(() => {
+    if (generatedPrompt && window.innerWidth < 1024) {
+      outputPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [generatedPrompt]);
 
   // Rejection & Alternative Prompt States
   const [rejectionRounds, setRejectionRounds] = useState<RejectedAreaRound[]>(() => {
@@ -1266,7 +1274,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
           </div>
 
           {/* Right Panel: Prompt Output */}
-          <div className="lg:col-span-6">
+          <div ref={outputPanelRef} id="tool-output-panel" className="lg:col-span-6">
             <div className="flex h-full flex-col justify-between rounded-xl border border-[#273352] bg-[#11182D] p-5 sm:p-6">
               <div>
                 <div className="flex items-center justify-between border-b border-[#273352]/70 pb-3">

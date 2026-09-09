@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useSyncExternalStore, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useRef, useSyncExternalStore, useMemo, useCallback } from "react";
 import { Tool } from "@/types/tool";
 import { InteractiveForm } from "./InteractiveForm";
 import { PromptOutputPanel } from "./PromptOutputPanel";
@@ -55,6 +55,15 @@ export const ToolGeneratorContainer: React.FC<ToolGeneratorContainerProps> = ({
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [generatedPrompt, setGeneratedPrompt] = useState<string | null>(null);
+
+  // Auto-scroll to output panel on mobile (< 1024px) after prompt generation
+  const outputPanelRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (generatedPrompt && window.innerWidth < 1024) {
+      outputPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [generatedPrompt]);
 
   // Field change handler with auto-save to localStorage
   const handleFieldChange = useCallback(
@@ -137,7 +146,7 @@ export const ToolGeneratorContainer: React.FC<ToolGeneratorContainerProps> = ({
         </div>
 
         {/* Right Panel: Active Prompt Output */}
-        <div className="lg:col-span-6">
+        <div ref={outputPanelRef} id="tool-output-panel" className="lg:col-span-6">
           <PromptOutputPanel
             prompt={generatedPrompt}
             platform={tool.targetPlatform}

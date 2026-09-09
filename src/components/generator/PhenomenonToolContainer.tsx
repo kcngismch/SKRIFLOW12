@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useSyncExternalStore, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useRef, useSyncExternalStore, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -254,6 +254,15 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
   // UI States
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [generatedPrompt, setGeneratedPrompt] = useState<string | null>(null);
+
+  // Refs and auto-scroll to output panel on mobile (< 1024px) after prompt generation
+  const outputPanelRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (generatedPrompt && window.innerWidth < 1024) {
+      outputPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [generatedPrompt]);
   const [copiedMain, setCopiedMain] = useState(false);
   const [copiedFixPrompt, setCopiedFixPrompt] = useState(false);
   const [copiedFixUrlPrompt, setCopiedFixUrlPrompt] = useState(false);
@@ -1277,7 +1286,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
           </div>
 
           {/* Right Panel: Prompt Output */}
-          <div className="lg:col-span-6">
+          <div ref={outputPanelRef} id="tool-output-panel" className="lg:col-span-6">
             <div className="flex h-full flex-col justify-between rounded-xl border border-[#273352] bg-[#11182D] p-5 sm:p-6">
               {generatedPrompt ? (
                 <div className="flex h-full flex-col justify-between space-y-4">
