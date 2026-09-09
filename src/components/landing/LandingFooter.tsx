@@ -79,7 +79,7 @@ export const LandingFooter: React.FC = () => {
 
             <div className="space-y-2">
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#FFF9EE]">
-                Aplikasi
+                Aplikasi &amp; Etika
               </span>
               <ul className="space-y-1.5">
                 <li>
@@ -90,6 +90,14 @@ export const LandingFooter: React.FC = () => {
                     Coba Tools →
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/etika"
+                    className="text-[#AAB4D0] hover:text-[#FFF9EE] transition-colors focus-visible:ring-2 focus-visible:ring-[#2959FF] rounded px-1"
+                  >
+                    Deklarasi AI &amp; Etika
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -98,7 +106,13 @@ export const LandingFooter: React.FC = () => {
         {/* Academic Disclaimer & Copyright */}
         <div className="mt-10 border-t border-[#273352]/70 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px]">
           <p className="text-[#AAB4D0]/80 max-w-xl text-center md:text-left">
-            <strong className="text-[#FFF9EE]">Disclaimer:</strong> SKRIFLOW adalah alat bantu penyusunan prompt, bukan pengganti dosen pembimbing atau verifikasi akademik.
+            <strong className="text-[#FFF9EE]">Disclaimer:</strong> SKRIFLOW adalah alat bantu penyusunan prompt, bukan pengganti dosen pembimbing atau verifikasi akademik.{" "}
+            <Link
+              href="/etika"
+              className="text-[#70E1B6] underline hover:text-[#FFF9EE] transition-colors focus-visible:ring-2 focus-visible:ring-[#2959FF] rounded px-0.5"
+            >
+              Baca Deklarasi AI &amp; Etika
+            </Link>
           </p>
 
           <p className="text-[#AAB4D0]/60 shrink-0">
