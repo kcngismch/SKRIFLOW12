@@ -6,6 +6,7 @@ import { ToolGeneratorContainer } from "./generator/ToolGeneratorContainer";
 import { IdeaToolContainer } from "./generator/IdeaToolContainer";
 import { PhenomenonToolContainer } from "./generator/PhenomenonToolContainer";
 import { BedahToolContainer } from "./generator/BedahToolContainer";
+import { AccessGate } from "./generator/AccessGate";
 import { ToolStepper } from "./generator/ToolStepper";
 import {
   ArrowLeft,
@@ -91,15 +92,19 @@ export const ToolDetailShell: React.FC<ToolDetailShellProps> = ({ tool }) => {
         </div>
       </div>
 
-      {/* Active Container */}
-      {tool.slug === "cari-ide-skripsi" ? (
+      {/* Active Container: Tool 1 gratis, Tool 2-4 diproteksi AccessGate */}
+      {tool.id === "tool-1" || tool.slug === "cari-ide-skripsi" ? (
         <IdeaToolContainer tool={tool} />
-      ) : tool.slug === "cari-fenomena-awal" || tool.slug === "cari-validasi-fenomena" ? (
-        <PhenomenonToolContainer tool={tool} />
-      ) : tool.slug === "bedah-hasil-notebooklm" ? (
-        <BedahToolContainer tool={tool} />
       ) : (
-        <ToolGeneratorContainer key={tool.slug} tool={tool} />
+        <AccessGate>
+          {tool.slug === "cari-fenomena-awal" || tool.slug === "cari-validasi-fenomena" ? (
+            <PhenomenonToolContainer tool={tool} />
+          ) : tool.slug === "bedah-hasil-notebooklm" ? (
+            <BedahToolContainer tool={tool} />
+          ) : (
+            <ToolGeneratorContainer key={tool.slug} tool={tool} />
+          )}
+        </AccessGate>
       )}
     </div>
   );
