@@ -319,7 +319,7 @@ Untuk setiap area:
    * in_scope: 2–6 hal yang masuk batasan;
    * out_of_scope: 2–6 hal yang berada di luar batasan;
    * boundary_note: catatan batas yang jelas.
-9. Buat 2–4 arah pencarian fenomena empiris (phenomenon_search_directions) yang mencari kondisi dunia nyata dari sumber eksternal yang sudah tersedia. Arah fenomena tidak boleh meminta mahasiswa menghasilkan output AI, menjalankan prompt, membuat simulasi, melakukan scoring/coding, menyurvei responden, atau membandingkan data yang baru akan dibuat. DILARANG menanyakan penelitian terdahulu, literatur, jurnal, teori, atau research gap pada arah fenomena.
+9. WAJIB membuat 2–4 arah (array \`phenomenon_search_directions\` berisi MINIMAL 2 dan MAKSIMAL 4 objek; kurang dari 2 akan DITOLAK parser) yang mencari kondisi dunia nyata dari sumber eksternal yang sudah tersedia. Arah fenomena tidak boleh meminta mahasiswa menghasilkan output AI, menjalankan prompt, membuat simulasi, melakukan scoring/coding, menyurvei responden, atau membandingkan data yang baru akan dibuat. DILARANG menanyakan penelitian terdahulu, literatur, jurnal, teori, atau research gap pada arah fenomena.
 10. Pisahkan bibit pencarian literatur (Literature Search Seeds) untuk tahap berikutnya:
     * concepts: maksimal 8 konsep teoretis/akademis;
     * keywords_id: maksimal 10 kata kunci bahasa Indonesia;
@@ -406,7 +406,14 @@ Keluarkan tepat satu blok transfer JSON berikut secara utuh tanpa teks atau penj
       "phenomenon_search_directions": [
         {
           "label": "Arah 1",
-          "direction_type": "ADOPTION|PRACTICE_CHANGE|OUTPUT_BEHAVIOR|ACCURACY_RELIABILITY|REGULATION|MARKET_PATTERN|DISCLOSURE_USE|DISCREPANCY|OTHER_OBSERVABLE",
+          "direction_type": "MARKET_PATTERN",
+          "search_question": "Pertanyaan pemeriksaan empiris nyata (bukan literatur/teori/eksperimen baru)",
+          "observable_signals": ["Sinyal atau indikasi empiris teramati"],
+          "priority_source_types": ["OFFICIAL_DATA|REGULATION|INSTITUTIONAL_REPORT|EMPIRICAL_ARTICLE|WORKING_PAPER|REPUTABLE_NEWS"]
+        },
+        {
+          "label": "Arah 2",
+          "direction_type": "DISCLOSURE_USE",
           "search_question": "Pertanyaan pemeriksaan empiris nyata (bukan literatur/teori/eksperimen baru)",
           "observable_signals": ["Sinyal atau indikasi empiris teramati"],
           "priority_source_types": ["OFFICIAL_DATA|REGULATION|INSTITUTIONAL_REPORT|EMPIRICAL_ARTICLE|WORKING_PAPER|REPUTABLE_NEWS"]
