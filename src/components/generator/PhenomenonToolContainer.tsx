@@ -856,7 +856,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
   const getQualityBadge = (level: string) => {
     const info = getStudentStatus(level);
     return (
-      <span className={`rounded px-1.5 py-0.5 text-[10px] font-semibold ${info.badgeClass}`}>
+      <span className={`rounded px-1.5 py-0.5 text-[12px] font-semibold ${info.badgeClass}`}>
         {info.label}
       </span>
     );
@@ -959,8 +959,8 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   <div className="flex items-center justify-between gap-3 rounded-lg border border-[#273352] bg-[#080D1D] p-3 text-xs text-[#FFF9EE]">
                     <div className="flex items-center gap-2.5">
                       <CheckCircle2 className="h-4 w-4 text-[#70E1B6] shrink-0" aria-hidden="true" />
-                      <div className="text-[11px] space-y-0.5">
-                        <span className="text-[#AAB4D0] block text-[10px] uppercase tracking-wider">
+                      <div className="text-[13px] space-y-0.5">
+                        <span className="text-[#AAB4D0] block text-[12px] uppercase tracking-wider">
                           Data dari Cari Ide Skripsi
                         </span>
                         <span className="font-semibold text-[#FFF9EE]">
@@ -972,7 +972,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       type="button"
                       onClick={handleRefreshFromT1}
                       title="Sinkronkan ulang data"
-                      className="inline-flex items-center gap-1 rounded border border-[#273352] px-2 py-1 text-[10px] text-[#AAB4D0] hover:text-[#FFF9EE] hover:border-[#70E1B6] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 rounded border border-[#273352] px-2 py-1 text-[12px] text-[#AAB4D0] hover:text-[#FFF9EE] hover:border-[#70E1B6] transition-colors cursor-pointer"
                     >
                       <RotateCw className="h-3 w-3 text-[#70E1B6]" />
                       <span>Sinkronkan Ulang</span>
@@ -1021,7 +1021,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                             {/* V3 Research Context */}
                             {"researchContext" in selectedExplorationArea && selectedExplorationArea.researchContext ? (
-                              <div className="space-y-1.5 pt-1 text-[11px]">
+                              <div className="space-y-1.5 pt-1 text-[13px]">
                                 {selectedExplorationArea.researchContext.potentialActors.length > 0 && (
                                   <p>
                                     <strong className="text-[#70E1B6]">Siapa yang berkaitan:</strong>{" "}
@@ -1062,7 +1062,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                             {/* V3 Scope Boundary */}
                             {"scopeBoundary" in selectedExplorationArea && selectedExplorationArea.scopeBoundary && (
-                              <div className="text-[11px] space-y-1 bg-[#11182D] p-2 rounded border border-[#273352]">
+                              <div className="text-[13px] space-y-1 bg-[#11182D] p-2 rounded border border-[#273352]">
                                 <p>
                                   <strong className="text-[#70E1B6]">In-Scope:</strong>{" "}
                                   {selectedExplorationArea.scopeBoundary.inScope.join(", ")}
@@ -1083,7 +1083,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             {selectedExplorationArea.phenomenonSearchDirections.length > 0 && (
                               <div>
                                 <strong className="text-[#FFF9EE] block mb-1">Arah Pencarian Fenomena:</strong>
-                                <ul className="list-disc list-inside space-y-1 text-[11px]">
+                                <ul className="list-disc list-inside space-y-1 text-[13px]">
                                   {selectedExplorationArea.phenomenonSearchDirections.map((dir: { label: string; searchQuestion: string }, idx: number) => (
                                     <li key={idx}>
                                       <span className="text-[#70E1B6]">{dir.label}:</span> {dir.searchQuestion}
@@ -1124,7 +1124,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                           <p><strong className="text-[#FFF9EE]">Arahan dosen:</strong> {t1Data.supervisor_direction}</p>
                         )}
 
-                        <div className="rounded border border-[#F5A623]/30 bg-[#F5A623]/10 p-2.5 text-[11px] text-[#FFF9EE] leading-relaxed">
+                        <div className="rounded border border-[#F5A623]/30 bg-[#F5A623]/10 p-2.5 text-[13px] text-[#FFF9EE] leading-relaxed">
                           <strong>Peringatan Akademik:</strong> Arah pencarian ini bukan fenomena yang sudah terbukti. Tool Cari Fenomena tetap harus mencari dan memeriksa sumber bukti nyata.
                         </div>
 
@@ -1164,7 +1164,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                 *
                               </span>
                             ) : (
-                              <span className="text-[10px] font-normal text-[#AAB4D0]">
+                              <span className="text-[12px] font-normal text-[#AAB4D0]">
                                 (Opsional)
                               </span>
                             )}
@@ -1172,7 +1172,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                           {field.maxLength && (
                             <span
-                              className={`text-[10px] font-mono ${
+                              className={`text-[12px] font-mono ${
                                 Array.from(value).length > field.maxLength
                                   ? "text-[#FF6F61] font-bold"
                                   : Array.from(value).length >= field.maxLength * 0.8
@@ -1240,20 +1240,20 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                         {/* 80% Character Limit Warning */}
                         {field.maxLength && Array.from(value).length >= field.maxLength * 0.8 && Array.from(value).length <= field.maxLength && (
-                          <div className="flex items-center gap-1.5 text-[10px] text-amber-400/90 animate-in fade-in duration-150">
+                          <div className="flex items-center gap-1.5 text-[12px] text-amber-400/90 animate-in fade-in duration-150">
                             <AlertTriangle className="h-3 w-3 shrink-0" aria-hidden="true" />
                             <span>Batas ini disesuaikan dengan langkah berikutnya agar kamu tidak perlu menghapus atau meringkas ulang.</span>
                           </div>
                         )}
 
                         {fieldError && (
-                          <p id={errorId} className="text-[11px] font-medium text-[#FF6F61]">
+                          <p id={errorId} className="text-[13px] font-medium text-[#FF6F61]">
                             {fieldError}
                           </p>
                         )}
 
                         {field.helperText && !fieldError && (
-                          <p id={helperId} className="text-[11px] leading-normal text-[#AAB4D0]">
+                          <p id={helperId} className="text-[13px] leading-normal text-[#AAB4D0]">
                             {field.helperText}
                           </p>
                         )}
@@ -1295,7 +1295,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       <span className="text-xs font-bold uppercase tracking-wider text-[#70E1B6]">
                         Hasil Template Prompt
                       </span>
-                      <div className="flex items-center gap-2 text-[11px] text-[#AAB4D0]">
+                      <div className="flex items-center gap-2 text-[13px] text-[#AAB4D0]">
                         <span>{Array.from(generatedPrompt).length} Karakter</span>
                         <span>•</span>
                         <span>{generatedPrompt.trim().split(/\s+/).length} Kata</span>
@@ -1360,7 +1360,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       </button>
                     </div>
 
-                    <p className="text-[11px] leading-relaxed text-[#AAB4D0]">
+                    <p className="text-[13px] leading-relaxed text-[#AAB4D0]">
                       Prompt telah disalin. Tempelkan di platform ChatGPT atau Gemini dengan pencarian web aktif, lalu salin seluruh hasilnya ke <strong>Tahap 2</strong> di bawah.
                     </p>
                   </div>
@@ -1429,7 +1429,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-[#FFF9EE]">Status Struktur:</span>
                     <span
-                      className={`rounded px-2 py-0.5 text-[11px] font-bold ${
+                      className={`rounded px-2 py-0.5 text-[13px] font-bold ${
                         parseResult.structuralStatus === "Struktur lengkap" ||
                         parseResult.structuralStatus === "Valid dengan perbaikan format"
                           ? "bg-[#70E1B6]/15 text-[#70E1B6] border border-[#70E1B6]/30"
@@ -1443,7 +1443,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   </div>
 
                   {parseResult.warnings.length > 0 && !parseResult.urlCorrections && (
-                    <span className="text-[11px] text-[#F5A623]">
+                    <span className="text-[13px] text-[#F5A623]">
                       {parseResult.warnings.join("; ")}
                     </span>
                   )}
@@ -1459,7 +1459,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                     <p className="text-xs text-[#AAB4D0] leading-relaxed">
                       Beberapa URL ditulis AI dalam format Markdown dan telah diubah menjadi URL mentah. Isi sumber tidak diubah.
                     </p>
-                    <ul className="list-disc list-inside space-y-1 text-[11px] text-[#FFF9EE]/90 pt-1">
+                    <ul className="list-disc list-inside space-y-1 text-[13px] text-[#FFF9EE]/90 pt-1">
                       {parseResult.urlCorrections.map((corr, idx) => (
                         <li key={idx}>
                           <span className="font-semibold text-[#70E1B6]">
@@ -1642,7 +1642,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   <h3 className="text-xs font-bold uppercase tracking-wider text-[#70E1B6]">
                     Perbandingan Kandidat Fenomena
                   </h3>
-                  <span className="text-[11px] text-[#AAB4D0]">
+                  <span className="text-[13px] text-[#AAB4D0]">
                     {parseResult.payload.candidates.length} Kandidat Ditemukan
                   </span>
                 </div>
@@ -1733,10 +1733,10 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             {cand.id}
                           </span>
                           <h3 className="text-base font-bold text-[#FFF9EE]">{cand.name}</h3>
-                          <span className="rounded bg-[#273352] px-2 py-0.5 text-[10px] font-semibold text-[#AAB4D0]">
+                          <span className="rounded bg-[#273352] px-2 py-0.5 text-[12px] font-semibold text-[#AAB4D0]">
                             {getStudentLabel(cand.phenomenon_type)}
                           </span>
-                          <span className="rounded border border-[#273352] bg-[#080D1D] px-2 py-0.5 text-[10px] font-medium text-[#70E1B6]">
+                          <span className="rounded border border-[#273352] bg-[#080D1D] px-2 py-0.5 text-[12px] font-medium text-[#70E1B6]">
                             {cand.evidence.length} bukti • {uniqueCount} sumber unik
                           </span>
                         </div>
@@ -1779,7 +1779,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                           </p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-lg border border-[#273352]/70 bg-[#080D1D]/50 p-3 text-[11px]">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-lg border border-[#273352]/70 bg-[#080D1D]/50 p-3 text-[13px]">
                           <div>
                             <span className="text-[#AAB4D0] block mb-0.5">Objek / Populasi:</span>
                             {(() => {
@@ -1867,11 +1867,11 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                   <div className="flex flex-wrap items-start justify-between gap-2 border-b border-[#273352]/60 pb-2">
                                     <div className="space-y-1">
                                       <div className="flex flex-wrap items-center gap-2">
-                                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#70E1B6]">
+                                        <span className="text-[12px] font-bold uppercase tracking-wider text-[#70E1B6]">
                                           Bukti #{idx + 1} • {getStudentLabel(ev.source_type)}
                                         </span>
                                         {isSharedSource && (
-                                          <span className="inline-flex items-center gap-1 rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 text-[10px] font-semibold text-[#70E1B6]">
+                                          <span className="inline-flex items-center gap-1 rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 text-[12px] font-semibold text-[#70E1B6]">
                                             Sumber yang sama
                                           </span>
                                         )}
@@ -1879,7 +1879,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                       <h4 className="text-xs font-bold text-[#FFF9EE] mt-0.5">
                                         {ev.source_title}
                                       </h4>
-                                      <span className="text-[11px] text-[#AAB4D0] block">
+                                      <span className="text-[13px] text-[#AAB4D0] block">
                                         {ev.publisher_or_institution} ({ev.publication_date || "Tanggal tidak tercantum"})
                                       </span>
                                     </div>
@@ -1889,7 +1889,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                         href={safeHref(ev.url) as string}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1 rounded-md border border-[#2959FF] bg-[#2959FF]/10 px-2.5 py-1 text-[11px] font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/25 transition-colors focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+                                        className="inline-flex items-center gap-1 rounded-md border border-[#2959FF] bg-[#2959FF]/10 px-2.5 py-1 text-[13px] font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/25 transition-colors focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
                                       >
                                         <span>Buka Sumber</span>
                                         <ExternalLink className="h-3 w-3 text-[#70E1B6]" aria-hidden="true" />
@@ -1897,7 +1897,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                     )}
                                   </div>
 
-                                  <div className="space-y-1.5 text-[11px] leading-relaxed text-[#AAB4D0]">
+                                  <div className="space-y-1.5 text-[13px] leading-relaxed text-[#AAB4D0]">
                                     <p><strong className="text-[#FFF9EE]">Klaim Bukti:</strong> {ev.claim}</p>
                                     {ev.observed_data_or_event && (
                                       <p><strong className="text-[#FFF9EE]">Data/Peristiwa:</strong> {ev.observed_data_or_event}</p>
@@ -1941,7 +1941,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       </div>
 
                       {/* Triangulation & What is not proven */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px] text-[#AAB4D0]">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] text-[#AAB4D0]">
                         {cand.triangulation_note && (
                           <div className="rounded-lg bg-[#080D1D] p-3">
                             <span className="font-semibold text-[#FFF9EE] block mb-1">Catatan Triangulasi:</span>
@@ -2027,7 +2027,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                     </div>
 
                     {!confirmationGateStatus.canSave && (
-                      <p className="text-[11px] text-[#F5A623]">
+                      <p className="text-[13px] text-[#F5A623]">
                         {confirmationGateStatus.reason}
                       </p>
                     )}

@@ -777,21 +777,21 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
         {/* Summary Context Cards */}
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div className="rounded-xl border border-[#273352]/80 bg-[#080D1D] p-4">
-            <span className="text-[11px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
+            <span className="text-[13px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
               Program Studi
             </span>
             <p className="mt-1 text-sm font-bold text-[#FFF9EE]">{prodi || "Belum ditentukan"}</p>
           </div>
 
           <div className="rounded-xl border border-[#273352]/80 bg-[#080D1D] p-4 sm:col-span-2">
-            <span className="text-[11px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
+            <span className="text-[13px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
               Area Eksplorasi
             </span>
             <p className="mt-1 text-sm font-bold text-[#FFF9EE]">{areaEksplorasi || "Belum ditentukan"}</p>
           </div>
 
           <div className="rounded-xl border border-[#273352]/80 bg-[#080D1D] p-4">
-            <span className="text-[11px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
+            <span className="text-[13px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
               Pendekatan Disukai
             </span>
             <p className="mt-1 text-xs text-[#FFF9EE]">
@@ -800,7 +800,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
           </div>
 
           <div className="rounded-xl border border-[#273352]/80 bg-[#080D1D] p-4">
-            <span className="text-[11px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
+            <span className="text-[13px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
               Data Nyaman
             </span>
             <p className="mt-1 text-xs text-[#FFF9EE]">
@@ -809,7 +809,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
           </div>
 
           <div className="rounded-xl border border-[#273352]/80 bg-[#080D1D] p-4">
-            <span className="text-[11px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
+            <span className="text-[13px] font-semibold tracking-wider text-[#AAB4D0]/70 uppercase">
               Akses Data & Waktu
             </span>
             <p className="mt-1 text-xs text-[#FFF9EE]">
@@ -823,7 +823,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
         <div className="mt-6 rounded-xl border border-[#273352] bg-[#080D1D] p-5">
           <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
             <div>
-              <span className="text-[11px] font-semibold tracking-wider text-[#70E1B6] uppercase">
+              <span className="text-[13px] font-semibold tracking-wider text-[#70E1B6] uppercase">
                 {phenomenonBasisStatus === "VERIFIED_REAL_WORLD"
                   ? "Fenomena yang Sudah Dicek"
                   : phenomenonBasisStatus === "LITERATURE_INDICATED"
@@ -870,16 +870,16 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                     <div key={idx} className="rounded-lg border border-[#273352]/60 bg-[#11182D] p-3 text-xs text-[#AAB4D0]">
                       <div className="flex items-center justify-between text-[#FFF9EE] font-semibold">
                         <span>{ev.sourceTitle || `Bukti #${idx + 1}`}</span>
-                        {ev.referencePeriod && <span className="text-[11px] text-[#70E1B6]">{ev.referencePeriod}</span>}
+                        {ev.referencePeriod && <span className="text-[13px] text-[#70E1B6]">{ev.referencePeriod}</span>}
                       </div>
                       {ev.claim && <p className="mt-1 text-[#FFF9EE]">{ev.claim}</p>}
-                      {ev.observedDataOrEvent && <p className="mt-1 text-[11px] text-[#AAB4D0]">{ev.observedDataOrEvent}</p>}
+                      {ev.observedDataOrEvent && <p className="mt-1 text-[13px] text-[#AAB4D0]">{ev.observedDataOrEvent}</p>}
                       {ev.url && safeHref(ev.url) && (
                         <a
                           href={safeHref(ev.url) as string}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-2 inline-flex items-center gap-1 text-[11px] text-[#2959FF] hover:underline"
+                          className="mt-2 inline-flex items-center gap-1 text-[13px] text-[#2959FF] hover:underline"
                         >
                           <ExternalLink className="h-3 w-3" />
                           <span>Buka Tautan Sumber</span>
@@ -1384,11 +1384,11 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                         <div className="flex items-start justify-between gap-2">
                           <div className="space-y-1">
                             <div className="flex flex-wrap items-center gap-2">
-                              <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-[11px] font-bold text-[#70E1B6]">
+                              <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-[13px] font-bold text-[#70E1B6]">
                                 {dir.id}
                               </span>
                               {dir.conditional_badge && (
-                                <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold ${badgeClass}`}>
+                                <span className={`rounded-full px-2.5 py-0.5 text-[12px] font-bold ${badgeClass}`}>
                                   {dir.conditional_badge}
                                 </span>
                               )}
@@ -1399,7 +1399,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                             {(() => {
                               const readInfo = getStudentStatus(dir.readiness);
                               return (
-                                <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold ${readInfo.badgeClass}`}>
+                                <span className={`rounded-full px-2.5 py-0.5 text-[12px] font-bold ${readInfo.badgeClass}`}>
                                   {readInfo.label}
                                 </span>
                               );
@@ -1411,7 +1411,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                         <div className="space-y-2 text-xs text-[#AAB4D0] leading-relaxed">
                           <p>{dir.problem_focus}</p>
                           {dir.phenomenon_connection && (
-                            <div className="rounded-lg bg-[#11182D] p-2.5 text-[11px]">
+                            <div className="rounded-lg bg-[#11182D] p-2.5 text-[13px]">
                               <span className="font-semibold text-[#70E1B6]">Hubungan dengan Fenomena: </span>
                               <span className="text-[#FFF9EE]">{dir.phenomenon_connection}</span>
                             </div>
@@ -1420,7 +1420,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
 
                         {/* Measurement Focus */}
                         {dir.measurement_focus && (
-                          <div className="rounded-lg bg-[#11182D] p-2.5 text-[11px] text-[#AAB4D0] space-y-1">
+                          <div className="rounded-lg bg-[#11182D] p-2.5 text-[13px] text-[#AAB4D0] space-y-1">
                             <div>
                               <span className="font-semibold text-[#FFF9EE]">Ukuran/Hasil Utama: </span>
                               <span className="font-bold text-[#70E1B6]">{dir.measurement_focus.primary_outcome}</span>
@@ -1432,7 +1432,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               </div>
                             )}
                             {dir.measurement_focus.non_equivalence_note && (
-                              <p className="text-[10px] text-amber-300/90 italic pt-0.5">
+                              <p className="text-[12px] text-amber-300/90 italic pt-0.5">
                                 * {dir.measurement_focus.non_equivalence_note}
                               </p>
                             )}
@@ -1441,11 +1441,11 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
 
                         {/* Claim Boundary */}
                         {dir.claim_boundary && (
-                          <div className="rounded-lg border border-[#273352]/60 bg-[#11182D]/80 p-2.5 text-[11px] space-y-1.5">
+                          <div className="rounded-lg border border-[#273352]/60 bg-[#11182D]/80 p-2.5 text-[13px] space-y-1.5">
                             <span className="font-semibold text-[#FFF9EE] block">Batas Klaim yang Aman:</span>
                             {dir.claim_boundary.safe_to_say.length > 0 && (
                               <div className="text-[#70E1B6]">
-                                <span className="text-[10px] uppercase font-bold text-[#70E1B6]/70 block">Aman Dinyatakan:</span>
+                                <span className="text-[12px] uppercase font-bold text-[#70E1B6]/70 block">Aman Dinyatakan:</span>
                                 <ul className="list-disc pl-3.5 space-y-0.5">
                                   {dir.claim_boundary.safe_to_say.map((s, idx) => (
                                     <li key={idx}>{s}</li>
@@ -1455,7 +1455,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                             )}
                             {dir.claim_boundary.not_safe_to_say.length > 0 && (
                               <div className="text-amber-300/90">
-                                <span className="text-[10px] uppercase font-bold text-amber-400/70 block">Belum Aman Dinyatakan:</span>
+                                <span className="text-[12px] uppercase font-bold text-amber-400/70 block">Belum Aman Dinyatakan:</span>
                                 <ul className="list-disc pl-3.5 space-y-0.5">
                                   {dir.claim_boundary.not_safe_to_say.map((ns, idx) => (
                                     <li key={idx}>{ns}</li>
@@ -1467,7 +1467,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                         )}
 
                         {/* Metadata Details */}
-                        <div className="space-y-1.5 border-t border-[#273352]/60 pt-3 text-[11px] text-[#AAB4D0]">
+                        <div className="space-y-1.5 border-t border-[#273352]/60 pt-3 text-[13px] text-[#AAB4D0]">
                           <div>
                             <span className="font-semibold text-[#FFF9EE]">Kandidat Celah Penelitian: </span>
                             <span className="space-x-1.5">
@@ -1477,7 +1477,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                                   ? getStudentStatus(matchingGap.gap_status).label
                                   : "Gap";
                                 return (
-                                  <span key={gid} className="inline-flex items-center gap-1 rounded bg-[#11182D] px-1.5 py-0.5 text-[10px] text-[#FFF9EE]">
+                                  <span key={gid} className="inline-flex items-center gap-1 rounded bg-[#11182D] px-1.5 py-0.5 text-[12px] text-[#FFF9EE]">
                                     <strong className="text-[#70E1B6]">{gid}</strong>
                                     {matchingGap?.gap_status && (
                                       <span className="text-[#AAB4D0]">({statusLabel})</span>
@@ -1507,7 +1507,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
 
                         {/* Footer Card: 3 separate labels (Kesesuaian, Beban, Risiko) */}
                         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#273352]/60 pt-3">
-                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-[#AAB4D0]">
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-[#AAB4D0]">
                             <span>
                               Kesesuaian: <strong className="text-[#FFF9EE]">{formatConstraintFitLabel(dir.constraint_fit)}</strong>
                             </span>
@@ -1569,7 +1569,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                           Fenomena yang Terlihat
                         </h4>
                       </div>
-                      <p className="text-[11px] text-[#AAB4D0]">
+                      <p className="text-[13px] text-[#AAB4D0]">
                         Kondisi, pola, perubahan, peristiwa, atau perbedaan nyata yang diamati pada objek dan periode.
                       </p>
                       <ul className="space-y-2 text-xs text-[#FFF9EE]">
@@ -1588,7 +1588,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                           Temuan Penelitian Terdahulu
                         </h4>
                       </div>
-                      <p className="text-[11px] text-[#AAB4D0]">
+                      <p className="text-[13px] text-[#AAB4D0]">
                         Kesimpulan yang benar-benar dilaporkan oleh artikel/studi dalam Paket Bukti.
                       </p>
                       <ul className="space-y-2 text-xs text-[#FFF9EE]">
@@ -1607,7 +1607,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                           Hal yang Belum Bisa Disimpulkan
                         </h4>
                       </div>
-                      <p className="text-[11px] text-[#AAB4D0]">
+                      <p className="text-[13px] text-[#AAB4D0]">
                         Klaim yang belum memiliki bukti cukup, belum dapat digeneralisasi, atau perlu dicek.
                       </p>
                       <ul className="space-y-2 text-xs text-[#FFF9EE]">
@@ -1684,7 +1684,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                       </div>
                     </div>
 
-                    <div className="mt-3 flex flex-wrap items-center gap-4 text-[11px] text-[#AAB4D0]/80">
+                    <div className="mt-3 flex flex-wrap items-center gap-4 text-[13px] text-[#AAB4D0]/80">
                       <span>Sumber: <strong className="text-[#FFF9EE]">{gap.source_ids.join(", ")}</strong></span>
                       <span>Dasar Komparabilitas: <strong className="text-[#FFF9EE]">{gap.comparability_basis}</strong></span>
                     </div>
@@ -1703,7 +1703,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                       {parsedPayloadV2.knowledge_map.established_knowledge.map((item, idx) => (
                         <li key={idx} className="rounded bg-[#11182D] p-2.5">
                           <p className="font-medium text-[#FFF9EE]">{item.statement}</p>
-                          <span className="mt-1 block text-[11px] text-[#2959FF]">Sumber: {item.source_ids.join(", ")}</span>
+                          <span className="mt-1 block text-[13px] text-[#2959FF]">Sumber: {item.source_ids.join(", ")}</span>
                         </li>
                       ))}
                     </ul>
@@ -1716,11 +1716,11 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                         <li key={idx} className="rounded bg-[#11182D] p-2.5">
                           <div className="flex items-center justify-between">
                             <p className="font-medium text-[#FFF9EE]">{item.statement}</p>
-                            <span className="rounded bg-[#273352] px-2 py-0.5 text-[10px] font-bold text-amber-300">
+                            <span className="rounded bg-[#273352] px-2 py-0.5 text-[12px] font-bold text-amber-300">
                               {item.comparability}
                             </span>
                           </div>
-                          <p className="mt-1 text-[11px] text-[#AAB4D0]">{item.explanation}</p>
+                          <p className="mt-1 text-[13px] text-[#AAB4D0]">{item.explanation}</p>
                         </li>
                       ))}
                     </ul>
@@ -1749,11 +1749,11 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               <td className="py-2.5 pr-4">{cg.source_ids.join(", ")}</td>
                               <td className="py-2.5 pr-4">{cg.construct_or_predictor} → {cg.outcome}</td>
                               <td className="py-2.5 pr-4">
-                                <span className="rounded bg-[#273352] px-2 py-0.5 text-[10px] font-bold text-[#70E1B6]">
+                                <span className="rounded bg-[#273352] px-2 py-0.5 text-[12px] font-bold text-[#70E1B6]">
                                   {getStudentLabel(cg.comparability)}
                                 </span>
                               </td>
-                              <td className="py-2.5 text-[11px]">{cg.reason}</td>
+                              <td className="py-2.5 text-[13px]">{cg.reason}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -1822,7 +1822,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                   <div className="space-y-2 border-t border-[#273352]/60 pt-4">
                     <div className="flex items-center justify-between">
                       <h5 className="text-xs font-bold text-[#FFF9EE]">Klasifikasi Bobot Kualitas Sumber:</h5>
-                      <span className="text-[10px] text-[#AAB4D0]">Klaim inti Bab 1 tidak boleh hanya bersandar pada sumber pendukung</span>
+                      <span className="text-[12px] text-[#AAB4D0]">Klaim inti Bab 1 tidak boleh hanya bersandar pada sumber pendukung</span>
                     </div>
                     <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
                       {parsedPayloadV2.source_weights.map((sw) => {
@@ -1831,11 +1831,11 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                           <div key={sw.source_id} className="rounded-lg bg-[#11182D] p-3 text-xs space-y-1 border border-[#273352]/50">
                             <div className="flex items-center justify-between">
                               <span className="font-bold text-[#FFF9EE]">{sw.source_id}</span>
-                              <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${swStatus.badgeClass}`}>
+                              <span className={`rounded-full px-2 py-0.5 text-[12px] font-bold ${swStatus.badgeClass}`}>
                                 {swStatus.label}
                               </span>
                             </div>
-                            <p className="text-[11px] text-[#AAB4D0] leading-snug">{sw.reason}</p>
+                            <p className="text-[13px] text-[#AAB4D0] leading-snug">{sw.reason}</p>
                           </div>
                         );
                       })}
@@ -1850,7 +1850,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-5 space-y-3">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-bold text-[#70E1B6] uppercase">Rekomendasi Sementara (Bukan Pilihan Otomatis)</h4>
-                  <span className="rounded bg-[#273352] px-2 py-0.5 text-[10px] text-[#AAB4D0]">
+                  <span className="rounded bg-[#273352] px-2 py-0.5 text-[12px] text-[#AAB4D0]">
                     Pilihan Akhir di Mahasiswa
                   </span>
                 </div>
@@ -1909,13 +1909,13 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
                             {q.critical && (
-                              <span className="rounded bg-rose-500/20 px-2 py-0.5 text-[10px] font-bold text-rose-400">
+                              <span className="rounded bg-rose-500/20 px-2 py-0.5 text-[12px] font-bold text-rose-400">
                                 Wajib / Kritis
                               </span>
                             )}
                             <span className="text-xs font-semibold text-[#FFF9EE]">{q.question}</span>
                           </div>
-                          <span className="text-[11px] text-[#AAB4D0]">Terkait: {q.related_data_need}</span>
+                          <span className="text-[13px] text-[#AAB4D0]">Terkait: {q.related_data_need}</span>
                         </div>
 
                         {/* Answer Buttons */}
@@ -2412,7 +2412,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
                 1. Rantai Logika Penelitian (Alur Berpikir 1–7)
               </h3>
-              <span className="text-[11px] text-[#AAB4D0]">
+              <span className="text-[13px] text-[#AAB4D0]">
                 Urutan logika yang menghubungkan fenomena nyata hingga pertanyaan penelitian
               </span>
             </div>
@@ -2433,12 +2433,12 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                         <span className="font-bold text-[#FFF9EE] text-xs sm:text-sm">
                           {stageInfo.label}
                         </span>
-                        <span className="rounded bg-[#2959FF]/15 border border-[#2959FF]/30 px-2 py-0.5 text-[10px] font-mono text-[#70E1B6]">
+                        <span className="rounded bg-[#2959FF]/15 border border-[#2959FF]/30 px-2 py-0.5 text-[12px] font-mono text-[#70E1B6]">
                           {item.stage}
                         </span>
                       </div>
 
-                      <p className="text-[11px] text-[#AAB4D0] italic">
+                      <p className="text-[13px] text-[#AAB4D0] italic">
                         &ldquo;{stageInfo.question}&rdquo;
                       </p>
 
@@ -2489,7 +2489,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
                 3. Kandidat Rumusan Masalah & Tujuan (1-ke-1)
               </h3>
-              <span className="rounded bg-amber-500/20 px-2.5 py-0.5 text-[11px] font-semibold text-amber-300">
+              <span className="rounded bg-amber-500/20 px-2.5 py-0.5 text-[13px] font-semibold text-amber-300">
                 Masih Tentatif — Konfirmasi dengan Dosen
               </span>
             </div>
@@ -2527,12 +2527,12 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
             <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
               {parsedFoundationV1.working_title_previews.map((t) => (
                 <div key={t.id} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs">
-                  <span className="rounded bg-[#273352] px-2 py-0.5 text-[10px] font-bold text-[#70E1B6]">
+                  <span className="rounded bg-[#273352] px-2 py-0.5 text-[12px] font-bold text-[#70E1B6]">
                     {t.id}
                   </span>
                   <p className="mt-2 text-sm font-bold text-[#FFF9EE] leading-snug">{t.title}</p>
                   {t.assumptions && t.assumptions.length > 0 && (
-                    <p className="mt-2 text-[11px] text-[#AAB4D0]">Asumsi: {t.assumptions.join(", ")}</p>
+                    <p className="mt-2 text-[13px] text-[#AAB4D0]">Asumsi: {t.assumptions.join(", ")}</p>
                   )}
                 </div>
               ))}
@@ -2545,7 +2545,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
                 5. Peta Narasi Latar Belakang (7–9 Bagian Berurutan)
               </h3>
-              <span className="text-[11px] text-[#AAB4D0]">
+              <span className="text-[13px] text-[#AAB4D0]">
                 Panduan struktur per paragraf untuk penulisan draf Bab 1
               </span>
             </div>
@@ -2565,13 +2565,13 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                           {funcInfo.title}
                         </span>
                       </div>
-                      <span className={`rounded px-2.5 py-0.5 text-[11px] font-semibold ${readStatus.badgeClass}`}>
+                      <span className={`rounded px-2.5 py-0.5 text-[13px] font-semibold ${readStatus.badgeClass}`}>
                         {readStatus.label}
                       </span>
                     </div>
 
                     <div className="space-y-1">
-                      <span className="text-[11px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
+                      <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
                         Pesan Utama Paragraf:
                       </span>
                       <p className="text-xs sm:text-sm text-[#FFF9EE] font-medium leading-relaxed bg-[#11182D]/80 p-3 rounded-lg border border-[#273352]/50">
@@ -2579,7 +2579,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                       </p>
                     </div>
 
-                    <div className="space-y-2 border-t border-[#273352]/60 pt-2 text-[11px]">
+                    <div className="space-y-2 border-t border-[#273352]/60 pt-2 text-[13px]">
                       {p.safe_claims && p.safe_claims.length > 0 && (
                         <div className="space-y-2 text-[#AAB4D0]">
                           <strong className="text-[#70E1B6] block">Klaim yang Aman Ditulis:</strong>
@@ -2591,19 +2591,19 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               return (
                                 <li key={scIdx} className="rounded-lg bg-[#11182D]/80 p-2.5 border border-[#273352]/50 space-y-1.5">
                                   <div className="flex flex-wrap items-center gap-1.5">
-                                    <span className="font-mono text-[10px] font-bold text-[#70E1B6] bg-[#2959FF]/20 px-1.5 py-0.5 rounded">
+                                    <span className="font-mono text-[12px] font-bold text-[#70E1B6] bg-[#2959FF]/20 px-1.5 py-0.5 rounded">
                                       {sc.claim_id}
                                     </span>
-                                    <span className={`rounded px-2 py-0.5 text-[10px] font-semibold ${claimStatusInfo.badgeClass}`}>
+                                    <span className={`rounded px-2 py-0.5 text-[12px] font-semibold ${claimStatusInfo.badgeClass}`}>
                                       {claimStatusInfo.label}
                                     </span>
                                     {sc.support_status && sc.support_status !== "READY_TO_DRAFT" && (
-                                      <span className={`rounded px-1.5 py-0.5 text-[9px] font-semibold ${getStudentStatus(sc.support_status).badgeClass}`}>
+                                      <span className={`rounded px-1.5 py-0.5 text-[12px] font-semibold ${getStudentStatus(sc.support_status).badgeClass}`}>
                                         {getStudentStatus(sc.support_status).label}
                                       </span>
                                     )}
                                     {sc.source_ids && sc.source_ids.length > 0 && (
-                                      <span className="font-mono text-[#70E1B6] text-[10px] bg-[#2959FF]/20 px-1.5 py-0.5 rounded">
+                                      <span className="font-mono text-[#70E1B6] text-[12px] bg-[#2959FF]/20 px-1.5 py-0.5 rounded">
                                         Sumber: [{sc.source_ids.join(", ")}]
                                       </span>
                                     )}
@@ -2685,14 +2685,14 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                         <td className="p-3 text-[#FFF9EE] max-w-xs">
                           <div>{el.claim}</div>
                           {claimType === "RESEARCHER_DECISION" && (
-                            <div className="mt-1 text-[10px] text-purple-300 italic">
+                            <div className="mt-1 text-[12px] text-purple-300 italic">
                               Bagian ini merupakan keputusan sementara penelitian dan tidak membutuhkan sitasi seolah-olah berasal dari jurnal.
                               {el.decision_basis && <span className="block not-italic font-medium">Dasar: {el.decision_basis}</span>}
                             </div>
                           )}
                         </td>
                         <td className="p-3 whitespace-nowrap">
-                          <span className={`rounded px-2 py-0.5 text-[10px] font-semibold ${claimTypeInfo.badgeClass}`}>
+                          <span className={`rounded px-2 py-0.5 text-[12px] font-semibold ${claimTypeInfo.badgeClass}`}>
                             {claimTypeInfo.label}
                           </span>
                         </td>
@@ -2704,33 +2704,33 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               const weightInfo = getSourceWeightInfo(weight);
                               return (
                                 <div key={sid} className="flex items-center gap-1.5">
-                                  <span className="font-mono text-[11px] font-bold text-[#70E1B6]">{sid}</span>
-                                  <span className={`rounded px-1.5 py-0.5 text-[9px] font-semibold ${weightInfo.badgeClass}`}>
+                                  <span className="font-mono text-[13px] font-bold text-[#70E1B6]">{sid}</span>
+                                  <span className={`rounded px-1.5 py-0.5 text-[12px] font-semibold ${weightInfo.badgeClass}`}>
                                     {weightInfo.label}
                                   </span>
                                 </div>
                               );
                             })
                           ) : (
-                            <span className="text-zinc-500 italic text-[10px]">-</span>
+                            <span className="text-zinc-500 italic text-[12px]">-</span>
                           )}
                         </td>
                         <td className="p-3 whitespace-nowrap">{el.evidence_location || "-"}</td>
                         <td className="p-3 text-[#FFF9EE]">
-                          <span className="rounded bg-[#2959FF]/15 border border-[#2959FF]/30 px-2 py-0.5 text-[10px] font-semibold text-[#70E1B6]">
+                          <span className="rounded bg-[#2959FF]/15 border border-[#2959FF]/30 px-2 py-0.5 text-[12px] font-semibold text-[#70E1B6]">
                             {funcInfo.title}
                           </span>
                         </td>
                         <td className="p-3 whitespace-nowrap">
                           {supportInfo ? (
-                            <span className={`rounded px-2 py-0.5 text-[10px] font-semibold ${supportInfo.badgeClass}`}>
+                            <span className={`rounded px-2 py-0.5 text-[12px] font-semibold ${supportInfo.badgeClass}`}>
                               {supportInfo.label}
                             </span>
                           ) : (
-                            <span className="text-[#AAB4D0] text-[10px]">-</span>
+                            <span className="text-[#AAB4D0] text-[12px]">-</span>
                           )}
                         </td>
-                        <td className="p-3 text-amber-300 text-[11px]">{el.usage_limit}</td>
+                        <td className="p-3 text-amber-300 text-[13px]">{el.usage_limit}</td>
                       </tr>
                     );
                   })}
