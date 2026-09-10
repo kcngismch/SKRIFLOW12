@@ -1,0 +1,565 @@
+=== BEGIN SKRIFLOW_IDEA_V3 ===
+{
+"schema_version": 3,
+"areas": [
+{
+"id": "A01",
+"name": "Analisis Literasi Keuangan dan Pola Keputusan Investasi Mahasiswa",
+"scope_summary": "Area ini mencakup pemeriksaan terhadap kecenderungan perilaku investasi di kalangan mahasiswa, dengan fokus pada bagaimana pemahaman keuangan, penggunaan platform digital, dan preferensi risiko memengaruhi keputusan alokasi dana mereka. Ruang lingkup dibatasi pada pengamatan pola umum melalui instrumen survei terstruktur atau data sekunder yang tersedia dari lembaga survei resmi.",
+"area_role": "CLOSEST_TO_ORIGINAL_INTEREST",
+"focus_continuity": {
+"original_interest_elements": [
+"perilaku investasi mahasiswa",
+"keuangan UMKM"
+],
+"retained_elements": [
+"perilaku investasi mahasiswa"
+],
+"shifted_elements": [
+"keuangan UMKM"
+],
+"shift_status": "ADJACENT_SHIFT",
+"explanation": "Fokus bergeser secara proporsional dengan mempertahankan elemen perilaku investasi mahasiswa dari minat awal, sementara aspek keuangan UMKM dikesampingkan sementara untuk menjaga fokus agar tidak terlalu melebar. Trade-off-nya adalah topik menjadi lebih spesifik pada individu mahasiswa, namun mengorbankan cakupan lintas sektor ke UMKM."
+},
+"academic_connection": "Keterkaitan utama terletak pada bidang akuntansi keperilakuan dan manajemen keuangan, khususnya dalam memahami bagaimana individu memproses informasi keuangan dan mengelola risiko aset pribadi.",
+"interest_connection": "Area ini secara langsung menjawab minat awal mahasiswa terhadap dinamika perilaku investasi yang sering terjadi di kalangan generasi muda.",
+"data_provenance": [
+{
+"data_form": "Data Survei/Kuesioner",
+"origin": "PRIMARY_RESPONDENT",
+"access_status": "NEEDS_CHECKING",
+"methodological_note": "Membutuhkan tanggapan langsung dari responden mahasiswa, yang berpotensi bersinggungan dengan batasan mahasiswa yang tidak ingin melakukan wawancara langsung."
+}
+],
+"research_context": {
+"potential_actors": [
+"Mahasiswa",
+"Investor pemula",
+"Perencana keuangan"
+],
+"potential_entities": [
+"Perguruan tinggi",
+"Galeri investasi",
+"Komunitas pasar modal"
+],
+"potential_documents": [
+"Hasil survei literasi keuangan",
+"Statistik pasar modal ritel"
+],
+"potential_data_artifacts": [
+"Skor literasi",
+"Frekuensi transaksi",
+"Preferensi instrumen"
+],
+"potential_geographies": [
+"Indonesia"
+]
+},
+"scope_boundary": {
+"in_scope": [
+"Profil literasi keuangan mahasiswa",
+"Pola pemilihan instrumen investasi",
+"Pengaruh informasi digital terhadap keputusan"
+],
+"out_of_scope": [
+"Pengelolaan keuangan korporasi besar",
+"Analisis fundamental mendalam perusahaan tercatat",
+"Wawancara mendalam kualitatif"
+],
+"boundary_note": "Fokus pada pola perilaku investasi tingkat individu mahasiswa tanpa melibatkan analisis operasional entitas bisnis."
+},
+"phenomenon_search_brief": "Pemeriksaan terhadap data statistik pertumbuhan investor muda dan laporan literasi keuangan nasional.",
+"phenomenon_search_directions": [
+{
+"label": "Arah 1",
+"direction_type": "MARKET_PATTERN",
+"search_question": "Bagaimana perkembangan jumlah investor ritel dari kelompok usia muda berdasarkan publikasi resmi bursa atau lembaga otoritas?",
+"observable_signals": [
+"Peningkatan jumlah rekening efek usia mahasiswa",
+"Tren demografi investor baru"
+],
+"priority_source_types": [
+"OFFICIAL_DATA",
+"REPUTABLE_NEWS"
+]
+}
+],
+"literature_search_seeds": {
+"concepts": [
+"Behavioral finance",
+"Investment behavior",
+"Financial literacy",
+"Retail investor"
+],
+"keywords_id": [
+"perilaku investasi",
+"literasi keuangan",
+"investor mahasiswa",
+"pasar modal"
+],
+"keywords_en": [
+"investment behavior",
+"financial literacy",
+"student investors",
+"retail investing"
+]
+},
+"research_shape_preview": {
+"possible_focus": "Pemeriksaan hubungan antara tingkat pemahaman keuangan dan kecenderungan pemilihan instrumen investasi pada kelompok mahasiswa",
+"likely_evidence_needed": [
+"Data statistik demografi investor",
+"Hasil survei literasi keuangan",
+"Referensi literatur perilaku keuangan"
+],
+"illustrative_title_pattern": "Evaluasi [aspek literasi keuangan] dalam [keputusan investasi] pada [mahasiswa di wilayah tertentu].",
+"unresolved_before_title": [
+"Fenomena empiris",
+"Bukti literatur",
+"Akses data",
+"Objek atau cakupan",
+"Kelayakan metodologis"
+],
+"warning": "Ilustrasi bentuk judul — belum layak diajukan ke dosen."
+},
+"constraint_fit": {
+"status": "PERLU_DIPERIKSA",
+"reason": "Meskipun sesuai dengan minat, penggunaan data primer dari responden perlu disesuaikan kembali dengan keengganan mahasiswa melakukan wawancara.",
+"assumptions": [
+"Data sekunder atau survei daring dapat menggantikan wawancara langsung"
+],
+"risks": [
+"Kendala dalam pengumpulan data responden jika harus melibatkan survei lapangan"
+]
+},
+"constraint_fit_assessment": {
+"data_origin_fit": "NEEDS_CHECKING",
+"fieldwork_fit": "CONFLICT",
+"time_fit": "ALIGNED",
+"overall": "PERLU_DIPERIKSA",
+"reasons": [
+"Membutuhkan konfirmasi apakah survei daring diperbolehkan untuk menghindari wawancara tatap muka."
+]
+},
+"unresolved_items": [
+"Metode pengumpulan data alternatif selain wawancara",
+"Ketersediaan sampel responden mahasiswa",
+"Batasan wilayah pengamatan"
+],
+"not_decided": [
+"Judul",
+"Variabel",
+"Teori",
+"Metode",
+"Objek final",
+"Sampel",
+"Teknik analisis"
+],
+"handoff_to_phenomenon": {
+"area_text": "Analisis pola keputusan investasi mahasiswa berdasarkan literasi keuangan dan data sekunder pasar.",
+"actor_text": "Mahasiswa dan investor pemula",
+"entity_text": "Perguruan tinggi dan lembaga pasar modal",
+"document_text": "Laporan survei literasi keuangan",
+"data_artifact_text": "Statistik jumlah investor muda",
+"initial_clue": "Pertumbuhan data demografi investor ritel usia muda",
+"observable_signals": [
+"Lonjakan jumlah rekening efek mahasiswa"
+],
+"in_scope": [
+"Pola investasi ritel mahasiswa"
+],
+"out_of_scope": [
+"Wawancara mendalam kualitatif"
+],
+"priority_source_types": [
+"OFFICIAL_DATA",
+"REPUTABLE_NEWS"
+]
+}
+},
+{
+"id": "A02",
+"name": "Kinerja Keuangan dan Transparansi Pelaporan pada Entitas UMKM",
+"scope_summary": "Area ini mengeksplorasi kondisi pencatatan keuangan dan ketersediaan laporan pada sektor Usaha Mikro, Kecil, dan Menengah (UMKM) berdasarkan dokumen sekunder atau publikasi institusional. Fokus diletakkan pada bagaimana entitas UMKM menyajikan informasi keuangan mereka tanpa menuntut peneliti turun langsung melakukan wawancara lapangan.",
+"area_role": "ADJACENT_MORE_FEASIBLE",
+"focus_continuity": {
+"original_interest_elements": [
+"perilaku investasi mahasiswa",
+"keuangan UMKM"
+],
+"retained_elements": [
+"keuangan UMKM"
+],
+"shifted_elements": [
+"perilaku investasi mahasiswa"
+],
+"shift_status": "ADJACENT_SHIFT",
+"explanation": "Fokus bergeser dari individu mahasiswa menuju entitas UMKM. Unsur keuangan UMKM dipertahankan, sedangkan unsur perilaku investasi mahasiswa ditinggalkan agar lebih selaras dengan ketersediaan data sekunder laporan keuangan."
+},
+"academic_connection": "Sangat relevan dengan akuntansi keuangan dan akuntansi sektor UMKM, khususnya terkait standar akuntansi entitas mikro, kecil, dan menengah (EMKM) serta pelaporan keuangan.",
+"interest_connection": "Memenuhi separuh minat awal mahasiswa yaitu mengenai aspek keuangan UMKM dengan pendekatan yang lebih terstruktur melalui dokumen.",
+"data_provenance": [
+{
+"data_form": "Laporan Keuangan UMKM / Publikasi Pembinaan",
+"origin": "PUBLIC_SECONDARY",
+"access_status": "INDICATED",
+"methodological_note": "Menggunakan data laporan atau profil keuangan UMKM yang telah dipublikasikan oleh lembaga pembina atau kementerian terkait."
+}
+],
+"research_context": {
+"potential_actors": [
+"Pemilik UMKM",
+"Pembina UMKM",
+"Analis kredit"
+],
+"potential_entities": [
+"Koperasi",
+"UMKM binaan",
+"Lembaga keuangan mikro"
+],
+"potential_documents": [
+"Laporan keuangan sederhana",
+"Profil kinerja UMKM",
+"Panduan akuntansi EMKM"
+],
+"potential_data_artifacts": [
+"Rasio profitabilitas sederhana",
+"Skor kualitas laporan",
+"Volume usaha"
+],
+"potential_geographies": [
+"Indonesia"
+]
+},
+"scope_boundary": {
+"in_scope": [
+"Evaluasi laporan keuangan mikro berdasarkan standar",
+"Ketersediaan informasi keuangan publik UMKM",
+"Analisis dokumen publikasi pembinaan"
+],
+"out_of_scope": [
+"Wawancara pemilik usaha secara langsung",
+"Pengamatan observasi partisipatif di lapangan",
+"Analisis perusahaan multinasional"
+],
+"boundary_note": "Berfokus sepenuhnya pada dokumen sekunder dan laporan institusional tanpa kontak langsung dengan responden."
+},
+"phenomenon_search_brief": "Pemeriksaan terhadap laporan kementerian atau lembaga mengenai digitalisasi dan pelaporan keuangan UMKM.",
+"phenomenon_search_directions": [
+{
+"label": "Arah 1",
+"direction_type": "PRACTICE_CHANGE",
+"search_question": "Bagaimana laporan resmi pemerintah atau lembaga pembina mendokumentasikan adopsi pencatatan keuangan digital pada sektor UMKM?",
+"observable_signals": [
+"Publikasi program digitalisasi laporan keuangan UMKM",
+"Laporan evaluasi kepatuhan standar akuntansi EMKM"
+],
+"priority_source_types": [
+"OFFICIAL_DATA",
+"INSTITUTIONAL_REPORT"
+]
+}
+],
+"literature_search_seeds": {
+"concepts": [
+"Financial reporting",
+"SME accounting",
+"SAK EMKM",
+"Financial performance"
+],
+"keywords_id": [
+"keuangan UMKM",
+"laporan keuangan",
+"standar akuntansi",
+"kinerja usaha"
+],
+"keywords_en": [
+"SME finance",
+"financial reporting",
+"micro enterprise",
+"accounting standards"
+]
+},
+"research_shape_preview": {
+"possible_focus": "Analisis kesesuaian dokumen pelaporan keuangan UMKM terhadap standar yang berlaku berdasarkan data sekunder",
+"likely_evidence_needed": [
+"Dokumen laporan keuangan UMKM publik",
+"Peraturan standar akuntansi terkait",
+"Artikel jurnal pendukung"
+],
+"illustrative_title_pattern": "Analisis [aspek pelaporan keuangan] pada [entitas UMKM] menggunakan [data sekunder publik].",
+"unresolved_before_title": [
+"Fenomena empiris",
+"Bukti literatur",
+"Akses data",
+"Objek atau cakupan",
+"Kelayakan metodologis"
+],
+"warning": "Ilustrasi bentuk judul — belum layak diajukan ke dosen."
+},
+"constraint_fit": {
+"status": "SELARAS_SEMENTARA",
+"reason": "Sangat sesuai dengan batasan karena menggunakan data sekunder publik dan menghindari wawancara lapangan.",
+"assumptions": [
+"Dokumen keuangan UMKM tersedia melalui laporan publik instansi pembina"
+],
+"risks": [
+"Variasi kelengkapan data sekunder antar UMKM yang berbeda"
+]
+},
+"constraint_fit_assessment": {
+"data_origin_fit": "ALIGNED",
+"fieldwork_fit": "ALIGNED",
+"time_fit": "ALIGNED",
+"overall": "SELARAS_SEMENTARA",
+"reasons": [
+"Sepenuhnya berbasis data sekunder dan tidak memerlukan interaksi lapangan."
+]
+},
+"unresolved_items": [
+"Aksesibilitas spesifik laporan keuangan UMKM tertentu",
+"Kriteria pemilihan sektor UMKM",
+"Ketersediaan data historis"
+],
+"not_decided": [
+"Judul",
+"Variabel",
+"Teori",
+"Metode",
+"Objek final",
+"Sampel",
+"Teknik analisis"
+],
+"handoff_to_phenomenon": {
+"area_text": "Evaluasi pelaporan keuangan UMKM berdasarkan dokumen publik dan laporan instansi pembina.",
+"actor_text": "Pembina UMKM dan analis",
+"entity_text": "Entitas UMKM terdaftar",
+"document_text": "Laporan resmi pembinaan dan standar akuntansi",
+"data_artifact_text": "Kepatuhan pelaporan keuangan",
+"initial_clue": "Laporan lembaga resmi mengenai adopsi pencatatan keuangan UMKM",
+"observable_signals": [
+"Publikasi data adopsi sistem pencatatan keuangan"
+],
+"in_scope": [
+"Analisis dokumen pelaporan keuangan UMKM"
+],
+"out_of_scope": [
+"Wawancara langsung dengan pemilik usaha"
+],
+"priority_source_types": [
+"OFFICIAL_DATA",
+"INSTITUTIONAL_REPORT"
+]
+}
+},
+{
+"id": "A03",
+"name": "Analisis Pengungkapan Informasi Keuangan Perusahaan Publik di Bursa Efek",
+"scope_summary": "Area ini mengkaji pola pengungkapan laporan tahunan atau informasi keuangan perusahaan yang terdaftar di pasar modal menggunakan basis data publik yang dapat diunduh secara mandiri. Area ini dirancang paling aman terhadap batasan mahasiswa karena tidak memerlukan wawancara, tidak membutuhkan statistik rumit, serta memanfaatkan ketersediaan laporan IDX.",
+"area_role": "CONSTRAINT_SAFE_ALTERNATIVE",
+"focus_continuity": {
+"original_interest_elements": [
+"perilaku investasi mahasiswa",
+"keuangan UMKM"
+],
+"retained_elements": [
+"analisis informasi keuangan"
+],
+"shifted_elements": [
+"perilaku investasi mahasiswa",
+"keuangan UMKM"
+],
+"shift_status": "MAJOR_SHIFT",
+"explanation": "Fokus bergeser secara signifikan dari individu mahasiswa dan UMKM menuju analisis pengungkapan korporat publik. Pergeseran ini dilakukan untuk memastikan kepatuhan penuh terhadap preferensi mahasiswa yang hanya ingin mengunduh laporan IDX dan menghindari wawancara atau statistik rumit."
+},
+"academic_connection": "Sangat erat kaitannya dengan akuntansi keuangan dan pasar modal, khususnya analisis laporan tahunan dan pengungkapan informasi perusahaan publik.",
+"interest_connection": "Meskipun bergeser dari minat awal, area ini tetap bersinggungan dengan dunia investasi melalui pengamatan data laporan perusahaan di pasar modal.",
+"data_provenance": [
+{
+"data_form": "Laporan Tahunan / Annual Report",
+"origin": "PUBLIC_SECONDARY",
+"access_status": "INDICATED",
+"methodological_note": "Data dapat diunduh langsung secara bebas dari situs resmi Bursa Efek Indonesia atau situs perusahaan."
+}
+],
+"research_context": {
+"potential_actors": [
+"Investor",
+"Analis keuangan",
+"Auditor"
+],
+"potential_entities": [
+"Perusahaan tercatat di IDX",
+"Sektor industri tertentu"
+],
+"potential_documents": [
+"Laporan tahunan",
+"Laporan keuangan audited",
+"Catatan atas laporan keuangan"
+],
+"potential_data_artifacts": [
+"Item pengungkapan",
+"Rasio keuangan dasar",
+"Kepatuhan pelaporan"
+],
+"potential_geographies": [
+"Indonesia"
+]
+},
+"scope_boundary": {
+"in_scope": [
+"Pengunduhan laporan tahunan dari IDX",
+"Pemeriksaan kelengkapan item pengungkapan tertentu",
+"Analisis deskriptif sederhana berdasarkan data laporan"
+],
+"out_of_scope": [
+"Wawancara manajemen perusahaan",
+"Pengujian ekonometrika atau statistik tingkat lanjut",
+"Survei persepsi investor"
+],
+"boundary_note": "Murni berbasis dokumen sekunder publik dengan analisis deskriptif dasar tanpa teknik statistik rumit."
+},
+"phenomenon_search_brief": "Pemeriksaan terhadap ketersediaan dan tren pengungkapan informasi dalam laporan tahunan perusahaan di IDX.",
+"phenomenon_search_directions": [
+{
+"label": "Arah 1",
+"direction_type": "DISCLOSURE_USE",
+"search_question": "Bagaimana ketentuan bursa atau regulator mengatur kewajiban pengungkapan informasi tertentu dalam laporan tahunan perusahaan publik?",
+"observable_signals": [
+"Penerbitan surat edaran atau peraturan baru terkait pelaporan emiten",
+"Ketersediaan arsip laporan tahunan di pusat data resmi bursa"
+],
+"priority_source_types": [
+"REGULATION",
+"OFFICIAL_DATA"
+]
+}
+],
+"literature_search_seeds": {
+"concepts": [
+"Financial disclosure",
+"Annual report",
+"Corporate reporting",
+"Information transparency"
+],
+"keywords_id": [
+"pengungkapan informasi",
+"laporan tahunan",
+"perusahaan publik",
+"bursa efek"
+],
+"keywords_en": [
+"financial disclosure",
+"annual report",
+"listed companies",
+"market transparency"
+]
+},
+"research_shape_preview": {
+"possible_focus": "Pemeriksaan tingkat kelengkapan pengungkapan informasi pada laporan tahunan perusahaan publik di IDX",
+"likely_evidence_needed": [
+"Laporan tahunan emiten dari IDX",
+"Daftar periksa item pengungkapan",
+"Peraturan bursa terkait"
+],
+"illustrative_title_pattern": "Evaluasi [aspek pengungkapan] dalam [laporan tahunan] pada [perusahaan publik di IDX].",
+"unresolved_before_title": [
+"Fenomena empiris",
+"Bukti literatur",
+"Akses data",
+"Objek atau cakupan",
+"Kelayakan metodologis"
+],
+"warning": "Ilustrasi bentuk judul — belum layak diajukan ke dosen."
+},
+"constraint_fit": {
+"status": "SELARAS_SEMENTARA",
+"reason": "Sangat aman terhadap seluruh batasan mahasiswa: menggunakan unduhan IDX, tanpa wawancara, dan hanya memerlukan statistik deskriptif dasar.",
+"assumptions": [
+"Laporan tahunan perusahaan mudah diunduh melalui situs resmi IDX"
+],
+"risks": [
+"Cakupan emiten yang terlalu luas perlu dibatasi agar lebih sederhana"
+]
+},
+"constraint_fit_assessment": {
+"data_origin_fit": "ALIGNED",
+"fieldwork_fit": "ALIGNED",
+"time_fit": "ALIGNED",
+"overall": "SELARAS_SEMENTARA",
+"reasons": [
+"Sepenuhnya memenuhi preferensi data sekunder unduhan IDX tanpa kerja lapangan atau statistik rumit."
+]
+},
+"unresolved_items": [
+"Pemilihan sektor industri emiten",
+"Periode tahun pengamatan",
+"Jumlah sampel perusahaan"
+],
+"not_decided": [
+"Judul",
+"Variabel",
+"Teori",
+"Metode",
+"Objek final",
+"Sampel",
+"Teknik analisis"
+],
+"handoff_to_phenomenon": {
+"area_text": "Analisis pengungkapan laporan tahunan perusahaan publik berdasarkan unduhan data IDX.",
+"actor_text": "Investor dan analis",
+"entity_text": "Perusahaan publik terdaftar di IDX",
+"document_text": "Laporan tahunan dan regulasi bursa",
+"data_artifact_text": "Item pengungkapan laporan",
+"initial_clue": "Ketersediaan arsip laporan tahunan resmi di pusat data bursa",
+"observable_signals": [
+"Akses unduh dokumen laporan emiten secara berkala"
+],
+"in_scope": [
+"Analisis dokumen laporan tahunan emiten"
+],
+"out_of_scope": [
+"Wawancara manajemen perusahaan"
+],
+"priority_source_types": [
+"REGULATION",
+"OFFICIAL_DATA"
+]
+}
+}
+],
+"comparison": [
+{
+"area_id": "A01",
+"interest_fit": "SANGAT_DEKAT",
+"study_program_fit": "SEDANG",
+"data_fit": "PERLU_DIPERIKSA",
+"collection_burden": "SEDANG",
+"methodological_uncertainty": "RENDAH",
+"main_check_next": "Memastikan metode pengumpulan data responden tanpa wawancara langsung."
+},
+{
+"area_id": "A02",
+"interest_fit": "CUKUP_DEKAT",
+"study_program_fit": "KUAT",
+"data_fit": "SELARAS_SEMENTARA",
+"collection_burden": "RENDAH_SEMENTARA",
+"methodological_uncertainty": "RENDAH",
+"main_check_next": "Memeriksa ketersediaan dokumen laporan keuangan UMKM pada lembaga pembina."
+},
+{
+"area_id": "A03",
+"interest_fit": "PERLU_DIPERIKSA",
+"study_program_fit": "KUAT",
+"data_fit": "SELARAS_SEMENTARA",
+"collection_burden": "RENDAH_SEMENTARA",
+"methodological_uncertainty": "RENDAH",
+"main_check_next": "Menentukan sektor industri dan tahun pengamatan laporan IDX."
+}
+],
+"selection_guidance": [
+"Pilih A01 jika Anda tetap ingin fokus pada perilaku mahasiswa dengan catatan bersedia menggunakan survei daring.",
+"Pilih A02 jika Anda ingin meneliti keuangan UMKM secara aman menggunakan dokumen publik sekunder.",
+"Pilih A03 jika Anda mengutamakan kenyamanan maksimal dengan mengunduh laporan IDX tanpa wawancara dan tanpa statistik rumit."
+]
+}
+=== END SKRIFLOW_IDEA_V3 ===

@@ -1,0 +1,107 @@
+=== BEGIN SKRIFLOW_FENOMENA_V1 ===
+{
+"schema_version": 1,
+"insufficient_evidence": false,
+"context": {
+"prodi": "Akuntansi",
+"area": "Eksplorasi praktik pembukuan kas harian dan pengendalian nota belanja pada pelaku usaha mikro kuliner.",
+"scope_preference": "Belum tahu",
+"time_preference": "Utamakan 5 tahun terakhir"
+},
+"candidates": [
+{
+"id": "F01",
+"name": "Dominasi Pencatatan Keuangan Sederhana dan Manual pada Pelaku UMKM",
+"phenomenon_type": "PATTERN",
+"phenomenon_summary": "Sebagian besar pelaku usaha mikro dan kecil di Indonesia masih mengandalkan pencatatan kas harian yang sangat sederhana, manual, atau bahkan belum menyusun laporan keuangan sesuai standar formal seperti SAK EMKM.",
+"observed_condition": "Pelaku usaha mikro melakukan pencatatan transaksi secara terbatas hanya untuk keperluan operasional harian atau memantau stok, tanpa menerapkan prinsip akuntansi entri ganda (double-entry).",
+"scope": {
+"object_or_population": "Pelaku Usaha Mikro, Kecil, dan Menengah (UMKM)",
+"geography": "Indonesia",
+"reference_period": "2021-2026"
+},
+"relation_to_area": "Menggambarkan kondisi nyata di lapangan terkait rendahnya formalisasi pembukuan kas harian dan minimnya pemahaman standar akuntansi entitas mikro.",
+"evidence": [
+{
+"claim": "Sebagian besar UMKM di Indonesia belum memiliki laporan keuangan terstruktur dan masih mengandalkan pencatatan manual.",
+"observed_data_or_event": "Catatan empiris menunjukkan dominasi pencatatan manual serta kendala literasi akuntansi dasar pada pengelola usaha mikro.",
+"source_title": "Evaluasi Penerapan Pencatatan Keuangan pada Usaha Mikro",
+"publisher_or_institution": "Journal of Economic and Cyberspace",
+"source_type": "EMPIRICAL_ARTICLE",
+"publication_date": "2025",
+"reference_period": "2021-2025",
+"url": "https://joecy.org/index.php/joecy/article/download/3051/2395",
+"evidence_location": "Bagian Pendahuluan dan Hasil Pembahasan",
+"access_note": "Dokumen PDF dapat diunduh dan diakses secara langsung.",
+"method_or_metadata": "Studi kasus dan observasi lapangan pada unit usaha mikro.",
+"limitations": "Cakupan observasi terbatas pada sampel lokal tertentu sehingga belum tentu merepresentasikan seluruh sektor kuliner secara nasional."
+},
+{
+"claim": "Mayoritas pelaku usaha mikro belum menerapkan pembukuan keuangan formal yang sesuai dengan standar yang berlaku.",
+"observed_data_or_event": "Mayoritas pelaku usaha belum memisahkan pencatatan kas pribadi dan kas usaha secara tertib.",
+"source_title": "Studi Pemahaman UMKM Atas Pembuatan Laporan Keuangan Berbasis SAK EMKM",
+"publisher_or_institution": "Riviera Publishing",
+"source_type": "EMPIRICAL_ARTICLE",
+"publication_date": "2025",
+"reference_period": "2024-2025",
+"url": "https://jii.rivierapublishing.id/index.php/jii/article/download/6960/1076/14674",
+"evidence_location": "Bagian Abstrak dan Pembahasan",
+"access_note": "Artikel jurnal dapat diakses dan diunduh langsung.",
+"method_or_metadata": "Pendekatan deskriptif kualitatif terhadap pemahaman SAK EMKM.",
+"limitations": "Fokus analisis pada tingkat pemahaman teoretis dan administratif, belum mengukur dampak langsung terhadap efisiensi operasional harian."
+}
+],
+"triangulation_note": "Kedua sumber artikel empiris saling mengonfirmasi bahwa praktik pembukuan pada level usaha mikro masih bersifat informal dan manual.",
+"what_is_not_proven": "Belum membuktikan bahwa ketiadaan pembukuan formal secara langsung menyebabkan kebangkrutan usaha secara matematis.",
+"quality": {
+"relevance": "KUAT",
+"scope_clarity": "SEDANG",
+"traceability": "KUAT",
+"metadata_quality": "SEDANG",
+"timeliness": "KUAT",
+"comparability": "SEDANG",
+"source_independence": "KUAT"
+},
+"phenomenon_definition": {
+"event_or_condition": "Praktik pencatatan kas harian yang belum terstandarisasi",
+"event_family": "other",
+"primary_outcome": "Tingkat adopsi pembukuan kas sederhana",
+"secondary_outcome": "Kepatuhan terhadap dokumen transaksi",
+"object_or_population": "Pelaku usaha mikro kuliner",
+"geography": "Indonesia",
+"reference_period": "2021-2026"
+},
+"phenomenon_coherence_audit": {
+"status": "COHERENT_ENOUGH",
+"mixed_events": [],
+"mixed_outcomes": [],
+"notes": ["Fokus konsisten pada praktik pembukuan kas tingkat mikro."]
+},
+"source_independence_audit": {
+"article_count": 2,
+"independent_author_team_count": 2,
+"repeated_author_clusters": [],
+"strength": "STRONG"
+},
+"status": "SIAP_DIBAWA",
+"keywords_id": [
+"pembukuan kas harian",
+"usaha mikro kuliner",
+"pencatatan manual",
+"SAK EMKM"
+],
+"keywords_en": [
+"daily cash bookkeeping",
+"micro culinary business",
+"manual recording"
+],
+"unresolved_items": [
+"Perlu konfirmasi spesifik proporsi penggunaan nota fisik versus digital pada subsektor kuliner skala mikro."
+]
+}
+],
+"search_notes": [
+"Pencarian difokuskan pada literatur empiris dan artikel jurnal akuntansi yang diterbitkan dalam rentang 5 tahun terakhir (2021-2026) mengenai praktik pembukuan kas dan pengelolaan transaksi pada UMKM."
+]
+}
+=== END SKRIFLOW_FENOMENA_V1 ===
