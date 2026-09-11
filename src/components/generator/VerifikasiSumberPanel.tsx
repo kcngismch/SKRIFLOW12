@@ -29,8 +29,11 @@ export interface HasilVerifikasiSumber {
   perluDicurigai?: boolean;
 }
 
-/** Batas per putaran; sisanya dilaporkan apa adanya, bukan disembunyikan. */
-const BATAS_PER_PUTARAN = 12;
+/**
+ * Batas per permintaan ke server. Sumber yang lebih banyak dikirim bertahap
+ * supaya tiap permintaan tetap cepat dan tidak kena timeout.
+ */
+const PER_PERMINTAAN = 10;
 
 export function useVerifikasiSumber() {
   const [hasil, setHasil] = useState<Record<string, HasilVerifikasiSumber>>({});
@@ -45,24 +48,32 @@ export function useVerifikasiSumber() {
     }
     setSedangProses(true);
     setCatatan(null);
+    const map: Record<string, HasilVerifikasiSumber> = {};
     try {
-      const kirim = bersih.slice(0, BATAS_PER_PUTARAN);
-      const res = await fetch("/api/verify-source", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: kirim }),
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      const data = await res.json();
-      const map: Record<string, HasilVerifikasiSumber> = {};
-      for (const h of data.hasil ?? []) map[h.sourceId] = h;
-      setHasil(map);
-      const sisa = bersih.length - kirim.length;
-      setCatatan(
-        sisa > 0 ? `Diperiksa ${kirim.length} sumber pertama. ${sisa} sumber lain belum diperiksa.` : null
-      );
+      // Kirim bertahap; hasil tiap tahap langsung ditampilkan supaya user
+      // melihat kemajuan, bukan layar diam selama puluhan detik.
+      for (let i = 0; i < bersih.length; i += PER_PERMINTAAN) {
+        const tahap = bersih.slice(i, i + PER_PERMINTAAN);
+        const res = await fetch("/api/verify-source", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items: tahap }),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        const data = await res.json();
+        for (const h of data.hasil ?? []) map[h.sourceId] = h;
+        setHasil({ ...map });
+        if (i + PER_PERMINTAAN < bersih.length) {
+          setCatatan(`Memeriksa ${Math.min(i + PER_PERMINTAAN, bersih.length)} dari ${bersih.length} sumber...`);
+        }
+      }
+      setCatatan(null);
     } catch {
-      setCatatan("Gagal menghubungi layanan verifikasi. Periksa koneksi internet.");
+      setCatatan(
+        Object.keys(map).length > 0
+          ? `Sebagian sumber sudah diperiksa (${Object.keys(map).length}). Sisanya gagal diperiksa — periksa koneksi lalu coba lagi.`
+          : "Gagal menghubungi layanan verifikasi. Periksa koneksi internet."
+      );
     } finally {
       setSedangProses(false);
     }
