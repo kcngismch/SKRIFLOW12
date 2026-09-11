@@ -275,7 +275,6 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
   const [showResetModal, setShowResetModal] = useState(false);
   const [isContextAccordionOpen, setIsContextAccordionOpen] = useState(false);
   const [openEvidenceCandidateIds, setOpenEvidenceCandidateIds] = useState<Record<string, boolean>>({});
-  const [showTechnicalPrompt, setShowTechnicalPrompt] = useState(false);
   const [showRawResult, setShowRawResult] = useState(false);
 
   // Paste & Parsing States with lazy initializers
@@ -1302,22 +1301,12 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-end mt-2">
-                      <button
-                        type="button"
-                        onClick={() => setShowTechnicalPrompt(!showTechnicalPrompt)}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                      >
-                        <span>{showTechnicalPrompt ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                        {showTechnicalPrompt ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                      </button>
-                    </div>
-
-                    {showTechnicalPrompt && (
-                      <div className="mt-3 max-h-[380px] overflow-y-auto rounded-lg border border-[#273352] bg-[#080D1D] p-3 text-xs font-mono text-[#FFF9EE] whitespace-pre-wrap leading-relaxed animate-fade-in">
+                    {/* Pratinjau selalu tampil: beberapa baris pertama prompt, tanpa membuka prompt teknis penuh */}
+                    <div className="mt-3 rounded-lg border border-[#273352] bg-[#080D1D] p-3">
+                      <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
                         {generatedPrompt}
-                      </div>
-                    )}
+                      </pre>
+                    </div>
                   </div>
 
                   {/* Actions */}

@@ -1101,6 +1101,36 @@ export interface ContentAuditResult {
  * klaim kausal berlebihan dan klaim ketiadaan bukti.
  * Dipakai Tool1–Tool4 karena semuanya memuat field teks bebas.
  */
+/** Penanda negasi/larangan; dipakai agar kalimat pengaman tidak dianggap klaim. */
+const NEGATION_MARKERS = /\b(belum|tidak|jangan|dilarang|hindari|bukan|tanpa|tidak dapat|belum dapat|belum aman|hati-hati|perlu diperiksa)\b/i;
+
+/**
+ * Filter kecocokan kausal yang sebenarnya kalimat pengaman.
+ *
+ * "Bukti ini belum membuktikan bahwa PSAK 117 menyebabkan penurunan kinerja"
+ * memuat frasa kausal, tetapi maknanya justru membatasi klaim. Tanpa filter ini
+ * field pengaman (what_is_not_proven, claim_boundary) selalu salah ditandai.
+ */
+export function filterNegatedCausal(text: string, terms: readonly RegExp[]): string[] {
+  const kalimat = text.split(/(?<=[.!?])\s+|\n+/);
+  const hasil: string[] = [];
+  for (const k of kalimat) {
+    for (const rx of terms) {
+      const re = new RegExp(rx.source, rx.flags);
+      let m: RegExpExecArray | null;
+      while ((m = re.exec(k)) !== null) {
+        const sebelum = k.slice(0, m.index);
+        if (!NEGATION_MARKERS.test(sebelum)) {
+          const hit = m[0].trim();
+          if (hit && !hasil.includes(hit)) hasil.push(hit);
+        }
+        if (m.index === re.lastIndex) re.lastIndex++;
+      }
+    }
+  }
+  return hasil;
+}
+
 export function auditFreeTextContent(
   text: string,
   field: string,
@@ -1121,7 +1151,7 @@ export function auditFreeTextContent(
   }
 
   if (!opts.allowCausal) {
-    const causal = findMatchingTerms(val, CAUSAL_CLAIM_TERMS);
+    const causal = filterNegatedCausal(val, CAUSAL_CLAIM_TERMS);
     if (causal.length > 0) {
       out.push({
         code: "CAUSAL_CLAIM",

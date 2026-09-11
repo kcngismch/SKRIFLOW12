@@ -220,7 +220,6 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
   const [pendingAltPrompt, setPendingAltPrompt] = useState<string | null>(null);
   const [showAlternativeLoadedBanner, setShowAlternativeLoadedBanner] = useState(false);
   const [showRoundsHistory, setShowRoundsHistory] = useState(false);
-  const [showTechnicalPrompt, setShowTechnicalPrompt] = useState(false);
   const [showRawResult, setShowRawResult] = useState(false);
 
   // Paste & Parsing States with lazy initializers

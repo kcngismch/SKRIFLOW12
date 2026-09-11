@@ -17,6 +17,21 @@ import {
   ConstraintFitAssessment,
 } from "@/types/tool";
 import { RESEARCH_FIELD_LIMITS } from "@/config/researchFieldLimits";
+import { filterNegatedCausal, CAUSAL_CLAIM_TERMS, hasAbsenceClaim } from "@/lib/academicGates";
+
+/**
+ * Pola penulisan judul/kesimpulan final (R-11).
+ *
+ * Tool 1 hanya boleh menghasilkan arah eksplorasi, bukan judul jadi atau
+ * kesimpulan. Frasa ini dulu lolos tanpa catatan.
+ */
+const FINAL_TITLE_PATTERNS: readonly RegExp[] = [
+  /\b(judul|title)\s*(final|akhir|skripsi|penelitian)?\s*[:=]/i,
+  /\bjudul\s+(yang\s+)?(di)?(rekomendasikan|disarankan|dipilih|final)\b/i,
+  /\bkesimpulan\s*(akhir|final|sementara)?\s*[:=]/i,
+  /\bkesimpulan\s+penelitian\s+ini\s+adalah\b/i,
+  /\b(abstrak|abstract)\s*[:=]/i,
+];
 
 export const IDEA_START_MARKER = "=== BEGIN SKRIFLOW_IDEA_V3 ===";
 export const IDEA_END_MARKER = "=== END SKRIFLOW_IDEA_V3 ===";
@@ -85,6 +100,16 @@ export const EXPERIMENT_PROCEDURE_PATTERNS: readonly RegExp[] = [
   /\b(lakukan|melakukan|jalankan|buat)\s+eksperimen\b/i,
   /\b(uji\s+coba\s+mandiri|eksperimen\s+baru)\b/i,
   /\blalu\s+(ukur|periksa|cek|lihat)\s+(akurasinya|jawabannya|responsnya|hasilnya)\b/i,
+  // Niat pengumpulan data primer (R-16). Versi lama hanya menangkap frasa
+  // eksplisit seperti "sebar kuesioner", sehingga "wawancara 100 responden"
+  // dan "ambil sampel" lolos.
+  /\b(lakukan|melakukan|mengadakan|adakan)\s+(survei|kuesioner|angket|wawancara|observasi|pengamatan)\b/i,
+  /\b(survei|kuesioner|angket|wawancara|observasi|pengamatan)\s+(kepada|terhadap|ke|pada)\s+\d+\b/i,
+  /\bwawancara\s+\d+\s+(responden|narasumber|subjek|orang|informan)\b/i,
+  /\b(sebarkan|menyebarkan|sebar|bagikan|membagikan)\s+(kuesioner|angket|survei|formulir)\b/i,
+  /\b(ambil|mengambil|kumpulkan|mengumpulkan)\s+(sampel|data\s+primer|data\s+lapangan)\b/i,
+  /\b(sampel|responden|partisipan)\s+sebanyak\s+\d+\b/i,
+  /\b(menyebar|mengirim)\s+(angket|kuesioner)\s+ke\s+\d+\b/i,
 ] as const;
 
 export const VALID_CONSTRAINT_FIT_STATUSES = [
@@ -915,6 +940,19 @@ export function parseIdeaTransfer(
     }
 
     // Check experiment procedure in phenomenonSearchBrief
+    if (FINAL_TITLE_PATTERNS.some((rx) => rx.test(phenomenonSearchBrief))) {
+      warnings.push(
+        `${areaId}: 'phenomenon_search_brief' memuat frasa judul/kesimpulan final. Tool ini hanya menghasilkan arah eksplorasi.`
+      );
+    }
+
+    const briefCausal = filterNegatedCausal(phenomenonSearchBrief, CAUSAL_CLAIM_TERMS);
+    if (briefCausal.length > 0) {
+      warnings.push(
+        `${areaId}: 'phenomenon_search_brief' memuat frasa sebab-akibat (${briefCausal.join(", ")}). Petunjuk ini sebaiknya memandu pemeriksaan kondisi teramati.`
+      );
+    }
+
     const briefExpMatch = EXPERIMENT_PROCEDURE_PATTERNS.some((p) => p.test(phenomenonSearchBrief));
     if (briefExpMatch) {
       errorDetails.push(
@@ -958,6 +996,27 @@ export function parseIdeaTransfer(
       if (searchExpMatch) {
         errorDetails.push(
           `HASIL BELUM AMAN — ${areaId} arah[${dIdx}]: 'search_question' memuat instruksi prosedur eksperimen/pembuatan data baru ('${searchQuestion}'). Arah fenomena tidak boleh meminta mahasiswa menghasilkan output AI, menjalankan prompt, membuat simulasi, melakukan scoring/coding, menyurvei responden, atau membandingkan data yang baru akan dibuat.`
+        );
+      }
+
+      // R-11: judul/kesimpulan final tidak boleh muncul di arah eksplorasi.
+      if (FINAL_TITLE_PATTERNS.some((rx) => rx.test(searchQuestion))) {
+        warnings.push(
+          `${areaId} arah[${dIdx}]: 'search_question' memuat frasa judul/kesimpulan final. Tool ini hanya menghasilkan arah eksplorasi, bukan judul atau simpulan jadi.`
+        );
+      }
+
+      // R-17: klaim kausal / klaim ketiadaan bukti tidak boleh hanya tertangkap
+      // saat kebetulan ada frasa literatur. Periksa tiap field teks bebas.
+      const causalHits = filterNegatedCausal(searchQuestion, CAUSAL_CLAIM_TERMS);
+      if (causalHits.length > 0) {
+        warnings.push(
+          `${areaId} arah[${dIdx}]: 'search_question' memuat frasa sebab-akibat (${causalHits.join(", ")}). Arah pencarian fenomena sebaiknya menanyakan kondisi teramati, bukan hubungan sebab-akibat.`
+        );
+      }
+      if (hasAbsenceClaim(searchQuestion)) {
+        warnings.push(
+          `${areaId} arah[${dIdx}]: 'search_question' menyatakan ketiadaan penelitian. Hasil pencarian tidak membuktikan penelitian tidak ada.`
         );
       }
 

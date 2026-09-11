@@ -11,8 +11,6 @@ import {
   Layers,
   CheckSquare,
   FileCheck2,
-  ChevronDown,
-  ChevronUp,
   X,
 } from "lucide-react";
 import {
@@ -49,9 +47,6 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"promptA" | "promptB">("promptA");
-  const [showTechnicalPromptA, setShowTechnicalPromptA] = useState(false);
-  const [showTechnicalPromptB, setShowTechnicalPromptB] = useState(false);
-  const [showSingleTechnicalPrompt, setShowSingleTechnicalPrompt] = useState(false);
   const [fallbackModal, setFallbackModal] = useState<{
     isOpen: boolean;
     url: string;
@@ -272,26 +267,6 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                     />
                   </div>
 
-                  {/* Prompt A Collapsible Code Block */}
-                  <div className="flex items-center justify-end">
-                    <button
-                      type="button"
-                      onClick={() => setShowTechnicalPromptA(!showTechnicalPromptA)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                    >
-                      <span>{showTechnicalPromptA ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                      {showTechnicalPromptA ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                    </button>
-                  </div>
-
-                  {showTechnicalPromptA && (
-                    <div className="relative overflow-hidden rounded-lg border border-[#273352] bg-[#11182D] p-3 font-mono text-[11px] leading-relaxed text-[#FFF9EE] animate-fade-in">
-                      <pre className="whitespace-pre-wrap break-words max-h-[240px] overflow-y-auto pr-1">
-                        {promptA}
-                      </pre>
-                    </div>
-                  )}
-
                   {/* Action Buttons for Prompt A */}
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
                     <div className="text-[10px] text-[#AAB4D0]">
@@ -389,26 +364,6 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                     </div>
 
                     <div className="space-y-3 animate-in fade-in duration-200">
-                      {/* Prompt B Collapsible Code Block */}
-                      <div className="flex items-center justify-end">
-                        <button
-                          type="button"
-                          onClick={() => setShowTechnicalPromptB(!showTechnicalPromptB)}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                        >
-                          <span>{showTechnicalPromptB ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                          {showTechnicalPromptB ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                        </button>
-                      </div>
-
-                      {showTechnicalPromptB && (
-                        <div className="relative overflow-hidden rounded-lg border border-[#273352] bg-[#11182D] p-3 font-mono text-[11px] leading-relaxed text-[#FFF9EE] animate-fade-in">
-                          <pre className="whitespace-pre-wrap break-words max-h-[260px] overflow-y-auto pr-1">
-                            {promptB}
-                          </pre>
-                        </div>
-                      )}
-
                       {/* Callout Petunjuk Penggunaan Paket Bukti */}
                       <div className="rounded-lg border border-[#70E1B6]/30 bg-[#70E1B6]/10 p-3 text-[11px] text-[#FFF9EE] space-y-1.5">
                         <p className="font-semibold text-[#70E1B6] flex items-center gap-1.5 text-xs">
@@ -486,23 +441,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                 <span className="text-xs text-[#AAB4D0]">
                   {singleCharCount.toLocaleString()} karakter • {singleWordCount.toLocaleString()} kata
                 </span>
-                <button
-                  type="button"
-                  onClick={() => setShowSingleTechnicalPrompt(!showSingleTechnicalPrompt)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                >
-                  <span>{showSingleTechnicalPrompt ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                  {showSingleTechnicalPrompt ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                </button>
               </div>
-
-              {showSingleTechnicalPrompt && (
-                <div className="relative overflow-hidden rounded-lg border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs leading-relaxed text-[#FFF9EE] animate-fade-in">
-                  <pre className="whitespace-pre-wrap break-words max-h-[380px] overflow-y-auto pr-2">
-                    {prompt}
-                  </pre>
-                </div>
-              )}
 
               {/* Action Buttons for Single Prompt */}
               <div className="flex flex-wrap items-center justify-end gap-3 pt-2">

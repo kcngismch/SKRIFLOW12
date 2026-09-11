@@ -172,8 +172,6 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
   const [copyStatus4B, setCopyStatus4B] = useState<"idle" | "copied" | "error">("idle");
   const [isConditionalConfirmed, setIsConditionalConfirmed] = useState(false);
   const [activeTab4A, setActiveTab4A] = useState<"audit" | "evidence_basis" | "phenomenon" | "knowledge" | "gaps" | "directions" | "recommendation">("directions");
-  const [showTechnicalPrompt4A, setShowTechnicalPrompt4A] = useState(false);
-  const [showTechnicalPrompt4B, setShowTechnicalPrompt4B] = useState(false);
   const [showRawLitInput, setShowRawLitInput] = useState(false);
 
   // Adjust Data Modal Form State
@@ -1067,27 +1065,12 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
         </div>
 
         <div className="mt-6 space-y-4">
-          <div className="flex justify-end">
-            <button
-              type="button"
-              onClick={() => setShowTechnicalPrompt4A(!showTechnicalPrompt4A)}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-            >
-              <span>{showTechnicalPrompt4A ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-              {showTechnicalPrompt4A ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-            </button>
+          {/* Pratinjau selalu tampil: beberapa baris pertama prompt, tanpa membuka prompt teknis penuh */}
+          <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+            <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
+              {generatedPrompt4A}
+            </pre>
           </div>
-
-          {showTechnicalPrompt4A && (
-            <div className="relative animate-fade-in">
-              <textarea
-                readOnly
-                rows={8}
-                value={generatedPrompt4A}
-                className="w-full rounded-xl border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs text-[#AAB4D0] focus:outline-none"
-              />
-            </div>
-          )}
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-3">
@@ -2163,25 +2146,12 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
 
               {computedDataReadiness !== "DATA_BLOCKED" && (
                 <>
-                  <div className="flex justify-end">
-                    <button
-                      type="button"
-                      onClick={() => setShowTechnicalPrompt4B(!showTechnicalPrompt4B)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                    >
-                      <span>{showTechnicalPrompt4B ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                      {showTechnicalPrompt4B ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                    </button>
+                  {/* Pratinjau selalu tampil: beberapa baris pertama prompt, tanpa membuka prompt teknis penuh */}
+                  <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+                    <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
+                      {generatedPrompt4B}
+                    </pre>
                   </div>
-
-                  {showTechnicalPrompt4B && (
-                    <textarea
-                      readOnly
-                      rows={7}
-                      value={generatedPrompt4B}
-                      className="w-full rounded-xl border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs text-[#AAB4D0] focus:outline-none animate-fade-in"
-                    />
-                  )}
                 </>
               )}
 

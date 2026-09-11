@@ -1438,6 +1438,10 @@ Ketentuan tipe sumber:
 * WORKING_PAPER harus diberi label working paper dan tidak boleh diperlakukan sebagai artikel peer-reviewed;
 * Research Report atau laporan riset buatan AI atau dokumen gabungan NotebookLM tetap wajib dikeluarkan dan dilarang digunakan.
 
+Setiap sumber wajib memuat identitas yang bisa diperiksa: judul, penerbit/lembaga, tahun atau periode, dan tautan atau DOI bila ada.
+Sumber tanpa tautan/DOI tetap boleh dipakai HANYA jika judul, penerbit, dan tahunnya jelas; tandai status sumbernya sebagai belum terverifikasi.
+Jangan menulis DOI atau tautan yang tidak kamu yakini ada. Bila ragu, kosongkan dan jelaskan pada access_note.
+
 Jangan menggunakan:
 * Research Report atau laporan riset gabungan buatan AI;
 * dokumen hasil olahan AI tanpa verifikasi sumber primer;
