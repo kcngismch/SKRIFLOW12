@@ -1072,6 +1072,9 @@ export function auditBab1Readiness(input: Bab1ReadinessInput): {
 }
 
 
+/** Urutan kekuatan rating; dipakai untuk memilih rating terlemah antar-bukti. */
+export const RANK: Record<string, number> = { LEMAH: 0, SEDANG: 1, KUAT: 2 };
+
 // =========================================================================
 // AUDIT KONTEN OUTPUT (dipakai parser Tool1–Tool4 sebelum output dirender)
 //
@@ -1351,4 +1354,154 @@ export function auditSourceRegister(
   }
 
   return out;
+}
+
+
+// =========================================================================
+// AUDIT TOOL2: KUALITAS METADATA & LABEL JENIS SUMBER
+// Dipakai phenomenonParser. Rating kualitas TIDAK boleh dipercaya dari AI:
+// AI menulis "KUAT" walau judul/penerbit/tanggal kosong (temuan F20/F21).
+// =========================================================================
+
+export interface SourceMetadataFields {
+  sourceTitle?: string;
+  publisherOrInstitution?: string;
+  publicationDate?: string;
+  referencePeriod?: string;
+  url?: string;
+  evidenceLocation?: string;
+}
+
+const KOSONG = new Set([
+  "", "-", "n/a", "na", "tidak ada", "tidak diketahui", "belum diketahui",
+  "tidak dapat dipastikan", "sumber data / publikasi", "unknown", "none",
+]);
+
+function terisi(v: unknown): boolean {
+  const s = String(v ?? "").trim().toLowerCase();
+  return s.length > 0 && !KOSONG.has(s);
+}
+
+/**
+ * Hitung kualitas metadata secara deterministik dari kelengkapan identitas sumber.
+ * Mengembalikan rating KUAT/SEDANG/LEMAH + dimensi mana yang kosong.
+ */
+export function deriveMetadataQuality(ev: SourceMetadataFields): {
+  rating: "KUAT" | "SEDANG" | "LEMAH";
+  missing: string[];
+} {
+  const missing: string[] = [];
+  if (!terisi(ev.sourceTitle)) missing.push("judul sumber");
+  if (!terisi(ev.publisherOrInstitution)) missing.push("penerbit/lembaga");
+  if (!terisi(ev.publicationDate) && !terisi(ev.referencePeriod)) {
+    missing.push("tanggal/periode");
+  }
+  if (!terisi(ev.url)) missing.push("tautan");
+
+  // 4 dimensi identitas; tautan saja tidak cukup untuk dianggap KUAT.
+  let rating: "KUAT" | "SEDANG" | "LEMAH";
+  if (missing.length === 0) rating = "KUAT";
+  else if (missing.length <= 2 || terisi(ev.url)) rating = "SEDANG";
+  else rating = "LEMAH";
+  return { rating, missing };
+}
+
+/**
+ * Turunkan rating traceability secara deterministik; AI cenderung menulis KUAT
+ * bahkan saat tautan tidak ada.
+ */
+export function deriveTraceability(ev: SourceMetadataFields): "KUAT" | "SEDANG" | "LEMAH" {
+  if (terisi(ev.url) && terisi(ev.sourceTitle)) return "KUAT";
+  if (terisi(ev.url) || terisi(ev.sourceTitle)) return "SEDANG";
+  return "LEMAH";
+}
+
+const AGREGATOR_DOMAINS = [
+  "scribd.com", "slideshare.net", "academia.edu", "coursehero.com",
+  "123dok.com", "docplayer", "pdfcoffee.com", "studocu",
+];
+
+export interface SourceTypeLabelInput {
+  url: string;
+  declaredType: string;
+}
+
+/**
+ * Periksa apakah label jenis sumber tidak cocok dengan domainnya.
+ * Contoh: halaman Scribd tidak boleh dilabeli INSTITUTIONAL_REPORT.
+ */
+export function auditSourceTypeLabel(input: SourceTypeLabelInput): ContentAuditFinding[] {
+  const out: ContentAuditFinding[] = [];
+  const url = String(input.url ?? "").toLowerCase();
+  const tipe = String(input.declaredType ?? "").toUpperCase();
+  if (!url) return out;
+
+  const agregator = AGREGATOR_DOMAINS.find((d) => url.includes(d));
+  const klaim = ["INSTITUTIONAL_REPORT", "GOVERNMENT_PUBLICATION", "PEER_REVIEWED"];
+
+  if (agregator && klaim.includes(tipe)) {
+    out.push({
+      code: "SOURCE_AGGREGATOR_MISLABEL",
+      severity: "WARNING",
+      field: `evidence.url(${agregator})`,
+      message: `Sumber dari ${agregator} dilabeli ${tipe}. ${agregator} adalah situs unggahan pengguna, bukan penerbit resmi. Turunkan label menjadi DOKUMEN_BELUM_TERVERIFIKASI atau verifikasi ke penerbit aslinya.`,
+    });
+  }
+  return out;
+}
+
+export interface EvidenceMetadataAuditInput {
+  candidateId: string;
+  evidenceIndex: number;
+  metadata: SourceMetadataFields;
+  declaredQuality?: string;
+  declaredTraceability?: string;
+  sourceType: string;
+}
+
+/**
+ * Audit satu butir bukti Tool2: kecocokan rating yang diklaim AI dengan
+ * kelengkapan metadata yang nyata, plus label jenis sumber.
+ */
+export function auditEvidenceMetadata(input: EvidenceMetadataAuditInput): {
+  findings: ContentAuditFinding[];
+  metadataQuality: "KUAT" | "SEDANG" | "LEMAH";
+  traceability: "KUAT" | "SEDANG" | "LEMAH";
+} {
+  const findings: ContentAuditFinding[] = [];
+  const { rating: computed, missing } = deriveMetadataQuality(input.metadata);
+  const trace = deriveTraceability(input.metadata);
+  const label = `${input.candidateId} bukti #${input.evidenceIndex}`;
+
+  const klaimMq = String(input.declaredQuality ?? "").toUpperCase();
+  const klaimTr = String(input.declaredTraceability ?? "").toUpperCase();
+
+  if (klaimMq === "KUAT" && computed !== "KUAT") {
+    findings.push({
+      code: "METADATA_QUALITY_OVERSTATED",
+      severity: "ERROR",
+      field: `${label}.metadata_quality`,
+      message: `AI menilai metadata_quality KUAT, tetapi identitas sumber tidak lengkap (kurang: ${missing.join(", ")}). Rating diturunkan menjadi ${computed}.`,
+    });
+  }
+  if (klaimTr === "KUAT" && trace !== "KUAT") {
+    findings.push({
+      code: "TRACEABILITY_OVERSTATED",
+      severity: "WARNING",
+      field: `${label}.traceability`,
+      message: `AI menilai traceability KUAT, tetapi ${missing.includes("tautan") ? "tautan sumber tidak ada" : "identitas sumber tidak lengkap"}. Rating diturunkan menjadi ${trace}.`,
+    });
+  }
+  if (computed === "LEMAH") {
+    findings.push({
+      code: "SOURCE_IDENTITY_THIN",
+      severity: "WARNING",
+      field: label,
+      message: `Identitas sumber sangat minim (kurang: ${missing.join(", ")}). Bukti ini belum bisa ditelusuri ulang.`,
+    });
+  }
+
+  findings.push(...auditSourceTypeLabel({ url: String(input.metadata.url ?? ""), declaredType: input.sourceType }));
+
+  return { findings, metadataQuality: computed, traceability: trace };
 }

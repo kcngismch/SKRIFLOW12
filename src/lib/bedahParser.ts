@@ -268,6 +268,29 @@ export function validateLiteratureEvidencePackage(
     };
   }
 
+  // 3. Pemeriksaan ISI (bukan hanya keberadaan judul bagian).
+  // Keberadaan header "C. SOURCE REGISTER" tidak membuktikan ada sumber nyata di
+  // dalamnya: teks sampah yang memuat kata kunci pun lolos. Periksa entri nyata.
+  const content = auditLiteraturePackageContent(text);
+  if (content.missing.length > 0) {
+    return {
+      status: "STRUKTUR_PERLU_DIPERIKSA",
+      hasKonteks,
+      hasStatusSumber,
+      hasSourceRegister,
+      hasIntiSource,
+      hasMatriksBukti,
+      hasEvidence,
+      hasStopSentence,
+      isPromptAOutput: false,
+      isResearchReport: false,
+      missingParts: content.missing,
+      notes: [
+        `Judul bagian lengkap, tetapi isinya belum memenuhi syarat: ${content.missing.join(", ")}. Paket ini belum bisa dipakai sebagai dasar analisis.`,
+      ],
+    };
+  }
+
   return {
     status: "STRUKTUR_LENGKAP",
     hasKonteks: true,
@@ -280,8 +303,78 @@ export function validateLiteratureEvidencePackage(
     isPromptAOutput: false,
     isResearchReport: false,
     missingParts: [],
-    notes: ["Paket Bukti Literatur dari NotebookLM valid dan terstruktur."],
+    notes: [
+      `Paket Bukti Literatur dari NotebookLM memuat ${content.sourceCount} entri sumber dan ${content.evidenceRowCount} baris bukti. Struktur lengkap.`,
+      "Catatan: pemeriksaan ini menilai kelengkapan dan bentuk identitas sumber, bukan kebenaran isinya. Bukti tetap perlu ditelusuri sendiri.",
+    ],
   };
+}
+
+/**
+ * Pemeriksaan isi paket bukti literatur.
+ *
+ * Menutup lubang F25: validator lama hanya mencocokkan judul bagian sehingga
+ * teks sampah dapat berstatus STRUKTUR_LENGKAP. Di sini entri sumber dan baris
+ * bukti dihitung dari baris nyata, dan identitas sumber yang tidak mungkin
+ * (domain contoh, DOI 10.9999) ditolak.
+ */
+function auditLiteraturePackageContent(text: string): {
+  missing: string[];
+  sourceCount: number;
+  evidenceRowCount: number;
+} {
+  const missing: string[] = [];
+
+  // Potong teks per bagian A–E. Menghitung baris per bagian lebih tahan
+  // terhadap variasi format (tabel Markdown, daftar bernomor, atau [S01] …).
+  const SECTIONS = [
+    { key: "C", re: /(^|\n)\s*#{0,4}\s*C\.\s*SOURCE REGISTER/i, alt: /(^|\n)\s*#{0,4}\s*(DAFTAR SUMBER|REGISTER SUMBER)/i },
+    { key: "D", re: /(^|\n)\s*#{0,4}\s*D\.\s*MATRIKS BUKTI/i, alt: /(^|\n)\s*#{0,4}\s*(EVIDENCE MATRIX)/i },
+  ];
+
+  function potong(re: RegExp, alt: RegExp): string {
+    const m = re.exec(text) ?? alt.exec(text);
+    if (!m) return "";
+    const mulai = m.index + m[0].length;
+    // batas: header bagian berikutnya (A–E) atau akhir teks
+    const sisa = text.slice(mulai);
+    const batas = /(^|\n)\s*#{0,4}\s*[A-E]\.\s*[A-Z][A-Za-z ]{3,}/.exec(sisa);
+    return batas ? sisa.slice(0, batas.index) : sisa;
+  }
+
+  const HEADER_BARIS = /^(id|kode|no\.?|source_id|sumber|kategori|judul)\b/i;
+  const PEMISAH = /^[\s|:-]+$/;
+
+  function hitungBarisIsi(blok: string): number {
+    return blok
+      .split(/\r?\n/)
+      .map((l) => l.trim())
+      .filter((l) => l.length > 0 && !PEMISAH.test(l) && !HEADER_BARIS.test(l))
+      .length;
+  }
+
+  const blokC = potong(SECTIONS[0].re, SECTIONS[0].alt);
+  const blokD = potong(SECTIONS[1].re, SECTIONS[1].alt);
+  const sourceCount = hitungBarisIsi(blokC);
+  const evidenceRowCount = hitungBarisIsi(blokD);
+
+  if (sourceCount < 1) {
+    missing.push("Entri sumber nyata di Source Register (Bagian C masih kosong atau hanya berisi judul)");
+  }
+  if (evidenceRowCount < 1) {
+    missing.push("Baris bukti nyata di Matriks Bukti (Bagian D masih kosong atau hanya berisi judul)");
+  }
+
+  // Identitas yang mustahil: domain contoh/kosong atau DOI placeholder.
+  const placeholders: string[] = [];
+  if (/\bexample\.(com|org|net)\b/i.test(text)) placeholders.push("domain contoh (example.com)");
+  if (/\b(localhost|127\.0\.0\.1|test\.invalid)\b/i.test(text)) placeholders.push("alamat lokal/uji");
+  if (/10\.9999\//.test(text)) placeholders.push("DOI pola 10.9999 (bukan DOI nyata)");
+  if (placeholders.length > 0) {
+    missing.push(`Identitas sumber tidak nyata: ${placeholders.join(", ")}`);
+  }
+
+  return { missing, sourceCount, evidenceRowCount };
 }
 
 /**
