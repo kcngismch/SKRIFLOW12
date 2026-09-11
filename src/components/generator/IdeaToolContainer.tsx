@@ -172,6 +172,14 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
   // UI States
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [generatedPrompt, setGeneratedPrompt] = useState<string | null>(null);
+
+  // Auto-scroll ke panel prompt pas prompt berhasil digenerate (revisi #1 user)
+  useEffect(() => {
+    if (!generatedPrompt) return;
+    const el = document.getElementById("prompt-preview-section");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [generatedPrompt]);
+
   const [copiedMain, setCopiedMain] = useState(false);
   const [copiedFixPrompt, setCopiedFixPrompt] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -1292,26 +1300,14 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                   )}
                 </div>
 
-                {generatedPrompt ? (
-                  <div className="mt-4 space-y-4">
-                    <div className="flex items-center justify-end">
-                      <button
-                        type="button"
-                        onClick={() => setShowTechnicalPrompt(!showTechnicalPrompt)}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                      >
-                        <span>{showTechnicalPrompt ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                        {showTechnicalPrompt ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                      </button>
+                    {generatedPrompt ? (
+                  <div className="mt-4 space-y-4" id="prompt-preview-section">
+                    {/* Pratinjau selalu tampil (diminta user): 4 baris pertama */}
+                    <div className="rounded-lg border border-[#273352] bg-[#080D1D] p-4">
+                      <pre className="font-mono text-[13px] leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
+                        {generatedPrompt}
+                      </pre>
                     </div>
-
-                    {showTechnicalPrompt && (
-                      <div className="relative rounded-lg border border-[#273352] bg-[#080D1D] p-4 animate-fade-in">
-                        <pre className="max-h-[380px] overflow-y-auto font-mono text-[13px] leading-relaxed text-[#FFF9EE] whitespace-pre-wrap select-all">
-                          {generatedPrompt}
-                        </pre>
-                      </div>
-                    )}
 
                     <div className="flex flex-wrap items-center gap-2.5">
                       <button

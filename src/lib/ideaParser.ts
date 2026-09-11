@@ -324,19 +324,91 @@ export function parseIdeaTransfer(
   const startMatches = [...normalizedText.matchAll(startRegex)];
   const endMatches = [...normalizedText.matchAll(endRegex)];
 
-  // Check duplicate blocks
-  if (startMatches.length > 1 || endMatches.length > 1) {
+  // Duplicate / echo handling: respons AI sering ikut mengutip marker di teks
+  // instruksi (echo prompt), sehingga marker muncul >1 kali padahal blok asli
+  // cuma satu. Kumpulkan semua kandidat span START->END, urutkan dari yang
+  // terpendek, pilih span yang JSON-nya benar-benar blok V3 valid. Tolak HANYA
+  // jika ada lebih dari satu blok valid (ambigu).
+  const candidateSpans: {
+    startMatch: RegExpMatchArray;
+    endMatch: RegExpMatchArray;
+    text: string;
+  }[] = [];
+  for (const sm of startMatches) {
+    const sIdx = sm.index!;
+    for (const em of endMatches) {
+      const eIdx = em.index!;
+      if (eIdx <= sIdx + sm[0].length) continue;
+      const blockText = normalizedText
+        .substring(sIdx + sm[0].length, eIdx)
+        .replace(/^```(?:json)?\s*/i, "")
+        .replace(/\s*```$/, "")
+        .trim();
+      candidateSpans.push({ startMatch: sm, endMatch: em, text: blockText });
+    }
+  }
+  candidateSpans.sort((a, b) => a.text.length - b.text.length);
+
+  const validSpans = candidateSpans.filter((span) => {
+    if (countChars(span.text) > IDEA_TRANSFER_BLOCK_HARD_LIMIT) return false;
+    try {
+      const probe = JSON.parse(span.text) as Record<string, unknown>;
+      return (
+        !!probe &&
+        typeof probe === "object" &&
+        !Array.isArray(probe) &&
+        probe.schema_version === 3 &&
+        Array.isArray(probe.areas)
+      );
+    } catch {
+      return false;
+    }
+  });
+
+  if (validSpans.length > 1) {
     return {
       success: false,
       status: "HASIL_TIDAK_DIKENALI",
       error:
         "Terdeteksi lebih dari satu blok SKRIFLOW_IDEA_V3. Pastikan hanya menempel satu hasil lengkap.",
       errorDetails: [
-        `Ditemukan ${startMatches.length} marker pembuka dan ${endMatches.length} marker penutup dalam teks.`,
+        `Ditemukan ${validSpans.length} blok SKRIFLOW_IDEA_V3 yang valid dalam teks.`,
       ],
       warnings,
     };
   }
+
+  if (
+    validSpans.length === 0 &&
+    (startMatches.length > 1 || endMatches.length > 1)
+  ) {
+    return {
+      success: false,
+      status: "HASIL_TIDAK_DIKENALI",
+      error:
+        "Terdeteksi lebih dari satu blok SKRIFLOW_IDEA_V3, tetapi tidak ada yang lengkap dan valid. Tempel satu hasil lengkap saja (dari === BEGIN sampai === END).",
+      errorDetails: [
+        `Ditemukan ${startMatches.length} marker pembuka dan ${endMatches.length} marker penutup, tetapi tidak ada blok JSON V3 valid.`,
+      ],
+      warnings,
+    };
+  }
+
+  // Tepat satu blok valid + marker mentah >1 = kemungkinan echo instruksi;
+  // proses blok itu dengan catatan nonfatal.
+  if (
+    validSpans.length === 1 &&
+    (startMatches.length > 1 || endMatches.length > 1)
+  ) {
+    warnings.push(
+      "Terdeteksi teks tambahan di luar blok transfer (misal instruksi yang ikut tersalin). Blok SKRIFLOW_IDEA_V3 yang valid tetap diproses."
+    );
+  }
+
+  const chosenStart =
+    validSpans.length === 1 ? validSpans[0].startMatch : startMatches[0];
+  const chosenEnd =
+    validSpans.length === 1 ? validSpans[0].endMatch : endMatches[0];
 
   // Check start without end
   if (startMatches.length === 1 && endMatches.length === 0) {
@@ -407,8 +479,8 @@ export function parseIdeaTransfer(
     };
   }
 
-  const startMatch = startMatches[0];
-  const endMatch = endMatches[0];
+  const startMatch = chosenStart;
+  const endMatch = chosenEnd;
   const startIndex = startMatch.index!;
   const markerLength = startMatch[0].length;
   const endIndex = endMatch.index!;
