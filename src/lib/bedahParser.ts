@@ -23,6 +23,7 @@ import {
   CandidateGapV2,
   SourceIdentityAuditStatus,
 } from "@/types/tool";
+import { normalizeEvidenceUrl } from "@/lib/phenomenonParser";
 import {
   auditFreeTextContent,
   auditClaimBoundaryList,
@@ -356,6 +357,22 @@ export function validateLiteratureEvidencePackage(
       "Catatan: pemeriksaan ini menilai kelengkapan dan bentuk identitas sumber, bukan kebenaran isinya. Bukti tetap perlu ditelusuri sendiri.",
     ],
   };
+}
+
+/** Bersihkan URL sumber; kembalikan undefined bila tidak layak dipakai. */
+function bersihUrl(raw: string): string | undefined {
+  if (!raw) return undefined;
+  const r = normalizeEvidenceUrl(raw);
+  if (r.normalized === null) return undefined;
+  const v = (r.normalized || "").trim();
+  return v.length > 0 ? v : undefined;
+}
+
+/** Bersihkan DOI; "-" berarti AI menyatakan tidak ada. */
+function bersihDoi(raw: string): string | undefined {
+  const v = (raw || "").trim();
+  if (!v || v === "-" || v.toLowerCase() === "n/a") return undefined;
+  return v;
 }
 
 /**
@@ -967,8 +984,10 @@ function parseDirectionV2Json(jsonString: string, isNonCompliantWrapper: boolean
             reason: sw.reason ? sw.reason.trim() : sw.note ? sw.note.trim() : undefined,
             note: sw.note ? sw.note.trim() : sw.reason ? sw.reason.trim() : undefined,
             title: typeof rawSw.title === "string" ? rawSw.title.trim() : undefined,
-            url: url || undefined,
-            doi: doi || undefined,
+            // URL/DOI dinormalkan seperti di Tool2: AI sering menulis markdown
+            // [url](url), DOI tanpa protokol, atau protokol http.
+            url: bersihUrl(url),
+            doi: bersihDoi(doi),
             // Jejak audit: sumber tanpa URL/DOI tidak bisa diperiksa keberadaannya.
             identity_status: (
               url || doi ? "NEEDS_CHECK" : "MISSING"
