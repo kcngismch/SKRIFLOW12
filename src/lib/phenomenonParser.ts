@@ -1,5 +1,6 @@
 import {
   PhenomenonTransferPayload,
+  SourceIdentityAuditStatus,
   RawPhenomenonCandidate,
   RawPhenomenonEvidence,
   SelectedPhenomenon,
@@ -965,6 +966,17 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
     // kelengkapan identitas sumber (F20/F21). Rating yang berlebihan diturunkan.
     for (let j = 0; j < validatedEvidence.length; j++) {
       const ev = validatedEvidence[j];
+
+      // R-07: status identitas sumber disertakan di output agar mahasiswa (dan
+      // dosen) bisa membedakan sumber yang bisa dilacak dari asumsi AI.
+      const idStatus: SourceIdentityAuditStatus =
+        ev.url && !/^(https?:\/\/)?(www\.)?(example\.(com|org|net)|localhost)/i.test(ev.url) && ev.source_title && !/^Sumber Data/i.test(ev.source_title)
+          ? "VERIFIED"
+          : ev.url || (/^Sumber Data/i.test(ev.source_title) ? false : ev.source_title)
+          ? "NEEDS_CHECK"
+          : "MISSING";
+      (ev as unknown as Record<string, unknown>).identity_status = idStatus;
+
       const mAudit = auditEvidenceMetadata({
         candidateId: id,
         evidenceIndex: j + 1,

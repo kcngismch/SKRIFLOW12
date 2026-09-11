@@ -77,11 +77,11 @@ const COMPARISON_ITEMS = [
   },
   {
     notDone: "Menyajikan output AI generatif sebagai referensi atau bukti ilmiah valid.",
-    supported: "Mewajibkan verifikasi setiap kandidat klaim ke dokumen primer (jurnal bereputasi, BPS, regulasi resmi).",
+    supported: "Menandai sumber yang belum punya identitas lengkap (judul, penerbit, tahun, tautan/DOI) dan mengingatkanmu memeriksanya ke dokumen primer. Pemeriksaan akhir tetap milikmu, bukan otomatis.",
   },
   {
     notDone: "Memalsukan nomor DOI, nama jurnal, atau mengolah data statistik fiktif.",
-    supported: "Menyediakan instruksi penelusuran literatur berbasis sumber terverifikasi untuk NotebookLM dan pangkalan data.",
+    supported: "Menolak DOI berpola palsu dan domain contoh, lalu memandumu menelusuri sumber ke pangkalnya.",
   },
   {
     notDone: "Menjanjikan jalan pintas tidak realistis seperti 'skripsi kilat 3 hari jadi'.",

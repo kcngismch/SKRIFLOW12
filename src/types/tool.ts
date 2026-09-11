@@ -84,6 +84,8 @@ export interface PhenomenonEvidence {
 }
 
 export interface RawPhenomenonEvidence {
+  /** Jejak audit identitas sumber (R-07). Diisi parser, bukan oleh AI. */
+  identity_status?: SourceIdentityAuditStatus;
   claim: string;
   observed_data_or_event: string;
   source_title: string;
