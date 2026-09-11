@@ -21,7 +21,19 @@ import {
   SourceWeight,
   PhenomenonBasisStatus,
   CandidateGapV2,
+  SourceIdentityAuditStatus,
 } from "@/types/tool";
+import {
+  auditFreeTextContent,
+  auditClaimBoundaryList,
+  auditSourceEntry,
+  auditSourceRegister,
+  auditGapValidity,
+  auditSourceIdentity,
+  mergeContentAudit,
+  type ContentAuditFinding,
+  type SourceIdentityAuditInput,
+} from "@/lib/academicGates";
 
 // --- V1 Enum sets (Backward compatibility) ---
 export const VALID_GAP_TYPES: ResearchGapType[] = [
@@ -284,12 +296,185 @@ export interface BedahParseResult {
   error?: string;
   errorDetails?: string[];
   isNonCompliantWrapper?: boolean;
+  /** Temuan audit konten (red line akademik). ERROR memblokir kelanjutan. */
+  contentFindings?: ContentAuditFinding[];
+}
+
+/**
+ * Audit konten payload Tool4 (red line akademik).
+ *
+ * Mengubah aturan yang semula hanya ditulis di prompt menjadi temuan yang bisa
+ * ditampilkan: klaim kausal berlebihan, klaim ketiadaan bukti, sumber tanpa
+ * identitas, sumber retracted, dan pengaman klaim yang hilang.
+ */
+function auditBedahPayload(data: DirectionV2): ContentAuditFinding[] {
+  const groups: ContentAuditFinding[][] = [];
+
+  // 1. Klaim kausal / absence di teks fenomena terkalibrasi
+  const cp = data.calibrated_phenomenon;
+  if (cp) {
+    groups.push(
+      auditFreeTextContent(String((cp as unknown as Record<string, unknown>).phenomenon_statement ?? ""), "calibrated_phenomenon.phenomenon_statement")
+    );
+    groups.push(
+      auditFreeTextContent(String((cp as unknown as Record<string, unknown>).observed_condition ?? ""), "calibrated_phenomenon.observed_condition")
+    );
+  }
+
+  // 2. Kandidat gap: statement + pengaman klaim
+  for (const gap of data.candidate_gaps ?? []) {
+    const g = gap as unknown as Record<string, unknown>;
+    groups.push(auditFreeTextContent(String(g.statement ?? ""), `candidate_gaps.${gap.id}.statement`));
+    groups.push(auditFreeTextContent(String(g.what_is_unexplained ?? ""), `candidate_gaps.${gap.id}.what_is_unexplained`));
+    groups.push(auditClaimBoundaryList(g.prohibited_claims, `candidate_gaps.${gap.id}.prohibited_claims`));
+
+    // Gap validity: absence-claim bukan research gap
+    const assessment = auditGapValidity({
+      gapStatement: String(g.statement ?? ""),
+      gapType: String(g.gap_type ?? ""),
+      comparableSourceIds: Array.isArray(g.source_ids) ? (g.source_ids as string[]) : [],
+      independentAuthorTeamCount: 0,
+      relationToPhenomenon: "",
+    });
+    if (assessment.validity === "NOT_A_RESEARCH_GAP") {
+      groups.push([
+        {
+          code: "GAP_ABSENCE_CLAIM",
+          severity: "ERROR",
+          field: `candidate_gaps.${gap.id}`,
+          message: `Gap ${gap.id} dirumuskan sebagai pernyataan bahwa penelitian tidak ada. Itu bukan research gap — hasil pencarian hanya membuktikan cakupan paket ini. Rumuskan ulang sebagai kesenjangan antar temuan yang ada.`,
+        },
+      ]);
+    }
+  }
+
+  // 3. Arah penelitian: claim_boundary wajib ada dan tidak boleh kosong
+  for (const dir of data.directions ?? []) {
+    const d = dir as unknown as Record<string, unknown>;
+    const cb = (d.claim_boundary ?? {}) as Record<string, unknown>;
+    const notSafe = cb.not_safe_to_say;
+    const notSafeList = Array.isArray(notSafe) ? notSafe : [];
+
+    if (!d.claim_boundary) {
+      groups.push([
+        {
+          code: "CLAIM_BOUNDARY_MISSING",
+          severity: "ERROR",
+          field: `directions.${dir.id}`,
+          message: `Arah ${dir.id} tidak punya claim_boundary. Batas klaim wajib ada supaya mahasiswa tahu apa yang belum boleh disimpulkan.`,
+        },
+      ]);
+    } else if (notSafeList.length === 0) {
+      groups.push([
+        {
+          code: "CLAIM_BOUNDARY_EMPTY",
+          severity: "ERROR",
+          field: `directions.${dir.id}.claim_boundary.not_safe_to_say`,
+          message: `Arah ${dir.id} punya claim_boundary kosong. Isi minimal satu batas klaim, misalnya apa yang belum bisa disimpulkan dari bukti yang ada.`,
+        },
+      ]);
+    } else {
+      groups.push(auditClaimBoundaryList(notSafeList, `directions.${dir.id}.claim_boundary.not_safe_to_say`));
+    }
+
+    groups.push(auditFreeTextContent(String(d.problem_focus ?? ""), `directions.${dir.id}.problem_focus`));
+  }
+
+  // 4. Identitas sumber: URL/DOI, domain placeholder, agregator, retracted
+  const registerEntries: SourceIdentityAuditInput[] = [];
+  for (const sw of data.source_weights ?? []) {
+    const swr = sw as unknown as Record<string, unknown>;
+    const id = String(swr.source_id ?? "").trim();
+    const entry = {
+      sourceId: id,
+      url: String(swr.url ?? ""),
+      doi: String(swr.doi ?? ""),
+      title: String(swr.title ?? ""),
+      declaredType: String(swr.document_type ?? ""),
+    };
+    registerEntries.push(entry);
+    groups.push(auditSourceEntry(entry));
+
+    // Gate A: retracted/withdrawn -> INVALID
+    const identity = auditSourceIdentity({
+      title: String(swr.title ?? ""),
+      authors: [],
+      year: "",
+      journalOrPublisher: "",
+      doi: String(swr.doi ?? ""),
+      isRetracted: Boolean(swr.is_retracted),
+      isWithdrawn: Boolean(swr.is_withdrawn),
+    });
+    if (identity.identityStatus === "INVALID") {
+      groups.push([
+        {
+          code: "SOURCE_RETRACTED",
+          severity: "ERROR",
+          field: `source_weights.${id}`,
+          message: `Sumber ${id} ditandai retracted/withdrawn. Sumber yang ditarik tidak boleh dipakai sebagai jangkar argumen.`,
+        },
+      ]);
+    }
+  }
+  groups.push(auditSourceRegister(registerEntries));
+
+  // 5. Pengaman klaim tingkat fenomena
+  if (cp) {
+    groups.push(
+      auditClaimBoundaryList(
+        (cp as unknown as Record<string, unknown>).prohibited_claims,
+        "calibrated_phenomenon.prohibited_claims"
+      )
+    );
+  }
+
+  return mergeContentAudit(groups).findings;
 }
 
 /**
  * Parses Bedah Transfer JSON block for Tahap 4A (supports V2 with V1 backward compatibility).
+ *
+ * Hasil parse SELALU melewati audit konten akademik sebelum dikembalikan,
+ * supaya aturan red line punya penegak deterministik — bukan hanya instruksi prompt.
  */
 export function parseBedahTransfer(rawText: string): BedahParseResult {
+  const result = parseBedahTransferInner(rawText);
+  if (!result.success) return result;
+
+  const data = (result.dataV2 ?? result.data) as DirectionV2 | undefined;
+  if (!data) return result;
+
+  // Audit dijalankan atas payload MENTAH dari AI, bukan hasil sanitasi.
+  // Sanitizer menormalkan payload (mis. mengisi claim_boundary kosong), sehingga
+  // pelanggaran aslinya hilang sebelum sempat diperiksa bila audit memakai hasil sanitasi.
+  const raw = extractBedahPayload(rawText);
+  const auditTarget = (raw ?? data) as DirectionV2;
+  const contentFindings = auditBedahPayload(auditTarget);
+
+  return { ...result, contentFindings };
+}
+
+/** Ambil payload mentah dari teks transfer, tanpa normalisasi. */
+function extractBedahPayload(rawText: string): unknown {
+  const pairs: [string, string][] = [
+    ["=== BEGIN SKRIFLOW_DIRECTION_V2 ===", "=== END SKRIFLOW_DIRECTION_V2 ==="],
+    ["=== BEGIN SKRIFLOW_DIRECTION_V1 ===", "=== END SKRIFLOW_DIRECTION_V1 ==="],
+  ];
+  for (const [startMark, endMark] of pairs) {
+    const a = rawText.indexOf(startMark);
+    const b = rawText.indexOf(endMark);
+    if (a === -1 || b === -1 || b <= a) continue;
+    const jsonString = rawText.substring(a + startMark.length, b).trim();
+    try {
+      return JSON.parse(jsonString);
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
+function parseBedahTransferInner(rawText: string): BedahParseResult {
   if (!rawText || typeof rawText !== "string" || rawText.trim().length === 0) {
     return {
       success: false,
@@ -630,13 +815,25 @@ function parseDirectionV2Json(jsonString: string, isNonCompliantWrapper: boolean
     guidance_points: Array.isArray(payload.guidance_points) ? payload.guidance_points : [],
     recovery_actions: Array.isArray(payload.recovery_actions) ? payload.recovery_actions : [],
     source_weights: Array.isArray(payload.source_weights)
-      ? payload.source_weights.map((sw) => ({
-          source_id: (sw.source_id || "").trim(),
-          document_type: sw.document_type ? sw.document_type.trim() : undefined,
-          weight: (VALID_SOURCE_WEIGHTS.includes(sw.weight as SourceWeight) ? sw.weight : "PENDUKUNG") as SourceWeight,
-          reason: sw.reason ? sw.reason.trim() : sw.note ? sw.note.trim() : undefined,
-          note: sw.note ? sw.note.trim() : sw.reason ? sw.reason.trim() : undefined,
-        }))
+      ? payload.source_weights.map((sw) => {
+          const rawSw = sw as unknown as Record<string, unknown>;
+          const url = typeof rawSw.url === "string" ? rawSw.url.trim() : "";
+          const doi = typeof rawSw.doi === "string" ? rawSw.doi.trim() : "";
+          return {
+            source_id: (sw.source_id || "").trim(),
+            document_type: sw.document_type ? sw.document_type.trim() : undefined,
+            weight: (VALID_SOURCE_WEIGHTS.includes(sw.weight as SourceWeight) ? sw.weight : "PENDUKUNG") as SourceWeight,
+            reason: sw.reason ? sw.reason.trim() : sw.note ? sw.note.trim() : undefined,
+            note: sw.note ? sw.note.trim() : sw.reason ? sw.reason.trim() : undefined,
+            title: typeof rawSw.title === "string" ? rawSw.title.trim() : undefined,
+            url: url || undefined,
+            doi: doi || undefined,
+            // Jejak audit: sumber tanpa URL/DOI tidak bisa diperiksa keberadaannya.
+            identity_status: (
+              url || doi ? "NEEDS_CHECK" : "MISSING"
+            ) as SourceIdentityAuditStatus,
+          };
+        })
       : undefined,
     academic_audit: payload.academic_audit,
     recovery_search: payload.recovery_search,

@@ -1069,7 +1069,22 @@ export interface SourceWeightItem {
   reason?: string;
   note?: string;
   document_type?: string;
+  /** Judul dokumen sumber. Dipakai untuk jejak audit mahasiswa/dosen. */
+  title?: string;
+  /** Tautan dokumen. Null bila AI tidak menyertakan. */
+  url?: string;
+  /** DOI bila sumber berupa artikel jurnal. */
+  doi?: string;
+  /**
+   * Status identitas sumber hasil audit deterministik:
+   * VERIFIED = punya identitas yang bisa dicek (URL/DOI),
+   * NEEDS_CHECK = identitas ada tetapi belum diverifikasi ke sumber luar,
+   * MISSING = tidak ada URL maupun DOI.
+   */
+  identity_status?: SourceIdentityAuditStatus;
 }
+
+export type SourceIdentityAuditStatus = "VERIFIED" | "NEEDS_CHECK" | "MISSING";
 
 export interface DirectionV2 {
   schema_version: 2;

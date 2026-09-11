@@ -16,6 +16,83 @@ import {
 } from "@/types/tool";
 
 // =========================================================================
+// SHARED DETECTORS (dipakai lintas gate & parser)
+// =========================================================================
+
+/**
+ * Leksikon klaim kausal Bahasa Indonesia. Menangkap frasa yang lazim dipakai
+ * mahasiswa untuk menyatakan sebab-akibat dari data korelasional.
+ * Dipakai untuk menandai (bukan menghapus) klaim yang perlu diperiksa.
+ */
+export const CAUSAL_CLAIM_TERMS: readonly RegExp[] = [
+  /\bmenyebabkan\b/gi,
+  /\bmengakibatkan\b/gi,
+  /\bberpengaruh\b/gi,
+  /\bmemengaruhi\b/gi,
+  /\bmempengaruhi\b/gi,
+  /\bberdampak\b/gi,
+  /\bdampak\s+(nyata|signifikan|positif|negatif)\b/gi,
+  /\bmenimbulkan\b/gi,
+  /\bmendatangkan\b/gi,
+  /\bmengubah\b/gi,
+  /\bmeningkatkan\b/gi,
+  /\bmenurunkan\b/gi,
+  /\bmemperbaiki\b/gi,
+  /\bmendorong\b/gi,
+  /\bmembuktikan\s+bahwa\b/gi,
+  /\bmembuktikan\b/gi,
+  /\bterbukti\s+(menyebabkan|berpengaruh|memengaruhi|mempengaruhi|meningkatkan|menurunkan)\b/gi,
+  /\bmenghasilkan\s+dampak\s+mutlak\b/gi,
+  /\bperlu\s+dikendalikan\b/gi,
+];
+
+/**
+ * Frasa klaim ketiadaan bukti (absence claim). Melanggar prinsip
+ * "no evidence != evidence of absence": hasil pencarian tidak boleh
+ * diubah menjadi pernyataan bahwa penelitian tidak ada.
+ */
+export const ABSENCE_CLAIM_TERMS: readonly RegExp[] = [
+  /\bbelum\s+pernah\s+diteliti\b/gi,
+  /\bbelum\s+pernah\s+dilakukan\s+penelitian\b/gi,
+  /\bbelum\s+ada\s+penelitian\b/gi,
+  /\btidak\s+ada\s+penelitian\b/gi,
+  /\bbelum\s+ada\s+(yang\s+)?(meneliti|membahas|mengkaji)\b/gi,
+  /\btidak\s+ada\s+(yang\s+)?(meneliti|membahas|mengkaji)\b/gi,
+  /\bmasih\s+(sangat\s+)?(jarang|sedikit)\s+(penelitian|studi|kajian)\b/gi,
+  /\bminim\s+(penelitian|studi|kajian)\b/gi,
+  /\bpenelitian\s+pertama\b/gi,
+  /\bstudi\s+pertama\b/gi,
+  /\bmerupakan\s+celah\s+(penelitian|literatur)\b/gi,
+  /\bmengisi\s+kekosongan\s+literatur\b/gi,
+  /\btingkat\s+nasional\s+belum\s+ada\b/gi,
+];
+
+/** Ambil contoh frasa yang cocok, untuk ditampilkan sebagai alasan. */
+export function findMatchingTerms(text: string, lexicon: readonly RegExp[]): string[] {
+  const found: string[] = [];
+  for (const rx of lexicon) {
+    const re = new RegExp(rx.source, rx.flags);
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(text)) !== null) {
+      const hit = m[0].trim();
+      if (hit && !found.includes(hit)) found.push(hit);
+      if (m.index === re.lastIndex) re.lastIndex++;
+    }
+  }
+  return found;
+}
+
+/** true bila teks memuat klaim ketiadaan bukti. */
+export function hasAbsenceClaim(text: string): boolean {
+  return findMatchingTerms(text, ABSENCE_CLAIM_TERMS).length > 0;
+}
+
+/** true bila teks memuat klaim kausal. */
+export function hasCausalClaim(text: string): boolean {
+  return findMatchingTerms(text, CAUSAL_CLAIM_TERMS).length > 0;
+}
+
+// =========================================================================
 // GATE A: SOURCE IDENTITY AUDIT
 // =========================================================================
 
@@ -655,11 +732,51 @@ export function auditClaimInterpretation(input: ClaimAuditInput): {
   // Observational causality guard
   let neutral = input.claim;
   if (input.isObservational || !input.claim.includes("eksperimen acak")) {
-    // Replace strong causal language with association terms
+    // Replace strong causal language with association terms.
+    // Leksikon diperluas: frasa kausal paling umum di skripsi Indonesia dulu
+    // lolos tanpa flag (hanya 'menyebabkan' & 'membuktikan bahwa' yang ditangkap).
     neutral = neutral
       .replace(/\bmenyebabkan\b/gi, "berasosiasi dengan")
+      .replace(/\bmengakibatkan\b/gi, "berasosiasi dengan")
+      .replace(/\bberpengaruh\s+(secara\s+)?(positif|negatif|signifikan)?\s*(terhadap)?\b/gi, "berasosiasi dengan")
+      .replace(/\bberpengaruh\b/gi, "berasosiasi dengan")
+      .replace(/\bme?mengaruhi\b/gi, "berasosiasi dengan")
+      .replace(/\bberdampak\b/gi, "berasosiasi dengan")
+      .replace(/\bmenimbulkan\b/gi, "berkaitan dengan")
+      .replace(/\bmendatangkan\b/gi, "berkaitan dengan")
       .replace(/\bmembuktikan bahwa\b/gi, "menunjukkan bahwa")
-      .replace(/\bmenghasilkan dampak mutlak\b/gi, "dilaporkan berkaitan dengan");
+      .replace(/\bmembuktikan\b/gi, "menunjukkan")
+      .replace(/\bmenghasilkan dampak mutlak\b/gi, "dilaporkan berkaitan dengan")
+      .replace(/\bterbukti\s+(menyebabkan|berpengaruh|memengaruhi|mempengaruhi)\b/gi, "berasosiasi dengan")
+      .replace(/\bmenyebabkan\b/gi, "berasosiasi dengan");
+
+    // Deteksi frasa kausal yang tersisa (mis. 'meningkatkan', 'menurunkan',
+    // 'memperbaiki') — tidak dinetralkan otomatis karena bisa sah secara
+    // deskriptif, tetapi wajib ditandai agar peneliti memeriksa.
+    const remaining = findMatchingTerms(neutral, CAUSAL_CLAIM_TERMS);
+    if (remaining.length > 0) {
+      if (status !== "STATISTICAL_RED_FLAG") status = "NEEDS_CHECK";
+      reasons.push(
+        `Teks memuat frasa sebab-akibat yang belum dapat disimpulkan dari data korelasional: ${remaining.join(", ")}. Gunakan bahasa asosiatif atau jelaskan desain yang mendukung klaim kausal.`
+      );
+    }
+  }
+
+  // Absence claim guard: "tidak ada penelitian" bukan hasil yang sah dari
+  // pencarian; hasil pencarian hanya boleh dinyatakan sebagai cakupan paket ini.
+  if (hasAbsenceClaim(input.claim)) {
+    if (status !== "STATISTICAL_RED_FLAG") status = "NEEDS_CHECK";
+    const hits = findMatchingTerms(input.claim, ABSENCE_CLAIM_TERMS);
+    prohibitedClaims.push(
+      "Klaim ketiadaan bukti ('belum pernah diteliti', 'tidak ada penelitian')."
+    );
+    reasons.push(
+      `Teks menyatakan ketiadaan penelitian (${hits.join(", ")}). Hasil pencarian tidak membuktikan penelitian tidak ada. Tulis: "Tidak ditemukan studi eligible dalam kondisi pencarian dan kriteria inklusi ini."`
+    );
+    neutral = neutral.replace(
+      /\bbelum pernah diteliti\b/gi,
+      "belum ditemukan studi eligible dalam pencarian ini"
+    );
   }
 
   return {
@@ -764,6 +881,24 @@ export function auditGapValidity(input: GapValidityInput): GapAssessment {
       independentAuthorTeamCount: input.independentAuthorTeamCount,
       relationToPhenomenon: input.relationToPhenomenon,
       prohibitedClaims,
+    };
+  }
+
+  // Guard absence-claim: pernyataan "belum pernah diteliti" BUKAN bukti adanya
+  // research gap. Hasil pencarian hanya membuktikan cakupan paket ini, bukan
+  // ketiadaan penelitian di lapangan. Wajib diturunkan sampai ada bukti pencarian.
+  if (hasAbsenceClaim(input.gapStatement)) {
+    const hits = findMatchingTerms(input.gapStatement, ABSENCE_CLAIM_TERMS);
+    return {
+      origin: "PACKAGE_COVERAGE",
+      validity: "NOT_A_RESEARCH_GAP",
+      comparableSourceIds: input.comparableSourceIds,
+      independentAuthorTeamCount: input.independentAuthorTeamCount,
+      relationToPhenomenon: input.relationToPhenomenon,
+      prohibitedClaims: [
+        ...prohibitedClaims,
+        `Klaim ketiadaan bukti terdeteksi (${hits.join(", ")}). Bukan research gap sampai pencarian sistematis menunjukkan tidak ada studi eligible dalam kondisi pencarian ini.`,
+      ],
     };
   }
 
@@ -934,4 +1069,286 @@ export function auditBab1Readiness(input: Bab1ReadinessInput): {
     recoveryActions,
     studentSummary,
   };
+}
+
+
+// =========================================================================
+// AUDIT KONTEN OUTPUT (dipakai parser Tool1–Tool4 sebelum output dirender)
+//
+// Prinsip: aturan akademik yang ditulis di prompt harus punya penegak
+// deterministik. Fungsi di bawah mengubah instruksi teks menjadi temuan
+// yang bisa ditampilkan ke mahasiswa.
+// =========================================================================
+
+export interface ContentAuditFinding {
+  code: string;
+  severity: "ERROR" | "WARNING";
+  message: string;
+  field?: string;
+}
+
+export interface ContentAuditResult {
+  findings: ContentAuditFinding[];
+  hasError: boolean;
+  hasWarning: boolean;
+}
+
+/**
+ * Audit teks bebas (judul, ringkasan, klaim, batas klaim) terhadap red line:
+ * klaim kausal berlebihan dan klaim ketiadaan bukti.
+ * Dipakai Tool1–Tool4 karena semuanya memuat field teks bebas.
+ */
+export function auditFreeTextContent(
+  text: string,
+  field: string,
+  opts: { allowCausal?: boolean } = {}
+): ContentAuditFinding[] {
+  const out: ContentAuditFinding[] = [];
+  const val = (text || "").trim();
+  if (!val) return out;
+
+  const absence = findMatchingTerms(val, ABSENCE_CLAIM_TERMS);
+  if (absence.length > 0) {
+    out.push({
+      code: "ABSENCE_CLAIM",
+      severity: "ERROR",
+      field,
+      message: `Field '${field}' menyatakan ketiadaan penelitian (${absence.join(", ")}). Hasil pencarian tidak membuktikan penelitian tidak ada. Tulis: "Tidak ditemukan studi eligible dalam kondisi pencarian dan kriteria inklusi ini."`,
+    });
+  }
+
+  if (!opts.allowCausal) {
+    const causal = findMatchingTerms(val, CAUSAL_CLAIM_TERMS);
+    if (causal.length > 0) {
+      out.push({
+        code: "CAUSAL_CLAIM",
+        severity: "WARNING",
+        field,
+        message: `Field '${field}' memuat frasa sebab-akibat (${causal.join(", ")}) yang tidak dapat disimpulkan dari data korelasional atau dokumen yang hanya melaporkan asosiasi.`,
+      });
+    }
+  }
+
+  return out;
+}
+
+/**
+ * Audit daftar teks bebas (mis. prohibited_claims milik AI sendiri).
+ * Teks di sini justru HARUS memuat frasa kausal — sebab isinya larangan
+ * ("Belum aman menyatakan X menyebabkan Y"). Karena itu, klaim kausal tidak
+ * ditandai di sini; hanya klaim ketiadaan bukti yang bocor sebagai pernyataan.
+ */
+export function auditClaimBoundaryList(
+  items: unknown,
+  field: string
+): ContentAuditFinding[] {
+  const out: ContentAuditFinding[] = [];
+  const list = Array.isArray(items) ? items : [];
+  for (let i = 0; i < list.length; i++) {
+    const raw = typeof list[i] === "string" ? list[i] : "";
+    if (!raw.trim()) continue;
+    // Kalimat pengaman lazimnya sudah memuat penanda negasi/larangan
+    // ("Belum aman menyatakan ...", "Jangan simpulkan ..."). Selama penanda itu
+    // ada, pernyataan tidak dianggap sebagai klaim ketiadaan bukti.
+    const negativeMarkers = /belum|tidak|jangan|dilarang|hindari|bukan|tanpa bukti|perlu diperiksa|hati-hati/i;
+    if (negativeMarkers.test(raw.trim())) continue;
+    const absence = findMatchingTerms(raw, ABSENCE_CLAIM_TERMS);
+    if (absence.length > 0) {
+      out.push({
+        code: "ABSENCE_CLAIM",
+        severity: "ERROR",
+        field: `${field}[${i}]`,
+        message: `Pernyataan '${raw.slice(0, 120)}' berbunyi sebagai fakta ketiadaan penelitian, bukan sebagai peringatan. Nyatakan sebagai batas cakupan pencarian, atau bungkus sebagai kalimat larangan.`,
+      });
+    }
+  }
+  return out;
+}
+
+/**
+ * Gabungkan temuan dari beberapa audit menjadi satu hasil.
+ */
+export function mergeContentAudit(
+  groups: ContentAuditFinding[][]
+): ContentAuditResult {
+  const seen = new Set<string>();
+  const findings: ContentAuditFinding[] = [];
+  for (const g of groups) {
+    for (const f of g) {
+      const key = `${f.code}|${f.field}|${f.message}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      findings.push(f);
+    }
+  }
+  return {
+    findings,
+    hasError: findings.some((f) => f.severity === "ERROR"),
+    hasWarning: findings.some((f) => f.severity === "WARNING"),
+  };
+}
+
+/**
+ * Audit identitas sumber: dipakai Tool2/Tool4 untuk memastikan setiap sumber
+ * punya jejak yang bisa diverifikasi (URL atau DOI) dan tidak menyamar sebagai
+ * dokumen resmi padahal berasal dari agregator pihak ketiga.
+ */
+export const AGGREGATOR_DOMAINS: readonly string[] = [
+  "scribd.com",
+  "id.scribd.com",
+  "financialfilings.com",
+  "academia.edu",
+  "researchgate.net",
+  "slideshare.net",
+  "coursehero.com",
+  "studocu.com",
+  "pdfcoffee.com",
+  "123dok.com",
+  "docplayer.net",
+];
+
+export const PLACEHOLDER_DOMAINS: readonly string[] = [
+  "example.com",
+  "example.org",
+  "example.net",
+  "test.com",
+  "localhost",
+  "invalid",
+];
+
+export const PLACEHOLDER_DOI_PREFIXES: readonly string[] = [
+  "10.9999/",
+  "10.1234/",
+  "10.0000/",
+  "10.5555/",
+];
+
+export function extractDomain(url?: string): string {
+  const raw = (url || "").trim();
+  if (!raw) return "";
+  try {
+    const normalized = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+    return new URL(normalized).hostname.toLowerCase().replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+export interface SourceIdentityAuditInput {
+  sourceId: string;
+  url?: string;
+  doi?: string;
+  title?: string;
+  declaredType?: string;
+}
+
+/**
+ * Audit identitas entri sumber. Mengembalikan temuan (bukan menghapus sumber),
+ * supaya mahasiswa melihat sendiri sumber mana yang belum bisa dicek.
+ */
+export function auditSourceEntry(input: SourceIdentityAuditInput): ContentAuditFinding[] {
+  const out: ContentAuditFinding[] = [];
+  const url = (input.url || "").trim();
+  const doi = (input.doi || "").trim();
+  const title = (input.title || "").trim();
+  const domain = extractDomain(url);
+  const label = `Sumber ${input.sourceId}`;
+
+  // 1. Tanpa jejak identitas sama sekali.
+  // Peringatan, bukan error: satu-dua sumber tanpa tautan masih wajar. Tetapi
+  // bila SELURUH register sumber tanpa identitas, itu ditandai terpisah
+  // (lihat auditSourceRegister) karena tidak ada satu pun yang bisa diperiksa.
+  if (!url && !doi) {
+    out.push({
+      code: "SOURCE_NO_IDENTITY",
+      severity: "WARNING",
+      field: input.sourceId,
+      message: `${label} tidak punya URL maupun DOI, jadi keberadaannya belum dapat diperiksa. Tambahkan tautan atau DOI agar bisa diverifikasi.`,
+    });
+  }
+
+  // 2. Domain placeholder (contoh: example.com)
+  if (domain && PLACEHOLDER_DOMAINS.some((d) => domain === d || domain.endsWith(`.${d}`))) {
+    out.push({
+      code: "SOURCE_PLACEHOLDER_DOMAIN",
+      severity: "ERROR",
+      field: input.sourceId,
+      message: `${label} memakai domain contoh (${domain}) yang tidak pernah memuat dokumen nyata.`,
+    });
+  }
+
+  // 3. DOI pola placeholder
+  const doiLower = doi.toLowerCase().replace(/^https?:\/\/doi\.org\//, "");
+  const badDoi = PLACEHOLDER_DOI_PREFIXES.find((p) => doiLower.startsWith(p));
+  if (badDoi) {
+    out.push({
+      code: "SOURCE_PLACEHOLDER_DOI",
+      severity: "ERROR",
+      field: input.sourceId,
+      message: `${label} memakai DOI berpola contoh (${doiLower}). DOI seperti ini tidak terdaftar di Crossref dan biasanya hasil karangan.`,
+    });
+  }
+
+  // 4. Agregator pihak ketiga menyamar sebagai dokumen resmi
+  if (domain && AGGREGATOR_DOMAINS.includes(domain)) {
+    const t = (input.declaredType || "").toUpperCase();
+    if (t === "INSTITUTIONAL_REPORT" || t === "REGULATION" || t === "OFFICIAL_DATA") {
+      out.push({
+        code: "SOURCE_AGGREGATOR_MISLABEL",
+        severity: "WARNING",
+        field: input.sourceId,
+        message: `${label} bersumber dari situs agregator (${domain}) tetapi diberi label '${input.declaredType}' yang berarti dokumen resmi. Turunkan labelnya atau ganti dengan dokumen aslinya.`,
+      });
+    } else {
+      out.push({
+        code: "SOURCE_AGGREGATOR",
+        severity: "WARNING",
+        field: input.sourceId,
+        message: `${label} berasal dari situs agregator pihak ketiga (${domain}); isinya belum tentu sama dengan dokumen aslinya.`,
+      });
+    }
+  }
+
+  // 5. Judul tidak ada
+  if (!title) {
+    out.push({
+      code: "SOURCE_NO_TITLE",
+      severity: "WARNING",
+      field: input.sourceId,
+      message: `${label} tidak punya judul, sehingga mahasiswa tidak tahu dokumen apa yang dimaksud.`,
+    });
+  }
+
+  return out;
+}
+
+/**
+ * Audit seluruh register sumber. Menandai ERROR hanya bila TIDAK ADA SATU PUN
+ * sumber yang punya identitas yang bisa diperiksa — pada kondisi itu, seluruh
+ * rantai bukti berdiri di atas dokumen yang keberadaannya tidak bisa dibuktikan.
+ */
+export function auditSourceRegister(
+  entries: SourceIdentityAuditInput[]
+): ContentAuditFinding[] {
+  const out: ContentAuditFinding[] = [];
+  if (entries.length === 0) return out;
+
+  const terverifikasi = entries.filter((e) => (e.url || "").trim() || (e.doi || "").trim());
+  if (terverifikasi.length === 0) {
+    out.push({
+      code: "SOURCE_REGISTER_NO_IDENTITY",
+      severity: "ERROR",
+      field: "source_weights",
+      message: `Tidak ada satu pun dari ${entries.length} sumber yang punya URL atau DOI. Seluruh bukti berdiri di atas dokumen yang keberadaannya tidak dapat diperiksa. Minta AI menyertakan tautan atau DOI untuk setiap sumber sebelum lanjut.`,
+    });
+  } else if (terverifikasi.length < entries.length / 2) {
+    out.push({
+      code: "SOURCE_REGISTER_MOSTLY_UNVERIFIED",
+      severity: "WARNING",
+      field: "source_weights",
+      message: `Hanya ${terverifikasi.length} dari ${entries.length} sumber yang punya URL atau DOI. Sebagian besar bukti belum bisa diperiksa mandiri.`,
+    });
+  }
+
+  return out;
 }
