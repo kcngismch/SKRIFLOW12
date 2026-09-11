@@ -1367,12 +1367,22 @@ export function auditSourceRegister(
   if (entries.length === 0) return out;
 
   const terverifikasi = entries.filter((e) => (e.url || "").trim() || (e.doi || "").trim());
-  if (terverifikasi.length === 0) {
+  // Judul juga dihitung: sumber tanpa tautan/DOI masih bisa diperiksa keberadaannya
+  // bila judul dokumennya jelas. Yang benar-benar buta adalah sumber tanpa keduanya.
+  const terjJudul = entries.filter((e) => (e.title || "").trim());
+  if (terverifikasi.length === 0 && terjJudul.length === 0) {
     out.push({
       code: "SOURCE_REGISTER_NO_IDENTITY",
       severity: "ERROR",
       field: "source_weights",
-      message: `Tidak ada satu pun dari ${entries.length} sumber yang punya URL atau DOI. Seluruh bukti berdiri di atas dokumen yang keberadaannya tidak dapat diperiksa. Minta AI menyertakan tautan atau DOI untuk setiap sumber sebelum lanjut.`,
+      message: `Tidak ada satu pun dari ${entries.length} sumber yang punya judul, URL, atau DOI. Seluruh bukti berdiri di atas dokumen yang keberadaannya belum bisa diperiksa. Kembali ke prompt Tool 4: keluarkan ulang bagian source_weights dengan field title dan url/doi terisi, lalu proses ulang.`,
+    });
+  } else if (terverifikasi.length === 0 && terjJudul.length > 0) {
+    out.push({
+      code: "SOURCE_REGISTER_NO_IDENTITY",
+      severity: "WARNING",
+      field: "source_weights",
+      message: `${entries.length} sumber punya judul tetapi tidak ada satu pun yang menyertakan URL atau DOI. Keberadaan dokumen belum bisa dicek; minimal tautan untuk sumber utama.`,
     });
   } else if (terverifikasi.length < entries.length / 2) {
     out.push({

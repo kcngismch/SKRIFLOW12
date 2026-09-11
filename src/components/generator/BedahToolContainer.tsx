@@ -198,6 +198,8 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
   });
 
   const [parseError4A, setParseError4A] = useState<{ error: string; details?: string[] } | null>(null);
+  /** Temuan audit konten 4A (red line akademik). Dihitung parser. */
+  const [auditFindings4A, setAuditFindings4A] = useState<import("@/lib/academicGates").ContentAuditFinding[]>([]);
 
   // Selected Direction
   const [selectedDirectionId, setSelectedDirectionId] = useState<string | null>(() => {
@@ -500,6 +502,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
   const handleProcessLLMOutput4A = () => {
     setParseError4A(null);
     const res = parseBedahTransfer(pastedLLMOutput4A);
+    setAuditFindings4A(res.contentFindings ?? []);
     if (res.success) {
       if (res.version === 2 && res.dataV2) {
         setParsedPayloadV2(res.dataV2);
@@ -698,6 +701,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
     clearBedahDirectionV2();
     setParsedPayloadV1(null);
     setParseError4A(null);
+    setAuditFindings4A([]);
     setSelectedDirectionId(null);
     clearSelectedDirectionId();
     setFeasibilityAnswers({});
@@ -1151,6 +1155,52 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               <span>Verifikasi & Proses Hasil 4A</span>
             </button>
           </div>
+
+          {/* Temuan audit konten (red line akademik): klaim kausal, klaim
+              ketiadaan bukti, pengaman klaim hilang, sumber tanpa identitas. */}
+          {auditFindings4A.length > 0 && (() => {
+            const errors = auditFindings4A.filter((x) => x.severity === "ERROR");
+            const warnings = auditFindings4A.filter((x) => x.severity !== "ERROR");
+            const tampil = [...errors, ...warnings].slice(0, 8);
+            return (
+              <div
+                className={`rounded-xl border p-4 space-y-2 ${
+                  errors.length > 0
+                    ? "border-rose-500/30 bg-rose-500/10"
+                    : "border-[#F5A623]/30 bg-[#F5A623]/10"
+                }`}
+              >
+                <div className="flex items-center gap-2 text-sm font-bold text-[#FFF9EE]">
+                  <ShieldAlert className="h-4 w-4 shrink-0 text-[#F5A623]" aria-hidden="true" />
+                  <span>
+                    Pemeriksaan Akademik: {auditFindings4A.length} temuan
+                    {errors.length > 0 ? ` (${errors.length} perlu diperbaiki)` : ""}
+                  </span>
+                </div>
+                <ul className="space-y-1.5 text-xs text-[#FFF9EE]">
+                  {tampil.map((x, i) => (
+                    <li key={i} className="leading-relaxed">
+                      <span
+                        className={`mr-1.5 rounded px-1 py-0.5 text-[10px] font-bold ${
+                          x.severity === "ERROR"
+                            ? "bg-rose-500/25 text-rose-300"
+                            : "bg-[#F5A623]/25 text-[#F5A623]"
+                        }`}
+                      >
+                        {x.severity === "ERROR" ? "PERLU DIPERBAIKI" : "CATATAN"}
+                      </span>
+                      {x.message}
+                    </li>
+                  ))}
+                </ul>
+                {auditFindings4A.length > tampil.length && (
+                  <p className="text-[11px] text-[#AAB4D0]">
+                    +{auditFindings4A.length - tampil.length} temuan lain pada daftar sumber.
+                  </p>
+                )}
+              </div>
+            );
+          })()}
 
           {/* Parse Errors & Repair Actions */}
           {parseError4A && (

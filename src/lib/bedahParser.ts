@@ -154,6 +154,10 @@ export function validateLiteratureEvidencePackage(
   // 1. Detect if user erroneously pasted Prompt A output (Search / Import Cards)
   const isPromptAOutput =
     upper.includes("SOURCE IMPORT CARDS") ||
+    upper.includes("SOURCEIMPORTCARD") ||
+    upper.includes("A2UI-JSON") ||
+    upper.includes("OUTPUT PROMPT A") ||
+    upper.includes("OUPUT PROMPT A") ||
     upper.includes("AUTO-IMPORT") ||
     (upper.includes("[PERAN]") && upper.includes("MENGUMPULKAN SUMBER AKADEMIK") && !upper.includes("MATRIKS BUKTI"));
 
@@ -188,7 +192,11 @@ export function validateLiteratureEvidencePackage(
     upper.includes("B. STATUS SUMBER") ||
     upper.includes("B.STATUS SUMBER") ||
     upper.includes("STATUS SUMBER") ||
-    upper.includes("TOTAL NOTEBOOK");
+    upper.includes("TOTAL NOTEBOOK") ||
+    // NotebookLM lazim memakai heading bernomor, bukan huruf bagian.
+    upper.includes("REKONSILIASI SUMBER") ||
+    upper.includes("JUMLAH SUMBER") ||
+    upper.includes("TOTAL SUMBER");
 
   const hasSourceRegister =
     upper.includes("C. SOURCE REGISTER") ||
@@ -219,18 +227,31 @@ export function validateLiteratureEvidencePackage(
   const hasStopSentence =
     upper.includes("STOP") ||
     upper.includes("PAKET INI HANYA MEMETAKAN BUKTI") ||
-    upper.includes("BELUM DITETAPKAN RESEARCH GAP");
+    upper.includes("BELUM DITETAPKAN RESEARCH GAP") ||
+    upper.includes("PENUTUP") ||
+    upper.includes("CATATAN PENUTUP");
 
-  if (!hasKonteks) missingParts.push("Konteks (Bagian A)");
-  if (!hasStatusSumber) missingParts.push("Status Sumber (Bagian B)");
-  if (!hasSourceRegister) missingParts.push("Source Register (Bagian C)");
-  if (!hasIntiSource) missingParts.push("Sumber Inti (minimal 1 sumber INTI)");
-  if (!hasMatriksBukti) missingParts.push("Matriks Bukti (Bagian D)");
-  if (!hasEvidence) missingParts.push("Baris Bukti Matriks (minimal 1 bukti B01)");
-  if (!hasStopSentence) missingParts.push("Penutup / STOP (Bagian E)");
+  // Syarat keras: daftar sumber, matriks bukti, dan baris bukti nyata. Inilah
+  // yang menentukan paket bisa dipakai sebagai dasar analisis.
+  const hardMissing: string[] = [];
+  if (!hasSourceRegister) hardMissing.push("Source Register (Bagian C)");
+  if (!hasMatriksBukti) hardMissing.push("Matriks Bukti (Bagian D)");
+  if (!hasEvidence) hardMissing.push("Baris Bukti Matriks (minimal 1 bukti)");
+
+  // Bagian pendukung: ketiadaannya dicatat sebagai saran, bukan penghalang.
+  // NotebookLM sering memakai heading sendiri ("1. REKONSILIASI SUMBER NOTEBOOK")
+  // sehingga bagian A/B tidak terdeteksi walau paketnya utuh. Menolak paket utuh
+  // karena perbedaan judul bagian justru menyesatkan mahasiswa.
+  const softMissing: string[] = [];
+  if (!hasKonteks) softMissing.push("Konteks penelitian (Bagian A)");
+  if (!hasStatusSumber) softMissing.push("Rekap status sumber (Bagian B)");
+  if (!hasIntiSource) softMissing.push("Penanda sumber inti (INTI/PRIMARY)");
+  if (!hasStopSentence) softMissing.push("Penutup paket (Bagian E)");
+
+  missingParts.push(...hardMissing);
 
   // Status decision
-  if (!hasSourceRegister || !hasMatriksBukti || !hasEvidence) {
+  if (hardMissing.length > 0) {
     return {
       status: "PAKET_TIDAK_DIKENALI",
       hasKonteks,
@@ -266,6 +287,33 @@ export function validateLiteratureEvidencePackage(
         `Beberapa bagian pendukung tidak terdeteksi: ${missingParts.join(", ")}. Pastikan teks output utuh sebelum lanjut.`,
       ],
     };
+  }
+
+  // Bagian C/D ada judulnya tetapi tidak ada isinya -> tetap perlu diperiksa.
+  // Sebaliknya, paket dengan isi nyata tidak ditolak hanya karena bagian
+  // pendukung memakai judul berbeda.
+  if (softMissing.length > 0 && hardMissing.length === 0) {
+    const content3 = auditLiteraturePackageContent(text);
+    if (content3.missing.length === 0) {
+      return {
+        status: "STRUKTUR_LENGKAP",
+        hasKonteks,
+        hasStatusSumber,
+        hasSourceRegister,
+        hasIntiSource,
+        hasMatriksBukti,
+        hasEvidence,
+        hasStopSentence,
+        isPromptAOutput: false,
+        isResearchReport: false,
+        missingParts: [],
+        notes: [
+          `Paket Bukti Literatur memuat ${content3.sourceCount} entri sumber dan ${content3.evidenceRowCount} baris bukti. Bagian inti lengkap.`,
+          `Bagian pendukung tidak terdeteksi: ${softMissing.join(", ")}. Paket tetap bisa dipakai, tetapi lengkapi bila tersedia.`,
+          "Catatan: pemeriksaan ini menilai kelengkapan bentuk dan identitas sumber, bukan kebenaran isinya. Bukti tetap perlu ditelusuri sendiri.",
+        ],
+      };
+    }
   }
 
   // 3. Pemeriksaan ISI (bukan hanya keberadaan judul bagian).
@@ -325,20 +373,20 @@ function auditLiteraturePackageContent(text: string): {
 } {
   const missing: string[] = [];
 
-  // Potong teks per bagian A–E. Menghitung baris per bagian lebih tahan
-  // terhadap variasi format (tabel Markdown, daftar bernomor, atau [S01] …).
-  const SECTIONS = [
-    { key: "C", re: /(^|\n)\s*#{0,4}\s*C\.\s*SOURCE REGISTER/i, alt: /(^|\n)\s*#{0,4}\s*(DAFTAR SUMBER|REGISTER SUMBER)/i },
-    { key: "D", re: /(^|\n)\s*#{0,4}\s*D\.\s*MATRIKS BUKTI/i, alt: /(^|\n)\s*#{0,4}\s*(EVIDENCE MATRIX)/i },
-  ];
+  // Potong teks per bagian. Heading bisa berbentuk "C. SOURCE REGISTER",
+  // "### 2. SOURCE REGISTER", atau "SOURCE REGISTER" saja — NotebookLM tidak
+  // konsisten, jadi penanda huruf/nomor bagian dibuat opsional.
+  const JUDUL_C = /(^|\n)[ \t]*#{0,4}[ \t]*(?:[A-E][.)]|\d{1,2}[.)])?[ \t]*(SOURCE REGISTER|DAFTAR SUMBER|REGISTER SUMBER|REKONSILIASI SUMBER)/i;
+  const JUDUL_D = /(^|\n)[ \t]*#{0,4}[ \t]*(?:[A-E][.)]|\d{1,2}[.)])?[ \t]*(MATRIKS BUKTI|EVIDENCE MATRIX)/i;
+  // Batas akhir bagian: heading Markdown apa pun, atau heading huruf/nomor
+  // bagian berikutnya.
+  const BATAS = /(^|\n)[ \t]*(?:#{1,6}[ \t]\S|[A-E][.)][ \t]*[A-Z][A-Za-z ]{3,}|\d{1,2}[.)][ \t]*[A-Z][A-Za-z ]{3,})/;
 
-  function potong(re: RegExp, alt: RegExp): string {
-    const m = re.exec(text) ?? alt.exec(text);
+  function potong(judul: RegExp): string {
+    const m = judul.exec(text);
     if (!m) return "";
-    const mulai = m.index + m[0].length;
-    // batas: header bagian berikutnya (A–E) atau akhir teks
-    const sisa = text.slice(mulai);
-    const batas = /(^|\n)\s*#{0,4}\s*[A-E]\.\s*[A-Z][A-Za-z ]{3,}/.exec(sisa);
+    const sisa = text.slice(m.index + m[0].length);
+    const batas = BATAS.exec(sisa);
     return batas ? sisa.slice(0, batas.index) : sisa;
   }
 
@@ -353,8 +401,8 @@ function auditLiteraturePackageContent(text: string): {
       .length;
   }
 
-  const blokC = potong(SECTIONS[0].re, SECTIONS[0].alt);
-  const blokD = potong(SECTIONS[1].re, SECTIONS[1].alt);
+  const blokC = potong(JUDUL_C);
+  const blokD = potong(JUDUL_D);
   const sourceCount = hitungBarisIsi(blokC);
   const evidenceRowCount = hitungBarisIsi(blokD);
 

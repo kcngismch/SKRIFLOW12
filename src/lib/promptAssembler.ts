@@ -1866,10 +1866,14 @@ Setiap arah penelitian wajib memiliki batas klaim (claim_boundary):
 
 [BOBOT KUALITAS SUMBER]
 
-Klasifikasikan fungsi sumber (source_weights):
-- UTAMA: artikel peer-reviewed full-text atau sumber primer/resmi yang dapat ditelusuri;
-- PENDUKUNG: proceeding, working paper, tesis, review, atau laporan institusi yang masih relevan;
-- PERLU_DIPERIKSA: identitas, akses, full-text, atau status akademiknya belum pasti.
+Klasifikasikan fungsi sumber (source_weights). SETIAP entri WAJIB memuat identitas sumber:
+- source_id: ID sumber persis seperti pada paket bukti;
+- title: judul dokumen (bukan nama lembaga saja);
+- url atau doi: tautan/DOI bila tersedia. Tulis "-" bila benar-benar tidak ada, jangan dikarang;
+- document_type: jenis dokumen apa adanya;
+- weight: UTAMA (artikel peer-reviewed full-text atau sumber primer/resmi yang dapat ditelusuri), PENDUKUNG (proceeding, working paper, tesis, review, laporan institusi yang masih relevan), atau PERLU_DIPERIKSA (identitas, akses, full-text, atau status akademiknya belum pasti).
+
+Sumber tanpa judul dan tanpa tautan/DOI tidak boleh diberi bobot UTAMA. Turunkan ke PERLU_DIPERIKSA dan jelaskan alasannya pada note.
 
 Klaim inti untuk Bab 1 tidak boleh hanya bergantung pada sumber PENDUKUNG atau PERLU_DIPERIKSA. Jangan otomatis membuang seluruh Paket Bukti jika ada beberapa sumber lemah; turunkan bobot klaimnya dan beri catatan pemeriksaan.
 
@@ -2073,6 +2077,9 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
   "source_weights": [
     {
       "source_id": "ID-09",
+      "title": "Judul dokumen sumber apa adanya",
+      "url": "https://tautan-langsung-ke-dokumen atau \"-\"",
+      "doi": "10.xxxx/yyyy atau \"-\"",
       "document_type": "Systematic Literature Review (SLR)",
       "weight": "PENDUKUNG",
       "note": "..."

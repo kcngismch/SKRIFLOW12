@@ -1438,6 +1438,54 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   )}
                 </div>
 
+                {/* Temuan audit konten: red line akademik (klaim kausal, ketiadaan
+                    bukti, identitas sumber). Dihitung parser, bukan diklaim AI. */}
+                {(() => {
+                  const findings = parseResult.contentFindings ?? [];
+                  if (findings.length === 0) return null;
+                  const errors = findings.filter((x) => x.severity === "ERROR");
+                  const warnings = findings.filter((x) => x.severity !== "ERROR");
+                  const tampil = [...errors, ...warnings].slice(0, 8);
+                  return (
+                    <div
+                      className={`rounded-lg border p-3.5 text-xs space-y-2 animate-fade-in ${
+                        errors.length > 0
+                          ? "border-[#FF6F61]/40 bg-[#FF6F61]/10 text-[#FFF9EE]"
+                          : "border-[#F5A623]/40 bg-[#F5A623]/10 text-[#FFF9EE]"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 font-bold">
+                        <ShieldAlert className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <span>
+                          Pemeriksaan Akademik: {findings.length} temuan
+                          {errors.length > 0 ? ` (${errors.length} perlu diperbaiki)` : ""}
+                        </span>
+                      </div>
+                      <ul className="space-y-1.5">
+                        {tampil.map((x, i) => (
+                          <li key={i} className="leading-relaxed">
+                            <span
+                              className={`mr-1.5 rounded px-1 py-0.5 text-[10px] font-bold ${
+                                x.severity === "ERROR"
+                                  ? "bg-[#FF6F61]/25 text-[#FF6F61]"
+                                  : "bg-[#F5A623]/25 text-[#F5A623]"
+                              }`}
+                            >
+                              {x.severity === "ERROR" ? "PERLU DIPERBAIKI" : "CATATAN"}
+                            </span>
+                            {x.message}
+                          </li>
+                        ))}
+                      </ul>
+                      {findings.length > tampil.length && (
+                        <p className="text-[11px] text-[#AAB4D0]">
+                          +{findings.length - tampil.length} temuan lain pada bukti/sumber.
+                        </p>
+                      )}
+                    </div>
+                  );
+                })()}
+
                 {/* Non-blocking URL Normalization notification */}
                 {parseResult.urlCorrections && parseResult.urlCorrections.length > 0 && (
                   <div className="rounded-lg border border-[#70E1B6]/30 bg-[#70E1B6]/10 p-3.5 text-xs text-[#FFF9EE] space-y-2 animate-fade-in">
