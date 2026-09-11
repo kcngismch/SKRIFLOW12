@@ -58,7 +58,14 @@ import {
   generateBab1FoundationFixFormatPrompt,
   generateBab1FoundationFixStructurePrompt,
   computeBedahInputFingerprint,
+  extractSumberPaketLiteratur,
 } from "@/lib/bedahParser";
+import {
+  TombolPeriksaSumber,
+  RingkasanVerifikasi,
+  LencanaVerifikasi,
+  useVerifikasiSumber,
+} from "./VerifikasiSumberPanel";
 import {
   assembleBedahPrompt,
   analyzeBedahPrompt,
@@ -104,18 +111,6 @@ import {
 } from "lucide-react";
 
 const emptySubscribe = () => () => {};
-/** Hasil verifikasi satu sumber ke Crossref/OpenAlex (R-05). */
-interface HasilVerifikasiSumber {
-  sourceId: string;
-  verdict: "TERVERIFIKASI" | "KEMUNGKINAN_COCOK" | "TIDAK_DITEMUKAN" | "TIDAK_DAPAT_DIPERIKSA";
-  sumber: "crossref" | "openalex" | null;
-  judulDitemukan?: string;
-  tahunDitemukan?: string;
-  doiDitemukan?: string;
-  catatan: string;
-  perluDicurigai?: boolean;
-}
-
 function useIsMounted(): boolean {
   return useSyncExternalStore(
     emptySubscribe,
@@ -212,10 +207,14 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
   const [parseError4A, setParseError4A] = useState<{ error: string; details?: string[] } | null>(null);
   /** Temuan audit konten 4A (red line akademik). Dihitung parser. */
   const [auditFindings4A, setAuditFindings4A] = useState<import("@/lib/academicGates").ContentAuditFinding[]>([]);
-  /** Hasil verifikasi sumber ke Crossref/OpenAlex (R-05). */
-  const [verifikasiSumber, setVerifikasiSumber] = useState<Record<string, HasilVerifikasiSumber>>({});
-  const [sedangVerifikasi, setSedangVerifikasi] = useState(false);
-  const [verifikasiCatatan, setVerifikasiCatatan] = useState<string | null>(null);
+  /** Verifikasi sumber ke Crossref/OpenAlex (R-05) — dipakai bersama Tool 2/3/4. */
+  const {
+    hasil: verifikasiSumber,
+    sedangProses: sedangVerifikasi,
+    catatan: verifikasiCatatan,
+    periksa: periksaSumber,
+    reset: resetVerifikasi,
+  } = useVerifikasiSumber();
 
   // Selected Direction
   const [selectedDirectionId, setSelectedDirectionId] = useState<string | null>(() => {
@@ -293,6 +292,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
       clearBedahOutput4B();
       setParsedFoundationV1(null);
       clearBab1FoundationV1();
+      resetVerifikasi();
     }
   };
 
@@ -514,51 +514,37 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
     }
   };
 
-  // Verifikasi sumber ke Crossref/OpenAlex (R-05). Gratis, tanpa API key.
-  const handleVerifikasiSumber = async () => {
-    const sw = parsedPayloadV2?.source_weights ?? [];
-    if (sw.length === 0) return;
-    setSedangVerifikasi(true);
-    setVerifikasiCatatan(null);
-    try {
-      // Batasi 12 sumber per putaran agar respons tetap cepat.
-      const kirim = sw.slice(0, 12).map((x) => ({
-        sourceId: x.source_id,
-        doi: "doi" in x ? String((x as { doi?: string }).doi ?? "") : "",
-        url: "url" in x ? String((x as { url?: string }).url ?? "") : "",
-        title: "title" in x ? String((x as { title?: string }).title ?? "") : "",
-        documentType: "document_type" in x ? String((x as { document_type?: string }).document_type ?? "") : "",
+  // Sumber mana yang diperiksa: paket Tool3 yang ditempel (paling relevan untuk
+  // arah penelitian), dan bila belum ada, register 4A dari parse terakhir.
+  const sumberUntukDiperiksa = useMemo(() => {
+    const dariPaketTool3 = extractSumberPaketLiteratur(literaturePackage);
+    if (dariPaketTool3.length > 0) {
+      return dariPaketTool3.map((x) => ({
+        sourceId: x.sourceId,
+        title: x.title,
+        url: x.url,
+        doi: x.doi,
+        documentType: x.documentType,
       }));
-      const res = await fetch("/api/verify-source", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: kirim }),
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      const data = await res.json();
-      const map: Record<string, HasilVerifikasiSumber> = {};
-      for (const h of data.hasil ?? []) map[h.sourceId] = h;
-      setVerifikasiSumber(map);
-      const sisa = Math.max(0, sw.length - kirim.length);
-      setVerifikasiCatatan(
-        sisa > 0
-          ? `Diperiksa ${kirim.length} sumber pertama. ${sisa} sumber lain belum diperiksa pada putaran ini.`
-          : null
-      );
-    } catch {
-      setVerifikasiCatatan("Gagal menghubungi layanan verifikasi. Periksa koneksi internet.");
-    } finally {
-      setSedangVerifikasi(false);
     }
-  };
+    return (parsedPayloadV2?.source_weights ?? []).map((sw) => {
+      const x = sw as unknown as Record<string, unknown>;
+      return {
+        sourceId: String(x.source_id ?? ""),
+        title: String(x.title ?? ""),
+        url: String(x.url ?? ""),
+        doi: String(x.doi ?? ""),
+        documentType: String(x.document_type ?? ""),
+      };
+    });
+  }, [literaturePackage, parsedPayloadV2]);
 
   // Handle Process LLM Output 4A
   const handleProcessLLMOutput4A = () => {
     setParseError4A(null);
     const res = parseBedahTransfer(pastedLLMOutput4A);
     setAuditFindings4A(res.contentFindings ?? []);
-    setVerifikasiSumber({});
-    setVerifikasiCatatan(null);
+    resetVerifikasi();
     if (res.success) {
       if (res.version === 2 && res.dataV2) {
         setParsedPayloadV2(res.dataV2);
@@ -1075,6 +1061,22 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                     </li>
                   ))}
                 </ul>
+              )}
+
+              {sumberUntukDiperiksa.length > 0 && (
+                <div className="mt-3 space-y-2 border-t border-[#273352]/60 pt-3">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <span className="text-xs text-[#AAB4D0]">
+                      Periksa {sumberUntukDiperiksa.length} sumber di paket ini ke Crossref/OpenAlex (gratis).
+                    </span>
+                    <TombolPeriksaSumber
+                      jumlah={sumberUntukDiperiksa.length}
+                      sedangProses={sedangVerifikasi}
+                      onClick={() => periksaSumber(sumberUntukDiperiksa)}
+                    />
+                  </div>
+                  <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
+                </div>
               )}
 
               {litValidation.status === "STRUKTUR_PERLU_DIPERIKSA" && (
@@ -1913,58 +1915,15 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                       <h5 className="text-xs font-bold text-[#FFF9EE]">Klasifikasi Bobot Kualitas Sumber:</h5>
                       <div className="flex items-center gap-2">
                         <span className="text-[12px] text-[#AAB4D0]">Klaim inti Bab 1 tidak boleh hanya bersandar pada sumber pendukung</span>
-                        <button
-                          type="button"
-                          onClick={handleVerifikasiSumber}
-                          disabled={sedangVerifikasi}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-[#2959FF]/50 bg-[#2959FF]/15 px-3 py-1.5 text-xs font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/25 transition-colors disabled:opacity-50"
-                        >
-                          {sedangVerifikasi ? "Memeriksa..." : "Periksa ke Crossref"}
-                        </button>
+                        <TombolPeriksaSumber
+                          jumlah={sumberUntukDiperiksa.length}
+                          sedangProses={sedangVerifikasi}
+                          onClick={() => periksaSumber(sumberUntukDiperiksa)}
+                        />
                       </div>
                     </div>
 
-                    {verifikasiCatatan && (
-                      <p className="text-[12px] text-[#F5A623]">{verifikasiCatatan}</p>
-                    )}
-
-                    {Object.keys(verifikasiSumber).length > 0 && (() => {
-                      const nilai = Object.values(verifikasiSumber);
-                      const hitung = (v: string) => nilai.filter((x) => x.verdict === v).length;
-                      const perluCek = nilai.filter((x) => x.perluDicurigai).length;
-                      return (
-                        <div className="rounded-lg border border-[#273352] bg-[#11182D] p-3 text-xs space-y-1.5">
-                          <p className="font-semibold text-[#FFF9EE]">
-                            Hasil pemeriksaan {nilai.length} sumber ke Crossref/OpenAlex:
-                          </p>
-                          <ul className="space-y-0.5 text-[#AAB4D0]">
-                            {hitung("TERVERIFIKASI") > 0 && (
-                              <li>• {hitung("TERVERIFIKASI")} DOInya terdaftar resmi</li>
-                            )}
-                            {hitung("KEMUNGKINAN_COCOK") > 0 && (
-                              <li>• {hitung("KEMUNGKINAN_COCOK")} judulnya mirip dengan yang ada di Crossref</li>
-                            )}
-                            {hitung("TIDAK_DITEMUKAN") > 0 && (
-                              <li>
-                                • {hitung("TIDAK_DITEMUKAN")} tidak ada di Crossref (sebagian wajar — lihat catatan)
-                              </li>
-                            )}
-                            {hitung("TIDAK_DAPAT_DIPERIKSA") > 0 && (
-                              <li>• {hitung("TIDAK_DAPAT_DIPERIKSA")} tidak dapat diperiksa</li>
-                            )}
-                          </ul>
-                          <p
-                            className={`text-[11.5px] leading-relaxed pt-1 border-t border-[#273352]/60 ${
-                              perluCek > 0 ? "text-rose-300 font-semibold" : "text-[#AAB4D0]"
-                            }`}
-                          >
-                            {perluCek > 0
-                              ? `${perluCek} sumber tandanya "PERIKSA" — jenisnya terbitan ilmiah tetapi tidak punya jejak di Crossref. Cocokkan langsung ke penerbitnya sebelum dipakai.`
-                              : "Tidak ada sumber yang perlu dicurigai. Laporan perusahaan, regulasi, dan skripsi lokal memang tidak didaftarkan di Crossref, jadi tidak ditemukan itu wajar. Terdaftar juga bukan berarti isinya mendukung klaim."}
-                          </p>
-                        </div>
-                      );
-                    })()}
+                    <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
                     <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
                       {parsedPayloadV2.source_weights.map((sw) => {
                         const swStatus = getStudentStatus(sw.weight);
@@ -1973,28 +1932,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                             <div className="flex items-center justify-between gap-1">
                               <span className="font-bold text-[#FFF9EE]">{sw.source_id}</span>
                               <span className="flex items-center gap-1">
-                                {verifikasiSumber[sw.source_id] && (
-                                  <span
-                                    title={verifikasiSumber[sw.source_id].catatan}
-                                    className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${
-                                      verifikasiSumber[sw.source_id].verdict === "TERVERIFIKASI"
-                                        ? "bg-[#70E1B6]/20 text-[#70E1B6]"
-                                        : verifikasiSumber[sw.source_id].perluDicurigai
-                                        ? "bg-rose-500/20 text-rose-300"
-                                        : "bg-[#AAB4D0]/20 text-[#AAB4D0]"
-                                    }`}
-                                  >
-                                    {verifikasiSumber[sw.source_id].verdict === "TERVERIFIKASI"
-                                      ? "TERDAFTAR"
-                                      : verifikasiSumber[sw.source_id].verdict === "KEMUNGKINAN_COCOK"
-                                      ? "MIRIP"
-                                      : verifikasiSumber[sw.source_id].verdict === "TIDAK_DITEMUKAN"
-                                      ? verifikasiSumber[sw.source_id].perluDicurigai
-                                        ? "PERIKSA"
-                                        : "TIDAK DIAWASI"
-                                      : "--"}
-                                  </span>
-                                )}
+                                <LencanaVerifikasi hasil={verifikasiSumber[sw.source_id]} />
                                 <span className={`rounded-full px-2 py-0.5 text-[12px] font-bold ${swStatus.badgeClass}`}>
                                   {swStatus.label}
                                 </span>

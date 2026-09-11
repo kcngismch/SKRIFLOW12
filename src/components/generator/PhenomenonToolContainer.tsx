@@ -14,6 +14,12 @@ import {
   FieldOrigin,
 } from "@/types/tool";
 import { validateForm } from "@/lib/validation";
+import {
+  TombolPeriksaSumber,
+  RingkasanVerifikasi,
+  LencanaVerifikasi,
+  useVerifikasiSumber,
+} from "./VerifikasiSumberPanel";
 import { assemblePrompt } from "@/lib/promptAssembler";
 import { getAutofillForTool, applyAutofillValues } from "@/lib/autofill";
 import {
@@ -282,6 +288,15 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
     return typeof window !== "undefined" ? loadPhenomenonPasteDraft() : "";
   });
 
+  /** Verifikasi sumber ke Crossref/OpenAlex (R-05) — komponen bersama Tool 2/3/4. */
+  const {
+    hasil: verifikasiSumber,
+    sedangProses: sedangVerifikasi,
+    catatan: verifikasiCatatan,
+    periksa: periksaSumber,
+    reset: resetVerifikasi,
+  } = useVerifikasiSumber();
+
   const [parseResult, setParseResult] = useState<ParsePhenomenonResult | null>(() => {
     if (typeof window !== "undefined") {
       const savedDraft = loadPhenomenonPasteDraft();
@@ -512,6 +527,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
   const handleReadPaste = () => {
     const result = parsePhenomenonTransfer(pasteText);
     setParseResult(result);
+    resetVerifikasi();
     if (result.success && result.payload && result.payload.candidates.length > 0) {
       setOpenEvidenceCandidateIds({});
     }
@@ -522,6 +538,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
     setPasteText("");
     savePhenomenonPasteDraft("");
     setParseResult(null);
+    resetVerifikasi();
     setSelectedCandidateId(null);
     setConfirmedSources({});
     setUnderstoodTemporary(false);
@@ -1888,8 +1905,27 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                           )}
                         </button>
 
+                        {/* Tombol periksa di luar tombol accordion (nested button = HTML invalid) */}
+                        <div className="flex justify-end px-4 py-2 border-t border-[#273352]/60">
+                          <TombolPeriksaSumber
+                            jumlah={cand.evidence.length}
+                            sedangProses={sedangVerifikasi}
+                            onClick={() =>
+                              periksaSumber(
+                                cand.evidence.map((ev, i) => ({
+                                  sourceId: `${cand.id}-bukti-${i + 1}`,
+                                  title: ev.source_title,
+                                  url: ev.url,
+                                  documentType: ev.source_type,
+                                }))
+                              )
+                            }
+                          />
+                        </div>
+
                         {isEvidenceOpen && (
                           <div className="p-4 border-t border-[#273352] space-y-4">
+                            <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
                             {cand.evidence.map((ev, idx) => {
                               const canonicalKey = getCanonicalSourceKey(ev);
                               const isSharedSource = cand.evidence.filter((other) => getCanonicalSourceKey(other) === canonicalKey).length > 1;
@@ -1913,8 +1949,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                           </span>
                                         )}
                                       </div>
-                                      <h4 className="text-xs font-bold text-[#FFF9EE] mt-0.5">
-                                        {ev.source_title}
+                                      <h4 className="text-xs font-bold text-[#FFF9EE] mt-0.5 flex flex-wrap items-center gap-1.5">
+                                        <span>{ev.source_title}</span>
+                                        <LencanaVerifikasi hasil={verifikasiSumber[`${cand.id}-bukti-${idx + 1}`]} />
                                       </h4>
                                       <span className="text-[13px] text-[#AAB4D0] block">
                                         {ev.publisher_or_institution} ({ev.publication_date || "Tanggal tidak tercantum"})

@@ -1957,3 +1957,91 @@ export function computeBedahInputFingerprint(
   }
   return `bedah_fp_${Math.abs(hash).toString(36)}`;
 }
+
+
+/** Satu sumber yang terbaca dari paket Tool3 (Source Register). */
+export interface SumberPaketLiteratur {
+  sourceId: string;
+  title: string;
+  documentType: string;
+  url?: string;
+  doi?: string;
+}
+
+/**
+ * Ambil daftar sumber dari tabel "SOURCE REGISTER" paket Tool3.
+ *
+ * Tabelnya berbentuk markdown: | ID | Kategori | Judul | Penulis & Tahun | Jenis | ...
+ * Baris non-tabel diabaikan, jadi heading, catatan, dan tabel lain tidak ikut terbaca.
+ *
+ * ponytail: pemetaan kolom mengandalkan urutan kolom tetap dari prompt B. Kalau
+ * prompt B berubah kolom, perbarui index di tabelKolom. Belum ada parser markdown
+ * umum karena hanya satu tabel ini yang perlu dibaca.
+ */
+export function extractSumberPaketLiteratur(rawText: string): SumberPaketLiteratur[] {
+  if (!rawText || rawText.trim().length === 0) return [];
+
+  const baris = rawText.split(/\r?\n/);
+
+  // Temukan baris heading SOURCE REGISTER, lalu tabel pertama sesudahnya.
+  let mulai = -1;
+  for (let i = 0; i < baris.length; i++) {
+    if (/SOURCE\s*REGISTER/i.test(baris[i])) {
+      mulai = i;
+      break;
+    }
+  }
+  if (mulai === -1) return [];
+
+  // Kumpulkan baris tabel berurutan setelah heading.
+  const tabel: string[] = [];
+  for (let i = mulai + 1; i < baris.length; i++) {
+    const t = baris[i].trim();
+    if (t.startsWith("|")) {
+      tabel.push(t);
+    } else if (tabel.length > 0) {
+      break; // tabel sudah berakhir
+    }
+  }
+  if (tabel.length < 2) return [];
+
+  const potong = (r: string) =>
+    r
+      .split("|")
+      .slice(1, -1)
+      .map((c) => c.trim());
+
+  const header = potong(tabel[0]).map((h) => h.replace(/\*/g, "").trim());
+  const cariKolom = (kata: string[]) =>
+    header.findIndex((h) => kata.some((k) => h.toLowerCase().includes(k)));
+
+  const iId = cariKolom(["id"]);
+  const iJudul = cariKolom(["judul"]);
+  const iJenis = cariKolom(["jenis"]);
+  // Kolom DOI/tautan tidak selalu ada di tabel ini.
+  const iDoi = cariKolom(["doi"]);
+  const iTautan = cariKolom(["tautan", "url", "link", "sumber"]);
+
+  if (iId === -1 || iJudul === -1) return [];
+
+  const hasil: SumberPaketLiteratur[] = [];
+  for (const row of tabel.slice(1)) {
+    const kol = potong(row);
+    if (kol.length <= Math.max(iId, iJudul)) continue;
+    // Buang penanda markdown (tebal/miring) supaya judul bersih saat dicocokkan.
+    const bersih = (v: string) => (v || "").replace(/\*/g, "").replace(/^_+|_+$/g, "").trim();
+    const id = bersih(kol[iId]);
+    const judul = bersih(kol[iJudul]);
+    // Lewati baris pemisah markdown dan baris kosong.
+    if (!id || /^[-: ]+$/.test(id) || !judul || /^[-: ]+$/.test(judul)) continue;
+    if (/^(total|jumlah)$/i.test(id)) continue;
+    hasil.push({
+      sourceId: id,
+      title: judul,
+      documentType: iJenis > -1 ? bersih(kol[iJenis]) : "",
+      doi: iDoi > -1 ? bersih(kol[iDoi]) : undefined,
+      url: iTautan > -1 ? bersih(kol[iTautan]) : undefined,
+    });
+  }
+  return hasil;
+}

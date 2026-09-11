@@ -150,7 +150,7 @@ async function periksaJudul(item: Item, judul: string): Promise<Hasil> {
     }
   }
 
-  if (terbaik && terbaik.skor >= 0.75) {
+  if (terbaik && terbaik.skor >= 0.85) {
     return {
       sourceId: item.sourceId ?? judul.slice(0, 40),
       verdict: "KEMUNGKINAN_COCOK",

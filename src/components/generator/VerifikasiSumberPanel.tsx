@@ -1,0 +1,171 @@
+"use client";
+
+import { useState } from "react";
+import { ShieldCheck, Loader2 } from "lucide-react";
+
+/**
+ * Tombol + panel "Periksa ke Crossref" (R-05).
+ *
+ * Satu komponen dipakai Tool 2, 3, 4 supaya perilakunya seragam. Pemeriksaan
+ * dijalankan di server (/api/verify-source) agar tidak bergantung CORS.
+ */
+
+export interface SumberUntukDiperiksa {
+  sourceId: string;
+  title?: string;
+  url?: string;
+  doi?: string;
+  documentType?: string;
+}
+
+export interface HasilVerifikasiSumber {
+  sourceId: string;
+  verdict: "TERVERIFIKASI" | "KEMUNGKINAN_COCOK" | "TIDAK_DITEMUKAN" | "TIDAK_DAPAT_DIPERIKSA";
+  sumber: "crossref" | "openalex" | null;
+  judulDitemukan?: string;
+  tahunDitemukan?: string;
+  doiDitemukan?: string;
+  catatan: string;
+  perluDicurigai?: boolean;
+}
+
+/** Batas per putaran; sisanya dilaporkan apa adanya, bukan disembunyikan. */
+const BATAS_PER_PUTARAN = 12;
+
+export function useVerifikasiSumber() {
+  const [hasil, setHasil] = useState<Record<string, HasilVerifikasiSumber>>({});
+  const [sedangProses, setSedangProses] = useState(false);
+  const [catatan, setCatatan] = useState<string | null>(null);
+
+  const periksa = async (daftar: SumberUntukDiperiksa[]) => {
+    const bersih = daftar.filter((s) => (s.title || "").trim() || (s.doi || "").trim());
+    if (bersih.length === 0) {
+      setCatatan("Tidak ada sumber dengan judul atau DOI yang bisa diperiksa.");
+      return;
+    }
+    setSedangProses(true);
+    setCatatan(null);
+    try {
+      const kirim = bersih.slice(0, BATAS_PER_PUTARAN);
+      const res = await fetch("/api/verify-source", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: kirim }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      const data = await res.json();
+      const map: Record<string, HasilVerifikasiSumber> = {};
+      for (const h of data.hasil ?? []) map[h.sourceId] = h;
+      setHasil(map);
+      const sisa = bersih.length - kirim.length;
+      setCatatan(
+        sisa > 0 ? `Diperiksa ${kirim.length} sumber pertama. ${sisa} sumber lain belum diperiksa.` : null
+      );
+    } catch {
+      setCatatan("Gagal menghubungi layanan verifikasi. Periksa koneksi internet.");
+    } finally {
+      setSedangProses(false);
+    }
+  };
+
+  const reset = () => {
+    setHasil({});
+    setCatatan(null);
+  };
+
+  return { hasil, sedangProses, catatan, periksa, reset };
+}
+
+/** Tombol pemicu, dipakai berdampingan dengan daftar sumber. */
+export function TombolPeriksaSumber({
+  onClick,
+  sedangProses,
+  jumlah,
+}: {
+  onClick: () => void;
+  sedangProses: boolean;
+  jumlah: number;
+}) {
+  if (jumlah === 0) return null;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={sedangProses}
+      className="inline-flex items-center gap-1.5 rounded-lg border border-[#2959FF]/50 bg-[#2959FF]/15 px-3 py-1.5 text-xs font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/25 transition-colors disabled:opacity-50"
+    >
+      {sedangProses ? (
+        <>
+          <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
+          <span>Memeriksa...</span>
+        </>
+      ) : (
+        <>
+          <ShieldCheck className="h-3.5 w-3.5 text-[#70E1B6]" aria-hidden="true" />
+          <span>Periksa ke Crossref</span>
+        </>
+      )}
+    </button>
+  );
+}
+
+/** Ringkasan hasil; dihitung dari hasil, bukan diketik manual. */
+export function RingkasanVerifikasi({ hasil, catatan }: { hasil: Record<string, HasilVerifikasiSumber>; catatan: string | null }) {
+  const nilai = Object.values(hasil);
+  if (nilai.length === 0) return null;
+  const hitung = (v: string) => nilai.filter((x) => x.verdict === v).length;
+  const perluCek = nilai.filter((x) => x.perluDicurigai).length;
+
+  return (
+    <div className="rounded-lg border border-[#273352] bg-[#11182D] p-3 text-xs space-y-1.5">
+      <p className="font-semibold text-[#FFF9EE]">
+        Hasil pemeriksaan {nilai.length} sumber ke Crossref/OpenAlex:
+      </p>
+      <ul className="space-y-0.5 text-[#AAB4D0]">
+        {hitung("TERVERIFIKASI") > 0 && <li>• {hitung("TERVERIFIKASI")} DOInya terdaftar resmi</li>}
+        {hitung("KEMUNGKINAN_COCOK") > 0 && (
+          <li>• {hitung("KEMUNGKINAN_COCOK")} judulnya mirip dengan yang ada di Crossref</li>
+        )}
+        {hitung("TIDAK_DITEMUKAN") > 0 && (
+          <li>• {hitung("TIDAK_DITEMUKAN")} tidak ada di Crossref (sebagian wajar — lihat catatan)</li>
+        )}
+        {hitung("TIDAK_DAPAT_DIPERIKSA") > 0 && <li>• {hitung("TIDAK_DAPAT_DIPERIKSA")} tidak dapat diperiksa</li>}
+      </ul>
+      {catatan && <p className="text-[11.5px] text-[#F5A623]">{catatan}</p>}
+      <p
+        className={`text-[11.5px] leading-relaxed pt-1 border-t border-[#273352]/60 ${
+          perluCek > 0 ? "text-rose-300 font-semibold" : "text-[#AAB4D0]"
+        }`}
+      >
+        {perluCek > 0
+          ? `${perluCek} sumber tandanya "PERIKSA" — jenisnya terbitan ilmiah tetapi tidak punya jejak di Crossref. Banyak jurnal nasional (Garuda/Sinta) memang belum terdaftar, jadi ini belum tentu palsu — tetapi wajib dicocokkan ke laman jurnalnya sebelum dipakai.`
+          : "Tidak ada sumber yang perlu dicurigai. Laporan perusahaan, regulasi, dan skripsi lokal memang tidak didaftarkan di Crossref, jadi tidak ditemukan itu wajar. Terdaftar juga bukan berarti isinya mendukung klaim."}
+      </p>
+    </div>
+  );
+}
+
+/** Lencana kecil per sumber, ditampilkan di sebelah judul. */
+export function LencanaVerifikasi({ hasil }: { hasil?: HasilVerifikasiSumber }) {
+  if (!hasil) return null;
+  const warna = hasil.verdict === "TERVERIFIKASI"
+    ? "bg-[#70E1B6]/20 text-[#70E1B6]"
+    : hasil.perluDicurigai
+    ? "bg-rose-500/20 text-rose-300"
+    : "bg-[#AAB4D0]/20 text-[#AAB4D0]";
+  const label =
+    hasil.verdict === "TERVERIFIKASI"
+      ? "TERDAFTAR"
+      : hasil.verdict === "KEMUNGKINAN_COCOK"
+      ? "MIRIP"
+      : hasil.verdict === "TIDAK_DITEMUKAN"
+      ? hasil.perluDicurigai
+        ? "PERIKSA"
+        : "TIDAK DIAWASI"
+      : "--";
+  return (
+    <span title={hasil.catatan} className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${warna}`}>
+      {label}
+    </span>
+  );
+}
