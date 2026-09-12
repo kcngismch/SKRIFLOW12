@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "npx -y tsx test-academic-gates.mjs && npx -y tsx test-bedah-v2.mjs && npx -y tsx test-prompt-a-micro.mjs && npx -y tsx test-cross-tool-limits.mjs && npx -y tsx test-literature-patch.mjs && npx -y tsx test-batch2.mjs && npx -y tsx test-fenomena.mjs && npx -y tsx test-bedah.mjs && npx -y tsx test-ide.mjs && npx -y tsx test-batch3.mjs && npx -y tsx test-academic-audit.mjs && npx -y tsx test-xss-audit.mjs && npx -y tsx test-access-gate.mjs && npx -y tsx test-draft-4c.mts && npx -y tsx test-polish-4d.mts"
+    "test": "npx -y tsx test-academic-gates.mjs && npx -y tsx test-bedah-v2.mjs && npx -y tsx test-prompt-a-micro.mjs && npx -y tsx test-cross-tool-limits.mjs && npx -y tsx test-literature-patch.mjs && npx -y tsx test-batch2.mjs && npx -y tsx test-fenomena.mjs && npx -y tsx test-bedah.mjs && npx -y tsx test-ide.mjs && npx -y tsx test-batch3.mjs && npx -y tsx test-academic-audit.mjs && npx -y tsx test-xss-audit.mjs && npx -y tsx test-access-gate.mjs && npx -y tsx test-draft-4c.mts && npx -y tsx test-polish-4d.mts && npx -y tsx test-title-pattern.mts"
   },
   "dependencies": {
     "lucide-react": "^1.34.0",

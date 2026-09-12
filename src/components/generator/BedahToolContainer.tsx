@@ -50,6 +50,7 @@ import { copyToClipboard } from "@/lib/clipboard";
 import { SequentialNavigation } from "./SequentialNavigation";
 import { ResetConfirmModal } from "./ResetConfirmModal";
 import { safeHref } from "@/lib/xss";
+import { susunPolaJudul } from "@/lib/titlePattern";
 import {
   getStudentLabel,
   getStudentStatus,
@@ -1104,6 +1105,10 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                   {parsedPayloadV2.directions.map((dir) => {
                     const isSelected = selectedDirectionId === dir.id;
+                    const polaJudul = susunPolaJudul(dir, {
+                      objectOrPopulation: selectedPhenomenon?.scope?.objectOrPopulation,
+                      referencePeriod: selectedPhenomenon?.scope?.referencePeriod,
+                    });
                     const badgeClass =
                       dir.conditional_badge === "Paling Dekat dengan Fenomena"
                         ? "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]"
@@ -1163,6 +1168,42 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               <span className="text-[#FFF9EE]">{dir.phenomenon_connection}</span>
                             </div>
                           )}
+                        </div>
+
+                        {/* Gambaran Bentuk Judul (pola, bukan judul final) */}
+                        <div className="rounded-lg border border-dashed border-[#2959FF]/40 bg-[#0B1226] p-2.5 text-[13px] space-y-1.5">
+                          <span className="font-semibold text-[#FFF9EE] block">
+                            Kira-kira judulnya bakal begini:
+                          </span>
+                          <p className="font-mono text-[13px] text-[#70E1B6] leading-snug">{polaJudul.pola}</p>
+                          {polaJudul.contoh_terisi !== polaJudul.pola && (
+                            <p className="text-[13px] text-[#FFF9EE] leading-snug">
+                              <span className="text-[11px] uppercase font-bold text-[#8A94B0] block">Contoh terisi:</span>
+                              {polaJudul.contoh_terisi}
+                            </p>
+                          )}
+                          {polaJudul.slot_terisi.length > 0 && (
+                            <ul className="text-[12px] text-[#AAB4D0] space-y-0.5">
+                              {polaJudul.slot_terisi.map((s) => (
+                                <li key={s.slot}>
+                                  <span className="font-mono text-[#70E1B6]/80">[{s.slot}]</span> = {s.nilai}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                          {polaJudul.slot_belum_diputuskan.length > 0 && (
+                            <details className="text-[12px]">
+                              <summary className="cursor-pointer text-amber-300/90">
+                                {polaJudul.slot_belum_diputuskan.length} hal yang belum bisa diisi otomatis
+                              </summary>
+                              <ul className="list-disc pl-3.5 pt-1 text-[#AAB4D0] space-y-0.5">
+                                {polaJudul.slot_belum_diputuskan.map((x, i) => (
+                                  <li key={i}>{x}</li>
+                                ))}
+                              </ul>
+                            </details>
+                          )}
+                          <p className="text-[11px] text-[#8A94B0] italic">{polaJudul.batas}</p>
                         </div>
 
                         {/* Measurement Focus */}
