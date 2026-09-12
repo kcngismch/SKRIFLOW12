@@ -14,7 +14,9 @@ import {
   ResearchDirectionV2,
   PhenomenonBasisStatus,
   Bab1DraftV1,
+  Bab1PolishV1,
   DraftCheckFinding,
+  PolishCheckFinding,
 } from "@/types/tool";
 import {
   loadSelectedPhenomenon,
@@ -53,6 +55,12 @@ import {
   saveBab1FoundationPackage,
   loadBab1FoundationPackage,
   clearBab1FoundationPackage,
+  saveBedahOutput4D,
+  loadBedahOutput4D,
+  clearBedahOutput4D,
+  saveBab1PolishV1,
+  loadBab1PolishV1,
+  clearBab1PolishV1,
   loadToolData,
 } from "@/lib/storage";
 import {
@@ -70,6 +78,8 @@ import {
   generateBab1FoundationFixStructurePrompt,
   generateBab1DraftFixFormatPrompt,
   generateBab1DraftFixStructurePrompt,
+  parseBab1PolishTransfer,
+  periksaPolesBab1,
   computeBedahInputFingerprint,
   extractSumberPaketLiteratur,
 } from "@/lib/bedahParser";
@@ -86,6 +96,7 @@ import {
   analyzeBedahPrompt4B,
   ResearchBedahInput4B,
   assembleBedahPrompt4C,
+  assembleBedahPrompt4D,
   analyzeBedahPrompt4C,
   ResearchBedahInput4C,
 } from "@/lib/promptAssembler";
@@ -286,6 +297,17 @@ export const Bab1ToolContainer: React.FC = () => {
   const [jalurBab1, setJalurBab1] = useState<"outline" | "draf">("outline");
   const [outlinePanjangChecked, setOutlinePanjangChecked] = useState<boolean>(true);
   const [outlineTersalin, setOutlineTersalin] = useState<boolean>(false);
+
+  // Stage 4D State — poles bahasa draf (Addendum C)
+  const [pastedLLMOutput4D, setPastedLLMOutput4D] = useState<string>(() => {
+    return typeof window !== "undefined" ? loadBedahOutput4D() : "";
+  });
+  const [parsedPolishV1, setParsedPolishV1] = useState<Bab1PolishV1 | null>(() => {
+    return typeof window !== "undefined" ? loadBab1PolishV1() : null;
+  });
+  const [parseError4D, setParseError4D] = useState<{ error: string; details?: string[] } | null>(null);
+  const [copyStatus4D, setCopyStatus4D] = useState<"idle" | "copied" | "error">("idle");
+  const prompt4DSectionRef = useRef<HTMLDivElement>(null);
 
   // Final Saved Package
   const [savedPackage, setSavedPackage] = useState<SavedBab1FoundationPackage | null>(() => {
@@ -547,6 +569,18 @@ export const Bab1ToolContainer: React.FC = () => {
     return analyzeBedahPrompt4C(bedahInput4C);
   }, [bedahInput4C]);
 
+  // Tahap 4D: input & prompt poles bahasa
+  const bedahInput4D = useMemo(() => {
+    if (!parsedDraftV1 || !parsedFoundationV1) return null;
+    if (parsedDraftV1.draft_status === "DRAFT_BLOCKED") return null;
+    return { prodi, areaEksplorasi, draft: parsedDraftV1, foundation: parsedFoundationV1 };
+  }, [parsedDraftV1, parsedFoundationV1, prodi, areaEksplorasi]);
+
+  const generatedPrompt4D = useMemo(() => {
+    if (!bedahInput4D) return "";
+    return assembleBedahPrompt4D(bedahInput4D);
+  }, [bedahInput4D]);
+
   /** Temuan pemeriksa dihitung ulang dari state saat ini, bukan dari hasil parse saja. */
   const draftFindings = useMemo<DraftCheckFinding[]>(() => {
     if (!parsedDraftV1 || !parsedFoundationV1) return [];
@@ -599,6 +633,65 @@ export const Bab1ToolContainer: React.FC = () => {
     clearBab1DraftV1();
     setParseError4C(null);
     setCopyStatus4C("idle");
+  };
+
+  // Tahap 4D: temuan pemeriksa perubahan bahasa
+  const polishFindings = useMemo<PolishCheckFinding[]>(() => {
+    if (!parsedPolishV1 || !parsedDraftV1) return [];
+    return periksaPolesBab1(parsedPolishV1, parsedDraftV1);
+  }, [parsedPolishV1, parsedDraftV1]);
+
+  const polishKritis = useMemo(() => polishFindings.filter((f) => f.severity === "CRITICAL"), [polishFindings]);
+
+  /**
+   * Draf lolos hanya bila BERSIH di dua pemeriksa (Addendum C.6):
+   * kepatuhan bukti terhadap fondasi 4B, dan kepatuhan perubahan terhadap draf 4C.
+   */
+  const polishLolos = useMemo(() => {
+    if (!parsedPolishV1) return false;
+    const temuanBukti = periksaDrafBab1(
+      { ...parsedDraftV1!, background: parsedPolishV1.background } as Bab1DraftV1,
+      parsedFoundationV1!
+    );
+    return temuanBukti.every((f) => f.severity !== "CRITICAL") && polishKritis.length === 0;
+  }, [parsedPolishV1, parsedDraftV1, parsedFoundationV1, polishKritis]);
+
+  // Handle Copy Prompt 4D
+  const handleCopyPrompt4D = async () => {
+    if (!generatedPrompt4D) return;
+    try {
+      const ok = await copyToClipboard(generatedPrompt4D);
+      if (ok) {
+        setCopyStatus4D("copied");
+        setTimeout(() => setCopyStatus4D("idle"), 3000);
+      }
+    } catch {
+      setCopyStatus4D("error");
+    }
+  };
+
+  // Handle Process LLM Output 4D
+  const handleProcessLLMOutput4D = () => {
+    setParseError4D(null);
+    if (!parsedDraftV1) return;
+    const res = parseBab1PolishTransfer(pastedLLMOutput4D);
+    if (res.success && res.data) {
+      setParsedPolishV1(res.data);
+      saveBab1PolishV1(res.data);
+      saveBedahOutput4D(pastedLLMOutput4D);
+    } else {
+      setParseError4D({ error: res.error || "Gagal memproses output.", details: res.errorDetails });
+    }
+  };
+
+  // Handle Reset 4D
+  const handleResetPoles4D = () => {
+    setPastedLLMOutput4D("");
+    clearBedahOutput4D();
+    setParsedPolishV1(null);
+    clearBab1PolishV1();
+    setParseError4D(null);
+    setCopyStatus4D("idle");
   };
 
   // Can Generate / Execute Prompt 4A?
@@ -883,6 +976,7 @@ export const Bab1ToolContainer: React.FC = () => {
     setIsLitStructureAckChecked(false);
     setCopyStatus4B("idle");
     handleResetDraft4C();
+    handleResetPoles4D();
     setShowResetModal(false);
     setToastMessage("Paket Fondasi Bab 1 dan draf berhasil direset. Arah terpilih dari Tool 4 tetap tersimpan.");
     setTimeout(() => {
@@ -1268,6 +1362,16 @@ export const Bab1ToolContainer: React.FC = () => {
                     >
                       <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
                       <span>Buka ChatGPT</span>
+                    </a>
+
+                    <a
+                      href="https://notebooklm.google.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-xl border border-[#70E1B6]/40 bg-[#70E1B6]/10 px-4 py-3 text-xs font-semibold text-[#70E1B6] transition hover:border-[#70E1B6]/70 hover:bg-[#70E1B6]/20"
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" />
+                      <span>Buka NotebookLM</span>
                     </a>
 
                     <a
@@ -2257,6 +2361,16 @@ export const Bab1ToolContainer: React.FC = () => {
                   </a>
 
                   <a
+                    href="https://notebooklm.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-[#70E1B6]/40 bg-[#70E1B6]/10 px-4 py-3 text-xs font-semibold text-[#70E1B6] transition hover:border-[#70E1B6]/70 hover:bg-[#70E1B6]/20"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" />
+                    <span>Buka NotebookLM</span>
+                  </a>
+
+                  <a
                     href="https://gemini.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -2593,6 +2707,254 @@ export const Bab1ToolContainer: React.FC = () => {
               <span>Buang Draf &amp; Ulangi Tahap 4C</span>
             </button>
           </div>
+        </section>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAHAP 10: POLES BAHASA (4D) — Addendum C                                   */}
+      {/* ========================================================================= */}
+      {parsedDraftV1 && parsedDraftV1.draft_status !== "DRAFT_BLOCKED" && (
+        <section
+          ref={prompt4DSectionRef}
+          className="rounded-2xl border border-[#70E1B6]/40 bg-[#11182D] p-6 shadow-xl sm:p-8"
+        >
+          <div className="flex items-center gap-3 border-b border-[#273352]/70 pb-5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#70E1B6]/20 text-base font-bold text-[#70E1B6]">
+              10
+            </div>
+            <div className="flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">TAHAP 4D</span>
+                <h2 className="text-lg font-bold text-[#FFF9EE]">Poles Bahasa Draf (Opsional)</h2>
+              </div>
+              <p className="mt-1 text-xs text-[#AAB4D0]">
+                Draf dari NotebookLM biasanya kaku. Tempel di sini agar ChatGPT memperbaikinya jadi bahasa mahasiswa S1 — tanpa
+                mengubah isi, klaim, angka, atau sitasi.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-5">
+            <div className="rounded-xl border border-[#2959FF]/30 bg-[#2959FF]/10 p-4">
+              <p className="text-[13px] leading-relaxed text-[#FFF9EE]">
+                <strong>Kalau draf 4C sudah enak dibaca, tahap ini boleh dilewati.</strong> Jalankan bila draf terasa terlalu
+                akademik atau berputar-putar. Alur yang disarankan: <strong>NotebookLM</strong> menulis draf — pakai tombol di
+                Tahap 4C — lalu <strong>ChatGPT</strong> memperbaiki bahasanya di tahap ini.
+              </p>
+            </div>
+
+            {/* Tombol salin + buka platform */}
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={handleCopyPrompt4D}
+                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+              >
+                {copyStatus4D === "copied" ? (
+                  <>
+                    <Check className="h-4 w-4" />
+                    <span>Prompt 4D Tersalin!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-4 w-4" />
+                    <span>Salin Prompt Tahap 4D</span>
+                  </>
+                )}
+              </button>
+
+              <a
+                href="https://chatgpt.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
+              >
+                <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
+                <span>Buka ChatGPT</span>
+              </a>
+
+              <a
+                href="https://notebooklm.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#70E1B6]/40 bg-[#70E1B6]/10 px-4 py-3 text-xs font-semibold text-[#70E1B6] transition hover:border-[#70E1B6]/70 hover:bg-[#70E1B6]/20"
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                <span>Buka NotebookLM</span>
+              </a>
+
+              {generatedPrompt4D && (
+                <span className="text-[11px] text-[#AAB4D0]">{generatedPrompt4D.length.toLocaleString("id-ID")} karakter</span>
+              )}
+            </div>
+
+            <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+              <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
+                {generatedPrompt4D}
+              </pre>
+            </div>
+
+            {/* Paste hasil 4D */}
+            <div className="pt-4 border-t border-[#273352]/60 space-y-3">
+              <label className="block text-xs font-bold text-[#FFF9EE]">
+                Tempelkan Output Tahap 4D dari ChatGPT:
+              </label>
+              <textarea
+                rows={6}
+                value={pastedLLMOutput4D}
+                onChange={(e) => setPastedLLMOutput4D(e.target.value)}
+                placeholder="Tempelkan hasil respons blok SKRIFLOW_BAB1_POLISH_V1 di sini..."
+                className="w-full rounded-xl border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus:border-[#2959FF] focus:outline-none"
+              />
+              <button
+                type="button"
+                onClick={handleProcessLLMOutput4D}
+                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+              >
+                <Sparkles className="h-4 w-4" />
+                <span>Verifikasi Hasil Poles</span>
+              </button>
+
+              {parseError4D && (
+                <div className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-5">
+                  <div className="flex items-start gap-3">
+                    <ShieldAlert className="h-5 w-5 shrink-0 text-rose-400" />
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-bold text-rose-300">{parseError4D.error}</h4>
+                      {parseError4D.details && (
+                        <ul className="space-y-1">
+                          {parseError4D.details.map((d, i) => (
+                            <li key={i} className="text-[13px] text-rose-200/80">
+                              - {d}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Hasil 4D */}
+          {parsedPolishV1 && (
+            <div className="mt-8 space-y-5 border-t border-[#273352]/70 pt-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+                  Hasil Poles Bahasa
+                </h3>
+                <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">
+                  {parsedPolishV1.polish_status}
+                </span>
+                <span
+                  className={`rounded px-2 py-0.5 text-[12px] font-semibold ${
+                    polishLolos ? "bg-emerald-500/20 text-emerald-300" : "bg-rose-500/20 text-rose-300"
+                  }`}
+                >
+                  {polishLolos ? "Lolos dua pemeriksa" : "Perlu revisi"}
+                </span>
+              </div>
+
+              <p className="text-[13px] text-[#AAB4D0]">
+                {parsedPolishV1.background.length} paragraf,{" "}
+                {(parsedPolishV1.background || []).reduce((a, p) => a + hitungKata(p.paragraph_text || ""), 0).toLocaleString("id-ID")}{" "}
+                kata. Diperiksa dua kali: kepatuhan bukti terhadap fondasi 4B, dan kepatuhan perubahan terhadap draf 4C.
+              </p>
+
+              {/* Temuan pemeriksa perubahan */}
+              {polishFindings.length > 0 ? (
+                <div className="space-y-2">
+                  <span className="text-xs font-bold text-[#FFF9EE]">
+                    Pemeriksa Perubahan Bahasa ({polishFindings.length} temuan):
+                  </span>
+                  {polishFindings.map((f, i) => (
+                    <div
+                      key={i}
+                      className={`rounded-lg border p-3 ${
+                        f.severity === "CRITICAL"
+                          ? "border-rose-500/40 bg-rose-500/10"
+                          : f.severity === "MAJOR"
+                            ? "border-amber-500/40 bg-amber-500/10"
+                            : "border-[#273352] bg-[#080D1D]"
+                      }`}
+                    >
+                      <span
+                        className={`text-[11px] font-bold uppercase ${
+                          f.severity === "CRITICAL" ? "text-rose-300" : f.severity === "MAJOR" ? "text-amber-300" : "text-[#AAB4D0]"
+                        }`}
+                      >
+                        {f.severity} · {f.code}
+                      </span>
+                      <p className="mt-1 text-[13px] text-[#FFF9EE]">{f.message}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
+                  <p className="text-[13px] text-emerald-200">
+                    Tidak ada pelanggaran perubahan: jumlah paragraf, urutan, fungsi, dan claim_ids tetap sama dengan draf 4C.
+                  </p>
+                </div>
+              )}
+
+              {/* Paragraf hasil */}
+              <div className="space-y-4">
+                {(parsedPolishV1.background || []).map((p) => (
+                  <div key={p.order} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                      <span className="text-xs font-bold text-[#70E1B6]">Paragraf {p.order}</span>
+                      <span className="text-[11px] text-[#AAB4D0]">{p.function}</span>
+                      <span className="text-[11px] text-[#AAB4D0]">· {hitungKata(p.paragraph_text || "")} kata</span>
+                      {(p.claim_ids || []).map((c) => (
+                        <span key={c} className="rounded bg-[#2959FF]/20 px-1.5 py-0.5 font-mono text-[11px] text-[#70E1B6]">
+                          {c}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-[13px] leading-relaxed text-[#FFF9EE] whitespace-pre-wrap">{p.paragraph_text}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Catatan perubahan bahasa */}
+              {(parsedPolishV1.language_changes?.length || 0) > 0 && (
+                <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+                  <span className="text-xs font-bold text-[#FFF9EE]">Perubahan bahasa yang dilakukan</span>
+                  <ul className="mt-2 space-y-1">
+                    {(parsedPolishV1.language_changes || []).map((x, i) => (
+                      <li key={i} className="text-[11px] leading-relaxed text-[#AAB4D0]">
+                        - {x}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#273352]/60">
+                <button
+                  type="button"
+                  onClick={async () => {
+                    const teks = parsedPolishV1.background.map((p) => (p.paragraph_text || "").trim()).join("\n\n");
+                    await copyToClipboard(teks);
+                  }}
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#2959FF] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-[#1f47d6]"
+                >
+                  <Copy className="h-4 w-4" />
+                  <span>Salin Draf Hasil Poles</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleResetPoles4D}
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#11182D] px-4 py-2.5 text-xs font-semibold text-[#AAB4D0] transition hover:text-rose-400"
+                >
+                  <RotateCcw className="h-3.5 w-3.5" />
+                  <span>Buang Hasil Poles</span>
+                </button>
+              </div>
+            </div>
+          )}
         </section>
       )}
 

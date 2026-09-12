@@ -853,6 +853,8 @@ const BEDAH_FEASIBILITY_KEY = "skriflow_bedah_direction_feasibility";
 const BEDAH_FOUNDATION_V1_KEY = "skriflow_bedah_bab1_foundation_v1";
 const BEDAH_DRAFT_4C_RAW_KEY = "skriflow_bedah_4c_chat_output";
 const BEDAH_DRAFT_4C_KEY = "skriflow_bedah_bab1_draft_v1";
+const BEDAH_POLISH_4D_RAW_KEY = "skriflow_bedah_4d_chat_output";
+const BEDAH_POLISH_4D_KEY = "skriflow_bedah_bab1_polish_v1";
 const BEDAH_PACKAGE_V2_KEY = "skriflow_bedah_saved_package_v2";
 const BEDAH_SELECTED_DIRECTION_KEY = "skriflow_bedah_selected_direction_id";
 
@@ -1159,6 +1161,62 @@ export function loadBab1DraftV1(): import("@/types/tool").Bab1DraftV1 | null {
  */
 export function clearBab1DraftV1(): void {
   removeStorageItem(BEDAH_DRAFT_4C_KEY);
+}
+
+/**
+ * Saves pasted LLM output for Tahap 4D (poles bahasa).
+ */
+export function saveBedahOutput4D(output: string): void {
+  setStorageItem(BEDAH_POLISH_4D_RAW_KEY, output);
+}
+
+/**
+ * Loads pasted LLM output for Tahap 4D (poles bahasa).
+ */
+export function loadBedahOutput4D(): string {
+  return getStorageItem(BEDAH_POLISH_4D_RAW_KEY) || "";
+}
+
+/**
+ * Clears pasted LLM output for Tahap 4D (poles bahasa).
+ */
+export function clearBedahOutput4D(): void {
+  removeStorageItem(BEDAH_POLISH_4D_RAW_KEY);
+}
+
+/**
+ * Saves parsed Bab1PolishV1 payload (Tahap 4D).
+ */
+export function saveBab1PolishV1(payload: import("@/types/tool").Bab1PolishV1): void {
+  try {
+    setStorageItem(BEDAH_POLISH_4D_KEY, JSON.stringify(payload));
+  } catch {
+    // Gracefully handle storage quota
+  }
+}
+
+/**
+ * Loads parsed Bab1PolishV1 payload (Tahap 4D).
+ */
+export function loadBab1PolishV1(): import("@/types/tool").Bab1PolishV1 | null {
+  try {
+    const raw = getStorageItem(BEDAH_POLISH_4D_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object" && parsed.schema_version === 1) {
+      return parsed as import("@/types/tool").Bab1PolishV1;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Clears parsed Bab1PolishV1 payload (Tahap 4D).
+ */
+export function clearBab1PolishV1(): void {
+  removeStorageItem(BEDAH_POLISH_4D_KEY);
 }
 
 /**

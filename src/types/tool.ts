@@ -1469,6 +1469,55 @@ export interface Bab1DraftV1 {
   unresolved_notes?: string[];
 }
 
+/**
+ * Tahap 4D (Addendum C): hasil poles bahasa draf Bab 1.
+ * Isi wajib identik dengan draf 4C; hanya bahasa yang boleh berubah.
+ */
+export interface Bab1PolishParagraph {
+  order: number;
+  function: BackgroundParagraphFunction;
+  /** Prosa hasil perbaikan bahasa. claim_ids wajib sama dengan draf 4C. */
+  paragraph_text: string;
+  word_count: number;
+  claim_ids: string[];
+  researcher_decision_note?: string | null;
+  withheld_claims?: string[];
+}
+
+export interface Bab1PolishV1 {
+  schema_version: 1;
+  polish_status: "POLISH_COMPLETE" | "POLISH_PARTIAL" | "POLISH_BLOCKED";
+  draft_status_ref: Bab1DraftStatus;
+  foundation_status_ref: Bab1FoundationStatus;
+  word_count_total: number;
+  target_words_total: number;
+  background: Bab1PolishParagraph[];
+  /** Perubahan bahasa yang dilakukan, per paragraf. */
+  language_changes?: string[];
+  /** Seluruh claim_id yang dipertahankan; wajib sama dengan draf 4C. */
+  preserved_claim_ids: string[];
+  /** Klaim yang sengaja tidak ditulis, beserta alasannya. */
+  removed_claims?: string[];
+  prohibited_claims_respected?: string[];
+  unresolved_notes?: string[];
+}
+
+/** Temuan pemeriksa poles 4D (Addendum C). Membandingkan hasil 4D dengan draf 4C. */
+export interface PolishCheckFinding {
+  code:
+    | "POLISH_PARAGRAPH_COUNT_CHANGED"
+    | "POLISH_CLAIM_IDS_CHANGED"
+    | "POLISH_PARAGRAPH_ORDER_CHANGED"
+    | "POLISH_NEW_NUMBER"
+    | "POLISH_NEW_CITATION"
+    | "POLISH_NEW_ABSOLUTE_PHRASE"
+    | "POLISH_WORD_DRIFT"
+    | "POLISH_NO_CHANGES";
+  severity: "CRITICAL" | "MAJOR" | "MINOR";
+  message: string;
+  location?: string;
+}
+
 /** Temuan pemeriksa draf (Langkah 4). Tidak memblokir render; mengarahkan revisi. */
 export interface DraftCheckFinding {
   code:

@@ -2813,6 +2813,141 @@ export interface ResearchBedahInput4C {
   styleNote?: string;
 }
 
+export interface ResearchBedahInput4D {
+  prodi: string;
+  areaEksplorasi: string;
+  /** Draf 4C yang akan dipoles bahasanya. */
+  draft: import("@/types/tool").Bab1DraftV1;
+  foundation: import("@/types/tool").Bab1FoundationV1;
+  /** Arahan gaya bahasa dari mahasiswa (opsional). */
+  styleNote?: string;
+}
+
+/**
+ * Menyusun Prompt Tahap 4D (Addendum C): memoles bahasa draf 4C.
+ * Prompt ini HANYA mengubah bahasa. Isi, klaim, angka, dan sitasi tidak boleh berubah.
+ */
+export function assembleBedahPrompt4D(input: ResearchBedahInput4D): string {
+  const d = input.draft;
+  const f = input.foundation;
+  const prodi = (input.prodi || "").trim() || "Belum diketahui";
+  const area = (input.areaEksplorasi || "").trim() || "Belum diketahui";
+  const targetTotal = d.target_words_total || 1150;
+
+  const paragraf = (d.background || [])
+    .map((p) => {
+      const ids = (p.claim_ids || []).join(", ");
+      return [
+        `[Paragraf ${p.order}] ${p.function}`,
+        `  Jumlah kata saat ini: ${p.word_count || hitungKataPrompt(p.paragraph_text || "")}`,
+        `  claim_ids WAJIB dipertahankan persis: ${ids || "(kosong)"}`,
+        `  Teks draf 4C:`,
+        p.paragraph_text || "",
+      ].join("\n");
+    })
+    .join("\n\n");
+
+  const larangan = (f.prohibited_claims || []).map((c) => `- ${c}`).join("\n");
+
+  return `[PERAN]
+
+Kamu adalah editor bahasa akademik untuk skripsi S1. Kamu menerima DRAF LATAR BELAKANG BAB 1 hasil Tahap 4C SKRIFLOW yang tulisannya masih kaku dan terlalu berat. Tugasmu SATU: membuat bahasanya lebih mengalir dan wajar untuk mahasiswa S1.
+
+Kamu BUKAN penulis baru dan BUKAN peneliti. Kamu editor.
+
+[KONTEKS]
+
+- Program Studi: ${prodi}
+- Area Eksplorasi: ${area}
+- Status fondasi 4B: ${f.foundation_status}
+- Status draf 4C: ${d.draft_status}
+- Target total: 1000–1300 kata (target kerja ${targetTotal})
+${input.styleNote ? `- Arahan gaya bahasa: ${input.styleNote}\n` : "- Arahan gaya bahasa: bahasa Indonesia akademik yang wajar dan mengalir, tidak kaku, tidak berlebihan, mudah dibaca dosen maupun mahasiswa.\n"}
+[EMPAT LARANGAN KERAS]
+
+1. JANGAN menambah klaim, temuan, atau pernyataan faktual baru. Kalau tidak ada di draf 4C, jangan ditulis.
+2. JANGAN menambah angka, statistik, persentase, tahun, nama jurnal, DOI, atau sitasi baru. Sekali lagi: TIDAK ADA data baru.
+3. JANGAN menghapus klaim yang sudah ada di draf 4C. Kalau sebuah kalimat terasa janggal, perbaiki bahasanya, jangan buang isinya.
+4. JANGAN mengubah claim_ids, urutan paragraf, fungsi paragraf, atau jumlah paragraf.
+
+[BATAS GAYA]
+
+- Register tetap akademik, tapi wajar untuk mahasiswa S1. Bukan bahasa jurnal, bukan bahasa percakapan.
+- Pangkas kalimat yang berputar-putar. Satu paragraf satu gagasan pokok.
+- Hindari kata yang terdengar seperti mesin atau terlalu formal-bersayap: "oleh karena itu demikian", "pada hakikatnya", "dapat dikatakan bahwa", "sebagaimana telah diuraikan".
+- Hindari klise pembuka seperti "Pada era globalisasi saat ini".
+- Pertahankan istilah teknis yang memang harus ada (nama standar, nama lembaga, nama rasio).
+- Boleh memecah satu kalimat panjang menjadi dua, atau menggabung dua kalimat pendek. Boleh mengubah urutan kalimat dalam satu paragraf selama klaimnya tidak berubah.
+
+[ATURAN YANG TIDAK BERUBAH DARI 4C]
+
+1. Hubungan sebab-akibat hanya boleh bila klaimnya memang kausal. Kata "menyebabkan", "mengakibatkan", "berpengaruh signifikan terhadap" tetap dilarang kecuali untuk menyanggahnya.
+2. Frasa gap sintetis seperti "belum ada penelitian tentang..." atau "belum pernah diteliti di..." tetap dilarang.
+3. Klaim berstatus NEEDS_VERIFICATION tetap harus dibingkai hati-hati ("indikasi awal menunjukkan", "perlu penelusuran lanjutan"). Memperhalus bahasa TIDAK membuat klaim tidak aman menjadi aman.
+4. Paragraf keputusan mahasiswa (URGENCY_AND_DIRECTION) tetap tanpa sitasi.
+5. Jangan menambah sitasi dalam tanda kurung yang belum ada di draf 4C.
+
+[DRAF 4C YANG HARUS DIPOLES — ISINYA MENGIKAT]
+
+${paragraf}
+
+[KLAIM YANG TETAP DILARANG MUNCUL]
+
+${larangan || "- Tidak ada."}
+
+[FORMAT KELUARAN]
+
+Balas dengan SATU blok JSON di antara penanda berikut. Jangan tambahkan teks lain di luar penanda.
+
+=== BEGIN SKRIFLOW_BAB1_POLISH_V1 ===
+{
+  "schema_version": 1,
+  "polish_status": "POLISH_COMPLETE|POLISH_PARTIAL|POLISH_BLOCKED",
+  "draft_status_ref": "${d.draft_status}",
+  "foundation_status_ref": "${f.foundation_status}",
+  "word_count_total": 0,
+  "target_words_total": ${targetTotal},
+  "background": [
+    {
+      "order": 1,
+      "function": "SPECIFIC_CONTEXT",
+      "paragraph_text": "Prosa hasil perbaikan bahasa di sini.",
+      "claim_ids": ["CLM01"],
+      "researcher_decision_note": null,
+      "withheld_claims": []
+    }
+  ],
+  "language_changes": ["Paragraf 1: memecah kalimat panjang dan mengganti istilah kaku menjadi istilah yang lebih wajar"],
+  "preserved_claim_ids": ["CLM01"],
+  "removed_claims": [],
+  "prohibited_claims_respected": [],
+  "unresolved_notes": []
+}
+=== END SKRIFLOW_BAB1_POLISH_V1 ===
+
+Keterangan field:
+- "paragraph_text": prosa hasil perbaikan bahasa. Jumlah paragraf, urutan, fungsi, dan claim_ids WAJIB sama dengan draf 4C.
+- "language_changes": daftar perubahan bahasa yang kamu lakukan, per paragraf. Ini bukti bahwa kamu mengerjakan tugasnya.
+- "preserved_claim_ids": seluruh claim_id yang dipertahankan. Wajib sama dengan seluruh claim_id di draf 4C.
+- "removed_claims": klaim yang sengaja tidak ditulis, beserta alasannya. Kosongkan bila tidak ada.
+- "prohibited_claims_respected": klaim terlarang yang berhasil kamu hindari.
+- "unresolved_notes": keterbatasan yang harus disebut di bagian keterbatasan penelitian.
+
+[PEMBAHASAN SETELAH SELESAI]
+
+Setelah blok JSON, tulis bagian singkat berjudul "Catatan Penyuntingan" berisi:
+1. Total kata hasil perbaikan dan apakah sudah dalam 1000–1300.
+2. Ringkasan jenis perubahan bahasa yang dilakukan.
+3. Pernyataan eksplisit bahwa tidak ada klaim, angka, atau sitasi baru yang ditambahkan.
+4. Bila ada klaim yang sengaja tidak ditulis, sebutkan alasannya.
+`;
+}
+
+/** Hitung kata untuk pemakaian internal prompt 4D. */
+function hitungKataPrompt(teks: string): number {
+  return teks.split(/\s+/).filter(Boolean).length;
+}
+
 /**
  * Menyusun Prompt Tahap 4C: mengubah Peta Narasi 4B menjadi draf prosa Bab 1.
  * Prompt ini TIDAK menambah klaim baru; ia hanya menyusun ulang klaim yang

@@ -2066,6 +2066,222 @@ export function periksaDrafBab1(
 }
 
 /** Memproses blok transfer 4C SKRIFLOW_BAB1_DRAFT_V1. */
+/**
+ * Tahap 4D (Addendum C): parser hasil poles bahasa.
+ * Skema SKRIFLOW_BAB1_POLISH_V1. Isi wajib identik dengan draf 4C.
+ */
+export interface Bab1PolishParseResult {
+  success: boolean;
+  data?: import("@/types/tool").Bab1PolishV1;
+  error?: string;
+  errorDetails?: string[];
+  warnings?: string[];
+  findings?: import("@/types/tool").PolishCheckFinding[];
+}
+
+export function parseBab1PolishTransfer(rawText: string): Bab1PolishParseResult {
+  if (!rawText || typeof rawText !== "string" || rawText.trim().length === 0) {
+    return { success: false, error: "Teks output masih kosong.", errorDetails: ["Tempelkan output Tahap 4D dari ChatGPT."] };
+  }
+
+  const startMarker = "=== BEGIN SKRIFLOW_BAB1_POLISH_V1 ===";
+  const endMarker = "=== END SKRIFLOW_BAB1_POLISH_V1 ===";
+  const startIndex = rawText.indexOf(startMarker);
+  const endIndex = rawText.indexOf(endMarker);
+
+  if (startIndex === -1 || endIndex === -1 || endIndex <= startIndex) {
+    return {
+      success: false,
+      error: "Blok data hasil poles Bab 1 tidak ditemukan.",
+      errorDetails: ["Pastikan output memuat penanda persis:", startMarker, "...", endMarker],
+    };
+  }
+
+  const jsonString = rawText.substring(startIndex + startMarker.length, endIndex).trim();
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(jsonString);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return { success: false, error: "Format JSON hasil poles tidak valid.", errorDetails: [`Gagal membaca JSON di antara marker: ${msg}`] };
+  }
+
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return { success: false, error: "Payload hasil poles harus berupa objek JSON valid." };
+  }
+
+  const payload = parsed as Partial<import("@/types/tool").Bab1PolishV1>;
+  const errorDetails: string[] = [];
+
+  if (payload.schema_version !== 1) errorDetails.push("schema_version wajib bernilai angka 1.");
+  if (!Array.isArray(payload.background) || payload.background.length === 0) {
+    errorDetails.push("background wajib berisi minimal satu paragraf.");
+  }
+
+  if (errorDetails.length > 0) {
+    return { success: false, error: "Struktur hasil poles belum memenuhi standar SKRIFLOW_BAB1_POLISH_V1.", errorDetails };
+  }
+
+  const data: import("@/types/tool").Bab1PolishV1 = {
+    schema_version: 1,
+    polish_status: payload.polish_status || "POLISH_PARTIAL",
+    draft_status_ref: payload.draft_status_ref || "DRAFT_PARTIAL",
+    foundation_status_ref: payload.foundation_status_ref || "BAB1_CONDITIONAL",
+    word_count_total: typeof payload.word_count_total === "number" ? payload.word_count_total : 0,
+    target_words_total: typeof payload.target_words_total === "number" ? payload.target_words_total : 1150,
+    background: (payload.background || []).map((p, idx) => ({
+      order: typeof p.order === "number" ? p.order : idx + 1,
+      function: p.function as import("@/types/tool").BackgroundParagraphFunction,
+      paragraph_text: p.paragraph_text || "",
+      word_count: hitungKata(p.paragraph_text || ""),
+      claim_ids: Array.isArray(p.claim_ids) ? [...p.claim_ids] : [],
+      researcher_decision_note: p.researcher_decision_note ?? null,
+      withheld_claims: Array.isArray(p.withheld_claims) ? [...p.withheld_claims] : [],
+    })),
+    language_changes: Array.isArray(payload.language_changes) ? [...payload.language_changes] : [],
+    preserved_claim_ids: Array.isArray(payload.preserved_claim_ids) ? [...payload.preserved_claim_ids] : [],
+    removed_claims: Array.isArray(payload.removed_claims) ? [...payload.removed_claims] : [],
+    prohibited_claims_respected: Array.isArray(payload.prohibited_claims_respected) ? [...payload.prohibited_claims_respected] : [],
+    unresolved_notes: Array.isArray(payload.unresolved_notes) ? [...payload.unresolved_notes] : [],
+  };
+
+  return { success: true, data };
+}
+
+/** Pola angka di teks: menangkap 1.234, 12,5%, 2025, dsb. */
+function ambilAngka(teks: string): Set<string> {
+  const hasil = new Set<string>();
+  const m = teks.match(/\d[\d.,]*/g) || [];
+  m.forEach((x) => {
+    const bersih = x.replace(/[.,]+$/, "");
+    if (bersih.replace(/\D/g, "").length >= 2) hasil.add(bersih);
+  });
+  return hasil;
+}
+
+/** Pola sitasi penulis-tahun, mis. (Ramayana, 2025) atau (PSAK 117, 2024). */
+function ambilSitasi(teks: string): Set<string> {
+  const hasil = new Set<string>();
+  const m = teks.match(/\([^()]{2,60}?\b(19|20)\d{2}[a-z]?\)/g) || [];
+  m.forEach((x) => hasil.add(x.toLowerCase().replace(/\s+/g, " ").trim()));
+  return hasil;
+}
+
+/**
+ * Tahap 4D (Addendum C): pemeriksa perubahan bahasa.
+ * Membandingkan draf hasil 4D dengan draf 4C. Menilai APA YANG BERUBAH,
+ * bukan apa yang sah — kepatuhan bukti tetap milik periksaDrafBab1 (Tahap 9).
+ */
+export function periksaPolesBab1(
+  hasil: import("@/types/tool").Bab1PolishV1,
+  sumber: import("@/types/tool").Bab1DraftV1
+): import("@/types/tool").PolishCheckFinding[] {
+  const findings: import("@/types/tool").PolishCheckFinding[] = [];
+  const push = (f: import("@/types/tool").PolishCheckFinding) => findings.push(f);
+
+  const asal = sumber.background || [];
+  const kini = hasil.background || [];
+
+  if (asal.length !== kini.length) {
+    push({
+      code: "POLISH_PARAGRAPH_COUNT_CHANGED",
+      severity: "CRITICAL",
+      message: `Jumlah paragraf berubah dari ${asal.length} (draf 4C) menjadi ${kini.length} (hasil 4D).`,
+      location: "background",
+    });
+  }
+
+  const normalId = (x: string) => x.replace(/[\[\]]/g, "").trim().toUpperCase();
+
+  for (let i = 0; i < Math.min(asal.length, kini.length); i++) {
+    const a = asal[i];
+    const b = kini[i];
+    const lokasi = `Paragraf ${b.order ?? i + 1}`;
+
+    if (a.order !== b.order || a.function !== b.function) {
+      push({
+        code: "POLISH_PARAGRAPH_ORDER_CHANGED",
+        severity: "CRITICAL",
+        message: `${lokasi}: urutan/fungsi berubah dari ${a.order}/${a.function} menjadi ${b.order}/${b.function}.`,
+        location: lokasi,
+      });
+    }
+
+    const idA = (a.claim_ids || []).map(normalId).sort().join(",");
+    const idB = (b.claim_ids || []).map(normalId).sort().join(",");
+    if (idA !== idB) {
+      push({
+        code: "POLISH_CLAIM_IDS_CHANGED",
+        severity: "CRITICAL",
+        message: `${lokasi}: claim_ids tidak identik dengan draf 4C (${idA || "kosong"} -> ${idB || "kosong"}).`,
+        location: lokasi,
+      });
+    }
+
+    const teksA = a.paragraph_text || "";
+    const teksB = b.paragraph_text || "";
+
+    if (teksA.trim() === teksB.trim()) {
+      push({
+        code: "POLISH_NO_CHANGES",
+        severity: "MINOR",
+        message: `${lokasi}: tidak ada perubahan bahasa sama sekali.`,
+        location: lokasi,
+      });
+      continue;
+    }
+
+    const angkaA = ambilAngka(teksA);
+    const angkaB = ambilAngka(teksB);
+    const angkaBaru = [...angkaB].filter((x) => !angkaA.has(x));
+    if (angkaBaru.length > 0) {
+      push({
+        code: "POLISH_NEW_NUMBER",
+        severity: "MAJOR",
+        message: `${lokasi}: muncul angka baru yang tidak ada di draf 4C: ${angkaBaru.join(", ")}.`,
+        location: lokasi,
+      });
+    }
+
+    const sitA = ambilSitasi(teksA);
+    const sitB = ambilSitasi(teksB);
+    const sitBaru = [...sitB].filter((x) => !sitA.has(x));
+    if (sitBaru.length > 0) {
+      push({
+        code: "POLISH_NEW_CITATION",
+        severity: "MAJOR",
+        message: `${lokasi}: muncul sitasi baru yang tidak ada di draf 4C: ${sitBaru.join("; ")}.`,
+        location: lokasi,
+      });
+    }
+
+    const rendahA = teksA.toLowerCase();
+    const rendahB = teksB.toLowerCase();
+    const absolutBaru = FRASA_KLAIM_ABSOLUT.filter((f) => rendahB.includes(f) && !rendahA.includes(f));
+    if (absolutBaru.length > 0) {
+      push({
+        code: "POLISH_NEW_ABSOLUTE_PHRASE",
+        severity: "MAJOR",
+        message: `${lokasi}: muncul frasa absolut baru: ${absolutBaru.join("; ")}.`,
+        location: lokasi,
+      });
+    }
+
+    const kataA = hitungKata(teksA);
+    const kataB = hitungKata(teksB);
+    if (kataA > 0 && Math.abs(kataB - kataA) / kataA > 0.25) {
+      push({
+        code: "POLISH_WORD_DRIFT",
+        severity: "MINOR",
+        message: `${lokasi}: panjang bergeser dari ${kataA} ke ${kataB} kata (>25%).`,
+        location: lokasi,
+      });
+    }
+  }
+
+  return findings;
+}
+
 export function parseBab1DraftTransfer(
   rawText: string,
   context?: { foundation?: import("@/types/tool").Bab1FoundationV1 }
