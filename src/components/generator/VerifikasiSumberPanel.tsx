@@ -20,7 +20,12 @@ export interface SumberUntukDiperiksa {
 
 export interface HasilVerifikasiSumber {
   sourceId: string;
-  verdict: "TERVERIFIKASI" | "KEMUNGKINAN_COCOK" | "TIDAK_DITEMUKAN" | "TIDAK_DAPAT_DIPERIKSA";
+  verdict:
+    | "TERVERIFIKASI"
+    | "KEMUNGKINAN_COCOK"
+    | "TAUTAN_HIDUP"
+    | "TIDAK_DITEMUKAN"
+    | "TIDAK_DAPAT_DIPERIKSA";
   sumber: "crossref" | "openalex" | "doaj" | null;
   judulDitemukan?: string;
   tahunDitemukan?: string;
@@ -137,6 +142,9 @@ export function RingkasanVerifikasi({ hasil, catatan }: { hasil: Record<string, 
         {hitung("KEMUNGKINAN_COCOK") > 0 && (
           <li>• {hitung("KEMUNGKINAN_COCOK")} judulnya mirip dengan yang ada di basis data</li>
         )}
+        {hitung("TAUTAN_HIDUP") > 0 && (
+          <li>• {hitung("TAUTAN_HIDUP")} tautannya hidup tetapi belum terdaftar di ketiga basis data</li>
+        )}
         {hitung("TIDAK_DITEMUKAN") > 0 && (
           <li>• {hitung("TIDAK_DITEMUKAN")} tidak ada di ketiga basis data (sebagian wajar — lihat catatan)</li>
         )}
@@ -163,12 +171,18 @@ export function LencanaVerifikasi({ hasil }: { hasil?: HasilVerifikasiSumber }) 
     ? "bg-[#70E1B6]/20 text-[#70E1B6]"
     : hasil.perluDicurigai
     ? "bg-rose-500/20 text-rose-300"
+    : hasil.verdict === "TAUTAN_HIDUP"
+    ? "bg-[#F5A623]/20 text-[#F5C777]"
     : "bg-[#AAB4D0]/20 text-[#AAB4D0]";
   const label =
     hasil.verdict === "TERVERIFIKASI"
       ? "TERDAFTAR"
       : hasil.verdict === "KEMUNGKINAN_COCOK"
       ? "MIRIP"
+      : hasil.verdict === "TAUTAN_HIDUP"
+      ? hasil.perluDicurigai
+        ? "TAUTAN HIDUP?"
+        : "TAUTAN HIDUP"
       : hasil.verdict === "TIDAK_DITEMUKAN"
       ? hasil.perluDicurigai
         ? "PERIKSA"

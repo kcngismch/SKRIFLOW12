@@ -9,15 +9,26 @@ import { NextResponse } from "next/server";
  * Batas: maksimal 12 sumber per permintaan untuk mencegah penyalahgunaan.
  */
 
-import { doiDariUrl, doiSah, jenisDiawasiCrossref, kemiripanJudul, perluCariDoaj } from "@/lib/sourceVerification";
+import {
+  doiDariUrl,
+  doiSah,
+  jenisDiawasiCrossref,
+  kandidatJudulHalaman,
+  kemiripanJudul,
+  perluCariDoaj,
+} from "@/lib/sourceVerification";
 
 const MAX_ITEMS = 12;
 const TIMEOUT_MS = 8000;
+// Situs penerbit Indonesia sering lambat (ada yang 17 detik), jadi cek
+// halaman diberi waktu lebih longgar daripada panggilan API metadata.
+const TIMEOUT_HALAMAN_MS = 20000;
 const UA = "Skriflow/1.0 (verifikasi sumber akademik; mailto:support@skriflow.app)";
 
 type Verdict =
   | "TERVERIFIKASI"
   | "KEMUNGKINAN_COCOK"
+  | "TAUTAN_HIDUP"
   | "TIDAK_DITEMUKAN"
   | "TIDAK_DAPAT_DIPERIKSA";
 
@@ -53,6 +64,31 @@ async function ambil(url: string): Promise<{ status: number; body: unknown }> {
   } catch {
     // Jaringan mati/timeout bukan bukti sumber tidak ada.
     return { status: 0, body: null };
+  }
+}
+
+/**
+ * Buka tautan sumber dan ambil judul halamannya.
+ *
+ * Dipakai saat jejak sumber tidak ada di ketiga basis data. Banyak sumber nyata
+ * Indonesia (prosiding kampus, repositori, jurnal lokal) memang belum terindeks,
+ * jadi "tidak ada di Crossref" saja tidak cukup untuk menuduhnya palsu.
+ * Mengembalikan null bila halaman tidak dapat dibuka.
+ */
+async function judulHalaman(url: string): Promise<string | null> {
+  if (!/^https?:\/\//i.test(url)) return null;
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": UA, Accept: "text/html" },
+      signal: AbortSignal.timeout(TIMEOUT_HALAMAN_MS),
+      redirect: "follow",
+    });
+    if (!res.ok) return null;
+    const html = (await res.text()).slice(0, 200_000);
+    const m = /<title[^>]*>([\s\S]{0,300}?)<\/title>/i.exec(html);
+    return m ? m[1].replace(/\s+/g, " ").trim() : "";
+  } catch {
+    return null;
   }
 }
 
@@ -203,6 +239,25 @@ async function periksaJudul(item: Item, judul: string): Promise<Hasil> {
   if (perluCariDoaj("TIDAK_DITEMUKAN", item.documentType)) {
     const doaj = await periksaDoaj(item, judul);
     if (doaj) return doaj;
+  }
+
+  // Sumber belum terindeks, tetapi tautannya mungkin hidup. Cek halamannya dulu
+  // supaya sumber asli tidak dilaporkan sama seperti sumber karangan.
+  if (diawasi && item.url) {
+    const jh = await judulHalaman(item.url);
+    if (jh !== null) {
+      const cocok = kandidatJudulHalaman(jh).some((k) => kemiripanJudul(judul, k) >= 0.85);
+      return {
+        sourceId: item.sourceId ?? judul.slice(0, 40),
+        verdict: "TAUTAN_HIDUP",
+        sumber: null,
+        judulDitemukan: jh || undefined,
+        catatan: jh
+          ? `Halaman sumber dapat dibuka (judul halaman: "${jh}"). ${cocok ? "Judulnya cocok dengan sumber ini, tetapi" : "Judul halaman berbeda dari yang tertulis di paket, dan"} sumber ini belum terdaftar di Crossref, OpenAlex, maupun DOAJ — periksa isinya sebelum dipakai.`
+          : "Halaman sumber dapat dibuka, tetapi judul halamannya tidak terbaca. Sumber ini belum terdaftar di Crossref, OpenAlex, maupun DOAJ — periksa isinya sebelum dipakai.",
+        perluDicurigai: !cocok,
+      };
+    }
   }
 
   return {

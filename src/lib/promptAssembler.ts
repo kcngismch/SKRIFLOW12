@@ -885,8 +885,8 @@ export function assembleLiteraturePromptB(
 ${contextBlock}
 
 KELAYAKAN & PRINSIP:
-- Artikel empiris cukup jika metode/konteks data & hasil utamanya terbaca untuk dikutip; review/SLR cukup jika metode tinjauan & sintesisnya terkenali.
-- Kategori sumber:
+- Artikel empiris cukup jika metode & hasil utamanya terbaca; review cukup jika metode tinjauannya terkenali.
+- Kategori:
   * INTI: relevan langsung, metode/hasil terbaca.
   * PENDUKUNG (maks. 5): tak langsung / konteks teori / metode.
   * PERLU CEK MANUAL: metadata/akses butuh konfirmasi.
@@ -894,17 +894,18 @@ KELAYAKAN & PRINSIP:
 - Jika INTI <8: tetap susun Paket Bukti sementara dari sumber valid; jelaskan yang kurang, jangan STOP.
 
 LARANGAN KERAS:
-- Dilarang mengarang sumber atau klaim tanpa sitasi.
+- Dilarang mengarang sumber/klaim tanpa sitasi.
 - Dilarang membuat gap otomatis, kesimpulan final, judul, novelty, variabel final, atau klaim kausal di luar sumber.
 - Dilarang menggunakan Research Report AI sebagai artikel akademik.
-- Jangan kata "membuktikan". Pakai: "penelitian melaporkan", "hasil analisis menunjukkan", atau batasi ke sampel/periode.
+- Tautan/DOI wajib bila ada; "-" hanya bila benar-benar tak ada.
+- Jangan kata "membuktikan". Pakai "penelitian melaporkan" atau batasi ke sampel/periode.
 
 OUTPUT:
 1. REKONSILIASI
 INTI + PENDUKUNG + PERLU CEK MANUAL + ABAIKAN = TOTAL NOTEBOOK. Cantumkan jumlah, ID, dan alasannya.
 
 2. SOURCE REGISTER
-ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Metode/sampel | Bukti keterbacaan.
+ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Tautan/DOI | Metode/sampel | Bukti keterbacaan.
 Review/SLR bukan bukti empiris independen; labeli preprint/working paper/tesis.
 
 3. MATRIKS BUKTI (maks. 16)
@@ -929,8 +930,8 @@ Prodi:  | Area:
 Fenomena: 
 
 KELAYAKAN & PRINSIP:
-- Artikel empiris cukup jika metode/konteks data & hasil utamanya terbaca untuk dikutip; review/SLR cukup jika metode tinjauan & sintesisnya terkenali.
-- Kategori sumber:
+- Artikel empiris cukup jika metode & hasil utamanya terbaca; review cukup jika metode tinjauannya terkenali.
+- Kategori:
   * INTI: relevan langsung, metode/hasil terbaca.
   * PENDUKUNG (maks. 5): tak langsung / konteks teori / metode.
   * PERLU CEK MANUAL: metadata/akses butuh konfirmasi.
@@ -938,17 +939,18 @@ KELAYAKAN & PRINSIP:
 - Jika INTI <8: tetap susun Paket Bukti sementara dari sumber valid; jelaskan yang kurang, jangan STOP.
 
 LARANGAN KERAS:
-- Dilarang mengarang sumber atau klaim tanpa sitasi.
+- Dilarang mengarang sumber/klaim tanpa sitasi.
 - Dilarang membuat gap otomatis, kesimpulan final, judul, novelty, variabel final, atau klaim kausal di luar sumber.
 - Dilarang menggunakan Research Report AI sebagai artikel akademik.
-- Jangan kata "membuktikan". Pakai: "penelitian melaporkan", "hasil analisis menunjukkan", atau batasi ke sampel/periode.
+- Tautan/DOI wajib bila ada; "-" hanya bila benar-benar tak ada.
+- Jangan kata "membuktikan". Pakai "penelitian melaporkan" atau batasi ke sampel/periode.
 
 OUTPUT:
 1. REKONSILIASI
 INTI + PENDUKUNG + PERLU CEK MANUAL + ABAIKAN = TOTAL NOTEBOOK. Cantumkan jumlah, ID, dan alasannya.
 
 2. SOURCE REGISTER
-ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Metode/sampel | Bukti keterbacaan.
+ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Tautan/DOI | Metode/sampel | Bukti keterbacaan.
 Review/SLR bukan bukti empiris independen; labeli preprint/working paper/tesis.
 
 3. MATRIKS BUKTI (maks. 16)
@@ -1869,11 +1871,11 @@ Setiap arah penelitian wajib memiliki batas klaim (claim_boundary):
 Klasifikasikan fungsi sumber (source_weights). SETIAP entri WAJIB memuat identitas sumber:
 - source_id: ID sumber persis seperti pada paket bukti;
 - title: judul dokumen (bukan nama lembaga saja);
-- url atau doi: tautan/DOI bila tersedia. Tulis "-" bila benar-benar tidak ada, jangan dikarang;
+- url atau doi: SALIN PERSIS tautan/DOI dari paket bukti; jangan dikarang, jangan diubah. Tulis "-" hanya bila paket bukti memang tidak memuatnya.
 - document_type: jenis dokumen apa adanya;
 - weight: UTAMA (artikel peer-reviewed full-text atau sumber primer/resmi yang dapat ditelusuri), PENDUKUNG (proceeding, working paper, tesis, review, laporan institusi yang masih relevan), atau PERLU_DIPERIKSA (identitas, akses, full-text, atau status akademiknya belum pasti).
 
-Sumber tanpa judul dan tanpa tautan/DOI tidak boleh diberi bobot UTAMA. Turunkan ke PERLU_DIPERIKSA dan jelaskan alasannya pada note.
+Sumber tanpa judul dan tanpa tautan/DOI tidak boleh diberi bobot UTAMA. Turunkan ke PERLU_DIPERIKSA dan jelaskan alasannya pada note. Sumber berjenis artikel peer-reviewed WAJIB memuat tautan/DOI bila paket bukti menyediakannya; menyebut sumber artikel tanpa tautan membuat mahasiswa tidak bisa memeriksanya.
 
 Klaim inti untuk Bab 1 tidak boleh hanya bergantung pada sumber PENDUKUNG atau PERLU_DIPERIKSA. Jangan otomatis membuang seluruh Paket Bukti jika ada beberapa sumber lemah; turunkan bobot klaimnya dan beri catatan pemeriksaan.
 

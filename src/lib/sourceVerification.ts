@@ -107,3 +107,27 @@ export function doiSah(raw: string | undefined | null): string {
   if (!/^10\.\d{4,9}\/\S+$/i.test(v)) return "";
   return v;
 }
+
+/**
+ * Judul inti dari judul halaman web.
+ *
+ * Halaman jurnal/situs penerbit hampir selalu menambahkan nama terbitan di
+ * belakang judul, dipisah "|", "-", atau "::". Contoh nyata: judul halaman
+ * "...Life Insurance Companies? | Dinasti International Journal of Economics".
+ * Ekor itu bukan bagian judul artikel; kalau ikut dihitung, judul yang sama
+ * persis pun skornya jatuh di bawah ambang dan sumber sah tampak mencurigakan.
+ *
+ * Mengembalikan kandidat dari yang paling panjang; pemanggil memakai yang
+ * paling cocok, sehingga judul yang memang mengandung tanda pisah tidak
+ * dirugikan.
+ */
+export function kandidatJudulHalaman(judulHalaman: string): string[] {
+  const t = (judulHalaman || "").replace(/\s+/g, " ").trim();
+  if (!t) return [];
+  const kandidat = [t];
+  for (const pisah of [/\s*[|·]\s*/, /\s+[–—]\s+/, /\s+::\s+/]) {
+    const bagian = t.split(pisah)[0].trim();
+    if (bagian.length > 10 && bagian !== t) kandidat.push(bagian);
+  }
+  return kandidat;
+}
