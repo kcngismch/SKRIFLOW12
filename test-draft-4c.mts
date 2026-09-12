@@ -186,14 +186,22 @@ cek("Tool 5 berlabel 'Susun Bab 1'", t5?.name === "Susun Bab 1");
 console.log("\n[10] Alur 4C -> 4D tegas: NotebookLM menulis, ChatGPT merapikan");
 // Cacat yang dicegah: tiga tombol platform berjajar setara di Tahap 4C membuat
 // mahasiswa tidak tahu mana yang dulu. Alur harus eksplisit di dalam halaman.
-cek("Tahap 4C memuat urutan langkah bernomor", /Alurnya tiga langkah/.test(srcBab1));
-cek("langkah 1 = NotebookLM yang menulis draf", /Langkah 1: Buka NotebookLM/.test(srcBab1));
-cek("langkah 2 = tempel hasil draf", /Langkah 2: Tempel hasil draf/.test(srcBab1));
-cek("langkah 3 = ChatGPT merapikan bahasa", /Langkah 3: Buka ChatGPT/.test(srcBab1));
+cek("Tahap 4C memuat urutan langkah bernomor", /Alurnya empat langkah/.test(srcBab1));
+// Addendum D: seluruh prompt jadi berkas sumber, chat box cuma perintah pendek
+cek("langkah 1 = unduh berkas sumber", /Langkah 1: Unduh Berkas Sumber/.test(srcBab1));
+cek("langkah 2 = salin perintah pendek", /Langkah 2: Salin Perintah Pendek/.test(srcBab1));
+cek("langkah 3 = buka NotebookLM", /Langkah 3: Buka NotebookLM/.test(srcBab1));
+cek("langkah 4 = tempel hasil draf", /Langkah 4: Tempel hasil draf/.test(srcBab1));
+cek("langkah 5 = ChatGPT merapikan bahasa", /Langkah 5: Buka ChatGPT/.test(srcBab1));
+cek("tidak ada lagi tombol salin prompt panjang 4C", !/Salin Prompt Tahap 4C/.test(srcBab1));
+cek("berkas sumber bisa diunduh sebagai file", /skriflow-berkas-sumber-4C\.txt/.test(srcBab1));
+cek("isi berkas sumber bisa diperiksa mahasiswa", /Lihat isi berkas sumber/.test(srcBab1));
+cek("perintah pendek ditampilkan sebagai yang ditempel", /Perintah pendek ini yang ditempel di kolom chat/.test(srcBab1));
+cek("draf dari tempat lain diarahkan ke Langkah 4, bukan Langkah 2", /Boleh ditempel di Langkah 4/.test(srcBab1));
 cek("Tahap 4C menyuruh lanjut ke 4D tanpa syarat", /Lanjut ke Tahap 4D/.test(srcBab1));
-cek("tombol NotebookLM di 4C tampil sebagai tombol utama (bukan outline abu)", /bg-\[#70E1B6\] px-5 py-3 text-xs font-bold text-\[#080D1D\][\s\S]{0,200}Langkah 1: Buka NotebookLM/.test(srcBab1));
+cek("tombol NotebookLM di 4C tampil sebagai tombol utama (bukan outline abu)", /bg-\[#70E1B6\] px-5 py-3 text-xs font-bold text-\[#080D1D\][\s\S]{0,200}Langkah 3: Buka NotebookLM/.test(srcBab1));
 cek("NotebookLM tidak lagi ditawarkan di 4D (kerjanya sudah selesai)", !/href="https:\/\/notebooklm\.google\.com"[\s\S]{0,400}generatedPrompt4D/.test(srcBab1));
-cek("ChatGPT di 4D ditandai langkah 3", /Langkah 3: Buka ChatGPT/.test(srcBab1));
+cek("ChatGPT di 4D ditandai langkah 5", /Langkah 5: Buka ChatGPT/.test(srcBab1));
 // Bahasa NotebookLM SELALU kaku — 4D tidak boleh ditawarkan sebagai pilihan.
 cek("Tahap 4D berlabel WAJIB, bukan opsional", /Poles Bahasa Draf \(Wajib\)/.test(srcBab1));
 cek("tidak ada kata 'Opsional' di judul tahap 4D", !/Poles Bahasa Draf \(Opsional\)/.test(srcBab1));

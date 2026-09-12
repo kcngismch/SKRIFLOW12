@@ -1,11 +1,11 @@
 
 import { assembleLiteraturePromptA } from "./src/lib/promptAssembler";
 import { NOTEBOOKLM_LIMITS } from "./src/config/promptLimits";
-const p = (n) => "a".repeat(n);
+const p = (n: number) => "a".repeat(n);
 
 // Cari titik di mana pemadatan bertingkat benar-benar menurunkan plafon bertahap
 let lulus = 0, gagal = 0;
-const cek = (n, k, d) => { if (k) { lulus++; console.log("  OK   " + n); } else { gagal++; console.log("  GAGAL " + n + (d ? " :: " + d : "")); } };
+const cek = (n: string, k: boolean, d?: string) => { if (k) { lulus++; console.log("  OK   " + n); } else { gagal++; console.log("  GAGAL " + n + (d ? " :: " + d : "")); } };
 
 console.log("[1] Kasus terburuk yang tadinya BLOCKED sekarang muat");
 const worst = { prodi:p(100), area:p(350), fenomena:p(800), prioritas_sumber:"NotebookLM prioritas utama", rentang_publikasi:p(100), kata_kunci:p(200), fokus_literatur:p(800), hal_belum_ditentukan:p(800) };
@@ -23,7 +23,7 @@ cek("kasus fenomena saja: tetap utuh", r2.phenomenonPreserved);
 console.log("");
 console.log("[3] Yang dipadatkan hanya konteks opsional, bukan konteks inti");
 cek("field inti (prodi/area/fenomena) tidak masuk daftar dipadatkan",
-  !r.compactedFields.includes("prodi") && !r.compactedFields.includes("area") && !r.compactedFields.includes("fenomena"));
+  !(r.compactedFields as string[]).includes("prodi") && !(r.compactedFields as string[]).includes("area") && !(r.compactedFields as string[]).includes("fenomena"));
 cek("field opsional yang dipadatkan dilaporkan ke mahasiswa", r.compactedFields.length > 0, JSON.stringify(r.compactedFields));
 cek("hanya field opsional yang dilaporkan",
   r.compactedFields.every(f => ["prioritas_sumber","rentang_publikasi","kata_kunci","fokus_literatur","hal_belum_ditentukan"].includes(f)));

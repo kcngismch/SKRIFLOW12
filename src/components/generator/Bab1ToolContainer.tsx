@@ -99,6 +99,9 @@ import {
   assembleBedahPrompt4D,
   analyzeBedahPrompt4C,
   ResearchBedahInput4C,
+  assembleBab1DraftSourceFile,
+  assembleBab1DraftShortCommand,
+  analyzeBab1DraftShortCommand,
 } from "@/lib/promptAssembler";
 import { copyToClipboard } from "@/lib/clipboard";
 import { susunOutlineLatarBelakang } from "@/lib/bab1Outline";
@@ -120,6 +123,7 @@ import {
   AlertTriangle,
   CheckCircle2,
   Copy,
+  Download,
   ExternalLink,
   RotateCcw,
   ChevronDown,
@@ -569,6 +573,22 @@ export const Bab1ToolContainer: React.FC = () => {
     return analyzeBedahPrompt4C(bedahInput4C);
   }, [bedahInput4C]);
 
+  // Addendum D: berkas sumber + perintah pendek pengganti tempel-panjang
+  const berkasSumber4C = useMemo(() => {
+    if (!bedahInput4C) return "";
+    return assembleBab1DraftSourceFile(bedahInput4C);
+  }, [bedahInput4C]);
+
+  const perintahSingkat4C = useMemo(() => {
+    if (!bedahInput4C) return "";
+    return assembleBab1DraftShortCommand(bedahInput4C);
+  }, [bedahInput4C]);
+
+  const promptAnalysisShort4C = useMemo(() => {
+    if (!bedahInput4C) return null;
+    return analyzeBab1DraftShortCommand(bedahInput4C);
+  }, [bedahInput4C]);
+
   // Tahap 4D: input & prompt poles bahasa
   const bedahInput4D = useMemo(() => {
     if (!parsedDraftV1 || !parsedFoundationV1) return null;
@@ -598,6 +618,33 @@ export const Bab1ToolContainer: React.FC = () => {
   );
 
   // Handle Copy Prompt 4C
+  /** Addendum D: unduh berkas sumber, salin perintah pendek untuk chat box. */
+  const handleUnduhBerkasSumber4C = () => {
+    if (!berkasSumber4C) return;
+    const blob = new Blob([berkasSumber4C], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "skriflow-berkas-sumber-4C.txt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    setToastMessage("Berkas sumber terunduh. Unggah ke NotebookLM sebagai sumber.");
+    setTimeout(() => setToastMessage(null), 4000);
+  };
+
+  const handleCopyPerintahSingkat4C = async () => {
+    if (!perintahSingkat4C) return;
+    const ok = await copyToClipboard(perintahSingkat4C);
+    setCopyStatus4C("copied");
+    setTimeout(() => setCopyStatus4C("idle"), 3000);
+    if (ok) {
+      setToastMessage("Perintah pendek tersalin! Tempel di kolom chat NotebookLM.");
+      setTimeout(() => setToastMessage(null), 4000);
+    }
+  };
+
   const handleCopyPrompt4C = async () => {
     if (!generatedPrompt4C || promptAnalysis4C?.status === "BLOCKED") return;
     try {
@@ -2333,11 +2380,17 @@ export const Bab1ToolContainer: React.FC = () => {
 
                 {/* Alur tegas: NotebookLM menulis, ChatGPT merapikan bahasanya. */}
                 <div className="rounded-xl border border-[#70E1B6]/35 bg-[#70E1B6]/5 p-4 space-y-2.5">
-                  <span className="text-xs font-bold text-[#70E1B6]">Alurnya tiga langkah, jangan dibalik:</span>
+                  <span className="text-xs font-bold text-[#70E1B6]">Alurnya empat langkah, jangan dibalik:</span>
                   <ol className="list-decimal space-y-1.5 pl-4 text-xs text-[#AAB4D0] leading-relaxed">
                     <li>
-                      <span className="font-semibold text-[#FFF9EE]">Salin prompt 4C</span> (tombol biru), lalu tempel ke{" "}
-                      <span className="font-semibold text-[#70E1B6]">NotebookLM</span> — di sana sumber penelitianmu sudah terkumpul.
+                      <span className="font-semibold text-[#FFF9EE]">Unduh berkas sumber</span> Skriflow, lalu unggah ke{" "}
+                      <span className="font-semibold text-[#70E1B6]">NotebookLM</span> sebagai sumber. Isinya instruksi lengkap
+                      penulisan — memang panjang, dan itu sebabnya dikirim sebagai sumber, bukan ditempel di kolom chat.
+                    </li>
+                    <li>
+                      <span className="font-semibold text-[#FFF9EE]">Salin perintah pendeknya</span>, lalu tempel di{" "}
+                      <span className="font-semibold text-[#70E1B6]">kolom chat NotebookLM</span>. Perintah inilah yang menyuruh NotebookLM
+                      bekerja memakai berkas sumber tadi — pendek, jadi pasti diterima.
                     </li>
                     <li>
                       NotebookLM yang menulis drafnya. <span className="font-semibold text-[#FFF9EE]">Tempel hasilnya</span> di kotak paling
@@ -2354,18 +2407,27 @@ export const Bab1ToolContainer: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-3">
                   <button
                     type="button"
-                    onClick={handleCopyPrompt4C}
+                    onClick={handleUnduhBerkasSumber4C}
+                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#2959FF] to-[#1E40AF] px-5 py-3 text-xs font-bold text-white shadow-lg shadow-[#2959FF]/25 transition hover:brightness-110"
+                  >
+                    <Download className="h-4 w-4" />
+                    <span>Langkah 1: Unduh Berkas Sumber ({berkasSumber4C.length.toLocaleString("id-ID")} karakter)</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleCopyPerintahSingkat4C}
                     className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#2959FF] to-[#1E40AF] px-5 py-3 text-xs font-bold text-white shadow-lg shadow-[#2959FF]/25 transition hover:brightness-110"
                   >
                     {copyStatus4C === "copied" ? (
                       <>
                         <Check className="h-4 w-4 text-[#70E1B6]" />
-                        <span>Prompt 4C Tersalin!</span>
+                        <span>Perintah Tersalin!</span>
                       </>
                     ) : (
                       <>
                         <Copy className="h-4 w-4" />
-                        <span>Salin Prompt Tahap 4C</span>
+                        <span>Langkah 2: Salin Perintah Pendek ({perintahSingkat4C.length.toLocaleString("id-ID")} karakter)</span>
                       </>
                     )}
                   </button>
@@ -2377,23 +2439,41 @@ export const Bab1ToolContainer: React.FC = () => {
                     className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6]"
                   >
                     <ExternalLink className="h-3.5 w-3.5" />
-                    <span>Langkah 1: Buka NotebookLM</span>
+                    <span>Langkah 3: Buka NotebookLM</span>
                   </a>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2 text-xs text-[#AAB4D0]">
-                  <span>Sudah punya draf dari tempat lain? Boleh ditempel di Langkah 2 — tapi tetap wajib lewat Tahap 4D.</span>
+                  <span>Sudah punya draf dari tempat lain? Boleh ditempel di Langkah 4 — tapi tetap wajib lewat Tahap 4D.</span>
                 </div>
 
-                <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
-                  <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
-                    {generatedPrompt4C}
+                <div className="rounded-xl border border-[#70E1B6]/30 bg-[#080D1D] p-4 space-y-3">
+                  <div className="flex flex-wrap items-center gap-3 text-xs">
+                    <span className="font-bold text-[#70E1B6]">Langkah 2: Perintah pendek ini yang ditempel di kolom chat</span>
+                    {promptAnalysisShort4C && (
+                      <span className="rounded-md border border-[#70E1B6]/40 bg-[#70E1B6]/10 px-2 py-0.5 font-semibold text-[#70E1B6]">
+                        {promptAnalysisShort4C.finalLength.toLocaleString("id-ID")} / {promptAnalysisShort4C.hardLimit.toLocaleString("id-ID")} — {promptAnalysisShort4C.status === "SAFE" ? "Aman" : promptAnalysisShort4C.status}
+                      </span>
+                    )}
+                  </div>
+                  <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap select-all">
+                    {perintahSingkat4C}
                   </pre>
+                  <details className="pt-2 border-t border-[#273352]/60">
+                    <summary className="cursor-pointer text-xs font-semibold text-[#AAB4D0] hover:text-[#FFF9EE]">
+                      Lihat isi berkas sumber yang diunggah ({
+                        berkasSumber4C.length.toLocaleString("id-ID")
+                      } karakter — ini yang sebelumnya harus ditempel di chat)
+                    </summary>
+                    <pre className="mt-3 max-h-80 overflow-y-auto font-mono text-[11px] leading-relaxed text-[#AAB4D0] whitespace-pre-wrap">
+                      {berkasSumber4C}
+                    </pre>
+                  </details>
                 </div>
 
                 <div className="pt-4 border-t border-[#273352]/60 space-y-3">
                   <label className="block text-xs font-bold text-[#FFF9EE]">
-                    Langkah 2: Tempel hasil draf dari NotebookLM (atau ChatGPT/Gemini):
+                    Langkah 4: Tempel hasil draf dari NotebookLM (atau ChatGPT/Gemini):
                   </label>
                   <textarea
                     rows={6}
@@ -2774,7 +2854,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6]"
               >
                 <ExternalLink className="h-3.5 w-3.5" />
-                <span>Langkah 3: Buka ChatGPT</span>
+                <span>Langkah 5: Buka ChatGPT</span>
               </a>
 
               {generatedPrompt4D && (

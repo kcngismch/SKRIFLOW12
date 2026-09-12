@@ -3120,6 +3120,70 @@ ${kontribusi ? `- Kontribusi empiris: ${kontribusi.empirical || "-"}\n- Kontribu
 `;
 }
 
+/**
+ * Addendum D — Berkas Sumber NotebookLM.
+ *
+ * Pengukuran (data nyata, 7 paragraf): prompt 4C = 5.473 char dengan data penuh,
+ * dan INSTRUKSINYA SENDIRI saja sudah 4.883 char (PERAN 706 + ATURAN MENULIS 1.877
+ * + FORMAT KELUARAN 1.624 + PANJANG 190 + PEMBAHASAN 486). Artinya memindahkan
+ * hanya DATA ke source TIDAK cukup — instruksinya tetap melewati batas chat box
+ * NotebookLM (~3.900). Karena itu SELURUH prompt dikirim sebagai berkas sumber,
+ * dan chat box hanya menerima perintah pendek yang mengacu ke berkas itu.
+ */
+export function assembleBab1DraftSourceFile(input: ResearchBedahInput4C): string {
+  const prodi = (input.prodi || "").trim() || "Belum diketahui";
+  const jumlahParagraf = (input.foundation?.background_map || []).length;
+
+  return `# Berkas Sumber Skriflow — Tahap 4C: Menulis Draf Latar Belakang Bab 1
+
+Program Studi: ${prodi}
+Jumlah paragraf yang harus ditulis: ${jumlahParagraf}
+
+PENTING — cara membaca berkas ini:
+Berkas ini adalah ATURAN PENULISAN, bukan sumber penelitian dan bukan bahan bacaan.
+Sumber penelitian (artikel jurnal, data) adalah dokumen LAIN yang sudah ada di notebook ini.
+Pakai berkas ini sebagai aturan kerja saat menulis draf.
+
+==============================================================================
+ISI INSTRUKSI LENGKAP
+==============================================================================
+
+${assembleBedahPrompt4C(input)}
+`;
+}
+
+/** Perintah pendek untuk kolom chat NotebookLM — mengacu ke berkas sumber di atas. */
+export function assembleBab1DraftShortCommand(input: ResearchBedahInput4C): string {
+  const f = input.foundation;
+  const jumlahParagraf = (f?.background_map || []).length;
+  const target = f?.target_words_total || 1150;
+
+  return `Kerjakan Tahap 4C memakai BERKAS SUMBER berjudul "Berkas Sumber Skriflow — Tahap 4C" yang sudah kuunggah di notebook ini.
+
+Tulis DRAF LATAR BELAKANG BAB 1 dengan mengikuti SELURUH aturan di berkas sumber itu: peran, peta narasi, catatan bukti, klaim terlarang, dan format keluaran.
+
+Wajib dipatuhi:
+1. Setiap pernyataan faktual harus berasal dari claim_id di berkas sumber. Tulis claim_id paragraf itu.
+2. Paragraf terakhir adalah keputusan mahasiswa — tanpa sitasi, bukan temuan jurnal.
+3. Jangan menambah sitasi, DOI, angka, atau klaim baru di luar berkas sumber.
+4. Susun ${jumlahParagraf} paragraf, total 1000–1300 kata (target kerja ${target} kata). Jangan mengubah urutan, fungsi, atau target panjang paragraf.
+5. Balas HANYA satu blok JSON di antara penanda === BEGIN SKRIFLOW_BAB1_DRAFT_V1 === dan === END SKRIFLOW_BAB1_DRAFT_V1 ===, dengan struktur field persis seperti di berkas sumber.`;
+}
+
+/** Metrik perintah pendek 4C — dipakai panel anggaran karakter. */
+export function analyzeBab1DraftShortCommand(input: ResearchBedahInput4C) {
+  const perintah = assembleBab1DraftShortCommand(input);
+  const finalLength = countPromptCharacters(perintah);
+
+  return {
+    promptId: "bab1-draft-short-command-4c",
+    finalLength,
+    safeTarget: NOTEBOOKLM_LIMITS.safeTarget,
+    hardLimit: NOTEBOOKLM_LIMITS.hardLimit,
+    status: getPromptBudgetStatus(finalLength),
+  };
+}
+
 /** Metrik Prompt 4C untuk panel anggaran karakter. */
 export function analyzeBedahPrompt4C(input: ResearchBedahInput4C) {
   const finalPrompt = assembleBedahPrompt4C(input);
