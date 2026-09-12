@@ -1401,6 +1401,48 @@ export function normalizeBab1Foundation(
     });
   }
 
+  // Target panjang latar belakang (1000–1300 kata). Redaksi prompt sebelum revisi tidak memuatnya.
+  const DEFAULT_WORD_RANGE: Record<string, string> = {
+    SPECIFIC_CONTEXT: "130–165",
+    OBJECT_AND_SCOPE: "130–165",
+    EMPIRICAL_PHENOMENON: "180–210",
+    WHY_IT_IS_A_PROBLEM: "160–195",
+    PRIOR_RESEARCH: "170–200",
+    KNOWLEDGE_LIMIT_OR_GAP: "150–185",
+    URGENCY_AND_DIRECTION: "130–165",
+  };
+  const parseRange = (v?: string): [number, number] | null => {
+    const m = (v || "").match(/(\d+)\D+(\d+)/);
+    if (!m) return null;
+    const lo = parseInt(m[1], 10);
+    const hi = parseInt(m[2], 10);
+    return lo > 0 && hi >= lo ? [lo, hi] : null;
+  };
+
+  let rangeSumLo = 0;
+  let rangeSumHi = 0;
+  let hasAnyRange = false;
+  normalized.background_map = (normalized.background_map || []).map((sec) => {
+    let range = sec.target_word_range;
+    if (!parseRange(range)) {
+      range = DEFAULT_WORD_RANGE[sec.function] || "140–190";
+    }
+    hasAnyRange = true;
+    const parsed = parseRange(range);
+    if (parsed) {
+      rangeSumLo += parsed[0];
+      rangeSumHi += parsed[1];
+    }
+    return { ...sec, target_word_range: range };
+  });
+
+  if (hasAnyRange && (rangeSumHi < 1000 || rangeSumLo > 1300)) {
+    addWarning(
+      `Total target panjang latar belakang dari peta paragraf adalah ${rangeSumLo}–${rangeSumHi} kata, di luar rentang yang diminta 1000–1300 kata. Sesuaikan target per paragraf sebelum menulis draf.`
+    );
+  }
+  normalized.target_words_total = Math.round((rangeSumLo + rangeSumHi) / 2) || 1150;
+
   normalized.normalization_warnings = warnings.length > 0 ? warnings : undefined;
   return normalized;
 }

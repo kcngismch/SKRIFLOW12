@@ -1231,6 +1231,8 @@ export interface BackgroundMapItemV2 {
   transition_to_next: string;
   missing_information: string[];
   readiness: "READY" | "NEEDS_VERIFICATION" | "BLOCKED";
+  /** Target panjang paragraf saat draf ditulis. Redaksi awal sebelum revisi prompt tidak memuatnya. */
+  target_word_range?: string;
 }
 
 export type EvidenceLedgerSupportStatus =
@@ -1270,6 +1272,8 @@ export interface Bab1FoundationV1 {
   schema_version: 1;
   foundation_status: Bab1FoundationStatus;
   status_reason: string;
+  /** Target total kata latar belakang (1000–1300). Redaksi awal sebelum revisi prompt tidak memuatnya. */
+  target_words_total?: number;
   blocking_items: string[];
   selected_direction: {
     id: string;

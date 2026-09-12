@@ -2411,6 +2411,18 @@ ${input.relevantLiteratureEvidence || "Paket bukti terlampir pada konteks arah."
 3. Petakan kontribusi sementara (empiris, praktis, akademik, metodologis) dan klaim kontribusi yang dilarang.
 4. Buat maksimal 3 gambaran bentuk judul (bukan judul final) dengan asumsi dan keputusan yang masih belum ditentukan.
 5. Susun Peta Narasi Latar Belakang tepat 7–9 bagian (background_map) dengan fungsi paragraf jelas, pesan utama, safe_claims yang merujuk source_ids, transisi logis, dan prohibited_claims.
+   - [PANJANG] Total keseluruhan latar belakang yang akan ditulis dari peta ini wajib berada di rentang 1000–1300 kata (target kerja 1150 kata). Ini untuk 7–9 bagian, jadi setiap bagian rata-rata 120–200 kata.
+   - Jika membuat 7 bagian, gunakan pembagian target berikut sebagai acuan (boleh digeser maksimal ±20 kata antarparagraf, syaratnya total tetap 1000–1300):
+     * SPECIFIC_CONTEXT: 130–170 kata sebagai pembuka yang langsung menyentuh konteks nyata, bukan definisi umum.
+     * OBJECT_AND_SCOPE: 130–170 kata untuk objek, cakupan, dan periode.
+     * EMPIRICAL_PHENOMENON: 180–220 kata sebagai bagian terberat, karena memuat bukti fenomena aktual.
+     * WHY_IT_IS_A_PROBLEM: 160–200 kata untuk menjelaskan mengapa kondisi itu menjadi masalah empiris.
+     * PRIOR_RESEARCH: 170–210 kata untuk memetakan penelitian terdahulu beserta batasnya.
+     * KNOWLEDGE_LIMIT_OR_GAP: 150–190 kata untuk keterbatasan pengetahuan (kandidat gap, bukan gap final).
+     * URGENCY_AND_DIRECTION: 130–170 kata yang menutup dengan urgensi dan arah penelitian.
+   - Jika membuat 8–9 bagian, pecah bagian terpanjang (EMPIRICAL_PHENOMENON atau PRIOR_RESEARCH) menjadi dua bagian. Jangan menambah panjang total di luar 1000–1300 kata.
+   - Cantumkan target kata tiap bagian pada field target_word_range beserta target_words_total pada pembuka output.
+   - JANGAN menyusun latar belakang yang jauh lebih pendek (di bawah 1000 kata) karena terlalu tipis untuk skripsi, dan jangan melebihi 1300 kata karena akan melebar dari fokus.
    - Bedakan claim_type pada safe_claims:
      * EMPIRICAL_FACT: fakta langsung dari sumber (source_ids wajib minimal 1, claim_id wajib ada di evidence_ledger).
      * CROSS_SOURCE_SYNTHESIS: sintesis antar-sumber (source_ids wajib minimal 2 unik, claim_id wajib ada di evidence_ledger).
@@ -2444,6 +2456,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
   "foundation_status": "BAB1_READY|BAB1_CONDITIONAL|BAB1_BLOCKED",
   "phenomenon_basis_status": "${phenStatus}",
   "status_reason": "...",
+  "target_words_total": 1150,
   "blocking_items": ["..."],
   "selected_direction": {
     "id": "${dir.id.replace(/"/g, '\\"')}",
@@ -2574,6 +2587,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "130–170",
       "readiness": "READY"
     },
     {
@@ -2592,6 +2606,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "130–170",
       "readiness": "READY"
     },
     {
@@ -2610,6 +2625,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "180–220",
       "readiness": "READY"
     },
     {
@@ -2628,6 +2644,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "160–200",
       "readiness": "READY"
     },
     {
@@ -2646,6 +2663,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "170–210",
       "readiness": "READY"
     },
     {
@@ -2664,6 +2682,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "150–190",
       "readiness": "READY"
     },
     {
@@ -2682,6 +2701,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "130–170",
       "readiness": "READY"
     }
   ],

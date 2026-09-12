@@ -2645,6 +2645,25 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               </span>
             </div>
 
+            <div className="rounded-xl border border-[#70E1B6]/30 bg-[#70E1B6]/5 p-3 sm:p-4">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#FFF9EE]">
+                <span className="font-bold text-[#70E1B6] uppercase tracking-wider text-[13px]">
+                  Target Panjang Latar Belakang
+                </span>
+                <span className="rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 font-bold text-[#70E1B6]">
+                  1000–1300 kata
+                </span>
+                <span className="text-[#AAB4D0]">
+                  {parsedFoundationV1.background_map.length} bagian · target total{" "}
+                  <strong className="text-[#FFF9EE]">±{parsedFoundationV1.target_words_total || 1150} kata</strong>
+                </span>
+              </div>
+              <p className="mt-1.5 text-[13px] text-[#AAB4D0] leading-relaxed">
+                Angka per paragraf di bawah adalah target saat draf ditulis, bukan jumlah kalimat yang sudah ditulis.
+                Sesuaikan saat menyusun draf agar totalnya tetap berada di rentang 1000–1300 kata.
+              </p>
+            </div>
+
             <div className="space-y-3">
               {parsedFoundationV1.background_map.map((p) => {
                 const funcInfo = getBackgroundFunctionInfo(p.function, p.order, parsedFoundationV1.phenomenon_basis_status);
@@ -2660,11 +2679,17 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                           {funcInfo.title}
                         </span>
                       </div>
-                      <span className={`rounded px-2.5 py-0.5 text-[13px] font-semibold ${readStatus.badgeClass}`}>
-                        {readStatus.label}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        {p.target_word_range && (
+                          <span className="rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 text-[13px] font-semibold text-[#70E1B6]">
+                            Target {p.target_word_range} kata
+                          </span>
+                        )}
+                        <span className={`rounded px-2.5 py-0.5 text-[13px] font-semibold ${readStatus.badgeClass}`}>
+                          {readStatus.label}
+                        </span>
+                      </div>
                     </div>
-
                     <div className="space-y-1">
                       <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
                         Pesan Utama Paragraf:
@@ -2831,6 +2856,199 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                   })}
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          {/* 7.7 Kontribusi, Ruang Lingkup & Catatan Konsultasi */}
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#273352]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+                7. Kontribusi, Ruang Lingkup &amp; Catatan Konsultasi
+              </h3>
+              <span className="text-[13px] text-[#AAB4D0]">
+                Sisa hasil fondasi: manfaat penelitian, batas cakupan, dan bahan diskusi dengan dosen
+              </span>
+            </div>
+
+            {/* 7.7a Kontribusi Sementara */}
+            <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 space-y-3">
+              <h4 className="text-xs font-bold text-[#70E1B6] uppercase tracking-wider">
+                7a. Kontribusi Sementara (Manfaat Penelitian)
+              </h4>
+              <p className="text-[13px] text-[#AAB4D0]">
+                Masih bersifat sementara dan wajib dikonfirmasi ke dosen pembimbing. Bagian ini yang biasanya menjadi
+                isi sub-bab Manfaat Penelitian.
+              </p>
+              {(() => {
+                const contrib = parsedFoundationV1.provisional_contributions;
+                if (!contrib) return <p className="text-[13px] text-[#AAB4D0] italic">Tidak tersedia pada output ini.</p>;
+                const groups: Array<{ key: string; label: string }> = [
+                  { key: "empirical", label: "Empiris" },
+                  { key: "practical", label: "Praktis" },
+                  { key: "academic", label: "Akademik" },
+                  { key: "methodological", label: "Metodologis" },
+                ];
+                return (
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {groups.map((g) => {
+                      const items = (contrib as unknown as Record<string, string[] | undefined>)[g.key] || [];
+                      if (items.length === 0) return null;
+                      return (
+                        <div key={g.key} className="rounded-lg border border-[#273352]/60 bg-[#11182D]/70 p-3 space-y-1.5">
+                          <span className="text-[13px] font-bold text-[#70E1B6] uppercase tracking-wider block">
+                            {g.label}
+                          </span>
+                          <ul className="list-disc list-inside space-y-1 text-[13px] text-[#FFF9EE]/90">
+                            {items.map((it, i) => (
+                              <li key={i}>{it}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
+              {parsedFoundationV1.provisional_contributions?.prohibited_contribution_claims &&
+                parsedFoundationV1.provisional_contributions.prohibited_contribution_claims.length > 0 && (
+                  <div className="rounded-lg bg-rose-500/10 border border-rose-500/20 p-2.5 text-rose-300 space-y-0.5">
+                    <strong className="text-rose-400 block font-bold text-[13px]">
+                      ⚠️ Klaim Kontribusi yang Dilarang:
+                    </strong>
+                    <ul className="list-disc list-inside space-y-0.5 text-[11px]">
+                      {parsedFoundationV1.provisional_contributions.prohibited_contribution_claims.map((pc, i) => (
+                        <li key={i}>{pc}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+            </div>
+
+            {/* 7.7b Ruang Lingkup Sementara */}
+            <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 space-y-3">
+              <h4 className="text-xs font-bold text-[#70E1B6] uppercase tracking-wider">
+                7b. Ruang Lingkup Sementara
+              </h4>
+              {(() => {
+                const scope = parsedFoundationV1.tentative_scope;
+                if (!scope) return <p className="text-[13px] text-[#AAB4D0] italic">Tidak tersedia pada output ini.</p>;
+                const rows: Array<[string, string]> = [
+                  ["Unit Analisis", scope.unit_of_analysis],
+                  ["Objek / Populasi", scope.object_or_population],
+                  ["Wilayah", scope.geography],
+                  ["Peristiwa / Konteks", scope.event_or_context],
+                  ["Periode Sementara", scope.potential_period],
+                ];
+                const lists: Array<[string, string[] | undefined, string]> = [
+                  ["Sumber Data Potensial", scope.potential_data_sources, "text-[#70E1B6]"],
+                  ["Termasuk Cakupan", scope.in_scope, "text-emerald-300"],
+                  ["Di Luar Cakupan", scope.out_of_scope, "text-amber-300"],
+                  ["Belum Diputuskan", scope.unresolved_items, "text-rose-300"],
+                ];
+                return (
+                  <div className="space-y-3 text-xs">
+                    <div className="grid gap-x-4 gap-y-2 sm:grid-cols-2">
+                      {rows.map(([label, val]) =>
+                        val ? (
+                          <div key={label} className="space-y-0.5">
+                            <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
+                              {label}
+                            </span>
+                            <p className="text-[13px] text-[#FFF9EE]">{val}</p>
+                          </div>
+                        ) : null
+                      )}
+                    </div>
+                    {lists.map(([label, items, color]) =>
+                      items && items.length > 0 ? (
+                        <div key={label} className="space-y-1 border-t border-[#273352]/60 pt-2">
+                          <span className={`text-[13px] font-semibold uppercase tracking-wider block ${color}`}>
+                            {label}
+                          </span>
+                          <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FFF9EE]/90">
+                            {items.map((it, i) => (
+                              <li key={i}>{it}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null
+                    )}
+                  </div>
+                );
+              })()}
+            </div>
+
+            {/* 7.7c Ringkasan Kelayakan Data */}
+            {parsedFoundationV1.feasibility_summary && (
+              <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 space-y-3">
+                <h4 className="text-xs font-bold text-[#70E1B6] uppercase tracking-wider">
+                  7c. Ringkasan Kelayakan Data
+                </h4>
+                <div className="space-y-3 text-xs">
+                  {([
+                    ["Data Sudah Pasti", parsedFoundationV1.feasibility_summary.confirmed_data, "text-emerald-300"],
+                    ["Data Belum Pasti", parsedFoundationV1.feasibility_summary.unconfirmed_data, "text-amber-300"],
+                    ["Data Tidak Tersedia", parsedFoundationV1.feasibility_summary.unavailable_data, "text-rose-300"],
+                    ["Implikasi", parsedFoundationV1.feasibility_summary.implications, "text-[#70E1B6]"],
+                  ] as Array<[string, string[] | undefined, string]>).map(([label, items, color]) =>
+                    items && items.length > 0 ? (
+                      <div key={label} className="space-y-1">
+                        <span className={`text-[13px] font-semibold uppercase tracking-wider block ${color}`}>
+                          {label}
+                        </span>
+                        <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FFF9EE]/90">
+                          {items.map((it, i) => (
+                            <li key={i}>{it}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* 7.7d Bahan Konsultasi Dosen */}
+            <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 space-y-3">
+              <h4 className="text-xs font-bold text-[#70E1B6] uppercase tracking-wider">
+                7d. Bahan Konsultasi Dosen &amp; Keputusan yang Belum Final
+              </h4>
+              {parsedFoundationV1.supervisor_questions && parsedFoundationV1.supervisor_questions.length > 0 && (
+                <div className="space-y-1.5">
+                  <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
+                    Pertanyaan untuk Dosen Pembimbing
+                  </span>
+                  <ol className="list-decimal list-inside space-y-1.5 text-[13px] text-[#FFF9EE]/90">
+                    {parsedFoundationV1.supervisor_questions.map((q, i) => (
+                      <li key={i}>{q}</li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+              {parsedFoundationV1.unresolved_decisions && parsedFoundationV1.unresolved_decisions.length > 0 && (
+                <div className="space-y-1.5 border-t border-[#273352]/60 pt-2">
+                  <span className="text-[13px] font-semibold text-amber-300 uppercase tracking-wider block">
+                    Keputusan yang Belum Final
+                  </span>
+                  <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FFF9EE]/90">
+                    {parsedFoundationV1.unresolved_decisions.map((u, i) => (
+                      <li key={i}>{u}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {parsedFoundationV1.recovery_actions && parsedFoundationV1.recovery_actions.length > 0 && (
+                <div className="space-y-1.5 border-t border-[#273352]/60 pt-2">
+                  <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
+                    Langkah Tindak Lanjut yang Disarankan
+                  </span>
+                  <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FFF9EE]/90">
+                    {parsedFoundationV1.recovery_actions.map((r, i) => (
+                      <li key={i}>{r}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
 
