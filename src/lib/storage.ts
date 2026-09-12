@@ -851,6 +851,8 @@ const BEDAH_RAW_TRANSFER_KEY = "skriflow_bedah_raw_transfer";
 const BEDAH_DIRECTION_V2_KEY = "skriflow_bedah_direction_v2";
 const BEDAH_FEASIBILITY_KEY = "skriflow_bedah_direction_feasibility";
 const BEDAH_FOUNDATION_V1_KEY = "skriflow_bedah_bab1_foundation_v1";
+const BEDAH_DRAFT_4C_RAW_KEY = "skriflow_bedah_4c_chat_output";
+const BEDAH_DRAFT_4C_KEY = "skriflow_bedah_bab1_draft_v1";
 const BEDAH_PACKAGE_V2_KEY = "skriflow_bedah_saved_package_v2";
 const BEDAH_SELECTED_DIRECTION_KEY = "skriflow_bedah_selected_direction_id";
 
@@ -1100,6 +1102,63 @@ export function loadBab1FoundationV1(): import("@/types/tool").Bab1FoundationV1 
  */
 export function clearBab1FoundationV1(): void {
   removeStorageItem(BEDAH_FOUNDATION_V1_KEY);
+}
+
+
+/**
+ * Saves pasted LLM output for Tool 4 Bedah (Tahap 4C).
+ */
+export function saveBedahOutput4C(output: string): void {
+  setStorageItem(BEDAH_DRAFT_4C_RAW_KEY, output);
+}
+
+/**
+ * Loads pasted LLM output for Tool 4 Bedah (Tahap 4C).
+ */
+export function loadBedahOutput4C(): string {
+  return getStorageItem(BEDAH_DRAFT_4C_RAW_KEY) || "";
+}
+
+/**
+ * Clears pasted LLM output for Tool 4 Bedah (Tahap 4C).
+ */
+export function clearBedahOutput4C(): void {
+  removeStorageItem(BEDAH_DRAFT_4C_RAW_KEY);
+}
+
+/**
+ * Saves parsed Bab1DraftV1 payload (Tahap 4C).
+ */
+export function saveBab1DraftV1(payload: import("@/types/tool").Bab1DraftV1): void {
+  try {
+    setStorageItem(BEDAH_DRAFT_4C_KEY, JSON.stringify(payload));
+  } catch {
+    // Gracefully handle storage quota
+  }
+}
+
+/**
+ * Loads parsed Bab1DraftV1 payload (Tahap 4C).
+ */
+export function loadBab1DraftV1(): import("@/types/tool").Bab1DraftV1 | null {
+  try {
+    const raw = getStorageItem(BEDAH_DRAFT_4C_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object" && parsed.schema_version === 1) {
+      return parsed as import("@/types/tool").Bab1DraftV1;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Clears parsed Bab1DraftV1 payload (Tahap 4C).
+ */
+export function clearBab1DraftV1(): void {
+  removeStorageItem(BEDAH_DRAFT_4C_KEY);
 }
 
 /**

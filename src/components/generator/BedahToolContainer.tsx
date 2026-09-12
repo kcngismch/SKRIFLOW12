@@ -13,6 +13,8 @@ import {
   SavedBab1FoundationPackage,
   ResearchDirectionV2,
   PhenomenonBasisStatus,
+  Bab1DraftV1,
+  DraftCheckFinding,
 } from "@/types/tool";
 import {
   loadSelectedPhenomenon,
@@ -42,6 +44,12 @@ import {
   saveBab1FoundationV1,
   loadBab1FoundationV1,
   clearBab1FoundationV1,
+  saveBedahOutput4C,
+  loadBedahOutput4C,
+  clearBedahOutput4C,
+  saveBab1DraftV1,
+  loadBab1DraftV1,
+  clearBab1DraftV1,
   saveBab1FoundationPackage,
   loadBab1FoundationPackage,
   clearBab1FoundationPackage,
@@ -51,12 +59,17 @@ import {
   validateLiteratureEvidencePackage,
   parseBedahTransfer,
   parseBab1FoundationTransfer,
+  parseBab1DraftTransfer,
+  periksaDrafBab1,
+  hitungKata,
   normalizeBab1Foundation,
   calculateDataReadiness,
   generateBedahFixFormatPrompt4A,
   generateBedahFixStructurePrompt4A,
   generateBab1FoundationFixFormatPrompt,
   generateBab1FoundationFixStructurePrompt,
+  generateBab1DraftFixFormatPrompt,
+  generateBab1DraftFixStructurePrompt,
   computeBedahInputFingerprint,
   extractSumberPaketLiteratur,
 } from "@/lib/bedahParser";
@@ -72,6 +85,9 @@ import {
   assembleBedahPrompt4B,
   analyzeBedahPrompt4B,
   ResearchBedahInput4B,
+  assembleBedahPrompt4C,
+  analyzeBedahPrompt4C,
+  ResearchBedahInput4C,
 } from "@/lib/promptAssembler";
 import { copyToClipboard } from "@/lib/clipboard";
 import { ResetConfirmModal } from "./ResetConfirmModal";
@@ -249,6 +265,17 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
 
   const [parseError4B, setParseError4B] = useState<{ error: string; details?: string[] } | null>(null);
   const [isFeasibilityModifiedAfter4B, setIsFeasibilityModifiedAfter4B] = useState(false);
+
+  // Stage 4C State — draf Bab 1
+  const [pastedLLMOutput4C, setPastedLLMOutput4C] = useState<string>(() => {
+    return typeof window !== "undefined" ? loadBedahOutput4C() : "";
+  });
+  const [parsedDraftV1, setParsedDraftV1] = useState<Bab1DraftV1 | null>(() => {
+    return typeof window !== "undefined" ? loadBab1DraftV1() : null;
+  });
+  const [parseError4C, setParseError4C] = useState<{ error: string; details?: string[] } | null>(null);
+  const [copyStatus4C, setCopyStatus4C] = useState<"idle" | "copied" | "error">("idle");
+  const prompt4CSectionRef = useRef<HTMLDivElement>(null);
 
   // Final Saved Package
   const [savedPackage, setSavedPackage] = useState<SavedBab1FoundationPackage | null>(() => {
@@ -470,6 +497,86 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
     return analyzeBedahPrompt4B(bedahInput4B);
   }, [bedahInput4B]);
 
+  // ---------------------------------------------------------------
+  // Tahap 4C: draf Bab 1
+  // ---------------------------------------------------------------
+
+  /** Paragraf peta yang BLOCKED tidak boleh ditulis jadi draf. */
+  const petaSiapTulis = useMemo(() => {
+    const peta = parsedFoundationV1?.background_map || [];
+    return { siap: peta.filter((p) => p.readiness !== "BLOCKED"), blocked: peta.filter((p) => p.readiness === "BLOCKED") };
+  }, [parsedFoundationV1]);
+
+  const bedahInput4C = useMemo<ResearchBedahInput4C | null>(() => {
+    if (!parsedFoundationV1) return null;
+    if (petaSiapTulis.siap.length === 0) return null;
+    return { prodi, areaEksplorasi, foundation: parsedFoundationV1 };
+  }, [parsedFoundationV1, prodi, areaEksplorasi, petaSiapTulis]);
+
+  const generatedPrompt4C = useMemo(() => {
+    if (!bedahInput4C) return "";
+    return assembleBedahPrompt4C(bedahInput4C);
+  }, [bedahInput4C]);
+
+  const promptAnalysis4C = useMemo(() => {
+    if (!bedahInput4C) return null;
+    return analyzeBedahPrompt4C(bedahInput4C);
+  }, [bedahInput4C]);
+
+  /** Temuan pemeriksa dihitung ulang dari state saat ini, bukan dari hasil parse saja. */
+  const draftFindings = useMemo<DraftCheckFinding[]>(() => {
+    if (!parsedDraftV1 || !parsedFoundationV1) return [];
+    return periksaDrafBab1(parsedDraftV1, parsedFoundationV1);
+  }, [parsedDraftV1, parsedFoundationV1]);
+
+  const draftKritis = useMemo(
+    () => draftFindings.filter((f) => f.severity === "CRITICAL"),
+    [draftFindings]
+  );
+
+  const draftKataTotal = useMemo(
+    () => (parsedDraftV1?.background || []).reduce((acc, p) => acc + hitungKata(p.paragraph_text || ""), 0),
+    [parsedDraftV1]
+  );
+
+  // Handle Copy Prompt 4C
+  const handleCopyPrompt4C = async () => {
+    if (!generatedPrompt4C || promptAnalysis4C?.status === "BLOCKED") return;
+    try {
+      const ok = await copyToClipboard(generatedPrompt4C);
+      if (ok) {
+        setCopyStatus4C("copied");
+        setTimeout(() => setCopyStatus4C("idle"), 3000);
+      }
+    } catch {
+      setCopyStatus4C("error");
+    }
+  };
+
+  // Handle Process LLM Output 4C
+  const handleProcessLLMOutput4C = () => {
+    setParseError4C(null);
+    if (!parsedFoundationV1) return;
+    const res = parseBab1DraftTransfer(pastedLLMOutput4C, { foundation: parsedFoundationV1 });
+    if (res.success && res.data) {
+      setParsedDraftV1(res.data);
+      saveBab1DraftV1(res.data);
+      saveBedahOutput4C(pastedLLMOutput4C);
+    } else {
+      setParseError4C({ error: res.error || "Gagal memproses output.", details: res.errorDetails });
+    }
+  };
+
+  // Handle Reset Draf 4C
+  const handleResetDraft4C = () => {
+    setPastedLLMOutput4C("");
+    clearBedahOutput4C();
+    setParsedDraftV1(null);
+    clearBab1DraftV1();
+    setParseError4C(null);
+    setCopyStatus4C("idle");
+  };
+
   // Can Generate / Execute Prompt 4A?
   const canGeneratePrompt4A = useMemo(() => {
     const phenValid = hasFullPhenomenonEvidence || isPhenomenonAckChecked;
@@ -595,6 +702,8 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
       saveBab1FoundationV1(res.data);
       saveBedahOutput4B(pastedLLMOutput4B);
       setIsFeasibilityModifiedAfter4B(false);
+      // Fondasi berganti: draf 4C lama tidak lagi sinkron.
+      handleResetDraft4C();
       setToastMessage("Paket Fondasi Bab 1 berhasil diverifikasi.");
       setTimeout(() => setToastMessage(null), 4000);
     } else {
@@ -760,6 +869,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
     setIsLitStructureAckChecked(false);
     setCopyStatus4A("idle");
     setCopyStatus4B("idle");
+    handleResetDraft4C();
     setShowResetModal(false);
     setToastMessage("Formulir paket literatur dan hasil Tool 4 berhasil direset.");
     setTimeout(() => {
@@ -3112,6 +3222,442 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                 <span>Reset Tool 4</span>
               </button>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAHAP 8: PROMPT 4C — TULIS DRAF LATAR BELAKANG BAB 1                      */}
+      {/* ========================================================================= */}
+      {parsedFoundationV1 && (
+        <div ref={prompt4CSectionRef}>
+          <section className="rounded-2xl border border-[#273352] bg-[#11182D] p-6 shadow-xl sm:p-8 space-y-5">
+            <div className="flex flex-col justify-between gap-4 border-b border-[#273352]/70 pb-5 sm:flex-row sm:items-center">
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#2959FF]/20 text-[#70E1B6] font-bold">
+                  8
+                </div>
+                <div>
+                  <h2 className="text-lg font-bold text-[#FFF9EE]">Prompt Tahap 4C — Tulis Draf Latar Belakang</h2>
+                  <p className="text-xs text-[#AAB4D0]">
+                    Mengubah Peta Narasi 7 bagian menjadi prosa siap tempel, tanpa menambah klaim atau sitasi baru.
+                  </p>
+                </div>
+              </div>
+              {promptAnalysis4C && (
+                <span className="rounded-full bg-[#70E1B6]/20 px-3 py-1 text-xs font-semibold text-[#70E1B6]">
+                  {promptAnalysis4C.finalLength.toLocaleString("id-ID")} karakter
+                </span>
+              )}
+            </div>
+
+            {(parsedFoundationV1.foundation_status === "BAB1_BLOCKED" || parsedFoundationV1.phenomenon_basis_status === "MISSING") && (
+              <div className="rounded-xl border border-rose-500/50 bg-rose-500/15 p-4">
+                <div className="flex items-start gap-3">
+                  <ShieldAlert className="h-5 w-5 shrink-0 text-rose-400 mt-0.5" />
+                  <div className="text-xs text-rose-200">
+                    <h4 className="text-sm font-bold text-rose-300">Fondasi belum aman (BLOCKED).</h4>
+                    <p className="mt-1">
+                      Draf yang dihasilkan tahap ini TIDAK boleh dipakai sebagai tulisan akhir. Selesaikan verifikasi fenomena di Tool 2
+                      lebih dulu, lalu ulangi Tahap 4B.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {petaSiapTulis.blocked.length > 0 && (
+              <div className="rounded-xl border border-rose-500/40 bg-rose-500/10 p-4">
+                <div className="flex items-start gap-3">
+                  <ShieldAlert className="h-5 w-5 shrink-0 text-rose-400 mt-0.5" />
+                  <div className="text-xs text-rose-200">
+                    <h4 className="text-sm font-bold text-rose-300">
+                      {petaSiapTulis.blocked.length} bagian peta berstatus BLOCKED dan tidak akan ditulis.
+                    </h4>
+                    <p className="mt-1">
+                      Bagian yang diblokir: {petaSiapTulis.blocked.map((p) => `${p.order}. ${p.function}`).join(", ")}. Selesaikan dasar
+                      fenomenanya lebih dulu bila bagian ini memang harus ada.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {bedahInput4C === null ? (
+              <div className="rounded-xl border border-rose-500/40 bg-rose-500/10 p-4 text-xs text-rose-200">
+                Semua bagian peta berstatus BLOCKED. Belum ada yang bisa ditulis menjadi draf.
+              </div>
+            ) : (
+              <>
+                <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs text-[#AAB4D0] leading-relaxed">
+                  <span className="font-bold text-[#FFF9EE]">Yang dikunci di prompt ini:</span> daftar klaim yang boleh dipakai beserta
+                  status buktinya, klaim terlarang, target 1000–1300 kata, dan kewajiban mencantumkan claim_id untuk setiap kalimat
+                  faktual.
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={handleCopyPrompt4C}
+                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#2959FF] to-[#1E40AF] px-5 py-3 text-xs font-bold text-white shadow-lg shadow-[#2959FF]/25 transition hover:brightness-110"
+                  >
+                    {copyStatus4C === "copied" ? (
+                      <>
+                        <Check className="h-4 w-4 text-[#70E1B6]" />
+                        <span>Prompt 4C Tersalin!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-4 w-4" />
+                        <span>Salin Prompt Tahap 4C</span>
+                      </>
+                    )}
+                  </button>
+
+                  <a
+                    href="https://chatgpt.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
+                    <span>Buka ChatGPT</span>
+                  </a>
+
+                  <a
+                    href="https://gemini.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
+                    <span>Buka Gemini</span>
+                  </a>
+                </div>
+
+                <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+                  <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
+                    {generatedPrompt4C}
+                  </pre>
+                </div>
+
+                <div className="pt-4 border-t border-[#273352]/60 space-y-3">
+                  <label className="block text-xs font-bold text-[#FFF9EE]">
+                    Tempelkan Output Tahap 4C dari ChatGPT/Gemini:
+                  </label>
+                  <textarea
+                    rows={6}
+                    value={pastedLLMOutput4C}
+                    onChange={(e) => setPastedLLMOutput4C(e.target.value)}
+                    placeholder="Tempelkan hasil respons blok SKRIFLOW_BAB1_DRAFT_V1 di sini..."
+                    className="w-full rounded-xl border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus:border-[#2959FF] focus:outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleProcessLLMOutput4C}
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                  >
+                    <Sparkles className="h-4 w-4" />
+                    <span>Verifikasi &amp; Susun Draf Bab 1</span>
+                  </button>
+                </div>
+
+                {parseError4C && (
+                  <div className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-5">
+                    <div className="flex items-start gap-3">
+                      <ShieldAlert className="h-5 w-5 shrink-0 text-rose-400" />
+                      <div className="space-y-3 w-full">
+                        <div>
+                          <h4 className="text-sm font-bold text-rose-300">{parseError4C.error}</h4>
+                          {parseError4C.details && (
+                            <ul className="mt-2 space-y-1 text-xs text-rose-200">
+                              {parseError4C.details.map((d, i) => (
+                                <li key={i}>* {d}</li>
+                              ))}
+                            </ul>
+                          )}
+                        </div>
+                        <div className="flex flex-wrap gap-2 pt-2 border-t border-rose-500/20">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const fixPrompt = generateBab1DraftFixFormatPrompt(pastedLLMOutput4C, parseError4C.details);
+                              copyToClipboard(fixPrompt);
+                              setToastMessage("Prompt Perbaikan Format Draf tersalin!");
+                              setTimeout(() => setToastMessage(null), 3000);
+                            }}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/40 bg-rose-500/20 px-3 py-1.5 text-xs font-semibold text-rose-200 hover:bg-rose-500/30"
+                          >
+                            <Copy className="h-3 w-3" />
+                            <span>Salin Prompt Perbaikan Format 4C</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const fixPrompt = generateBab1DraftFixStructurePrompt(pastedLLMOutput4C, parseError4C.details);
+                              copyToClipboard(fixPrompt);
+                              setToastMessage("Prompt Perbaikan Struktur Draf tersalin!");
+                              setTimeout(() => setToastMessage(null), 3000);
+                            }}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/40 bg-rose-500/20 px-3 py-1.5 text-xs font-semibold text-rose-200 hover:bg-rose-500/30"
+                          >
+                            <Copy className="h-3 w-3" />
+                            <span>Salin Prompt Perbaikan Struktur 4C</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+          </section>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* TAHAP 9: HASIL DRAF BAB 1 + PEMERIKSA DRAF                                */}
+      {/* ========================================================================= */}
+      {parsedDraftV1 && (
+        <section className="rounded-2xl border border-[#70E1B6] bg-[#11182D] p-6 shadow-2xl sm:p-8 space-y-8">
+          <div className="flex flex-col justify-between gap-4 border-b border-[#273352]/70 pb-5 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#70E1B6]/20 text-[#70E1B6] font-bold">
+                9
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-[#FFF9EE]">Draf Latar Belakang Bab 1</h2>
+                <p className="text-xs text-[#AAB4D0]">
+                  {parsedDraftV1.background.length} paragraf, {draftKataTotal.toLocaleString("id-ID")} kata. Setiap paragraf tertaut ke
+                  klaim pada Catatan Bukti 4B.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <span
+                className={`rounded-full px-3 py-1 text-xs font-bold ${
+                  draftKataTotal >= 1000 && draftKataTotal <= 1300
+                    ? "bg-[#70E1B6]/20 text-[#70E1B6]"
+                    : "bg-amber-500/20 text-amber-400"
+                }`}
+              >
+                Target 1000–1300 kata
+              </span>
+              <span className="rounded-full bg-[#2959FF]/20 px-3 py-1 text-xs font-bold text-[#AAB4D0]">
+                {parsedDraftV1.draft_status}
+              </span>
+            </div>
+          </div>
+
+          {/* Pemeriksa draf */}
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#273352]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+                Pemeriksa Draf (Kepatuhan pada Catatan Bukti 4B)
+              </h3>
+              <span className="text-[13px] text-[#AAB4D0]">
+                {draftFindings.length === 0
+                  ? "Tidak ada temuan"
+                  : `${draftFindings.length} temuan (${draftKritis.length} kritis)`}
+              </span>
+            </div>
+
+            {draftFindings.length === 0 ? (
+              <div className="rounded-xl border border-[#70E1B6]/30 bg-[#70E1B6]/5 p-4 flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#70E1B6] mt-0.5" />
+                <p className="text-xs text-[#FFF9EE] leading-relaxed">
+                  Draf lolos seluruh pemeriksaan: jumlah kata dalam rentang, susunan paragraf sesuai peta, semua claim_id dikenal,
+                  dan tidak ada klaim terlarang yang lolos.
+                </p>
+              </div>
+            ) : (
+              <ul className="space-y-2">
+                {draftFindings.map((f, idx) => (
+                  <li
+                    key={idx}
+                    className={`rounded-xl border p-3.5 flex items-start gap-3 ${
+                      f.severity === "CRITICAL"
+                        ? "border-rose-500/40 bg-rose-500/10"
+                        : f.severity === "MAJOR"
+                          ? "border-amber-500/40 bg-amber-500/10"
+                          : "border-[#273352] bg-[#080D1D]"
+                    }`}
+                  >
+                    {f.severity === "CRITICAL" ? (
+                      <ShieldAlert className="h-4 w-4 shrink-0 text-rose-400 mt-0.5" />
+                    ) : f.severity === "MAJOR" ? (
+                      <AlertTriangle className="h-4 w-4 shrink-0 text-amber-400 mt-0.5" />
+                    ) : (
+                      <Clock className="h-4 w-4 shrink-0 text-[#AAB4D0] mt-0.5" />
+                    )}
+                    <div className="space-y-0.5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span
+                          className={`text-[10px] font-bold uppercase tracking-wider ${
+                            f.severity === "CRITICAL"
+                              ? "text-rose-300"
+                              : f.severity === "MAJOR"
+                                ? "text-amber-300"
+                                : "text-[#AAB4D0]"
+                          }`}
+                        >
+                          {f.severity}
+                        </span>
+                        {f.location && <span className="text-[10px] text-[#AAB4D0]">{f.location}</span>}
+                      </div>
+                      <p
+                        className={`text-xs leading-relaxed ${
+                          f.severity === "CRITICAL"
+                            ? "text-rose-200"
+                            : f.severity === "MAJOR"
+                              ? "text-amber-200"
+                              : "text-[#AAB4D0]"
+                        }`}
+                      >
+                        {f.message}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {/* Paragraf draf */}
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#273352]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">Isi Draf per Paragraf</h3>
+              <button
+                type="button"
+                onClick={() => {
+                  const teks = parsedDraftV1.background.map((p) => (p.paragraph_text || "").trim()).join("\n\n");
+                  copyToClipboard(teks);
+                  setToastMessage("Draf latar belakang tersalin!");
+                  setTimeout(() => setToastMessage(null), 3000);
+                }}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF]"
+              >
+                <Copy className="h-3 w-3" />
+                <span>Salin Seluruh Draf</span>
+              </button>
+            </div>
+
+            {(parsedDraftV1.background || []).map((p) => {
+              const info = getBackgroundFunctionInfo(p.function, p.order, parsedFoundationV1?.phenomenon_basis_status);
+              const temuanParagraf = draftFindings.filter((f) => f.location?.startsWith(`Paragraf ${p.order} `));
+              const kritisParagraf = temuanParagraf.filter((f) => f.severity === "CRITICAL").length;
+              return (
+                <div
+                  key={`${p.order}-${p.function}`}
+                  className={`rounded-xl border p-4 space-y-3 ${
+                    kritisParagraf > 0 ? "border-rose-500/40 bg-rose-500/5" : "border-[#273352] bg-[#080D1D]"
+                  }`}
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#2959FF]/20 text-[11px] font-bold text-[#70E1B6]">
+                        {p.order}
+                      </span>
+                      <span className="text-xs font-bold text-[#FFF9EE]">{info?.title || p.function}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] text-[#AAB4D0]">{p.word_count} kata</span>
+                      {temuanParagraf.length > 0 && (
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
+                            kritisParagraf > 0 ? "bg-rose-500/20 text-rose-300" : "bg-amber-500/20 text-amber-300"
+                          }`}
+                        >
+                          {kritisParagraf > 0 ? `${kritisParagraf} kritis` : `${temuanParagraf.length} catatan`}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="text-sm leading-relaxed text-[#E6EAF5] whitespace-pre-wrap">{p.paragraph_text}</p>
+
+                  {p.claim_ids.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="text-[10px] font-semibold text-[#AAB4D0]">Klaim dipakai:</span>
+                      {p.claim_ids.map((c) => {
+                        const ada = (parsedFoundationV1?.evidence_ledger || []).some(
+                          (e) => e.claim_id.replace(/[\[\]]/g, "").trim().toUpperCase() === c.replace(/[\[\]]/g, "").trim().toUpperCase()
+                        );
+                        return (
+                          <span
+                            key={c}
+                            className={`rounded-md px-1.5 py-0.5 text-[10px] font-mono font-semibold ${
+                              ada ? "bg-[#70E1B6]/15 text-[#70E1B6]" : "bg-rose-500/20 text-rose-300"
+                            }`}
+                          >
+                            {c}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {p.researcher_decision_note && (
+                    <p className="text-[11px] text-[#AAB4D0] italic">Catatan keputusan mahasiswa: {p.researcher_decision_note}</p>
+                  )}
+
+                  {p.withheld_claims && p.withheld_claims.length > 0 && (
+                    <div className="rounded-lg border border-[#273352] bg-[#11182D] p-2.5">
+                      <span className="text-[10px] font-bold text-[#AAB4D0]">Sengaja tidak ditulis:</span>
+                      <ul className="mt-1 space-y-0.5">
+                        {p.withheld_claims.map((w, i) => (
+                          <li key={i} className="text-[11px] text-[#AAB4D0]">
+                            - {w}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Catatan pendukung */}
+          {((parsedDraftV1.avoided_claims?.length || 0) > 0 ||
+            (parsedDraftV1.consistency_notes?.length || 0) > 0 ||
+            (parsedDraftV1.prohibited_claims_respected?.length || 0) > 0 ||
+            (parsedDraftV1.unresolved_notes?.length || 0) > 0) && (
+            <div className="space-y-4">
+              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider border-b border-[#273352]/70 pb-2">
+                Catatan Kepatuhan & Keterbatasan
+              </h3>
+              {[
+                { judul: "Klaim yang dihindari (DO_NOT_USE)", isi: parsedDraftV1.avoided_claims },
+                { judul: "Klaim terlarang yang berhasil dihindari", isi: parsedDraftV1.prohibited_claims_respected },
+                { judul: "Perlu dicek konsistensinya", isi: parsedDraftV1.consistency_notes },
+                { judul: "Keterbatasan yang harus disebut", isi: parsedDraftV1.unresolved_notes },
+              ]
+                .filter((g) => (g.isi?.length || 0) > 0)
+                .map((g) => (
+                  <div key={g.judul} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+                    <span className="text-xs font-bold text-[#FFF9EE]">{g.judul}</span>
+                    <ul className="mt-2 space-y-1">
+                      {(g.isi || []).map((x, i) => (
+                        <li key={i} className="text-[11px] text-[#AAB4D0] leading-relaxed">
+                          - {x}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+            </div>
+          )}
+
+          <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#273352]/60">
+            <button
+              type="button"
+              onClick={handleResetDraft4C}
+              className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#11182D] px-4 py-2.5 text-xs font-semibold text-[#AAB4D0] transition hover:text-rose-400"
+            >
+              <RotateCcw className="h-3.5 w-3.5" />
+              <span>Buang Draf &amp; Ulangi Tahap 4C</span>
+            </button>
           </div>
         </section>
       )}

@@ -1429,3 +1429,67 @@ export interface LanguagePresentation {
   nextActionText?: string;
 }
 
+// =========================================================================
+// TAHAP 4C: DRAF BAB 1 (SKRIFLOW_BAB1_DRAFT_V1) — Addendum B
+// =========================================================================
+
+export type Bab1DraftStatus = "DRAFT_COMPLETE" | "DRAFT_PARTIAL" | "DRAFT_BLOCKED";
+
+export interface Bab1DraftParagraph {
+  order: number;
+  /** Sama dengan background_map.function pada Paket Fondasi (4B). */
+  function: BackgroundParagraphFunction;
+  /** Prosa jadi. Setiap kalimat wajib bisa ditelusuri ke claim_id di evidence_ledger. */
+  paragraph_text: string;
+  word_count: number;
+  /** claim_id dari evidence_ledger 4B yang dipakai di paragraf ini. */
+  claim_ids: string[];
+  /** Hanya untuk RESEARCHER_DECISION: ditulis sebagai keputusan mahasiswa, tanpa sitasi. */
+  researcher_decision_note?: string | null;
+  /** Kalimat yang sengaja TIDAK ditulis karena klaimnya belum aman. */
+  withheld_claims?: string[];
+}
+
+export interface Bab1DraftV1 {
+  schema_version: 1;
+  draft_status: Bab1DraftStatus;
+  foundation_status_ref: Bab1FoundationStatus;
+  /** Total kata draf, dihitung AI; tool menghitung ulang dan menandai bila selisih. */
+  word_count_total: number;
+  target_words_total: number;
+  background: Bab1DraftParagraph[];
+  /** Paragraf 4B yang tidak ditulis karena readiness BLOCKED. */
+  skipped_sections?: string[];
+  /** Semua claim_id yang dipakai, untuk pemeriksaan cakupan ledger. */
+  used_claim_ids: string[];
+  /** Klaim yang sengaja dihindari beserta alasannya. */
+  avoided_claims?: string[];
+  consistency_notes?: string[];
+  prohibited_claims_respected?: string[];
+  unresolved_notes?: string[];
+}
+
+/** Temuan pemeriksa draf (Langkah 4). Tidak memblokir render; mengarahkan revisi. */
+export interface DraftCheckFinding {
+  code:
+    | "WORD_COUNT_OUT_OF_RANGE"
+    | "WORD_COUNT_MISMATCH"
+    | "PARAGRAPH_COUNT_MISMATCH"
+    | "PARAGRAPH_FUNCTION_MISMATCH"
+    | "CLAIM_ID_UNKNOWN"
+    | "CLAIM_NOT_IN_LEDGER"
+    | "CLAIM_STATUS_DO_NOT_USE"
+    | "CLAIM_STATUS_NEEDS_VERIFICATION"
+    | "BLOCKED_SECTION_WRITTEN"
+    | "PROHIBITED_CLAIM_PHRASE"
+    | "ABSOLUTE_CLAIM_PHRASE"
+    | "CAUSAL_CLAIM_FROM_CORRELATION"
+    | "CITATION_ON_RESEARCHER_DECISION"
+    | "SYNTHETIC_GAP_PHRASE"
+    | "LEDGER_CLAIM_UNUSED";
+  severity: "CRITICAL" | "MAJOR" | "MINOR";
+  message: string;
+  location?: string;
+}
+
+

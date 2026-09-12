@@ -2800,6 +2800,199 @@ export function analyzeBedahPrompt(input: ResearchBedahInput) {
   };
 }
 
+
+// =========================================================================
+// TAHAP 4C: PROMPT PENULISAN DRAF BAB 1 (Addendum B)
+// =========================================================================
+
+export interface ResearchBedahInput4C {
+  prodi: string;
+  areaEksplorasi: string;
+  foundation: import("@/types/tool").Bab1FoundationV1;
+  /** Petunjuk gaya bahasa dari mahasiswa (opsional). */
+  styleNote?: string;
+}
+
+/**
+ * Menyusun Prompt Tahap 4C: mengubah Peta Narasi 4B menjadi draf prosa Bab 1.
+ * Prompt ini TIDAK menambah klaim baru; ia hanya menyusun ulang klaim yang
+ * sudah lolos Catatan Bukti 4B menjadi kalimat siap tempel.
+ */
+export function assembleBedahPrompt4C(input: ResearchBedahInput4C): string {
+  const f = input.foundation;
+  const prodi = (input.prodi || "").trim() || "Belum diketahui";
+  const area = (input.areaEksplorasi || "").trim() || "Belum diketahui";
+  const targetTotal = f.target_words_total || 1150;
+
+  const peta = (f.background_map || [])
+    .map((p) => {
+      const aman = (p.safe_claims || [])
+        .map((c) => `    * [${c.claim_type || "SAFE"}] ${c.claim_id}: ${c.statement}${c.source_ids?.length ? ` (Sumber: ${c.source_ids.join(", ")})` : ""}`)
+        .join("\n");
+      const larangan = (p.prohibited_claims || []).map((c) => `    * ${c}`).join("\n");
+      return [
+        `[Paragraf ${p.order}] ${p.function} — ${p.readiness}`,
+        `  Pesan utama: ${p.key_message}`,
+        `  Target panjang: ${p.target_word_range || "130–185"} kata`,
+        aman ? `  Klaim yang aman dipakai:\n${aman}` : "  Klaim yang aman dipakai: (belum ada)",
+        larangan ? `  DILARANG di paragraf ini:\n${larangan}` : "",
+        `  Transisi ke paragraf berikutnya: ${p.transition_to_next || "-"}`,
+        p.missing_information?.length ? `  Info yang belum ada: ${p.missing_information.join("; ")}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+    })
+    .join("\n\n");
+
+  const ledger = (f.evidence_ledger || [])
+    .map(
+      (e) =>
+        `- [${e.claim_id}] (${e.support_status || "READY_TO_DRAFT"}) ${e.claim}\n    Fungsi di Bab 1: ${e.bab1_function || "-"}\n    Batas pakai: ${e.usage_limit || "-"}\n    Sumber: ${(e.source_ids || (e.source_id ? [e.source_id] : [])).join(", ") || "-"}`
+    )
+    .join("\n");
+
+  const larangan = (f.prohibited_claims || []).map((c) => `- ${c}`).join("\n");
+  const belumFinal = (f.unresolved_decisions || []).map((c) => `- ${c}`).join("\n") || "- Tidak ada.";
+  const ahli = (f.background_map || []).flatMap((p) => p.prohibited_claims || []).slice(0, 12).join("; ");
+  const pertanyaanDosen = (f.supervisor_questions || []).map((q, i) => `${i + 1}. ${q}`).join("\n") || "- Tidak ada.";
+  const kontribusi = f.provisional_contributions;
+
+  const perParagraf = (f.background_map || [])
+    .map((p) => `    { "order": ${p.order}, "function": "${p.function}", "target_range": "${p.target_word_range || "130–185"}" }`)
+    .join(",\n");
+
+  return `[PERAN]
+
+Kamu adalah partner akademik senior S1 yang membantu mahasiswa menyusun DRAF LATAR BELAKANG BAB 1 pada Tahap 4C SKRIFLOW.
+
+Tugasmu SATU: mengubah Peta Narasi Latar Belakang yang sudah disusun pada Tahap 4B menjadi prosa akademik siap tempel. Kamu BUKAN peneliti baru. Kamu TIDAK menambah temuan, TIDAK menambah sitasi baru, dan TIDAK menambah klaim yang belum ada di Catatan Bukti.
+
+Tiga larangan keras:
+1. Jangan menulis klaim apa pun yang tidak ada di Catatan Bukti (evidence_ledger).
+2. Jangan mengarang sitasi, DOI, nama jurnal, atau angka statistik. Kalau tidak ada di Catatan Bukti, jangan ditulis.
+3. Jangan mengubah arah, rumusan masalah, atau tujuan. Semuanya sudah dikunci di Tahap 4B.
+
+[KONTEKS]
+
+- Program Studi: ${prodi}
+- Area Eksplorasi: ${area}
+- Status Fondasi 4B: ${f.foundation_status}
+- Alasan Status: ${f.status_reason}
+- Target total latar belakang: 1000–1300 kata (target kerja: ${targetTotal} kata)
+${input.styleNote ? `- Catatan gaya bahasa: ${input.styleNote}\n` : ""}
+[RUMUSAN MASALAH DAN TUJUAN YANG SUDAH DIKUNCI]
+
+${(f.candidate_research_questions || []).map((q, i) => `RM${i + 1} [${q.id}]: ${q.question}${q.unresolved_terms?.length ? ` (Istilah belum tetap: ${q.unresolved_terms.join(", ")})` : ""}`).join("\n") || "- Belum ada"}
+
+${(f.candidate_objectives || []).map((o, i) => `T${i + 1} [${o.id}]: ${o.objective} (menjawab ${o.linked_question_id})`).join("\n") || "- Belum ada"}
+
+[PETA NARASI YANG WAJIB DIIKUTI — URUTAN, FUNGSI, DAN TARGET PANJANG TIDAK BOLEH DIUBAH]
+
+${peta}
+
+[CATATAN BUKTI — SATU-SATUNYA SUMBER KLAIM YANG BOLEH KAMU PAKAI]
+
+${ledger || "- Belum ada klaim."}
+
+[KLAIM YANG DILARANG MUNCUL DI SELURUH DRAF]
+
+${larangan || "- Tidak ada."}
+
+[KEPUTUSAN YANG BELUM FINAL — JANGAN DITULIS SEBAGAI KEPASTIAN]
+
+${belumFinal}
+
+[ATURAN MENULIS]
+
+1. Setiap kalimat yang menyatakan fakta, temuan, atau keadaan empiris WAJIB berasal dari satu atau lebih claim_id di Catatan Bukti. Catat claim_id-nya di field claim_ids.
+2. Klaim berstatus READY_TO_DRAFT boleh ditulis sebagai pernyataan langsung.
+3. Klaim berstatus NEEDS_VERIFICATION boleh disebut, tetapi harus dibingkai hati-hati (misalnya "indikasi awal menunjukkan", "perlu penelusuran lanjutan"). Jangan ditulis sebagai fakta mapan.
+4. Klaim berstatus DO_NOT_USE tidak boleh muncul sama sekali, dalam bentuk apa pun, termasuk parafrase.
+5. Kalau sebuah paragraf menandai BLOCKED, JANGAN tulis paragraf itu. Masukkan fungsinya ke skipped_sections.
+6. Hubungan sebab-akibat HANYA boleh ditulis kalau klaimnya memang bertipe kausal di Catatan Bukti. Desain penelitian ini dokumenter/deskriptif, jadi kata seperti "menyebabkan", "mengakibatkan", atau "berpengaruh signifikan terhadap" dilarang kecuali untuk menyanggahnya secara eksplisit.
+7. Jangan menulis frasa gap sintetis seperti "belum ada penelitian tentang..." atau "belum pernah diteliti di...". Itu klaim yang dilarang.
+8. Kutip sumber dengan gaya penulis-tahun dalam tanda kurung, memakai nama yang ADA di Catatan Bukti. Kalau nama penulis tidak tersedia, jangan mengarang — pakai ID sumbernya.
+9. Satu paragraf = satu fungsi. Jangan menggabung dua fungsi peta ke dalam satu paragraf.
+10. Paragraf terakhir (URGENCY_AND_DIRECTION) adalah keputusan mahasiswa. Tulis sebagai kalimat keputusan/arah, tanpa sitasi, dan jangan menyamar sebagai temuan jurnal.
+11. Bahasa Indonesia akademik yang mengalir dan hemat, bukan daftar poin. Hindari kalimat pembuka klise seperti "Pada era globalisasi saat ini".
+12. Kalau total kata belum mencapai 1000, kembangkan penjelasan pada paragraf yang klaimnya paling kuat. Jangan menambah klaim baru. Kalau melebihi 1300, padatkan kalimat, jangan buang paragraf.
+
+[PANJANG]
+
+Total draf WAJIB 1000–1300 kata (target kerja ${targetTotal}). Rincian per paragraf:
+
+${perParagraf}
+
+Hitung ulang jumlah kata sebelum menjawab, lalu isi word_count_total dengan angka hasil hitunganmu.
+
+[FORMAT KELUARAN]
+
+Balas dengan SATU blok JSON di antara penanda berikut. Jangan tambahkan teks lain di luar penanda.
+
+=== BEGIN SKRIFLOW_BAB1_DRAFT_V1 ===
+{
+  "schema_version": 1,
+  "draft_status": "DRAFT_COMPLETE|DRAFT_PARTIAL|DRAFT_BLOCKED",
+  "foundation_status_ref": "${f.foundation_status}",
+  "word_count_total": 0,
+  "target_words_total": ${targetTotal},
+  "background": [
+    {
+      "order": 1,
+      "function": "SPECIFIC_CONTEXT",
+      "paragraph_text": "Prosa paragraf jadi di sini.",
+      "claim_ids": ["CLM01"],
+      "researcher_decision_note": null,
+      "withheld_claims": []
+    }
+  ],
+  "skipped_sections": [],
+  "used_claim_ids": ["CLM01"],
+  "avoided_claims": [],
+  "consistency_notes": [],
+  "prohibited_claims_respected": [],
+  "unresolved_notes": []
+}
+=== END SKRIFLOW_BAB1_DRAFT_V1 ===
+
+Keterangan field:
+- "paragraph_text": prosa jadi, boleh beberapa kalimat, tanpa penomoran dan tanpa tanda kutip di awal/akhir.
+- "claim_ids": daftar claim_id yang dipakai di paragraf itu. Kosongkan HANYA untuk paragraf keputusan mahasiswa.
+- "researcher_decision_note": hanya untuk paragraf URGENCY_AND_DIRECTION — tulis satu kalimat penanda bahwa ini keputusan mahasiswa, bukan temuan.
+- "withheld_claims": klaim dari peta yang sengaja tidak ditulis di paragraf itu, beserta alasannya.
+- "avoided_claims": klaim berstatus DO_NOT_USE yang kamu hindari.
+- "prohibited_claims_respected": daftar klaim terlarang yang berhasil kamu hindari.
+- "consistency_notes": hal yang perlu dicek mahasiswa (misalnya angka atau istilah yang belum seragam).
+- "unresolved_notes": keterbatasan yang harus disebut di bagian keterbatasan penelitian.
+
+[PEMBAHASAN SETELAH SELESAI]
+
+Setelah blok JSON, tulis bagian singkat berjudul "Catatan Kepatuhan" berisi:
+1. Total kata draf dan apakah sudah dalam 1000–1300.
+2. Daftar claim_id yang dipakai, dan claim_id READY_TO_DRAFT yang belum terpakai beserta alasannya.
+3. Klaim terlarang yang hampir terpakai dan bagaimana kamu menghindarinya.
+4. Satu hal yang paling perlu dikonfirmasi ke dosen${pertanyaanDosen !== "- Tidak ada." ? ` (bahan yang sudah ada: ${pertanyaanDosen.replace(/\n/g, " | ")})` : ""}.
+
+[CATATAN KONTRIBUSI SEMENTARA — untuk memastikan draf tidak melampaui batas klaim]
+
+${kontribusi ? `- Kontribusi empiris: ${kontribusi.empirical || "-"}\n- Kontribusi praktis: ${kontribusi.practical || "-"}\n- Kontribusi akademik: ${kontribusi.academic || "-"}\n- Kontribusi metodologis: ${kontribusi.methodological || "-"}` : "- Belum ada."}${ahli ? `\n- Klaim yang wajib dihindari: ${ahli}` : ""}
+`;
+}
+
+/** Metrik Prompt 4C untuk panel anggaran karakter. */
+export function analyzeBedahPrompt4C(input: ResearchBedahInput4C) {
+  const finalPrompt = assembleBedahPrompt4C(input);
+  const finalLength = countPromptCharacters(finalPrompt);
+
+  return {
+    promptId: "bedah-bab1-draft-4c",
+    finalLength,
+    safeTarget: BEDAH_LIMITS.safeTarget,
+    hardLimit: BEDAH_LIMITS.hardLimit,
+    status: getBedahPromptBudgetStatus(finalLength),
+  };
+}
+
 /**
  * Analyzes Tool 4 Bedah Prompt 4B metrics, dynamic context breakdown, and limits.
  */

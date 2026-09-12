@@ -1845,6 +1845,302 @@ export function parseBab1FoundationTransfer(
 /**
  * Calculates deterministic data readiness status based on feasibility answers.
  */
+
+// =========================================================================
+// TAHAP 4C: PARSER & PEMERIKSA DRAF BAB 1 (Addendum B)
+// =========================================================================
+
+export interface Bab1DraftParseResult {
+  success: boolean;
+  data?: import("@/types/tool").Bab1DraftV1;
+  error?: string;
+  errorDetails?: string[];
+  warnings?: string[];
+  findings?: import("@/types/tool").DraftCheckFinding[];
+}
+
+/** Hitung kata: pisahkan pada whitespace, abaikan token kosong. */
+export function hitungKata(teks: string): number {
+  return (teks || "").trim().split(/\s+/).filter((w) => w.length > 0).length;
+}
+
+const FRASA_KLAIM_ABSOLUT = [
+  "belum pernah diteliti",
+  "tidak ada penelitian",
+  "belum ada penelitian",
+  "penelitian pertama",
+  "satu-satunya penelitian",
+  "pasti novel",
+  "membuktikan bahwa",
+  "terbukti secara universal",
+];
+
+const FRASA_GAP_SINTETIS = [
+  "belum ada yang meneliti di",
+  "belum pernah dilakukan di",
+  "belum ada studi yang mengambil lokasi",
+];
+
+/** Guard sadar-negasi: frasa kausal di dalam kalimat pembatas klaim BUKAN pelanggaran. */
+function frasaKausalTerlarang(kalimat: string): string | null {
+  const bersih = (kalimat || "").replace(/\s+/g, " ").trim();
+  const m = bersih.match(
+    /(menyebabkan|mengakibatkan|berdampak signifikan terhadap|memengaruhi secara signifikan|berpengaruh signifikan terhadap)/i
+  );
+  if (!m) return null;
+  const sebelum = bersih.slice(0, m.index || 0).toLowerCase();
+  if (/\b(belum|tidak|jangan|dilarang|bukan|tanpa|hindari)\b/.test(sebelum)) return null;
+  return m[1].toLowerCase();
+}
+
+/**
+ * Memeriksa draf 4C terhadap Paket Fondasi 4B.
+ * Temuan mengarahkan revisi; hanya CRITICAL yang menahan simpan.
+ */
+export function periksaDrafBab1(
+  draft: import("@/types/tool").Bab1DraftV1,
+  foundation: import("@/types/tool").Bab1FoundationV1
+): import("@/types/tool").DraftCheckFinding[] {
+  const findings: import("@/types/tool").DraftCheckFinding[] = [];
+  const push = (f: import("@/types/tool").DraftCheckFinding) => findings.push(f);
+
+  const ledgerById = new Map<string, import("@/types/tool").EvidenceLedgerItem>();
+  (foundation.evidence_ledger || []).forEach((el) => {
+    if (el.claim_id) ledgerById.set(el.claim_id.replace(/[\[\]]/g, "").trim().toUpperCase(), el);
+  });
+
+  const totalKata = (draft.background || []).reduce((acc, p) => acc + hitungKata(p.paragraph_text || ""), 0);
+
+  if (totalKata < 1000 || totalKata > 1300) {
+    push({
+      code: "WORD_COUNT_OUT_OF_RANGE",
+      severity: "MAJOR",
+      message: `Draf berisi ${totalKata} kata, di luar rentang 1000–1300 kata yang diminta.`,
+      location: "Latar belakang",
+    });
+  }
+  if (draft.word_count_total && Math.abs(draft.word_count_total - totalKata) > 25) {
+    push({
+      code: "WORD_COUNT_MISMATCH",
+      severity: "MINOR",
+      message: `Jumlah kata yang dilaporkan AI (${draft.word_count_total}) berbeda dari hitungan sebenarnya (${totalKata}).`,
+      location: "word_count_total",
+    });
+  }
+
+  const mapFungsi = new Map<string, import("@/types/tool").BackgroundMapItemV2>();
+  (foundation.background_map || []).forEach((sec) => mapFungsi.set(sec.function, sec));
+  const fungsiPeta = Array.from(mapFungsi.keys());
+  const fungsiDraf: string[] = (draft.background || []).map((p) => p.function);
+  const hilang = fungsiPeta.filter((f) => !fungsiDraf.includes(f));
+  const tambahan = fungsiDraf.filter((f) => !fungsiPeta.includes(f));
+  if (hilang.length > 0 || tambahan.length > 0) {
+    push({
+      code: "PARAGRAPH_FUNCTION_MISMATCH",
+      severity: "MAJOR",
+      message: `Susunan paragraf draf tidak sama dengan peta 4B.${hilang.length ? ` Belum ditulis: ${hilang.join(", ")}.` : ""}${tambahan.length ? ` Tidak ada di peta: ${tambahan.join(", ")}.` : ""}`,
+      location: "Latar belakang",
+    });
+  }
+
+  (draft.background || []).forEach((p) => {
+    const lokasi = `Paragraf ${p.order} (${p.function})`;
+    const sec = mapFungsi.get(p.function);
+
+    if (sec && sec.readiness === "BLOCKED") {
+      push({
+        code: "BLOCKED_SECTION_WRITTEN",
+        severity: "CRITICAL",
+        message: `${lokasi} ditulis padahal peta 4B menandainya BLOCKED. Hapus paragraf ini atau selesaikan dulu dasar fenomenanya.`,
+        location: lokasi,
+      });
+    }
+
+    (p.claim_ids || []).forEach((rawId) => {
+      const id = (rawId || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      const el = ledgerById.get(id);
+      if (!el) {
+        push({
+          code: "CLAIM_ID_UNKNOWN",
+          severity: "CRITICAL",
+          message: `${lokasi} memakai ${rawId} yang tidak ada di Catatan Bukti 4B. Klaim tanpa bukti tidak boleh masuk draf.`,
+          location: lokasi,
+        });
+        return;
+      }
+      if (el.support_status === "DO_NOT_USE") {
+        push({
+          code: "CLAIM_STATUS_DO_NOT_USE",
+          severity: "CRITICAL",
+          message: `${lokasi} memakai ${rawId} yang berstatus DO_NOT_USE.`,
+          location: lokasi,
+        });
+      } else if (el.support_status === "NEEDS_VERIFICATION") {
+        push({
+          code: "CLAIM_STATUS_NEEDS_VERIFICATION",
+          severity: "MAJOR",
+          message: `${lokasi} memakai ${rawId} yang masih NEEDS_VERIFICATION. Periksa sumbernya dulu, atau tandai sebagai keterbatasan.`,
+          location: lokasi,
+        });
+      }
+    });
+
+    const teks = p.paragraph_text || "";
+    const kalimat = teks.split(/(?<=[.!?])\s+/);
+    kalimat.forEach((k) => {
+      const rendah = k.toLowerCase();
+      FRASA_KLAIM_ABSOLUT.forEach((frasa) => {
+        if (rendah.includes(frasa)) {
+          push({
+            code: "ABSOLUTE_CLAIM_PHRASE",
+            severity: "MAJOR",
+            message: `${lokasi} memuat klaim absolut: "${frasa}".`,
+            location: lokasi,
+          });
+        }
+      });
+      FRASA_GAP_SINTETIS.forEach((frasa) => {
+        if (rendah.includes(frasa)) {
+          push({
+            code: "SYNTHETIC_GAP_PHRASE",
+            severity: "MAJOR",
+            message: `${lokasi} memuat frasa gap sintetis: "${frasa}".`,
+            location: lokasi,
+          });
+        }
+      });
+      const kausal = frasaKausalTerlarang(k);
+      if (kausal) {
+        push({
+          code: "CAUSAL_CLAIM_FROM_CORRELATION",
+          severity: "MAJOR",
+          message: `${lokasi} menyatakan hubungan sebab-akibat ("${kausal}") padahal desain penelitian ini dokumenter/deskriptif.`,
+          location: lokasi,
+        });
+      }
+    });
+
+    (foundation.prohibited_claims || []).forEach((pc) => {
+      const inti = (pc || "").toLowerCase().replace(/[.!?]/g, "").trim();
+      if (inti.length >= 15 && teks.toLowerCase().includes(inti)) {
+        push({
+          code: "PROHIBITED_CLAIM_PHRASE",
+          severity: "CRITICAL",
+          message: `${lokasi} menulis klaim yang dilarang pada peta 4B: "${pc}".`,
+          location: lokasi,
+        });
+      }
+    });
+
+    const pakaiSitasi = /\((?:[^)]*)(?:19|20)\d{2}[^)]*\)|\bSRC-\d+|\bBukti \d+/.test(teks);
+    if (p.function === "URGENCY_AND_DIRECTION" && pakaiSitasi) {
+      push({
+        code: "CITATION_ON_RESEARCHER_DECISION",
+        severity: "MAJOR",
+        message: `${lokasi} adalah keputusan mahasiswa; jangan diberi sitasi seolah-olah temuan jurnal.`,
+        location: lokasi,
+      });
+    }
+  });
+
+  const dipakai = new Set((draft.used_claim_ids || []).map((x) => (x || "").replace(/[\[\]]/g, "").trim().toUpperCase()));
+  (draft.background || []).forEach((p) => (p.claim_ids || []).forEach((c) => dipakai.add((c || "").trim().toUpperCase())));
+
+  ledgerById.forEach((el, id) => {
+    if (el.support_status === "READY_TO_DRAFT" && !dipakai.has(id)) {
+      push({
+        code: "LEDGER_CLAIM_UNUSED",
+        severity: "MINOR",
+        message: `Klaim ${el.claim_id} siap ditulis tapi belum dipakai di draf.`,
+        location: "Catatan Bukti",
+      });
+    }
+  });
+
+  const unik = new Map<string, import("@/types/tool").DraftCheckFinding>();
+  findings.forEach((f) => {
+    const kunci = `${f.code}|${f.location || ""}|${f.message}`;
+    if (!unik.has(kunci)) unik.set(kunci, f);
+  });
+  return Array.from(unik.values());
+}
+
+/** Memproses blok transfer 4C SKRIFLOW_BAB1_DRAFT_V1. */
+export function parseBab1DraftTransfer(
+  rawText: string,
+  context?: { foundation?: import("@/types/tool").Bab1FoundationV1 }
+): Bab1DraftParseResult {
+  if (!rawText || typeof rawText !== "string" || rawText.trim().length === 0) {
+    return { success: false, error: "Teks output masih kosong.", errorDetails: ["Tempelkan output Tahap 4C dari ChatGPT/Gemini."] };
+  }
+
+  const startMarker = "=== BEGIN SKRIFLOW_BAB1_DRAFT_V1 ===";
+  const endMarker = "=== END SKRIFLOW_BAB1_DRAFT_V1 ===";
+  const startIndex = rawText.indexOf(startMarker);
+  const endIndex = rawText.indexOf(endMarker);
+
+  if (startIndex === -1 || endIndex === -1 || endIndex <= startIndex) {
+    return {
+      success: false,
+      error: "Blok data draf Bab 1 tidak ditemukan.",
+      errorDetails: ["Pastikan output memuat penanda persis:", startMarker, "...", endMarker],
+    };
+  }
+
+  const jsonString = rawText.substring(startIndex + startMarker.length, endIndex).trim();
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(jsonString);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return { success: false, error: "Format JSON draf Bab 1 tidak valid.", errorDetails: [`Gagal membaca JSON di antara marker: ${msg}`] };
+  }
+
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return { success: false, error: "Payload draf harus berupa objek JSON valid." };
+  }
+
+  const payload = parsed as Partial<import("@/types/tool").Bab1DraftV1>;
+  const errorDetails: string[] = [];
+
+  if (payload.schema_version !== 1) errorDetails.push("schema_version wajib bernilai angka 1.");
+  if (!Array.isArray(payload.background) || payload.background.length === 0) {
+    errorDetails.push("background wajib berisi minimal satu paragraf.");
+  }
+
+  if (errorDetails.length > 0) {
+    return { success: false, error: "Struktur draf Bab 1 belum memenuhi standar SKRIFLOW_BAB1_DRAFT_V1.", errorDetails };
+  }
+
+  const data: import("@/types/tool").Bab1DraftV1 = {
+    schema_version: 1,
+    draft_status: payload.draft_status || "DRAFT_PARTIAL",
+    foundation_status_ref: payload.foundation_status_ref || "BAB1_CONDITIONAL",
+    word_count_total: typeof payload.word_count_total === "number" ? payload.word_count_total : 0,
+    target_words_total: typeof payload.target_words_total === "number" ? payload.target_words_total : 1150,
+    background: (payload.background || []).map((p, idx) => ({
+      order: typeof p.order === "number" ? p.order : idx + 1,
+      function: p.function as import("@/types/tool").BackgroundParagraphFunction,
+      paragraph_text: p.paragraph_text || "",
+      word_count: hitungKata(p.paragraph_text || ""),
+      claim_ids: Array.isArray(p.claim_ids) ? [...p.claim_ids] : [],
+      researcher_decision_note: p.researcher_decision_note ?? null,
+      withheld_claims: Array.isArray(p.withheld_claims) ? [...p.withheld_claims] : [],
+    })),
+    skipped_sections: Array.isArray(payload.skipped_sections) ? [...payload.skipped_sections] : [],
+    used_claim_ids: Array.isArray(payload.used_claim_ids) ? [...payload.used_claim_ids] : [],
+    avoided_claims: Array.isArray(payload.avoided_claims) ? [...payload.avoided_claims] : [],
+    consistency_notes: Array.isArray(payload.consistency_notes) ? [...payload.consistency_notes] : [],
+    prohibited_claims_respected: Array.isArray(payload.prohibited_claims_respected) ? [...payload.prohibited_claims_respected] : [],
+    unresolved_notes: Array.isArray(payload.unresolved_notes) ? [...payload.unresolved_notes] : [],
+  };
+
+  const findings = context?.foundation ? periksaDrafBab1(data, context.foundation) : [];
+  const warnings = findings.filter((f) => f.severity !== "CRITICAL").map((f) => f.message);
+
+  return { success: true, data, findings, warnings };
+}
+
 export function calculateDataReadiness(
   questions: DataVerificationQuestionV2[],
   answers: Record<string, FeasibilityAnswerStatus>,
@@ -1968,6 +2264,52 @@ Pastikan:
 === BEGIN SKRIFLOW_BAB1_FOUNDATION_V1 ===
 {JSON}
 === END SKRIFLOW_BAB1_FOUNDATION_V1 ===
+
+Teks sebelumnya:
+${rawText}`;
+}
+
+
+/** Memperbaiki format penulisan blok draf 4C. */
+export function generateBab1DraftFixFormatPrompt(rawText: string, errorDetails?: string[]): string {
+  return `Format output Draf Bab 1 belum terbaca dengan sempurna oleh sistem SKRIFLOW.
+
+Perbaiki HANYA format penulisan. Jangan mengubah isi paragraf, jangan menambah klaim, jangan menambah sitasi.
+
+Aturan Perbaikan:
+1. Bungkus seluruh data JSON valid di antara penanda persis berikut:
+=== BEGIN SKRIFLOW_BAB1_DRAFT_V1 ===
+{JSON}
+=== END SKRIFLOW_BAB1_DRAFT_V1 ===
+2. Gunakan JSON murni tanpa Markdown code fence.
+3. Jangan menambahkan teks di luar penanda.
+4. Pertahankan seluruh claim_ids apa adanya. Jangan mengarang claim_id baru.
+
+Detail kendala format:
+${(errorDetails || []).map((d) => `- ${d}`).join("\n")}
+
+Teks sebelumnya:
+${rawText}`;
+}
+
+/** Melengkapi struktur draf 4C bila ada field yang kurang. */
+export function generateBab1DraftFixStructurePrompt(rawText: string, errorDetails?: string[]): string {
+  return `Struktur data pada Draf Bab 1 belum memenuhi standar SKRIFLOW_BAB1_DRAFT_V1.
+
+Perbaiki struktur JSON berikut dengan melengkapi field yang kurang, tanpa mengubah isi prosa:
+
+${(errorDetails || []).map((d) => `- ${d}`).join("\n")}
+
+Pastikan:
+- schema_version bernilai 1
+- background memuat satu objek per fungsi peta 4B, urut sesuai peta
+- setiap paragraf memuat paragraph_text (prosa jadi) dan claim_ids
+- claim_ids HANYA berisi claim_id yang ada di evidence_ledger 4B
+- word_count_total memuat angka hasil hitungan kata
+- Hasil dibungkus di antara:
+=== BEGIN SKRIFLOW_BAB1_DRAFT_V1 ===
+{JSON}
+=== END SKRIFLOW_BAB1_DRAFT_V1 ===
 
 Teks sebelumnya:
 ${rawText}`;
