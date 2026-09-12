@@ -2331,6 +2331,26 @@ export const Bab1ToolContainer: React.FC = () => {
                       kalimat faktual.
                     </div>
 
+                {/* Alur tegas: NotebookLM menulis, ChatGPT merapikan bahasanya. */}
+                <div className="rounded-xl border border-[#70E1B6]/35 bg-[#70E1B6]/5 p-4 space-y-2.5">
+                  <span className="text-xs font-bold text-[#70E1B6]">Alurnya tiga langkah, jangan dibalik:</span>
+                  <ol className="list-decimal space-y-1.5 pl-4 text-xs text-[#AAB4D0] leading-relaxed">
+                    <li>
+                      <span className="font-semibold text-[#FFF9EE]">Salin prompt 4C</span> (tombol biru), lalu tempel ke{" "}
+                      <span className="font-semibold text-[#70E1B6]">NotebookLM</span> — di sana sumber penelitianmu sudah terkumpul.
+                    </li>
+                    <li>
+                      NotebookLM yang menulis drafnya. <span className="font-semibold text-[#FFF9EE]">Tempel hasilnya</span> di kotak paling
+                      bawah halaman ini, lalu klik Verifikasi &amp; Susun Draf Bab 1.
+                    </li>
+                    <li>
+                      Bahasanya masih kaku? <span className="font-semibold text-[#FFF9EE]">Lanjut ke Tahap 4D</span> di bawah ini — di situ{" "}
+                      <span className="font-semibold text-[#70E1B6]">ChatGPT</span> yang mengubahnya jadi bahasa mahasiswa S1 tanpa mengubah
+                      isinya.
+                    </li>
+                  </ol>
+                </div>
+
                 <div className="flex flex-wrap items-center gap-3">
                   <button
                     type="button"
@@ -2351,32 +2371,34 @@ export const Bab1ToolContainer: React.FC = () => {
                   </button>
 
                   <a
-                    href="https://chatgpt.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
-                    <span>Buka ChatGPT</span>
-                  </a>
-
-                  <a
                     href="https://notebooklm.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-[#70E1B6]/40 bg-[#70E1B6]/10 px-4 py-3 text-xs font-semibold text-[#70E1B6] transition hover:border-[#70E1B6]/70 hover:bg-[#70E1B6]/20"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6]"
                   >
                     <ExternalLink className="h-3.5 w-3.5" />
-                    <span>Buka NotebookLM</span>
+                    <span>Langkah 1: Buka NotebookLM</span>
                   </a>
+                </div>
 
+                <div className="flex flex-wrap items-center gap-2 text-xs text-[#AAB4D0]">
+                  <span>Tidak memakai NotebookLM? Boleh juga:</span>
+                  <a
+                    href="https://chatgpt.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                    <span>Buka ChatGPT</span>
+                  </a>
                   <a
                     href="https://gemini.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
                   >
-                    <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
+                    <ExternalLink className="h-3 w-3" />
                     <span>Buka Gemini</span>
                   </a>
                 </div>
@@ -2389,13 +2411,13 @@ export const Bab1ToolContainer: React.FC = () => {
 
                 <div className="pt-4 border-t border-[#273352]/60 space-y-3">
                   <label className="block text-xs font-bold text-[#FFF9EE]">
-                    Tempelkan Output Tahap 4C dari ChatGPT/Gemini:
+                    Langkah 2: Tempel hasil draf dari NotebookLM (atau ChatGPT/Gemini):
                   </label>
                   <textarea
                     rows={6}
                     value={pastedLLMOutput4C}
                     onChange={(e) => setPastedLLMOutput4C(e.target.value)}
-                    placeholder="Tempelkan hasil respons blok SKRIFLOW_BAB1_DRAFT_V1 di sini..."
+                    placeholder="Tempelkan di sini hasil dari NotebookLM, termasuk blok SKRIFLOW_BAB1_DRAFT_V1..."
                     className="w-full rounded-xl border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus:border-[#2959FF] focus:outline-none"
                   />
                   <button
@@ -2767,20 +2789,10 @@ export const Bab1ToolContainer: React.FC = () => {
                 href="https://chatgpt.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
-              >
-                <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
-                <span>Buka ChatGPT</span>
-              </a>
-
-              <a
-                href="https://notebooklm.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#70E1B6]/40 bg-[#70E1B6]/10 px-4 py-3 text-xs font-semibold text-[#70E1B6] transition hover:border-[#70E1B6]/70 hover:bg-[#70E1B6]/20"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6]"
               >
                 <ExternalLink className="h-3.5 w-3.5" />
-                <span>Buka NotebookLM</span>
+                <span>Langkah 3: Buka ChatGPT</span>
               </a>
 
               {generatedPrompt4D && (
@@ -2797,7 +2809,7 @@ export const Bab1ToolContainer: React.FC = () => {
             {/* Paste hasil 4D */}
             <div className="pt-4 border-t border-[#273352]/60 space-y-3">
               <label className="block text-xs font-bold text-[#FFF9EE]">
-                Tempelkan Output Tahap 4D dari ChatGPT:
+                Tempel hasil perbaikan bahasa dari ChatGPT:
               </label>
               <textarea
                 rows={6}
