@@ -12,6 +12,7 @@ import {
 import {
   NOTEBOOKLM_LIMITS,
   BEDAH_LIMITS,
+  NOTEBOOK_PROMPT_PROJECTION_LIMITS,
   PromptBudgetStatus,
   PromptBudgetBreakdown,
   getPromptBudgetStatus,
@@ -716,6 +717,30 @@ export function projectOptionalText(
  * Assembles Canonical Prompt A for Tool 3 (NotebookLM Source Discovery & Import).
  * Manifest ID: literature-source-search-a
  */
+/**
+ * Memilih plafon konteks opsional yang PALING LONGGAR namun masih muat di batas.
+ *
+ * Kenapa bertingkat: memotong semua field langsung ke plafon terkecil membuang
+ * konteks mahasiswa yang sebenarnya masih muat. Dengan mencoba dari yang paling
+ * longgar, hanya field yang benar-benar perlu yang dipadatkan.
+ */
+function pilihPlafonOpsional(
+  panjangField: number[],
+  staticText: number,
+  essentialContext: number,
+  hardLimit: number,
+  safetyBuffer: number
+): number {
+  const totalAsli = panjangField.reduce((a, b) => a + b, 0);
+  const anggaran = hardLimit - safetyBuffer - staticText - essentialContext;
+
+  for (const plafon of [Number.MAX_SAFE_INTEGER, 200, 150, 100, 60, 40, 0]) {
+    const hasil = panjangField.reduce((acc, len) => acc + Math.min(len, plafon), 0);
+    if (hasil <= anggaran) return plafon;
+  }
+  return 0;
+}
+
 export function assembleLiteraturePromptA(
   input: LiteraturePromptInput
 ): PromptAssemblyResult {
@@ -731,32 +756,8 @@ export function assembleLiteraturePromptA(
   const rawFokus = (input.fokus_literatur || input.fokus_aspek || "").trim();
   const rawLainnya = (input.hal_belum_ditentukan || input.hal_terbuka || "").trim();
 
-  const contextLines: string[] = [
-    `Prodi: ${prodi}`,
-    `Area: ${area}`,
-    `Fenomena: ${fenomena}`,
-  ];
-
-  if (rawPrioritas.length > 0) {
-    contextLines.push(`Prioritas: ${rawPrioritas}`);
-  }
-  if (rawRentang.length > 0) {
-    contextLines.push(`Rentang: ${rawRentang}`);
-  }
-  if (rawKataKunci.length > 0) {
-    contextLines.push(`Kata Kunci: ${rawKataKunci}`);
-  }
-  if (rawFokus.length > 0) {
-    contextLines.push(`Fokus: ${rawFokus}`);
-  }
-  if (rawLainnya.length > 0) {
-    contextLines.push(`Belum Ditentukan: ${rawLainnya}`);
-  }
-
-  const contextBlock = contextLines.join("\n");
-
-  const template = `Cari 15-25 artikel akademik individual via Deep Research (jangan paksa kuota):
-${contextBlock}
+  const renderTemplate = (blok: string) => `Cari 15-25 artikel akademik individual via Deep Research (jangan paksa kuota):
+${blok}
 
 Sensor:
 1. Tolak Research Report AI/dokumen gabungan. Utamakan peer-reviewed; labeli review/SLR, preprint, working paper, tesis.
@@ -777,51 +778,57 @@ Output:
 - Tampilkan seluruh kartu valid (1-2: awal kerangka; 3-5: kerangka sementara; 6-8: draft sehat). Jangan STOP sebelum hasil ditampilkan.
 - Tulis statistik singkat (jumlah valid & catatan aspek yang kurang), lalu STOP.`;
 
-  const finalPrompt = normalizePromptLineEndings(template.trim())
+  // Static text measurement (empty values with all 8 lines)
+  const staticTemplate = renderTemplate(
+    ["Prodi: ", "Area: ", "Fenomena: ", "Prioritas: ", "Rentang: ", "Kata Kunci: ", "Fokus: ", "Belum Ditentukan: "].join("\n")
+  );
+  const staticText = countPromptCharacters(normalizePromptLineEndings(staticTemplate.trim()));
+  const essentialContext =
+    countPromptCharacters(prodi) + countPromptCharacters(area) + countPromptCharacters(fenomena);
+
+  // Pemadatan bertingkat. Fenomena TIDAK pernah dipotong (konteks inti); hanya
+  // konteks opsional yang dipadatkan sampai muat, mulai dari plafon paling longgar.
+  // Inilah yang membuat tombol Salin tidak lagi mati saat form diisi lengkap.
+  const opsional = [rawPrioritas, rawRentang, rawKataKunci, rawFokus, rawLainnya];
+  const plafon = pilihPlafonOpsional(
+    opsional.map((v) => v.length),
+    staticText,
+    essentialContext,
+    NOTEBOOKLM_LIMITS.hardLimit,
+    NOTEBOOKLM_LIMITS.safetyBufferA
+  );
+
+  const NAMA_FIELD: PromptProjectionField[] = [
+    "prioritas_sumber",
+    "rentang_publikasi",
+    "kata_kunci",
+    "fokus_literatur",
+    "hal_belum_ditentukan",
+  ];
+  const compactedFields: PromptProjectionField[] = [];
+  const opsionalFinal = opsional.map((v, i) => {
+    const proj = projectOptionalText(v, plafon);
+    if (proj.wasCompacted) compactedFields.push(NAMA_FIELD[i]);
+    return proj.projected;
+  });
+
+  const garisOpsional = [
+    opsionalFinal[0] ? `Prioritas: ${opsionalFinal[0]}` : "",
+    opsionalFinal[1] ? `Rentang: ${opsionalFinal[1]}` : "",
+    opsionalFinal[2] ? `Kata Kunci: ${opsionalFinal[2]}` : "",
+    opsionalFinal[3] ? `Fokus: ${opsionalFinal[3]}` : "",
+    opsionalFinal[4] ? `Belum Ditentukan: ${opsionalFinal[4]}` : "",
+  ].filter(Boolean);
+
+  const contextBlock = [`Prodi: ${prodi}`, `Area: ${area}`, `Fenomena: ${fenomena}`, ...garisOpsional].join("\n");
+
+  const finalPrompt = normalizePromptLineEndings(renderTemplate(contextBlock).trim())
     .replace(/\bundefined\b/g, "")
     .replace(/\bnull\b/g, "")
     .replace(/\[object Object\]/g, "");
 
   const totalLength = countPromptCharacters(finalPrompt);
-
-  // Static text measurement (empty values with all 8 lines)
-  const staticTemplate = `Cari 15-25 artikel akademik individual via Deep Research (jangan paksa kuota):
-Prodi: 
-Area: 
-Fenomena: 
-Prioritas: 
-Rentang: 
-Kata Kunci: 
-Fokus: 
-Belum Ditentukan: 
-
-Sensor:
-1. Tolak Research Report AI/dokumen gabungan. Utamakan peer-reviewed; labeli review/SLR, preprint, working paper, tesis.
-2. Full-text wajib: empiris ada metode & hasil; review/SLR ada metode & sintesis. Hanya PDF/HTML berbadan artikel. Tolak abstrak/metadata/landing page.
-3. Tolak error/login/paywall/CAPTCHA/Cloudflare/naskah parsial.
-4. Jangan karang identitas (judul/penulis/tahun/jurnal/DOI/URL). Cocokkan ke metadata resmi.
-5. Pilih hanya sumber cocok pada fenomena/fokus. Beda event/outcome bukan inti.
-6. Deduplikasi; pakai versi terbaik (PDF legal penerbit/repositori/manuscript/arXiv).
-7. Semua metode artikel boleh masuk jika relevan & full-text.
-8. Tolak withdrawn/retracted resmi.
-
-Larangan:
-- Dilarang membuat sintesis, gap, novelty, judul, variabel final, atau draft Bab 1.
-
-Output:
-- Source Import Cards native hanya kandidat; jangan ganti teks lain.
-- Jangan auto-import. Tinjau tautan; pilih PDF/HTML utuh; jangan pilih Research Report.
-- Tampilkan seluruh kartu valid (1-2: awal kerangka; 3-5: kerangka sementara; 6-8: draft sehat). Jangan STOP sebelum hasil ditampilkan.
-- Tulis statistik singkat (jumlah valid & catatan aspek yang kurang), lalu STOP.`;
-
-  const staticText = countPromptCharacters(normalizePromptLineEndings(staticTemplate.trim()));
-  const essentialContext = countPromptCharacters(prodi) + countPromptCharacters(area) + countPromptCharacters(fenomena);
-  const optionalContext =
-    countPromptCharacters(rawPrioritas) +
-    countPromptCharacters(rawRentang) +
-    countPromptCharacters(rawKataKunci) +
-    countPromptCharacters(rawFokus) +
-    countPromptCharacters(rawLainnya);
+  const optionalContext = countPromptCharacters(opsionalFinal.join(""));
 
   const phenomenonLength = countPromptCharacters(fenomena);
   const phenomenonPreserved = fenomena.length === 0 || finalPrompt.includes(fenomena);
@@ -835,7 +842,7 @@ Output:
     isValid,
     phenomenonLength,
     phenomenonPreserved,
-    compactedFields: [],
+    compactedFields,
     breakdown: {
       staticText,
       essentialContext,
@@ -843,7 +850,6 @@ Output:
     },
   };
 }
-
 /**
  * Assembles Canonical Prompt B for Tool 3 (NotebookLM Evidence Extraction).
  * Manifest ID: literature-synthesis-b
