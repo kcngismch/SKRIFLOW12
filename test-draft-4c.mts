@@ -190,10 +190,18 @@ cek("Tahap 4C memuat urutan langkah bernomor", /Alurnya tiga langkah/.test(srcBa
 cek("langkah 1 = NotebookLM yang menulis draf", /Langkah 1: Buka NotebookLM/.test(srcBab1));
 cek("langkah 2 = tempel hasil draf", /Langkah 2: Tempel hasil draf/.test(srcBab1));
 cek("langkah 3 = ChatGPT merapikan bahasa", /Langkah 3: Buka ChatGPT/.test(srcBab1));
-cek("Tahap 4C menyuruh lanjut ke 4D bila bahasa masih kaku", /Lanjut ke Tahap 4D/.test(srcBab1));
+cek("Tahap 4C menyuruh lanjut ke 4D tanpa syarat", /Lanjut ke Tahap 4D/.test(srcBab1));
 cek("tombol NotebookLM di 4C tampil sebagai tombol utama (bukan outline abu)", /bg-\[#70E1B6\] px-5 py-3 text-xs font-bold text-\[#080D1D\][\s\S]{0,200}Langkah 1: Buka NotebookLM/.test(srcBab1));
 cek("NotebookLM tidak lagi ditawarkan di 4D (kerjanya sudah selesai)", !/href="https:\/\/notebooklm\.google\.com"[\s\S]{0,400}generatedPrompt4D/.test(srcBab1));
 cek("ChatGPT di 4D ditandai langkah 3", /Langkah 3: Buka ChatGPT/.test(srcBab1));
+// Bahasa NotebookLM SELALU kaku — 4D tidak boleh ditawarkan sebagai pilihan.
+cek("Tahap 4D berlabel WAJIB, bukan opsional", /Poles Bahasa Draf \(Wajib\)/.test(srcBab1));
+cek("tidak ada kata 'Opsional' di judul tahap 4D", !/Poles Bahasa Draf \(Opsional\)/.test(srcBab1));
+cek("tidak ada tawaran melewati 4D", !/boleh dilewati/i.test(srcBab1) && !/kalau draf 4C sudah enak dibaca/i.test(srcBab1));
+cek("halaman menyatakan bahasa NotebookLM selalu kaku", /Bahasa NotebookLM selalu kaku/.test(srcBab1));
+cek("langkah 3 menyebut 4D wajib, bukan pilihan", /Tahap ini wajib,\s*\n?\s*bukan pilihan/.test(srcBab1));
+cek("tidak ada lagi baris 'Tidak memakai NotebookLM? Boleh juga:'", !/Tidak memakai NotebookLM\? Boleh juga/.test(srcBab1));
+cek("draf dari tempat lain tetap wajib lewat 4D", /tetap wajib lewat Tahap 4D/.test(srcBab1));
 
 console.log(`\nRINGKASAN: ${lulus} lulus, ${gagal} gagal`);
 if (gagal > 0) process.exit(1);

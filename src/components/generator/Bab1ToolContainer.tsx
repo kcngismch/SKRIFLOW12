@@ -2344,9 +2344,9 @@ export const Bab1ToolContainer: React.FC = () => {
                       bawah halaman ini, lalu klik Verifikasi &amp; Susun Draf Bab 1.
                     </li>
                     <li>
-                      Bahasanya masih kaku? <span className="font-semibold text-[#FFF9EE]">Lanjut ke Tahap 4D</span> di bawah ini — di situ{" "}
-                      <span className="font-semibold text-[#70E1B6]">ChatGPT</span> yang mengubahnya jadi bahasa mahasiswa S1 tanpa mengubah
-                      isinya.
+                      <span className="font-semibold text-[#FFF9EE]">Lanjut ke Tahap 4D</span> di bawah ini. Bahasa NotebookLM selalu kaku —{" "}
+                      <span className="font-semibold text-[#70E1B6]">ChatGPT</span> yang mengubahnya jadi bahasa mahasiswa S1. Tahap ini wajib,
+                      bukan pilihan.
                     </li>
                   </ol>
                 </div>
@@ -2382,25 +2382,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2 text-xs text-[#AAB4D0]">
-                  <span>Tidak memakai NotebookLM? Boleh juga:</span>
-                  <a
-                    href="https://chatgpt.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
-                  >
-                    <ExternalLink className="h-3 w-3" />
-                    <span>Buka ChatGPT</span>
-                  </a>
-                  <a
-                    href="https://gemini.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
-                  >
-                    <ExternalLink className="h-3 w-3" />
-                    <span>Buka Gemini</span>
-                  </a>
+                  <span>Sudah punya draf dari tempat lain? Boleh ditempel di Langkah 2 — tapi tetap wajib lewat Tahap 4D.</span>
                 </div>
 
                 <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
@@ -2747,11 +2729,11 @@ export const Bab1ToolContainer: React.FC = () => {
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">TAHAP 4D</span>
-                <h2 className="text-lg font-bold text-[#FFF9EE]">Poles Bahasa Draf (Opsional)</h2>
+                <h2 className="text-lg font-bold text-[#FFF9EE]">Poles Bahasa Draf (Wajib)</h2>
               </div>
               <p className="mt-1 text-xs text-[#AAB4D0]">
-                Draf dari NotebookLM biasanya kaku. Tempel di sini agar ChatGPT memperbaikinya jadi bahasa mahasiswa S1 — tanpa
-                mengubah isi, klaim, angka, atau sitasi.
+                Bahasa NotebookLM selalu kaku — itu memang sifat alatnya, bukan kebetulan. Tahap ini yang mengubahnya jadi bahasa
+                mahasiswa S1 — tanpa mengubah isi, klaim, angka, atau sitasi.
               </p>
             </div>
           </div>
@@ -2759,9 +2741,9 @@ export const Bab1ToolContainer: React.FC = () => {
           <div className="mt-6 space-y-5">
             <div className="rounded-xl border border-[#2959FF]/30 bg-[#2959FF]/10 p-4">
               <p className="text-[13px] leading-relaxed text-[#FFF9EE]">
-                <strong>Kalau draf 4C sudah enak dibaca, tahap ini boleh dilewati.</strong> Jalankan bila draf terasa terlalu
-                akademik atau berputar-putar. Alur yang disarankan: <strong>NotebookLM</strong> menulis draf — pakai tombol di
-                Tahap 4C — lalu <strong>ChatGPT</strong> memperbaiki bahasanya di tahap ini.
+                <strong>Jangan lewati tahap ini.</strong> Draf dari NotebookLM pasti kaku karena dia menulis dari dokumen sumber,
+                bukan untuk dibaca mahasiswa. Langkah 3 alurnya: salin prompt 4D di bawah, buka <strong>ChatGPT</strong>, tempel
+                draf 4C, lalu tempel hasilnya kembali ke halaman ini.
               </p>
             </div>
 
