@@ -1772,7 +1772,7 @@ export const Bab1ToolContainer: React.FC = () => {
                             <span className="text-zinc-500 italic text-[12px]">-</span>
                           )}
                         </td>
-                        <td className="p-3 whitespace-nowrap">{el.evidence_location || "-"}</td>
+                        <td className="p-3 max-w-xs">{el.evidence_location || "-"}</td>
                         <td className="p-3 text-[#FFF9EE]">
                           <span className="rounded bg-[#2959FF]/15 border border-[#2959FF]/30 px-2 py-0.5 text-[12px] font-semibold text-[#70E1B6]">
                             {funcInfo.title}
