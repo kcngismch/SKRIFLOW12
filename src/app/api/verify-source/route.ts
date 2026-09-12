@@ -9,7 +9,7 @@ import { NextResponse } from "next/server";
  * Batas: maksimal 12 sumber per permintaan untuk mencegah penyalahgunaan.
  */
 
-import { doiDariUrl, jenisDiawasiCrossref, kemiripanJudul } from "@/lib/sourceVerification";
+import { doiDariUrl, jenisDiawasiCrossref, kemiripanJudul, perluCariDoaj } from "@/lib/sourceVerification";
 
 const MAX_ITEMS = 12;
 const TIMEOUT_MS = 8000;
@@ -32,7 +32,7 @@ interface Item {
 interface Hasil {
   sourceId: string;
   verdict: Verdict;
-  sumber: "crossref" | "openalex" | null;
+  sumber: "crossref" | "openalex" | "doaj" | null;
   judulDitemukan?: string;
   tahunDitemukan?: string;
   doiDitemukan?: string;
@@ -121,6 +121,42 @@ async function periksaDoi(item: Item, doi: string): Promise<Hasil | null> {
   };
 }
 
+/**
+ * Cari judul di DOAJ. Mengembalikan null bila tidak ada yang cukup mirip,
+ * supaya pemanggil bisa lanjut ke verdict akhir.
+ */
+async function periksaDoaj(item: Item, judul: string): Promise<Hasil | null> {
+  const q = encodeURIComponent(judul.slice(0, 200));
+  const res = await ambil(`https://doaj.org/api/search/articles/${q}?pageSize=3`);
+  if (res.status !== 200 || !res.body) return null;
+
+  const hasil = (res.body as { results?: Record<string, unknown>[] }).results ?? [];
+  let terbaik: { skor: number; judul: string; tahun: string; doi: string } | null = null;
+  for (const r of hasil) {
+    const bib = (r as { bibjson?: Record<string, unknown> }).bibjson;
+    if (!bib) continue;
+    const t = String(bib.title ?? "");
+    const skor = kemiripanJudul(judul, t);
+    if (!terbaik || skor > terbaik.skor) {
+      const ids = (bib.identifier as { id?: string; type?: string }[] | undefined) ?? [];
+      const doi = ids.find((x) => x.type === "doi")?.id ?? "";
+      terbaik = { skor, judul: t, tahun: String(bib.year ?? ""), doi };
+    }
+  }
+  if (!terbaik || terbaik.skor < 0.85) return null;
+
+  return {
+    sourceId: item.sourceId ?? judul.slice(0, 40),
+    verdict: "KEMUNGKINAN_COCOK",
+    sumber: "doaj",
+    judulDitemukan: terbaik.judul,
+    tahunDitemukan: terbaik.tahun,
+    doiDitemukan: terbaik.doi || undefined,
+    catatan: `Ditemukan di DOAJ (indeks jurnal akses-terbuka): "${terbaik.judul}"${terbaik.tahun ? ` (${terbaik.tahun})` : ""}. DOAJ mengindeks jurnal Indonesia yang sering tidak terdaftar di Crossref — cocokkan sendiri karena kesamaan judul bukan bukti dokumennya sama.`,
+    perluDicurigai: false,
+  };
+}
+
 async function periksaJudul(item: Item, judul: string): Promise<Hasil> {
   const diawasi = jenisDiawasiCrossref(item.documentType);
   const q = encodeURIComponent(judul.slice(0, 300));
@@ -162,12 +198,19 @@ async function periksaJudul(item: Item, judul: string): Promise<Hasil> {
       perluDicurigai: false,
     };
   }
+  // Cadangan DOAJ: banyak jurnal Indonesia akses-terbuka terindeks di sini
+  // meski belum mendaftarkan DOI di Crossref.
+  if (perluCariDoaj("TIDAK_DITEMUKAN", item.documentType)) {
+    const doaj = await periksaDoaj(item, judul);
+    if (doaj) return doaj;
+  }
+
   return {
     sourceId: item.sourceId ?? judul.slice(0, 40),
     verdict: "TIDAK_DITEMUKAN",
     sumber: "crossref",
     catatan: diawasi
-      ? "Judul ini tidak ada di Crossref padahal jenisnya terbitan ilmiah. Banyak jurnal nasional (Garuda/Sinta) memang belum terdaftar di Crossref, jadi ini belum tentu sumber palsu — tetapi wajib dicocokkan ke laman jurnalnya sebelum dipakai."
+      ? "Judul ini tidak ada di Crossref, OpenAlex, maupun DOAJ padahal jenisnya terbitan ilmiah. Masih ada jurnal nasional yang belum terindeks di ketiganya, jadi ini belum tentu sumber palsu — tetapi wajib dicocokkan ke laman jurnalnya sebelum dipakai."
       : `Jenis dokumen ini (${item.documentType ?? "tidak diketahui"}) tidak didaftarkan di Crossref, jadi tidak ditemukan itu wajar. Cek langsung ke situs resminya.`,
     perluDicurigai: diawasi,
   };

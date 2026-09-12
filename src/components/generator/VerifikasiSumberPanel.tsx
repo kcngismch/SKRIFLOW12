@@ -21,7 +21,7 @@ export interface SumberUntukDiperiksa {
 export interface HasilVerifikasiSumber {
   sourceId: string;
   verdict: "TERVERIFIKASI" | "KEMUNGKINAN_COCOK" | "TIDAK_DITEMUKAN" | "TIDAK_DAPAT_DIPERIKSA";
-  sumber: "crossref" | "openalex" | null;
+  sumber: "crossref" | "openalex" | "doaj" | null;
   judulDitemukan?: string;
   tahunDitemukan?: string;
   doiDitemukan?: string;
@@ -130,15 +130,15 @@ export function RingkasanVerifikasi({ hasil, catatan }: { hasil: Record<string, 
   return (
     <div className="rounded-lg border border-[#273352] bg-[#11182D] p-3 text-xs space-y-1.5">
       <p className="font-semibold text-[#FFF9EE]">
-        Hasil pemeriksaan {nilai.length} sumber ke Crossref/OpenAlex:
+        Hasil pemeriksaan {nilai.length} sumber (Crossref → OpenAlex → DOAJ):
       </p>
       <ul className="space-y-0.5 text-[#AAB4D0]">
         {hitung("TERVERIFIKASI") > 0 && <li>• {hitung("TERVERIFIKASI")} DOInya terdaftar resmi</li>}
         {hitung("KEMUNGKINAN_COCOK") > 0 && (
-          <li>• {hitung("KEMUNGKINAN_COCOK")} judulnya mirip dengan yang ada di Crossref</li>
+          <li>• {hitung("KEMUNGKINAN_COCOK")} judulnya mirip dengan yang ada di basis data</li>
         )}
         {hitung("TIDAK_DITEMUKAN") > 0 && (
-          <li>• {hitung("TIDAK_DITEMUKAN")} tidak ada di Crossref (sebagian wajar — lihat catatan)</li>
+          <li>• {hitung("TIDAK_DITEMUKAN")} tidak ada di ketiga basis data (sebagian wajar — lihat catatan)</li>
         )}
         {hitung("TIDAK_DAPAT_DIPERIKSA") > 0 && <li>• {hitung("TIDAK_DAPAT_DIPERIKSA")} tidak dapat diperiksa</li>}
       </ul>
@@ -149,8 +149,8 @@ export function RingkasanVerifikasi({ hasil, catatan }: { hasil: Record<string, 
         }`}
       >
         {perluCek > 0
-          ? `${perluCek} sumber tandanya "PERIKSA" — jenisnya terbitan ilmiah tetapi tidak punya jejak di Crossref. Banyak jurnal nasional (Garuda/Sinta) memang belum terdaftar, jadi ini belum tentu palsu — tetapi wajib dicocokkan ke laman jurnalnya sebelum dipakai.`
-          : "Tidak ada sumber yang perlu dicurigai. Laporan perusahaan, regulasi, dan skripsi lokal memang tidak didaftarkan di Crossref, jadi tidak ditemukan itu wajar. Terdaftar juga bukan berarti isinya mendukung klaim."}
+          ? `${perluCek} sumber tandanya "PERIKSA" — jenisnya terbitan ilmiah tetapi tidak punya jejak di Crossref, OpenAlex, maupun DOAJ. Masih ada jurnal nasional yang belum terindeks di ketiganya, jadi ini belum tentu palsu — tetapi wajib dicocokkan ke laman jurnalnya sebelum dipakai.`
+          : "Tidak ada sumber yang perlu dicurigai. Laporan perusahaan, regulasi, siaran pers, dan skripsi lokal memang tidak didaftarkan di basis data akademik, jadi tidak ditemukan itu wajar. Terdaftar juga bukan berarti isinya mendukung klaim."}
       </p>
     </div>
   );

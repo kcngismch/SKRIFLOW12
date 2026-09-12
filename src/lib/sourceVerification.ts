@@ -57,3 +57,16 @@ export function jenisDiawasiCrossref(documentType?: string): boolean {
   if (!t) return true; // tidak diketahui -> perlakukan sebagai terbitan ilmiah
   return /peer-reviewed|jurnal|journal|article|prosiding|proceeding|artikel/.test(t);
 }
+
+
+/**
+ * DOAJ mengindeks jurnal akses-terbuka, termasuk banyak jurnal Indonesia yang
+ * tidak terdaftar di Crossref. Cadangan untuk sumber ilmiah tanpa jejak Crossref.
+ *
+ * ponytail: hanya judul yang dicocokkan. DOAJ tidak menyediakan pencarian per
+ * DOI di jalur ini, jadi sumber ber-DOI tetap lebih akurat lewat Crossref.
+ */
+export function perluCariDoaj(verdict: string, documentType?: string): boolean {
+  // Hanya saat Crossref tidak menemukan apa pun DAN jenisnya terbitan ilmiah.
+  return verdict === "TIDAK_DITEMUKAN" && jenisDiawasiCrossref(documentType);
+}
