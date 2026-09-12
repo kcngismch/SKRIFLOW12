@@ -57,6 +57,7 @@ import { ChangeIssueModal } from "./ChangeIssueModal";
 import { ClipboardFallbackModal } from "./ClipboardFallbackModal";
 import { RejectionModal } from "./RejectionModal";
 import { AlternativePromptModal } from "./AlternativePromptModal";
+import { TombolTempelClipboard } from "./TombolTempelClipboard";
 import { RecommendationPanel } from "./RecommendationPanel";
 import { PromptExample } from "./PromptExample";
 import { SequentialNavigation } from "./SequentialNavigation";
@@ -1439,6 +1440,9 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
           </div>
 
           <div className="space-y-3">
+            <div className="flex justify-end">
+              <TombolTempelClipboard onPaste={handlePasteChange} />
+            </div>
             {(!parseResult || parseResult.status !== "HASIL_VALID" || showRawResult) && (
               <textarea
                 id="textarea-paste-idea"

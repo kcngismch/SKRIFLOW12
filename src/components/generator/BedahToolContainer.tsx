@@ -40,6 +40,7 @@ import {
   TombolPeriksaSumber,
   RingkasanVerifikasi,
   LencanaVerifikasi,
+  TombolUnduhBibtex,
   useVerifikasiSumber,
 } from "./VerifikasiSumberPanel";
 import {
@@ -49,6 +50,7 @@ import {
 import { copyToClipboard } from "@/lib/clipboard";
 import { SequentialNavigation } from "./SequentialNavigation";
 import { ResetConfirmModal } from "./ResetConfirmModal";
+import { TombolTempelClipboard } from "./TombolTempelClipboard";
 import { safeHref } from "@/lib/xss";
 import { susunPolaJudul } from "@/lib/titlePattern";
 import {
@@ -672,6 +674,9 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
         </div>
 
         <div className="mt-4 space-y-4">
+          <div className="flex justify-end">
+            <TombolTempelClipboard onPaste={handleLiteraturePackageChange} />
+          </div>
           {(litValidation.status !== "STRUKTUR_LENGKAP" || showRawLitInput) && (
             <div className="relative animate-fade-in">
               <textarea
@@ -726,11 +731,18 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                     <span className="text-xs text-[#AAB4D0]">
                       Periksa {sumberUntukDiperiksa.length} sumber di paket ini ke Crossref/OpenAlex (gratis).
                     </span>
-                    <TombolPeriksaSumber
-                      jumlah={sumberUntukDiperiksa.length}
-                      sedangProses={sedangVerifikasi}
-                      onClick={() => periksaSumber(sumberUntukDiperiksa)}
-                    />
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <TombolPeriksaSumber
+                        jumlah={sumberUntukDiperiksa.length}
+                        sedangProses={sedangVerifikasi}
+                        onClick={() => periksaSumber(sumberUntukDiperiksa)}
+                      />
+                      <TombolUnduhBibtex
+                        daftar={sumberUntukDiperiksa}
+                        hasil={verifikasiSumber}
+                        klasifikasi="Tool-4"
+                      />
+                    </div>
                   </div>
                   <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
                 </div>
@@ -852,6 +864,9 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
         </div>
 
         <div className="mt-6 space-y-4">
+          <div className="flex justify-end">
+            <TombolTempelClipboard onPaste={setPastedLLMOutput4A} />
+          </div>
           <textarea
             rows={6}
             value={pastedLLMOutput4A}
@@ -1616,6 +1631,11 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                           jumlah={sumberUntukDiperiksa.length}
                           sedangProses={sedangVerifikasi}
                           onClick={() => periksaSumber(sumberUntukDiperiksa)}
+                        />
+                        <TombolUnduhBibtex
+                          daftar={sumberUntukDiperiksa}
+                          hasil={verifikasiSumber}
+                          klasifikasi="Tool-4"
                         />
                       </div>
                     </div>

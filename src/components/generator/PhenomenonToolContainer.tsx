@@ -17,6 +17,7 @@ import { validateForm } from "@/lib/validation";
 import {
   TombolPeriksaSumber,
   RingkasanVerifikasi,
+  TombolUnduhBibtex,
   LencanaVerifikasi,
   useVerifikasiSumber,
 } from "./VerifikasiSumberPanel";
@@ -61,6 +62,7 @@ import { ResetConfirmModal } from "./ResetConfirmModal";
 import { PromptExample } from "./PromptExample";
 import { safeHref } from "@/lib/xss";
 import { ClipboardFallbackModal } from "./ClipboardFallbackModal";
+import { TombolTempelClipboard } from "./TombolTempelClipboard";
 import { SequentialNavigation } from "./SequentialNavigation";
 import { resolveOptionLabel } from "@/data/researchOptions";
 import { getStudentLabel, getStudentStatus } from "@/lib/studentLanguage";
@@ -1417,6 +1419,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
           </div>
 
           <div className="space-y-2">
+            <div className="flex justify-end">
+              <TombolTempelClipboard onPaste={handlePasteChange} />
+            </div>
             {(!parseResult || !parseResult.success || showRawResult) && (
               <textarea
                 id="fenomena-paste-area"
@@ -1926,6 +1931,18 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         {isEvidenceOpen && (
                           <div className="p-4 border-t border-[#273352] space-y-4">
                             <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
+                            <div className="flex justify-end">
+                              <TombolUnduhBibtex
+                                daftar={cand.evidence.map((ev, i) => ({
+                                  sourceId: `${cand.id}-bukti-${i + 1}`,
+                                  title: ev.source_title,
+                                  url: ev.url,
+                                  documentType: ev.source_type,
+                                }))}
+                                hasil={verifikasiSumber}
+                                klasifikasi="Tool-2"
+                              />
+                            </div>
                             {cand.evidence.map((ev, idx) => {
                               const canonicalKey = getCanonicalSourceKey(ev);
                               const isSharedSource = cand.evidence.filter((other) => getCanonicalSourceKey(other) === canonicalKey).length > 1;

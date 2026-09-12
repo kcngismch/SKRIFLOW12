@@ -43,6 +43,34 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 }
 
 /**
+ * Membaca teks dari clipboard (kebalikan `copyToClipboard`).
+ *
+ * Mengembalikan `null` bila tidak didukung/ditolak — DAN memang sering `null`:
+ * `navigator.clipboard` UNDEFINED di insecure context (HTTP LAN, mis.
+ * `http://192.168.1.26:3000`), sama seperti `crypto.subtle`. Pemanggil WAJIB
+ * memakai `bisaBacaClipboard()` dulu dan TIDAK menampilkan tombolnya bila false,
+ * supaya user tidak melihat tombol yang selalu gagal.
+ */
+export async function pasteFromClipboard(): Promise<string | null> {
+  if (typeof window === "undefined") return null;
+  if (!navigator?.clipboard?.readText) return null;
+
+  try {
+    const teks = await navigator.clipboard.readText();
+    return teks && teks.trim() ? teks : null;
+  } catch {
+    // Izin ditolak / tab tidak fokus / clipboard kosong.
+    return null;
+  }
+}
+
+/** Apakah tombol "Tempel dari clipboard" masuk akal ditampilkan di konteks ini. */
+export function bisaBacaClipboard(): boolean {
+  if (typeof window === "undefined") return false;
+  return !!navigator?.clipboard?.readText;
+}
+
+/**
  * Opens a platform URL in a new tab securely without leaking parameters.
  */
 export function openPlatformUrl(url: string): boolean {

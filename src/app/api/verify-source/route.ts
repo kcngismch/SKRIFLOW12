@@ -17,6 +17,13 @@ import {
   kemiripanJudul,
   perluCariDoaj,
 } from "@/lib/sourceVerification";
+import {
+  cariStatus,
+  kumpulkanDoiSah,
+  petakanRetraksi,
+  urlBatchRetraksi,
+  type StatusRetraksi,
+} from "@/lib/retraction";
 
 const MAX_ITEMS = 12;
 const TIMEOUT_MS = 8000;
@@ -50,6 +57,10 @@ interface Hasil {
   catatan: string;
   /** True hanya bila ketiadaan jejak memang layak dicurigai (artikel jurnal). */
   perluDicurigai: boolean;
+  /** True bila OpenAlex menandai artikel ini sudah DITARIK dari terbitan. */
+  ditarik?: boolean;
+  /** Judul versi OpenAlex (sering berawalan "RETRACTED: "). */
+  judulRetraksi?: string;
 }
 
 async function ambil(url: string): Promise<{ status: number; body: unknown }> {
@@ -98,7 +109,40 @@ function tahunDariCrossref(msg: Record<string, unknown>): string {
   return p ? String(p) : "";
 }
 
-async function periksaDoi(item: Item, doi: string): Promise<Hasil | null> {
+/**
+ * Cek satu batch DOI ke OpenAlex untuk tahu mana yang sudah DITARIK.
+ * Satu permintaan untuk sampai 50 DOI. Gagal jaringan = peta kosong (bukan tuduhan).
+ */
+async function petaRetraksi(daftarDoi: string[]): Promise<Record<string, StatusRetraksi>> {
+  if (daftarDoi.length === 0) return {};
+  const res = await ambil(urlBatchRetraksi(daftarDoi));
+  if (res.status !== 200 || !res.body) return {};
+  return petakanRetraksi(res.body);
+}
+
+async function periksaDoi(
+  item: Item,
+  doi: string,
+  retraksi: Record<string, StatusRetraksi>
+): Promise<Hasil | null> {
+  // Retraksi diperiksa lebih dulu: artikel yang ditarik tetap "terdaftar", jadi
+  // tanpa cek ini ia akan lolos dengan predikat TERVERIFIKASI.
+  const st = cariStatus(retraksi, doi);
+  if (st?.ditarik) {
+    return {
+      sourceId: item.sourceId ?? doi,
+      verdict: "TIDAK_DITEMUKAN",
+      sumber: "openalex",
+      judulDitemukan: st.judul,
+      tahunDitemukan: st.tahun,
+      doiDitemukan: doi,
+      catatan: `ARTIKEL INI SUDAH DITARIK (retracted) menurut OpenAlex${st.judul ? `: "${st.judul}"` : ""}. Jangan dipakai sebagai dasar argumen. Ganti dengan sumber lain, atau kutip sebagai contoh praktik yang keliru — bukan sebagai bukti.`,
+      perluDicurigai: true,
+      ditarik: true,
+      judulRetraksi: st.judul,
+    };
+  }
+
   const cr = await ambil(`https://api.crossref.org/works/${encodeURIComponent(doi)}`);
   if (cr.status === 200 && cr.body) {
     const msg = (cr.body as { message: Record<string, unknown> }).message;
@@ -112,6 +156,7 @@ async function periksaDoi(item: Item, doi: string): Promise<Hasil | null> {
       doiDitemukan: String(msg.DOI ?? doi),
       catatan: `DOI terdaftar di Crossref. Judul terdaftar: "${judul}".`,
       perluDicurigai: false,
+      ditarik: false,
     };
   }
   if (cr.status === 0) {
@@ -137,6 +182,7 @@ async function periksaDoi(item: Item, doi: string): Promise<Hasil | null> {
       doiDitemukan: doi,
       catatan: "DOI ditemukan di OpenAlex meski tidak ada di Crossref.",
       perluDicurigai: false,
+      ditarik: false,
     };
   }
   if (oa.status === 0) {
@@ -212,7 +258,6 @@ async function periksaJudul(item: Item, judul: string): Promise<Hasil> {
     cr.status === 200 && cr.body
       ? ((cr.body as { message?: { items?: Record<string, unknown>[] } }).message?.items ?? [])
       : [];
-
   let terbaik: { skor: number; judul: string; tahun: string; doi: string } | null = null;
   for (const it of items) {
     const t = Array.isArray(it.title) ? String((it.title as string[])[0] ?? "") : "";
@@ -284,6 +329,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Tidak ada sumber untuk diperiksa." }, { status: 400 });
   }
 
+  // Satu permintaan OpenAlex untuk seluruh batch — bukan satu per DOI.
+  const retraksi = await petaRetraksi(kumpulkanDoiSah(items));
+
   const hasil: Hasil[] = [];
   for (const item of items) {
     // "-" / "N/A" bukan DOI: kalau diteruskan, Crossref menjawab "tidak ada"
@@ -292,7 +340,7 @@ export async function POST(req: Request) {
     const judul = (item.title || "").trim();
 
     if (doi) {
-      const r = await periksaDoi(item, doi);
+      const r = await periksaDoi(item, doi, retraksi);
       if (r) {
         hasil.push(r);
         continue;

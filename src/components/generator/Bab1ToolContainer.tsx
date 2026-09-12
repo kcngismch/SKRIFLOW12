@@ -86,6 +86,7 @@ import {
 import {
   TombolPeriksaSumber,
   RingkasanVerifikasi,
+  TombolUnduhBibtex,
   LencanaVerifikasi,
   useVerifikasiSumber,
 } from "./VerifikasiSumberPanel";
@@ -107,6 +108,8 @@ import { copyToClipboard } from "@/lib/clipboard";
 import { susunOutlineLatarBelakang } from "@/lib/bab1Outline";
 import { ResetConfirmModal } from "./ResetConfirmModal";
 import { AiUsageDeclaration } from "./AiUsageDeclaration";
+import { TombolTempelClipboard } from "./TombolTempelClipboard";
+import { keRtf, namaFileAman, type BlokRtf } from "@/lib/ekspor";
 import { safeHref } from "@/lib/xss";
 import {
   getStudentLabel,
@@ -124,6 +127,7 @@ import {
   CheckCircle2,
   Copy,
   Download,
+  FileDown,
   ExternalLink,
   RotateCcw,
   ChevronDown,
@@ -732,6 +736,56 @@ export const Bab1ToolContainer: React.FC = () => {
   };
 
   // Handle Reset 4D
+  /**
+   * Unduh draf Bab 1 hasil poles (4D) sebagai .rtf.
+   *
+   * RTF dipilih karena bisa dibuat tanpa library (skripsi ini diserahkan ke
+   * dosen, jadi peringatan "format file tidak cocok" dari Word tidak bisa
+   * diterima). Kalau nanti butuh .docx asli, ganti ke paket `docx`.
+   */
+  const handleUnduhBab1Rtf = () => {
+    if (!parsedPolishV1) return;
+
+    const blok: BlokRtf[] = [{ teks: "BAB I — PENDAHULUAN", gaya: "judul" }, { teks: "" }];
+    blok.push({ teks: "Latar Belakang", gaya: "subjudul" });
+    for (const p of parsedPolishV1.background || []) {
+      const t = (p.paragraph_text || "").trim();
+      if (t) blok.push({ teks: t });
+    }
+
+    // Jejak AI wajib ikut: mahasiswa harus bisa membuktikan draf ini dibantu AI.
+    blok.push({ teks: "" });
+    blok.push({ teks: "Catatan Penggunaan AI", gaya: "subjudul" });
+    blok.push({
+      teks:
+        "Draf ini disusun dengan bantuan AI: kerangka dan peta narasi dari Skriflow, " +
+        "penulisan draf awal di NotebookLM, lalu perbaikan bahasa di ChatGPT. " +
+        "Seluruh isi sudah diperiksa dan disesuaikan oleh penulis. Cantumkan keterangan ini " +
+        "sesuai ketentuan kampus soal penggunaan AI.",
+    });
+    // `name` (bukan `title`) — ResearchDirectionV2 tidak punya field `title`.
+    const judul = selectedDirectionObj?.name || selectedDirectionObj?.id || "Bab 1";
+    blok.push({ teks: "" });
+    blok.push({
+      teks:
+        `Arah penelitian: ${judul}. Dihasilkan pada ${new Date().toLocaleDateString("id-ID", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })}.`,
+    });
+
+    const blob = new Blob([keRtf(blok)], { type: "application/rtf;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = namaFileAman(`Bab-1-${judul}`, "rtf");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   const handleResetPoles4D = () => {
     setPastedLLMOutput4D("");
     clearBedahOutput4D();
@@ -809,6 +863,20 @@ export const Bab1ToolContainer: React.FC = () => {
       };
     });
   }, [literaturePackage, parsedPayloadV2]);
+
+  /**
+   * Sumber acuan untuk tahap menulis (Tool 5).
+   *
+   * Isinya sumber sandaran dari arah terpilih + artikel yang sudah lolos
+   * pemeriksaan di paket literatur. Fungsinya: memastikan literatur yang dipakai
+   * memang ada, dan memberi mahasiswa daftar pustaka siap impor ke Mendeley.
+   */
+  const sumberAcuanTool5 = useMemo(() => {
+    const dariPaket = sumberUntukDiperiksa;
+    const idSandaran = selectedDirectionObj?.anchor_source_ids ?? [];
+    if (dariPaket.length === 0) return dariPaket;
+    return dariPaket.filter((s) => idSandaran.length === 0 || idSandaran.includes(s.sourceId));
+  }, [sumberUntukDiperiksa, selectedDirectionObj]);
 
   // Handle Process LLM Output 4A
   const handleProcessLLMOutput4A = () => {
@@ -1401,24 +1469,18 @@ export const Bab1ToolContainer: React.FC = () => {
 
                 {computedDataReadiness !== "DATA_BLOCKED" && (
                   <>
+                    {/* Prompt 4B dijalankan di ChatGPT/Gemini (batas 55.000).
+                        NotebookLM SENGAJA TIDAK ditawarkan di sini: batas chat box-nya
+                        ~3.900 dan prompt 4B ~31.732 karakter, jadi pasti ditolak tanpa
+                        pesan apa pun. NotebookLM dipakai di Tahap 4C (berkas sumber). */}
                     <a
                       href="https://chatgpt.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
-                      <span>Buka ChatGPT</span>
-                    </a>
-
-                    <a
-                      href="https://notebooklm.google.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl border border-[#70E1B6]/40 bg-[#70E1B6]/10 px-4 py-3 text-xs font-semibold text-[#70E1B6] transition hover:border-[#70E1B6]/70 hover:bg-[#70E1B6]/20"
+                      className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6]"
                     >
                       <ExternalLink className="h-3.5 w-3.5" />
-                      <span>Buka NotebookLM</span>
+                      <span>Langkah 1: Buka ChatGPT</span>
                     </a>
 
                     <a
@@ -1428,17 +1490,24 @@ export const Bab1ToolContainer: React.FC = () => {
                       className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
                     >
                       <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
-                      <span>Buka Gemini</span>
+                      <span>atau Gemini</span>
                     </a>
+
+                    <span className="text-[11px] text-[#AAB4D0]">
+                      Tahap 4B bukan untuk NotebookLM — promptnya terlalu panjang untuk kolom chat di sana.
+                    </span>
                   </>
                 )}
               </div>
 
               {/* Paste Area 4B */}
               <div className="pt-4 border-t border-[#273352]/60 space-y-3">
-                <label className="block text-xs font-bold text-[#FFF9EE]">
-                  Tempelkan Output Tahap 4B dari ChatGPT/Gemini:
-                </label>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <label className="block text-xs font-bold text-[#FFF9EE]">
+                    Langkah 2: Tempelkan Output Tahap 4B dari ChatGPT/Gemini:
+                  </label>
+                  <TombolTempelClipboard onPaste={setPastedLLMOutput4B} />
+                </div>
                 <textarea
                   rows={6}
                   value={pastedLLMOutput4B}
@@ -2472,9 +2541,12 @@ export const Bab1ToolContainer: React.FC = () => {
                 </div>
 
                 <div className="pt-4 border-t border-[#273352]/60 space-y-3">
-                  <label className="block text-xs font-bold text-[#FFF9EE]">
-                    Langkah 4: Tempel hasil draf dari NotebookLM (atau ChatGPT/Gemini):
-                  </label>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <label className="block text-xs font-bold text-[#FFF9EE]">
+                      Langkah 4: Tempel hasil draf dari NotebookLM (atau ChatGPT/Gemini):
+                    </label>
+                    <TombolTempelClipboard onPaste={setPastedLLMOutput4C} />
+                  </div>
                   <textarea
                     rows={6}
                     value={pastedLLMOutput4C}
@@ -2565,7 +2637,21 @@ export const Bab1ToolContainer: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
+              {sumberAcuanTool5.length > 0 && (
+                <>
+                  <TombolPeriksaSumber
+                    jumlah={sumberAcuanTool5.length}
+                    sedangProses={sedangVerifikasi}
+                    onClick={() => periksaSumber(sumberAcuanTool5)}
+                  />
+                  <TombolUnduhBibtex
+                    daftar={sumberAcuanTool5}
+                    hasil={verifikasiSumber}
+                    klasifikasi="Tool-5"
+                  />
+                </>
+              )}
               <span
                 className={`rounded-full px-3 py-1 text-xs font-bold ${
                   draftKataTotal >= 1000 && draftKataTotal <= 1300
@@ -2870,9 +2956,12 @@ export const Bab1ToolContainer: React.FC = () => {
 
             {/* Paste hasil 4D */}
             <div className="pt-4 border-t border-[#273352]/60 space-y-3">
-              <label className="block text-xs font-bold text-[#FFF9EE]">
-                Tempel hasil perbaikan bahasa dari ChatGPT:
-              </label>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <label className="block text-xs font-bold text-[#FFF9EE]">
+                  Tempel hasil perbaikan bahasa dari ChatGPT:
+                </label>
+                <TombolTempelClipboard onPaste={setPastedLLMOutput4D} />
+              </div>
               <textarea
                 rows={6}
                 value={pastedLLMOutput4D}
@@ -3020,6 +3109,15 @@ export const Bab1ToolContainer: React.FC = () => {
 
                 <button
                   type="button"
+                  onClick={handleUnduhBab1Rtf}
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                >
+                  <FileDown className="h-4 w-4" />
+                  <span>Unduh Bab 1 (.rtf)</span>
+                </button>
+
+                <button
+                  type="button"
                   onClick={handleResetPoles4D}
                   className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#11182D] px-4 py-2.5 text-xs font-semibold text-[#AAB4D0] transition hover:text-rose-400"
                 >
@@ -3027,6 +3125,10 @@ export const Bab1ToolContainer: React.FC = () => {
                   <span>Buang Hasil Poles</span>
                 </button>
               </div>
+              <p className="text-[11px] text-[#AAB4D0] pt-1">
+                Berkas .rtf dibuka Word, Google Docs, dan LibreOffice tanpa peringatan format. Setelah
+                dibuka, pilih Save As → Word Document (.docx) kalau dosen memintanya.
+              </p>
             </div>
           )}
         </section>

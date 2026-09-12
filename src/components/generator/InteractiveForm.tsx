@@ -14,6 +14,12 @@ import {
 } from "@/types/tool";
 import { ResetConfirmModal } from "./ResetConfirmModal";
 import { AutofillModal } from "./AutofillModal";
+import {
+  gabungKataKunci,
+  siapkanIstilah,
+  terjemahkanIstilah,
+  type HasilTerjemahan,
+} from "@/lib/istilahEn";
 import { getAutofillForTool, applyAutofillValues } from "@/lib/autofill";
 import { reconcileLegacyHandoff } from "@/lib/handoffValidator";
 import {
@@ -45,6 +51,8 @@ import {
   CheckCircle2,
   AlertTriangle,
   BookOpen,
+  Loader2,
+  Languages,
 } from "lucide-react";
 
 const emptySubscribe = () => () => {};
@@ -280,6 +288,42 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
     setToastMessage("Seed kata kunci berhasil disalin ke Kata Kunci Khusus.");
     setTimeout(() => setToastMessage(null), 3000);
     setShowLiteratureSeedsCard(false);
+  };
+
+  // Terjemahan istilah: kata kunci Indonesia tidak menemukan apa pun di Google
+  // Scholar karena literatur internasional memakai istilah Inggris.
+  const [terjemahan, setTerjemahan] = useState<HasilTerjemahan[] | null>(null);
+  const [sedangTerjemah, setSedangTerjemah] = useState(false);
+  const [terjemahGagal, setTerjemahGagal] = useState(false);
+
+  const handleTerjemahkanIstilah = async () => {
+    const daftar = siapkanIstilah(seedKeywords);
+    if (daftar.length === 0) return;
+    setSedangTerjemah(true);
+    setTerjemahGagal(false);
+    try {
+      const hasil = await Promise.all(daftar.map((t) => terjemahkanIstilah(t)));
+      // Kalau SEMUA gagal (kuota habis/jaringan), katakan apa adanya — jangan
+      // menampilkan daftar kosong seolah tidak ada padanan.
+      if (hasil.every((h) => !h.inggris)) {
+        setTerjemahan(null);
+        setTerjemahGagal(true);
+      } else {
+        setTerjemahan(hasil);
+      }
+    } catch {
+      setTerjemahan(null);
+      setTerjemahGagal(true);
+    } finally {
+      setSedangTerjemah(false);
+    }
+  };
+
+  const handlePakaiTerjemahan = () => {
+    if (!terjemahan) return;
+    handleInputChange("kata_kunci", gabungKataKunci(terjemahan));
+    setToastMessage("Kata kunci Indonesia + Inggris sudah masuk ke Kata Kunci Khusus.");
+    setTimeout(() => setToastMessage(null), 3000);
   };
 
   const sourceSlug =
@@ -772,7 +816,25 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                 </div>
               </div>
 
-              <div className="pt-1 flex items-center justify-end">
+              <div className="pt-1 flex flex-wrap items-center justify-end gap-2">
+                <button
+                  type="button"
+                  onClick={handleTerjemahkanIstilah}
+                  disabled={sedangTerjemah}
+                  className="inline-flex items-center gap-1.5 rounded-md border border-[#2959FF]/50 bg-[#16213D] px-3 py-1.5 text-xs font-semibold text-[#FFF9EE] hover:border-[#2959FF] disabled:opacity-50 transition-colors cursor-pointer"
+                >
+                  {sedangTerjemah ? (
+                    <>
+                      <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
+                      Menerjemahkan...
+                    </>
+                  ) : (
+                    <>
+                      <Languages className="h-3.5 w-3.5 text-[#70E1B6]" aria-hidden="true" />
+                      Cari Padanan Inggris
+                    </>
+                  )}
+                </button>
                 <button
                   type="button"
                   onClick={handleApplyLiteratureSeeds}
@@ -781,6 +843,51 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                   Gunakan sebagai Saran Kata Kunci
                 </button>
               </div>
+
+              {terjemahGagal && (
+                <p className="text-[11px] text-[#F5A623] pt-1 border-t border-[#2959FF]/20">
+                  Layanan terjemahan sedang tidak menjawab (kuota harian gratis habis atau tidak ada
+                  koneksi). Coba lagi nanti, atau ketik sendiri istilah Inggrisnya.
+                </p>
+              )}
+
+              {terjemahan && (
+                <div className="pt-2 border-t border-[#2959FF]/20 space-y-2">
+                  <p className="text-[11px] text-[#AAB4D0]">
+                    Padanan Inggris — pakai ini di Google Scholar. Literatur internasional tidak
+                    terindeks dengan kata Indonesia.
+                  </p>
+                  <ul className="space-y-1">
+                    {terjemahan.map((t) => (
+                      <li key={t.istilah} className="flex flex-wrap items-center gap-1.5 text-[11px]">
+                        <span className="text-[#FFF9EE]">{t.istilah}</span>
+                        <span className="text-[#AAB4D0]">→</span>
+                        {t.inggris ? (
+                          <>
+                            <span className="rounded bg-[#16213D] border border-[#273352] px-1.5 py-0.5 text-[10px] text-[#70E1B6]">
+                              {t.inggris}
+                            </span>
+                            {t.dariKamus && (
+                              <span className="text-[10px] text-[#AAB4D0]">(istilah baku)</span>
+                            )}
+                          </>
+                        ) : (
+                          <span className="text-[10px] text-[#AAB4D0]">tidak ada padanan otomatis</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex justify-end pt-1">
+                    <button
+                      type="button"
+                      onClick={handlePakaiTerjemahan}
+                      className="rounded-md border border-[#70E1B6]/50 bg-[#70E1B6]/10 px-3 py-1.5 text-xs font-bold text-[#70E1B6] hover:bg-[#70E1B6]/20 transition-colors cursor-pointer"
+                    >
+                      Isi Kata Kunci (Indonesia + Inggris)
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
