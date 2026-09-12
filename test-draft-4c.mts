@@ -144,5 +144,24 @@ const prompt4A = assembleBedahPrompt({ prodi: "akuntansi", areaEksplorasi: "uji"
 cek("4A masih melarang menulis draft Bab 1", prompt4A.includes("Jangan menulis draft Bab 1"));
 cek("4C hanya boleh jalan setelah fondasi 4B ada", assembleBedahPrompt4C({ prodi: "a", areaEksplorasi: "b", foundation: f }).includes(f.foundation_status));
 
+
+console.log("\n[8] Outline latar belakang (jalur tanpa AI)");
+import { susunOutlineLatarBelakang } from "./src/lib/bab1Outline";
+const outline = susunOutlineLatarBelakang(f);
+cek("outline memuat semua 7 fungsi paragraf", (f.background_map || []).every((p) => outline.includes(`Paragraf ${p.order}`)));
+cek("outline memuat tiap pesan utama", (f.background_map || []).every((p) => outline.includes(p.key_message)));
+cek("outline memuat setiap claim_id", (f.evidence_ledger || []).every((e) => outline.includes(`[${e.claim_id}]`)));
+cek("outline memuat sumber tiap klaim aman", (f.background_map || []).length > 0);
+cek("outline memuat klaim terlarang (global)", (f.prohibited_claims || []).slice(0, 3).every((c) => outline.includes(c)));
+cek("outline memuat larangan per paragraf", (f.background_map || []).flatMap((p) => p.prohibited_claims || []).slice(0, 3).every((c) => outline.includes(c)));
+cek("outline memuat rumusan masalah + tujuan", (f.candidate_research_questions || []).length > 0 && (f.candidate_objectives || []).length > 0);
+cek("outline memuat target panjang total", outline.includes("1000-1300 kata"));
+cek("outline menyatakan ini kerangka bukan tulisan jadi", outline.includes("KERANGKA, bukan tulisan jadi"));
+const outlineTanpaPanjang = susunOutlineLatarBelakang(f, { sertakanBatasPanjang: false });
+cek("opsi tanpa batas panjang benar-benar mencopot target", !outlineTanpaPanjang.includes("1000-1300 kata"));
+const outlineBlocked = susunOutlineLatarBelakang({ ...f, background_map: f.background_map.map((p, i) => (i === 0 ? { ...p, readiness: "BLOCKED" as const } : p)) });
+cek("paragraf BLOCKED diberi tanda jangan ditulis dulu", outlineBlocked.includes("STATUS: BLOKIR"));
+cek("outline tidak mengklaim sebagai tulisan siap kirim", !/siap dikumpulkan|siap diserahkan/i.test(outline));
+
 console.log(`\nRINGKASAN: ${lulus} lulus, ${gagal} gagal`);
 if (gagal > 0) process.exit(1);

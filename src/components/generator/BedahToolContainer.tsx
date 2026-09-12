@@ -90,6 +90,7 @@ import {
   ResearchBedahInput4C,
 } from "@/lib/promptAssembler";
 import { copyToClipboard } from "@/lib/clipboard";
+import { susunOutlineLatarBelakang } from "@/lib/bab1Outline";
 import { ResetConfirmModal } from "./ResetConfirmModal";
 import { AiUsageDeclaration } from "./AiUsageDeclaration";
 import { safeHref } from "@/lib/xss";
@@ -276,6 +277,10 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
   const [parseError4C, setParseError4C] = useState<{ error: string; details?: string[] } | null>(null);
   const [copyStatus4C, setCopyStatus4C] = useState<"idle" | "copied" | "error">("idle");
   const prompt4CSectionRef = useRef<HTMLDivElement>(null);
+  /** Jalur penulisan: kerangka saja, atau kerangka + draf berbantuan AI. */
+  const [jalurBab1, setJalurBab1] = useState<"outline" | "draf">("outline");
+  const [outlinePanjangChecked, setOutlinePanjangChecked] = useState<boolean>(true);
+  const [outlineTersalin, setOutlineTersalin] = useState<boolean>(false);
 
   // Final Saved Package
   const [savedPackage, setSavedPackage] = useState<SavedBab1FoundationPackage | null>(() => {
@@ -506,6 +511,20 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
     const peta = parsedFoundationV1?.background_map || [];
     return { siap: peta.filter((p) => p.readiness !== "BLOCKED"), blocked: peta.filter((p) => p.readiness === "BLOCKED") };
   }, [parsedFoundationV1]);
+
+  /** Outline siap tempel untuk mahasiswa yang tidak memakai AI. */
+  const outlineLatarBelakang = useMemo(() => {
+    if (!parsedFoundationV1) return "";
+    return susunOutlineLatarBelakang(parsedFoundationV1, { sertakanBatasPanjang: outlinePanjangChecked });
+  }, [parsedFoundationV1, outlinePanjangChecked]);
+
+  const handleSalinOutline = async () => {
+    const ok = await copyToClipboard(outlineLatarBelakang);
+    if (ok) {
+      setOutlineTersalin(true);
+      setTimeout(() => setOutlineTersalin(false), 3000);
+    }
+  };
 
   const bedahInput4C = useMemo<ResearchBedahInput4C | null>(() => {
     if (!parsedFoundationV1) return null;
@@ -3289,11 +3308,116 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               </div>
             ) : (
               <>
-                <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs text-[#AAB4D0] leading-relaxed">
-                  <span className="font-bold text-[#FFF9EE]">Yang dikunci di prompt ini:</span> daftar klaim yang boleh dipakai beserta
-                  status buktinya, klaim terlarang, target 1000–1300 kata, dan kewajiban mencantumkan claim_id untuk setiap kalimat
-                  faktual.
+                {/* PILIHAN JALUR: kerangka saja, atau kerangka + draf berbantuan AI */}
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <button
+                    type="button"
+                    onClick={() => setJalurBab1("outline")}
+                    className={`rounded-xl border p-4 text-left transition ${
+                      jalurBab1 === "outline"
+                        ? "border-[#70E1B6] bg-[#70E1B6]/10"
+                        : "border-[#273352] bg-[#080D1D] hover:border-[#70E1B6]/40"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-bold ${
+                          jalurBab1 === "outline" ? "border-[#70E1B6] text-[#70E1B6]" : "border-[#273352] text-[#AAB4D0]"
+                        }`}
+                      >
+                        {jalurBab1 === "outline" ? "✓" : ""}
+                      </span>
+                      <span className="text-sm font-bold text-[#FFF9EE]">1. Kerangka saja</span>
+                    </div>
+                    <p className="mt-2 text-xs text-[#AAB4D0] leading-relaxed">
+                      Kamu dapat rencana latar belakang lengkap: tiap paragraf mau bilang apa, klaim apa yang boleh dipakai, dan dari
+                      sumber mana. Tulisan kamu tulis sendiri. Tanpa AI, tanpa keluar dari halaman ini.
+                    </p>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setJalurBab1("draf")}
+                    className={`rounded-xl border p-4 text-left transition ${
+                      jalurBab1 === "draf"
+                        ? "border-[#2959FF] bg-[#2959FF]/10"
+                        : "border-[#273352] bg-[#080D1D] hover:border-[#2959FF]/40"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-bold ${
+                          jalurBab1 === "draf" ? "border-[#2959FF] text-[#70E1B6]" : "border-[#273352] text-[#AAB4D0]"
+                        }`}
+                      >
+                        {jalurBab1 === "draf" ? "✓" : ""}
+                      </span>
+                      <span className="text-sm font-bold text-[#FFF9EE]">2. Draf siap tempel (bantuan AI)</span>
+                    </div>
+                    <p className="mt-2 text-xs text-[#AAB4D0] leading-relaxed">
+                      Kamu dapat prosa Bab 1 yang sudah jadi, tapi hanya memakai klaim dari Catatan Bukti di atas. Hasilnya diperiksa
+                      dulu sebelum dianggap siap. Butuh ChatGPT atau Gemini.
+                    </p>
+                  </button>
                 </div>
+
+                {jalurBab1 === "outline" && (
+                  <>
+                    <div className="rounded-xl border border-[#70E1B6]/30 bg-[#70E1B6]/5 p-4 space-y-3">
+                      <div className="flex items-start gap-3">
+                        <FileCheck className="h-5 w-5 shrink-0 text-[#70E1B6] mt-0.5" />
+                        <div className="text-xs text-[#FFF9EE] leading-relaxed">
+                          <span className="font-bold">Kerangka latar belakang kamu sudah siap.</span> Isinya: pesan utama per paragraf,
+                          klaim yang boleh dipakai beserta sumbernya, klaim yang dilarang, dan urutan paragraf yang sudah dikunci.
+                          Salin lalu kembangkan jadi tulisan dengan bahasa kamu sendiri. Ini yang membuat karyamu tetap karyamu.
+                        </div>
+                      </div>
+                      <label className="flex items-center gap-2 text-xs text-[#AAB4D0]">
+                        <input
+                          type="checkbox"
+                          checked={outlinePanjangChecked}
+                          onChange={(e) => setOutlinePanjangChecked(e.target.checked)}
+                          className="h-3.5 w-3.5 rounded border-[#273352] bg-[#11182D] text-[#70E1B6] focus:ring-0"
+                        />
+                        <span>Sertakan target panjang per paragraf (1000–1300 kata)</span>
+                      </label>
+                      <div className="flex flex-wrap items-center gap-2 pt-1">
+                        <button
+                          type="button"
+                          onClick={handleSalinOutline}
+                          className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                        >
+                          {outlineTersalin ? (
+                            <>
+                              <Check className="h-4 w-4" />
+                              <span>Kerangka Tersalin!</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="h-4 w-4" />
+                              <span>Salin Kerangka Latar Belakang</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+                      <span className="text-xs font-bold text-[#FFF9EE]">Pratinjau kerangka:</span>
+                      <pre className="mt-2 max-h-72 overflow-y-auto font-mono text-[11px] leading-relaxed text-[#AAB4D0] whitespace-pre-wrap">
+                        {outlineLatarBelakang}
+                      </pre>
+                    </div>
+                  </>
+                )}
+
+                {jalurBab1 === "draf" && (
+                  <>
+                    <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs text-[#AAB4D0] leading-relaxed">
+                      <span className="font-bold text-[#FFF9EE]">Yang dikunci di prompt ini:</span> daftar klaim yang boleh dipakai
+                      beserta status buktinya, klaim terlarang, target 1000–1300 kata, dan kewajiban mencantumkan claim_id untuk setiap
+                      kalimat faktual.
+                    </div>
 
                 <div className="flex flex-wrap items-center gap-3">
                   <button
@@ -3408,6 +3532,8 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                       </div>
                     </div>
                   </div>
+                )}
+                  </>
                 )}
               </>
             )}
