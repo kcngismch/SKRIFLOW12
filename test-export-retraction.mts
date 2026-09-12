@@ -8,6 +8,20 @@ import assert from "node:assert/strict";
 import { escapeRtf, keRtf, keBibtex, entriKeBibtex, namaFileAman } from "./src/lib/ekspor";
 import { petakanRetraksi, cariStatus, kumpulkanDoiSah, urlBatchRetraksi } from "./src/lib/retraction";
 import {
+  doiUntukRingkasan,
+  bacaRingkasanS2,
+  idOpenAlexDariUrls,
+  bacaPaperTerkait,
+  bacaKandidatJudul,
+  cariRingkasan,
+  bodyS2Batch,
+  petaTerkait,
+  ambilTerkait,
+  kumpulkanSemuaId,
+  AMBANG_COCOK,
+  TERKAIT_MAKS_PER_SUMBER,
+} from "./src/lib/literaturTerkait";
+import {
   siapkanIstilah,
   bacaTerjemahan,
   terjemahanTetap,
@@ -206,6 +220,142 @@ ok("gabungan kata kunci memuat versi Indonesia DAN Inggris", () => {
   ]);
   assert.ok(g.includes("pengungkapan") && g.includes("disclosure"));
   assert.ok(g.includes("laba rugi") && g.includes("profit and loss"));
+});
+
+console.log("\n[8] ringkasan & literatur terkait (Semantic Scholar + OpenAlex)");
+ok("hanya DOI sah yang dikirim", () => {
+  assert.deepEqual(doiUntukRingkasan([{ doi: "-" }, { doi: "10.1038/nature12373" }]), ["10.1038/nature12373"]);
+});
+ok("DOI ganda sekali saja", () => {
+  assert.equal(doiUntukRingkasan([{ doi: "10.1038/x1" }, { doi: "10.1038/x1" }]).length, 1);
+});
+ok("body S2 memakai bentuk DOI:<doi>", () => {
+  const b = JSON.parse(bodyS2Batch(["10.1038/x1"]));
+  assert.deepEqual(b.ids, ["DOI:10.1038/x1"]);
+});
+ok("PENTING: S2 mengembalikan null di tengah — indeks harus tetap cocok", () => {
+  // Permintaan [A, B], B tidak ada di S2 -> elemen ke-2 null.
+  const peta = bacaRingkasanS2(
+    [{ tldr: { text: "Ringkasan A" }, title: "A", year: 2020 }, null],
+    ["10.1038/aaa", "10.1038/bbb"]
+  );
+  assert.equal(peta["10.1038/aaa"].ringkasan, "Ringkasan A");
+  assert.equal(peta["10.1038/bbb"].ringkasan, "", "B harus dapat entri kosong, bukan ringkasan A");
+});
+ok("entri tanpa tldr tetap tercatat judulnya", () => {
+  const peta = bacaRingkasanS2([{ title: "Tanpa Ringkasan", year: 2019 }], ["10.1038/ccc"]);
+  assert.equal(peta["10.1038/ccc"].judul, "Tanpa Ringkasan");
+  assert.equal(peta["10.1038/ccc"].ringkasan, "");
+});
+ok("respons cacat -> peta kosong, bukan error", () => {
+  assert.deepEqual(bacaRingkasanS2(null, ["10.1038/a"]), {});
+  assert.deepEqual(bacaRingkasanS2("bukan array", ["10.1038/a"]), {});
+});
+ok("cariRingkasan tahan beda kapitalisasi DOI", () => {
+  const peta = bacaRingkasanS2([{ tldr: { text: "X" } }], ["10.1038/AbC"]);
+  assert.equal(cariRingkasan(peta, "10.1038/abc")?.ringkasan, "X");
+});
+ok("id OpenAlex diekstrak dari URL, duplikat dibuang", () => {
+  const ids = idOpenAlexDariUrls([
+    "https://openalex.org/W2368732888",
+    "https://openalex.org/W2368732888",
+    "https://openalex.org/W2364813980",
+    "bukan url",
+  ]);
+  assert.deepEqual(ids, ["W2368732888", "W2364813980"]);
+});
+ok("daftar id dibatasi 50 secara default (batas resolve_openalex)", () => {
+  const banyak = Array.from({ length: 300 }, (_, i) => `https://openalex.org/W${i}`);
+  assert.equal(idOpenAlexDariUrls(banyak).length, 50);
+});
+ok("batas id bisa diatur pemanggil", () => {
+  const banyak = Array.from({ length: 30 }, (_, i) => `https://openalex.org/W${i}`);
+  assert.equal(idOpenAlexDariUrls(banyak, 8).length, 8);
+});
+ok("paper terkait dibaca: judul wajib, DOI prefix https dibuang", () => {
+  const t = bacaPaperTerkait({
+    results: [
+      { id: "https://openalex.org/W1", doi: "https://doi.org/10.1038/x", title: "Paper A", publication_year: 2021 },
+      { id: "https://openalex.org/W2", title: "", publication_year: 2021 },
+    ],
+  });
+  assert.equal(t.length, 1, "entri tanpa judul dibuang");
+  assert.equal(t[0].doi, "10.1038/x");
+  assert.equal(t[0].openalexId, "W1");
+});
+ok("respons terkait cacat -> daftar kosong", () => {
+  assert.deepEqual(bacaPaperTerkait(null), []);
+  assert.deepEqual(bacaPaperTerkait({ results: {} }), []);
+});
+
+console.log("\n[9] sumber TANPA DOI — dicarikan lewat judul (kasus nyata di Tool 5)");
+// Kasus nyata: 21 sumber paket Tool 4, 0 punya DOI (laporan tahunan, siaran pers
+// OJK, standar IAI). Versi pertama panel diam saja untuk kasus ini.
+const JUDUL_NYATA = "Kesiapan dan Tantangan Perusahaan Asuransi di Indonesia dalam Menerapkan PSAK 74";
+
+ok("judul identik lolos ambang dan DOInya diambil", () => {
+  const k = bacaKandidatJudul(
+    { results: [{ doi: "https://doi.org/10.1234/kesiapan", title: JUDUL_NYATA, publication_year: 2023, related_works: ["https://openalex.org/W1"] }] },
+    JUDUL_NYATA
+  );
+  assert.equal(k.length, 1);
+  assert.equal(k[0].doi, "10.1234/kesiapan");
+  assert.deepEqual(k[0].relatedIds, ["W1"]);
+  assert.ok(k[0].skor >= AMBANG_COCOK);
+});
+ok("judul BEDA (karya orang lain) DITOLAK — jangan salah tempel ringkasan", () => {
+  const k = bacaKandidatJudul(
+    { results: [{ doi: "https://doi.org/10.1/y", title: "Pengaruh Pupuk terhadap Hasil Panen Padi di Jawa" }] },
+    JUDUL_NYATA
+  );
+  assert.equal(k.length, 0, "judul tidak mirip harus dibuang, bukan dipasangkan");
+});
+ok("kandidat terbaik dipilih saat ada beberapa hasil", () => {
+  const k = bacaKandidatJudul(
+    {
+      results: [
+        { doi: "https://doi.org/10.1234/lain", title: "Manajemen Risiko Perbankan Syariah" },
+        { doi: "https://doi.org/10.1234/cocok", title: JUDUL_NYATA },
+      ],
+    },
+    JUDUL_NYATA
+  );
+  assert.equal(k.length, 1);
+  assert.equal(k[0].doi, "10.1234/cocok");
+});
+ok("hasil tanpa DOI sah dilewati", () => {
+  const k = bacaKandidatJudul({ results: [{ title: JUDUL_NYATA }] }, JUDUL_NYATA);
+  assert.equal(k.length, 0);
+});
+ok("respons cacat -> kandidat kosong", () => {
+  assert.deepEqual(bacaKandidatJudul(null, "x"), []);
+  assert.deepEqual(bacaKandidatJudul({ results: "bukan array" }, "x"), []);
+});
+
+console.log("\n[10] penempelan karya serupa — tidak boleh nyasar ke sumber lain");
+ok("petaTerkait + ambilTerkait mengembalikan karya MILIK sumber itu", () => {
+  const peta = petaTerkait([
+    { openalexId: "W1", judul: "Karya A" },
+    { openalexId: "W2", judul: "Karya B" },
+  ]);
+  const hasil = ambilTerkait(peta, ["W2"]);
+  assert.equal(hasil.length, 1);
+  assert.equal(hasil[0].judul, "Karya B");
+});
+ok("id yang tidak ada di peta dilewati, bukan jadi entri kosong", () => {
+  const peta = petaTerkait([{ openalexId: "W1", judul: "A" }]);
+  assert.equal(ambilTerkait(peta, ["W9", "W1"]).length, 1);
+});
+ok("karya serupa dibatasi 5 per sumber", () => {
+  const peta = petaTerkait(Array.from({ length: 12 }, (_, i) => ({ openalexId: `W${i}`, judul: `K${i}` })));
+  assert.equal(ambilTerkait(peta, Array.from({ length: 12 }, (_, i) => `W${i}`)).length, TERKAIT_MAKS_PER_SUMBER);
+});
+ok("kumpulkanSemuaId membuang duplikat antar-sumber", () => {
+  assert.deepEqual(kumpulkanSemuaId([["W1", "W2"], ["W2", "W3"]]), ["W1", "W2", "W3"]);
+});
+ok("total id dibatasi 50 (agar resolve tidak jadi permintaan raksasa)", () => {
+  const besar = [Array.from({ length: 80 }, (_, i) => `W${i}`)];
+  assert.equal(kumpulkanSemuaId(besar).length, 50);
 });
 
 console.log(`\n${lulus} lulus, ${process.exitCode ? "ADA GAGAL" : "0 gagal"}\n`);

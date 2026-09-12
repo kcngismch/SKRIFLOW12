@@ -21,6 +21,7 @@ import {
   LencanaVerifikasi,
   useVerifikasiSumber,
 } from "./VerifikasiSumberPanel";
+import { PanelRingkasanDanTerkait } from "./PanelRingkasanDanTerkait";
 import { assemblePrompt } from "@/lib/promptAssembler";
 import { getAutofillForTool, applyAutofillValues } from "@/lib/autofill";
 import {
@@ -1931,6 +1932,14 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         {isEvidenceOpen && (
                           <div className="p-4 border-t border-[#273352] space-y-4">
                             <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
+                            <PanelRingkasanDanTerkait
+                              daftar={cand.evidence.map((ev, i) => ({
+                                sourceId: `${cand.id}-bukti-${i + 1}`,
+                                title: ev.source_title,
+                                url: ev.url,
+                                documentType: ev.source_type,
+                              }))}
+                            />
                             <div className="flex justify-end">
                               <TombolUnduhBibtex
                                 daftar={cand.evidence.map((ev, i) => ({

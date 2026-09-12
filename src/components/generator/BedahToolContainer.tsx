@@ -43,6 +43,7 @@ import {
   TombolUnduhBibtex,
   useVerifikasiSumber,
 } from "./VerifikasiSumberPanel";
+import { PanelRingkasanDanTerkait } from "./PanelRingkasanDanTerkait";
 import {
   assembleBedahPrompt,
   analyzeBedahPrompt,
@@ -745,6 +746,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                     </div>
                   </div>
                   <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
+                  <PanelRingkasanDanTerkait daftar={sumberUntukDiperiksa} />
                 </div>
               )}
 
@@ -1641,6 +1643,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                     </div>
 
                     <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
+                    <PanelRingkasanDanTerkait daftar={sumberUntukDiperiksa} />
                     <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
                       {parsedPayloadV2.source_weights.map((sw) => {
                         const swStatus = getStudentStatus(sw.weight);

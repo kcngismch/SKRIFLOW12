@@ -90,6 +90,7 @@ import {
   LencanaVerifikasi,
   useVerifikasiSumber,
 } from "./VerifikasiSumberPanel";
+import { PanelRingkasanDanTerkait } from "./PanelRingkasanDanTerkait";
 import {
   assembleBedahPrompt,
   analyzeBedahPrompt,
@@ -2666,6 +2667,8 @@ export const Bab1ToolContainer: React.FC = () => {
               </span>
             </div>
           </div>
+
+          {sumberAcuanTool5.length > 0 && <PanelRingkasanDanTerkait daftar={sumberAcuanTool5} />}
 
           {/* Pemeriksa draf */}
           <div className="space-y-4">
