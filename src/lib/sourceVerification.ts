@@ -14,31 +14,55 @@ export const KATA_UMUM = new Set([
   "the","of","and","in","on","for","study","analysis","effect","impact",
   "implementation","application","companies","company","case","evidence",
   "between","before","after","its","our","new",
-  // Kata generik ranah akuntansi/asuransi: muncul di hampir semua judul topik
-  // ini sehingga tidak membedakan satu dokumen dari dokumen lain.
+]);
+
+/**
+ * Kata ranah: muncul di hampir semua judul topik ini, jadi lemah sebagai bukti —
+ * TAPI tidak boleh dibuang. Dulu kata-kata ini dimasukkan ke KATA_UMUM; akibatnya
+ * judul yang sah dan tidak salah ketip pun kehilangan semua kata bermakna,
+ * skornya jatuh ke 0, dan sumber asli dilaporkan "tidak ada" (padahal judulnya
+ * identik dengan yang ada di Crossref). Sekarang bobotnya kecil, bukan nol.
+ */
+export const KATA_RANAH = new Set([
   "ifrs","psak","insurance","contract","contracts","asuransi","kontrak",
   "keuangan","akuntansi","financial","accounting",
 ]);
+const BOBOT_RANAH = 0.25;
 
-/** Bagi judul jadi kata bermakna (buang kata umum dan kata pendek). */
-function kataBermakna(s: string): Set<string> {
-  return new Set(
-    s
-      .toLowerCase()
-      .replace(/[^\p{L}\p{N}\s]/gu, " ")
-      .split(/\s+/)
-      .filter((w) => w.length > 3 && !KATA_UMUM.has(w))
-  );
+/** Bagi judul jadi kata berbobot (kata umum bobot 0, kata ranah 0.25, sisanya 1). */
+function kataBerbobot(s: string): Map<string, number> {
+  const m = new Map<string, number>();
+  for (const w of s.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, " ").split(/\s+/)) {
+    if (w.length <= 3 || KATA_UMUM.has(w)) continue;
+    const bobot = KATA_RANAH.has(w) ? BOBOT_RANAH : 1;
+    m.set(w, Math.max(m.get(w) ?? 0, bobot));
+  }
+  return m;
 }
 
-/** Kesamaan judul: bagian judul sumber yang juga muncul di judul pembanding. */
+/**
+ * Kesamaan judul: porsi kata bermakna judul sumber yang juga muncul di judul
+ * pembanding. Pembandingnya judul yang PANJANG (penyebut terbesar), supaya judul
+ * pendek yang isinya cuma kata ranah tidak mendapat skor tinggi hanya karena
+ * seluruh katanya kebetulan ikut muncul di judul panjang.
+ *
+ * Wajib >= 2 kata yang sama: satu kata yang sama tidak cukup bukti.
+ */
 export function kemiripanJudul(a: string, b: string): number {
-  const wa = kataBermakna(a);
-  const wb = kataBermakna(b);
-  if (wa.size < 2 || wb.size < 2) return 0; // judul terlalu umum -> tidak bisa dinilai
+  const wa = kataBerbobot(a);
+  const wb = kataBerbobot(b);
+  if (wa.size === 0 || wb.size === 0) return 0; // judul terlalu umum -> tidak bisa dinilai
   let sama = 0;
-  for (const w of wa) if (wb.has(w)) sama++;
-  return sama / Math.min(wa.size, wb.size);
+  let jumlahKata = 0;
+  for (const [w, bobot] of wa) {
+    const lain = wb.get(w);
+    if (lain === undefined) continue;
+    sama += Math.min(bobot, lain);
+    jumlahKata++;
+  }
+  if (jumlahKata < 2) return 0;
+  const jumlah = (m: Map<string, number>) => [...m.values()].reduce((x, y) => x + y, 0);
+  return sama / Math.max(jumlah(wa), jumlah(wb));
 }
 
 /** Ambil DOI dari URL doi.org bila ada, mis. https://doi.org/10.1038/nature12373 */
@@ -69,4 +93,17 @@ export function jenisDiawasiCrossref(documentType?: string): boolean {
 export function perluCariDoaj(verdict: string, documentType?: string): boolean {
   // Hanya saat Crossref tidak menemukan apa pun DAN jenisnya terbitan ilmiah.
   return verdict === "TIDAK_DITEMUKAN" && jenisDiawasiCrossref(documentType);
+}
+
+/**
+ * DOI yang bentuknya sah selalu diawali "10." lalu kode registrant.
+ * Output AI sering mengisi kolom DOI dengan "-", "N/A", atau "tidak ada";
+ * nilai seperti itu BUKAN DOI dan tidak boleh dikirim ke Crossref sebagai
+ * DOI (kalau dikirim, jawabannya "tidak terdaftar" lalu sumber asli yang
+ * sebenarnya ada dilaporkan sebagai palsu).
+ */
+export function doiSah(raw: string | undefined | null): string {
+  const v = (raw || "").trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
+  if (!/^10\.\d{4,9}\/\S+$/i.test(v)) return "";
+  return v;
 }

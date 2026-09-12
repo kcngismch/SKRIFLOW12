@@ -9,7 +9,7 @@ import { NextResponse } from "next/server";
  * Batas: maksimal 12 sumber per permintaan untuk mencegah penyalahgunaan.
  */
 
-import { doiDariUrl, jenisDiawasiCrossref, kemiripanJudul, perluCariDoaj } from "@/lib/sourceVerification";
+import { doiDariUrl, doiSah, jenisDiawasiCrossref, kemiripanJudul, perluCariDoaj } from "@/lib/sourceVerification";
 
 const MAX_ITEMS = 12;
 const TIMEOUT_MS = 8000;
@@ -231,7 +231,9 @@ export async function POST(req: Request) {
 
   const hasil: Hasil[] = [];
   for (const item of items) {
-    const doi = (item.doi || "").trim() || doiDariUrl(item.url || "");
+    // "-" / "N/A" bukan DOI: kalau diteruskan, Crossref menjawab "tidak ada"
+    // dan sumber yang sebenarnya sah ikut dilaporkan palsu.
+    const doi = doiSah(item.doi) || doiDariUrl(item.url || "");
     const judul = (item.title || "").trim();
 
     if (doi) {
