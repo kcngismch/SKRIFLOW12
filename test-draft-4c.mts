@@ -5,6 +5,7 @@
 import { parseBab1FoundationTransfer, parseBab1DraftTransfer, periksaDrafBab1, hitungKata } from "./src/lib/bedahParser";
 import { assembleBedahPrompt4C } from "./src/lib/promptAssembler";
 import { readFileSync } from "node:fs";
+import { ACTIVE_TOOLS } from "./src/data/tools";
 
 let lulus = 0;
 let gagal = 0;
@@ -162,6 +163,25 @@ cek("opsi tanpa batas panjang benar-benar mencopot target", !outlineTanpaPanjang
 const outlineBlocked = susunOutlineLatarBelakang({ ...f, background_map: f.background_map.map((p, i) => (i === 0 ? { ...p, readiness: "BLOCKED" as const } : p)) });
 cek("paragraf BLOCKED diberi tanda jangan ditulis dulu", outlineBlocked.includes("STATUS: BLOKIR"));
 cek("outline tidak mengklaim sebagai tulisan siap kirim", !/siap dikumpulkan|siap diserahkan/i.test(outline));
+
+console.log("\n[9] Pemisahan Tool 4 vs Tool 5 (Susun Bab 1)");
+const srcBedah = readFileSync("src/components/generator/BedahToolContainer.tsx", "utf8");
+const srcBab1 = readFileSync("src/components/generator/Bab1ToolContainer.tsx", "utf8");
+cek("Tool 4 tidak lagi punya blok Tahap 5 (uji kelayakan)", !srcBedah.includes("TAHAP 5: FEASIBILITY GATE"));
+cek("Tool 4 tidak lagi punya blok Tahap 6-9", !srcBedah.includes("TAHAP 6:") && !srcBedah.includes("TAHAP 9:"));
+cek("Tool 4 tidak lagi memuat prompt 4B/4C", !srcBedah.includes("assembleBedahPrompt4B") && !srcBedah.includes("assembleBedahPrompt4C"));
+cek("Tool 4 mengarahkan ke /tools/susun-bab-1", srcBedah.includes("/tools/susun-bab-1"));
+cek("Tool 5 memuat blok Tahap 5-9", ["TAHAP 5: FEASIBILITY GATE", "TAHAP 6:", "TAHAP 7:", "TAHAP 8:", "TAHAP 9:"].every((s) => srcBab1.includes(s)));
+cek("Tool 5 memuat dua jalur Bab 1", srcBab1.includes("Kerangka saja") && srcBab1.includes("Draf siap tempel"));
+cek("Tool 5 baca arah dari Tool 4 (bukan menyimpan sendiri)", srcBab1.includes("loadSelectedDirectionId"));
+cek(
+  "reset Tool 5 TIDAK menghapus arah terpilih milik Tool 4",
+  !/handleConfirmReset[\s\S]{0,1200}?clearSelectedDirectionId/.test(srcBab1),
+);
+cek("modal reset Tool 5 terpasang di JSX", srcBab1.includes("ResetConfirmModal"));
+const t5 = ACTIVE_TOOLS.find((t) => t.slug === "susun-bab-1");
+cek("Tool 5 terdaftar di katalog", !!t5);
+cek("Tool 5 berlabel 'Susun Bab 1'", t5?.name === "Susun Bab 1");
 
 console.log(`\nRINGKASAN: ${lulus} lulus, ${gagal} gagal`);
 if (gagal > 0) process.exit(1);

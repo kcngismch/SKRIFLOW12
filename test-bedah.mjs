@@ -380,7 +380,7 @@ const t4 = getToolBySlug("bedah-hasil-notebooklm");
 assert(t4 !== undefined, "42. Tool Bedah terdaftar di catalog");
 assert(t4.name === "Bedah Fenomena & Literatur", "43. Nama Tool Bedah adalah 'Bedah Fenomena & Literatur'");
 assert(t4.previousStep.href === "/tools/cari-literatur-awal", "44. Previous step -> /tools/cari-literatur-awal");
-assert(t4.nextStep.href === "/tools", "45. Next step -> /tools");
+assert(t4.nextStep.href === "/tools/susun-bab-1", "45. Next step Tool 4 -> /tools/susun-bab-1");
 
 console.log(`\n=== SUMMARY: ${passed} PASSED, ${failed} FAILED ===\n`);
 if (failed > 0) {

@@ -6,6 +6,7 @@ import { ToolGeneratorContainer } from "./generator/ToolGeneratorContainer";
 import { IdeaToolContainer } from "./generator/IdeaToolContainer";
 import { PhenomenonToolContainer } from "./generator/PhenomenonToolContainer";
 import { BedahToolContainer } from "./generator/BedahToolContainer";
+import { Bab1ToolContainer } from "./generator/Bab1ToolContainer";
 import { AccessGate } from "./generator/AccessGate";
 import { ToolStepper } from "./generator/ToolStepper";
 import {
@@ -14,6 +15,7 @@ import {
   Lightbulb,
   BookOpen,
   GitCompare,
+  Compass,
 } from "lucide-react";
 
 interface ToolDetailShellProps {
@@ -28,6 +30,8 @@ const getToolIcon = (iconName: Tool["iconName"]) => {
       return <BookOpen className="h-6 w-6 text-[#2959FF]" aria-hidden="true" />;
     case "GitCompare":
       return <GitCompare className="h-6 w-6 text-[#70E1B6]" aria-hidden="true" />;
+    case "Compass":
+      return <Compass className="h-6 w-6 text-[#2959FF]" aria-hidden="true" />;
     default:
       return <Lightbulb className="h-6 w-6 text-[#FF6F61]" aria-hidden="true" />;
   }
@@ -101,6 +105,8 @@ export const ToolDetailShell: React.FC<ToolDetailShellProps> = ({ tool }) => {
             <PhenomenonToolContainer tool={tool} />
           ) : tool.slug === "bedah-hasil-notebooklm" ? (
             <BedahToolContainer tool={tool} />
+          ) : tool.slug === "susun-bab-1" ? (
+            <Bab1ToolContainer />
           ) : (
             <ToolGeneratorContainer key={tool.slug} tool={tool} />
           )}

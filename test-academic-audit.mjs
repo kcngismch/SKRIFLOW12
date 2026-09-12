@@ -41,8 +41,11 @@ ok("Deklarasi AI: kontrak teks di depan (draf dari jejak proses, bukan tulisan A
   assert.ok(src.includes("bukan tulisan AI"), "penegasan bukan tulisan AI ada");
   assert.ok(src.includes("Deklarasi Penggunaan AI"), "judul section ada");
   assert.ok(src.includes("textarea"), "editable oleh mahasiswa");
+  // Deklarasi AI ikut pindah ke Tool 5 (Susun Bab 1) karena draf kini ditulis di sana.
+  const bab1 = readFileSync("src/components/generator/Bab1ToolContainer.tsx", "utf8");
+  assert.ok(bab1.includes("AiUsageDeclaration"), "terpasang di Tool 5 (Susun Bab 1)");
   const bedah = readFileSync("src/components/generator/BedahToolContainer.tsx", "utf8");
-  assert.ok(bedah.includes("AiUsageDeclaration"), "terpasang di Tool 4");
+  assert.ok(!bedah.includes("SKRIFLOW_BAB1_DRAFT_V1"), "Tool 4 tidak lagi memuat tahap draf (pindah ke Tool 5)");
 });
 
 console.log(`\n${passed} PASSED, 0 FAILED (audit akademik)`);

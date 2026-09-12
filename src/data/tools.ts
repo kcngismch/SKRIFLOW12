@@ -566,6 +566,40 @@ export const ACTIVE_TOOLS: Tool[] = [
       href: "/tools/cari-literatur-awal",
     },
     nextStep: {
+      eyebrow: "LANJUT KE PENULISAN",
+      title: "Susun Bab 1",
+      href: "/tools/susun-bab-1",
+    },
+  },
+  {
+    id: "tool-5",
+    slug: "susun-bab-1",
+    name: "Susun Bab 1",
+    description:
+      "Ubah Paket Fondasi dari Tool 4 menjadi Bab 1: peta narasi, kerangka siap tulis, atau draf berbantuan AI yang diperiksa terhadap catatan bukti.",
+    targetPlatform: "ChatGPT / Gemini",
+    iconName: "Compass",
+    badgeText: "Penulisan Bab 1",
+    fields: [],
+    // Tidak memakai template teks: seluruh isinya dibaca dari hasil Tool 4.
+    promptConfig: {
+      role: "Menyusun Bab 1 dari Paket Fondasi yang dihasilkan Tool 4.",
+      task: "Menampilkan peta narasi, kerangka siap tulis, dan draf berbantuan AI yang diperiksa terhadap catatan bukti.",
+      rules: [
+        "Jangan menambah klaim di luar catatan bukti.",
+        "Jangan menulis paragraf yang ditandai BLOCKED.",
+      ],
+      outputFormat: [
+        "1. Peta narasi 7 paragraf",
+        "2. Kerangka siap tulis",
+        "3. Draf + hasil pemeriksaan",
+      ],
+    },
+    previousStep: {
+      label: "Kembali ke Bedah Fenomena & Literatur",
+      href: "/tools/bedah-hasil-notebooklm",
+    },
+    nextStep: {
       eyebrow: "SELESAI UNTUK PROTOTYPE INI",
       title: "Kembali ke Dashboard",
       href: "/tools",
@@ -574,11 +608,6 @@ export const ACTIVE_TOOLS: Tool[] = [
 ];
 
 export const LOCKED_PHASES: LockedPhase[] = [
-  {
-    id: "phase-bab-1",
-    title: "Lanjut ke Bab 1",
-    badge: "COMING SOON",
-  },
   {
     id: "phase-bab-2",
     title: "Bangun Bab 2",

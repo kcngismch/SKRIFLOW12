@@ -9,6 +9,7 @@ const JOURNEY = [
   { slug: "cari-fenomena-awal", label: "Fenomena" },
   { slug: "cari-literatur-awal", label: "Literatur" },
   { slug: "bedah-hasil-notebooklm", label: "Bedah Hasil" },
+  { slug: "susun-bab-1", label: "Bab 1" },
 ] as const;
 
 /**
