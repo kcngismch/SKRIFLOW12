@@ -9,6 +9,12 @@ import { BedahToolContainer } from "./generator/BedahToolContainer";
 import { Bab1ToolContainer } from "./generator/Bab1ToolContainer";
 import { Bab2ToolContainer } from "./generator/Bab2ToolContainer";
 import { AccessGate } from "./generator/AccessGate";
+
+/**
+ * Paywall DITUNDA. Semua tool terbuka supaya orang bisa merasakan satu putaran
+ * penuh sebelum diminta membayar. Ubah ke false saat siap jualan.
+ */
+const BUKA_SEMUA_TOOL = true;
 import { ToolStepper } from "./generator/ToolStepper";
 import {
   ArrowLeft,
@@ -97,12 +103,12 @@ export const ToolDetailShell: React.FC<ToolDetailShellProps> = ({ tool }) => {
         </div>
       </div>
 
-      {/* Active Container: Tool 1 gratis, Tool 2-4 diproteksi AccessGate */}
-      {tool.id === "tool-1" || tool.slug === "cari-ide-skripsi" ? (
-        <IdeaToolContainer tool={tool} />
-      ) : (
-        <AccessGate>
-          {tool.slug === "cari-fenomena-awal" || tool.slug === "cari-validasi-fenomena" ? (
+      {/* Active Container */}
+      {(() => {
+        const isi =
+          tool.id === "tool-1" || tool.slug === "cari-ide-skripsi" ? (
+            <IdeaToolContainer tool={tool} />
+          ) : tool.slug === "cari-fenomena-awal" || tool.slug === "cari-validasi-fenomena" ? (
             <PhenomenonToolContainer tool={tool} />
           ) : tool.slug === "bedah-hasil-notebooklm" ? (
             <BedahToolContainer tool={tool} />
@@ -112,9 +118,9 @@ export const ToolDetailShell: React.FC<ToolDetailShellProps> = ({ tool }) => {
             <Bab2ToolContainer />
           ) : (
             <ToolGeneratorContainer key={tool.slug} tool={tool} />
-          )}
-        </AccessGate>
-      )}
+          );
+        return BUKA_SEMUA_TOOL ? isi : <AccessGate>{isi}</AccessGate>;
+      })()}
     </div>
   );
 };

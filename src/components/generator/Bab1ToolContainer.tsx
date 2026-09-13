@@ -92,6 +92,7 @@ import {
 } from "./VerifikasiSumberPanel";
 import { PanelRingkasanDanTerkait } from "./PanelRingkasanDanTerkait";
 import { SequentialNavigation } from "./SequentialNavigation";
+import { TempelBahanPanel } from "./TempelBahanPanel";
 import {
   assembleBedahPrompt,
   analyzeBedahPrompt,
@@ -561,6 +562,31 @@ export const Bab1ToolContainer: React.FC = () => {
       setOutlineTersalin(true);
       setTimeout(() => setOutlineTersalin(false), 3000);
     }
+  };
+
+  /** Bahan yang ditempel mahasiswa sendiri (draf/outline yang sudah ada). */
+  const [tempelanBab1, setTempelanBab1] = useState<string>("");
+
+  /** Daftar sumber yang dipakai untuk memeriksa bahan tempelan: register Tool 3. */
+  const registerSumberUntukTempel = useMemo(() => {
+    const dariPaket = extractSumberPaketLiteratur(literaturePackage);
+    if (dariPaket.length > 0) {
+      return dariPaket.map((s) => ({
+        sourceId: String(s.sourceId ?? ""),
+        authorsYear: String(s.authorsYear ?? ""),
+      }));
+    }
+    return (parsedPayloadV2?.source_weights ?? []).map((sw) => {
+      const x = sw as unknown as Record<string, unknown>;
+      return { sourceId: String(x.source_id ?? ""), authorsYear: String(x.penulis_tahun ?? "") };
+    });
+  }, [literaturePackage, parsedPayloadV2]);
+
+  const handleTerimaTempelanBab1 = (teks: string) => {
+    setTempelanBab1(teks);
+    setToastMessage(
+      "Bahanmu diterima dan sudah diperiksa sitasinya. Sisa paragraf bisa kamu tulis setelah ini."
+    );
   };
 
   const bedahInput4C = useMemo<ResearchBedahInput4C | null>(() => {
@@ -2405,11 +2431,34 @@ export const Bab1ToolContainer: React.FC = () => {
             )}
 
             {bedahInput4C === null ? (
-              <div className="rounded-xl border border-rose-500/40 bg-rose-500/10 p-4 text-xs text-rose-200">
-                Semua bagian peta berstatus BLOCKED. Belum ada yang bisa ditulis menjadi draf.
+              <div className="space-y-4">
+                {/* Jalur Tool 4 belum lengkap. Dulu ini buntu total: pesan merah dan
+                    tidak ada cara memasukkan bahan yang sudah ditulis mahasiswa.
+                    Sekarang ada pintu masuk — aturan sitasi tetap ditegakkan. */}
+                <div className="rounded-xl border border-[#FFB84D]/40 bg-[#FFB84D]/10 p-4 text-xs leading-relaxed text-[#FFB84D]">
+                  <span className="font-bold">Jalur lewat Tool 4 belum lengkap.</span> Kalau kamu sudah punya draf atau
+                  kerangka latar belakang sendiri, tidak perlu mengulang dari awal — tempel di bawah dan periksa sitasinya.
+                </div>
+                <TempelBahanPanel
+                  register={registerSumberUntukTempel}
+                  namaBahan="draf/kerangka Bab 1"
+                  onTerima={handleTerimaTempelanBab1}
+                  sudahAdaBahan={!!tempelanBab1}
+                />
               </div>
             ) : (
               <>
+                {/* Pintu masuk bahan lama juga tersedia di jalur normal, untuk
+                    mahasiswa yang sudah menulis sebagian sebelum memakai Skriflow. */}
+                <div className="mb-3">
+                  <TempelBahanPanel
+                    register={registerSumberUntukTempel}
+                    namaBahan="draf/kerangka Bab 1"
+                    onTerima={handleTerimaTempelanBab1}
+                    sudahAdaBahan={!!tempelanBab1}
+                  />
+                </div>
+
                 {/* PILIHAN JALUR: kerangka saja, atau kerangka + draf berbantuan AI */}
                 <div className="grid gap-3 sm:grid-cols-2">
                   <button

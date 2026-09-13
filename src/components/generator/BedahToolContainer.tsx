@@ -617,7 +617,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               </div>
               <div className="border-t border-amber-500/20 pt-2 flex items-center justify-between">
                 <a
-                  href="/dashboard/tool-2"
+                  href="/tools/cari-fenomena-awal"
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FFB84D] hover:underline"
                 >
                   <Compass className="h-3.5 w-3.5" />

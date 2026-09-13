@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { PlatformBadge } from "@/components/PlatformBadge";
 import { SequentialNavigation } from "./SequentialNavigation";
+import { TempelBahanPanel } from "./TempelBahanPanel";
 import { extractSumberPaketLiteratur } from "@/lib/bedahParser";
 import { bangunPetaBab2 } from "@/lib/bab2Map";
 import {
@@ -604,7 +605,20 @@ export const Bab2ToolContainer: React.FC = () => {
           platform="ChatGPT / Gemini"
         />
         {bab1Terblokir ? (
-          <p className="text-xs text-[#A79FC4]">Selesaikan dulu Bab 1 di Tool 5 — lihat pesan di atas.</p>
+          <div className="space-y-4">
+            {/* Dulu buntu: pesan satu baris tanpa jalan keluar. Mahasiswa yang
+                sudah menulis Bab 2 sendiri tidak punya cara memasukkannya. */}
+            <p className="text-xs text-[#A79FC4]">Jalur lewat Tool 5 belum lengkap.</p>
+            <TempelBahanPanel
+              register={register.map((s) => ({
+                sourceId: String(s.sourceId ?? ""),
+                authorsYear: String(s.authorsYear ?? ""),
+              }))}
+              namaBahan="Bab 2 (tinjauan pustaka)"
+              onTerima={() => {}}
+              sudahAdaBahan={false}
+            />
+          </div>
         ) : gerbangSumber || gerbangPendekatan ? (
           <p className="text-xs text-[#A79FC4]">
             Selesaikan dulu sumber register dan pendekatan penelitian di atas.
