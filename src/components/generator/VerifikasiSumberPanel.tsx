@@ -115,7 +115,7 @@ export function TombolPeriksaSumber({
       type="button"
       onClick={onClick}
       disabled={sedangProses}
-      className="inline-flex items-center gap-1.5 rounded-lg border border-[#2959FF]/50 bg-[#2959FF]/15 px-3 py-1.5 text-xs font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/25 transition-colors disabled:opacity-50"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-[#6D5AE6]/50 bg-[#6D5AE6]/15 px-3 py-1.5 text-xs font-semibold text-[#FBFAFF] hover:bg-[#6D5AE6]/25 transition-colors disabled:opacity-50"
     >
       {sedangProses ? (
         <>
@@ -124,7 +124,7 @@ export function TombolPeriksaSumber({
         </>
       ) : (
         <>
-          <ShieldCheck className="h-3.5 w-3.5 text-[#70E1B6]" aria-hidden="true" />
+          <ShieldCheck className="h-3.5 w-3.5 text-[#FFB84D]" aria-hidden="true" />
           <span>Periksa ke Crossref</span>
         </>
       )}
@@ -143,10 +143,10 @@ export function RingkasanVerifikasi({ hasil, catatan }: { hasil: Record<string, 
   return (
     <div
       className={`rounded-lg border p-3 text-xs space-y-1.5 ${
-        ditarik > 0 ? "border-rose-500/60 bg-rose-500/10" : "border-[#273352] bg-[#11182D]"
+        ditarik > 0 ? "border-rose-500/60 bg-rose-500/10" : "border-[#2E2748] bg-[#191430]"
       }`}
     >
-      <p className="font-semibold text-[#FFF9EE]">
+      <p className="font-semibold text-[#FBFAFF]">
         Hasil pemeriksaan {nilai.length} sumber (Crossref → OpenAlex → DOAJ):
       </p>
       {ditarik > 0 && (
@@ -156,7 +156,7 @@ export function RingkasanVerifikasi({ hasil, catatan }: { hasil: Record<string, 
           ganti dengan sumber lain.
         </p>
       )}
-      <ul className="space-y-0.5 text-[#AAB4D0]">
+      <ul className="space-y-0.5 text-[#A79FC4]">
         {hitung("TERVERIFIKASI") > 0 && <li>• {hitung("TERVERIFIKASI")} DOInya terdaftar resmi</li>}
         {hitung("KEMUNGKINAN_COCOK") > 0 && (
           <li>• {hitung("KEMUNGKINAN_COCOK")} judulnya mirip dengan yang ada di basis data</li>
@@ -169,10 +169,10 @@ export function RingkasanVerifikasi({ hasil, catatan }: { hasil: Record<string, 
         )}
         {hitung("TIDAK_DAPAT_DIPERIKSA") > 0 && <li>• {hitung("TIDAK_DAPAT_DIPERIKSA")} tidak dapat diperiksa</li>}
       </ul>
-      {catatan && <p className="text-[11.5px] text-[#F5A623]">{catatan}</p>}
+      {catatan && <p className="text-[11.5px] text-[#FF9E5E]">{catatan}</p>}
       <p
-        className={`text-[11.5px] leading-relaxed pt-1 border-t border-[#273352]/60 ${
-          perluCek > 0 ? "text-rose-300 font-semibold" : "text-[#AAB4D0]"
+        className={`text-[11.5px] leading-relaxed pt-1 border-t border-[#2E2748]/60 ${
+          perluCek > 0 ? "text-rose-300 font-semibold" : "text-[#A79FC4]"
         }`}
       >
         {perluCek > 0
@@ -235,7 +235,7 @@ export function TombolUnduhBibtex({
       type="button"
       onClick={unduh}
       title="Impor berkas ini ke Mendeley / Zotero (File > Import)"
-      className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 text-xs font-semibold text-[#AAB4D0] hover:border-[#2959FF] hover:text-[#FFF9EE] transition-colors"
+      className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#0C0A1A] px-3 py-1.5 text-xs font-semibold text-[#A79FC4] hover:border-[#6D5AE6] hover:text-[#FBFAFF] transition-colors"
     >
       <FileDown className="h-3.5 w-3.5" aria-hidden="true" />
       <span>Unduh Daftar Pustaka (.bib)</span>
@@ -249,12 +249,12 @@ export function LencanaVerifikasi({ hasil }: { hasil?: HasilVerifikasiSumber }) 
   const warna = hasil.ditarik
     ? "bg-rose-500/30 text-rose-200"
     : hasil.verdict === "TERVERIFIKASI"
-    ? "bg-[#70E1B6]/20 text-[#70E1B6]"
+    ? "bg-[#FFB84D]/20 text-[#FFB84D]"
     : hasil.perluDicurigai
     ? "bg-rose-500/20 text-rose-300"
     : hasil.verdict === "TAUTAN_HIDUP"
-    ? "bg-[#F5A623]/20 text-[#F5C777]"
-    : "bg-[#AAB4D0]/20 text-[#AAB4D0]";
+    ? "bg-[#FF9E5E]/20 text-[#F5C777]"
+    : "bg-[#A79FC4]/20 text-[#A79FC4]";
   const label =
     hasil.ditarik
       ? "DITARIK"

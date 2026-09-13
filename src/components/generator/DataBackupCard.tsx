@@ -82,14 +82,14 @@ export const DataBackupCard: React.FC = () => {
   };
 
   return (
-    <div className="rounded-xl border border-[#273352] bg-[#11182D] p-5 sm:p-6">
+    <div className="rounded-xl border border-[#2E2748] bg-[#191430] p-5 sm:p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="max-w-xl">
-          <h3 className="flex items-center gap-2 text-sm font-bold text-[#FFF9EE]">
-            <CheckCircle2 className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
+          <h3 className="flex items-center gap-2 text-sm font-bold text-[#FBFAFF]">
+            <CheckCircle2 className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
             Data & Backup
           </h3>
-          <p className="mt-1.5 text-xs leading-relaxed text-[#AAB4D0]">
+          <p className="mt-1.5 text-xs leading-relaxed text-[#A79FC4]">
             Progresmu tersimpan di browser ini. Unduh backup JSON secara berkala supaya aman
             kalau cache terhapus atau kamu pindah laptop/HP.
           </p>
@@ -98,7 +98,7 @@ export const DataBackupCard: React.FC = () => {
           <button
             type="button"
             onClick={handleExport}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-[#2959FF] px-3.5 py-2 text-xs font-semibold text-white shadow-lg shadow-[#2959FF]/20 transition-all hover:bg-[#1E46D9] focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[#6D5AE6] px-3.5 py-2 text-xs font-semibold text-white shadow-lg shadow-[#6D5AE6]/20 transition-all hover:bg-[#5A46D6] focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
           >
             <Download className="h-3.5 w-3.5" aria-hidden="true" />
             Export Backup
@@ -106,7 +106,7 @@ export const DataBackupCard: React.FC = () => {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#0E1526] px-3.5 py-2 text-xs font-semibold text-[#AAB4D0] transition-colors hover:border-[#2959FF]/50 hover:text-[#FFF9EE] focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#0E1526] px-3.5 py-2 text-xs font-semibold text-[#A79FC4] transition-colors hover:border-[#6D5AE6]/50 hover:text-[#FBFAFF] focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
           >
             <Upload className="h-3.5 w-3.5" aria-hidden="true" />
             Import Backup
@@ -114,7 +114,7 @@ export const DataBackupCard: React.FC = () => {
           <button
             type="button"
             onClick={handleClearAll}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#FF6F61]/30 bg-[#FF6F61]/10 px-3.5 py-2 text-xs font-semibold text-[#FF6F61] transition-colors hover:bg-[#FF6F61]/20 focus-visible:ring-2 focus-visible:ring-[#FF6F61] focus-visible:outline-none"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#FF5C8A]/30 bg-[#FF5C8A]/10 px-3.5 py-2 text-xs font-semibold text-[#FF5C8A] transition-colors hover:bg-[#FF5C8A]/20 focus-visible:ring-2 focus-visible:ring-[#FF5C8A] focus-visible:outline-none"
           >
             <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
             Hapus Semua
@@ -136,8 +136,8 @@ export const DataBackupCard: React.FC = () => {
           role="status"
           className={`mt-4 flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium ${
             notice.kind === "ok"
-              ? "border-[#70E1B6]/30 bg-[#70E1B6]/10 text-[#70E1B6]"
-              : "border-[#FF6F61]/30 bg-[#FF6F61]/10 text-[#FF6F61]"
+              ? "border-[#FFB84D]/30 bg-[#FFB84D]/10 text-[#FFB84D]"
+              : "border-[#FF5C8A]/30 bg-[#FF5C8A]/10 text-[#FF5C8A]"
           }`}
         >
           {notice.kind === "ok" ? (

@@ -23,12 +23,12 @@ export default function ToolsDashboardPage() {
       <div className="mx-auto w-full max-w-6xl px-4 pt-10 sm:px-6 lg:px-8">
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
-            <h2 className="text-xl font-bold tracking-tight text-[#FFF9EE] sm:text-2xl">
+            <Sparkles className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
+            <h2 className="text-xl font-bold tracking-tight text-[#FBFAFF] sm:text-2xl">
               Daftar Tools Aktif
             </h2>
           </div>
-          <span className="text-xs font-semibold text-[#70E1B6] bg-[#70E1B6]/10 border border-[#70E1B6]/30 px-2.5 py-1 rounded-md">
+          <span className="text-xs font-semibold text-[#FFB84D] bg-[#FFB84D]/10 border border-[#FFB84D]/30 px-2.5 py-1 rounded-md">
             Misi 01: Eksplorasi Awal
           </span>
         </div>

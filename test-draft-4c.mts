@@ -201,7 +201,7 @@ cek("isi berkas sumber bisa diperiksa mahasiswa", /Lihat isi berkas sumber/.test
 cek("perintah pendek ditampilkan sebagai yang ditempel", /Perintah pendek ini yang ditempel di kolom chat/.test(srcBab1));
 cek("draf dari tempat lain diarahkan ke Langkah 4, bukan Langkah 2", /Boleh ditempel di Langkah 4/.test(srcBab1));
 cek("Tahap 4C menyuruh lanjut ke 4D tanpa syarat", /Lanjut ke Tahap 4D/.test(srcBab1));
-cek("tombol NotebookLM di 4C tampil sebagai tombol utama (bukan outline abu)", /bg-\[#70E1B6\] px-5 py-3 text-xs font-bold text-\[#080D1D\][\s\S]{0,200}Langkah 3: Buka NotebookLM/.test(srcBab1));
+cek("tombol NotebookLM di 4C tampil sebagai tombol utama (bukan outline abu)", /bg-\[#[0-9A-Fa-f]{6}\] px-5 py-3 text-xs font-bold text-\[#[0-9A-Fa-f]{6}\][\s\S]{0,200}Langkah 3: Buka NotebookLM/.test(srcBab1));
 cek("NotebookLM tidak lagi ditawarkan di 4D (kerjanya sudah selesai)", !/href="https:\/\/notebooklm\.google\.com"[\s\S]{0,400}generatedPrompt4D/.test(srcBab1));
 cek("ChatGPT di 4D ditandai langkah 5", /Langkah 5: Buka ChatGPT/.test(srcBab1));
 // Bahasa NotebookLM SELALU kaku — 4D tidak boleh ditawarkan sebagai pilihan.

@@ -888,9 +888,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 rounded-lg border border-[#70E1B6]/40 bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] shadow-xl shadow-black/40 animate-fade-in"
+          className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 rounded-lg border border-[#FFB84D]/40 bg-[#0C0A1A] px-4 py-3 text-xs font-semibold text-[#FBFAFF] shadow-xl shadow-black/40 animate-fade-in"
         >
-          <CheckCircle2 className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
+          <CheckCircle2 className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -899,11 +899,11 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
       {/* TAHAP 1 — CERITAKAN KONDISIMU (FORM & OUTPUT PANEL) */}
       {/* ========================================================================= */}
       <section aria-labelledby="tahap-1-heading" className="space-y-6">
-        <div className="flex items-center gap-2 border-b border-[#273352] pb-3">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2959FF] text-xs font-bold text-white">
+        <div className="flex items-center gap-2 border-b border-[#2E2748] pb-3">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#6D5AE6] text-xs font-bold text-white">
             1
           </span>
-          <h2 id="tahap-1-heading" className="text-lg font-bold text-[#FFF9EE]">
+          <h2 id="tahap-1-heading" className="text-lg font-bold text-[#FBFAFF]">
             Tahap 1: Ceritakan Kondisimu
           </h2>
         </div>
@@ -911,13 +911,13 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-stretch">
           {/* Left Panel: Form */}
           <div className="lg:col-span-6">
-            <div className="relative flex h-full flex-col justify-between rounded-xl border border-[#273352] bg-[#11182D] p-5 sm:p-6">
+            <div className="relative flex h-full flex-col justify-between rounded-xl border border-[#2E2748] bg-[#191430] p-5 sm:p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Header & Cari Ide Autofill Banner with Refresh button */}
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#273352]/70 pb-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2E2748]/70 pb-3">
                   <div className="flex items-center gap-2">
-                    <Sliders className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#70E1B6]">
+                    <Sliders className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#FFB84D]">
                       Form Parameter Fenomena
                     </span>
                   </div>
@@ -930,9 +930,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       onClick={handleRefreshFromT1}
                       disabled={isRefreshing}
                       title="Muat ulang dan sinkronkan data dari Cari Ide Skripsi"
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-2.5 py-1 text-xs font-semibold text-[#70E1B6] transition-all hover:border-[#70E1B6] hover:bg-[#70E1B6]/10 focus-visible:ring-2 focus-visible:ring-[#70E1B6] cursor-pointer disabled:opacity-50"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#0C0A1A] px-2.5 py-1 text-xs font-semibold text-[#FFB84D] transition-all hover:border-[#FFB84D] hover:bg-[#FFB84D]/10 focus-visible:ring-2 focus-visible:ring-[#FFB84D] cursor-pointer disabled:opacity-50"
                     >
-                      <RotateCw className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin text-[#70E1B6]" : "text-[#70E1B6]"}`} aria-hidden="true" />
+                      <RotateCw className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin text-[#FFB84D]" : "text-[#FFB84D]"}`} aria-hidden="true" />
                       <span>{isRefreshing ? "Menyinkronkan..." : "Refresh Data Cari Ide"}</span>
                     </button>
                   </div>
@@ -940,14 +940,14 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                 {/* Conflict Confirmation Banner when manual edits exist */}
                 {isMounted && ideaHandoff && isHandoffNewer && hasUserEditedFields && (
-                  <div className="rounded-xl border border-[#F5A623]/40 bg-[#F5A623]/10 p-4 space-y-3 animate-fade-in">
+                  <div className="rounded-xl border border-[#FF9E5E]/40 bg-[#FF9E5E]/10 p-4 space-y-3 animate-fade-in">
                     <div className="flex items-start gap-3">
-                      <AlertTriangle className="h-5 w-5 text-[#F5A623] shrink-0 mt-0.5" />
+                      <AlertTriangle className="h-5 w-5 text-[#FF9E5E] shrink-0 mt-0.5" />
                       <div className="space-y-1">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#F5A623]">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#FF9E5E]">
                           Data dari Area Baru Tersedia
                         </h4>
-                        <p className="text-xs text-[#FFF9EE] leading-relaxed">
+                        <p className="text-xs text-[#FBFAFF] leading-relaxed">
                           Data dari Cari Ide Skripsi (Putaran {ideaHandoff.sourceRoundNumber}: [{ideaHandoff.selectedAreaId}] {ideaHandoff.selectedAreaName}) telah tersedia. Beberapa field sudah pernah kamu ubah sendiri.
                         </p>
                       </div>
@@ -957,7 +957,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         type="button"
                         id="btn-apply-all-new-handoff"
                         onClick={handleApplyAllNewHandoff}
-                        className="rounded-lg bg-[#2959FF] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#1f48db] min-h-[44px] cursor-pointer"
+                        className="rounded-lg bg-[#6D5AE6] px-3.5 py-2 text-xs font-bold text-white hover:bg-[#5A46D6] min-h-[44px] cursor-pointer"
                       >
                         Gunakan Semua Data Terbaru
                       </button>
@@ -965,7 +965,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         type="button"
                         id="btn-keep-manual-edits"
                         onClick={handleKeepManualEdits}
-                        className="rounded-lg border border-[#273352] bg-[#11182D] px-3.5 py-2 text-xs font-semibold text-[#AAB4D0] hover:text-[#FFF9EE] min-h-[44px] cursor-pointer"
+                        className="rounded-lg border border-[#2E2748] bg-[#191430] px-3.5 py-2 text-xs font-semibold text-[#A79FC4] hover:text-[#FBFAFF] min-h-[44px] cursor-pointer"
                       >
                         Pertahankan Isian Manual
                       </button>
@@ -975,14 +975,14 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                 {/* Active Source Summary */}
                 {isMounted && ideaHandoff && !isHandoffNewer && (
-                  <div className="flex items-center justify-between gap-3 rounded-lg border border-[#273352] bg-[#080D1D] p-3 text-xs text-[#FFF9EE]">
+                  <div className="flex items-center justify-between gap-3 rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 text-xs text-[#FBFAFF]">
                     <div className="flex items-center gap-2.5">
-                      <CheckCircle2 className="h-4 w-4 text-[#70E1B6] shrink-0" aria-hidden="true" />
+                      <CheckCircle2 className="h-4 w-4 text-[#FFB84D] shrink-0" aria-hidden="true" />
                       <div className="text-[13px] space-y-0.5">
-                        <span className="text-[#AAB4D0] block text-[12px] uppercase tracking-wider">
+                        <span className="text-[#A79FC4] block text-[12px] uppercase tracking-wider">
                           Data dari Cari Ide Skripsi
                         </span>
-                        <span className="font-semibold text-[#FFF9EE]">
+                        <span className="font-semibold text-[#FBFAFF]">
                           Putaran {ideaHandoff.sourceRoundNumber} • [{ideaHandoff.selectedAreaId}] {ideaHandoff.selectedAreaName}
                         </span>
                       </div>
@@ -991,9 +991,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       type="button"
                       onClick={handleRefreshFromT1}
                       title="Sinkronkan ulang data"
-                      className="inline-flex items-center gap-1 rounded border border-[#273352] px-2 py-1 text-[12px] text-[#AAB4D0] hover:text-[#FFF9EE] hover:border-[#70E1B6] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 rounded border border-[#2E2748] px-2 py-1 text-[12px] text-[#A79FC4] hover:text-[#FBFAFF] hover:border-[#FFB84D] transition-colors cursor-pointer"
                     >
-                      <RotateCw className="h-3 w-3 text-[#70E1B6]" />
+                      <RotateCw className="h-3 w-3 text-[#FFB84D]" />
                       <span>Sinkronkan Ulang</span>
                     </button>
                   </div>
@@ -1001,40 +1001,40 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                 {/* Context from Cari Ide Skripsi Accordion */}
                 {isMounted && hasT1Data && (
-                  <div className="rounded-lg border border-[#273352] bg-[#080D1D]/70 overflow-hidden">
+                  <div className="rounded-lg border border-[#2E2748] bg-[#0C0A1A]/70 overflow-hidden">
                     <button
                       type="button"
                       onClick={() => setIsContextAccordionOpen(!isContextAccordionOpen)}
                       aria-expanded={isContextAccordionOpen}
-                      className="w-full flex items-center justify-between px-3.5 py-2.5 text-left text-xs font-semibold text-[#FFF9EE] hover:bg-[#16213D] transition-colors"
+                      className="w-full flex items-center justify-between px-3.5 py-2.5 text-left text-xs font-semibold text-[#FBFAFF] hover:bg-[#221A42] transition-colors"
                     >
                       <span className="flex items-center gap-2">
-                        <Compass className="h-3.5 w-3.5 text-[#2959FF]" aria-hidden="true" />
+                        <Compass className="h-3.5 w-3.5 text-[#6D5AE6]" aria-hidden="true" />
                         Konteks Pengerjaan dari Cari Ide Skripsi
                       </span>
                       {isContextAccordionOpen ? (
-                        <ChevronUp className="h-4 w-4 text-[#AAB4D0]" aria-hidden="true" />
+                        <ChevronUp className="h-4 w-4 text-[#A79FC4]" aria-hidden="true" />
                       ) : (
-                        <ChevronDown className="h-4 w-4 text-[#AAB4D0]" aria-hidden="true" />
+                        <ChevronDown className="h-4 w-4 text-[#A79FC4]" aria-hidden="true" />
                       )}
                     </button>
 
                     {isContextAccordionOpen && (
-                      <div className="px-3.5 py-3 border-t border-[#273352] space-y-2.5 text-xs text-[#AAB4D0]">
+                      <div className="px-3.5 py-3 border-t border-[#2E2748] space-y-2.5 text-xs text-[#A79FC4]">
                         {selectedExplorationArea ? (
-                          <div className="space-y-2 border-b border-[#273352]/60 pb-3">
+                          <div className="space-y-2 border-b border-[#2E2748]/60 pb-3">
                             <p>
-                              <strong className="text-[#70E1B6]">Area Terpilih:</strong>{" "}
-                              <span className="text-[#FFF9EE] font-semibold">
+                              <strong className="text-[#FFB84D]">Area Terpilih:</strong>{" "}
+                              <span className="text-[#FBFAFF] font-semibold">
                                 {selectedExplorationArea.name} ({selectedExplorationArea.areaId})
                               </span>
                             </p>
                             <p>
-                              <strong className="text-[#FFF9EE]">Cakupan:</strong>{" "}
+                              <strong className="text-[#FBFAFF]">Cakupan:</strong>{" "}
                               {selectedExplorationArea.scopeSummary}
                             </p>
                             <p>
-                              <strong className="text-[#FFF9EE]">Keterkaitan Prodi:</strong>{" "}
+                              <strong className="text-[#FBFAFF]">Keterkaitan Prodi:</strong>{" "}
                               {selectedExplorationArea.academicConnection}
                             </p>
 
@@ -1043,13 +1043,13 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                               <div className="space-y-1.5 pt-1 text-[13px]">
                                 {selectedExplorationArea.researchContext.potentialActors.length > 0 && (
                                   <p>
-                                    <strong className="text-[#70E1B6]">Siapa yang berkaitan:</strong>{" "}
+                                    <strong className="text-[#FFB84D]">Siapa yang berkaitan:</strong>{" "}
                                     {selectedExplorationArea.researchContext.potentialActors.join(", ")}
                                   </p>
                                 )}
                                 {selectedExplorationArea.researchContext.potentialEntities.length > 0 && (
                                   <p>
-                                    <strong className="text-[#2959FF]">Apa yang diamati:</strong>{" "}
+                                    <strong className="text-[#6D5AE6]">Apa yang diamati:</strong>{" "}
                                     {selectedExplorationArea.researchContext.potentialEntities.join(", ")}
                                   </p>
                                 )}
@@ -1067,27 +1067,27 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                 )}
                                 {selectedExplorationArea.researchContext.potentialGeographies.length > 0 && (
                                   <p>
-                                    <strong className="text-[#AAB4D0]">Geografi:</strong>{" "}
+                                    <strong className="text-[#A79FC4]">Geografi:</strong>{" "}
                                     {selectedExplorationArea.researchContext.potentialGeographies.join(", ")}
                                   </p>
                                 )}
                               </div>
                             ) : "candidateObjects" in selectedExplorationArea && selectedExplorationArea.candidateObjects && selectedExplorationArea.candidateObjects.length > 0 ? (
                               <p>
-                                <strong className="text-[#FFF9EE]">Kandidat Objek:</strong>{" "}
+                                <strong className="text-[#FBFAFF]">Kandidat Objek:</strong>{" "}
                                 {selectedExplorationArea.candidateObjects.join(", ")}
                               </p>
                             ) : null}
 
                             {/* V3 Scope Boundary */}
                             {"scopeBoundary" in selectedExplorationArea && selectedExplorationArea.scopeBoundary && (
-                              <div className="text-[13px] space-y-1 bg-[#11182D] p-2 rounded border border-[#273352]">
+                              <div className="text-[13px] space-y-1 bg-[#191430] p-2 rounded border border-[#2E2748]">
                                 <p>
-                                  <strong className="text-[#70E1B6]">In-Scope:</strong>{" "}
+                                  <strong className="text-[#FFB84D]">In-Scope:</strong>{" "}
                                   {selectedExplorationArea.scopeBoundary.inScope.join(", ")}
                                 </p>
                                 <p>
-                                  <strong className="text-[#FF6F61]">Out-of-Scope:</strong>{" "}
+                                  <strong className="text-[#FF5C8A]">Out-of-Scope:</strong>{" "}
                                   {selectedExplorationArea.scopeBoundary.outOfScope.join(", ")}
                                 </p>
                               </div>
@@ -1095,17 +1095,17 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                             {selectedExplorationArea.phenomenonSearchBrief && (
                               <p>
-                                <strong className="text-[#FFF9EE]">Petunjuk Arah Fenomena:</strong>{" "}
+                                <strong className="text-[#FBFAFF]">Petunjuk Arah Fenomena:</strong>{" "}
                                 {selectedExplorationArea.phenomenonSearchBrief}
                               </p>
                             )}
                             {selectedExplorationArea.phenomenonSearchDirections.length > 0 && (
                               <div>
-                                <strong className="text-[#FFF9EE] block mb-1">Arah Pencarian Fenomena:</strong>
+                                <strong className="text-[#FBFAFF] block mb-1">Arah Pencarian Fenomena:</strong>
                                 <ul className="list-disc list-inside space-y-1 text-[13px]">
                                   {selectedExplorationArea.phenomenonSearchDirections.map((dir: { label: string; searchQuestion: string }, idx: number) => (
                                     <li key={idx}>
-                                      <span className="text-[#70E1B6]">{dir.label}:</span> {dir.searchQuestion}
+                                      <span className="text-[#FFB84D]">{dir.label}:</span> {dir.searchQuestion}
                                     </li>
                                   ))}
                                 </ul>
@@ -1113,37 +1113,37 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             )}
                             {selectedExplorationArea.unresolvedItems.length > 0 && (
                               <p>
-                                <strong className="text-[#F5A623]">Hal yang Belum Pasti:</strong>{" "}
+                                <strong className="text-[#FF9E5E]">Hal yang Belum Pasti:</strong>{" "}
                                 {selectedExplorationArea.unresolvedItems.join("; ")}
                               </p>
                             )}
                           </div>
                         ) : null}
 
-                        {t1Data.minat && <p><strong className="text-[#FFF9EE]">Minat awal:</strong> {t1Data.minat}</p>}
+                        {t1Data.minat && <p><strong className="text-[#FBFAFF]">Minat awal:</strong> {t1Data.minat}</p>}
                         {t1Data.pendekatan && t1Data.pendekatan !== "unknown" && (
-                          <p><strong className="text-[#FFF9EE]">Pendekatan disukai:</strong> {resolveOptionLabel("pendekatan", t1Data.pendekatan)}</p>
+                          <p><strong className="text-[#FBFAFF]">Pendekatan disukai:</strong> {resolveOptionLabel("pendekatan", t1Data.pendekatan)}</p>
                         )}
                         {t1Data.preferensi_data && t1Data.preferensi_data !== "unknown" && (
-                          <p><strong className="text-[#FFF9EE]">Data nyaman:</strong> {resolveOptionLabel("preferensi_data", t1Data.preferensi_data)}</p>
+                          <p><strong className="text-[#FBFAFF]">Data nyaman:</strong> {resolveOptionLabel("preferensi_data", t1Data.preferensi_data)}</p>
                         )}
                         {t1Data.akses_data && t1Data.akses_data !== "unknown" && (
-                          <p><strong className="text-[#FFF9EE]">Akses data:</strong> {resolveOptionLabel("akses_data", t1Data.akses_data)}</p>
+                          <p><strong className="text-[#FBFAFF]">Akses data:</strong> {resolveOptionLabel("akses_data", t1Data.akses_data)}</p>
                         )}
                         {t1Data.akses_data_catatan && (
-                          <p><strong className="text-[#FFF9EE]">Catatan akses:</strong> {t1Data.akses_data_catatan}</p>
+                          <p><strong className="text-[#FBFAFF]">Catatan akses:</strong> {t1Data.akses_data_catatan}</p>
                         )}
                         {t1Data.avoidances && (
-                          <p><strong className="text-[#FFF9EE]">Hal dihindari:</strong> {t1Data.avoidances}</p>
+                          <p><strong className="text-[#FBFAFF]">Hal dihindari:</strong> {t1Data.avoidances}</p>
                         )}
                         {t1Data.target_waktu && t1Data.target_waktu !== "unknown" && (
-                          <p><strong className="text-[#FFF9EE]">Kondisi waktu:</strong> {resolveOptionLabel("target_waktu", t1Data.target_waktu)}</p>
+                          <p><strong className="text-[#FBFAFF]">Kondisi waktu:</strong> {resolveOptionLabel("target_waktu", t1Data.target_waktu)}</p>
                         )}
                         {t1Data.supervisor_direction && (
-                          <p><strong className="text-[#FFF9EE]">Arahan dosen:</strong> {t1Data.supervisor_direction}</p>
+                          <p><strong className="text-[#FBFAFF]">Arahan dosen:</strong> {t1Data.supervisor_direction}</p>
                         )}
 
-                        <div className="rounded border border-[#F5A623]/30 bg-[#F5A623]/10 p-2.5 text-[13px] text-[#FFF9EE] leading-relaxed">
+                        <div className="rounded border border-[#FF9E5E]/30 bg-[#FF9E5E]/10 p-2.5 text-[13px] text-[#FBFAFF] leading-relaxed">
                           <strong>Peringatan Akademik:</strong> Arah pencarian ini bukan fenomena yang sudah terbukti. Tool Cari Fenomena tetap harus mencari dan memeriksa sumber bukti nyata.
                         </div>
 
@@ -1151,9 +1151,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                           <button
                             type="button"
                             onClick={handleUseT1Data}
-                            className="inline-flex items-center gap-1.5 rounded-md border border-[#2959FF] bg-[#2959FF]/20 px-2.5 py-1 text-xs font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/30 transition-colors"
+                            className="inline-flex items-center gap-1.5 rounded-md border border-[#6D5AE6] bg-[#6D5AE6]/20 px-2.5 py-1 text-xs font-semibold text-[#FBFAFF] hover:bg-[#6D5AE6]/30 transition-colors"
                           >
-                            <Sparkles className="h-3 w-3 text-[#70E1B6]" aria-hidden="true" />
+                            <Sparkles className="h-3 w-3 text-[#FFB84D]" aria-hidden="true" />
                             Gunakan Data &amp; Paket Area dari Cari Ide
                           </button>
                         </div>
@@ -1175,15 +1175,15 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         <div className="flex items-center justify-between">
                           <label
                             htmlFor={field.id}
-                            className="flex items-center gap-1.5 text-xs font-semibold text-[#FFF9EE]"
+                            className="flex items-center gap-1.5 text-xs font-semibold text-[#FBFAFF]"
                           >
                             <span>{field.label}</span>
                             {field.required ? (
-                              <span className="text-[#FF6F61] font-bold" title="Wajib diisi">
+                              <span className="text-[#FF5C8A] font-bold" title="Wajib diisi">
                                 *
                               </span>
                             ) : (
-                              <span className="text-[12px] font-normal text-[#AAB4D0]">
+                              <span className="text-[12px] font-normal text-[#A79FC4]">
                                 (Opsional)
                               </span>
                             )}
@@ -1193,10 +1193,10 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             <span
                               className={`text-[12px] font-mono ${
                                 Array.from(value).length > field.maxLength
-                                  ? "text-[#FF6F61] font-bold"
+                                  ? "text-[#FF5C8A] font-bold"
                                   : Array.from(value).length >= field.maxLength * 0.8
                                   ? "text-amber-400 font-semibold"
-                                  : "text-[#AAB4D0]/60"
+                                  : "text-[#A79FC4]/60"
                               }`}
                             >
                               {Array.from(value).length} / {field.maxLength}
@@ -1211,10 +1211,10 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             onChange={(e) => handleFieldChange(field.id, e.target.value)}
                             aria-invalid={!!fieldError}
                             aria-describedby={fieldError ? errorId : field.helperText ? helperId : undefined}
-                            className={`w-full rounded-lg border bg-[#080D1D] px-3.5 py-2 text-xs text-[#FFF9EE] focus-visible:outline-none focus-visible:ring-2 ${
+                            className={`w-full rounded-lg border bg-[#0C0A1A] px-3.5 py-2 text-xs text-[#FBFAFF] focus-visible:outline-none focus-visible:ring-2 ${
                               fieldError
-                                ? "border-[#FF6F61] focus-visible:ring-[#FF6F61]"
-                                : "border-[#273352] focus-visible:ring-[#2959FF]"
+                                ? "border-[#FF5C8A] focus-visible:ring-[#FF5C8A]"
+                                : "border-[#2E2748] focus-visible:ring-[#6D5AE6]"
                             }`}
                           >
                             {field.options?.map((opt) => (
@@ -1233,10 +1233,10 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             onChange={(e) => handleFieldChange(field.id, e.target.value)}
                             aria-invalid={!!fieldError}
                             aria-describedby={fieldError ? errorId : field.helperText ? helperId : undefined}
-                            className={`w-full rounded-lg border bg-[#080D1D] p-3 text-xs leading-relaxed text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus-visible:outline-none focus-visible:ring-2 resize-y ${
+                            className={`w-full rounded-lg border bg-[#0C0A1A] p-3 text-xs leading-relaxed text-[#FBFAFF] placeholder-[#A79FC4]/40 focus-visible:outline-none focus-visible:ring-2 resize-y ${
                               fieldError
-                                ? "border-[#FF6F61] focus-visible:ring-[#FF6F61]"
-                                : "border-[#273352] focus-visible:ring-[#2959FF]"
+                                ? "border-[#FF5C8A] focus-visible:ring-[#FF5C8A]"
+                                : "border-[#2E2748] focus-visible:ring-[#6D5AE6]"
                             }`}
                           />
                         ) : (
@@ -1249,10 +1249,10 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             onChange={(e) => handleFieldChange(field.id, e.target.value)}
                             aria-invalid={!!fieldError}
                             aria-describedby={fieldError ? errorId : field.helperText ? helperId : undefined}
-                            className={`w-full rounded-lg border bg-[#080D1D] px-3.5 py-2 text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus-visible:outline-none focus-visible:ring-2 ${
+                            className={`w-full rounded-lg border bg-[#0C0A1A] px-3.5 py-2 text-xs text-[#FBFAFF] placeholder-[#A79FC4]/40 focus-visible:outline-none focus-visible:ring-2 ${
                               fieldError
-                                ? "border-[#FF6F61] focus-visible:ring-[#FF6F61]"
-                                : "border-[#273352] focus-visible:ring-[#2959FF]"
+                                ? "border-[#FF5C8A] focus-visible:ring-[#FF5C8A]"
+                                : "border-[#2E2748] focus-visible:ring-[#6D5AE6]"
                             }`}
                           />
                         )}
@@ -1266,13 +1266,13 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         )}
 
                         {fieldError && (
-                          <p id={errorId} className="text-[13px] font-medium text-[#FF6F61]">
+                          <p id={errorId} className="text-[13px] font-medium text-[#FF5C8A]">
                             {fieldError}
                           </p>
                         )}
 
                         {field.helperText && !fieldError && (
-                          <p id={helperId} className="text-[13px] leading-normal text-[#AAB4D0]">
+                          <p id={helperId} className="text-[13px] leading-normal text-[#A79FC4]">
                             {field.helperText}
                           </p>
                         )}
@@ -1282,11 +1282,11 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                 </div>
 
                 {/* Form Buttons */}
-                <div className="flex items-center justify-between gap-3 pt-4 border-t border-[#273352]/70">
+                <div className="flex items-center justify-between gap-3 pt-4 border-t border-[#2E2748]/70">
                   <button
                     type="button"
                     onClick={() => setShowResetModal(true)}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-transparent px-3 py-2 text-xs font-semibold text-[#AAB4D0] hover:border-[#FF6F61]/50 hover:text-[#FF6F61] transition-colors focus-visible:ring-2 focus-visible:ring-[#FF6F61] focus-visible:outline-none"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-transparent px-3 py-2 text-xs font-semibold text-[#A79FC4] hover:border-[#FF5C8A]/50 hover:text-[#FF5C8A] transition-colors focus-visible:ring-2 focus-visible:ring-[#FF5C8A] focus-visible:outline-none"
                   >
                     <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
                     <span>Reset Form</span>
@@ -1294,9 +1294,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#2959FF] px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-[#2047D4] transition-all focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none cursor-pointer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#6D5AE6] px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-[#2047D4] transition-all focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none cursor-pointer"
                   >
-                    <Sparkles className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
+                    <Sparkles className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
                     <span>Generate Prompt</span>
                   </button>
                 </div>
@@ -1306,15 +1306,15 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
           {/* Right Panel: Prompt Output */}
           <div ref={outputPanelRef} id="tool-output-panel" className="lg:col-span-6">
-            <div className="flex h-full flex-col justify-between rounded-xl border border-[#273352] bg-[#11182D] p-5 sm:p-6">
+            <div className="flex h-full flex-col justify-between rounded-xl border border-[#2E2748] bg-[#191430] p-5 sm:p-6">
               {generatedPrompt ? (
                 <div className="flex h-full flex-col justify-between space-y-4">
                   <div>
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#273352] pb-3">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#70E1B6]">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2E2748] pb-3">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#FFB84D]">
                         Hasil Template Prompt
                       </span>
-                      <div className="flex items-center gap-2 text-[13px] text-[#AAB4D0]">
+                      <div className="flex items-center gap-2 text-[13px] text-[#A79FC4]">
                         <span>{Array.from(generatedPrompt).length} Karakter</span>
                         <span>•</span>
                         <span>{generatedPrompt.trim().split(/\s+/).length} Kata</span>
@@ -1322,29 +1322,29 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                     </div>
 
                     {/* Pratinjau selalu tampil: beberapa baris pertama prompt, tanpa membuka prompt teknis penuh */}
-                    <div className="mt-3 rounded-lg border border-[#273352] bg-[#080D1D] p-3">
-                      <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
+                    <div className="mt-3 rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3">
+                      <pre className="font-mono text-xs leading-relaxed text-[#A79FC4] whitespace-pre-wrap line-clamp-4 select-all">
                         {generatedPrompt}
                       </pre>
                     </div>
                   </div>
 
                   {/* Actions */}
-                  <div className="space-y-3 pt-3 border-t border-[#273352]">
+                  <div className="space-y-3 pt-3 border-t border-[#2E2748]">
                     <div className="flex flex-wrap items-center gap-2">
                       <button
                         type="button"
                         onClick={handleCopyMainPrompt}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#70E1B6] px-3.5 py-2 text-xs font-bold text-[#080D1D] hover:bg-[#5BC9A0] transition-colors focus-visible:ring-2 focus-visible:ring-[#70E1B6] focus-visible:outline-none cursor-pointer"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#FFB84D] px-3.5 py-2 text-xs font-bold text-[#0C0A1A] hover:bg-[#5BC9A0] transition-colors focus-visible:ring-2 focus-visible:ring-[#FFB84D] focus-visible:outline-none cursor-pointer"
                       >
                         {copiedMain ? (
                           <>
-                            <Check className="h-3.5 w-3.5 text-[#080D1D]" aria-hidden="true" />
+                            <Check className="h-3.5 w-3.5 text-[#0C0A1A]" aria-hidden="true" />
                             <span>Prompt Tersalin!</span>
                           </>
                         ) : (
                           <>
-                            <Copy className="h-3.5 w-3.5 text-[#080D1D]" aria-hidden="true" />
+                            <Copy className="h-3.5 w-3.5 text-[#0C0A1A]" aria-hidden="true" />
                             <span>Copy Prompt</span>
                           </>
                         )}
@@ -1353,31 +1353,31 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       <button
                         type="button"
                         onClick={() => handleOpenPlatform("ChatGPT")}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#16213D] px-3 py-2 text-xs font-semibold text-[#FFF9EE] hover:border-[#2959FF] transition-colors focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none cursor-pointer"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#221A42] px-3 py-2 text-xs font-semibold text-[#FBFAFF] hover:border-[#6D5AE6] transition-colors focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none cursor-pointer"
                       >
-                        <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" aria-hidden="true" />
+                        <ExternalLink className="h-3.5 w-3.5 text-[#FFB84D]" aria-hidden="true" />
                         <span>Buka ChatGPT</span>
                       </button>
 
                       <button
                         type="button"
                         onClick={() => handleOpenPlatform("Gemini")}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#16213D] px-3 py-2 text-xs font-semibold text-[#FFF9EE] hover:border-[#2959FF] transition-colors focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none cursor-pointer"
+                        className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#221A42] px-3 py-2 text-xs font-semibold text-[#FBFAFF] hover:border-[#6D5AE6] transition-colors focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none cursor-pointer"
                       >
-                        <ExternalLink className="h-3.5 w-3.5 text-[#2959FF]" aria-hidden="true" />
+                        <ExternalLink className="h-3.5 w-3.5 text-[#6D5AE6]" aria-hidden="true" />
                         <span>Buka Gemini</span>
                       </button>
                     </div>
 
-                    <p className="text-[13px] leading-relaxed text-[#AAB4D0]">
+                    <p className="text-[13px] leading-relaxed text-[#A79FC4]">
                       Prompt telah disalin. Tempelkan di platform ChatGPT atau Gemini dengan pencarian web aktif, lalu salin seluruh hasilnya ke <strong>Tahap 2</strong> di bawah.
                     </p>
                   </div>
                 </div>
               ) : (
-                <div className="flex h-full min-h-[300px] flex-col items-center justify-center text-center p-6 text-[#AAB4D0]">
-                  <FileText className="h-10 w-10 text-[#273352] mb-3" aria-hidden="true" />
-                  <h3 className="text-sm font-semibold text-[#FFF9EE]">Prompt Belum Dibuat</h3>
+                <div className="flex h-full min-h-[300px] flex-col items-center justify-center text-center p-6 text-[#A79FC4]">
+                  <FileText className="h-10 w-10 text-[#2E2748] mb-3" aria-hidden="true" />
+                  <h3 className="text-sm font-semibold text-[#FBFAFF]">Prompt Belum Dibuat</h3>
                   <p className="mt-1 max-w-sm text-xs leading-relaxed">
                     Isi field wajib di panel kiri (Program Studi dan Area Eksplorasi), lalu klik tombol <strong>Generate Prompt</strong>.
                   </p>
@@ -1393,25 +1393,25 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
       {/* TAHAP 2 — TEMPEL HASIL DARI CHATGPT ATAU GEMINI */}
       {/* ========================================================================= */}
       <section aria-labelledby="tahap-2-heading" className="space-y-4">
-        <div className="flex items-center gap-2 border-b border-[#273352] pb-3">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2959FF] text-xs font-bold text-white">
+        <div className="flex items-center gap-2 border-b border-[#2E2748] pb-3">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#6D5AE6] text-xs font-bold text-white">
             2
           </span>
-          <h2 id="tahap-2-heading" className="text-lg font-bold text-[#FFF9EE]">
+          <h2 id="tahap-2-heading" className="text-lg font-bold text-[#FBFAFF]">
             Tahap 2: Tempel Hasil dari ChatGPT atau Gemini
           </h2>
         </div>
 
-        <div className="rounded-xl border border-[#273352] bg-[#11182D] p-5 sm:p-6 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#273352] pb-2">
-            <p className="text-xs leading-relaxed text-[#AAB4D0]">
+        <div className="rounded-xl border border-[#2E2748] bg-[#191430] p-5 sm:p-6 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2E2748] pb-2">
+            <p className="text-xs leading-relaxed text-[#A79FC4]">
               Setelah AI selesai mencari kandidat fenomena, salin seluruh hasilnya lalu tempel di sini. SKRIFLOW akan membaca blok transfer dan menampilkan kandidat yang ditemukan.
             </p>
             {parseResult && parseResult.success && (
               <button
                 type="button"
                 onClick={() => setShowRawResult(!showRawResult)}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[#FFB84D] hover:underline cursor-pointer"
               >
                 <span>{showRawResult ? "Sembunyikan Hasil Mentah" : "Lihat Hasil Mentah"}</span>
                 {showRawResult ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
@@ -1430,7 +1430,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                 value={pasteText}
                 onChange={(e) => handlePasteChange(e.target.value)}
                 placeholder="Tempel seluruh output ChatGPT / Gemini yang memuat blok === BEGIN SKRIFLOW_FENOMENA_V1 === sampai === END SKRIFLOW_FENOMENA_V1 === di sini..."
-                className="w-full rounded-lg border border-[#273352] bg-[#080D1D] p-3 text-xs font-mono text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2959FF] animate-fade-in"
+                className="w-full rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 text-xs font-mono text-[#FBFAFF] placeholder-[#A79FC4]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5AE6] animate-fade-in"
               />
             )}
 
@@ -1439,15 +1439,15 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
               <div className="space-y-3 pt-1">
                 <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
                   <div className="flex items-center gap-2">
-                    <span className="font-semibold text-[#FFF9EE]">Status Struktur:</span>
+                    <span className="font-semibold text-[#FBFAFF]">Status Struktur:</span>
                     <span
                       className={`rounded px-2 py-0.5 text-[13px] font-bold ${
                         parseResult.structuralStatus === "Struktur lengkap" ||
                         parseResult.structuralStatus === "Valid dengan perbaikan format"
-                          ? "bg-[#70E1B6]/15 text-[#70E1B6] border border-[#70E1B6]/30"
+                          ? "bg-[#FFB84D]/15 text-[#FFB84D] border border-[#FFB84D]/30"
                           : parseResult.structuralStatus === "Struktur perlu diperiksa"
-                          ? "bg-[#F5A623]/15 text-[#F5A623] border border-[#F5A623]/30"
-                          : "bg-[#FF6F61]/15 text-[#FF6F61] border border-[#FF6F61]/30"
+                          ? "bg-[#FF9E5E]/15 text-[#FF9E5E] border border-[#FF9E5E]/30"
+                          : "bg-[#FF5C8A]/15 text-[#FF5C8A] border border-[#FF5C8A]/30"
                       }`}
                     >
                       {parseResult.structuralStatus}
@@ -1455,7 +1455,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   </div>
 
                   {parseResult.warnings.length > 0 && !parseResult.urlCorrections && (
-                    <span className="text-[13px] text-[#F5A623]">
+                    <span className="text-[13px] text-[#FF9E5E]">
                       {parseResult.warnings.join("; ")}
                     </span>
                   )}
@@ -1473,8 +1473,8 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                     <div
                       className={`rounded-lg border p-3.5 text-xs space-y-2 animate-fade-in ${
                         errors.length > 0
-                          ? "border-[#FF6F61]/40 bg-[#FF6F61]/10 text-[#FFF9EE]"
-                          : "border-[#F5A623]/40 bg-[#F5A623]/10 text-[#FFF9EE]"
+                          ? "border-[#FF5C8A]/40 bg-[#FF5C8A]/10 text-[#FBFAFF]"
+                          : "border-[#FF9E5E]/40 bg-[#FF9E5E]/10 text-[#FBFAFF]"
                       }`}
                     >
                       <div className="flex items-center gap-2 font-bold">
@@ -1490,8 +1490,8 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             <span
                               className={`mr-1.5 rounded px-1 py-0.5 text-[10px] font-bold ${
                                 x.severity === "ERROR"
-                                  ? "bg-[#FF6F61]/25 text-[#FF6F61]"
-                                  : "bg-[#F5A623]/25 text-[#F5A623]"
+                                  ? "bg-[#FF5C8A]/25 text-[#FF5C8A]"
+                                  : "bg-[#FF9E5E]/25 text-[#FF9E5E]"
                               }`}
                             >
                               {x.severity === "ERROR" ? "PERLU DIPERBAIKI" : "CATATAN"}
@@ -1501,7 +1501,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         ))}
                       </ul>
                       {findings.length > tampil.length && (
-                        <p className="text-[11px] text-[#AAB4D0]">
+                        <p className="text-[11px] text-[#A79FC4]">
                           +{findings.length - tampil.length} temuan lain pada bukti/sumber.
                         </p>
                       )}
@@ -1511,18 +1511,18 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                 {/* Non-blocking URL Normalization notification */}
                 {parseResult.urlCorrections && parseResult.urlCorrections.length > 0 && (
-                  <div className="rounded-lg border border-[#70E1B6]/30 bg-[#70E1B6]/10 p-3.5 text-xs text-[#FFF9EE] space-y-2 animate-fade-in">
-                    <div className="flex items-center gap-2 text-[#70E1B6] font-bold">
+                  <div className="rounded-lg border border-[#FFB84D]/30 bg-[#FFB84D]/10 p-3.5 text-xs text-[#FBFAFF] space-y-2 animate-fade-in">
+                    <div className="flex items-center gap-2 text-[#FFB84D] font-bold">
                       <CheckCircle2 className="h-4 w-4 shrink-0" />
                       <span>FORMAT URL DIPERBAIKI OTOMATIS</span>
                     </div>
-                    <p className="text-xs text-[#AAB4D0] leading-relaxed">
+                    <p className="text-xs text-[#A79FC4] leading-relaxed">
                       Beberapa URL ditulis AI dalam format Markdown dan telah diubah menjadi URL mentah. Isi sumber tidak diubah.
                     </p>
-                    <ul className="list-disc list-inside space-y-1 text-[13px] text-[#FFF9EE]/90 pt-1">
+                    <ul className="list-disc list-inside space-y-1 text-[13px] text-[#FBFAFF]/90 pt-1">
                       {parseResult.urlCorrections.map((corr, idx) => (
                         <li key={idx}>
-                          <span className="font-semibold text-[#70E1B6]">
+                          <span className="font-semibold text-[#FFB84D]">
                             {corr.candidateId} — Bukti {corr.evidenceIndex}:
                           </span>{" "}
                           <span>Markdown link → URL mentah</span>
@@ -1535,23 +1535,23 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
             )}
 
             {parseResult && !parseResult.success && parseResult.error && (
-              <div className="rounded-lg border border-[#FF6F61]/40 bg-[#FF6F61]/10 p-3.5 text-xs text-[#FF6F61] space-y-2.5">
+              <div className="rounded-lg border border-[#FF5C8A]/40 bg-[#FF5C8A]/10 p-3.5 text-xs text-[#FF5C8A] space-y-2.5">
                 <p className="font-semibold leading-relaxed whitespace-pre-line">{parseResult.error}</p>
                 <div className="flex flex-wrap items-center gap-2 pt-1">
                   {parseResult.error.toLowerCase().includes("url") && (
                     <button
                       type="button"
                       onClick={handleCopyFixUrlPrompt}
-                      className="inline-flex items-center gap-1.5 rounded-md border border-[#FF6F61] bg-[#FF6F61]/25 px-3 py-1.5 text-xs font-semibold text-[#FFF9EE] hover:bg-[#FF6F61]/35 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-[#FF5C8A] bg-[#FF5C8A]/25 px-3 py-1.5 text-xs font-semibold text-[#FBFAFF] hover:bg-[#FF5C8A]/35 transition-colors cursor-pointer"
                     >
                       {copiedFixUrlPrompt ? (
                         <>
-                          <Check className="h-3.5 w-3.5 text-[#70E1B6]" aria-hidden="true" />
+                          <Check className="h-3.5 w-3.5 text-[#FFB84D]" aria-hidden="true" />
                           <span>Prompt Perbaikan URL Tersalin!</span>
                         </>
                       ) : (
                         <>
-                          <Copy className="h-3.5 w-3.5 text-[#FFF9EE]" aria-hidden="true" />
+                          <Copy className="h-3.5 w-3.5 text-[#FBFAFF]" aria-hidden="true" />
                           <span>Salin Prompt Perbaikan URL</span>
                         </>
                       )}
@@ -1561,16 +1561,16 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   <button
                     type="button"
                     onClick={handleCopyFixPrompt}
-                    className="inline-flex items-center gap-1.5 rounded-md border border-[#273352] bg-[#11182D] px-2.5 py-1.5 text-xs font-semibold text-[#AAB4D0] hover:text-[#FFF9EE] hover:bg-[#16213D] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-[#2E2748] bg-[#191430] px-2.5 py-1.5 text-xs font-semibold text-[#A79FC4] hover:text-[#FBFAFF] hover:bg-[#221A42] transition-colors cursor-pointer"
                   >
                     {copiedFixPrompt ? (
                       <>
-                        <Check className="h-3.5 w-3.5 text-[#70E1B6]" aria-hidden="true" />
+                        <Check className="h-3.5 w-3.5 text-[#FFB84D]" aria-hidden="true" />
                         <span>Prompt Format Tersalin!</span>
                       </>
                     ) : (
                       <>
-                        <Copy className="h-3.5 w-3.5 text-[#AAB4D0]" aria-hidden="true" />
+                        <Copy className="h-3.5 w-3.5 text-[#A79FC4]" aria-hidden="true" />
                         <span>Salin Prompt Perbaikan Format</span>
                       </>
                     )}
@@ -1584,7 +1584,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
             <button
               type="button"
               onClick={handleResetPaste}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-transparent px-3 py-1.5 text-xs font-semibold text-[#AAB4D0] hover:text-[#FF6F61] hover:border-[#FF6F61]/40 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-transparent px-3 py-1.5 text-xs font-semibold text-[#A79FC4] hover:text-[#FF5C8A] hover:border-[#FF5C8A]/40 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
               <span>Reset Hasil</span>
@@ -1594,9 +1594,9 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
               type="button"
               onClick={handleReadPaste}
               disabled={!pasteText.trim()}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#2959FF] px-4 py-2 text-xs font-bold text-white shadow hover:bg-[#2047D4] transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#6D5AE6] px-4 py-2 text-xs font-bold text-white shadow hover:bg-[#2047D4] transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
-              <CheckCircle2 className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
+              <CheckCircle2 className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
               <span>Baca Hasil</span>
             </button>
           </div>
@@ -1607,11 +1607,11 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
       {/* BANNER STATUS FENOMENA SUDAH TERSIMPAN (KONDISI KEMBALI / RELOAD) */}
       {/* ========================================================================= */}
       {storedSelectedPhenomenon && (!parseResult || !parseResult.success || !parseResult.payload) && (
-        <div className="rounded-xl border border-[#70E1B6]/40 bg-[#70E1B6]/10 p-5 sm:p-6 space-y-4 animate-fade-in">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#70E1B6]/30 pb-3">
+        <div className="rounded-xl border border-[#FFB84D]/40 bg-[#FFB84D]/10 p-5 sm:p-6 space-y-4 animate-fade-in">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#FFB84D]/30 pb-3">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5 text-[#70E1B6]" aria-hidden="true" />
-              <h3 className="text-sm font-bold text-[#FFF9EE]">
+              <CheckCircle2 className="h-5 w-5 text-[#FFB84D]" aria-hidden="true" />
+              <h3 className="text-sm font-bold text-[#FBFAFF]">
                 Fenomena Sudah Tersimpan
               </h3>
             </div>
@@ -1620,12 +1620,12 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
           <div className="space-y-2 text-xs">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">
+              <span className="rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 text-xs font-bold text-[#FFB84D]">
                 {storedSelectedPhenomenon.candidateId}
               </span>
-              <strong className="text-sm text-[#FFF9EE]">{storedSelectedPhenomenon.name}</strong>
+              <strong className="text-sm text-[#FBFAFF]">{storedSelectedPhenomenon.name}</strong>
             </div>
-            <p className="rounded-lg bg-[#080D1D] p-3 text-[#FFF9EE] leading-relaxed">
+            <p className="rounded-lg bg-[#0C0A1A] p-3 text-[#FBFAFF] leading-relaxed">
               {storedSelectedPhenomenon.phenomenonSummary}
             </p>
           </div>
@@ -1633,7 +1633,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
           <div className="flex flex-wrap items-center gap-3 pt-1">
             <Link
               href="/tools/cari-literatur-awal"
-              className="inline-flex items-center gap-2 rounded-lg bg-[#2959FF] px-4 py-2.5 text-xs font-bold text-white shadow hover:bg-[#1E46D9] transition-all focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#6D5AE6] px-4 py-2.5 text-xs font-bold text-white shadow hover:bg-[#5A46D6] transition-all focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
             >
               <span>Lanjut ke Cari Literatur</span>
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -1648,7 +1648,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   el.scrollIntoView({ behavior: "smooth", block: "center" });
                 }
               }}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#11182D] px-4 py-2.5 text-xs font-semibold text-[#AAB4D0] hover:text-[#FFF9EE] hover:border-[#2959FF]/50 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#191430] px-4 py-2.5 text-xs font-semibold text-[#A79FC4] hover:text-[#FBFAFF] hover:border-[#6D5AE6]/50 transition-colors cursor-pointer"
             >
               <span>Ganti Fenomena</span>
             </button>
@@ -1661,28 +1661,28 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
       {/* ========================================================================= */}
       {parseResult && parseResult.success && parseResult.payload && (
         <section aria-labelledby="tahap-3-heading" className="space-y-6 animate-fade-in">
-          <div className="flex items-center gap-2 border-b border-[#273352] pb-3">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2959FF] text-xs font-bold text-white">
+          <div className="flex items-center gap-2 border-b border-[#2E2748] pb-3">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#6D5AE6] text-xs font-bold text-white">
               3
             </span>
-            <h2 id="tahap-3-heading" className="text-lg font-bold text-[#FFF9EE]">
+            <h2 id="tahap-3-heading" className="text-lg font-bold text-[#FBFAFF]">
               Tahap 3: Pilih dan Simpan Fenomena
             </h2>
           </div>
 
           {/* Insufficient Evidence Notice */}
           {parseResult.payload.insufficient_evidence ? (
-            <div className="rounded-xl border border-[#F5A623]/40 bg-[#F5A623]/10 p-5 space-y-3">
-              <div className="flex items-center gap-2 text-sm font-bold text-[#F5A623]">
+            <div className="rounded-xl border border-[#FF9E5E]/40 bg-[#FF9E5E]/10 p-5 space-y-3">
+              <div className="flex items-center gap-2 text-sm font-bold text-[#FF9E5E]">
                 <AlertTriangle className="h-5 w-5" aria-hidden="true" />
                 <span>Bukti Empiris Belum Cukup Ditemukan</span>
               </div>
-              <p className="text-xs leading-relaxed text-[#FFF9EE]">
+              <p className="text-xs leading-relaxed text-[#FBFAFF]">
                 AI tidak menemukan minimal satu kandidat fenomena yang didukung bukti kuat dalam cakupan dan rentang yang diminta.
               </p>
               {parseResult.payload.search_notes && parseResult.payload.search_notes.length > 0 && (
-                <div className="rounded-lg bg-[#080D1D]/80 p-3 text-xs text-[#AAB4D0] space-y-1">
-                  <span className="font-semibold text-[#FFF9EE]">Catatan Pencarian:</span>
+                <div className="rounded-lg bg-[#0C0A1A]/80 p-3 text-xs text-[#A79FC4] space-y-1">
+                  <span className="font-semibold text-[#FBFAFF]">Catatan Pencarian:</span>
                   <ul className="list-disc list-inside space-y-0.5">
                     {parseResult.payload.search_notes.map((note, idx) => (
                       <li key={idx}>{note}</li>
@@ -1690,19 +1690,19 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                   </ul>
                 </div>
               )}
-              <p className="text-xs text-[#AAB4D0]">
+              <p className="text-xs text-[#A79FC4]">
                 Saran: Coba sesuaikan cakupan fenomena atau rentang waktu di Tahap 1, lalu generate prompt kembali.
               </p>
             </div>
           ) : (
             <div className="space-y-6">
               {/* Candidates Comparison Overview Table */}
-              <div className="rounded-xl border border-[#273352] bg-[#11182D] p-5 space-y-3">
-                <div className="flex items-center justify-between border-b border-[#273352] pb-3">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#70E1B6]">
+              <div className="rounded-xl border border-[#2E2748] bg-[#191430] p-5 space-y-3">
+                <div className="flex items-center justify-between border-b border-[#2E2748] pb-3">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#FFB84D]">
                     Perbandingan Kandidat Fenomena
                   </h3>
-                  <span className="text-[13px] text-[#AAB4D0]">
+                  <span className="text-[13px] text-[#A79FC4]">
                     {parseResult.payload.candidates.length} Kandidat Ditemukan
                   </span>
                 </div>
@@ -1710,7 +1710,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs border-collapse">
                     <thead>
-                      <tr className="border-b border-[#273352] text-[#AAB4D0]">
+                      <tr className="border-b border-[#2E2748] text-[#A79FC4]">
                         <th className="py-2 pr-3 font-semibold">ID & Nama</th>
                         <th className="py-2 px-3 font-semibold">Status</th>
                         <th className="py-2 px-3 font-semibold">Bukti & Sumber</th>
@@ -1720,20 +1720,20 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         <th className="py-2 pl-3 font-semibold">Pilih</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#273352]/50">
+                    <tbody className="divide-y divide-[#2E2748]/50">
                       {parseResult.payload.candidates.map((cand) => {
                         const uniqueCount = getUniqueSourceCount(cand.evidence);
                         const candEffectiveStatus = cand.effective_status || cand.status;
                         return (
-                          <tr key={cand.id} className="hover:bg-[#16213D]/40 transition-colors">
-                            <td className="py-2.5 pr-3 font-medium text-[#FFF9EE]">
-                              <span className="text-[#70E1B6] font-bold mr-1.5">{cand.id}</span>
+                          <tr key={cand.id} className="hover:bg-[#221A42]/40 transition-colors">
+                            <td className="py-2.5 pr-3 font-medium text-[#FBFAFF]">
+                              <span className="text-[#FFB84D] font-bold mr-1.5">{cand.id}</span>
                               {cand.name}
                             </td>
                             <td className="py-2.5 px-3 whitespace-nowrap">
                               {getStatusBadge(candEffectiveStatus)}
                             </td>
-                            <td className="py-2.5 px-3 text-[#AAB4D0] whitespace-nowrap">
+                            <td className="py-2.5 px-3 text-[#A79FC4] whitespace-nowrap">
                               {cand.evidence.length} bukti • {uniqueCount} sumber unik
                             </td>
                             <td className="py-2.5 px-3 whitespace-nowrap">
@@ -1752,10 +1752,10 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                 disabled={candEffectiveStatus === "JANGAN_DIGUNAKAN"}
                                 className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-all ${
                                   selectedCandidateId === cand.id
-                                    ? "bg-[#70E1B6] text-[#080D1D]"
+                                    ? "bg-[#FFB84D] text-[#0C0A1A]"
                                     : candEffectiveStatus === "JANGAN_DIGUNAKAN"
-                                    ? "bg-[#273352]/40 text-[#AAB4D0]/40 cursor-not-allowed"
-                                    : "border border-[#2959FF] bg-[#2959FF]/10 text-[#FFF9EE] hover:bg-[#2959FF]/20"
+                                    ? "bg-[#2E2748]/40 text-[#A79FC4]/40 cursor-not-allowed"
+                                    : "border border-[#6D5AE6] bg-[#6D5AE6]/10 text-[#FBFAFF] hover:bg-[#6D5AE6]/20"
                                 }`}
                               >
                                 {selectedCandidateId === cand.id ? "Terpilih" : "Pilih"}
@@ -1782,21 +1782,21 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       key={cand.id}
                       className={`rounded-xl border transition-all ${
                         isSelected
-                          ? "border-[#70E1B6] bg-[#11182D] ring-2 ring-[#70E1B6]/30"
-                          : "border-[#273352] bg-[#11182D]"
+                          ? "border-[#FFB84D] bg-[#191430] ring-2 ring-[#FFB84D]/30"
+                          : "border-[#2E2748] bg-[#191430]"
                       } p-5 sm:p-6 space-y-4`}
                     >
                       {/* Card Header */}
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-[#273352] pb-3">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-[#2E2748] pb-3">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">
+                          <span className="rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 text-xs font-bold text-[#FFB84D]">
                             {cand.id}
                           </span>
-                          <h3 className="text-base font-bold text-[#FFF9EE]">{cand.name}</h3>
-                          <span className="rounded bg-[#273352] px-2 py-0.5 text-[12px] font-semibold text-[#AAB4D0]">
+                          <h3 className="text-base font-bold text-[#FBFAFF]">{cand.name}</h3>
+                          <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[12px] font-semibold text-[#A79FC4]">
                             {getStudentLabel(cand.phenomenon_type)}
                           </span>
-                          <span className="rounded border border-[#273352] bg-[#080D1D] px-2 py-0.5 text-[12px] font-medium text-[#70E1B6]">
+                          <span className="rounded border border-[#2E2748] bg-[#0C0A1A] px-2 py-0.5 text-[12px] font-medium text-[#FFB84D]">
                             {cand.evidence.length} bukti • {uniqueCount} sumber unik
                           </span>
                         </div>
@@ -1810,10 +1810,10 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             disabled={candEffectiveStatus === "JANGAN_DIGUNAKAN"}
                             className={`rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
                               isSelected
-                                ? "bg-[#70E1B6] text-[#080D1D]"
+                                ? "bg-[#FFB84D] text-[#0C0A1A]"
                                 : candEffectiveStatus === "JANGAN_DIGUNAKAN"
-                                ? "bg-[#273352]/30 text-[#AAB4D0]/40 cursor-not-allowed"
-                                : "border border-[#2959FF] bg-[#2959FF]/15 text-[#FFF9EE] hover:bg-[#2959FF]/30"
+                                ? "bg-[#2E2748]/30 text-[#A79FC4]/40 cursor-not-allowed"
+                                : "border border-[#6D5AE6] bg-[#6D5AE6]/15 text-[#FBFAFF] hover:bg-[#6D5AE6]/30"
                             }`}
                           >
                             {isSelected ? "✓ Kandidat Terpilih" : "Pilih Fenomena Ini"}
@@ -1831,25 +1831,25 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       {/* Summary & Observed Condition */}
                       <div className="space-y-3 text-xs">
                         <div>
-                          <span className="font-semibold text-[#70E1B6] block mb-1">
+                          <span className="font-semibold text-[#FFB84D] block mb-1">
                             Fenomena Ringkas (Summary):
                           </span>
-                          <p className="rounded-lg bg-[#080D1D] p-3 text-[#FFF9EE] leading-relaxed">
+                          <p className="rounded-lg bg-[#0C0A1A] p-3 text-[#FBFAFF] leading-relaxed">
                             {cand.phenomenon_summary}
                           </p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-lg border border-[#273352]/70 bg-[#080D1D]/50 p-3 text-[13px]">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 rounded-lg border border-[#2E2748]/70 bg-[#0C0A1A]/50 p-3 text-[13px]">
                           <div>
-                            <span className="text-[#AAB4D0] block mb-0.5">Objek / Populasi:</span>
+                            <span className="text-[#A79FC4] block mb-0.5">Objek / Populasi:</span>
                             {(() => {
                               const raw = cand.scope.object_or_population || "";
                               if (raw.includes("Entitas atau konteks yang mungkin diamati:")) {
                                 const [act, ent] = raw.split("Entitas atau konteks yang mungkin diamati:");
                                 return (
                                   <div className="space-y-0.5">
-                                    {act.trim() && <p><span className="text-[#AAB4D0]">Siapa yang berkaitan:</span> <strong className="text-[#FFF9EE]">{act.trim()}</strong></p>}
-                                    {ent?.trim() && <p><span className="text-[#AAB4D0]">Apa yang diamati:</span> <strong className="text-[#FFF9EE]">{ent.trim()}</strong></p>}
+                                    {act.trim() && <p><span className="text-[#A79FC4]">Siapa yang berkaitan:</span> <strong className="text-[#FBFAFF]">{act.trim()}</strong></p>}
+                                    {ent?.trim() && <p><span className="text-[#A79FC4]">Apa yang diamati:</span> <strong className="text-[#FBFAFF]">{ent.trim()}</strong></p>}
                                   </div>
                                 );
                               }
@@ -1858,37 +1858,37 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                 if (m) {
                                   return (
                                     <div className="space-y-0.5">
-                                      <p><span className="text-[#AAB4D0]">Siapa yang berkaitan:</span> <strong className="text-[#FFF9EE]">{m[1].trim()}</strong></p>
-                                      <p><span className="text-[#AAB4D0]">Apa yang diamati:</span> <strong className="text-[#FFF9EE]">{m[2].trim()}</strong></p>
+                                      <p><span className="text-[#A79FC4]">Siapa yang berkaitan:</span> <strong className="text-[#FBFAFF]">{m[1].trim()}</strong></p>
+                                      <p><span className="text-[#A79FC4]">Apa yang diamati:</span> <strong className="text-[#FBFAFF]">{m[2].trim()}</strong></p>
                                     </div>
                                   );
                                 }
                               }
-                              return <strong className="text-[#FFF9EE]">{raw}</strong>;
+                              return <strong className="text-[#FBFAFF]">{raw}</strong>;
                             })()}
                           </div>
                           <div>
-                            <span className="text-[#AAB4D0] block">Lokasi / Cakupan:</span>
-                            <strong className="text-[#FFF9EE]">{cand.scope.geography}</strong>
+                            <span className="text-[#A79FC4] block">Lokasi / Cakupan:</span>
+                            <strong className="text-[#FBFAFF]">{cand.scope.geography}</strong>
                           </div>
                           <div>
-                            <span className="text-[#AAB4D0] block">Periode Data:</span>
-                            <strong className="text-[#FFF9EE]">{cand.scope.reference_period}</strong>
+                            <span className="text-[#A79FC4] block">Periode Data:</span>
+                            <strong className="text-[#FBFAFF]">{cand.scope.reference_period}</strong>
                           </div>
                         </div>
 
                         {cand.relation_to_area && (
                           <div>
-                            <span className="text-[#AAB4D0] font-semibold block mb-0.5">
+                            <span className="text-[#A79FC4] font-semibold block mb-0.5">
                               Hubungan dengan Area Eksplorasi:
                             </span>
-                            <p className="text-[#FFF9EE] leading-relaxed">{cand.relation_to_area}</p>
+                            <p className="text-[#FBFAFF] leading-relaxed">{cand.relation_to_area}</p>
                           </div>
                         )}
                       </div>
 
                       {/* Evidence List Accordion */}
-                      <div className="rounded-lg border border-[#273352] bg-[#080D1D]/70 overflow-hidden">
+                      <div className="rounded-lg border border-[#2E2748] bg-[#0C0A1A]/70 overflow-hidden">
                         <button
                           type="button"
                           onClick={() =>
@@ -1898,21 +1898,21 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             }))
                           }
                           aria-expanded={isEvidenceOpen}
-                          className="w-full flex items-center justify-between px-4 py-2.5 text-left text-xs font-bold text-[#FFF9EE] hover:bg-[#16213D] transition-colors"
+                          className="w-full flex items-center justify-between px-4 py-2.5 text-left text-xs font-bold text-[#FBFAFF] hover:bg-[#221A42] transition-colors"
                         >
                           <span className="flex items-center gap-2">
-                            <FileText className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
+                            <FileText className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
                             Paket Bukti Empiris ({cand.evidence.length} Bukti • {uniqueCount} Sumber Unik)
                           </span>
                           {isEvidenceOpen ? (
-                            <ChevronUp className="h-4 w-4 text-[#AAB4D0]" aria-hidden="true" />
+                            <ChevronUp className="h-4 w-4 text-[#A79FC4]" aria-hidden="true" />
                           ) : (
-                            <ChevronDown className="h-4 w-4 text-[#AAB4D0]" aria-hidden="true" />
+                            <ChevronDown className="h-4 w-4 text-[#A79FC4]" aria-hidden="true" />
                           )}
                         </button>
 
                         {/* Tombol periksa di luar tombol accordion (nested button = HTML invalid) */}
-                        <div className="flex justify-end px-4 py-2 border-t border-[#273352]/60">
+                        <div className="flex justify-end px-4 py-2 border-t border-[#2E2748]/60">
                           <TombolPeriksaSumber
                             jumlah={cand.evidence.length}
                             sedangProses={sedangVerifikasi}
@@ -1930,7 +1930,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         </div>
 
                         {isEvidenceOpen && (
-                          <div className="p-4 border-t border-[#273352] space-y-4">
+                          <div className="p-4 border-t border-[#2E2748] space-y-4">
                             <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
                             <PanelRingkasanDanTerkait
                               daftar={cand.evidence.map((ev, i) => ({
@@ -1961,25 +1961,25 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                               return (
                                 <div
                                   key={idx}
-                                  className="rounded-lg border border-[#273352] bg-[#11182D] p-3.5 space-y-2.5 text-xs"
+                                  className="rounded-lg border border-[#2E2748] bg-[#191430] p-3.5 space-y-2.5 text-xs"
                                 >
-                                  <div className="flex flex-wrap items-start justify-between gap-2 border-b border-[#273352]/60 pb-2">
+                                  <div className="flex flex-wrap items-start justify-between gap-2 border-b border-[#2E2748]/60 pb-2">
                                     <div className="space-y-1">
                                       <div className="flex flex-wrap items-center gap-2">
-                                        <span className="text-[12px] font-bold uppercase tracking-wider text-[#70E1B6]">
+                                        <span className="text-[12px] font-bold uppercase tracking-wider text-[#FFB84D]">
                                           Bukti #{idx + 1} • {getStudentLabel(ev.source_type)}
                                         </span>
                                         {isSharedSource && (
-                                          <span className="inline-flex items-center gap-1 rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 text-[12px] font-semibold text-[#70E1B6]">
+                                          <span className="inline-flex items-center gap-1 rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 text-[12px] font-semibold text-[#FFB84D]">
                                             Sumber yang sama
                                           </span>
                                         )}
                                       </div>
-                                      <h4 className="text-xs font-bold text-[#FFF9EE] mt-0.5 flex flex-wrap items-center gap-1.5">
+                                      <h4 className="text-xs font-bold text-[#FBFAFF] mt-0.5 flex flex-wrap items-center gap-1.5">
                                         <span>{ev.source_title}</span>
                                         <LencanaVerifikasi hasil={verifikasiSumber[`${cand.id}-bukti-${idx + 1}`]} />
                                       </h4>
-                                      <span className="text-[13px] text-[#AAB4D0] block">
+                                      <span className="text-[13px] text-[#A79FC4] block">
                                         {ev.publisher_or_institution} ({ev.publication_date || "Tanggal tidak tercantum"})
                                       </span>
                                     </div>
@@ -1989,46 +1989,46 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                         href={safeHref(ev.url) as string}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1 rounded-md border border-[#2959FF] bg-[#2959FF]/10 px-2.5 py-1 text-[13px] font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/25 transition-colors focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+                                        className="inline-flex items-center gap-1 rounded-md border border-[#6D5AE6] bg-[#6D5AE6]/10 px-2.5 py-1 text-[13px] font-semibold text-[#FBFAFF] hover:bg-[#6D5AE6]/25 transition-colors focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
                                       >
                                         <span>Buka Sumber</span>
-                                        <ExternalLink className="h-3 w-3 text-[#70E1B6]" aria-hidden="true" />
+                                        <ExternalLink className="h-3 w-3 text-[#FFB84D]" aria-hidden="true" />
                                       </a>
                                     )}
                                   </div>
 
-                                  <div className="space-y-1.5 text-[13px] leading-relaxed text-[#AAB4D0]">
-                                    <p><strong className="text-[#FFF9EE]">Klaim Bukti:</strong> {ev.claim}</p>
+                                  <div className="space-y-1.5 text-[13px] leading-relaxed text-[#A79FC4]">
+                                    <p><strong className="text-[#FBFAFF]">Klaim Bukti:</strong> {ev.claim}</p>
                                     {ev.observed_data_or_event && (
-                                      <p><strong className="text-[#FFF9EE]">Data/Peristiwa:</strong> {ev.observed_data_or_event}</p>
+                                      <p><strong className="text-[#FBFAFF]">Data/Peristiwa:</strong> {ev.observed_data_or_event}</p>
                                     )}
                                     {ev.evidence_location && (
-                                      <p><strong className="text-[#FFF9EE]">Lokasi Bukti:</strong> {ev.evidence_location}</p>
+                                      <p><strong className="text-[#FBFAFF]">Lokasi Bukti:</strong> {ev.evidence_location}</p>
                                     )}
                                     {ev.access_note && (
-                                      <p><strong className="text-[#FFF9EE]">Catatan Akses:</strong> {ev.access_note}</p>
+                                      <p><strong className="text-[#FBFAFF]">Catatan Akses:</strong> {ev.access_note}</p>
                                     )}
                                     {ev.method_or_metadata && (
-                                      <p><strong className="text-[#FFF9EE]">Metode/Metadata:</strong> {ev.method_or_metadata}</p>
+                                      <p><strong className="text-[#FBFAFF]">Metode/Metadata:</strong> {ev.method_or_metadata}</p>
                                     )}
                                     {ev.limitations && (
-                                      <p><strong className="text-[#FFF9EE]">Keterbatasan:</strong> {ev.limitations}</p>
+                                      <p><strong className="text-[#FBFAFF]">Keterbatasan:</strong> {ev.limitations}</p>
                                     )}
                                   </div>
 
                                   {/* Source confirmation checkbox based on canonical source */}
-                                  <div className="pt-2 border-t border-[#273352]/50 flex items-center gap-2">
+                                  <div className="pt-2 border-t border-[#2E2748]/50 flex items-center gap-2">
                                     <input
                                       type="checkbox"
                                       id={`confirm-${cand.id}-${idx}`}
                                       checked={isConfirmed}
                                       onChange={() => handleToggleSourceConfirm(cand.id, canonicalKey)}
                                       disabled={candEffectiveStatus === "JANGAN_DIGUNAKAN"}
-                                      className="h-4 w-4 rounded border-[#273352] bg-[#080D1D] text-[#70E1B6] focus:ring-[#70E1B6] disabled:opacity-40 disabled:cursor-not-allowed"
+                                      className="h-4 w-4 rounded border-[#2E2748] bg-[#0C0A1A] text-[#FFB84D] focus:ring-[#FFB84D] disabled:opacity-40 disabled:cursor-not-allowed"
                                     />
                                     <label
                                       htmlFor={`confirm-${cand.id}-${idx}`}
-                                      className="text-xs font-medium text-[#FFF9EE] cursor-pointer"
+                                      className="text-xs font-medium text-[#FBFAFF] cursor-pointer"
                                     >
                                       Saya sudah membuka dan mencocokkan sumber ini.
                                     </label>
@@ -2041,16 +2041,16 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       </div>
 
                       {/* Triangulation & What is not proven */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] text-[#AAB4D0]">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] text-[#A79FC4]">
                         {cand.triangulation_note && (
-                          <div className="rounded-lg bg-[#080D1D] p-3">
-                            <span className="font-semibold text-[#FFF9EE] block mb-1">Catatan Triangulasi:</span>
+                          <div className="rounded-lg bg-[#0C0A1A] p-3">
+                            <span className="font-semibold text-[#FBFAFF] block mb-1">Catatan Triangulasi:</span>
                             <p>{cand.triangulation_note}</p>
                           </div>
                         )}
                         {cand.what_is_not_proven && (
-                          <div className="rounded-lg bg-[#080D1D] p-3">
-                            <span className="font-semibold text-[#FF6F61] block mb-1">Hal yang Belum Terbukti:</span>
+                          <div className="rounded-lg bg-[#0C0A1A] p-3">
+                            <span className="font-semibold text-[#FF5C8A] block mb-1">Hal yang Belum Terbukti:</span>
                             <p>{cand.what_is_not_proven}</p>
                           </div>
                         )}
@@ -2062,25 +2062,25 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
               {/* Selected Candidate Warning & Confirmation Gate Box */}
               {selectedCandidate && (
-                <div className="rounded-xl border border-[#273352] bg-[#11182D] p-5 sm:p-6 space-y-4">
-                  <div className="flex items-center justify-between border-b border-[#273352] pb-3">
-                    <h3 className="text-sm font-bold text-[#FFF9EE]">
-                      Konfirmasi Kandidat Terpilih: <span className="text-[#70E1B6]">{selectedCandidate.id} — {selectedCandidate.name}</span>
+                <div className="rounded-xl border border-[#2E2748] bg-[#191430] p-5 sm:p-6 space-y-4">
+                  <div className="flex items-center justify-between border-b border-[#2E2748] pb-3">
+                    <h3 className="text-sm font-bold text-[#FBFAFF]">
+                      Konfirmasi Kandidat Terpilih: <span className="text-[#FFB84D]">{selectedCandidate.id} — {selectedCandidate.name}</span>
                     </h3>
                     {getStatusBadge(selectedCandidate.effective_status || selectedCandidate.status)}
                   </div>
 
                   {/* Progress of unique source confirmation */}
-                  <div className="rounded-lg bg-[#080D1D] p-3 text-xs flex items-center justify-between border border-[#273352]/70">
-                    <span className="text-[#AAB4D0]">Pemeriksaan Sumber Mandiri:</span>
-                    <span className="font-bold text-[#70E1B6]">
+                  <div className="rounded-lg bg-[#0C0A1A] p-3 text-xs flex items-center justify-between border border-[#2E2748]/70">
+                    <span className="text-[#A79FC4]">Pemeriksaan Sumber Mandiri:</span>
+                    <span className="font-bold text-[#FFB84D]">
                       {confirmationGateStatus.confirmedUniqueCount} dari {confirmationGateStatus.requiredUniqueCount} sumber unik sudah diperiksa
                     </span>
                   </div>
 
                   {/* Fatal warning for JANGAN_DIGUNAKAN */}
                   {(selectedCandidate.effective_status || selectedCandidate.status) === "JANGAN_DIGUNAKAN" && (
-                    <div className="flex items-start gap-2.5 rounded-lg border border-rose-500/40 bg-rose-500/10 p-3 text-xs text-[#FFF9EE]">
+                    <div className="flex items-start gap-2.5 rounded-lg border border-rose-500/40 bg-rose-500/10 p-3 text-xs text-[#FBFAFF]">
                       <ShieldAlert className="h-4 w-4 text-rose-400 shrink-0 mt-0.5" aria-hidden="true" />
                       <p>
                         <strong>Kandidat Tidak Dapat Digunakan:</strong> {selectedCandidate.status_override_reason || "Kandidat ini memiliki kendala fatal sehingga tidak aman dilanjutkan."}
@@ -2090,8 +2090,8 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                   {/* Single unique source warning */}
                   {confirmationGateStatus.uniqueSourceCount === 1 && (selectedCandidate.effective_status || selectedCandidate.status) !== "JANGAN_DIGUNAKAN" && (
-                    <div className="flex items-start gap-2.5 rounded-lg border border-[#F5A623]/40 bg-[#F5A623]/10 p-3 text-xs text-[#FFF9EE]">
-                      <AlertTriangle className="h-4 w-4 text-[#F5A623] shrink-0 mt-0.5" aria-hidden="true" />
+                    <div className="flex items-start gap-2.5 rounded-lg border border-[#FF9E5E]/40 bg-[#FF9E5E]/10 p-3 text-xs text-[#FBFAFF]">
+                      <AlertTriangle className="h-4 w-4 text-[#FF9E5E] shrink-0 mt-0.5" aria-hidden="true" />
                       <p>
                         <strong>Peringatan Sumber Tunggal:</strong> Fenomena ini hanya didukung oleh 1 sumber unik. Kamu wajib memeriksa sumber ini secara teliti dan mencari bukti pendukung tambahan. Status tidak dinaikkan menjadi SIAP_DIBAWA secara otomatis.
                       </p>
@@ -2100,8 +2100,8 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                   {/* Persistent warning for PERLU_DIPERIKSA */}
                   {(selectedCandidate.effective_status || selectedCandidate.status) === "PERLU_DIPERIKSA" && (
-                    <div className="flex items-start gap-2.5 rounded-lg border border-[#F5A623]/40 bg-[#F5A623]/10 p-3 text-xs text-[#FFF9EE]">
-                      <ShieldAlert className="h-4 w-4 text-[#F5A623] shrink-0 mt-0.5" aria-hidden="true" />
+                    <div className="flex items-start gap-2.5 rounded-lg border border-[#FF9E5E]/40 bg-[#FF9E5E]/10 p-3 text-xs text-[#FBFAFF]">
+                      <ShieldAlert className="h-4 w-4 text-[#FF9E5E] shrink-0 mt-0.5" aria-hidden="true" />
                       <p>
                         <strong>Perhatian:</strong> Fenomena ini masih memiliki bukti yang perlu diperiksa. Kamu boleh melanjutkan, tetapi status ini akan dibawa ke langkah berikutnya.
                       </p>
@@ -2116,33 +2116,33 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         id="final-understanding-checkbox"
                         checked={understoodTemporary}
                         onChange={(e) => setUnderstoodTemporary(e.target.checked)}
-                        className="h-4 w-4 rounded border-[#273352] bg-[#080D1D] text-[#70E1B6] focus:ring-[#70E1B6] mt-0.5"
+                        className="h-4 w-4 rounded border-[#2E2748] bg-[#0C0A1A] text-[#FFB84D] focus:ring-[#FFB84D] mt-0.5"
                       />
                       <label
                         htmlFor="final-understanding-checkbox"
-                        className="text-xs font-semibold text-[#FFF9EE] leading-normal cursor-pointer"
+                        className="text-xs font-semibold text-[#FBFAFF] leading-normal cursor-pointer"
                       >
                         Saya memahami bagian ini masih perlu diperiksa dan belum merupakan keputusan penelitian final.
                       </label>
                     </div>
 
                     {!confirmationGateStatus.canSave && (
-                      <p className="text-[13px] text-[#F5A623]">
+                      <p className="text-[13px] text-[#FF9E5E]">
                         {confirmationGateStatus.reason}
                       </p>
                     )}
                   </div>
 
                   {/* Save and Hand-off Button */}
-                  <div className="pt-3 border-t border-[#273352] flex flex-wrap items-center justify-end gap-3">
+                  <div className="pt-3 border-t border-[#2E2748] flex flex-wrap items-center justify-end gap-3">
                     <button
                       type="button"
                       onClick={handleSaveAndProceed}
                       disabled={!confirmationGateStatus.canSave}
-                      className="inline-flex items-center gap-2 rounded-lg bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg hover:bg-[#5BC9A0] transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#FFB84D] min-h-[44px] px-5 py-3 text-xs font-bold text-[#0C0A1A] shadow-lg hover:bg-[#5BC9A0] transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     >
                       <span>Simpan Fenomena & Lanjut ke Cari Literatur</span>
-                      <ArrowRight className="h-4 w-4 text-[#080D1D]" aria-hidden="true" />
+                      <ArrowRight className="h-4 w-4 text-[#0C0A1A]" aria-hidden="true" />
                     </button>
                   </div>
                 </div>

@@ -149,16 +149,16 @@ export function PanelRingkasanDanTerkait({ daftar }: { daftar: SumberUntukDiperi
   const adaTerkait = hasil?.filter((b) => b.terkait.length > 0).length ?? 0;
 
   return (
-    <div className="rounded-xl border border-[#273352] bg-[#11182D] p-4 space-y-3">
+    <div className="rounded-xl border border-[#2E2748] bg-[#191430] p-4 space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h5 className="text-xs font-bold text-[#FFF9EE]">
+        <h5 className="text-xs font-bold text-[#FBFAFF]">
           Ringkasan &amp; Literatur Terkait (gratis)
         </h5>
         <button
           type="button"
           onClick={ambil}
           disabled={sedang}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-[#70E1B6]/50 bg-[#70E1B6]/10 px-3 py-1.5 text-xs font-semibold text-[#70E1B6] hover:bg-[#70E1B6]/20 disabled:opacity-50 transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-[#FFB84D]/50 bg-[#FFB84D]/10 px-3 py-1.5 text-xs font-semibold text-[#FFB84D] hover:bg-[#FFB84D]/20 disabled:opacity-50 transition-colors"
         >
           {sedang ? (
             <>
@@ -174,42 +174,42 @@ export function PanelRingkasanDanTerkait({ daftar }: { daftar: SumberUntukDiperi
         </button>
       </div>
 
-      <p className="text-[11px] text-[#AAB4D0] leading-relaxed">
+      <p className="text-[11px] text-[#A79FC4] leading-relaxed">
         Ringkasan berasal dari penulis/penerbit lewat Semantic Scholar — bukan hasil membacakan PDF-mu.
         Pakai untuk memilih bacaan mana yang layak dibuka, bukan sebagai isi kutipan. Sumber yang tidak
         punya DOI dicarikan dulu judulnya di OpenAlex; kalau tidak ketemu, sumber itu dibiarkan apa adanya.
       </p>
 
-      {catatan && <p className="text-[11px] text-[#F5A623]">{catatan}</p>}
+      {catatan && <p className="text-[11px] text-[#FF9E5E]">{catatan}</p>}
 
       {hasil && (
         <div className="space-y-2">
-          <p className="text-[11px] text-[#AAB4D0]">
+          <p className="text-[11px] text-[#A79FC4]">
             Diperiksa {hasil.length} sumber: {adaRingkasan} punya ringkasan, {adaTerkait} punya paper serupa.
           </p>
           <ul className="space-y-2">
             {hasil.map((b) => (
               <li
                 key={b.sourceId}
-                className="rounded-lg bg-[#080D1D] border border-[#273352]/60 p-2.5 space-y-1.5"
+                className="rounded-lg bg-[#0C0A1A] border border-[#2E2748]/60 p-2.5 space-y-1.5"
               >
-                <p className="text-[11.5px] font-semibold text-[#FFF9EE]">
-                  <span className="text-[#AAB4D0]">{b.sourceId}</span> — {b.judul.slice(0, 120)}
+                <p className="text-[11.5px] font-semibold text-[#FBFAFF]">
+                  <span className="text-[#A79FC4]">{b.sourceId}</span> — {b.judul.slice(0, 120)}
                 </p>
 
                 {b.doi && (
-                  <p className="text-[10.5px] text-[#AAB4D0]">
-                    DOI: <span className="text-[#70E1B6]">{b.doi}</span>
+                  <p className="text-[10.5px] text-[#A79FC4]">
+                    DOI: <span className="text-[#FFB84D]">{b.doi}</span>
                     {b.dariPencarian && (
-                      <span className="text-[#F5A623]"> — hasil pencocokan judul, cocokkan sendiri</span>
+                      <span className="text-[#FF9E5E]"> — hasil pencocokan judul, cocokkan sendiri</span>
                     )}
                   </p>
                 )}
 
                 {b.ringkasan ? (
-                  <p className="text-[11.5px] text-[#AAB4D0] leading-relaxed">{b.ringkasan}</p>
+                  <p className="text-[11.5px] text-[#A79FC4] leading-relaxed">{b.ringkasan}</p>
                 ) : (
-                  <p className="text-[11px] text-[#AAB4D0]/70">
+                  <p className="text-[11px] text-[#A79FC4]/70">
                     {b.doi
                       ? "Belum ada ringkasan otomatis untuk artikel ini (sering terjadi pada terbitan Indonesia)."
                       : "Sumber ini tidak punya DOI dan judulnya tidak ditemukan di OpenAlex — wajar untuk laporan perusahaan, siaran pers, atau peraturan. Buka dokumennya langsung."}
@@ -217,14 +217,14 @@ export function PanelRingkasanDanTerkait({ daftar }: { daftar: SumberUntukDiperi
                 )}
 
                 {b.terkait.length > 0 && (
-                  <div className="pt-1 border-t border-[#273352]/40">
-                    <p className="text-[11px] text-[#70E1B6] font-semibold flex items-center gap-1">
+                  <div className="pt-1 border-t border-[#2E2748]/40">
+                    <p className="text-[11px] text-[#FFB84D] font-semibold flex items-center gap-1">
                       <BookMarked className="h-3 w-3" aria-hidden="true" />
                       Paper serupa (menurut sitasi bersama):
                     </p>
                     <ul className="mt-1 space-y-0.5">
                       {b.terkait.map((p) => (
-                        <li key={p.openalexId} className="text-[11px] text-[#AAB4D0]">
+                        <li key={p.openalexId} className="text-[11px] text-[#A79FC4]">
                           • {p.judul.slice(0, 110)}
                           {p.tahun ? ` (${p.tahun})` : ""}
                           {p.doi && (
@@ -234,7 +234,7 @@ export function PanelRingkasanDanTerkait({ daftar }: { daftar: SumberUntukDiperi
                                 href={`https://doi.org/${p.doi}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#2959FF] hover:underline"
+                                className="text-[#6D5AE6] hover:underline"
                               >
                                 [DOI]
                               </a>
@@ -243,7 +243,7 @@ export function PanelRingkasanDanTerkait({ daftar }: { daftar: SumberUntukDiperi
                         </li>
                       ))}
                     </ul>
-                    <p className="text-[10.5px] text-[#AAB4D0]/70 pt-0.5">
+                    <p className="text-[10.5px] text-[#A79FC4]/70 pt-0.5">
                       Karya serupa belum tentu cocok dengan topikmu — periksa judulnya dulu.
                     </p>
                   </div>

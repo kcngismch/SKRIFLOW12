@@ -23,7 +23,7 @@ export const ToolSearch: React.FC<ToolSearchProps> = ({
           Cari tools berdasarkan nama, deskripsi, atau platform
         </label>
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
-          <Search className="h-4 w-4 text-[#AAB4D0]" />
+          <Search className="h-4 w-4 text-[#A79FC4]" />
         </div>
         <input
           id="tool-search"
@@ -31,13 +31,13 @@ export const ToolSearch: React.FC<ToolSearchProps> = ({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Cari tool, topik, atau platform (misal: NotebookLM)..."
-          className="w-full rounded-lg border border-[#273352] bg-[#11182D] py-2.5 pl-10 pr-9 text-sm text-[#FFF9EE] placeholder-[#AAB4D0]/60 transition-colors focus:border-[#2959FF] focus:bg-[#16213D] focus:outline-none focus:ring-1 focus:ring-[#2959FF]"
+          className="w-full rounded-lg border border-[#2E2748] bg-[#191430] py-2.5 pl-10 pr-9 text-sm text-[#FBFAFF] placeholder-[#A79FC4]/60 transition-colors focus:border-[#6D5AE6] focus:bg-[#221A42] focus:outline-none focus:ring-1 focus:ring-[#6D5AE6]"
         />
         {searchQuery.trim().length > 0 && (
           <button
             type="button"
             onClick={() => onSearchChange("")}
-            className="absolute inset-y-0 right-0 flex items-center pr-3 text-[#AAB4D0] hover:text-[#FFF9EE] focus:outline-none"
+            className="absolute inset-y-0 right-0 flex items-center pr-3 text-[#A79FC4] hover:text-[#FBFAFF] focus:outline-none"
             aria-label="Bersihkan pencarian"
           >
             <X className="h-4 w-4" />
@@ -45,9 +45,9 @@ export const ToolSearch: React.FC<ToolSearchProps> = ({
         )}
       </div>
 
-      <div className="flex items-center gap-2 text-xs text-[#AAB4D0]">
+      <div className="flex items-center gap-2 text-xs text-[#A79FC4]">
         <span>
-          Menampilkan <strong className="text-[#FFF9EE]">{totalResults}</strong>{" "}
+          Menampilkan <strong className="text-[#FBFAFF]">{totalResults}</strong>{" "}
           dari {totalTools} tool aktif
         </span>
       </div>

@@ -31,15 +31,15 @@ export const AcademicExplainer: React.FC<AcademicExplainerProps> = ({
   const displayWhy = whyItMatters || termInfo?.whyItMatters;
 
   return (
-    <div className={`rounded-xl border border-[#273352]/70 bg-[#11182D]/80 p-3.5 text-xs ${className}`}>
+    <div className={`rounded-xl border border-[#2E2748]/70 bg-[#191430]/80 p-3.5 text-xs ${className}`}>
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-start gap-2">
-          <HelpCircle className="h-4 w-4 shrink-0 text-[#70E1B6] mt-0.5" aria-hidden="true" />
+          <HelpCircle className="h-4 w-4 shrink-0 text-[#FFB84D] mt-0.5" aria-hidden="true" />
           <div className="space-y-1">
-            <h4 className="font-bold text-[#FFF9EE] text-xs">{displayTitle}</h4>
-            {displayMeaning && <p className="text-[#AAB4D0] leading-relaxed">{displayMeaning}</p>}
+            <h4 className="font-bold text-[#FBFAFF] text-xs">{displayTitle}</h4>
+            {displayMeaning && <p className="text-[#A79FC4] leading-relaxed">{displayMeaning}</p>}
             {displayWhy && (
-              <p className="text-[#70E1B6] text-[11px] font-medium leading-relaxed">
+              <p className="text-[#FFB84D] text-[11px] font-medium leading-relaxed">
                 <strong>Kenapa ini penting? </strong>
                 {displayWhy}
               </p>
@@ -51,7 +51,7 @@ export const AcademicExplainer: React.FC<AcademicExplainerProps> = ({
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] font-semibold text-[#2959FF] hover:text-[#FFF9EE] hover:bg-[#16213D] transition-colors focus-visible:ring-1 focus-visible:ring-[#2959FF] focus-visible:outline-none shrink-0"
+            className="inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] font-semibold text-[#6D5AE6] hover:text-[#FBFAFF] hover:bg-[#221A42] transition-colors focus-visible:ring-1 focus-visible:ring-[#6D5AE6] focus-visible:outline-none shrink-0"
           >
             <span>{isOpen ? "Tutup Detail" : "Lihat Detail"}</span>
             {isOpen ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
@@ -60,9 +60,9 @@ export const AcademicExplainer: React.FC<AcademicExplainerProps> = ({
       </div>
 
       {isOpen && (technicalDetails || children || termInfo?.technicalTerm) && (
-        <div className="mt-3 pt-3 border-t border-[#273352]/60 text-[11px] text-[#AAB4D0] space-y-2 animate-in fade-in duration-150">
+        <div className="mt-3 pt-3 border-t border-[#2E2748]/60 text-[11px] text-[#A79FC4] space-y-2 animate-in fade-in duration-150">
           {termInfo?.technicalTerm && (
-            <div className="text-[10px] font-mono text-[#AAB4D0]/60">
+            <div className="text-[10px] font-mono text-[#A79FC4]/60">
               Istilah Akademik / Sistem: {termInfo.technicalTerm}
             </div>
           )}

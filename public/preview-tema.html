@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skriflow — 3 Opsi Tampilan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #0a0a0a; color: #eaeaea; padding: 16px 14px 60px;
+  }
+  .judul-atas { max-width: 900px; margin: 0 auto 16px; }
+  .judul-atas h1 { font-size: 19px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  .judul-atas p { margin: 0; font-size: 13px; color: #9a9a9a; line-height: 1.6; }
+  .tabbar {
+    position: sticky; top: 0; z-index: 50; display: flex; gap: 8px;
+    max-width: 900px; margin: 0 auto 18px; padding: 10px 0;
+    background: #0a0a0a;
+  }
+  .tabbar button {
+    flex: 1; min-height: 44px; border-radius: 12px; border: 1px solid #2a2a2a;
+    background: #141414; color: #b9b9b9; font: inherit; font-size: 12.5px;
+    font-weight: 700; cursor: pointer; padding: 8px 6px; line-height: 1.25;
+  }
+  .tabbar button[aria-selected="true"] { background: #fff; color: #000; border-color: #fff; }
+  .catatan {
+    max-width: 900px; margin: 0 auto 14px; font-size: 12.5px; line-height: 1.65;
+    color: #b9b9b9; background: #141414; border: 1px solid #262626;
+    border-radius: 14px; padding: 13px 15px;
+  }
+  .catatan b { color: #fff; }
+  .panggung { max-width: 900px; margin: 0 auto; }
+  .opsi[hidden] { display: none; }
+
+  /* ============ TIRUAN LAYAR ============ */
+  .mock { border-radius: 22px; overflow: hidden; padding: 20px 16px 26px; }
+
+  .mock-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .mock-logo { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 15px; letter-spacing: -0.02em; }
+  .mock-logo span.titik { width: 22px; height: 22px; border-radius: 7px; display: inline-block; }
+  .mock-menu { font-size: 11.5px; font-weight: 600; opacity: .72; }
+
+  .mock-hero { margin-bottom: 20px; }
+  .mock-hero .eyebrow { font-size: 10.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 8px; }
+  .mock-hero h2 { font-size: 25px; line-height: 1.22; margin: 0 0 9px; letter-spacing: -0.03em; font-weight: 800; }
+  .mock-hero p { font-size: 13px; line-height: 1.62; margin: 0; }
+
+  .kartu-grid { display: grid; gap: 10px; margin-bottom: 18px; }
+  @media (min-width: 640px) { .kartu-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+  .kartu { border-radius: 16px; padding: 15px 15px 16px; }
+  .kartu .nomor { font-size: 11px; font-weight: 800; opacity: .55; margin-bottom: 7px; letter-spacing: .04em; }
+  .kartu h3 { font-size: 14.5px; margin: 0 0 5px; font-weight: 700; letter-spacing: -0.01em; }
+  .kartu p { font-size: 12px; line-height: 1.55; margin: 0 0 11px; opacity: .72; }
+  .kartu .aksi { font-size: 12px; font-weight: 700; }
+
+  .tahap { border-radius: 18px; padding: 17px 16px 18px; }
+  .tahap .label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 8px; opacity: .66; }
+  .tahap h3 { font-size: 16.5px; margin: 0 0 7px; font-weight: 700; letter-spacing: -0.02em; }
+  .tahap .ket { font-size: 12.5px; line-height: 1.6; margin: 0 0 14px; opacity: .74; }
+  .kotak-teks {
+    border-radius: 13px; padding: 13px 14px; font-size: 12px; line-height: 1.6;
+    min-height: 66px; font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+    margin-bottom: 13px; opacity: .8;
+  }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 46px; padding: 0 20px; border-radius: 13px; font-size: 13.5px;
+    font-weight: 800; border: none; width: 100%; cursor: pointer;
+  }
+  @media (min-width: 640px) { .cta { width: auto; } }
+  .kaki { font-size: 11px; margin-top: 12px; opacity: .6; line-height: 1.5; }
+
+  /* ============ A. TERANG & RAMAH ============ */
+  #mockA { background: #FAF7F2; color: #191714; }
+  #mockA .mock-logo span.titik { background: linear-gradient(135deg, #6D5AE6, #8B5CF6); }
+  #mockA .mock-hero .eyebrow { color: #6D5AE6; }
+  #mockA .mock-hero p { color: #5C5852; }
+  #mockA .kartu {
+    background: #FFFFFF; border: 1px solid #EDE7DE;
+    box-shadow: 0 1px 2px rgba(60,45,20,.04), 0 8px 22px -14px rgba(60,45,20,.22);
+  }
+  #mockA .kartu .nomor { color: #A79E90; }
+  #mockA .kartu p { color: #6B655C; }
+  #mockA .kartu .aksi { color: #6D5AE6; }
+  #mockA .tahap { background: #FFFFFF; border: 1px solid #EDE7DE; box-shadow: 0 8px 26px -16px rgba(60,45,20,.25); }
+  #mockA .tahap .label { color: #A79E90; }
+  #mockA .tahap .ket { color: #5C5852; }
+  #mockA .kotak-teks { background: #FAF7F2; border: 1px solid #EDE7DE; color: #7A7469; }
+  #mockA .cta { background: #191714; color: #FFFDF9; }
+  #mockA .kaki { color: #8C857A; }
+
+  /* ============ B. GELAP LAPANG ============ */
+  #mockB { background: #0B1120; color: #F3F6FC; }
+  #mockB .mock-logo span.titik { background: linear-gradient(135deg, #4F7DFF, #70E1B6); }
+  #mockB .mock-hero .eyebrow { color: #70E1B6; }
+  #mockB .mock-hero p { color: #98A4C0; }
+  #mockB .kartu { background: #141D33; border: none; box-shadow: 0 14px 30px -18px rgba(0,0,0,.9); }
+  #mockB .kartu .nomor { color: #6D7A99; }
+  #mockB .kartu p { color: #98A4C0; }
+  #mockB .kartu .aksi { color: #70E1B6; }
+  #mockB .tahap { background: #141D33; border: none; box-shadow: 0 18px 40px -22px rgba(0,0,0,.95); }
+  #mockB .tahap .label { color: #6D7A99; }
+  #mockB .tahap .ket { color: #98A4C0; }
+  #mockB .kotak-teks { background: #0B1120; border: 1px solid #22304F; color: #8E9BB8; }
+  #mockB .cta { background: #F3F6FC; color: #0B1120; }
+  #mockB .kaki { color: #6D7A99; }
+
+  /* ============ C. BERANI ============ */
+  #mockC { background: radial-gradient(120% 90% at 12% 0%, #241A45 0%, #0C0A1A 55%, #08070F 100%); color: #FBFAFF; }
+  #mockC .mock-logo span.titik { background: linear-gradient(135deg, #FFB84D, #FF6F61); }
+  #mockC .mock-hero .eyebrow { color: #FFB84D; }
+  #mockC .mock-hero h2 { font-size: 28px; }
+  #mockC .mock-hero p { color: #A79FC4; }
+  #mockC .kartu {
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09);
+    backdrop-filter: blur(6px);
+  }
+  #mockC .kartu .nomor { color: #FFB84D; }
+  #mockC .kartu p { color: #A79FC4; }
+  #mockC .kartu .aksi { color: #FFB84D; }
+  #mockC .tahap { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); }
+  #mockC .tahap .label { color: #A79FC4; }
+  #mockC .tahap .ket { color: #A79FC4; }
+  #mockC .kotak-teks { background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.09); color: #9C93BE; }
+  #mockC .cta { background: linear-gradient(120deg, #6D5AE6, #C44BE0); color: #FFFFFF; }
+  #mockC .kaki { color: #8C84AE; }
+</style>
+</head>
+<body>
+
+<div class="judul-atas">
+  <h1>Skriflow — 3 opsi tampilan</h1>
+  <p>Isi dan alurnya sama persis. Yang beda cuma rasa tampilannya. Pilih satu, atau bilang campurannya.</p>
+</div>
+
+<div class="tabbar" role="tablist">
+  <button role="tab" aria-selected="true" onclick="pilih('A',this)">A · Terang&nbsp;&amp; Ramah</button>
+  <button role="tab" aria-selected="false" onclick="pilih('B',this)">B · Gelap&nbsp;Lapang</button>
+  <button role="tab" aria-selected="false" onclick="pilih('C',this)">C · Berani</button>
+</div>
+
+<!-- ===================== A ===================== -->
+<div class="opsi" id="opsiA" role="tabpanel">
+  <div class="catatan">
+    <b>A · Terang &amp; Ramah.</b> Latar krem hangat, kartu putih, satu aksen ungu. Tidak ada garis kotak di mana-mana.
+    Terasa seperti aplikasi belajar, bukan layar admin. Paling jauh dari tampilan sekarang.
+  </div>
+  <div class="mock" id="mockA">
+    <div class="mock-top">
+      <div class="mock-logo"><span class="titik"></span> Skriflow</div>
+      <div class="mock-menu">Semua tool</div>
+    </div>
+    <div class="mock-hero">
+      <div class="eyebrow">Langkah 2 dari 6</div>
+      <h2>Bikin skripsi nggak harus nebak-nebak</h2>
+      <p>Kamu dibimbing dari cari ide sampai jadi bab, dengan prompt siap tempel dan sumber yang selalu diperiksa ulang.</p>
+    </div>
+    <div class="kartu-grid">
+      <div class="kartu"><div class="nomor">01</div><h3>Cari Ide Skripsi</h3><p>Peta minat, batasan, dan arah topik.</p><div class="aksi">Mulai →</div></div>
+      <div class="kartu"><div class="nomor">02</div><h3>Cari Fenomena Awal</h3><p>Temukan masalah nyata yang bisa diteliti.</p><div class="aksi">Lanjut →</div></div>
+      <div class="kartu"><div class="nomor">03</div><h3>Cari Literatur Awal</h3><p>Bangun daftar sumber terpercaya.</p><div class="aksi">Lanjut →</div></div>
+    </div>
+    <div class="tahap">
+      <div class="label">Tahap 4B</div>
+      <h3>Susun fondasi Bab 1</h3>
+      <p class="ket">Tempel hasil dari ChatGPT atau Gemini di bawah ini. Kami periksa dulu sebelum masuk ke draf.</p>
+      <div class="kotak-teks">SKRIFLOW_BAB1_FOUNDATION_V1 {
+  "latar_belakang": "…"</div>
+      <button class="cta">Verifikasi &amp; Bangun Fondasi →</button>
+      <div class="kaki">Sumber belum terverifikasi akan ditandai kuning, bukan diam-diam dipakai.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== B ===================== -->
+<div class="opsi" id="opsiB" hidden role="tabpanel">
+  <div class="catatan">
+    <b>B · Gelap Lapang.</b> Warna tetap gelap seperti sekarang, tapi garis kotak dihapus dan semua huruf dibesarkan.
+    Paling aman — mirip sekarang, cuma tidak sumpek.
+  </div>
+  <div class="mock" id="mockB">
+    <div class="mock-top">
+      <div class="mock-logo"><span class="titik"></span> Skriflow</div>
+      <div class="mock-menu">Semua tool</div>
+    </div>
+    <div class="mock-hero">
+      <div class="eyebrow">Langkah 2 dari 6</div>
+      <h2>Bikin skripsi nggak harus nebak-nebak</h2>
+      <p>Kamu dibimbing dari cari ide sampai jadi bab, dengan prompt siap tempel dan sumber yang selalu diperiksa ulang.</p>
+    </div>
+    <div class="kartu-grid">
+      <div class="kartu"><div class="nomor">01</div><h3>Cari Ide Skripsi</h3><p>Peta minat, batasan, dan arah topik.</p><div class="aksi">Mulai →</div></div>
+      <div class="kartu"><div class="nomor">02</div><h3>Cari Fenomena Awal</h3><p>Temukan masalah nyata yang bisa diteliti.</p><div class="aksi">Lanjut →</div></div>
+      <div class="kartu"><div class="nomor">03</div><h3>Cari Literatur Awal</h3><p>Bangun daftar sumber terpercaya.</p><div class="aksi">Lanjut →</div></div>
+    </div>
+    <div class="tahap">
+      <div class="label">Tahap 4B</div>
+      <h3>Susun fondasi Bab 1</h3>
+      <p class="ket">Tempel hasil dari ChatGPT atau Gemini di bawah ini. Kami periksa dulu sebelum masuk ke draf.</p>
+      <div class="kotak-teks">SKRIFLOW_BAB1_FOUNDATION_V1 {
+  "latar_belakang": "…"</div>
+      <button class="cta">Verifikasi &amp; Bangun Fondasi →</button>
+      <div class="kaki">Sumber belum terverifikasi akan ditandai kuning, bukan diam-diam dipakai.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== C ===================== -->
+<div class="opsi" id="opsiC" hidden role="tabpanel">
+  <div class="catatan">
+    <b>C · Berani.</b> Gradasi ungu-ungu dengan aksen emas, kartu kaca. Paling "produk kekinian", tapi juga paling berisiko terasa ramai.
+  </div>
+  <div class="mock" id="mockC">
+    <div class="mock-top">
+      <div class="mock-logo"><span class="titik"></span> Skriflow</div>
+      <div class="mock-menu">Semua tool</div>
+    </div>
+    <div class="mock-hero">
+      <div class="eyebrow">Langkah 2 dari 6</div>
+      <h2>Bikin skripsi nggak harus nebak-nebak</h2>
+      <p>Kamu dibimbing dari cari ide sampai jadi bab, dengan prompt siap tempel dan sumber yang selalu diperiksa ulang.</p>
+    </div>
+    <div class="kartu-grid">
+      <div class="kartu"><div class="nomor">01</div><h3>Cari Ide Skripsi</h3><p>Peta minat, batasan, dan arah topik.</p><div class="aksi">Mulai →</div></div>
+      <div class="kartu"><div class="nomor">02</div><h3>Cari Fenomena Awal</h3><p>Temukan masalah nyata yang bisa diteliti.</p><div class="aksi">Lanjut →</div></div>
+      <div class="kartu"><div class="nomor">03</div><h3>Cari Literatur Awal</h3><p>Bangun daftar sumber terpercaya.</p><div class="aksi">Lanjut →</div></div>
+    </div>
+    <div class="tahap">
+      <div class="label">Tahap 4B</div>
+      <h3>Susun fondasi Bab 1</h3>
+      <p class="ket">Tempel hasil dari ChatGPT atau Gemini di bawah ini. Kami periksa dulu sebelum masuk ke draf.</p>
+      <div class="kotak-teks">SKRIFLOW_BAB1_FOUNDATION_V1 {
+  "latar_belakang": "…"</div>
+      <button class="cta">Verifikasi &amp; Bangun Fondasi →</button>
+      <div class="kaki">Sumber belum terverifikasi akan ditandai kuning, bukan diam-diam dipakai.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function pilih(k, btn) {
+    ["A", "B", "C"].forEach(function (x) {
+      document.getElementById("opsi" + x).hidden = x !== k;
+    });
+    document.querySelectorAll('.tabbar button').forEach(function (b) {
+      b.setAttribute('aria-selected', String(b === btn));
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+</script>
+</body>
+</html>

@@ -1164,12 +1164,12 @@ export const Bab1ToolContainer: React.FC = () => {
   if (!isMounted) {
     return (
       <div className="mt-8 space-y-10 animate-pulse">
-        <section className="rounded-2xl border border-[#273352] bg-[#11182D] p-6 shadow-xl sm:p-8">
-          <div className="h-6 w-48 rounded bg-[#273352]/50"></div>
+        <section className="rounded-2xl border border-[#2E2748] bg-[#191430] p-6 shadow-xl sm:p-8">
+          <div className="h-6 w-48 rounded bg-[#2E2748]/50"></div>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="h-20 rounded-xl bg-[#080D1D]"></div>
-            <div className="h-20 rounded-xl bg-[#080D1D] sm:col-span-2"></div>
-            <div className="h-20 rounded-xl bg-[#080D1D]"></div>
+            <div className="h-20 rounded-xl bg-[#0C0A1A]"></div>
+            <div className="h-20 rounded-xl bg-[#0C0A1A] sm:col-span-2"></div>
+            <div className="h-20 rounded-xl bg-[#0C0A1A]"></div>
           </div>
         </section>
       </div>
@@ -1180,8 +1180,8 @@ export const Bab1ToolContainer: React.FC = () => {
     <div className="mt-8 space-y-10">
       {/* TOAST FEEDBACK */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl border border-[#70E1B6]/30 bg-[#080D1D]/95 px-5 py-3.5 text-sm font-semibold text-[#70E1B6] shadow-2xl backdrop-blur-md animate-in fade-in slide-in-from-bottom-5">
-          <CheckCircle2 className="h-5 w-5 shrink-0 text-[#70E1B6]" />
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-xl border border-[#FFB84D]/30 bg-[#0C0A1A]/95 px-5 py-3.5 text-sm font-semibold text-[#FFB84D] shadow-2xl backdrop-blur-md animate-in fade-in slide-in-from-bottom-5">
+          <CheckCircle2 className="h-5 w-5 shrink-0 text-[#FFB84D]" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -1191,21 +1191,21 @@ export const Bab1ToolContainer: React.FC = () => {
       {/* ========================================================================= */}
       {selectedDirectionObj && (
         <div ref={feasibilitySectionRef}>
-          <section className="rounded-2xl border border-[#70E1B6]/40 bg-[#11182D] p-6 shadow-xl sm:p-8">
-            <div className="flex items-center gap-3 border-b border-[#273352]/70 pb-5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#70E1B6]/20 text-[#70E1B6] font-bold">
+          <section className="rounded-2xl border border-[#FFB84D]/40 bg-[#191430] p-6 shadow-xl sm:p-8">
+            <div className="flex items-center gap-3 border-b border-[#2E2748]/70 pb-5">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#FFB84D]/20 text-[#FFB84D] font-bold">
                 5
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">
+                  <span className="rounded bg-[#6D5AE6]/20 px-2 py-0.5 text-xs font-bold text-[#FFB84D]">
                     {selectedDirectionObj.id}
                   </span>
-                  <h2 className="text-lg font-bold text-[#FFF9EE]">
+                  <h2 className="text-lg font-bold text-[#FBFAFF]">
                     Uji Kelayakan Data: {selectedDirectionObj.name}
                   </h2>
                 </div>
-                <p className="text-xs text-[#AAB4D0]">
+                <p className="text-xs text-[#A79FC4]">
                   Verifikasi ketersediaan dan akses data untuk arah yang kamu pilih sebelum memfinalkan Bab 1.
                 </p>
               </div>
@@ -1214,13 +1214,13 @@ export const Bab1ToolContainer: React.FC = () => {
             <div className="mt-6 space-y-6">
               {/* Questions */}
               <div className="space-y-4">
-                <h3 className="text-xs font-bold text-[#FFF9EE] uppercase tracking-wider">
+                <h3 className="text-xs font-bold text-[#FBFAFF] uppercase tracking-wider">
                   Daftar Pertanyaan Verifikasi Akses Data:
                 </h3>
                 {selectedDirectionObj.data_verification_questions.map((q) => {
                   const currentAnswer = feasibilityAnswers[q.id] || "BELUM_DIPASTIKAN";
                   return (
-                    <div key={q.id} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+                    <div key={q.id} className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4">
                       <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
@@ -1229,9 +1229,9 @@ export const Bab1ToolContainer: React.FC = () => {
                                 Wajib / Kritis
                               </span>
                             )}
-                            <span className="text-xs font-semibold text-[#FFF9EE]">{q.question}</span>
+                            <span className="text-xs font-semibold text-[#FBFAFF]">{q.question}</span>
                           </div>
-                          <span className="text-[13px] text-[#AAB4D0]">Terkait: {q.related_data_need}</span>
+                          <span className="text-[13px] text-[#A79FC4]">Terkait: {q.related_data_need}</span>
                         </div>
 
                         {/* Answer Buttons */}
@@ -1241,8 +1241,8 @@ export const Bab1ToolContainer: React.FC = () => {
                             onClick={() => handleFeasibilityAnswerChange(q.id, "SUDAH_DIPASTIKAN")}
                             className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                               currentAnswer === "SUDAH_DIPASTIKAN"
-                                ? "bg-[#70E1B6] text-[#080D1D]"
-                                : "bg-[#11182D] text-[#AAB4D0] hover:text-[#FFF9EE]"
+                                ? "bg-[#FFB84D] text-[#0C0A1A]"
+                                : "bg-[#191430] text-[#A79FC4] hover:text-[#FBFAFF]"
                             }`}
                           >
                             Sudah Dipastikan
@@ -1252,8 +1252,8 @@ export const Bab1ToolContainer: React.FC = () => {
                             onClick={() => handleFeasibilityAnswerChange(q.id, "BELUM_DIPASTIKAN")}
                             className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                               currentAnswer === "BELUM_DIPASTIKAN"
-                                ? "bg-amber-500 text-[#080D1D]"
-                                : "bg-[#11182D] text-[#AAB4D0] hover:text-[#FFF9EE]"
+                                ? "bg-amber-500 text-[#0C0A1A]"
+                                : "bg-[#191430] text-[#A79FC4] hover:text-[#FBFAFF]"
                             }`}
                           >
                             Belum Dipastikan
@@ -1264,7 +1264,7 @@ export const Bab1ToolContainer: React.FC = () => {
                             className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
                               currentAnswer === "TIDAK_TERSEDIA"
                                 ? "bg-rose-500 text-white"
-                                : "bg-[#11182D] text-[#AAB4D0] hover:text-[#FFF9EE]"
+                                : "bg-[#191430] text-[#A79FC4] hover:text-[#FBFAFF]"
                             }`}
                           >
                             Tidak Tersedia
@@ -1278,7 +1278,7 @@ export const Bab1ToolContainer: React.FC = () => {
 
               {/* Notes */}
               <div>
-                <label className="block text-xs font-semibold text-[#AAB4D0]">
+                <label className="block text-xs font-semibold text-[#A79FC4]">
                   Catatan / Bukti Akses Data (Misal: sudah dapat izin instansi, database IDX/BEI, sampel laporan keuangan):
                 </label>
                 <textarea
@@ -1286,7 +1286,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   value={feasibilityAccessNotes}
                   onChange={(e) => handleFeasibilityAccessNotesChange(e.target.value)}
                   placeholder="Contoh: Sudah konfirmasi data laporan keuangan sektor infrastruktur 2017-2021 lengkap di IDX..."
-                  className="mt-2 w-full rounded-xl border border-[#273352] bg-[#080D1D] p-3 text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus:border-[#2959FF] focus:outline-none"
+                  className="mt-2 w-full rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-3 text-xs text-[#FBFAFF] placeholder-[#A79FC4]/40 focus:border-[#6D5AE6] focus:outline-none"
                 />
               </div>
 
@@ -1294,7 +1294,7 @@ export const Bab1ToolContainer: React.FC = () => {
               <div
                 className={`rounded-xl border p-4 ${
                   computedDataReadiness === "DATA_READY"
-                    ? "border-[#70E1B6]/40 bg-[#70E1B6]/10"
+                    ? "border-[#FFB84D]/40 bg-[#FFB84D]/10"
                     : computedDataReadiness === "DATA_CONDITIONAL"
                     ? "border-amber-500/40 bg-amber-500/10"
                     : "border-rose-500/40 bg-rose-500/10"
@@ -1303,7 +1303,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex items-start gap-3">
                     {computedDataReadiness === "DATA_READY" ? (
-                      <CheckCircle2 className="h-5 w-5 text-[#70E1B6] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="h-5 w-5 text-[#FFB84D] shrink-0 mt-0.5" />
                     ) : computedDataReadiness === "DATA_CONDITIONAL" ? (
                       <Clock className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
                     ) : (
@@ -1313,7 +1313,7 @@ export const Bab1ToolContainer: React.FC = () => {
                       <h4
                         className={`text-sm font-bold ${
                           computedDataReadiness === "DATA_READY"
-                            ? "text-[#70E1B6]"
+                            ? "text-[#FFB84D]"
                             : computedDataReadiness === "DATA_CONDITIONAL"
                             ? "text-amber-300"
                             : "text-rose-300"
@@ -1321,7 +1321,7 @@ export const Bab1ToolContainer: React.FC = () => {
                       >
                         Status Kesiapan Data: {getStudentStatus(computedDataReadiness).label}
                       </h4>
-                      <p className="text-xs text-[#AAB4D0] leading-relaxed">
+                      <p className="text-xs text-[#A79FC4] leading-relaxed">
                         {computedDataReadiness === "DATA_READY"
                           ? "Data utama sudah dipastikan."
                           : computedDataReadiness === "DATA_CONDITIONAL"
@@ -1345,7 +1345,7 @@ export const Bab1ToolContainer: React.FC = () => {
                         clearSelectedDirectionId();
                         setActiveTab4A("directions");
                       }}
-                      className="rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 text-xs font-semibold text-[#AAB4D0] hover:text-[#FFF9EE]"
+                      className="rounded-lg border border-[#2E2748] bg-[#0C0A1A] px-3 py-1.5 text-xs font-semibold text-[#A79FC4] hover:text-[#FBFAFF]"
                     >
                       Pilih Arah Lain
                     </button>
@@ -1357,7 +1357,7 @@ export const Bab1ToolContainer: React.FC = () => {
                             prompt4BSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
                           }
                         }}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#2959FF] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#1E40AF]"
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-[#6D5AE6] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#1E40AF]"
                       >
                         <span>Lanjut ke Tahap 4B</span>
                         <ArrowDownCircle className="h-3.5 w-3.5" />
@@ -1376,15 +1376,15 @@ export const Bab1ToolContainer: React.FC = () => {
       {/* ========================================================================= */}
       {selectedDirectionObj && (
         <div ref={prompt4BSectionRef}>
-          <section className="rounded-2xl border border-[#273352] bg-[#11182D] p-6 shadow-xl sm:p-8">
-            <div className="flex flex-col justify-between gap-4 border-b border-[#273352]/70 pb-5 sm:flex-row sm:items-center">
+          <section className="rounded-2xl border border-[#2E2748] bg-[#191430] p-6 shadow-xl sm:p-8">
+            <div className="flex flex-col justify-between gap-4 border-b border-[#2E2748]/70 pb-5 sm:flex-row sm:items-center">
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#2959FF]/20 text-[#70E1B6] font-bold">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#6D5AE6]/20 text-[#FFB84D] font-bold">
                   6
                 </div>
                 <div>
-                  <h2 id="tahap-4b" className="text-lg font-bold text-[#FFF9EE]">Prompt Tahap 4B — Susun Fondasi Bab 1</h2>
-                  <p className="text-xs text-[#AAB4D0]">
+                  <h2 id="tahap-4b" className="text-lg font-bold text-[#FBFAFF]">Prompt Tahap 4B — Susun Fondasi Bab 1</h2>
+                  <p className="text-xs text-[#A79FC4]">
                     Menghasilkan Rantai Logika Penelitian, Peta Narasi 7–9 Paragraf, dan Catatan Bukti untuk [{selectedDirectionObj.id}].
                   </p>
                 </div>
@@ -1393,7 +1393,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 <span
                   className={`rounded-full px-3 py-1 text-xs font-semibold ${
                     promptAnalysis4B.status === "SAFE"
-                      ? "bg-[#70E1B6]/20 text-[#70E1B6]"
+                      ? "bg-[#FFB84D]/20 text-[#FFB84D]"
                       : "bg-amber-500/20 text-amber-400"
                   }`}
                 >
@@ -1451,17 +1451,17 @@ export const Bab1ToolContainer: React.FC = () => {
                       <h4 className="text-sm font-bold text-amber-300">
                         Beberapa hal masih perlu kamu cek. Kamu tetap bisa menyusun fondasi sementara, tetapi jangan menulis seolah-olah semua data sudah tersedia.
                       </h4>
-                      <p className="text-[#AAB4D0] leading-relaxed">
+                      <p className="text-[#A79FC4] leading-relaxed">
                         Fondasi Bab 1 yang dihasilkan berstatus rancangan sementara. Semua kebutuhan data yang belum dipastikan otomatis diteruskan ke Prompt 4B sebagai batasan analisis agar fondasi tidak mengarang ketersediaan data.
                       </p>
-                      <label className="flex items-start gap-2.5 cursor-pointer rounded-lg bg-[#080D1D] p-3 border border-amber-500/30 hover:border-amber-400/50 transition">
+                      <label className="flex items-start gap-2.5 cursor-pointer rounded-lg bg-[#0C0A1A] p-3 border border-amber-500/30 hover:border-amber-400/50 transition">
                         <input
                           type="checkbox"
                           checked={isConditionalConfirmed}
                           onChange={(e) => setIsConditionalConfirmed(e.target.checked)}
-                          className="mt-0.5 h-4 w-4 rounded border-[#273352] text-[#2959FF] focus:ring-0 cursor-pointer"
+                          className="mt-0.5 h-4 w-4 rounded border-[#2E2748] text-[#6D5AE6] focus:ring-0 cursor-pointer"
                         />
-                        <span className="font-semibold text-[#FFF9EE]">
+                        <span className="font-semibold text-[#FBFAFF]">
                           Saya memahami bahwa fondasi Bab 1 ini berstatus sementara dan akan memverifikasi kebutuhan data sebelum penulisan akhir.
                         </span>
                       </label>
@@ -1471,7 +1471,7 @@ export const Bab1ToolContainer: React.FC = () => {
               )}
 
               {computedDataReadiness === "DATA_READY" && (
-                <div className="flex items-center gap-3 rounded-xl border border-[#70E1B6]/30 bg-[#70E1B6]/10 px-4 py-3 text-xs text-[#70E1B6]">
+                <div className="flex items-center gap-3 rounded-xl border border-[#FFB84D]/30 bg-[#FFB84D]/10 px-4 py-3 text-xs text-[#FFB84D]">
                   <CheckCircle2 className="h-4 w-4 shrink-0" />
                   <span>Data utama sudah dipastikan. Prompt 4B siap disalin untuk menyusun Fondasi Bab 1.</span>
                 </div>
@@ -1480,8 +1480,8 @@ export const Bab1ToolContainer: React.FC = () => {
               {computedDataReadiness !== "DATA_BLOCKED" && (
                 <>
                   {/* Pratinjau selalu tampil: beberapa baris pertama prompt, tanpa membuka prompt teknis penuh */}
-                  <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
-                    <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
+                  <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4">
+                    <pre className="font-mono text-xs leading-relaxed text-[#A79FC4] whitespace-pre-wrap line-clamp-4 select-all">
                       {generatedPrompt4B}
                     </pre>
                   </div>
@@ -1494,7 +1494,7 @@ export const Bab1ToolContainer: React.FC = () => {
                     type="button"
                     disabled={true}
                     aria-disabled="true"
-                    className="inline-flex items-center gap-2 rounded-xl border border-rose-500/30 bg-[#080D1D] px-5 py-3 text-xs font-bold text-rose-300/50 cursor-not-allowed opacity-50"
+                    className="inline-flex items-center gap-2 rounded-xl border border-rose-500/30 bg-[#0C0A1A] px-5 py-3 text-xs font-bold text-rose-300/50 cursor-not-allowed opacity-50"
                   >
                     <Copy className="h-4 w-4" />
                     <span>Salin Prompt Tahap 4B (Terkunci: Data Kritis Tidak Tersedia)</span>
@@ -1512,13 +1512,13 @@ export const Bab1ToolContainer: React.FC = () => {
                     }
                     className={`inline-flex items-center gap-2 rounded-xl px-5 py-3 text-xs font-bold transition ${
                       computedDataReadiness === "DATA_CONDITIONAL" && !isConditionalConfirmed
-                        ? "border border-amber-500/30 bg-[#080D1D] text-amber-400/50 cursor-not-allowed opacity-50"
-                        : "bg-gradient-to-r from-[#2959FF] to-[#1E40AF] text-white shadow-lg shadow-[#2959FF]/25 hover:brightness-110"
+                        ? "border border-amber-500/30 bg-[#0C0A1A] text-amber-400/50 cursor-not-allowed opacity-50"
+                        : "bg-gradient-to-r from-[#6D5AE6] to-[#1E40AF] text-white shadow-lg shadow-[#6D5AE6]/25 hover:brightness-110"
                     }`}
                   >
                     {copyStatus4B === "copied" ? (
                       <>
-                        <Check className="h-4 w-4 text-[#70E1B6]" />
+                        <Check className="h-4 w-4 text-[#FFB84D]" />
                         <span>Prompt 4B Tersalin!</span>
                       </>
                     ) : (
@@ -1551,7 +1551,7 @@ export const Bab1ToolContainer: React.FC = () => {
                       href="https://chatgpt.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6]"
+                      className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] px-5 py-3 text-xs font-bold text-[#0C0A1A] shadow-lg shadow-[#FFB84D]/20 transition hover:bg-[#F0A63C]"
                     >
                       <ExternalLink className="h-3.5 w-3.5" />
                       <span>Langkah 1: Buka ChatGPT</span>
@@ -1561,13 +1561,13 @@ export const Bab1ToolContainer: React.FC = () => {
                       href="https://gemini.google.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#080D1D] px-4 py-3 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF] hover:bg-[#16213D]"
+                      className="inline-flex items-center gap-2 rounded-xl border border-[#2E2748] bg-[#0C0A1A] px-4 py-3 text-xs font-semibold text-[#FBFAFF] transition hover:border-[#6D5AE6] hover:bg-[#221A42]"
                     >
-                      <ExternalLink className="h-3.5 w-3.5 text-[#70E1B6]" />
+                      <ExternalLink className="h-3.5 w-3.5 text-[#FFB84D]" />
                       <span>atau Gemini</span>
                     </a>
 
-                    <span className="text-[11px] text-[#AAB4D0]">
+                    <span className="text-[11px] text-[#A79FC4]">
                       Tahap 4B bukan untuk NotebookLM — promptnya terlalu panjang untuk kolom chat di sana.
                     </span>
                   </>
@@ -1575,9 +1575,9 @@ export const Bab1ToolContainer: React.FC = () => {
               </div>
 
               {/* Paste Area 4B */}
-              <div className="pt-4 border-t border-[#273352]/60 space-y-3">
+              <div className="pt-4 border-t border-[#2E2748]/60 space-y-3">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <label className="block text-xs font-bold text-[#FFF9EE]">
+                  <label className="block text-xs font-bold text-[#FBFAFF]">
                     Langkah 2: Tempelkan Output Tahap 4B dari ChatGPT/Gemini:
                   </label>
                   <TombolTempelClipboard onPaste={setPastedLLMOutput4B} />
@@ -1587,12 +1587,12 @@ export const Bab1ToolContainer: React.FC = () => {
                   value={pastedLLMOutput4B}
                   onChange={(e) => setPastedLLMOutput4B(e.target.value)}
                   placeholder="Tempelkan hasil respons blok SKRIFLOW_BAB1_FOUNDATION_V1 di sini..."
-                  className="w-full rounded-xl border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus:border-[#2959FF] focus:outline-none"
+                  className="w-full rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 font-mono text-xs text-[#FBFAFF] placeholder-[#A79FC4]/40 focus:border-[#6D5AE6] focus:outline-none"
                 />
                 <button
                   type="button"
                   onClick={handleProcessLLMOutput4B}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] min-h-[44px] px-5 py-3 text-xs font-bold text-[#0C0A1A] transition hover:bg-[#F0A63C]"
                 >
                   <Sparkles className="h-4 w-4" />
                   <span>Verifikasi & Bangun Paket Fondasi Bab 1</span>
@@ -1656,15 +1656,15 @@ export const Bab1ToolContainer: React.FC = () => {
       {/* TAHAP 7: PAKET FONDASI BAB 1 V2 RESULTS & CONFIRMATION                     */}
       {/* ========================================================================= */}
       {parsedFoundationV1 && (
-        <section className="rounded-2xl border border-[#70E1B6] bg-[#11182D] p-6 shadow-2xl sm:p-8 space-y-8">
-          <div className="flex flex-col justify-between gap-4 border-b border-[#273352]/70 pb-5 sm:flex-row sm:items-center">
+        <section className="rounded-2xl border border-[#FFB84D] bg-[#191430] p-6 shadow-2xl sm:p-8 space-y-8">
+          <div className="flex flex-col justify-between gap-4 border-b border-[#2E2748]/70 pb-5 sm:flex-row sm:items-center">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#70E1B6]/20 text-[#70E1B6] font-bold">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#FFB84D]/20 text-[#FFB84D] font-bold">
                 7
               </div>
               <div>
-                <h2 id="fondasi-v2" className="text-xl font-bold text-[#FFF9EE]">Paket Fondasi Bab 1 V2</h2>
-                <p className="text-xs text-[#AAB4D0]">
+                <h2 id="fondasi-v2" className="text-xl font-bold text-[#FBFAFF]">Paket Fondasi Bab 1 V2</h2>
+                <p className="text-xs text-[#A79FC4]">
                   Rantai logika, rumusan masalah tentatif, peta latar belakang 7–9 bagian, dan evidence ledger.
                 </p>
               </div>
@@ -1734,41 +1734,41 @@ export const Bab1ToolContainer: React.FC = () => {
 
           {/* 7.1 Rantai Logika Penelitian (Vertical Timeline 1–7) */}
           <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#273352]/70 pb-2">
-              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#2E2748]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
                 1. Rantai Logika Penelitian (Alur Berpikir 1–7)
               </h3>
-              <span className="text-[13px] text-[#AAB4D0]">
+              <span className="text-[13px] text-[#A79FC4]">
                 Urutan logika yang menghubungkan fenomena nyata hingga pertanyaan penelitian
               </span>
             </div>
 
-            <div className="relative space-y-4 pl-2 sm:pl-4 before:absolute before:left-6 sm:before:left-8 before:top-4 before:bottom-4 before:w-0.5 before:bg-[#273352]">
+            <div className="relative space-y-4 pl-2 sm:pl-4 before:absolute before:left-6 sm:before:left-8 before:top-4 before:bottom-4 before:w-0.5 before:bg-[#2E2748]">
               {parsedFoundationV1.research_logic_chain.map((item) => {
                 const stageInfo = getResearchLogicStageInfo(item.stage, item.order, parsedFoundationV1.phenomenon_basis_status);
                 return (
                   <div key={item.order} className="relative flex items-start gap-3 sm:gap-4">
                     {/* Circle badge on timeline */}
-                    <div className="relative z-10 flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border-2 border-[#2959FF] bg-[#0E1528] text-xs font-bold text-[#70E1B6] shadow-md shadow-black/50">
+                    <div className="relative z-10 flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full border-2 border-[#6D5AE6] bg-[#0E1528] text-xs font-bold text-[#FFB84D] shadow-md shadow-black/50">
                       {item.order}
                     </div>
 
                     {/* Content Card */}
-                    <div className="flex-1 rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs space-y-2 hover:border-[#2959FF]/50 transition-colors">
-                      <div className="flex flex-wrap items-center justify-between gap-1.5 border-b border-[#273352]/60 pb-2">
-                        <span className="font-bold text-[#FFF9EE] text-xs sm:text-sm">
+                    <div className="flex-1 rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 text-xs space-y-2 hover:border-[#6D5AE6]/50 transition-colors">
+                      <div className="flex flex-wrap items-center justify-between gap-1.5 border-b border-[#2E2748]/60 pb-2">
+                        <span className="font-bold text-[#FBFAFF] text-xs sm:text-sm">
                           {stageInfo.label}
                         </span>
-                        <span className="rounded bg-[#2959FF]/15 border border-[#2959FF]/30 px-2 py-0.5 text-[12px] font-mono text-[#70E1B6]">
+                        <span className="rounded bg-[#6D5AE6]/15 border border-[#6D5AE6]/30 px-2 py-0.5 text-[12px] font-mono text-[#FFB84D]">
                           {item.stage}
                         </span>
                       </div>
 
-                      <p className="text-[13px] text-[#AAB4D0] italic">
+                      <p className="text-[13px] text-[#A79FC4] italic">
                         &ldquo;{stageInfo.question}&rdquo;
                       </p>
 
-                      <p className="text-xs text-[#FFF9EE] leading-relaxed font-medium pt-1">
+                      <p className="text-xs text-[#FBFAFF] leading-relaxed font-medium pt-1">
                         {item.statement}
                       </p>
                     </div>
@@ -1780,31 +1780,31 @@ export const Bab1ToolContainer: React.FC = () => {
 
           {/* 7.2 Struktur Masalah */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
               2. Struktur Masalah & Research Problem
             </h3>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs space-y-1">
-                <span className="font-bold text-[#70E1B6]">
+              <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 text-xs space-y-1">
+                <span className="font-bold text-[#FFB84D]">
                   {parsedFoundationV1.phenomenon_basis_status === "LITERATURE_INDICATED"
                     ? "Petunjuk Fenomena dari Literatur:"
                     : parsedFoundationV1.phenomenon_basis_status === "MISSING"
                     ? "Dasar Fenomena Belum Tersedia:"
                     : "Fenomena Empiris Teramati:"}
                 </span>
-                <p className="text-[#FFF9EE]">{parsedFoundationV1.problem_structure.empirical_phenomenon}</p>
+                <p className="text-[#FBFAFF]">{parsedFoundationV1.problem_structure.empirical_phenomenon}</p>
               </div>
-              <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs space-y-1">
+              <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 text-xs space-y-1">
                 <span className="font-bold text-amber-400">Masalah Empiris:</span>
-                <p className="text-[#FFF9EE]">{parsedFoundationV1.problem_structure.empirical_problem}</p>
+                <p className="text-[#FBFAFF]">{parsedFoundationV1.problem_structure.empirical_problem}</p>
               </div>
-              <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs space-y-1">
-                <span className="font-bold text-[#2959FF]">Masalah Pengetahuan:</span>
-                <p className="text-[#FFF9EE]">{parsedFoundationV1.problem_structure.knowledge_problem}</p>
+              <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 text-xs space-y-1">
+                <span className="font-bold text-[#6D5AE6]">Masalah Pengetahuan:</span>
+                <p className="text-[#FBFAFF]">{parsedFoundationV1.problem_structure.knowledge_problem}</p>
               </div>
-              <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs space-y-1">
-                <span className="font-bold text-[#70E1B6]">Masalah Penelitian Sementara:</span>
-                <p className="text-[#FFF9EE] font-semibold">{parsedFoundationV1.problem_structure.provisional_research_problem}</p>
+              <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 text-xs space-y-1">
+                <span className="font-bold text-[#FFB84D]">Masalah Penelitian Sementara:</span>
+                <p className="text-[#FBFAFF] font-semibold">{parsedFoundationV1.problem_structure.provisional_research_problem}</p>
               </div>
             </div>
           </div>
@@ -1812,7 +1812,7 @@ export const Bab1ToolContainer: React.FC = () => {
           {/* 7.3 Kandidat Rumusan Masalah & Tujuan (1-to-1) */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
                 3. Kandidat Rumusan Masalah & Tujuan (1-ke-1)
               </h3>
               <span className="rounded bg-amber-500/20 px-2.5 py-0.5 text-[13px] font-semibold text-amber-300">
@@ -1823,16 +1823,16 @@ export const Bab1ToolContainer: React.FC = () => {
               {parsedFoundationV1.candidate_research_questions.map((rq, idx) => {
                 const obj = parsedFoundationV1.candidate_objectives[idx];
                 return (
-                  <div key={rq.id} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs">
+                  <div key={rq.id} className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 text-xs">
                     <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                       <div>
-                        <span className="font-bold text-[#70E1B6]">{rq.id} (Rumusan Masalah):</span>
-                        <p className="mt-1 font-medium text-[#FFF9EE]">{rq.question}</p>
+                        <span className="font-bold text-[#FFB84D]">{rq.id} (Rumusan Masalah):</span>
+                        <p className="mt-1 font-medium text-[#FBFAFF]">{rq.question}</p>
                       </div>
                       {obj && (
                         <div>
-                          <span className="font-bold text-[#2959FF]">{obj.id} (Tujuan Penelitian):</span>
-                          <p className="mt-1 font-medium text-[#FFF9EE]">{obj.objective}</p>
+                          <span className="font-bold text-[#6D5AE6]">{obj.id} (Tujuan Penelitian):</span>
+                          <p className="mt-1 font-medium text-[#FBFAFF]">{obj.objective}</p>
                         </div>
                       )}
                     </div>
@@ -1845,20 +1845,20 @@ export const Bab1ToolContainer: React.FC = () => {
           {/* 7.4 Gambaran Bentuk Judul (Max 3) */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
                 4. Gambaran Bentuk Judul (Bukan Judul Final)
               </h3>
-              <span className="text-xs text-[#AAB4D0]">Maksimal 3 opsi untuk gambaran arah</span>
+              <span className="text-xs text-[#A79FC4]">Maksimal 3 opsi untuk gambaran arah</span>
             </div>
             <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
               {parsedFoundationV1.working_title_previews.map((t) => (
-                <div key={t.id} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs">
-                  <span className="rounded bg-[#273352] px-2 py-0.5 text-[12px] font-bold text-[#70E1B6]">
+                <div key={t.id} className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 text-xs">
+                  <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[12px] font-bold text-[#FFB84D]">
                     {t.id}
                   </span>
-                  <p className="mt-2 text-sm font-bold text-[#FFF9EE] leading-snug">{t.title}</p>
+                  <p className="mt-2 text-sm font-bold text-[#FBFAFF] leading-snug">{t.title}</p>
                   {t.assumptions && t.assumptions.length > 0 && (
-                    <p className="mt-2 text-[13px] text-[#AAB4D0]">Asumsi: {t.assumptions.join(", ")}</p>
+                    <p className="mt-2 text-[13px] text-[#A79FC4]">Asumsi: {t.assumptions.join(", ")}</p>
                   )}
                 </div>
               ))}
@@ -1867,29 +1867,29 @@ export const Bab1ToolContainer: React.FC = () => {
 
           {/* 7.5 Peta Narasi Latar Belakang (7–9 Paragraphs) */}
           <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#273352]/70 pb-2">
-              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#2E2748]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
                 5. Peta Narasi Latar Belakang (7–9 Bagian Berurutan)
               </h3>
-              <span className="text-[13px] text-[#AAB4D0]">
+              <span className="text-[13px] text-[#A79FC4]">
                 Panduan struktur per paragraf untuk penulisan draf Bab 1
               </span>
             </div>
 
-            <div className="rounded-xl border border-[#70E1B6]/30 bg-[#70E1B6]/5 p-3 sm:p-4">
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#FFF9EE]">
-                <span className="font-bold text-[#70E1B6] uppercase tracking-wider text-[13px]">
+            <div className="rounded-xl border border-[#FFB84D]/30 bg-[#FFB84D]/5 p-3 sm:p-4">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#FBFAFF]">
+                <span className="font-bold text-[#FFB84D] uppercase tracking-wider text-[13px]">
                   Target Panjang Latar Belakang
                 </span>
-                <span className="rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 font-bold text-[#70E1B6]">
+                <span className="rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 font-bold text-[#FFB84D]">
                   1000–1300 kata
                 </span>
-                <span className="text-[#AAB4D0]">
+                <span className="text-[#A79FC4]">
                   {parsedFoundationV1.background_map.length} bagian · target total{" "}
-                  <strong className="text-[#FFF9EE]">±{parsedFoundationV1.target_words_total || 1150} kata</strong>
+                  <strong className="text-[#FBFAFF]">±{parsedFoundationV1.target_words_total || 1150} kata</strong>
                 </span>
               </div>
-              <p className="mt-1.5 text-[13px] text-[#AAB4D0] leading-relaxed">
+              <p className="mt-1.5 text-[13px] text-[#A79FC4] leading-relaxed">
                 Angka per paragraf di bawah adalah target saat draf ditulis, bukan jumlah kalimat yang sudah ditulis.
                 Sesuaikan saat menyusun draf agar totalnya tetap berada di rentang 1000–1300 kata.
               </p>
@@ -1900,19 +1900,19 @@ export const Bab1ToolContainer: React.FC = () => {
                 const funcInfo = getBackgroundFunctionInfo(p.function, p.order, parsedFoundationV1.phenomenon_basis_status);
                 const readStatus = getStudentStatus(p.readiness);
                 return (
-                  <div key={p.order} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 text-xs space-y-3">
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#273352]/60 pb-2.5">
+                  <div key={p.order} className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 sm:p-5 text-xs space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#2E2748]/60 pb-2.5">
                       <div className="flex items-center gap-2">
-                        <span className="rounded-full bg-[#2959FF]/20 border border-[#2959FF]/40 px-2.5 py-0.5 font-bold text-[#70E1B6] text-xs">
+                        <span className="rounded-full bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2.5 py-0.5 font-bold text-[#FFB84D] text-xs">
                           Paragraf #{p.order}
                         </span>
-                        <span className="font-bold text-[#FFF9EE] text-xs sm:text-sm">
+                        <span className="font-bold text-[#FBFAFF] text-xs sm:text-sm">
                           {funcInfo.title}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         {p.target_word_range && (
-                          <span className="rounded bg-[#2959FF]/20 border border-[#2959FF]/40 px-2 py-0.5 text-[13px] font-semibold text-[#70E1B6]">
+                          <span className="rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 text-[13px] font-semibold text-[#FFB84D]">
                             Target {p.target_word_range} kata
                           </span>
                         )}
@@ -1922,27 +1922,27 @@ export const Bab1ToolContainer: React.FC = () => {
                       </div>
                     </div>
                     <div className="space-y-1">
-                      <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
+                      <span className="text-[13px] font-semibold text-[#FFB84D] uppercase tracking-wider block">
                         Pesan Utama Paragraf:
                       </span>
-                      <p className="text-xs sm:text-sm text-[#FFF9EE] font-medium leading-relaxed bg-[#11182D]/80 p-3 rounded-lg border border-[#273352]/50">
+                      <p className="text-xs sm:text-sm text-[#FBFAFF] font-medium leading-relaxed bg-[#191430]/80 p-3 rounded-lg border border-[#2E2748]/50">
                         {p.key_message}
                       </p>
                     </div>
 
-                    <div className="space-y-2 border-t border-[#273352]/60 pt-2 text-[13px]">
+                    <div className="space-y-2 border-t border-[#2E2748]/60 pt-2 text-[13px]">
                       {p.safe_claims && p.safe_claims.length > 0 && (
-                        <div className="space-y-2 text-[#AAB4D0]">
-                          <strong className="text-[#70E1B6] block">Klaim yang Aman Ditulis:</strong>
-                          <ul className="space-y-2 text-[#FFF9EE]/90">
+                        <div className="space-y-2 text-[#A79FC4]">
+                          <strong className="text-[#FFB84D] block">Klaim yang Aman Ditulis:</strong>
+                          <ul className="space-y-2 text-[#FBFAFF]/90">
                             {p.safe_claims.map((sc, scIdx) => {
                               const claimType = sc.claim_type || (sc.source_ids && sc.source_ids.length > 1 ? "CROSS_SOURCE_SYNTHESIS" : (sc.source_ids && sc.source_ids.length > 0 ? "EMPIRICAL_FACT" : "RESEARCHER_DECISION"));
                               const claimStatusInfo = getStudentStatus(claimType);
 
                               return (
-                                <li key={scIdx} className="rounded-lg bg-[#11182D]/80 p-2.5 border border-[#273352]/50 space-y-1.5">
+                                <li key={scIdx} className="rounded-lg bg-[#191430]/80 p-2.5 border border-[#2E2748]/50 space-y-1.5">
                                   <div className="flex flex-wrap items-center gap-1.5">
-                                    <span className="font-mono text-[12px] font-bold text-[#70E1B6] bg-[#2959FF]/20 px-1.5 py-0.5 rounded">
+                                    <span className="font-mono text-[12px] font-bold text-[#FFB84D] bg-[#6D5AE6]/20 px-1.5 py-0.5 rounded">
                                       {sc.claim_id}
                                     </span>
                                     <span className={`rounded px-2 py-0.5 text-[12px] font-semibold ${claimStatusInfo.badgeClass}`}>
@@ -1954,12 +1954,12 @@ export const Bab1ToolContainer: React.FC = () => {
                                       </span>
                                     )}
                                     {sc.source_ids && sc.source_ids.length > 0 && (
-                                      <span className="font-mono text-[#70E1B6] text-[12px] bg-[#2959FF]/20 px-1.5 py-0.5 rounded">
+                                      <span className="font-mono text-[#FFB84D] text-[12px] bg-[#6D5AE6]/20 px-1.5 py-0.5 rounded">
                                         Sumber: [{sc.source_ids.join(", ")}]
                                       </span>
                                     )}
                                   </div>
-                                  <p className="text-xs text-[#FFF9EE]">{sc.statement}</p>
+                                  <p className="text-xs text-[#FBFAFF]">{sc.statement}</p>
                                   {claimType === "RESEARCHER_DECISION" && (
                                     <div className="rounded bg-purple-500/10 border border-purple-500/20 p-2 text-[10.5px] text-purple-200 space-y-0.5">
                                       <p className="italic">
@@ -1991,9 +1991,9 @@ export const Bab1ToolContainer: React.FC = () => {
                       )}
 
                       {p.transition_to_next && (
-                        <div className="text-[#AAB4D0] pt-1">
-                          <strong className="text-[#FFF9EE]">Kalimat Transisi ke Paragraf Berikutnya: </strong>
-                          <span className="italic text-[#FFF9EE]/90">&ldquo;{p.transition_to_next}&rdquo;</span>
+                        <div className="text-[#A79FC4] pt-1">
+                          <strong className="text-[#FBFAFF]">Kalimat Transisi ke Paragraf Berikutnya: </strong>
+                          <span className="italic text-[#FBFAFF]/90">&ldquo;{p.transition_to_next}&rdquo;</span>
                         </div>
                       )}
                     </div>
@@ -2005,12 +2005,12 @@ export const Bab1ToolContainer: React.FC = () => {
 
           {/* 7.6 Catatan Bukti */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
               6. Catatan Bukti (Buku Besar Bukti & Batas Penggunaan)
             </h3>
-            <div className="overflow-x-auto rounded-xl border border-[#273352] bg-[#080D1D]">
-              <table className="w-full text-left text-xs text-[#AAB4D0]">
-                <thead className="border-b border-[#273352] text-[#70E1B6]">
+            <div className="overflow-x-auto rounded-xl border border-[#2E2748] bg-[#0C0A1A]">
+              <table className="w-full text-left text-xs text-[#A79FC4]">
+                <thead className="border-b border-[#2E2748] text-[#FFB84D]">
                   <tr>
                     <th className="p-3">Claim ID</th>
                     <th className="p-3">Klaim Netral</th>
@@ -2022,7 +2022,7 @@ export const Bab1ToolContainer: React.FC = () => {
                     <th className="p-3">Batas Penggunaan</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#273352]/40">
+                <tbody className="divide-y divide-[#2E2748]/40">
                   {parsedFoundationV1.evidence_ledger.map((el) => {
                     const funcInfo = getBackgroundFunctionInfo(el.bab1_function);
                     const claimType = el.claim_type || (el.source_ids && el.source_ids.length > 1 ? "CROSS_SOURCE_SYNTHESIS" : (el.source_ids && el.source_ids.length > 0 ? "EMPIRICAL_FACT" : "RESEARCHER_DECISION"));
@@ -2031,9 +2031,9 @@ export const Bab1ToolContainer: React.FC = () => {
                     const sources = el.source_ids && el.source_ids.length > 0 ? el.source_ids : (el.source_id ? [el.source_id] : []);
 
                     return (
-                      <tr key={el.claim_id} className="hover:bg-[#11182D]/60 transition-colors">
-                        <td className="p-3 font-bold text-[#FFF9EE] whitespace-nowrap">{el.claim_id}</td>
-                        <td className="p-3 text-[#FFF9EE] max-w-xs">
+                      <tr key={el.claim_id} className="hover:bg-[#191430]/60 transition-colors">
+                        <td className="p-3 font-bold text-[#FBFAFF] whitespace-nowrap">{el.claim_id}</td>
+                        <td className="p-3 text-[#FBFAFF] max-w-xs">
                           <div>{el.claim}</div>
                           {claimType === "RESEARCHER_DECISION" && (
                             <div className="mt-1 text-[12px] text-purple-300 italic">
@@ -2055,7 +2055,7 @@ export const Bab1ToolContainer: React.FC = () => {
                               const weightInfo = getSourceWeightInfo(weight);
                               return (
                                 <div key={sid} className="flex items-center gap-1.5">
-                                  <span className="font-mono text-[13px] font-bold text-[#70E1B6]">{sid}</span>
+                                  <span className="font-mono text-[13px] font-bold text-[#FFB84D]">{sid}</span>
                                   <span className={`rounded px-1.5 py-0.5 text-[12px] font-semibold ${weightInfo.badgeClass}`}>
                                     {weightInfo.label}
                                   </span>
@@ -2067,8 +2067,8 @@ export const Bab1ToolContainer: React.FC = () => {
                           )}
                         </td>
                         <td className="p-3 max-w-xs">{el.evidence_location || "-"}</td>
-                        <td className="p-3 text-[#FFF9EE]">
-                          <span className="rounded bg-[#2959FF]/15 border border-[#2959FF]/30 px-2 py-0.5 text-[12px] font-semibold text-[#70E1B6]">
+                        <td className="p-3 text-[#FBFAFF]">
+                          <span className="rounded bg-[#6D5AE6]/15 border border-[#6D5AE6]/30 px-2 py-0.5 text-[12px] font-semibold text-[#FFB84D]">
                             {funcInfo.title}
                           </span>
                         </td>
@@ -2078,7 +2078,7 @@ export const Bab1ToolContainer: React.FC = () => {
                               {supportInfo.label}
                             </span>
                           ) : (
-                            <span className="text-[#AAB4D0] text-[12px]">-</span>
+                            <span className="text-[#A79FC4] text-[12px]">-</span>
                           )}
                         </td>
                         <td className="p-3 text-amber-300 text-[13px]">{el.usage_limit}</td>
@@ -2092,27 +2092,27 @@ export const Bab1ToolContainer: React.FC = () => {
 
           {/* 7.7 Kontribusi, Ruang Lingkup & Catatan Konsultasi */}
           <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#273352]/70 pb-2">
-              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#2E2748]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
                 7. Kontribusi, Ruang Lingkup &amp; Catatan Konsultasi
               </h3>
-              <span className="text-[13px] text-[#AAB4D0]">
+              <span className="text-[13px] text-[#A79FC4]">
                 Sisa hasil fondasi: manfaat penelitian, batas cakupan, dan bahan diskusi dengan dosen
               </span>
             </div>
 
             {/* 7.7a Kontribusi Sementara */}
-            <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 space-y-3">
-              <h4 className="text-xs font-bold text-[#70E1B6] uppercase tracking-wider">
+            <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 sm:p-5 space-y-3">
+              <h4 className="text-xs font-bold text-[#FFB84D] uppercase tracking-wider">
                 7a. Kontribusi Sementara (Manfaat Penelitian)
               </h4>
-              <p className="text-[13px] text-[#AAB4D0]">
+              <p className="text-[13px] text-[#A79FC4]">
                 Masih bersifat sementara dan wajib dikonfirmasi ke dosen pembimbing. Bagian ini yang biasanya menjadi
                 isi sub-bab Manfaat Penelitian.
               </p>
               {(() => {
                 const contrib = parsedFoundationV1.provisional_contributions;
-                if (!contrib) return <p className="text-[13px] text-[#AAB4D0] italic">Tidak tersedia pada output ini.</p>;
+                if (!contrib) return <p className="text-[13px] text-[#A79FC4] italic">Tidak tersedia pada output ini.</p>;
                 const groups: Array<{ key: string; label: string }> = [
                   { key: "empirical", label: "Empiris" },
                   { key: "practical", label: "Praktis" },
@@ -2125,11 +2125,11 @@ export const Bab1ToolContainer: React.FC = () => {
                       const items = (contrib as unknown as Record<string, string[] | undefined>)[g.key] || [];
                       if (items.length === 0) return null;
                       return (
-                        <div key={g.key} className="rounded-lg border border-[#273352]/60 bg-[#11182D]/70 p-3 space-y-1.5">
-                          <span className="text-[13px] font-bold text-[#70E1B6] uppercase tracking-wider block">
+                        <div key={g.key} className="rounded-lg border border-[#2E2748]/60 bg-[#191430]/70 p-3 space-y-1.5">
+                          <span className="text-[13px] font-bold text-[#FFB84D] uppercase tracking-wider block">
                             {g.label}
                           </span>
-                          <ul className="list-disc list-inside space-y-1 text-[13px] text-[#FFF9EE]/90">
+                          <ul className="list-disc list-inside space-y-1 text-[13px] text-[#FBFAFF]/90">
                             {items.map((it, i) => (
                               <li key={i}>{it}</li>
                             ))}
@@ -2156,13 +2156,13 @@ export const Bab1ToolContainer: React.FC = () => {
             </div>
 
             {/* 7.7b Ruang Lingkup Sementara */}
-            <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 space-y-3">
-              <h4 className="text-xs font-bold text-[#70E1B6] uppercase tracking-wider">
+            <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 sm:p-5 space-y-3">
+              <h4 className="text-xs font-bold text-[#FFB84D] uppercase tracking-wider">
                 7b. Ruang Lingkup Sementara
               </h4>
               {(() => {
                 const scope = parsedFoundationV1.tentative_scope;
-                if (!scope) return <p className="text-[13px] text-[#AAB4D0] italic">Tidak tersedia pada output ini.</p>;
+                if (!scope) return <p className="text-[13px] text-[#A79FC4] italic">Tidak tersedia pada output ini.</p>;
                 const rows: Array<[string, string]> = [
                   ["Unit Analisis", scope.unit_of_analysis],
                   ["Objek / Populasi", scope.object_or_population],
@@ -2171,7 +2171,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   ["Periode Sementara", scope.potential_period],
                 ];
                 const lists: Array<[string, string[] | undefined, string]> = [
-                  ["Sumber Data Potensial", scope.potential_data_sources, "text-[#70E1B6]"],
+                  ["Sumber Data Potensial", scope.potential_data_sources, "text-[#FFB84D]"],
                   ["Termasuk Cakupan", scope.in_scope, "text-emerald-300"],
                   ["Di Luar Cakupan", scope.out_of_scope, "text-amber-300"],
                   ["Belum Diputuskan", scope.unresolved_items, "text-rose-300"],
@@ -2182,21 +2182,21 @@ export const Bab1ToolContainer: React.FC = () => {
                       {rows.map(([label, val]) =>
                         val ? (
                           <div key={label} className="space-y-0.5">
-                            <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
+                            <span className="text-[13px] font-semibold text-[#FFB84D] uppercase tracking-wider block">
                               {label}
                             </span>
-                            <p className="text-[13px] text-[#FFF9EE]">{val}</p>
+                            <p className="text-[13px] text-[#FBFAFF]">{val}</p>
                           </div>
                         ) : null
                       )}
                     </div>
                     {lists.map(([label, items, color]) =>
                       items && items.length > 0 ? (
-                        <div key={label} className="space-y-1 border-t border-[#273352]/60 pt-2">
+                        <div key={label} className="space-y-1 border-t border-[#2E2748]/60 pt-2">
                           <span className={`text-[13px] font-semibold uppercase tracking-wider block ${color}`}>
                             {label}
                           </span>
-                          <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FFF9EE]/90">
+                          <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FBFAFF]/90">
                             {items.map((it, i) => (
                               <li key={i}>{it}</li>
                             ))}
@@ -2211,8 +2211,8 @@ export const Bab1ToolContainer: React.FC = () => {
 
             {/* 7.7c Ringkasan Kelayakan Data */}
             {parsedFoundationV1.feasibility_summary && (
-              <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 space-y-3">
-                <h4 className="text-xs font-bold text-[#70E1B6] uppercase tracking-wider">
+              <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 sm:p-5 space-y-3">
+                <h4 className="text-xs font-bold text-[#FFB84D] uppercase tracking-wider">
                   7c. Ringkasan Kelayakan Data
                 </h4>
                 <div className="space-y-3 text-xs">
@@ -2220,14 +2220,14 @@ export const Bab1ToolContainer: React.FC = () => {
                     ["Data Sudah Pasti", parsedFoundationV1.feasibility_summary.confirmed_data, "text-emerald-300"],
                     ["Data Belum Pasti", parsedFoundationV1.feasibility_summary.unconfirmed_data, "text-amber-300"],
                     ["Data Tidak Tersedia", parsedFoundationV1.feasibility_summary.unavailable_data, "text-rose-300"],
-                    ["Implikasi", parsedFoundationV1.feasibility_summary.implications, "text-[#70E1B6]"],
+                    ["Implikasi", parsedFoundationV1.feasibility_summary.implications, "text-[#FFB84D]"],
                   ] as Array<[string, string[] | undefined, string]>).map(([label, items, color]) =>
                     items && items.length > 0 ? (
                       <div key={label} className="space-y-1">
                         <span className={`text-[13px] font-semibold uppercase tracking-wider block ${color}`}>
                           {label}
                         </span>
-                        <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FFF9EE]/90">
+                        <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FBFAFF]/90">
                           {items.map((it, i) => (
                             <li key={i}>{it}</li>
                           ))}
@@ -2240,16 +2240,16 @@ export const Bab1ToolContainer: React.FC = () => {
             )}
 
             {/* 7.7d Bahan Konsultasi Dosen */}
-            <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 sm:p-5 space-y-3">
-              <h4 className="text-xs font-bold text-[#70E1B6] uppercase tracking-wider">
+            <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 sm:p-5 space-y-3">
+              <h4 className="text-xs font-bold text-[#FFB84D] uppercase tracking-wider">
                 7d. Bahan Konsultasi Dosen &amp; Keputusan yang Belum Final
               </h4>
               {parsedFoundationV1.supervisor_questions && parsedFoundationV1.supervisor_questions.length > 0 && (
                 <div className="space-y-1.5">
-                  <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
+                  <span className="text-[13px] font-semibold text-[#FFB84D] uppercase tracking-wider block">
                     Pertanyaan untuk Dosen Pembimbing
                   </span>
-                  <ol className="list-decimal list-inside space-y-1.5 text-[13px] text-[#FFF9EE]/90">
+                  <ol className="list-decimal list-inside space-y-1.5 text-[13px] text-[#FBFAFF]/90">
                     {parsedFoundationV1.supervisor_questions.map((q, i) => (
                       <li key={i}>{q}</li>
                     ))}
@@ -2257,11 +2257,11 @@ export const Bab1ToolContainer: React.FC = () => {
                 </div>
               )}
               {parsedFoundationV1.unresolved_decisions && parsedFoundationV1.unresolved_decisions.length > 0 && (
-                <div className="space-y-1.5 border-t border-[#273352]/60 pt-2">
+                <div className="space-y-1.5 border-t border-[#2E2748]/60 pt-2">
                   <span className="text-[13px] font-semibold text-amber-300 uppercase tracking-wider block">
                     Keputusan yang Belum Final
                   </span>
-                  <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FFF9EE]/90">
+                  <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FBFAFF]/90">
                     {parsedFoundationV1.unresolved_decisions.map((u, i) => (
                       <li key={i}>{u}</li>
                     ))}
@@ -2269,11 +2269,11 @@ export const Bab1ToolContainer: React.FC = () => {
                 </div>
               )}
               {parsedFoundationV1.recovery_actions && parsedFoundationV1.recovery_actions.length > 0 && (
-                <div className="space-y-1.5 border-t border-[#273352]/60 pt-2">
-                  <span className="text-[13px] font-semibold text-[#70E1B6] uppercase tracking-wider block">
+                <div className="space-y-1.5 border-t border-[#2E2748]/60 pt-2">
+                  <span className="text-[13px] font-semibold text-[#FFB84D] uppercase tracking-wider block">
                     Langkah Tindak Lanjut yang Disarankan
                   </span>
-                  <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FFF9EE]/90">
+                  <ul className="list-disc list-inside space-y-0.5 text-[13px] text-[#FBFAFF]/90">
                     {parsedFoundationV1.recovery_actions.map((r, i) => (
                       <li key={i}>{r}</li>
                     ))}
@@ -2299,15 +2299,15 @@ export const Bab1ToolContainer: React.FC = () => {
           )}
 
           {/* 7.7 Confirmation & Final Save */}
-          <div className="rounded-xl border border-[#70E1B6]/30 bg-[#080D1D] p-6 space-y-4">
+          <div className="rounded-xl border border-[#FFB84D]/30 bg-[#0C0A1A] p-6 space-y-4">
             <label className="flex items-start gap-3 cursor-pointer">
               <input
                 type="checkbox"
                 checked={supervisorConfirmationChecked}
                 onChange={(e) => setSupervisorConfirmationChecked(e.target.checked)}
-                className="mt-1 h-4 w-4 rounded border-[#273352] bg-[#11182D] text-[#70E1B6] focus:ring-0"
+                className="mt-1 h-4 w-4 rounded border-[#2E2748] bg-[#191430] text-[#FFB84D] focus:ring-0"
               />
-              <span className="text-xs font-semibold text-[#FFF9EE] leading-relaxed">
+              <span className="text-xs font-semibold text-[#FBFAFF] leading-relaxed">
                 Saya memahami bahwa arah penelitian, rumusan masalah, tujuan, dan gambaran judul ini masih bersifat tentatif dan perlu dikonfirmasi serta disetujui oleh dosen pembimbing.
               </span>
             </label>
@@ -2322,7 +2322,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   parsedFoundationV1.phenomenon_basis_status === "MISSING"
                 }
                 onClick={handleSaveFinalPackage}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-6 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6] disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] px-6 py-3 text-xs font-bold text-[#0C0A1A] shadow-lg shadow-[#FFB84D]/20 transition hover:bg-[#F0A63C] disabled:opacity-50"
               >
                 <BookmarkCheck className="h-4 w-4" />
                 <span>Simpan Paket Fondasi Bab 1</span>
@@ -2337,7 +2337,7 @@ export const Bab1ToolContainer: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowResetModal(true)}
-                className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#11182D] px-4 py-3 text-xs font-semibold text-[#AAB4D0] transition hover:text-rose-400"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#2E2748] bg-[#191430] px-4 py-3 text-xs font-semibold text-[#A79FC4] transition hover:text-rose-400"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>Reset Paket Bab 1</span>
@@ -2352,21 +2352,21 @@ export const Bab1ToolContainer: React.FC = () => {
       {/* ========================================================================= */}
       {parsedFoundationV1 && (
         <div ref={prompt4CSectionRef}>
-          <section className="rounded-2xl border border-[#273352] bg-[#11182D] p-6 shadow-xl sm:p-8 space-y-5">
-            <div className="flex flex-col justify-between gap-4 border-b border-[#273352]/70 pb-5 sm:flex-row sm:items-center">
+          <section className="rounded-2xl border border-[#2E2748] bg-[#191430] p-6 shadow-xl sm:p-8 space-y-5">
+            <div className="flex flex-col justify-between gap-4 border-b border-[#2E2748]/70 pb-5 sm:flex-row sm:items-center">
               <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#2959FF]/20 text-[#70E1B6] font-bold">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#6D5AE6]/20 text-[#FFB84D] font-bold">
                   8
                 </div>
                 <div>
-                  <h2 id="tahap-4c" className="text-lg font-bold text-[#FFF9EE]">Prompt Tahap 4C — Tulis Draf Latar Belakang</h2>
-                  <p className="text-xs text-[#AAB4D0]">
+                  <h2 id="tahap-4c" className="text-lg font-bold text-[#FBFAFF]">Prompt Tahap 4C — Tulis Draf Latar Belakang</h2>
+                  <p className="text-xs text-[#A79FC4]">
                     Mengubah Peta Narasi 7 bagian menjadi prosa siap tempel, tanpa menambah klaim atau sitasi baru.
                   </p>
                 </div>
               </div>
               {promptAnalysis4C && (
-                <span className="rounded-full bg-[#70E1B6]/20 px-3 py-1 text-xs font-semibold text-[#70E1B6]">
+                <span className="rounded-full bg-[#FFB84D]/20 px-3 py-1 text-xs font-semibold text-[#FFB84D]">
                   {promptAnalysis4C.finalLength.toLocaleString("id-ID")} karakter
                 </span>
               )}
@@ -2417,21 +2417,21 @@ export const Bab1ToolContainer: React.FC = () => {
                     onClick={() => setJalurBab1("outline")}
                     className={`rounded-xl border p-4 text-left transition ${
                       jalurBab1 === "outline"
-                        ? "border-[#70E1B6] bg-[#70E1B6]/10"
-                        : "border-[#273352] bg-[#080D1D] hover:border-[#70E1B6]/40"
+                        ? "border-[#FFB84D] bg-[#FFB84D]/10"
+                        : "border-[#2E2748] bg-[#0C0A1A] hover:border-[#FFB84D]/40"
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <span
                         className={`flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-bold ${
-                          jalurBab1 === "outline" ? "border-[#70E1B6] text-[#70E1B6]" : "border-[#273352] text-[#AAB4D0]"
+                          jalurBab1 === "outline" ? "border-[#FFB84D] text-[#FFB84D]" : "border-[#2E2748] text-[#A79FC4]"
                         }`}
                       >
                         {jalurBab1 === "outline" ? "✓" : ""}
                       </span>
-                      <span className="text-sm font-bold text-[#FFF9EE]">1. Kerangka saja</span>
+                      <span className="text-sm font-bold text-[#FBFAFF]">1. Kerangka saja</span>
                     </div>
-                    <p className="mt-2 text-xs text-[#AAB4D0] leading-relaxed">
+                    <p className="mt-2 text-xs text-[#A79FC4] leading-relaxed">
                       Kamu dapat rencana latar belakang lengkap: tiap paragraf mau bilang apa, klaim apa yang boleh dipakai, dan dari
                       sumber mana. Tulisan kamu tulis sendiri. Tanpa AI, tanpa keluar dari halaman ini.
                     </p>
@@ -2442,21 +2442,21 @@ export const Bab1ToolContainer: React.FC = () => {
                     onClick={() => setJalurBab1("draf")}
                     className={`rounded-xl border p-4 text-left transition ${
                       jalurBab1 === "draf"
-                        ? "border-[#2959FF] bg-[#2959FF]/10"
-                        : "border-[#273352] bg-[#080D1D] hover:border-[#2959FF]/40"
+                        ? "border-[#6D5AE6] bg-[#6D5AE6]/10"
+                        : "border-[#2E2748] bg-[#0C0A1A] hover:border-[#6D5AE6]/40"
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <span
                         className={`flex h-5 w-5 items-center justify-center rounded-full border text-[10px] font-bold ${
-                          jalurBab1 === "draf" ? "border-[#2959FF] text-[#70E1B6]" : "border-[#273352] text-[#AAB4D0]"
+                          jalurBab1 === "draf" ? "border-[#6D5AE6] text-[#FFB84D]" : "border-[#2E2748] text-[#A79FC4]"
                         }`}
                       >
                         {jalurBab1 === "draf" ? "✓" : ""}
                       </span>
-                      <span className="text-sm font-bold text-[#FFF9EE]">2. Draf siap tempel (bantuan AI)</span>
+                      <span className="text-sm font-bold text-[#FBFAFF]">2. Draf siap tempel (bantuan AI)</span>
                     </div>
-                    <p className="mt-2 text-xs text-[#AAB4D0] leading-relaxed">
+                    <p className="mt-2 text-xs text-[#A79FC4] leading-relaxed">
                       Kamu dapat prosa Bab 1 yang sudah jadi, tapi hanya memakai klaim dari Catatan Bukti di atas. Hasilnya diperiksa
                       dulu sebelum dianggap siap. Butuh ChatGPT atau Gemini.
                     </p>
@@ -2465,21 +2465,21 @@ export const Bab1ToolContainer: React.FC = () => {
 
                 {jalurBab1 === "outline" && (
                   <>
-                    <div className="rounded-xl border border-[#70E1B6]/30 bg-[#70E1B6]/5 p-4 space-y-3">
+                    <div className="rounded-xl border border-[#FFB84D]/30 bg-[#FFB84D]/5 p-4 space-y-3">
                       <div className="flex items-start gap-3">
-                        <FileCheck className="h-5 w-5 shrink-0 text-[#70E1B6] mt-0.5" />
-                        <div className="text-xs text-[#FFF9EE] leading-relaxed">
+                        <FileCheck className="h-5 w-5 shrink-0 text-[#FFB84D] mt-0.5" />
+                        <div className="text-xs text-[#FBFAFF] leading-relaxed">
                           <span className="font-bold">Kerangka latar belakang kamu sudah siap.</span> Isinya: pesan utama per paragraf,
                           klaim yang boleh dipakai beserta sumbernya, klaim yang dilarang, dan urutan paragraf yang sudah dikunci.
                           Salin lalu kembangkan jadi tulisan dengan bahasa kamu sendiri. Ini yang membuat karyamu tetap karyamu.
                         </div>
                       </div>
-                      <label className="flex items-center gap-2 text-xs text-[#AAB4D0]">
+                      <label className="flex items-center gap-2 text-xs text-[#A79FC4]">
                         <input
                           type="checkbox"
                           checked={outlinePanjangChecked}
                           onChange={(e) => setOutlinePanjangChecked(e.target.checked)}
-                          className="h-3.5 w-3.5 rounded border-[#273352] bg-[#11182D] text-[#70E1B6] focus:ring-0"
+                          className="h-3.5 w-3.5 rounded border-[#2E2748] bg-[#191430] text-[#FFB84D] focus:ring-0"
                         />
                         <span>Sertakan target panjang per paragraf (1000–1300 kata)</span>
                       </label>
@@ -2487,7 +2487,7 @@ export const Bab1ToolContainer: React.FC = () => {
                         <button
                           type="button"
                           onClick={handleSalinOutline}
-                          className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                          className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] min-h-[44px] px-5 py-3 text-xs font-bold text-[#0C0A1A] transition hover:bg-[#F0A63C]"
                         >
                           {outlineTersalin ? (
                             <>
@@ -2504,9 +2504,9 @@ export const Bab1ToolContainer: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
-                      <span className="text-xs font-bold text-[#FFF9EE]">Pratinjau kerangka:</span>
-                      <pre className="mt-2 max-h-72 overflow-y-auto font-mono text-[11px] leading-relaxed text-[#AAB4D0] whitespace-pre-wrap">
+                    <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4">
+                      <span className="text-xs font-bold text-[#FBFAFF]">Pratinjau kerangka:</span>
+                      <pre className="mt-2 max-h-72 overflow-y-auto font-mono text-[11px] leading-relaxed text-[#A79FC4] whitespace-pre-wrap">
                         {outlineLatarBelakang}
                       </pre>
                     </div>
@@ -2515,33 +2515,33 @@ export const Bab1ToolContainer: React.FC = () => {
 
                 {jalurBab1 === "draf" && (
                   <>
-                    <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 text-xs text-[#AAB4D0] leading-relaxed">
-                      <span className="font-bold text-[#FFF9EE]">Yang dikunci di prompt ini:</span> daftar klaim yang boleh dipakai
+                    <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 text-xs text-[#A79FC4] leading-relaxed">
+                      <span className="font-bold text-[#FBFAFF]">Yang dikunci di prompt ini:</span> daftar klaim yang boleh dipakai
                       beserta status buktinya, klaim terlarang, target 1000–1300 kata, dan kewajiban mencantumkan claim_id untuk setiap
                       kalimat faktual.
                     </div>
 
                 {/* Alur tegas: NotebookLM menulis, ChatGPT merapikan bahasanya. */}
-                <div className="rounded-xl border border-[#70E1B6]/35 bg-[#70E1B6]/5 p-4 space-y-2.5">
-                  <span className="text-xs font-bold text-[#70E1B6]">Alurnya empat langkah, jangan dibalik:</span>
-                  <ol className="list-decimal space-y-1.5 pl-4 text-xs text-[#AAB4D0] leading-relaxed">
+                <div className="rounded-xl border border-[#FFB84D]/35 bg-[#FFB84D]/5 p-4 space-y-2.5">
+                  <span className="text-xs font-bold text-[#FFB84D]">Alurnya empat langkah, jangan dibalik:</span>
+                  <ol className="list-decimal space-y-1.5 pl-4 text-xs text-[#A79FC4] leading-relaxed">
                     <li>
-                      <span className="font-semibold text-[#FFF9EE]">Unduh berkas sumber</span> Skriflow, lalu unggah ke{" "}
-                      <span className="font-semibold text-[#70E1B6]">NotebookLM</span> sebagai sumber. Isinya instruksi lengkap
+                      <span className="font-semibold text-[#FBFAFF]">Unduh berkas sumber</span> Skriflow, lalu unggah ke{" "}
+                      <span className="font-semibold text-[#FFB84D]">NotebookLM</span> sebagai sumber. Isinya instruksi lengkap
                       penulisan — memang panjang, dan itu sebabnya dikirim sebagai sumber, bukan ditempel di kolom chat.
                     </li>
                     <li>
-                      <span className="font-semibold text-[#FFF9EE]">Salin perintah pendeknya</span>, lalu tempel di{" "}
-                      <span className="font-semibold text-[#70E1B6]">kolom chat NotebookLM</span>. Perintah inilah yang menyuruh NotebookLM
+                      <span className="font-semibold text-[#FBFAFF]">Salin perintah pendeknya</span>, lalu tempel di{" "}
+                      <span className="font-semibold text-[#FFB84D]">kolom chat NotebookLM</span>. Perintah inilah yang menyuruh NotebookLM
                       bekerja memakai berkas sumber tadi — pendek, jadi pasti diterima.
                     </li>
                     <li>
-                      NotebookLM yang menulis drafnya. <span className="font-semibold text-[#FFF9EE]">Tempel hasilnya</span> di kotak paling
+                      NotebookLM yang menulis drafnya. <span className="font-semibold text-[#FBFAFF]">Tempel hasilnya</span> di kotak paling
                       bawah halaman ini, lalu klik Verifikasi &amp; Susun Draf Bab 1.
                     </li>
                     <li>
-                      <span className="font-semibold text-[#FFF9EE]">Lanjut ke Tahap 4D</span> di bawah ini. Bahasa NotebookLM selalu kaku —{" "}
-                      <span className="font-semibold text-[#70E1B6]">ChatGPT</span> yang mengubahnya jadi bahasa mahasiswa S1. Tahap ini wajib,
+                      <span className="font-semibold text-[#FBFAFF]">Lanjut ke Tahap 4D</span> di bawah ini. Bahasa NotebookLM selalu kaku —{" "}
+                      <span className="font-semibold text-[#FFB84D]">ChatGPT</span> yang mengubahnya jadi bahasa mahasiswa S1. Tahap ini wajib,
                       bukan pilihan.
                     </li>
                   </ol>
@@ -2551,7 +2551,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleUnduhBerkasSumber4C}
-                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#2959FF] to-[#1E40AF] px-5 py-3 text-xs font-bold text-white shadow-lg shadow-[#2959FF]/25 transition hover:brightness-110"
+                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#6D5AE6] to-[#1E40AF] px-5 py-3 text-xs font-bold text-white shadow-lg shadow-[#6D5AE6]/25 transition hover:brightness-110"
                   >
                     <Download className="h-4 w-4" />
                     <span>Langkah 1: Unduh Berkas Sumber ({berkasSumber4C.length.toLocaleString("id-ID")} karakter)</span>
@@ -2560,11 +2560,11 @@ export const Bab1ToolContainer: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleCopyPerintahSingkat4C}
-                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#2959FF] to-[#1E40AF] px-5 py-3 text-xs font-bold text-white shadow-lg shadow-[#2959FF]/25 transition hover:brightness-110"
+                    className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#6D5AE6] to-[#1E40AF] px-5 py-3 text-xs font-bold text-white shadow-lg shadow-[#6D5AE6]/25 transition hover:brightness-110"
                   >
                     {copyStatus4C === "copied" ? (
                       <>
-                        <Check className="h-4 w-4 text-[#70E1B6]" />
+                        <Check className="h-4 w-4 text-[#FFB84D]" />
                         <span>Perintah Tersalin!</span>
                       </>
                     ) : (
@@ -2579,44 +2579,44 @@ export const Bab1ToolContainer: React.FC = () => {
                     href="https://notebooklm.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] px-5 py-3 text-xs font-bold text-[#0C0A1A] shadow-lg shadow-[#FFB84D]/20 transition hover:bg-[#F0A63C]"
                   >
                     <ExternalLink className="h-3.5 w-3.5" />
                     <span>Langkah 3: Buka NotebookLM</span>
                   </a>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-2 text-xs text-[#AAB4D0]">
+                <div className="flex flex-wrap items-center gap-2 text-xs text-[#A79FC4]">
                   <span>Sudah punya draf dari tempat lain? Boleh ditempel di Langkah 4 — tapi tetap wajib lewat Tahap 4D.</span>
                 </div>
 
-                <div className="rounded-xl border border-[#70E1B6]/30 bg-[#080D1D] p-4 space-y-3">
+                <div className="rounded-xl border border-[#FFB84D]/30 bg-[#0C0A1A] p-4 space-y-3">
                   <div className="flex flex-wrap items-center gap-3 text-xs">
-                    <span className="font-bold text-[#70E1B6]">Langkah 2: Perintah pendek ini yang ditempel di kolom chat</span>
+                    <span className="font-bold text-[#FFB84D]">Langkah 2: Perintah pendek ini yang ditempel di kolom chat</span>
                     {promptAnalysisShort4C && (
-                      <span className="rounded-md border border-[#70E1B6]/40 bg-[#70E1B6]/10 px-2 py-0.5 font-semibold text-[#70E1B6]">
+                      <span className="rounded-md border border-[#FFB84D]/40 bg-[#FFB84D]/10 px-2 py-0.5 font-semibold text-[#FFB84D]">
                         {promptAnalysisShort4C.finalLength.toLocaleString("id-ID")} / {promptAnalysisShort4C.hardLimit.toLocaleString("id-ID")} — {promptAnalysisShort4C.status === "SAFE" ? "Aman" : promptAnalysisShort4C.status}
                       </span>
                     )}
                   </div>
-                  <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap select-all">
+                  <pre className="font-mono text-xs leading-relaxed text-[#A79FC4] whitespace-pre-wrap select-all">
                     {perintahSingkat4C}
                   </pre>
-                  <details className="pt-2 border-t border-[#273352]/60">
-                    <summary className="cursor-pointer text-xs font-semibold text-[#AAB4D0] hover:text-[#FFF9EE]">
+                  <details className="pt-2 border-t border-[#2E2748]/60">
+                    <summary className="cursor-pointer text-xs font-semibold text-[#A79FC4] hover:text-[#FBFAFF]">
                       Lihat isi berkas sumber yang diunggah ({
                         berkasSumber4C.length.toLocaleString("id-ID")
                       } karakter — ini yang sebelumnya harus ditempel di chat)
                     </summary>
-                    <pre className="mt-3 max-h-80 overflow-y-auto font-mono text-[11px] leading-relaxed text-[#AAB4D0] whitespace-pre-wrap">
+                    <pre className="mt-3 max-h-80 overflow-y-auto font-mono text-[11px] leading-relaxed text-[#A79FC4] whitespace-pre-wrap">
                       {berkasSumber4C}
                     </pre>
                   </details>
                 </div>
 
-                <div className="pt-4 border-t border-[#273352]/60 space-y-3">
+                <div className="pt-4 border-t border-[#2E2748]/60 space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <label className="block text-xs font-bold text-[#FFF9EE]">
+                    <label className="block text-xs font-bold text-[#FBFAFF]">
                       Langkah 4: Tempel hasil draf dari NotebookLM (atau ChatGPT/Gemini):
                     </label>
                     <TombolTempelClipboard onPaste={setPastedLLMOutput4C} />
@@ -2626,12 +2626,12 @@ export const Bab1ToolContainer: React.FC = () => {
                     value={pastedLLMOutput4C}
                     onChange={(e) => setPastedLLMOutput4C(e.target.value)}
                     placeholder="Tempelkan di sini hasil dari NotebookLM, termasuk blok SKRIFLOW_BAB1_DRAFT_V1..."
-                    className="w-full rounded-xl border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus:border-[#2959FF] focus:outline-none"
+                    className="w-full rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 font-mono text-xs text-[#FBFAFF] placeholder-[#A79FC4]/40 focus:border-[#6D5AE6] focus:outline-none"
                   />
                   <button
                     type="button"
                     onClick={handleProcessLLMOutput4C}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] min-h-[44px] px-5 py-3 text-xs font-bold text-[#0C0A1A] transition hover:bg-[#F0A63C]"
                   >
                     <Sparkles className="h-4 w-4" />
                     <span>Verifikasi &amp; Susun Draf Bab 1</span>
@@ -2697,15 +2697,15 @@ export const Bab1ToolContainer: React.FC = () => {
       {/* TAHAP 9: HASIL DRAF BAB 1 + PEMERIKSA DRAF                                */}
       {/* ========================================================================= */}
       {parsedDraftV1 && (
-        <section className="rounded-2xl border border-[#70E1B6] bg-[#11182D] p-6 shadow-2xl sm:p-8 space-y-8">
-          <div className="flex flex-col justify-between gap-4 border-b border-[#273352]/70 pb-5 sm:flex-row sm:items-center">
+        <section className="rounded-2xl border border-[#FFB84D] bg-[#191430] p-6 shadow-2xl sm:p-8 space-y-8">
+          <div className="flex flex-col justify-between gap-4 border-b border-[#2E2748]/70 pb-5 sm:flex-row sm:items-center">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#70E1B6]/20 text-[#70E1B6] font-bold">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#FFB84D]/20 text-[#FFB84D] font-bold">
                 9
               </div>
               <div>
-                <h2 id="draf-bab1" className="text-xl font-bold text-[#FFF9EE]">Draf Latar Belakang Bab 1</h2>
-                <p className="text-xs text-[#AAB4D0]">
+                <h2 id="draf-bab1" className="text-xl font-bold text-[#FBFAFF]">Draf Latar Belakang Bab 1</h2>
+                <p className="text-xs text-[#A79FC4]">
                   {parsedDraftV1.background.length} paragraf, {draftKataTotal.toLocaleString("id-ID")} kata. Setiap paragraf tertaut ke
                   klaim pada Catatan Bukti 4B.
                 </p>
@@ -2729,13 +2729,13 @@ export const Bab1ToolContainer: React.FC = () => {
               <span
                 className={`rounded-full px-3 py-1 text-xs font-bold ${
                   draftKataTotal >= 1000 && draftKataTotal <= 1300
-                    ? "bg-[#70E1B6]/20 text-[#70E1B6]"
+                    ? "bg-[#FFB84D]/20 text-[#FFB84D]"
                     : "bg-amber-500/20 text-amber-400"
                 }`}
               >
                 Target 1000–1300 kata
               </span>
-              <span className="rounded-full bg-[#2959FF]/20 px-3 py-1 text-xs font-bold text-[#AAB4D0]">
+              <span className="rounded-full bg-[#6D5AE6]/20 px-3 py-1 text-xs font-bold text-[#A79FC4]">
                 {parsedDraftV1.draft_status}
               </span>
             </div>
@@ -2749,11 +2749,11 @@ export const Bab1ToolContainer: React.FC = () => {
 
           {/* Pemeriksa draf */}
           <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#273352]/70 pb-2">
-              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#2E2748]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
                 Pemeriksa Draf (Kepatuhan pada Catatan Bukti 4B)
               </h3>
-              <span className="text-[13px] text-[#AAB4D0]">
+              <span className="text-[13px] text-[#A79FC4]">
                 {draftFindings.length === 0
                   ? "Tidak ada temuan"
                   : `${draftFindings.length} temuan (${draftKritis.length} kritis)`}
@@ -2761,9 +2761,9 @@ export const Bab1ToolContainer: React.FC = () => {
             </div>
 
             {draftFindings.length === 0 ? (
-              <div className="rounded-xl border border-[#70E1B6]/30 bg-[#70E1B6]/5 p-4 flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#70E1B6] mt-0.5" />
-                <p className="text-xs text-[#FFF9EE] leading-relaxed">
+              <div className="rounded-xl border border-[#FFB84D]/30 bg-[#FFB84D]/5 p-4 flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-[#FFB84D] mt-0.5" />
+                <p className="text-xs text-[#FBFAFF] leading-relaxed">
                   Draf lolos seluruh pemeriksaan: jumlah kata dalam rentang, susunan paragraf sesuai peta, semua claim_id dikenal,
                   dan tidak ada klaim terlarang yang lolos.
                 </p>
@@ -2778,7 +2778,7 @@ export const Bab1ToolContainer: React.FC = () => {
                         ? "border-rose-500/40 bg-rose-500/10"
                         : f.severity === "MAJOR"
                           ? "border-amber-500/40 bg-amber-500/10"
-                          : "border-[#273352] bg-[#080D1D]"
+                          : "border-[#2E2748] bg-[#0C0A1A]"
                     }`}
                   >
                     {f.severity === "CRITICAL" ? (
@@ -2786,7 +2786,7 @@ export const Bab1ToolContainer: React.FC = () => {
                     ) : f.severity === "MAJOR" ? (
                       <AlertTriangle className="h-4 w-4 shrink-0 text-amber-400 mt-0.5" />
                     ) : (
-                      <Clock className="h-4 w-4 shrink-0 text-[#AAB4D0] mt-0.5" />
+                      <Clock className="h-4 w-4 shrink-0 text-[#A79FC4] mt-0.5" />
                     )}
                     <div className="space-y-0.5">
                       <div className="flex flex-wrap items-center gap-2">
@@ -2796,12 +2796,12 @@ export const Bab1ToolContainer: React.FC = () => {
                               ? "text-rose-300"
                               : f.severity === "MAJOR"
                                 ? "text-amber-300"
-                                : "text-[#AAB4D0]"
+                                : "text-[#A79FC4]"
                           }`}
                         >
                           {f.severity}
                         </span>
-                        {f.location && <span className="text-[10px] text-[#AAB4D0]">{f.location}</span>}
+                        {f.location && <span className="text-[10px] text-[#A79FC4]">{f.location}</span>}
                       </div>
                       <p
                         className={`text-xs leading-relaxed ${
@@ -2809,7 +2809,7 @@ export const Bab1ToolContainer: React.FC = () => {
                             ? "text-rose-200"
                             : f.severity === "MAJOR"
                               ? "text-amber-200"
-                              : "text-[#AAB4D0]"
+                              : "text-[#A79FC4]"
                         }`}
                       >
                         {f.message}
@@ -2823,8 +2823,8 @@ export const Bab1ToolContainer: React.FC = () => {
 
           {/* Paragraf draf */}
           <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#273352]/70 pb-2">
-              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">Isi Draf per Paragraf</h3>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-[#2E2748]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">Isi Draf per Paragraf</h3>
               <button
                 type="button"
                 onClick={() => {
@@ -2833,7 +2833,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   setToastMessage("Draf latar belakang tersalin!");
                   setTimeout(() => setToastMessage(null), 3000);
                 }}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 text-xs font-semibold text-[#FFF9EE] transition hover:border-[#2959FF]"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#0C0A1A] px-3 py-1.5 text-xs font-semibold text-[#FBFAFF] transition hover:border-[#6D5AE6]"
               >
                 <Copy className="h-3 w-3" />
                 <span>Salin Seluruh Draf</span>
@@ -2848,18 +2848,18 @@ export const Bab1ToolContainer: React.FC = () => {
                 <div
                   key={`${p.order}-${p.function}`}
                   className={`rounded-xl border p-4 space-y-3 ${
-                    kritisParagraf > 0 ? "border-rose-500/40 bg-rose-500/5" : "border-[#273352] bg-[#080D1D]"
+                    kritisParagraf > 0 ? "border-rose-500/40 bg-rose-500/5" : "border-[#2E2748] bg-[#0C0A1A]"
                   }`}
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#2959FF]/20 text-[11px] font-bold text-[#70E1B6]">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-md bg-[#6D5AE6]/20 text-[11px] font-bold text-[#FFB84D]">
                         {p.order}
                       </span>
-                      <span className="text-xs font-bold text-[#FFF9EE]">{info?.title || p.function}</span>
+                      <span className="text-xs font-bold text-[#FBFAFF]">{info?.title || p.function}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-[11px] text-[#AAB4D0]">{p.word_count} kata</span>
+                      <span className="text-[11px] text-[#A79FC4]">{p.word_count} kata</span>
                       {temuanParagraf.length > 0 && (
                         <span
                           className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${
@@ -2876,7 +2876,7 @@ export const Bab1ToolContainer: React.FC = () => {
 
                   {p.claim_ids.length > 0 && (
                     <div className="flex flex-wrap items-center gap-1.5">
-                      <span className="text-[10px] font-semibold text-[#AAB4D0]">Klaim dipakai:</span>
+                      <span className="text-[10px] font-semibold text-[#A79FC4]">Klaim dipakai:</span>
                       {p.claim_ids.map((c) => {
                         const ada = (parsedFoundationV1?.evidence_ledger || []).some(
                           (e) => e.claim_id.replace(/[\[\]]/g, "").trim().toUpperCase() === c.replace(/[\[\]]/g, "").trim().toUpperCase()
@@ -2885,7 +2885,7 @@ export const Bab1ToolContainer: React.FC = () => {
                           <span
                             key={c}
                             className={`rounded-md px-1.5 py-0.5 text-[10px] font-mono font-semibold ${
-                              ada ? "bg-[#70E1B6]/15 text-[#70E1B6]" : "bg-rose-500/20 text-rose-300"
+                              ada ? "bg-[#FFB84D]/15 text-[#FFB84D]" : "bg-rose-500/20 text-rose-300"
                             }`}
                           >
                             {c}
@@ -2896,15 +2896,15 @@ export const Bab1ToolContainer: React.FC = () => {
                   )}
 
                   {p.researcher_decision_note && (
-                    <p className="text-[11px] text-[#AAB4D0] italic">Catatan keputusan mahasiswa: {p.researcher_decision_note}</p>
+                    <p className="text-[11px] text-[#A79FC4] italic">Catatan keputusan mahasiswa: {p.researcher_decision_note}</p>
                   )}
 
                   {p.withheld_claims && p.withheld_claims.length > 0 && (
-                    <div className="rounded-lg border border-[#273352] bg-[#11182D] p-2.5">
-                      <span className="text-[10px] font-bold text-[#AAB4D0]">Sengaja tidak ditulis:</span>
+                    <div className="rounded-lg border border-[#2E2748] bg-[#191430] p-2.5">
+                      <span className="text-[10px] font-bold text-[#A79FC4]">Sengaja tidak ditulis:</span>
                       <ul className="mt-1 space-y-0.5">
                         {p.withheld_claims.map((w, i) => (
-                          <li key={i} className="text-[11px] text-[#AAB4D0]">
+                          <li key={i} className="text-[11px] text-[#A79FC4]">
                             - {w}
                           </li>
                         ))}
@@ -2922,7 +2922,7 @@ export const Bab1ToolContainer: React.FC = () => {
             (parsedDraftV1.prohibited_claims_respected?.length || 0) > 0 ||
             (parsedDraftV1.unresolved_notes?.length || 0) > 0) && (
             <div className="space-y-4">
-              <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider border-b border-[#273352]/70 pb-2">
+              <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider border-b border-[#2E2748]/70 pb-2">
                 Catatan Kepatuhan & Keterbatasan
               </h3>
               {[
@@ -2933,11 +2933,11 @@ export const Bab1ToolContainer: React.FC = () => {
               ]
                 .filter((g) => (g.isi?.length || 0) > 0)
                 .map((g) => (
-                  <div key={g.judul} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
-                    <span className="text-xs font-bold text-[#FFF9EE]">{g.judul}</span>
+                  <div key={g.judul} className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4">
+                    <span className="text-xs font-bold text-[#FBFAFF]">{g.judul}</span>
                     <ul className="mt-2 space-y-1">
                       {(g.isi || []).map((x, i) => (
-                        <li key={i} className="text-[11px] text-[#AAB4D0] leading-relaxed">
+                        <li key={i} className="text-[11px] text-[#A79FC4] leading-relaxed">
                           - {x}
                         </li>
                       ))}
@@ -2947,11 +2947,11 @@ export const Bab1ToolContainer: React.FC = () => {
             </div>
           )}
 
-          <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#273352]/60">
+          <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#2E2748]/60">
             <button
               type="button"
               onClick={handleResetDraft4C}
-              className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#11182D] px-4 py-2.5 text-xs font-semibold text-[#AAB4D0] transition hover:text-rose-400"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#2E2748] bg-[#191430] px-4 py-2.5 text-xs font-semibold text-[#A79FC4] transition hover:text-rose-400"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               <span>Buang Draf &amp; Ulangi Tahap 4C</span>
@@ -2966,18 +2966,18 @@ export const Bab1ToolContainer: React.FC = () => {
       {parsedDraftV1 && parsedDraftV1.draft_status !== "DRAFT_BLOCKED" && (
         <section
           ref={prompt4DSectionRef}
-          className="rounded-2xl border border-[#70E1B6]/40 bg-[#11182D] p-6 shadow-xl sm:p-8"
+          className="rounded-2xl border border-[#FFB84D]/40 bg-[#191430] p-6 shadow-xl sm:p-8"
         >
-          <div className="flex items-center gap-3 border-b border-[#273352]/70 pb-5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#70E1B6]/20 text-base font-bold text-[#70E1B6]">
+          <div className="flex items-center gap-3 border-b border-[#2E2748]/70 pb-5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#FFB84D]/20 text-base font-bold text-[#FFB84D]">
               10
             </div>
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">TAHAP 4D</span>
-                <h2 id="poles-4d" className="text-lg font-bold text-[#FFF9EE]">Poles Bahasa Draf (Wajib)</h2>
+                <span className="rounded bg-[#6D5AE6]/20 px-2 py-0.5 text-xs font-bold text-[#FFB84D]">TAHAP 4D</span>
+                <h2 id="poles-4d" className="text-lg font-bold text-[#FBFAFF]">Poles Bahasa Draf (Wajib)</h2>
               </div>
-              <p className="mt-1 text-xs text-[#AAB4D0]">
+              <p className="mt-1 text-xs text-[#A79FC4]">
                 Bahasa NotebookLM selalu kaku — itu memang sifat alatnya, bukan kebetulan. Tahap ini yang mengubahnya jadi bahasa
                 mahasiswa S1 — tanpa mengubah isi, klaim, angka, atau sitasi.
               </p>
@@ -2985,8 +2985,8 @@ export const Bab1ToolContainer: React.FC = () => {
           </div>
 
           <div className="mt-6 space-y-5">
-            <div className="rounded-xl border border-[#2959FF]/30 bg-[#2959FF]/10 p-4">
-              <p className="text-[13px] leading-relaxed text-[#FFF9EE]">
+            <div className="rounded-xl border border-[#6D5AE6]/30 bg-[#6D5AE6]/10 p-4">
+              <p className="text-[13px] leading-relaxed text-[#FBFAFF]">
                 <strong>Jangan lewati tahap ini.</strong> Draf dari NotebookLM pasti kaku karena dia menulis dari dokumen sumber,
                 bukan untuk dibaca mahasiswa. Langkah 3 alurnya: salin prompt 4D di bawah, buka <strong>ChatGPT</strong>, tempel
                 draf 4C, lalu tempel hasilnya kembali ke halaman ini.
@@ -2998,7 +2998,7 @@ export const Bab1ToolContainer: React.FC = () => {
               <button
                 type="button"
                 onClick={handleCopyPrompt4D}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] px-5 py-3 text-xs font-bold text-[#0C0A1A] transition hover:bg-[#F0A63C]"
               >
                 {copyStatus4D === "copied" ? (
                   <>
@@ -3017,27 +3017,27 @@ export const Bab1ToolContainer: React.FC = () => {
                 href="https://chatgpt.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg shadow-[#70E1B6]/20 transition hover:bg-[#5cd4a6]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] px-5 py-3 text-xs font-bold text-[#0C0A1A] shadow-lg shadow-[#FFB84D]/20 transition hover:bg-[#F0A63C]"
               >
                 <ExternalLink className="h-3.5 w-3.5" />
                 <span>Langkah 5: Buka ChatGPT</span>
               </a>
 
               {generatedPrompt4D && (
-                <span className="text-[11px] text-[#AAB4D0]">{generatedPrompt4D.length.toLocaleString("id-ID")} karakter</span>
+                <span className="text-[11px] text-[#A79FC4]">{generatedPrompt4D.length.toLocaleString("id-ID")} karakter</span>
               )}
             </div>
 
-            <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
-              <pre className="font-mono text-xs leading-relaxed text-[#AAB4D0] whitespace-pre-wrap line-clamp-4 select-all">
+            <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4">
+              <pre className="font-mono text-xs leading-relaxed text-[#A79FC4] whitespace-pre-wrap line-clamp-4 select-all">
                 {generatedPrompt4D}
               </pre>
             </div>
 
             {/* Paste hasil 4D */}
-            <div className="pt-4 border-t border-[#273352]/60 space-y-3">
+            <div className="pt-4 border-t border-[#2E2748]/60 space-y-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <label className="block text-xs font-bold text-[#FFF9EE]">
+                <label className="block text-xs font-bold text-[#FBFAFF]">
                   Tempel hasil perbaikan bahasa dari ChatGPT:
                 </label>
                 <TombolTempelClipboard onPaste={setPastedLLMOutput4D} />
@@ -3047,12 +3047,12 @@ export const Bab1ToolContainer: React.FC = () => {
                 value={pastedLLMOutput4D}
                 onChange={(e) => setPastedLLMOutput4D(e.target.value)}
                 placeholder="Tempelkan hasil respons blok SKRIFLOW_BAB1_POLISH_V1 di sini..."
-                className="w-full rounded-xl border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus:border-[#2959FF] focus:outline-none"
+                className="w-full rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 font-mono text-xs text-[#FBFAFF] placeholder-[#A79FC4]/40 focus:border-[#6D5AE6] focus:outline-none"
               />
               <button
                 type="button"
                 onClick={handleProcessLLMOutput4D}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] min-h-[44px] px-5 py-3 text-xs font-bold text-[#0C0A1A] transition hover:bg-[#F0A63C]"
               >
                 <Sparkles className="h-4 w-4" />
                 <span>Verifikasi Hasil Poles</span>
@@ -3082,12 +3082,12 @@ export const Bab1ToolContainer: React.FC = () => {
 
           {/* Hasil 4D */}
           {parsedPolishV1 && (
-            <div className="mt-8 space-y-5 border-t border-[#273352]/70 pt-6">
+            <div className="mt-8 space-y-5 border-t border-[#2E2748]/70 pt-6">
               <div className="flex flex-wrap items-center gap-3">
-                <h3 className="text-sm font-bold text-[#70E1B6] uppercase tracking-wider">
+                <h3 className="text-sm font-bold text-[#FFB84D] uppercase tracking-wider">
                   Hasil Poles Bahasa
                 </h3>
-                <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">
+                <span className="rounded bg-[#6D5AE6]/20 px-2 py-0.5 text-xs font-bold text-[#FFB84D]">
                   {parsedPolishV1.polish_status}
                 </span>
                 <span
@@ -3099,7 +3099,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 </span>
               </div>
 
-              <p className="text-[13px] text-[#AAB4D0]">
+              <p className="text-[13px] text-[#A79FC4]">
                 {parsedPolishV1.background.length} paragraf,{" "}
                 {(parsedPolishV1.background || []).reduce((a, p) => a + hitungKata(p.paragraph_text || ""), 0).toLocaleString("id-ID")}{" "}
                 kata. Diperiksa dua kali: kepatuhan bukti terhadap fondasi 4B, dan kepatuhan perubahan terhadap draf 4C.
@@ -3108,7 +3108,7 @@ export const Bab1ToolContainer: React.FC = () => {
               {/* Temuan pemeriksa perubahan */}
               {polishFindings.length > 0 ? (
                 <div className="space-y-2">
-                  <span className="text-xs font-bold text-[#FFF9EE]">
+                  <span className="text-xs font-bold text-[#FBFAFF]">
                     Pemeriksa Perubahan Bahasa ({polishFindings.length} temuan):
                   </span>
                   {polishFindings.map((f, i) => (
@@ -3119,17 +3119,17 @@ export const Bab1ToolContainer: React.FC = () => {
                           ? "border-rose-500/40 bg-rose-500/10"
                           : f.severity === "MAJOR"
                             ? "border-amber-500/40 bg-amber-500/10"
-                            : "border-[#273352] bg-[#080D1D]"
+                            : "border-[#2E2748] bg-[#0C0A1A]"
                       }`}
                     >
                       <span
                         className={`text-[11px] font-bold uppercase ${
-                          f.severity === "CRITICAL" ? "text-rose-300" : f.severity === "MAJOR" ? "text-amber-300" : "text-[#AAB4D0]"
+                          f.severity === "CRITICAL" ? "text-rose-300" : f.severity === "MAJOR" ? "text-amber-300" : "text-[#A79FC4]"
                         }`}
                       >
                         {f.severity} · {f.code}
                       </span>
-                      <p className="mt-1 text-[13px] text-[#FFF9EE]">{f.message}</p>
+                      <p className="mt-1 text-[13px] text-[#FBFAFF]">{f.message}</p>
                     </div>
                   ))}
                 </div>
@@ -3144,29 +3144,29 @@ export const Bab1ToolContainer: React.FC = () => {
               {/* Paragraf hasil */}
               <div className="space-y-4">
                 {(parsedPolishV1.background || []).map((p) => (
-                  <div key={p.order} className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
+                  <div key={p.order} className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4">
                     <div className="mb-2 flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-bold text-[#70E1B6]">Paragraf {p.order}</span>
-                      <span className="text-[11px] text-[#AAB4D0]">{p.function}</span>
-                      <span className="text-[11px] text-[#AAB4D0]">· {hitungKata(p.paragraph_text || "")} kata</span>
+                      <span className="text-xs font-bold text-[#FFB84D]">Paragraf {p.order}</span>
+                      <span className="text-[11px] text-[#A79FC4]">{p.function}</span>
+                      <span className="text-[11px] text-[#A79FC4]">· {hitungKata(p.paragraph_text || "")} kata</span>
                       {(p.claim_ids || []).map((c) => (
-                        <span key={c} className="rounded bg-[#2959FF]/20 px-1.5 py-0.5 font-mono text-[11px] text-[#70E1B6]">
+                        <span key={c} className="rounded bg-[#6D5AE6]/20 px-1.5 py-0.5 font-mono text-[11px] text-[#FFB84D]">
                           {c}
                         </span>
                       ))}
                     </div>
-                    <p className="text-[13px] leading-relaxed text-[#FFF9EE] whitespace-pre-wrap">{p.paragraph_text}</p>
+                    <p className="text-[13px] leading-relaxed text-[#FBFAFF] whitespace-pre-wrap">{p.paragraph_text}</p>
                   </div>
                 ))}
               </div>
 
               {/* Catatan perubahan bahasa */}
               {(parsedPolishV1.language_changes?.length || 0) > 0 && (
-                <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4">
-                  <span className="text-xs font-bold text-[#FFF9EE]">Perubahan bahasa yang dilakukan</span>
+                <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4">
+                  <span className="text-xs font-bold text-[#FBFAFF]">Perubahan bahasa yang dilakukan</span>
                   <ul className="mt-2 space-y-1">
                     {(parsedPolishV1.language_changes || []).map((x, i) => (
-                      <li key={i} className="text-[11px] leading-relaxed text-[#AAB4D0]">
+                      <li key={i} className="text-[11px] leading-relaxed text-[#A79FC4]">
                         - {x}
                       </li>
                     ))}
@@ -3174,14 +3174,14 @@ export const Bab1ToolContainer: React.FC = () => {
                 </div>
               )}
 
-              <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#273352]/60">
+              <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#2E2748]/60">
                 <button
                   type="button"
                   onClick={async () => {
                     const teks = parsedPolishV1.background.map((p) => (p.paragraph_text || "").trim()).join("\n\n");
                     await copyToClipboard(teks);
                   }}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#2959FF] min-h-[44px] px-5 py-3 text-xs font-bold text-white transition hover:bg-[#1f47d6]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#6D5AE6] min-h-[44px] px-5 py-3 text-xs font-bold text-white transition hover:bg-[#1f47d6]"
                 >
                   <Copy className="h-4 w-4" />
                   <span>Salin Draf Hasil Poles</span>
@@ -3190,7 +3190,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleUnduhBab1Rtf}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] min-h-[44px] px-5 py-3 text-xs font-bold text-[#0C0A1A] transition hover:bg-[#F0A63C]"
                 >
                   <FileDown className="h-4 w-4" />
                   <span>Unduh Bab 1 (.rtf)</span>
@@ -3199,13 +3199,13 @@ export const Bab1ToolContainer: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleResetPoles4D}
-                  className="inline-flex items-center gap-2 rounded-xl border border-[#273352] bg-[#11182D] px-4 py-2.5 text-xs font-semibold text-[#AAB4D0] transition hover:text-rose-400"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#2E2748] bg-[#191430] px-4 py-2.5 text-xs font-semibold text-[#A79FC4] transition hover:text-rose-400"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                   <span>Buang Hasil Poles</span>
                 </button>
               </div>
-              <p className="text-[11px] text-[#AAB4D0] pt-1">
+              <p className="text-[11px] text-[#A79FC4] pt-1">
                 Berkas .rtf dibuka Word, Google Docs, dan LibreOffice tanpa peringatan format. Setelah
                 dibuka, pilih Save As → Word Document (.docx) kalau dosen memintanya.
               </p>
@@ -3233,9 +3233,9 @@ export const Bab1ToolContainer: React.FC = () => {
           mahasiswa tidak tersesat menggulir mencari prompt 4C di kedalaman 22.000px. */}
       <nav
         aria-label="Daftar isi halaman"
-        className="mb-6 rounded-xl border border-[#273352] bg-[#11182D] p-4"
+        className="mb-6 rounded-xl border border-[#2E2748] bg-[#191430] p-4"
       >
-        <p className="mb-2 text-[11px] font-bold uppercase tracking-wider text-[#AAB4D0]">
+        <p className="mb-2 text-[11px] font-bold uppercase tracking-wider text-[#A79FC4]">
           Isi halaman ini
         </p>
         <ol className="flex flex-col gap-1.5 sm:flex-row sm:flex-wrap sm:gap-x-5">
@@ -3253,7 +3253,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   e.preventDefault();
                   document.getElementById(x.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className="inline-flex min-h-[32px] items-center text-xs font-semibold text-[#2959FF] underline-offset-4 hover:text-[#FFF9EE] hover:underline focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none rounded"
+                className="inline-flex min-h-[32px] items-center text-xs font-semibold text-[#6D5AE6] underline-offset-4 hover:text-[#FBFAFF] hover:underline focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none rounded"
               >
                 {x.label}
               </a>

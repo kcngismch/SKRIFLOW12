@@ -52,7 +52,7 @@ export const TombolTempelClipboard: React.FC<Props> = ({ onPaste, label, classNa
       onClick={handleClick}
       className={
         className ??
-        "inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#080D1D] px-3 py-1.5 text-xs font-semibold text-[#AAB4D0] transition hover:border-[#2959FF] hover:text-[#FFF9EE]"
+        "inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#0C0A1A] px-3 py-1.5 text-xs font-semibold text-[#A79FC4] transition hover:border-[#6D5AE6] hover:text-[#FBFAFF]"
       }
     >
       <ClipboardPaste className="h-3.5 w-3.5" />

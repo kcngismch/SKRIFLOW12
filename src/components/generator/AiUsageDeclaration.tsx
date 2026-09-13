@@ -63,22 +63,22 @@ export const AiUsageDeclaration: React.FC<{
   };
 
   return (
-    <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 space-y-3">
+    <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h4 className="flex items-center gap-2 text-xs font-bold text-[#FFF9EE]">
-          <ScrollText className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
+        <h4 className="flex items-center gap-2 text-xs font-bold text-[#FBFAFF]">
+          <ScrollText className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
           8. Deklarasi Penggunaan AI (draf — sesuaikan dengan kebijakan kampusmu)
         </h4>
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#273352] bg-[#16213D] px-3 py-1.5 text-[11px] font-semibold text-[#FFF9EE] hover:border-[#2959FF] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2959FF]"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#221A42] px-3 py-1.5 text-[11px] font-semibold text-[#FBFAFF] hover:border-[#6D5AE6] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#6D5AE6]"
           >
             {copied ? (
               <>
-                <Check className="h-3 w-3 text-[#70E1B6]" aria-hidden="true" />
-                <span className="text-[#70E1B6]">Tersalin!</span>
+                <Check className="h-3 w-3 text-[#FFB84D]" aria-hidden="true" />
+                <span className="text-[#FFB84D]">Tersalin!</span>
               </>
             ) : (
               <>
@@ -89,7 +89,7 @@ export const AiUsageDeclaration: React.FC<{
           </button>
         </div>
       </div>
-      <p className="text-[10px] leading-relaxed text-[#AAB4D0]/80">
+      <p className="text-[10px] leading-relaxed text-[#A79FC4]/80">
         Draf ini disusun otomatis dari jejak prosesmu di SKRIFLOW (bukan tulisan AI). Banyak kampus
         kini meminta deklarasi penggunaan AI; periksa aturan kampusmu lalu sesuaikan sebelum dilampirkan.
       </p>
@@ -101,7 +101,7 @@ export const AiUsageDeclaration: React.FC<{
           setEdited(true);
         }}
         aria-label="Draf deklarasi penggunaan AI"
-        className="w-full resize-y rounded-lg border border-[#273352] bg-[#11182D] p-3 font-mono text-[11px] leading-relaxed text-[#FFF9EE] focus:border-[#2959FF] focus:outline-none focus:ring-1 focus:ring-[#2959FF]"
+        className="w-full resize-y rounded-lg border border-[#2E2748] bg-[#191430] p-3 font-mono text-[11px] leading-relaxed text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none focus:ring-1 focus:ring-[#6D5AE6]"
       />
     </div>
   );

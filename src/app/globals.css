@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --bg-main: #080D1D;
-  --bg-card: #11182D;
-  --bg-card-hover: #16213D;
-  --bg-card-muted: #0D1426;
-  --color-cobalt: #2959FF;
-  --color-cobalt-hover: #1E46D9;
-  --color-coral: #FF6F61;
-  --color-mint: #70E1B6;
-  --color-ivory: #FFF9EE;
-  --color-muted: #AAB4D0;
-  --color-border: #273352;
-  --color-border-subtle: #1C2742;
-  --color-border-focus: #3E5280;
+  --bg-main: #0C0A1A;
+  --bg-card: #191430;
+  --bg-card-hover: #221A42;
+  --bg-card-muted: #120E24;
+  --color-cobalt: #6D5AE6;
+  --color-cobalt-hover: #5A46D6;
+  --color-coral: #FF5C8A;
+  --color-mint: #FFB84D;
+  --color-ivory: #FBFAFF;
+  --color-muted: #A79FC4;
+  --color-border: #2E2748;
+  --color-border-subtle: #241E3C;
+  --color-border-focus: #6D5AE6;
 }
 
 @theme {
@@ -41,7 +41,11 @@
 
 html,
 body {
+  /* Tema C "Berani": gradasi radial ungu + latar dalam. */
   background-color: var(--bg-main);
+  background-image: radial-gradient(120% 75% at 12% 0%, #241A45 0%, #0F0B22 45%, var(--bg-main) 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--color-ivory);
   font-family: var(--font-sans);
   min-height: 100vh;
@@ -58,20 +62,30 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080D1D;
+  background: #0C0A1A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #273352;
+  background: #2E2748;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3E5280;
+  background: #6D5AE6;
 }
 
 /* Accessible focus styling */
 :focus-visible {
-  outline: 2px solid #2959FF;
+  outline: 2px solid #6D5AE6;
   outline-offset: 2px;
+}
+
+/* Tema C: kartu kaca. Sengaja cuma menyasar kartu besar (rounded-xl/2xl) supaya
+   badge kecil, tombol, dan chip tidak ikut buram dan tetap tajam dibaca. */
+@layer utilities {
+  .rounded-xl.bg-\[\#191430\],
+  .rounded-2xl.bg-\[\#191430\] {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.09);
+  }
 }

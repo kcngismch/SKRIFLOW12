@@ -5,19 +5,19 @@ import { Compass } from "lucide-react";
 
 export const CurrentToolsSection: React.FC = () => {
   return (
-    <section className="relative border-b border-[#273352] py-16 sm:py-24 bg-[#080D1D]">
+    <section className="relative border-b border-[#2E2748] py-16 sm:py-24 bg-[#0C0A1A]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#2959FF]/30 bg-[#2959FF]/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#70E1B6]">
-            <Compass className="h-3.5 w-3.5 text-[#70E1B6]" aria-hidden="true" />
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#6D5AE6]/30 bg-[#6D5AE6]/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#FFB84D]">
+            <Compass className="h-3.5 w-3.5 text-[#FFB84D]" aria-hidden="true" />
             <span>KATALOG PROTOTYPE</span>
           </div>
 
-          <h2 className="text-2xl font-extrabold tracking-tight text-[#FFF9EE] sm:text-3xl lg:text-4xl leading-tight">
+          <h2 className="text-2xl font-extrabold tracking-tight text-[#FBFAFF] sm:text-3xl lg:text-4xl leading-tight">
             Empat tools pertama yang bisa lo uji.
           </h2>
 
-          <p className="mt-3 text-sm text-[#AAB4D0]">
+          <p className="mt-3 text-sm text-[#A79FC4]">
             Pilih salah satu tool di bawah untuk melihat struktur parameter dan template prompt yang dirancang untuk kebutuhan penelitianmu.
           </p>
         </div>
