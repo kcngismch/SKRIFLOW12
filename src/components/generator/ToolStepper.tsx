@@ -10,10 +10,11 @@ const JOURNEY = [
   { slug: "cari-literatur-awal", label: "Literatur" },
   { slug: "bedah-hasil-notebooklm", label: "Bedah Hasil" },
   { slug: "susun-bab-1", label: "Bab 1" },
+  { slug: "bangun-bab-2", label: "Bab 2" },
 ] as const;
 
 /**
- * Stepper horizontal 4 tool di atas halaman tool.
+ * Stepper horizontal tool di atas halaman tool.
  * Fungsi: user selalu tahu posisi + urutan alur kerja (gap proses ilmiah = sequential).
  * State: done = slug sebelum currentStep; active = halaman ini; upcoming = abu-abu terkunci.
  */

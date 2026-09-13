@@ -2139,7 +2139,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       type="button"
                       onClick={handleSaveAndProceed}
                       disabled={!confirmationGateStatus.canSave}
-                      className="inline-flex items-center gap-2 rounded-lg bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] shadow-lg hover:bg-[#5BC9A0] transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] shadow-lg hover:bg-[#5BC9A0] transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     >
                       <span>Simpan Fenomena & Lanjut ke Cari Literatur</span>
                       <ArrowRight className="h-4 w-4 text-[#080D1D]" aria-hidden="true" />

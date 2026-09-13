@@ -1383,7 +1383,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   6
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-[#FFF9EE]">Prompt Tahap 4B — Susun Fondasi Bab 1</h2>
+                  <h2 id="tahap-4b" className="text-lg font-bold text-[#FFF9EE]">Prompt Tahap 4B — Susun Fondasi Bab 1</h2>
                   <p className="text-xs text-[#AAB4D0]">
                     Menghasilkan Rantai Logika Penelitian, Peta Narasi 7–9 Paragraf, dan Catatan Bukti untuk [{selectedDirectionObj.id}].
                   </p>
@@ -1505,6 +1505,11 @@ export const Bab1ToolContainer: React.FC = () => {
                     onClick={handleCopyPrompt4B}
                     disabled={computedDataReadiness === "DATA_CONDITIONAL" && !isConditionalConfirmed}
                     aria-disabled={computedDataReadiness === "DATA_CONDITIONAL" && !isConditionalConfirmed}
+                    title={
+                      computedDataReadiness === "DATA_CONDITIONAL" && !isConditionalConfirmed
+                        ? "Centang dulu pernyataan status bersyarat di atas supaya tombol ini aktif."
+                        : undefined
+                    }
                     className={`inline-flex items-center gap-2 rounded-xl px-5 py-3 text-xs font-bold transition ${
                       computedDataReadiness === "DATA_CONDITIONAL" && !isConditionalConfirmed
                         ? "border border-amber-500/30 bg-[#080D1D] text-amber-400/50 cursor-not-allowed opacity-50"
@@ -1527,6 +1532,13 @@ export const Bab1ToolContainer: React.FC = () => {
                       </>
                     )}
                   </button>
+                )}
+
+                {/* UX-04: alasan tombol mati menempel di tombolnya sendiri. */}
+                {computedDataReadiness === "DATA_CONDITIONAL" && !isConditionalConfirmed && (
+                  <p className="mt-1.5 text-[11px] text-amber-400/80">
+                    Tombol ini aktif setelah kamu mencentang pernyataan status bersyarat di atas.
+                  </p>
                 )}
 
                 {computedDataReadiness !== "DATA_BLOCKED" && (
@@ -1580,7 +1592,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleProcessLLMOutput4B}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
                 >
                   <Sparkles className="h-4 w-4" />
                   <span>Verifikasi & Bangun Paket Fondasi Bab 1</span>
@@ -1651,7 +1663,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 7
               </div>
               <div>
-                <h2 className="text-xl font-bold text-[#FFF9EE]">Paket Fondasi Bab 1 V2</h2>
+                <h2 id="fondasi-v2" className="text-xl font-bold text-[#FFF9EE]">Paket Fondasi Bab 1 V2</h2>
                 <p className="text-xs text-[#AAB4D0]">
                   Rantai logika, rumusan masalah tentatif, peta latar belakang 7–9 bagian, dan evidence ledger.
                 </p>
@@ -2347,7 +2359,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   8
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-[#FFF9EE]">Prompt Tahap 4C — Tulis Draf Latar Belakang</h2>
+                  <h2 id="tahap-4c" className="text-lg font-bold text-[#FFF9EE]">Prompt Tahap 4C — Tulis Draf Latar Belakang</h2>
                   <p className="text-xs text-[#AAB4D0]">
                     Mengubah Peta Narasi 7 bagian menjadi prosa siap tempel, tanpa menambah klaim atau sitasi baru.
                   </p>
@@ -2475,7 +2487,7 @@ export const Bab1ToolContainer: React.FC = () => {
                         <button
                           type="button"
                           onClick={handleSalinOutline}
-                          className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                          className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
                         >
                           {outlineTersalin ? (
                             <>
@@ -2619,7 +2631,7 @@ export const Bab1ToolContainer: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleProcessLLMOutput4C}
-                    className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
                   >
                     <Sparkles className="h-4 w-4" />
                     <span>Verifikasi &amp; Susun Draf Bab 1</span>
@@ -2692,7 +2704,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 9
               </div>
               <div>
-                <h2 className="text-xl font-bold text-[#FFF9EE]">Draf Latar Belakang Bab 1</h2>
+                <h2 id="draf-bab1" className="text-xl font-bold text-[#FFF9EE]">Draf Latar Belakang Bab 1</h2>
                 <p className="text-xs text-[#AAB4D0]">
                   {parsedDraftV1.background.length} paragraf, {draftKataTotal.toLocaleString("id-ID")} kata. Setiap paragraf tertaut ke
                   klaim pada Catatan Bukti 4B.
@@ -2963,7 +2975,7 @@ export const Bab1ToolContainer: React.FC = () => {
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded bg-[#2959FF]/20 px-2 py-0.5 text-xs font-bold text-[#70E1B6]">TAHAP 4D</span>
-                <h2 className="text-lg font-bold text-[#FFF9EE]">Poles Bahasa Draf (Wajib)</h2>
+                <h2 id="poles-4d" className="text-lg font-bold text-[#FFF9EE]">Poles Bahasa Draf (Wajib)</h2>
               </div>
               <p className="mt-1 text-xs text-[#AAB4D0]">
                 Bahasa NotebookLM selalu kaku — itu memang sifat alatnya, bukan kebetulan. Tahap ini yang mengubahnya jadi bahasa
@@ -3040,7 +3052,7 @@ export const Bab1ToolContainer: React.FC = () => {
               <button
                 type="button"
                 onClick={handleProcessLLMOutput4D}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
               >
                 <Sparkles className="h-4 w-4" />
                 <span>Verifikasi Hasil Poles</span>
@@ -3169,7 +3181,7 @@ export const Bab1ToolContainer: React.FC = () => {
                     const teks = parsedPolishV1.background.map((p) => (p.paragraph_text || "").trim()).join("\n\n");
                     await copyToClipboard(teks);
                   }}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#2959FF] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-[#1f47d6]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#2959FF] min-h-[44px] px-5 py-3 text-xs font-bold text-white transition hover:bg-[#1f47d6]"
                 >
                   <Copy className="h-4 w-4" />
                   <span>Salin Draf Hasil Poles</span>
@@ -3178,7 +3190,7 @@ export const Bab1ToolContainer: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleUnduhBab1Rtf}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] px-5 py-2.5 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#70E1B6] min-h-[44px] px-5 py-3 text-xs font-bold text-[#080D1D] transition hover:bg-[#5cd4a6]"
                 >
                   <FileDown className="h-4 w-4" />
                   <span>Unduh Bab 1 (.rtf)</span>
@@ -3217,7 +3229,40 @@ export const Bab1ToolContainer: React.FC = () => {
         nextHelperText="Bab 2 memakai Source Register Tool 3 dan paket fondasi Bab 1 yang sudah kamu buat di sini."
       />
 
-      {/* MODAL: RESET TOOL 5 */}
+            {/* UX-06: halaman ini 48 layar di HP. Daftar isi yang bisa diklik supaya
+          mahasiswa tidak tersesat menggulir mencari prompt 4C di kedalaman 22.000px. */}
+      <nav
+        aria-label="Daftar isi halaman"
+        className="mb-6 rounded-xl border border-[#273352] bg-[#11182D] p-4"
+      >
+        <p className="mb-2 text-[11px] font-bold uppercase tracking-wider text-[#AAB4D0]">
+          Isi halaman ini
+        </p>
+        <ol className="flex flex-col gap-1.5 sm:flex-row sm:flex-wrap sm:gap-x-5">
+          {[
+            { id: "tahap-4b", label: "1. Prompt 4B — Fondasi" },
+            { id: "fondasi-v2", label: "2. Paket Fondasi V2" },
+            { id: "tahap-4c", label: "3. Prompt 4C — Draf" },
+            { id: "draf-bab1", label: "4. Draf Latar Belakang" },
+            { id: "poles-4d", label: "5. Poles Bahasa (4D)" },
+          ].map((x) => (
+            <li key={x.id}>
+              <a
+                href={`#${x.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(x.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className="inline-flex min-h-[32px] items-center text-xs font-semibold text-[#2959FF] underline-offset-4 hover:text-[#FFF9EE] hover:underline focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none rounded"
+              >
+                {x.label}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+{/* MODAL: RESET TOOL 5 */}
       {showResetModal && (
         <ResetConfirmModal
           isOpen={showResetModal}

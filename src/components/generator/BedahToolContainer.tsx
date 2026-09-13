@@ -883,7 +883,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
             <button
               type="button"
               onClick={handleProcessLLMOutput4A}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#2959FF] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-[#1E40AF]"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#2959FF] min-h-[44px] px-5 py-3 text-xs font-bold text-white transition hover:bg-[#1E40AF]"
             >
               <Sparkles className="h-4 w-4" />
               <span>Verifikasi & Proses Hasil 4A</span>
