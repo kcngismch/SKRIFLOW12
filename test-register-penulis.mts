@@ -10,7 +10,7 @@
  */
 import { readFileSync } from "node:fs";
 import { extractSumberPaketLiteratur } from "./src/lib/bedahParser";
-import { keBibtex } from "./src/lib/ekspor";
+import { keBibtex, pisahPenulisTahun } from "./src/lib/ekspor";
 
 let lulus = 0;
 let gagal = 0;
@@ -85,14 +85,16 @@ const bib = keBibtex(
   tab.map((s) => ({
     sourceId: s.sourceId,
     title: s.title,
-    author: s.authorsYear,
+    ...pisahPenulisTahun(s.authorsYear),
     journal: s.publication,
     doi: s.doi,
     url: s.url,
   }))
 );
 cek("bib memuat field author", /author = \{/.test(bib));
-cek("bib memuat nama penulis nyata", bib.includes("Yue Chen & Kan Wang (2024)"));
+cek("bib memuat nama penulis nyata", bib.includes("Yue Chen & Kan Wang"));
+cek("tahun DIPISAH ke field year, bukan menempel di author", /year = \{2024\}/.test(bib) && !/author = \{[^}]*\(20\d\d\)/.test(bib),
+  (bib.match(/author = \{[^}]*\}/) || [""])[0]);
 cek("bib memuat kunci unik berbasis nama", /@(article|misc)\{Yue/.test(bib), bib.split("\n").find((l) => l.startsWith("@")));
 cek("bib TIDAK punya author kosong", !/author = \{\s*\}/.test(bib));
 

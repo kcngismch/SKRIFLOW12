@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ShieldCheck, Loader2, FileDown } from "lucide-react";
-import { keBibtex, namaFileAman } from "@/lib/ekspor";
+import { keBibtex, namaFileAman, pisahPenulisTahun } from "@/lib/ekspor";
 
 /**
  * Tombol + panel "Periksa ke Crossref" (R-05).
@@ -205,15 +205,17 @@ export function TombolUnduhBibtex({
   const unduh = () => {
     const entri = daftar.map((s) => {
       const v = hasil?.[s.sourceId];
+      // Register menulis penulis+tahun dalam satu sel; BibTeX memisahkannya.
+      const { author, year } = pisahPenulisTahun(s.authorsYear);
       return {
         sourceId: s.sourceId,
         title: s.title || v?.judulDitemukan,
         doi: s.doi || v?.doiDitemukan,
-        year: v?.tahunDitemukan,
         url: s.url,
         // Nama penulis dari register Tool 3 — tanpa ini Mendeley menerima entri
         // berpenulis kosong walau datanya sudah ada sejak tahap pencarian literatur.
-        author: s.authorsYear,
+        author,
+        year: year || v?.tahunDitemukan,
         journal: s.publication,
       };
     });

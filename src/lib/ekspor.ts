@@ -60,6 +60,23 @@ export interface EntriSitasi {
   url?: string;
 }
 
+/**
+ * Pisahkan "Péter Klemensits (2025)" jadi penulis + tahun.
+ *
+ * Register Tool 3 menulis penulis dan tahun dalam satu sel. BibTeX memisahkannya
+ * (`author = {...}, year = {...}`), jadi kalau tidak dipisah Mendeley menampilkan
+ * penulis sebagai "Péter Klemensits (2025)".
+ */
+export function pisahPenulisTahun(nilai?: string): { author?: string; year?: string } {
+  const t = (nilai || "").trim();
+  if (!t) return {};
+  const m = t.match(/^(.*?)[\s,]*\((\d{4}[a-z]?)\)\s*$/i);
+  if (m) return { author: m[1].replace(/[,\s]+$/, "").trim() || undefined, year: m[2] };
+  const m2 = t.match(/^(.*?)[\s,]+(\d{4}[a-z]?)\s*$/i);
+  if (m2) return { author: m2[1].replace(/[,\s]+$/, "").trim() || undefined, year: m2[2] };
+  return { author: t };
+}
+
 /** Kunci BibTeX aman: huruf/angka saja, unik per entri. */
 export function kunciBibtex(e: EntriSitasi, i: number): string {
   // NFD lalu buang tanda diakritik supaya "Péter" jadi "Peter", bukan "Pter".
