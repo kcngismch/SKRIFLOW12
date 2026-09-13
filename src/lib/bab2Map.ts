@@ -21,7 +21,14 @@ import type {
  * permintaan prompt B, bukan kelalaian parser. Karena itu kolom tersebut
  * ditandai TIDAK_TERCATAT dan mahasiswa melengkapinya dengan membaca sumbernya.
  */
-const KOLOM_TABEL = ["authors_year", "title", "venue", "source_kind"] as const;
+const KOLOM_TABEL = ["authors_year", "title", "venue", "source_kind", "method", "results"] as const;
+
+/**
+ * Kolom yang register Tool 3 memang tidak memuatnya — SELALU ditandai
+ * TIDAK_TERCATAT, tidak pernah diisi. Dua kolom ini yang paling sering diminta
+ * dosen dan paling sering dikarang AI, jadi justru keduanya yang ditahan.
+ */
+export const KOLOM_WAJIB_MANUAL = ["method", "results"] as const;
 
 /** Kata kunci jurnal/penerbitan: dipakai menandai jenis sumber tanpa menebak. */
 const POLA_JURNAL = /jurnal|journal|vol\.?|no\.?|hlm|pp\.?|doi/i;
@@ -37,6 +44,9 @@ export function barisDariSumber(s: SumberPaketLiteratur): Bab2BarisPenelitianTer
     title: (s.title || "").trim(),
     venue: (s.publication || "").trim(),
     source_kind: (s.documentType || "").trim(),
+    // Register tidak menyimpan metode & hasil penelitian: jangan dikira-kira.
+    method: "",
+    results: "",
   };
 
   const notRecorded = KOLOM_TABEL.filter((k) => !nilai[k]).map((k) => k);
@@ -54,6 +64,8 @@ export function barisDariSumber(s: SumberPaketLiteratur): Bab2BarisPenelitianTer
     title: nilai.title,
     venue,
     source_kind: nilai.source_kind,
+    method: nilai.method,
+    results: nilai.results,
     not_recorded_fields: notRecorded,
   };
 }

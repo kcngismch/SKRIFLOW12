@@ -22,8 +22,30 @@ export interface Bab2BarisPenelitianTerdahulu {
   venue: string;
   /** Jenis publikasi dari register (mis. "Jurnal"). */
   source_kind: string;
+  /**
+   * Kolom yang paling sering diminta dosen dan paling sering dikarang AI.
+   * Register Tool 3 tidak memuatnya, jadi SELALU kosong di sini dan ditampilkan
+   * sebagai TIDAK TERCATAT — mahasiswa yang melengkapinya dengan membaca sumber.
+   */
+  method: string;
+  results: string;
   /** Nama kolom yang register tidak memuatnya untuk baris ini. */
   not_recorded_fields: string[];
+}
+
+/**
+ * Sel tabel penelitian terdahulu yang diisi MANUAL oleh mahasiswa (D.6).
+ *
+ * Tool ini tidak pernah mengisinya; kalau ada isinya, itu pekerjaan mahasiswa
+ * dan wajib menyebut dari mana dibacanya. Isian tanpa jejak sumber ditandai
+ * NOT_RECORDED_OVERWRITTEN.
+ */
+export interface Bab2SelManual {
+  source_id: string;
+  field: "method" | "results" | string;
+  value: string;
+  /** Dari mana nilai ini dibaca (halaman/bagian sumber). Wajib diisi. */
+  read_from: string;
 }
 
 export interface Bab2CakupanSumber {
@@ -175,6 +197,11 @@ export interface Bab2DraftV1 {
    * bukan catatan, tapi pelanggaran batas bukti.
    */
   new_sources_introduced: Bab2SumberBaru[];
+  /**
+   * Sel tabel yang dilengkapi manual (D.6). Boleh kosong — memang begitu
+   * seharusnya di sebagian besar kasus. Isian tanpa `read_from` ditandai.
+   */
+  prior_research_filled?: Bab2SelManual[];
   consistency_notes: string[];
   unresolved_notes: string[];
 }
@@ -220,9 +247,16 @@ export type Bab2FindingCode =
   | "SUBBAB_STRUCTURE_MISMATCH"
   | "WORD_COUNT_OUT_OF_RANGE"
   | "CLAIM_STATUS_NEEDS_VERIFICATION"
+  /**
+   * Pelanggaran batas bukti 6C: peta klaim berubah setelah poles bahasa.
+   * Memakai kode yang sama dengan Bab 1 (types/tool.ts), bukan CLAIM_ID_UNKNOWN.
+   */
+  | "POLISH_CLAIM_IDS_CHANGED"
   // MINOR — catatan kualitas
   | "WORD_COUNT_MISMATCH"
   | "LEDGER_CLAIM_UNUSED"
+  /** Roll-up used_claim_ids tidak cocok dengan peta klaim per paragraf (D.4.3). */
+  | "CLAIM_ROLLUP_MISMATCH"
   | "NOT_RECORDED_OVERWRITTEN"
   | "CITATION_STYLE_INCONSISTENT";
 

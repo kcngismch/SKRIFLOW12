@@ -149,6 +149,13 @@ export const POLA_FRASA: PolaFrasa[] = [
     severity: "MAJOR",
     pesan: 'Hipotesis tidak diuji di Bab 2. Hapus penilaian hasil.',
   },
+  {
+    // "H1 terbukti", "H2 ditolak" — bentuk ringkas yang lolos dari pola di atas.
+    pola: /\bH\d+\s+(terbukti|teruji|diterima|ditolak|didukung|terkonfirmasi)\b/gi,
+    code: "CONCLUSION_IN_BAB2",
+    severity: "MAJOR",
+    pesan: 'Hipotesis tidak diuji di Bab 2 — jangan tulis hasil pengujiannya (mis. "H1 terbukti").',
+  },
 
   // --- klaim absolut ---
   {
@@ -334,7 +341,43 @@ export function periksaFondasiBab2(
         message: "Kerangka pemikiran wajib berstatus CANDIDATE_ONLY dengan keputusan peneliti tertunda.",
       });
     }
+    // Status saja tidak cukup: teksnya juga dilarang menyatakan hubungan
+    // antar-konstruk sebagai sudah terbukti. Guard sadar-negasi B.6 berlaku.
+    const teksKerangka = [
+      foundation.conceptual_framework.hubungan || "",
+      ...(foundation.conceptual_framework.konstruk || []),
+    ].join(" ");
+    cariPelanggaranFrasa(teksKerangka, "Kerangka Pemikiran").forEach((f) => out.push(f));
   }
+
+  // Hipotesis pada pendekatan VERIFIKATIF boleh ada, tapi tidak boleh ditulis
+  // sebagai hasil yang sudah terbukti (D.7: dilarang menuliskan hipotesis sebagai
+  // temuan). Ini pasangan dari HYPOTHESIS_ON_NON_VERIFICATIVE di atas.
+  (foundation.hypothesis_candidates || []).forEach((h, i) => {
+    cariPelanggaranFrasa(h.pernyataan || "", `Hipotesis ${i + 1}`).forEach((f) => out.push(f));
+
+    // D.7: hipotesis = dugaan yang AKAN diuji, bukan hasil. Kata hasil apa pun
+    // dilarang. Guard sadar-negasi B.6: "belum terbukti"/"akan diuji" sah.
+    const KATA_HASIL = /(?:^|[^a-zA-Z])((?:belum|tidak|akan|masih|perlu|harus|untuk)\s+)?(terbukti|teruji|diterima|ditolak|didukung|terkonfirmasi)\b/gi;
+    let m: RegExpExecArray | null;
+    let melanggar = false;
+    while ((m = KATA_HASIL.exec(h.pernyataan || "")) !== null) {
+      if (!m[1]) {
+        melanggar = true;
+        break;
+      }
+    }
+    if (melanggar) {
+      out.push({
+        code: "CONCLUSION_IN_BAB2",
+        severity: "MAJOR",
+        where: `Hipotesis ${i + 1}`,
+        message:
+          "Hipotesis ditulis sebagai hasil yang sudah terbukti. Hipotesis adalah dugaan yang akan diuji — bukan temuan.",
+        evidence_excerpt: (h.pernyataan || "").slice(0, 200),
+      });
+    }
+  });
 
   // Struktur sub-bab harus sesuai pendekatan (D.8) — kalau pendekatan jelas.
   const baku = strukturBakuBab2(foundation.pendekatan);
@@ -550,6 +593,70 @@ export function periksaDrafBab2(
     });
   }
 
+  // Roll-up used_claim_ids[] juga diperiksa — kontrak D.4.3 menghendakinya
+  // sebagai "seluruh claim_id yang dipakai", jadi ia harus konsisten dengan
+  // peta klaim per paragraf DAN tunduk pada status ledger yang sama.
+  // Tanpa pemeriksaan ini, draf bisa mengklaim memakai klaim DO_NOT_USE dan lolos.
+  const klaimParagraf = new Set(draft.background.flatMap((p) => p.claim_ids));
+  const rollup = new Set(draft.used_claim_ids || []);
+
+  rollup.forEach((id) => {
+    if (!ledgerById.has(id)) {
+      out.push({
+        code: "CLAIM_ID_UNKNOWN",
+        severity: "CRITICAL",
+        where: "used_claim_ids",
+        message: `claim_id "${id}" ada di used_claim_ids tetapi tidak ada di claim_ledger fondasi Bab 2.`,
+      });
+      return;
+    }
+    const c = ledgerById.get(id)!;
+    if (c.status === "DO_NOT_USE") {
+      out.push({
+        code: "CLAIM_STATUS_DO_NOT_USE",
+        severity: "CRITICAL",
+        where: "used_claim_ids",
+        message: `Draf melaporkan memakai klaim "${id}" yang berstatus DO_NOT_USE: ${c.claim_text.slice(0, 120)}`,
+      });
+    }
+  });
+
+  klaimParagraf.forEach((id) => {
+    if (!rollup.has(id)) {
+      out.push({
+        code: "CLAIM_ROLLUP_MISMATCH",
+        severity: "MINOR",
+        where: "used_claim_ids",
+        message: `Klaim "${id}" dipakai di paragraf tetapi tidak dicatat di used_claim_ids. Roll-up wajib memuat seluruh klaim yang dipakai.`,
+      });
+    }
+  });
+
+  // B2-05: klaim "tidak ada sel yang bisa dikarang" baru sah kalau tool juga
+  // MENANGKAP saat sel TIDAK TERCATAT diisi. Isian manual tanpa jejak bacaan
+  // ditandai; isian manual yang menyebut sumbernya dibiarkan lewat.
+  (draft.prior_research_filled || []).forEach((sel) => {
+    const id = (sel.source_id || "").replace(/[[\]]/g, "").trim();
+    if (!register.some((s) => (s.sourceId || "").replace(/[[\]]/g, "").trim() === id)) {
+      out.push({
+        code: "NOT_RECORDED_OVERWRITTEN",
+        severity: "MINOR",
+        where: `Tabel: ${sel.source_id}`,
+        message: `Sel "${sel.field}" diisi untuk sumber yang tidak ada di register (${sel.source_id}).`,
+      });
+      return;
+    }
+    if (!(sel.read_from || "").trim()) {
+      out.push({
+        code: "NOT_RECORDED_OVERWRITTEN",
+        severity: "MINOR",
+        where: `Tabel: ${sel.source_id}`,
+        message: `Sel "${sel.field}" diisi tanpa menyebut dari mana dibaca. Kolom ini tidak ada di register — tanpa jejak bacaan, isinya tidak bisa diperiksa.`,
+        evidence_excerpt: (sel.value || "").slice(0, 200),
+      });
+    }
+  });
+
   // Gaya sitasi harus seragam.
   const gayaKurung = draft.background.some((p) => ambilSitasiTanda(p.paragraph_text || "").length > 0);
   const gayaNaratif = draft.background.some((p) => ambilNamaTahun(p.paragraph_text || "").length > 0);
@@ -576,7 +683,7 @@ export function periksaPolesBab2(hasil: Bab2PolishV1, draft: Bab2DraftV1): Bab2F
   const klaimB = hasil.background.flatMap((p) => p.claim_ids).sort().join(",");
   if (klaimA !== klaimB) {
     out.push({
-      code: "CLAIM_ID_UNKNOWN",
+      code: "POLISH_CLAIM_IDS_CHANGED",
       severity: "CRITICAL",
       where: "Poles Bahasa",
       message: "Peta klaim berubah setelah poles bahasa. 6C hanya boleh mengubah bahasa, bukan isi.",
@@ -585,7 +692,7 @@ export function periksaPolesBab2(hasil: Bab2PolishV1, draft: Bab2DraftV1): Bab2F
 
   if (!hasil.claim_ids_unchanged) {
     out.push({
-      code: "CLAIM_ID_UNKNOWN",
+      code: "POLISH_CLAIM_IDS_CHANGED",
       severity: "CRITICAL",
       where: "Poles Bahasa",
       message: "Hasil poles melaporkan claim_ids berubah. Kembalikan peta klaim ke bentuk semula.",
@@ -630,4 +737,102 @@ export function ringkasTemuanBab2(temuan: Bab2Finding[]): { kritis: number; majo
   const major = temuan.filter((f) => f.severity === "MAJOR").length;
   const minor = temuan.filter((f) => f.severity === "MINOR").length;
   return { kritis, major, minor, total: temuan.length };
+}
+
+// =========================================================================
+// Gerbang Bab 2 (D.2.1) — urutan evaluasi wajib
+// =========================================================================
+
+export type GerbangBab2Status = "BLOKIR" | "PERINGATAN" | "LANJUT";
+
+export interface GerbangBab2Hasil {
+  status: GerbangBab2Status;
+  /** Status yang menghalangi/membuat waspada; sudah dalam bahasa manusia. */
+  alasan: string[];
+  /** Tindakan konkret yang harus dikerjakan mahasiswa lebih dulu. */
+  tindakan: string;
+  /** Ringkas untuk lencana UI. */
+  ringkas: string;
+}
+
+/**
+ * Putuskan boleh-tidaknya Bab 2 dibuka — matriks D.2.1, urutan wajib.
+ *
+ * Dibuat sebagai fungsi murni supaya bisa diuji tanpa browser (pernah terjadi
+ * gerbang yang cuma ada di kepala: kontrak melarang Bab 2 dibuka saat
+ * BAB1_BLOCKED, tapi UI tetap menampilkan tombol 6A).
+ *
+ * Dipanggil dengan hasil loader storage; `undefined` = artifact tidak ada.
+ */
+export function evaluasiGerbangBab2(input: {
+  foundation?: { foundation_status?: string } | null;
+  draft?: { draft_status?: string } | null;
+  polish?: { polish_status?: string } | null;
+}): GerbangBab2Hasil {
+  const fs = input.foundation?.foundation_status;
+  const ds = input.draft?.draft_status;
+  const ps = input.polish?.polish_status;
+
+  // 1. Fondasi 4B tidak ada -> Bab 1 belum dikerjakan.
+  if (!input.foundation) {
+    return {
+      status: "BLOKIR",
+      alasan: ["Fondasi Bab 1 belum ada."],
+      tindakan: "Kerjakan dulu Tool 4 (Bedah) sampai Tahap 4B, lalu Tool 5 (Susun Bab 1).",
+      ringkas: "Bab 1 belum dimulai",
+    };
+  }
+
+  // 2. Fondasi diblokir -> dasar Bab 1 tidak sah.
+  if (fs === "BAB1_BLOCKED") {
+    return {
+      status: "BLOKIR",
+      alasan: ["Fondasi Bab 1 berstatus BAB1_BLOCKED."],
+      tindakan: "Selesaikan penghalang di Tool 5 dulu — Bab 2 tidak boleh dibangun di atas fondasi yang belum sah.",
+      ringkas: "Bab 1 masih terblokir",
+    };
+  }
+
+  // 3. Draf atau poles diblokir.
+  if (ds === "DRAFT_BLOCKED" || ps === "POLISH_BLOCKED") {
+    return {
+      status: "BLOKIR",
+      alasan: [`Bab 1 berstatus ${ds === "DRAFT_BLOCKED" ? "DRAFT_BLOCKED" : "POLISH_BLOCKED"}.`],
+      tindakan: "Buka kembali Tool 5 dan selesaikan bagian yang terblokir.",
+      ringkas: "Draf Bab 1 terblokir",
+    };
+  }
+
+  // 4. Bab 1 belum ditulis sama sekali.
+  if (!input.draft && !input.polish) {
+    return {
+      status: "BLOKIR",
+      alasan: ["Draf Bab 1 belum ditulis."],
+      tindakan: "Selesaikan Tahap 4C (draf) di Tool 5 sebelum menyusun Bab 2.",
+      ringkas: "Bab 1 belum selesai ditulis",
+    };
+  }
+
+  // 5. Boleh lanjut, tapi tandai yang masih bersyarat.
+  const waspada: string[] = [];
+  if (fs === "BAB1_CONDITIONAL") waspada.push("fondasi Bab 1 masih bersyarat (BAB1_CONDITIONAL)");
+  if (ds === "DRAFT_PARTIAL") waspada.push("draf Bab 1 berstatus DRAFT_PARTIAL");
+  // Matriks D.2.1: POLISH_PARTIAL masuk kolom BUKA (bukan BUKA + PERINGATAN).
+  // Tetap dilaporkan, tapi tidak menahan dan tidak menyalakan lencana peringatan.
+
+  if (waspada.length > 0) {
+    return {
+      status: "PERINGATAN",
+      alasan: waspada.map((w) => w.charAt(0).toUpperCase() + w.slice(1) + "."),
+      tindakan: "Bab 2 boleh disusun, tetapi wajib ditinjau ulang bila fondasi Bab 1 berubah.",
+      ringkas: "Bab 1 masih bersyarat",
+    };
+  }
+
+  return {
+    status: "LANJUT",
+    alasan: [],
+    tindakan: "",
+    ringkas: "Bab 1 selesai",
+  };
 }

@@ -39,7 +39,13 @@ import {
   parseBab2PolishTransfer,
   strukturBakuBab2,
 } from "@/lib/bab2Parser";
-import { periksaDrafBab2, periksaFondasiBab2, periksaPolesBab2, ringkasTemuanBab2 } from "@/lib/bab2Checks";
+import {
+  evaluasiGerbangBab2,
+  periksaDrafBab2,
+  periksaFondasiBab2,
+  periksaPolesBab2,
+  ringkasTemuanBab2,
+} from "@/lib/bab2Checks";
 import {
   analyzeBab2DraftShortCommand,
   assembleBab2DraftShortCommand,
@@ -52,7 +58,9 @@ import {
 import { eksporBab2Rtf } from "@/lib/bab2Ekspor";
 import {
   clearSemuaBab2,
+  loadBab1DraftV1,
   loadBab1FoundationV1,
+  loadBab1PolishV1,
   loadBab2Draft,
   loadBab2DraftRaw,
   loadBab2Foundation,
@@ -194,6 +202,9 @@ export const Bab2ToolContainer: React.FC = () => {
   const [drafBab2, setDrafBab2] = useState(loadBab2Draft());
   const [polesBab2, setPolesBab2] = useState(loadBab2Polish());
   const [konfirmasiFondasi, setKonfirmasiFondasi] = useState(false);
+  const [gerbang, setGerbang] = useState(() =>
+    evaluasiGerbangBab2({ foundation: null, draft: null, polish: null })
+  );
 
   useEffect(() => {
     const paket = loadBedahDraft();
@@ -203,6 +214,13 @@ export const Bab2ToolContainer: React.FC = () => {
     const pendekatanTersimpan = loadBab2Pendekatan();
     const shared = loadSharedResearchContext();
     const t3Data = loadToolData("cari-literatur-awal");
+
+    // D.2.1: gerbang butuh TIGA artifact Bab 1, bukan satu.
+    setGerbang(evaluasiGerbangBab2({
+      foundation: fondasi1,
+      draft: loadBab1DraftV1(),
+      polish: loadBab1PolishV1(),
+    }));
 
     setPaketLiteratur(paket);
     setFondasiBab1Teks(fondasi1 ? JSON.stringify(fondasi1) : "");
@@ -403,9 +421,41 @@ export const Bab2ToolContainer: React.FC = () => {
   // ---- Gerbang: sumber & pendekatan ----
   const gerbangSumber = peta.map_status === "MAP_BLOCKED";
   const gerbangPendekatan = pendekatan === "BELUM_DITENTUKAN";
+  const bab1Terblokir = gerbang.status === "BLOKIR";
 
   return (
     <div className="mt-8 space-y-6">
+      {/* Gerbang D.2.1 — Bab 2 hanya boleh dibuka bila Bab 1 selesai. */}
+      {gerbang.status === "BLOKIR" ? (
+        <div className="flex items-start gap-3 rounded-xl border border-[#FF6F61]/50 bg-[#FF6F61]/5 p-5">
+          <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-[#FF6F61]" aria-hidden="true" />
+          <div>
+            <p className="text-sm font-bold text-[#FFF9EE]">
+              Bab 2 belum bisa dibuka — {gerbang.ringkas}
+            </p>
+            <ul className="mt-2 list-disc space-y-1 pl-4 text-xs leading-relaxed text-[#AAB4D0]">
+              {gerbang.alasan.map((a, i) => (
+                <li key={i}>{a}</li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs font-semibold leading-relaxed text-[#FFF9EE]">{gerbang.tindakan}</p>
+          </div>
+        </div>
+      ) : gerbang.status === "PERINGATAN" ? (
+        <div className="flex items-start gap-3 rounded-xl border border-[#FFB84D]/40 bg-[#FFB84D]/5 p-5">
+          <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#FFB84D]" aria-hidden="true" />
+          <div>
+            <p className="text-sm font-bold text-[#FFF9EE]">Bab 1 belum sepenuhnya final</p>
+            <ul className="mt-2 list-disc space-y-1 pl-4 text-xs leading-relaxed text-[#AAB4D0]">
+              {gerbang.alasan.map((a, i) => (
+                <li key={i}>{a}</li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs leading-relaxed text-[#FFF9EE]">{gerbang.tindakan}</p>
+          </div>
+        </div>
+      ) : null}
+
       {/* Ringkasan peta literatur — Tahap 11 */}
       <Kartu>
         <JudulTahap
@@ -453,6 +503,8 @@ export const Bab2ToolContainer: React.FC = () => {
                     <th className="px-3 py-2 font-semibold">Penulis & Tahun</th>
                     <th className="px-3 py-2 font-semibold">Judul</th>
                     <th className="px-3 py-2 font-semibold">Venue</th>
+                    <th className="px-3 py-2 font-semibold">Metode</th>
+                    <th className="px-3 py-2 font-semibold">Hasil</th>
                   </tr>
                 </thead>
                 <tbody className="text-[#FFF9EE]">
@@ -468,14 +520,26 @@ export const Bab2ToolContainer: React.FC = () => {
                       <td className="px-3 py-2 align-top">
                         {b.venue || <span className="italic text-[#AAB4D0]">TIDAK TERCATAT</span>}
                       </td>
+                      {/* Dua kolom ini SELALU TIDAK TERCATAT: register Tool 3 tidak
+                          memuatnya. Ditampilkan, bukan disembunyikan — kolom inilah
+                          yang paling sering diminta dosen. Mahasiswa melengkapinya
+                          dengan membaca sumbernya. */}
+                      <td className="px-3 py-2 align-top">
+                        <span className="italic text-[#FFB84D]">TIDAK TERCATAT</span>
+                      </td>
+                      <td className="px-3 py-2 align-top">
+                        <span className="italic text-[#FFB84D]">TIDAK TERCATAT</span>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p className="mt-2 text-[11px] leading-relaxed text-[#AAB4D0]">
-              Kolom Metode dan Hasil tidak ada di Source Register, jadi tidak ditampilkan di sini. Isi kolom itu dengan membaca
-              sumbernya — pekerjaan itu memang milikmu, bukan AI.
+              Dua kolom terakhir (<span className="text-[#FFB84D]">Metode</span> dan{" "}
+              <span className="text-[#FFB84D]">Hasil</span>) selalu bertanda TIDAK TERCATAT — Source Register Tool 3 memang tidak
+              memuatnya. Lengkapi dengan membaca sumbernya lalu salin ke tabel di Word; itu pekerjaanmu, bukan AI. Kalau kamu
+              mengisinya di tool ini, sebutkan dari mana kamu membacanya — isian tanpa jejak bacaan akan ditandai.
             </p>
           </>
         )}
@@ -529,14 +593,20 @@ export const Bab2ToolContainer: React.FC = () => {
           keterangan="Menghasilkan PETA: pembagian sub-bab, daftar teori beserta sumbernya, dan ledger klaim. Bukan prosa."
           platform="ChatGPT / Gemini"
         />
-        {gerbangSumber || gerbangPendekatan ? (
+        {bab1Terblokir ? (
+          <p className="text-xs text-[#AAB4D0]">Selesaikan dulu Bab 1 di Tool 5 — lihat pesan di atas.</p>
+        ) : gerbangSumber || gerbangPendekatan ? (
           <p className="text-xs text-[#AAB4D0]">
             Selesaikan dulu sumber register dan pendekatan penelitian di atas.
           </p>
         ) : (
           <>
             <div className="flex flex-wrap items-center gap-2">
-              <TombolSalin teks={assembleBab2FoundationPrompt(inputPrompt)} label="Salin Prompt 6A" />
+              <TombolSalin
+                teks={assembleBab2FoundationPrompt(inputPrompt)}
+                label="Salin Prompt 6A"
+                disabled={bab1Terblokir}
+              />
               <span className="text-[11px] text-[#AAB4D0]">
                 {assembleBab2FoundationPrompt(inputPrompt).length.toLocaleString("id-ID")} karakter
               </span>
