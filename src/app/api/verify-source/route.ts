@@ -84,9 +84,13 @@ async function ambil(url: string): Promise<{ status: number; body: unknown }> {
  * Dipakai saat jejak sumber tidak ada di ketiga basis data. Banyak sumber nyata
  * Indonesia (prosiding kampus, repositori, jurnal lokal) memang belum terindeks,
  * jadi "tidak ada di Crossref" saja tidak cukup untuk menuduhnya palsu.
- * Mengembalikan null bila halaman tidak dapat dibuka.
+ *
+ * Mengembalikan null bila halaman tidak dapat dihubungi (jaringan/timeout) —
+ * itu bukan bukti halaman mati, jadi jangan sampai berubah jadi tuduhan.
+ * Status HTTP dikembalikan apa adanya supaya pemanggil bisa membedakan
+ * "halaman tidak ada" (404/410) dari "bot diblokir" (403/429).
  */
-async function judulHalaman(url: string): Promise<string | null> {
+async function judulHalaman(url: string): Promise<{ status: number; judul: string } | null> {
   if (!/^https?:\/\//i.test(url)) return null;
   try {
     const res = await fetch(url, {
@@ -94,10 +98,9 @@ async function judulHalaman(url: string): Promise<string | null> {
       signal: AbortSignal.timeout(TIMEOUT_HALAMAN_MS),
       redirect: "follow",
     });
-    if (!res.ok) return null;
-    const html = (await res.text()).slice(0, 200_000);
+    const html = res.ok ? (await res.text()).slice(0, 200_000) : "";
     const m = /<title[^>]*>([\s\S]{0,300}?)<\/title>/i.exec(html);
-    return m ? m[1].replace(/\s+/g, " ").trim() : "";
+    return { status: res.status, judul: m ? m[1].replace(/\s+/g, " ").trim() : "" };
   } catch {
     return null;
   }
@@ -286,21 +289,61 @@ async function periksaJudul(item: Item, judul: string): Promise<Hasil> {
     if (doaj) return doaj;
   }
 
-  // Sumber belum terindeks, tetapi tautannya mungkin hidup. Cek halamannya dulu
-  // supaya sumber asli tidak dilaporkan sama seperti sumber karangan.
-  if (diawasi && item.url) {
+  // Sumber belum terindeks, tetapi tautannya mungkin hidup. Cek halaman sumber
+  // LEBIH DULU sebelum menyimpulkan apa pun:
+  //  - semua jenis dokumen (bukan cuma artikel jurnal), karena URL karangan AI
+  //    paling sering muncul justru di siaran pers/laporan yang tidak punya DOI;
+  //  - halaman yang menjawab 404/410 = tautan mati, itu temuan nyata dan harus
+  //    ditandai mencurigakan walau jenis dokumennya "tidak diawasi Crossref".
+  // Selama ini cek halaman hanya jalan bila `diawasi`, sehingga URL karangan
+  // berjenis siaran pers lolos dengan label netral (bug: sumber palsu lolos).
+  if (item.url) {
     const jh = await judulHalaman(item.url);
-    if (jh !== null) {
-      const cocok = kandidatJudulHalaman(jh).some((k) => kemiripanJudul(judul, k) >= 0.85);
+    if (jh && (jh.status === 404 || jh.status === 410)) {
+      return {
+        sourceId: item.sourceId ?? judul.slice(0, 40),
+        verdict: "TIDAK_DITEMUKAN",
+        sumber: null,
+        catatan: `Tautan sumber MATI (HTTP ${jh.status}). Halaman ini tidak ada — tautan seperti ini sering dikarang AI. Cari sumber lain yang benar-benar bisa dibuka sebelum dipakai.`,
+        perluDicurigai: true,
+      };
+    }
+    if (jh && (jh.status === 401 || jh.status === 403 || jh.status === 429)) {
+      // Penerbit memblokir pemeriksa otomatis — halaman tidak bisa dibaca dari
+      // sini, tapi ini BUKAN bukti tautannya mati (banyak jurnal Indonesia kena
+      // bot-wall dan tetap terbuka normal di browser mahasiswa).
+      return {
+        sourceId: item.sourceId ?? judul.slice(0, 40),
+        verdict: "TIDAK_DAPAT_DIPERIKSA",
+        sumber: null,
+        catatan: `Penerbit menolak pemeriksaan otomatis (HTTP ${jh.status}), jadi isi halaman tidak bisa dicek dari sini. Buka tautannya sendiri di browser — banyak situs jurnal memblokir alat otomatis tetapi terbuka normal untuk manusia.`,
+        perluDicurigai: diawasi,
+      };
+    }
+    if (jh && jh.judul) {
+      const cocok = kandidatJudulHalaman(jh.judul).some((k) => kemiripanJudul(judul, k) >= 0.85);
       return {
         sourceId: item.sourceId ?? judul.slice(0, 40),
         verdict: "TAUTAN_HIDUP",
         sumber: null,
-        judulDitemukan: jh || undefined,
-        catatan: jh
-          ? `Halaman sumber dapat dibuka (judul halaman: "${jh}"). ${cocok ? "Judulnya cocok dengan sumber ini, tetapi" : "Judul halaman berbeda dari yang tertulis di paket, dan"} sumber ini belum terdaftar di Crossref, OpenAlex, maupun DOAJ — periksa isinya sebelum dipakai.`
-          : "Halaman sumber dapat dibuka, tetapi judul halamannya tidak terbaca. Sumber ini belum terdaftar di Crossref, OpenAlex, maupun DOAJ — periksa isinya sebelum dipakai.",
-        perluDicurigai: !cocok,
+        judulDitemukan: jh.judul,
+        catatan: `Halaman sumber dapat dibuka (judul halaman: "${jh.judul}"). ${cocok ? "Judulnya cocok dengan sumber ini, tetapi" : "Judul halaman berbeda dari yang tertulis di paket, dan"} sumber ini belum terdaftar di Crossref, OpenAlex, maupun DOAJ — periksa isinya sebelum dipakai.`,
+        // Untuk jenis yang memang tidak diindeks (laporan tahunan, siaran pers),
+        // halaman yang hidup sudah cukup — jangan bikin alarm palsu hanya karena
+        // judul halamannya beda gaya. Hanya jenis ilmiah yang layak dicurigai
+        // atas ketidakcocokan judul.
+        perluDicurigai: diawasi ? !cocok : false,
+      };
+    }
+    if (jh && jh.status >= 200 && jh.status < 300) {
+      return {
+        sourceId: item.sourceId ?? judul.slice(0, 40),
+        verdict: "TAUTAN_HIDUP",
+        sumber: null,
+        catatan: diawasi
+          ? "Halaman sumber dapat dibuka, tetapi judul halamannya tidak terbaca. Sumber ini belum terdaftar di Crossref, OpenAlex, maupun DOAJ — periksa isinya sebelum dipakai."
+          : "Halaman sumber dapat dibuka. Jenis dokumen ini memang tidak didaftarkan di Crossref, jadi tidak ditemukan di basis data itu wajar — cek isinya langsung di halamannya.",
+        perluDicurigai: diawasi,
       };
     }
   }
