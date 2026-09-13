@@ -91,6 +91,7 @@ import {
   useVerifikasiSumber,
 } from "./VerifikasiSumberPanel";
 import { PanelRingkasanDanTerkait } from "./PanelRingkasanDanTerkait";
+import { SequentialNavigation } from "./SequentialNavigation";
 import {
   assembleBedahPrompt,
   analyzeBedahPrompt,
@@ -3200,6 +3201,21 @@ export const Bab1ToolContainer: React.FC = () => {
           )}
         </section>
       )}
+
+      {/* HANDOFF: Bab 1 -> Bab 2. Sebelum ini halaman 48 layar berakhir di modal
+          reset; satu-satunya jalan keluar adalah tautan kecil di header. */}
+      <SequentialNavigation
+        previousStep={{ label: "Kembali ke Bedah Fenomena & Literatur", href: "/tools/bedah-hasil-notebooklm" }}
+        nextStep={{
+          eyebrow: "LANJUT KE BAB 2",
+          title: "Bangun Bab 2",
+          href: "/tools/bangun-bab-2",
+        }}
+        isNextEnabled={!!parsedDraftV1}
+        nextStatusLabel="Draf Bab 1 sudah ada — siap lanjut ke Bab 2"
+        nextDisabledReason="Selesaikan dulu draf Bab 1 (Tahap 4C) sebelum menyusun Bab 2"
+        nextHelperText="Bab 2 memakai Source Register Tool 3 dan paket fondasi Bab 1 yang sudah kamu buat di sini."
+      />
 
       {/* MODAL: RESET TOOL 5 */}
       {showResetModal && (

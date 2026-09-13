@@ -29,6 +29,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { PlatformBadge } from "@/components/PlatformBadge";
+import { SequentialNavigation } from "./SequentialNavigation";
 import { extractSumberPaketLiteratur } from "@/lib/bedahParser";
 import { bangunPetaBab2 } from "@/lib/bab2Map";
 import {
@@ -1051,6 +1052,20 @@ export const Bab2ToolContainer: React.FC = () => {
           pedoman kerja, bukan aturan kampus — ikuti panduan prodi kalau berbeda.
         </p>
       </div>
+      {/* HANDOFF: Tool 6 adalah hulu Bab 3 (belum dibangun). Tanpa panel ini
+          mahasiswa selesai Bab 2 tanpa ditunjukkan langkah berikutnya — halaman
+          48 layar berakhir di catatan kecil. */}
+      <SequentialNavigation
+        previousStep={{ label: "Kembali ke Susun Bab 1", href: "/tools/susun-bab-1" }}
+        nextStep={{
+          eyebrow: "SELESAI UNTUK PROTOTYPE INI",
+          title: "Kembali ke Dashboard",
+          href: "/tools",
+        }}
+        isNextEnabled
+        nextStatusLabel="Bab 2 selesai — Bab 3 belum dibangun di prototype ini"
+        nextHelperText="Bab 2 sudah lengkap: tabel, fondasi, draf, dan hasil pemeriksaan bisa diekspor ke RTF. Bab 3 belum ada di prototype ini."
+      />
     </div>
   );
 };
