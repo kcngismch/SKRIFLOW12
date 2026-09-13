@@ -191,7 +191,16 @@ ${BAB2_FOUNDATION_END}
 
 Status yang diizinkan: READY_TO_DRAFT (siap ditulis), NEEDS_VERIFICATION (perlu dicek dulu),
 DO_NOT_USE (jangan dipakai). Kalau sumbernya tidak cukup untuk satu bagian, tandai
-NEEDS_VERIFICATION dan tulis alasannya di status_reason — JANGAN diisi dengan tebakan.`;
+NEEDS_VERIFICATION dan tulis alasannya di status_reason — JANGAN diisi dengan tebakan.
+
+Untuk "foundation_status", pilih salah satu:
+  BAB2_READY            — seluruh sub-bab bisa disusun dari sumber yang ada
+  BAB2_NEEDS_VERIFICATION — sebagian sub-bab sumbernya minim, tetapi masih bisa ditulis
+                          dengan pembingkaian hati-hati
+  BAB2_BLOCKED          — ada sub-bab yang sama sekali tidak bisa disusun dari sumber yang
+                          ada (tidak ada sumber berpenulis+tahun untuk konsep intinya).
+                          Pakai ini HANYA bila draf Bab 2 tidak layak ditulis; tulis di
+                          status_reason sub-bab mana dan sumber seperti apa yang kurang.`;
 }
 
 // =========================================================================

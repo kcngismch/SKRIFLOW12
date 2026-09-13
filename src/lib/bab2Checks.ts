@@ -836,3 +836,72 @@ export function evaluasiGerbangBab2(input: {
     ringkas: "Bab 1 selesai",
   };
 }
+
+/**
+ * Gerbang TAHAP 13 (6B) — D.4.2 + D.6 (temuan B2-11/B2-12).
+ *
+ * Fondasi Bab 2 dan peta literatur sama-sama punya status blokir sendiri
+ * (`BAB2_BLOCKED`, `MAP_BLOCKED`). Kontrak mendefinisikan keduanya, tetapi
+ * sebelum ini tidak satu pun menahan tahap penulisan: begitu mahasiswa mencentang
+ * konfirmasi, 6B terbuka. Gerbang yang paling dekat dengan prosa justru yang
+ * paling longgar.
+ *
+ * Dipisah dari tahap lain karena aturan tiap status berbeda:
+ *   map_status MAP_BLOCKED -> register tidak bisa menyitasi sama sekali; tahap 11
+ *                             sudah menyatakannya, 6B tidak boleh jalan.
+ *   BAB2_BLOCKED           -> fondasi menyatakan dirinya tidak layak. Di sini 6B
+ *                             memang tidak bisa dijalankan, jadi tidak ada yang
+ *                             dihilangkan dengan menahan.
+ *   BAB2_NEEDS_VERIFICATION-> fondasi masih perlu dicek; 6B boleh jalan dengan
+ *                             peringatan (menahannya justru memaksa mahasiswa
+ *                             menebak, yang dilarang D.7).
+ */
+export type GerbangTahap13Status = "BLOKIR" | "PERINGATAN" | "LANJUT";
+
+export interface GerbangTahap13Hasil {
+  status: GerbangTahap13Status;
+  alasan: string[];
+  tindakan: string;
+}
+
+export function evaluasiGerbangTahap13(input: {
+  map_status?: string | null;
+  foundation_status?: string | null;
+  pendekatan?: string | null;
+}): GerbangTahap13Hasil {
+  const alasan: string[] = [];
+  let blokir = false;
+
+  if (input.map_status === "MAP_BLOCKED") {
+    blokir = true;
+    alasan.push("Peta literatur berstatus MAP_BLOCKED — register belum bisa menyitasi apa pun.");
+  }
+  if (input.foundation_status === "BAB2_BLOCKED") {
+    blokir = true;
+    alasan.push("Fondasi Bab 2 berstatus BAB2_BLOCKED — fondasi ini menyatakan dirinya belum layak jadi dasar draf.");
+  }
+  if (input.pendekatan === "BELUM_DITENTUKAN") {
+    blokir = true;
+    alasan.push("Pendekatan penelitian belum dipilih — struktur Bab 2 bergantung padanya (D.8).");
+  }
+
+  if (blokir) {
+    return {
+      status: "BLOKIR",
+      alasan,
+      tindakan:
+        "Perbaiki dulu fondasi Bab 2 di Tahap 12: tambahkan sumber yang punya penulis dan tahun di Tool 3, lalu jalankan ulang 6A.",
+    };
+  }
+
+  if (input.foundation_status === "BAB2_NEEDS_VERIFICATION") {
+    return {
+      status: "PERINGATAN",
+      alasan: ["Fondasi Bab 2 berstatus BAB2_NEEDS_VERIFICATION — ada bagian yang belum bisa dipastikan."],
+      tindakan:
+        "Draf boleh ditulis, tetapi bagian yang ditandai itu wajib kamu periksa sendiri dan tulis apa adanya — jangan diisi tebakan.",
+    };
+  }
+
+  return { status: "LANJUT", alasan: [], tindakan: "" };
+}

@@ -28,6 +28,7 @@ import {
   cariPelanggaranFrasa,
   cariSalinanVerbatim,
   evaluasiGerbangBab2,
+  evaluasiGerbangTahap13,
   periksaDrafBab2,
   periksaFondasiBab2,
   periksaPolesBab2,
@@ -349,6 +350,19 @@ const drafKurung: Bab2DraftV1 = {
   ],
 };
 cek("B2-09: draf kurung penuh tidak jadi alarm palsu", !periksaDrafBab2(drafKurung, fondasiBersih, register).some((f) => f.code === "CITATION_STYLE_INCONSISTENT"));
+
+console.log("\n[13] Gerbang Tahap 13 (B2-11/B2-12) — status Bab 2 ikut menahan 6B");
+cek("MAP_BLOCKED menahan 6B", evaluasiGerbangTahap13({ map_status: "MAP_BLOCKED", foundation_status: "BAB2_READY", pendekatan: "DESKRIPTIF" }).status === "BLOKIR");
+cek("BAB2_BLOCKED menahan 6B", evaluasiGerbangTahap13({ map_status: "MAP_COMPLETE", foundation_status: "BAB2_BLOCKED", pendekatan: "DESKRIPTIF" }).status === "BLOKIR");
+cek("pendekatan belum dipilih menahan 6B", evaluasiGerbangTahap13({ map_status: "MAP_COMPLETE", foundation_status: "BAB2_READY", pendekatan: "BELUM_DITENTUKAN" }).status === "BLOKIR");
+cek("BAB2_NEEDS_VERIFICATION -> 6B boleh + peringatan", evaluasiGerbangTahap13({ map_status: "MAP_COMPLETE", foundation_status: "BAB2_NEEDS_VERIFICATION", pendekatan: "DESKRIPTIF" }).status === "PERINGATAN");
+cek("fondasi sehat -> lanjut", evaluasiGerbangTahap13({ map_status: "MAP_COMPLETE", foundation_status: "BAB2_READY", pendekatan: "DESKRIPTIF" }).status === "LANJUT");
+cek("MAP_PARTIAL tidak menahan (3 sumber siap sudah cukup)", evaluasiGerbangTahap13({ map_status: "MAP_PARTIAL", foundation_status: "BAB2_READY", pendekatan: "DESKRIPTIF" }).status === "LANJUT");
+cek("setiap blokir menyebut tindakan", evaluasiGerbangTahap13({ map_status: "MAP_BLOCKED", foundation_status: "BAB2_READY", pendekatan: "DESKRIPTIF" }).tindakan.length > 0);
+
+console.log("\n[14] B2-13 — sinyal sumber baru dipetakan ke arahan alur");
+const g13 = evaluasiGerbangTahap13({ map_status: "MAP_BLOCKED", foundation_status: "BAB2_BLOCKED", pendekatan: "BELUM_DITENTUKAN" });
+cek("tiga penyebab blokir dilaporkan sekaligus", g13.alasan.length === 3);
 
 console.log(`\nRINGKASAN: ${lulus} lulus, ${gagal} gagal`);
 if (gagal > 0) process.exit(1);

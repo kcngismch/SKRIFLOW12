@@ -41,6 +41,7 @@ import {
 } from "@/lib/bab2Parser";
 import {
   evaluasiGerbangBab2,
+  evaluasiGerbangTahap13,
   periksaDrafBab2,
   periksaFondasiBab2,
   periksaPolesBab2,
@@ -422,6 +423,14 @@ export const Bab2ToolContainer: React.FC = () => {
   const gerbangSumber = peta.map_status === "MAP_BLOCKED";
   const gerbangPendekatan = pendekatan === "BELUM_DITENTUKAN";
   const bab1Terblokir = gerbang.status === "BLOKIR";
+  // B2-11/B2-12: status blokir fondasi Bab 2 & peta harus menahan Tahap 13 juga,
+  // bukan cuma Tahap 12. Sebelumnya mahasiswa bisa menulis draf penuh di atas
+  // register yang tool sendiri nyatakan tidak cukup.
+  const gerbang13 = evaluasiGerbangTahap13({
+    map_status: peta.map_status,
+    foundation_status: fondasiBab2?.foundation_status,
+    pendekatan,
+  });
 
   return (
     <div className="mt-8 space-y-6">
@@ -698,7 +707,30 @@ export const Bab2ToolContainer: React.FC = () => {
       </Kartu>
 
       {/* Tahap 13 — Draf (6B) */}
-      {fondasiBab2 && konfirmasiFondasi && (
+      {fondasiBab2 && konfirmasiFondasi && gerbang13.status === "BLOKIR" && (
+        <Kartu>
+          <JudulTahap
+            nomor="Tahap 13"
+            judul="Prompt 6B — Tulis Draf Bab 2"
+            keterangan="Ditulis di NotebookLM karena ia yang memegang sumbermu."
+            platform="NotebookLM"
+          />
+          <div className="flex items-start gap-3 rounded-xl border border-[#FF6F61]/50 bg-[#FF6F61]/5 p-4">
+            <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-[#FF6F61]" aria-hidden="true" />
+            <div>
+              <p className="text-sm font-bold text-[#FFF9EE]">Draf Bab 2 belum boleh ditulis</p>
+              <ul className="mt-2 list-disc space-y-1 pl-4 text-xs leading-relaxed text-[#AAB4D0]">
+                {gerbang13.alasan.map((x, i) => (
+                  <li key={i}>{x}</li>
+                ))}
+              </ul>
+              <p className="mt-2 text-xs font-semibold leading-relaxed text-[#FFF9EE]">{gerbang13.tindakan}</p>
+            </div>
+          </div>
+        </Kartu>
+      )}
+
+      {fondasiBab2 && konfirmasiFondasi && gerbang13.status !== "BLOKIR" && (
         <Kartu>
           <JudulTahap
             nomor="Tahap 13"
@@ -706,6 +738,21 @@ export const Bab2ToolContainer: React.FC = () => {
             keterangan="Ditulis di NotebookLM karena ia yang memegang sumbermu. Berkas sumber diunggah lebih dulu, lalu perintah pendek dikirim di kolom chat."
             platform="NotebookLM"
           />
+
+          {gerbang13.status === "PERINGATAN" && (
+            <div className="mb-4 flex items-start gap-3 rounded-xl border border-[#FFB84D]/40 bg-[#FFB84D]/5 p-4">
+              <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#FFB84D]" aria-hidden="true" />
+              <div>
+                <p className="text-xs font-bold text-[#FFF9EE]">Fondasi Bab 2 belum sepenuhnya pasti</p>
+                <ul className="mt-1.5 list-disc space-y-1 pl-4 text-[11px] leading-relaxed text-[#AAB4D0]">
+                  {gerbang13.alasan.map((x, i) => (
+                    <li key={i}>{x}</li>
+                  ))}
+                </ul>
+                <p className="mt-1.5 text-[11px] leading-relaxed text-[#FFF9EE]">{gerbang13.tindakan}</p>
+              </div>
+            </div>
+          )}
 
           {/* Addendum D (sama seperti 4C): seluruh aturan jadi berkas sumber, kolom chat hanya perintah pendek. */}
           <ol className="space-y-2 text-xs leading-relaxed text-[#FFF9EE]">
@@ -777,6 +824,39 @@ export const Bab2ToolContainer: React.FC = () => {
                 </span>
               </div>
               <DaftarTemuan temuan={temuanDraf} judul="Pemeriksa draf" />
+
+              {/* B2-13: D.11 ditegakkan sebagai ALUR, bukan cuma larangan. Temuan
+                  saja tidak cukup — mahasiswa perlu tahu langkah berikutnya, kalau
+                  tidak yang paling mudah dilakukan adalah menghapus sitasinya. */}
+              {drafBab2.new_sources_introduced.length > 0 && (
+                <div className="flex items-start gap-3 rounded-xl border border-[#FFB84D]/40 bg-[#FFB84D]/5 p-4">
+                  <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#FFB84D]" aria-hidden="true" />
+                  <div>
+                    <p className="text-xs font-bold text-[#FFF9EE]">
+                      {drafBab2.new_sources_introduced.length} sumber baru muncul di draf — belum boleh disitasi
+                    </p>
+                    <ul className="mt-2 list-disc space-y-1 pl-4 text-[11px] leading-relaxed text-[#AAB4D0]">
+                      {drafBab2.new_sources_introduced.map((s, i) => (
+                        <li key={i}>
+                          <span className="font-semibold text-[#FFF9EE]">{s.authors_year || s.id_sementara}</span>
+                          {s.title ? ` — ${s.title}` : ""}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-2 text-[11px] leading-relaxed text-[#FFF9EE]">
+                      Langkah berikutnya: masukkan sumber itu lewat pencarian di Tool 3, jalankan penyaringan dan
+                      verifikasi sampai masuk Source Register, baru boleh disitasi. Jangan hapus sitasinya hanya
+                      supaya temuan ini hilang, dan jangan biarkan sumber ini di dalam naskah.
+                    </p>
+                    <a
+                      href="/tools/cari-literatur-awal"
+                      className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[#2959FF] bg-[#2959FF]/15 px-3 py-1.5 text-[11px] font-semibold text-[#FFF9EE] hover:bg-[#2959FF]/25 focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+                    >
+                      Buka Tool 3 — Cari Literatur
+                    </a>
+                  </div>
+                </div>
+              )}
 
               {ringkasDraf.kritis === 0 && (
                 <div className="space-y-3 border-t border-[#273352] pt-3">
