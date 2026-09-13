@@ -19,7 +19,9 @@ function cek(nama: string, kondisi: boolean, detail?: string) {
   }
 }
 
-const DOC = process.env.DOC || "/home/docker-server/.hermes/cache/documents/doc_dcd6fe7618e9_kumpulan.md - Copy.md";
+// Default ke fixture di repo: berkas cache lama bisa hilang sehingga test gagal
+// karena alasan yang tidak ada hubungannya dengan kode.
+const DOC = process.env.DOC || "fixtures/fondasi-4b-asli.txt";
 const raw = readFileSync(DOC, "utf8");
 const S = "=== BEGIN SKRIFLOW_BAB1_FOUNDATION_V1 ===";
 const E = "=== END SKRIFLOW_BAB1_FOUNDATION_V1 ===";

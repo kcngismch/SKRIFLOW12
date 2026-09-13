@@ -600,6 +600,38 @@ export const ACTIVE_TOOLS: Tool[] = [
       href: "/tools/bedah-hasil-notebooklm",
     },
     nextStep: {
+      eyebrow: "LANJUT KE BAB 2",
+      title: "Bangun Bab 2",
+      href: "/tools/bangun-bab-2",
+    },
+  },
+  {
+    id: "tool-6",
+    slug: "bangun-bab-2",
+    name: "Bangun Bab 2",
+    description:
+      "Susun Tinjauan Pustaka dari sumber yang sudah kamu miliki di Tool 3: tabel penelitian terdahulu tanpa karangan, landasan teori bersumber, kerangka pemikiran sebagai kandidat, dan draf yang diperiksa dua lapis.",
+    targetPlatform: "ChatGPT / NotebookLM",
+    iconName: "Library",
+    badgeText: "Penulisan Bab 2",
+    fields: [],
+    // Tidak memakai template teks: isinya dibaca dari Source Register Tool 3
+    // dan paket fondasi Bab 1. Lihat Addendum D v3.3.4.
+    promptConfig: {
+      role: "Menyusun Bab 2 (Tinjauan Pustaka) dari sumber yang sudah diverifikasi.",
+      task: "Menampilkan peta literatur, fondasi Bab 2, draf, dan hasil pemeriksaan dua lapis.",
+      rules: [
+        "Jangan memakai sumber di luar Source Register Tool 3.",
+        "Jangan menulis atribusi tanpa nama penulis dan tahun.",
+        "Jangan menyatakan kerangka pemikiran atau hipotesis sebagai hal final.",
+      ],
+      outputFormat: ["1. Peta literatur + tabel penelitian terdahulu", "2. Fondasi Bab 2", "3. Draf + hasil pemeriksaan"],
+    },
+    previousStep: {
+      label: "Kembali ke Susun Bab 1",
+      href: "/tools/susun-bab-1",
+    },
+    nextStep: {
       eyebrow: "SELESAI UNTUK PROTOTYPE INI",
       title: "Kembali ke Dashboard",
       href: "/tools",
@@ -608,11 +640,6 @@ export const ACTIVE_TOOLS: Tool[] = [
 ];
 
 export const LOCKED_PHASES: LockedPhase[] = [
-  {
-    id: "phase-bab-2",
-    title: "Bangun Bab 2",
-    badge: "COMING SOON",
-  },
   {
     id: "phase-bab-3",
     title: "Bangun Bab 3",

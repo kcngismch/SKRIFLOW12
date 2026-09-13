@@ -855,6 +855,15 @@ const BEDAH_DRAFT_4C_RAW_KEY = "skriflow_bedah_4c_chat_output";
 const BEDAH_DRAFT_4C_KEY = "skriflow_bedah_bab1_draft_v1";
 const BEDAH_POLISH_4D_RAW_KEY = "skriflow_bedah_4d_chat_output";
 const BEDAH_POLISH_4D_KEY = "skriflow_bedah_bab1_polish_v1";
+// --- Tool 6 (Bangun Bab 2) — Addendum D v3.3.4 ---
+const BAB2_MAP_KEY = "skriflow_bab2_map_v1";
+const BAB2_FOUNDATION_RAW_KEY = "skriflow_bab2_6a_chat_output";
+const BAB2_FOUNDATION_KEY = "skriflow_bab2_foundation_v1";
+const BAB2_DRAFT_RAW_KEY = "skriflow_bab2_6b_chat_output";
+const BAB2_DRAFT_KEY = "skriflow_bab2_draft_v1";
+const BAB2_POLISH_RAW_KEY = "skriflow_bab2_6c_chat_output";
+const BAB2_POLISH_KEY = "skriflow_bab2_polish_v1";
+const BAB2_PENDEKATAN_KEY = "skriflow_bab2_pendekatan";
 const BEDAH_PACKAGE_V2_KEY = "skriflow_bedah_saved_package_v2";
 const BEDAH_SELECTED_DIRECTION_KEY = "skriflow_bedah_selected_direction_id";
 
@@ -1385,3 +1394,133 @@ export function getToolDataSnapshot(slug: string): string {
   }
 }
 
+// =========================================================================
+// TOOL 6 — BANGUN BAB 2 (Addendum D v3.3.4)
+// =========================================================================
+
+export function saveBab2Map(peta: import("@/types/bab2").Bab2MapV1): void {
+  try {
+    setStorageItem(BAB2_MAP_KEY, JSON.stringify(peta));
+  } catch {
+    // quota
+  }
+}
+
+export function loadBab2Map(): import("@/types/bab2").Bab2MapV1 | null {
+  try {
+    const raw = getStorageItem(BAB2_MAP_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" && parsed.schema_version === 1
+      ? (parsed as import("@/types/bab2").Bab2MapV1)
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+export function clearBab2Map(): void {
+  removeStorageItem(BAB2_MAP_KEY);
+}
+
+/** Pendekatan penelitian yang dipilih mahasiswa (Addendum D.8). */
+export function saveBab2Pendekatan(p: string): void {
+  setStorageItem(BAB2_PENDEKATAN_KEY, p);
+}
+
+export function loadBab2Pendekatan(): string {
+  return getStorageItem(BAB2_PENDEKATAN_KEY) || "";
+}
+
+export function clearBab2Pendekatan(): void {
+  removeStorageItem(BAB2_PENDEKATAN_KEY);
+}
+
+function simpanHasilGenerik<T>(key: string, payload: T): void {
+  try {
+    setStorageItem(key, JSON.stringify(payload));
+  } catch {
+    // quota
+  }
+}
+
+function muatHasilGenerik<T>(key: string): T | null {
+  try {
+    const raw = getStorageItem(key);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" && parsed.schema_version === 1 ? (parsed as T) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveBab2FoundationRaw(teks: string): void {
+  setStorageItem(BAB2_FOUNDATION_RAW_KEY, teks);
+}
+
+export function loadBab2FoundationRaw(): string {
+  return getStorageItem(BAB2_FOUNDATION_RAW_KEY) || "";
+}
+
+export function saveBab2Foundation(payload: import("@/types/bab2").Bab2FoundationV1): void {
+  simpanHasilGenerik(BAB2_FOUNDATION_KEY, payload);
+}
+
+export function loadBab2Foundation(): import("@/types/bab2").Bab2FoundationV1 | null {
+  return muatHasilGenerik<import("@/types/bab2").Bab2FoundationV1>(BAB2_FOUNDATION_KEY);
+}
+
+export function clearBab2Foundation(): void {
+  removeStorageItem(BAB2_FOUNDATION_KEY);
+  removeStorageItem(BAB2_FOUNDATION_RAW_KEY);
+}
+
+export function saveBab2DraftRaw(teks: string): void {
+  setStorageItem(BAB2_DRAFT_RAW_KEY, teks);
+}
+
+export function loadBab2DraftRaw(): string {
+  return getStorageItem(BAB2_DRAFT_RAW_KEY) || "";
+}
+
+export function saveBab2Draft(payload: import("@/types/bab2").Bab2DraftV1): void {
+  simpanHasilGenerik(BAB2_DRAFT_KEY, payload);
+}
+
+export function loadBab2Draft(): import("@/types/bab2").Bab2DraftV1 | null {
+  return muatHasilGenerik<import("@/types/bab2").Bab2DraftV1>(BAB2_DRAFT_KEY);
+}
+
+export function clearBab2Draft(): void {
+  removeStorageItem(BAB2_DRAFT_KEY);
+  removeStorageItem(BAB2_DRAFT_RAW_KEY);
+}
+
+export function saveBab2PolishRaw(teks: string): void {
+  setStorageItem(BAB2_POLISH_RAW_KEY, teks);
+}
+
+export function loadBab2PolishRaw(): string {
+  return getStorageItem(BAB2_POLISH_RAW_KEY) || "";
+}
+
+export function saveBab2Polish(payload: import("@/types/bab2").Bab2PolishV1): void {
+  simpanHasilGenerik(BAB2_POLISH_KEY, payload);
+}
+
+export function loadBab2Polish(): import("@/types/bab2").Bab2PolishV1 | null {
+  return muatHasilGenerik<import("@/types/bab2").Bab2PolishV1>(BAB2_POLISH_KEY);
+}
+
+export function clearBab2Polish(): void {
+  removeStorageItem(BAB2_POLISH_KEY);
+  removeStorageItem(BAB2_POLISH_RAW_KEY);
+}
+
+/** Bersihkan seluruh state Tool 6 (dipakai tombol reset). */
+export function clearSemuaBab2(): void {
+  [BAB2_MAP_KEY, BAB2_FOUNDATION_RAW_KEY, BAB2_FOUNDATION_KEY, BAB2_DRAFT_RAW_KEY, BAB2_DRAFT_KEY, BAB2_POLISH_RAW_KEY, BAB2_POLISH_KEY].forEach(
+    removeStorageItem
+  );
+}

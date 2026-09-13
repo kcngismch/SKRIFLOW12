@@ -7,6 +7,7 @@ import { IdeaToolContainer } from "./generator/IdeaToolContainer";
 import { PhenomenonToolContainer } from "./generator/PhenomenonToolContainer";
 import { BedahToolContainer } from "./generator/BedahToolContainer";
 import { Bab1ToolContainer } from "./generator/Bab1ToolContainer";
+import { Bab2ToolContainer } from "./generator/Bab2ToolContainer";
 import { AccessGate } from "./generator/AccessGate";
 import { ToolStepper } from "./generator/ToolStepper";
 import {
@@ -107,6 +108,8 @@ export const ToolDetailShell: React.FC<ToolDetailShellProps> = ({ tool }) => {
             <BedahToolContainer tool={tool} />
           ) : tool.slug === "susun-bab-1" ? (
             <Bab1ToolContainer />
+          ) : tool.slug === "bangun-bab-2" ? (
+            <Bab2ToolContainer />
           ) : (
             <ToolGeneratorContainer key={tool.slug} tool={tool} />
           )}

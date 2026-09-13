@@ -1,7 +1,7 @@
 import { SelectOption } from "@/data/researchOptions";
 
-export type PlatformTarget = "ChatGPT / Gemini" | "NotebookLM";
-export type ToolIconName = "Lightbulb" | "BookOpen" | "GitCompare" | "Compass";
+export type PlatformTarget = "ChatGPT / Gemini" | "NotebookLM" | "ChatGPT / NotebookLM";
+export type ToolIconName = "Lightbulb" | "BookOpen" | "GitCompare" | "Compass" | "Library";
 
 export interface FormFieldHelperLink {
   text: string;

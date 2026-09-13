@@ -57,10 +57,10 @@ clearSelectedPhenomenon();
 // 1. TOOL STRUCTURE & CATALOG TESTS
 // =========================================================================
 console.log("\n=== 1. TOOL STRUCTURE & CATALOG TESTS ===");
-assert(ACTIVE_TOOLS.length === 5, "Tepat 5 tool aktif dalam katalog (4 bedah + Susun Bab 1)");
+assert(ACTIVE_TOOLS.length === 6, "Tepat 6 tool aktif dalam katalog (4 bedah + Susun Bab 1 + Bangun Bab 2)");
 
 const toolSlugs = ACTIVE_TOOLS.map((t) => t.slug);
-assert(new Set(toolSlugs).size === 5, "Setiap tool aktif memiliki slug unik");
+assert(new Set(toolSlugs).size === 6, "Setiap tool aktif memiliki slug unik");
 
 const t1 = getToolBySlug("cari-ide-skripsi");
 const t2 = getToolBySlug("cari-fenomena-awal");
@@ -86,11 +86,14 @@ assert(t3.nextStep.href === "/tools/bedah-hasil-notebooklm", "Tool 3 nextStep ->
 assert(t4.nextStep.href === "/tools/susun-bab-1", "Tool 4 nextStep -> susun-bab-1");
 const t5 = getToolBySlug("susun-bab-1");
 assert(t5 !== undefined, "Tool 5 (susun-bab-1) terdaftar sebagai tool aktif");
-assert(t5.nextStep.href === "/tools", "Tool 5 nextStep -> /tools");
+assert(t5.nextStep.href === "/tools/bangun-bab-2", "Tool 5 nextStep -> bangun-bab-2");
 
-// Locked Phases — Bab 1 sudah terbuka (jadi Tool 5), tinggal Bab 2-3
-assert(LOCKED_PHASES.length === 2, "Tepat 2 fase terkunci: Bab 2 dan Bab 3 (Coming Soon)");
+// Locked Phases — Bab 1 jadi Tool 5, Bab 2 jadi Tool 6, tinggal Bab 3
+assert(LOCKED_PHASES.length === 1, "Tepat 1 fase terkunci: Bab 3 (Coming Soon)");
 assert(!LOCKED_PHASES.some((p) => p.id === "phase-bab-1"), "Fase Bab 1 tidak lagi terkunci karena sudah jadi Tool 5");
+assert(!LOCKED_PHASES.some((p) => p.id === "phase-bab-2"), "Fase Bab 2 tidak lagi terkunci karena sudah jadi Tool 6");
+const t6 = getToolBySlug("bangun-bab-2");
+assert(t6 !== undefined, "Tool 6 (bangun-bab-2) terdaftar sebagai tool aktif");
 assert(LOCKED_PHASES.every((p) => p.badge === "COMING SOON"), "Semua locked phases bertanda COMING SOON");
 
 // =========================================================================

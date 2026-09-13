@@ -255,7 +255,11 @@ assert(assembledB.length <= 3900, `46. Prompt B length (${assembledB.length}) st
 
 // 7. Matrix & Validation Engine Tests
 console.log("\n--- GRUP 7: MATRIX & VALIDATION ENGINE INTEGRATION ---");
-assert(ACTIVE_TOOLS.length === 5, "47. ACTIVE_TOOLS has exactly 5 active tools (4 bedah + Susun Bab 1)");
+assert(ACTIVE_TOOLS.length === 6, "47. ACTIVE_TOOLS has exactly 6 active tools (4 bedah + Susun Bab 1 + Bangun Bab 2)");
+assert(
+  ACTIVE_TOOLS.some((t) => t.slug === "bangun-bab-2"),
+  "47b. Tool 6 (bangun-bab-2) terdaftar sebagai tool aktif"
+);
 assert(SHARED_FIELD_CONTRACTS.length >= 8, "48. SHARED_FIELD_CONTRACTS defines full cross-tool matrix");
 
 const formValFail = validateForm(t3.fields, { prodi: "P".repeat(101) });
