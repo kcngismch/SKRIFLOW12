@@ -618,11 +618,32 @@ export const Bab1ToolContainer: React.FC = () => {
     return assembleBedahPrompt4D(bedahInput4D);
   }, [bedahInput4D]);
 
-  /** Temuan pemeriksa dihitung ulang dari state saat ini, bukan dari hasil parse saja. */
+  /** Register Tool 3 sebagai daftar sumber + nama penulis; dipakai jalur 4C. */
+  const daftarRegisterSumber = useMemo(
+    () => extractSumberPaketLiteratur(literaturePackage),
+    [literaturePackage]
+  );
+
+  /**
+   * Sumber yang boleh muncul sebagai sitasi di draf: register Tool 3, atau —
+   * bila register tidak terbaca — daftar bobot sumber dari 4A. Dipakai pemeriksa
+   * draf supaya sitasi sah tidak ditandai karangan.
+   */
+  const daftarRegisterSumberCadangan = useMemo(
+    () =>
+      daftarRegisterSumber.length > 0
+        ? daftarRegisterSumber
+        : (parsedPayloadV2?.source_weights ?? []).map((sw) => {
+            const x = sw as unknown as Record<string, unknown>;
+            return { sourceId: String(x.source_id ?? ""), authorsYear: String(x.penulis_tahun ?? "") };
+          }),
+    [daftarRegisterSumber, parsedPayloadV2]
+  );
+
   const draftFindings = useMemo<DraftCheckFinding[]>(() => {
     if (!parsedDraftV1 || !parsedFoundationV1) return [];
-    return periksaDrafBab1(parsedDraftV1, parsedFoundationV1);
-  }, [parsedDraftV1, parsedFoundationV1]);
+    return periksaDrafBab1(parsedDraftV1, parsedFoundationV1, daftarRegisterSumberCadangan);
+  }, [parsedDraftV1, parsedFoundationV1, daftarRegisterSumberCadangan]);
 
   const draftKritis = useMemo(
     () => draftFindings.filter((f) => f.severity === "CRITICAL"),
@@ -684,6 +705,12 @@ export const Bab1ToolContainer: React.FC = () => {
       setParsedDraftV1(res.data);
       saveBab1DraftV1(res.data);
       saveBedahOutput4C(pastedLLMOutput4C);
+
+      // Otomatis: periksa tautan sumber begitu draf 4C masuk. Mahasiswa sebelumnya
+      // harus menekan "Periksa ke Crossref" sendiri per batch, sehingga tautan
+      // karangan AI bisa lolos tanpa pernah diperiksa.
+      const perluDiperiksa = sumberAcuanTool5.filter((s) => (s.url || "").trim() || (s.doi || "").trim());
+      if (perluDiperiksa.length > 0) void periksaSumber(perluDiperiksa);
     } else {
       setParseError4C({ error: res.error || "Gagal memproses output.", details: res.errorDetails });
     }
@@ -796,7 +823,10 @@ export const Bab1ToolContainer: React.FC = () => {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Jangan cabut URL tepat setelah klik: Chromium kadang belum selesai membaca
+    // blob-nya, sehingga unduhan menggantung sebagai `.crdownload` dan berkas
+    // tidak pernah muncul. Beri jeda sebelum dibersihkan.
+    setTimeout(() => URL.revokeObjectURL(url), 60_000);
   };
 
   const handleResetPoles4D = () => {
@@ -888,10 +918,26 @@ export const Bab1ToolContainer: React.FC = () => {
    */
   const sumberAcuanTool5 = useMemo(() => {
     const dariPaket = sumberUntukDiperiksa;
-    const idSandaran = selectedDirectionObj?.anchor_source_ids ?? [];
     if (dariPaket.length === 0) return dariPaket;
-    return dariPaket.filter((s) => idSandaran.length === 0 || idSandaran.includes(s.sourceId));
-  }, [sumberUntukDiperiksa, selectedDirectionObj]);
+
+    // Daftar pustaka harus memuat SEMUA sumber yang disitasi draf, bukan hanya
+    // sumber jangkar arah. Tanpa ini, draf yang menyitasi S4/S7/S8/S9 hanya
+    // menghasilkan 1 entri .bib (kasus nyata arah D01) sehingga mahasiswa
+    // menyusun daftar pustakanya manual.
+    const dirujuk = new Set<string>();
+    (parsedFoundationV1?.evidence_ledger || []).forEach((e) =>
+      (e.source_ids || []).forEach((sw) => dirujuk.add(String(sw || "").trim()))
+    );
+    (parsedFoundationV1?.paragraph_claims || []).forEach((pc) =>
+      (pc.sourceIds || []).forEach((s) => s && dirujuk.add(String(s).replace(/[\[\]]/g, "").trim()))
+    );
+    (selectedDirectionObj?.anchor_source_ids || []).forEach((s) => s && dirujuk.add(String(s).trim()));
+
+    // Bila tidak ada satu pun rujukan terbaca, jangan saring apa pun — lebih baik
+    // daftar pustaka berisi seluruh paket daripada kosong.
+    if (dirujuk.size === 0) return dariPaket;
+    return dariPaket.filter((s) => dirujuk.has(s.sourceId));
+  }, [sumberUntukDiperiksa, selectedDirectionObj, parsedFoundationV1]);
 
   // Handle Process LLM Output 4A
   const handleProcessLLMOutput4A = () => {
@@ -2681,6 +2727,10 @@ export const Bab1ToolContainer: React.FC = () => {
               </span>
             </div>
           </div>
+
+          {sumberAcuanTool5.length > 0 && (
+            <RingkasanVerifikasi hasil={verifikasiSumber} catatan={verifikasiCatatan} />
+          )}
 
           {sumberAcuanTool5.length > 0 && <PanelRingkasanDanTerkait daftar={sumberAcuanTool5} />}
 

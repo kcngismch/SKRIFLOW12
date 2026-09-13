@@ -1896,10 +1896,16 @@ function frasaKausalTerlarang(kalimat: string): string | null {
 /**
  * Memeriksa draf 4C terhadap Paket Fondasi 4B.
  * Temuan mengarahkan revisi; hanya CRITICAL yang menahan simpan.
+ *
+ * `registerSumber` opsional: register Tool 3 memuat nama penulis untuk sumber yang
+ * TIDAK disebut `paragraph_claims` (kasus nyata: fondasi hanya menyebut S4 & S10,
+ * sedangkan draf menyitasi S6–S9). Tanpa daftar ini, sitasi sah akan ditandai
+ * sebagai karangan (alarm palsu).
  */
 export function periksaDrafBab1(
   draft: import("@/types/tool").Bab1DraftV1,
-  foundation: import("@/types/tool").Bab1FoundationV1
+  foundation: import("@/types/tool").Bab1FoundationV1,
+  registerSumber?: { sourceId?: string; authorsYear?: string }[]
 ): import("@/types/tool").DraftCheckFinding[] {
   const findings: import("@/types/tool").DraftCheckFinding[] = [];
   const push = (f: import("@/types/tool").DraftCheckFinding) => findings.push(f);
@@ -1920,6 +1926,15 @@ export function periksaDrafBab1(
       const ay = (pc.sourceReferences?.[i]?.authorsYear || "").trim();
       if (ay && !ay.startsWith("[")) sahSitasi.add(`(${ay.toLowerCase().replace(/\s+/g, " ")})`);
     });
+  });
+  // Nama dari register Tool 3 juga sah — sumber ini benar-benar dipakai mahasiswa.
+  // Register menulis "Nama (2023)" di satu sel sedangkan draf menyitasi "(Nama, 2023)",
+  // jadi bentuknya diseragamkan dulu; tanpa ini tiap sitasi sah jadi alarm palsu.
+  (registerSumber || []).forEach((s) => {
+    const sid = (s.sourceId || "").replace(/[\[\]]/g, "").trim().toLowerCase();
+    if (sid) sahIdSumber.add(sid);
+    const ay = (s.authorsYear || "").replace(/\s*\((\d{4}[a-z]?)\)\s*$/, ", $1").trim();
+    if (ay && !ay.startsWith("[")) sahSitasi.add(`(${ay.toLowerCase().replace(/\s+/g, " ")})`);
   });
   if (sahSitasi.size === 0) {
     (foundation.evidence_ledger || []).forEach((el) => {

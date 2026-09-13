@@ -1,0 +1,577 @@
+Berikut adalah Hasil Audit Sumber Notebook & Penyusunan Paket Bukti untuk topik Eksplorasi Pola Respons Kebijakan Filipina terhadap Dinamika Laut China Selatan dalam Kerangka ASEAN dan ASEAN-China.
+1. REKONSILIASI SUMBER NOTEBOOK
+Rekonsiliasi Matematika:
+INTI (10)+PENDUKUNG (1)+PERLU CEK MANUAL (0)+ABAIKAN (2)=TOTAL NOTEBOOK (13)
+Rincian Identifikasi & Alasan Pengelompokan:
+Kategori INTI (10 Sumber):
+S3 (AJSSS Journal - Yue Chen & Kan Wang, 2024): Relevan langsung; menganalisis pergeseran kebijakan luar negeri Filipina dari Duterte ke Marcos Jr., dokumen NSP 2023–2028, serta perluasan pangkalan militer EDCA dengan AS
+1
+2
+.
+S4 (Politika UNDIP - Desy Nur Shafitri et al., 2024): Relevan langsung; artikel jurnal empiris kualitatif yang mengkaji respons ASEAN dan Filipina terhadap klaim teritorial China, gugatan arbitrase 2016, dan keketuaan Filipina di ASEAN
+3
+4
+.
+S5 (Eprints UNRAM - Fitri Chintya Febriani et al., 2023): Relevan langsung; manuskrip/tesis akademik yang membedah efektivitas DOC/COC ASEAN-China dan insiden maritim terkini di Ayungin Shoal
+5
+6
+.
+S6 (Intermestic UNPAD - Shintia Ramadani & Sofia Trisni, 2019): Relevan langsung; menganalisis kebijakan luar negeri kooperatif Filipina era Duterte, pembentukan Bilateral Consultative Mechanism (BCM) 2017, dan eksplorasi Reed Bank
+7
+8
+.
+S7 (Belli Ac Pacis UNS - Azlia Amira Putri, 2023): Relevan langsung; penelitian hukum normatif yang menganalisis Putusan PCA 2016 (kasus Filipina vs China), status fitur maritim, serta penerapannya
+9
+10
+.
+S8 (Maritime Affairs NMF - Rahul Mishra, 2017): Relevan langsung; menganalisis evolusi sejarah DOC/COC, latar belakang gugatan arbitrase Filipina di PCA, dan dinamika konsensus ASEAN
+11
+12
+.
+S9 (PALASREV UNPATTI - Sarah Nursyifa M Nusa et al., 2023): Relevan langsung; mengkaji kerangka hukum Bab VIII Piagam ASEAN, TAC 1976, ZOPFAN, dan peran kelembagaan ASEAN dalam sengketa maritim
+13
+14
+.
+S10 (Nation and Security - Péter Klemensits, 2025): Relevan langsung; mengkaji reorientasi diplomasi maritim Ferdinand Marcos Jr. (2022–2025), insiden Second Thomas Shoal/Ayungin, dan posisi Filipina dalam forum ASEAN
+15
+16
+.
+S11 (RSIS Commentary - Rommel C. Banlaoi, 2026): Relevan langsung; working paper/commentary kebijakan mengenai kepemimpinan Filipina pada Keketuaan ASEAN 2026 dan percepatan negoisasi Code of Conduct (COC) berbasis UNCLOS 1982
+17
+18
+.
+S12 (Atlantis Press - Zhicheng Duan, 2026): Relevan langsung; prosiding konferensi yang membedah pergeseran orientasi Filipina dari limited alignment ke high alignment di bawah Marcos Jr., pangkalan EDCA, dan Balikatan 2024
+19
+20
+.
+Kategori PENDUKUNG (1 Sumber):
+S13 (IDE-JETRO Discussion Paper - Sanae Suzuki, 2012): PENDUKUNG; menguraikan dinamika kelembagaan internal ASEAN dan perpecahan konsensus pada KTT Menteri Luar Negeri ASEAN 2012 di Phnom Penh, memberikan konteks historis hambatan penyusunan COC
+21
+22
+.
+Kategori PERLU CEK MANUAL (0 Sumber):
+Tidak ada.
+Kategori ABAIKAN (2 Sumber):
+S1 (Just a moment... / URL): Halaman verifikasi keamanan Cloudflare (security verification block), tidak memiliki teks/badan artikel akademik
+23
+.
+S2 (ResearchGate - Temporarily Unavailable / URL): Halaman pemblokiran akses network (access restricted / login prompt), tidak memiliki teks/badan artikel akademik
+24
+.
+2. SOURCE REGISTER
+ID
+	
+Kategori
+	
+Judul Artikel
+	
+Penulis & Tahun
+	
+Jenis Publikasi
+	
+Nama Publikasi / Penerbit
+	
+Tautan / DOI
+	
+Metode & Sampel
+	
+Bukti Keterbacaan
+
+
+S3
+	
+INTI
+	
+The Evolution of the Philippines’ Policy Towards Taiwan Since 2016
+	
+Yue Chen & Kan Wang (2024)
+	
+Jurnal Peer-Reviewed
+	
+Asian Journal of Social Science Studies, Vol. 9, No. 3
+	
+https://doi.org/10.20849/ajsss.v9i3.1455
+	
+Kualitatif komparatif (analisis dokumen NSP 2017–2022 vs NSP 2023–2028, perbandingan era Duterte dan Marcos Jr.)
+	
+Teks utuh terakses (hlm. 1–14); memuat pendahuluan, tinjauan era Duterte & Marcos Jr., tabel perdagangan, pembahasan, dan referensi
+2
+more_horiz
+.
+
+
+S4
+	
+INTI
+	
+Respon ASEAN atas Keterlibatan Amerika Serikat di Laut China Selatan: Tinjauan Teori Balance of Threat
+	
+Desy Nur Shafitri, Ira Patriani, Hardi Alunaza SD (2024)
+	
+Jurnal Peer-Reviewed
+	
+Politika: Jurnal Ilmu Politik (UNDIP), Vol. 15, No. 1
+	
+https://doi.org/10.14710/politika.15.1.2024.55-78
+	
+Kualitatif deskriptif analitis (studi pustaka + wawancara peneliti Pusat Studi ASEAN Univ. Andalas, Rifki Dermawan, 7 Juli 2023)
+	
+Teks utuh terakses (hlm. 55–78); memuat abstrak, metode, tabel insiden 2017–2022, grafik anggaran pertahanan, pembahasan, dan daftar narasumber
+27
+more_horiz
+.
+
+
+S5
+	
+INTI
+	
+Dampak Declaration on Conduct (DOC) antara ASEAN dan RRC terhadap Stabilitas Keamanan Maritim di Kawasan LCS
+	
+Fitri Chintya Febriani, Syaiful Anam, Kinanti Rizsa Sabilla (2023)
+	
+Manuskrip / Tesis (Eprints)
+	
+Eprints Universitas Mataram
+	
+https://eprints.unram.ac.id/44585/3/Jurnal_Fitri%20Chintya%20Febriani_L1A019044%281%29.pdf
+	
+Kualitatif deskriptif (library research + analisis kerangka legislasi internasional Kenneth Abbott et al.)
+	
+Teks utuh terakses (hlm. 1–11); memuat rumusan masalah, analisis pasal DOC (obligasi, presisi, delegasi), pembahasan insiden maritim, dan kesimpulan
+5
+more_horiz
+.
+
+
+S6
+	
+INTI
+	
+Analisis Kebijakan Luar Negeri Filipina Terkait Sengketa Laut Cina Selatan pada Masa Duterte
+	
+Shintia Ramadani & Sofia Trisni (2019)
+	
+Jurnal Peer-Reviewed
+	
+Intermestic: Journal of International Studies (UNPAD), Vol. 4, No. 1
+	
+https://doi.org/10.24198/intermestic.v4n1.4
+	
+Kualitatif deskriptif (Rational Choice Model Kegley & Blanton: 4 tahapan analisis untung-rugi kebijakan luar negeri)
+	
+Teks utuh terakses (hlm. 46–67); memuat kerangka konseptual, grafik statistik perdagangan, tabel kalkulasi untung-rugi, dan pembahasan
+32
+more_horiz
+.
+
+
+S7
+	
+INTI
+	
+Implementasi Prinsip Good Faith dalam Putusan Permanent Court of Arbitration oleh China pada Sengketa Laut China Selatan
+	
+Azlia Amira Putri (2023)
+	
+Jurnal Peer-Reviewed
+	
+Belli Ac Pacis: Jurnal Hukum Internasional (UNS), Vol. 9, No. 1
+	
+https://jurnal.uns.ac.id/belli/article/download/47812/pdf
+	
+Penelitian hukum normatif (studi dokumen putusan PCA Case No. 2013-01, UNCLOS 1982, dan nota diplomatik)
+	
+Teks utuh terakses (hlm. 107–127); memuat analisis yuridis putusan PCA 2016, BCM Filipina-China, dan pembentukan distrik Sansha City
+9
+more_horiz
+.
+
+
+S8
+	
+INTI
+	
+Code of Conduct in the South China Sea: More Discord than Accord
+	
+Rahul Mishra (2017)
+	
+Jurnal Peer-Reviewed
+	
+Maritime Affairs: Journal of the National Maritime Foundation of India, Vol. 13, No. 2
+	
+https://doi.org/10.1080/09733159.2017.1412098
+	
+Kualitatif analitis (analisis historis-kritis perkembangan DOC/COC, dinamika klaim maritim, dan dampak putusan PCA 2016)
+	
+Teks utuh terakses (hlm. 62–75); memuat analisis geopolitik, latar belakang klaim, skenario perundingan COC, dan catatan kaki lengkap
+36
+more_horiz
+.
+
+
+S9
+	
+INTI
+	
+Peran Association Of South East Asian Nations (ASEAN) Dalam Menyelesaikan Sengketa Laut China Selatan
+	
+Sarah Nursyifa M Nusa, Irma Halima Hanafi, Popi Tuhulele (2023)
+	
+Jurnal Peer-Reviewed
+	
+Pattimura Law Review (PALASREV), Vol. 1, No. 2
+	
+https://doi.org/10.47268/palasrev.v1i2.11782
+	
+Yuridis normatif (pendekatan perundang-undangan, konsep, dan kasus pada Piagam ASEAN & TAC 1976)
+	
+Teks utuh terakses (hlm. 199–207); memuat tinjauan hukum Bab VIII Piagam ASEAN, mekanisme High Council, ZOPFAN, dan perancangan COC
+14
+more_horiz
+.
+
+
+S10
+	
+INTI
+	
+President Ferdinand Marcos Jr.’s “Independent” Foreign Policy and the Philippines’ Position in the New World Order
+	
+Péter Klemensits (2025)
+	
+Jurnal Peer-Reviewed
+	
+Nation and Security (Nemzet és Biztonság), Vol. 18, No. 4
+	
+https://doi.org/10.32576/nb.2025.4.2
+	
+Kualitatif deskriptif-historis (studi kebijakan luar negeri Filipina era Marcos Jr. 2022–2025, diplomasi bilateral, dan keterlibatan KTT ASEAN)
+	
+Teks utuh terakses (hlm. 3–16); memuat analisis independent foreign policy, hubungan AS-Filipina, dinamika Ayungin Shoal, dan kerja sama mitra regional
+15
+more_horiz
+.
+
+
+S11
+	
+INTI
+	
+Can ASEAN Deliver a Binding South China Sea Code of Conduct Under Manila’s Chairship in 2026?
+	
+Rommel C. Banlaoi (2026)
+	
+Working Paper / Commentary
+	
+RSIS Commentary, No. 192 (S. Rajaratnam School of International Studies, NTU)
+	
+https://rsis.edu.sg/wp-content/uploads/2026/09/CO26192.pdf
+	
+Kualitatif analisis kebijakan (studi proyeksi peran Keketuaan ASEAN Filipina 2026 dan diplomasi negosiasi COC)
+	
+Teks utuh terakses (hlm. 1–3); memuat poin synopsis, commentary, analisis kepemimpinan Manila, dan tantangan konsensus ASEAN
+17
+more_horiz
+.
+
+
+S12
+	
+INTI
+	
+The United States' Strategy of Containing China through the Philippines in the China–U.S. Game over the South China Sea
+	
+Zhicheng Duan (2026)
+	
+Prosiding Konferensi
+	
+Proceedings of the 5th SSHA 2026 (Atlantis Press)
+	
+https://www.atlantis-press.com/article/126024306.pdf
+	
+Kualitatif studi kasus terencana (analisis pangkalan EDCA, latihan Balikatan 2024, putusan arbitrase 2016, dan pergeseran orientasi kebijakan Filipina)
+	
+Teks utuh terakses (hlm. 1052–1062); memuat peta pangkalan EDCA, perbandingan era Aquino III–Duterte–Marcos Jr., analisis realistis, dan rekomendasi
+19
+more_horiz
+.
+
+
+S13
+	
+PENDUKUNG
+	
+Conflict among ASEAN members over the South China Sea issue
+	
+Sanae Suzuki (2012)
+	
+Working Paper / Discussion Paper
+	
+IDE-JETRO Discussion Paper
+	
+https://www.ide.go.jp/library/English/Research/Region/Asia/pdf/201209_suzuki.pdf
+	
+Kualitatif institusional-historis (studi dinamika KTT Menteri Luar Negeri ASEAN 2012 di Phnom Penh)
+	
+Teks utuh terakses (hlm. 1–3); memuat kronologi perpecahan konsensus Joint Communiqué 2012, perbedaan posisi Filipina/Vietnam vs Kamboja, dan analisis Ketua ASEAN
+21
+more_horiz
+.
+3. MATRIKS BUKTI
+ID
+	
+Fungsi / Sub-topik
+	
+Klaim Netral
+	
+ID Sumber & Sitasi
+	
+Lokasi Pasase / Bab
+	
+Konteks Tematik
+	
+Batas Penggunaan
+
+
+B1
+	
+Orientasi Kebijakan Marcos Jr.
+	
+Studi mencatat bahwa pemerintahan Ferdinand Marcos Jr. mengadopsi prinsip kebijakan luar negeri independent ("friend to all, enemy to none") dengan berupaya menyeimbangkan diplomasi maritim di Laut China Selatan dan memperkuat aliansi pertahanan
+15
+16
+.
+	
+S10
+15
+16
+	
+Hlm. 5 & 10 / Section Interpreting Marcos's foreign policy
+	
+Menjelaskan pergeseran orientasi diplomasi maritim dan respons ketegangan maritim Filipina di bawah kepemimpinan Marcos Jr.
+	
+Terbatas pada analisis kebijakan luar negeri Filipina periode 2022–2025.
+
+
+B2
+	
+Agenda Keketuaan ASEAN 2026
+	
+Penulis menguraikan bahwa Filipina yang memegang Keketuaan ASEAN pada tahun 2026 berada dalam posisi strategis untuk mengarahkan negosiasi Code of Conduct (COC) berlandaskan UNCLOS 1982 dan Arbitral Award 2016
+17
+18
+.
+	
+S11
+17
+18
+	
+Hlm. 1–2 / Section Opportunities for Leadership
+	
+Menjelaskan proyeksi kepemimpinan diplomatik Filipina dalam mendorong kepatuhan hukum internasional pada agenda ASEAN 2026.
+	
+Terbatas pada analisis proyeksi kebijakan RSIS Commentary 2026.
+
+
+B3
+	
+Dokumen Doktrin Keamanan
+	
+Penelitian mencatat bahwa National Security Policy (NSP) 2023–2028 Filipina secara eksplisit menetapkan isu West Philippine Sea sebagai kepentingan nasional utama dan mengaitkan stabilitas maritim regional dengan keamanan nasional
+1
+45
+.
+	
+S3
+1
+45
+	
+Hlm. 5 / Section 3.1
+	
+Menjelaskan pilar normatif dan landasan dokumen keamanan nasional Filipina di bawah Marcos Jr.
+	
+Terbatas pada analisis teks dokumen resmi NSP 2023–2028.
+
+
+B4
+	
+Kepatuhan UNCLOS & Arbitrase
+	
+Studi melaporkan bahwa Filipina secara konsisten menekankan kepatuhan pada UNCLOS 1982 dan menegaskan kembali kekuatan hukum Putusan Arbitrase PCA 2016 yang menolak klaim hak sejarah sembilan garis putus-putus
+9
+46
+.
+	
+S7
+9
+46
+	
+Hlm. 117 & 119 / Section Putusan PCA
+	
+Menjelaskan norma hukum internasional yang diusung Filipina di forum-forum multilateral.
+	
+Terbatas pada amar putusan PCA Case No. 2013-01.
+
+
+B5
+	
+Jalur Bilateral & Mekanisme BCM
+	
+Penulis mencatat bahwa di samping jalur multilateral ASEAN, Filipina dan China membentuk Bilateral Consultation Mechanism (BCM) pada tahun 2017 sebagai forum konsultasi berkala mengenai dinamika di Laut China Selatan
+7
+8
+.
+	
+S6
+7
+8
+	
+Hlm. 48 & 61 / Section Choice KLN Filipina
+	
+Menjelaskan penggunaan jalur konsultasi bilateral oleh Filipina di samping keterlibatan dalam forum ASEAN.
+	
+Terbatas pada instrumen BCM yang dibentuk era Duterte dan berlanjut ke era Marcos Jr.
+
+
+B6
+	
+Keterlibatan Eksternal & EDCA
+	
+Penelitian menguraikan bahwa Filipina memperluas kerja sama pertahanan eksternal dengan Amerika Serikat melalui penambahan lokasi pangkalan Enhanced Defense Cooperation Agreement (EDCA) dan latihan militer bersama Balikatan
+19
+20
+.
+	
+S12
+19
+20
+	
+Hlm. 1056–1057 / Section 4.1 & 4.4
+	
+Menjelaskan komponen kerja sama keamanan eksternal Filipina untuk mengimbangi dinamika keamanan LCS.
+	
+Terbatas pada perkembangan kerja sama EDCA dan Balikatan hingga 2024–2026.
+
+
+B7
+	
+Insiden Maritim & Efektivitas DOC
+	
+Studi mencatat terjadinya eskalasi insiden maritim di perairan yang disengketakan, seperti insiden penggunaan laser militer di Ayungin Shoal (2023) dan penembakan water cannon, yang menguji efektivitas instrumen Declaration on Conduct (DOC)
+5
+6
+.
+	
+S5
+5
+6
+	
+Hlm. 2 & 8–9 / Section Pembahasan
+	
+Menjelaskan fenomena empiris ketegangan maritim yang mendorong Filipina membawa isu ke forum ASEAN.
+	
+Terbatas pada insiden-insiden maritim spesifik yang terdokumentasi hingga 2023.
+
+
+B8
+	
+Rekam Jejak Diplomasi Hukum
+	
+Penelitian melaporkan bahwa Filipina memprakarsai langkah hukum internasional melalui PCA pada 2013 dan memanfaatkan posisi Keketuaan ASEAN 2017 untuk mendorong perancangan kerangka kerja Code of Conduct (COC Framework)
+3
+4
+.
+	
+S4
+3
+4
+	
+Hlm. 56 / Section Pendahuluan
+	
+Menjelaskan rekam jejak historis diplomasi hukum dan kelembagaan Filipina dalam kerangka ASEAN.
+	
+Terbatas pada periode keketuaan Filipina 2017 dan proses arbitrase 2013–2016.
+
+
+B9
+	
+Aturan Kelembagaan Sengketa ASEAN
+	
+Studi menguraikan bahwa mekanisme penyelesaian sengketa ASEAN diatur dalam Bab VIII Piagam ASEAN dan Treaty of Amity and Cooperation (TAC) 1976, yang menekankan penyelesaian damai tanpa penggunaan kekerasan
+13
+14
+.
+	
+S9
+13
+14
+	
+Hlm. 201–202 / Section Pembahasan
+	
+Menjelaskan norma dan aturan main kelembagaan ASEAN yang dijadikan rujukan diplomasi oleh Filipina.
+	
+Terbatas pada ketentuan normatif Piagam ASEAN dan TAC 1976.
+
+
+B10
+	
+Dinamika Konsensus Internal ASEAN
+	
+Penulis menguraikan dinamika historis perpecahan konsensus ASEAN terkait isu Laut China Selatan, seperti kegagalan penerbitan Joint Communiqué pada KTT Menteri Luar Negeri ASEAN 2012 di Phnom Penh akibat perbedaan pandangan antar negara anggota
+21
+22
+.
+	
+S13
+21
+22
+	
+Hlm. 1–2 / Section Main Text
+	
+Menjelaskan konteks hambatan kelembagaan ASEAN dalam menghasilkan posisi bersama terkait sengketa maritim.
+	
+Terbatas pada analisis peristiwa KTT ASEAN 2012.
+
+
+B11
+	
+Evolusi Negosiasi COC ASEAN-China
+	
+Studi mencatat bahwa negosiasi COC antara ASEAN dan China yang dimulai dari DOC 2002 dan Kerangka COC 2017 menghadapi tantangan mendasar terkait penentuan klausul yang mengikat secara hukum (legally binding) dan mekanisme penegakan
+11
+37
+.
+	
+S8
+11
+37
+	
+Hlm. 63 & 68 / Section Situating the Code of Conduct
+	
+Menjelaskan perjalanan negosiasi COC dan perbedaan posisi antara ASEAN/Filipina dengan China.
+	
+Terbatas pada perkembangan negosiasi COC hingga rentang waktu penelitian.
+4. PERBANDINGAN
+Perbandingan Kebijakan Luar Negeri Filipina (Era Duterte vs Era Marcos Jr.)
+Dapat Dibandingkan (Setara): Kedua periode dianalisis menggunakan kerangka kebijakan luar negeri negara yang sama dalam merespons agresivitas maritim China di Laut China Selatan.
+Hasil Perbandingan: Studi melaporkan bahwa pada era Duterte (2016–2022), Filipina mengadopsi pendekatan kooperatif/pragmatis dengan mengesampingkan sementara putusan PCA 2016 demi hubungan ekonomi, membentuk BCM 2017, dan mengusulkan joint venture di Reed Bank
+7
+8
+. Sebaliknya, pada era Marcos Jr. (2022–2025), Filipina mengadopsi perimbangan strategis (high alignment dengan sekutu pertahanan), secara tegas mencantumkan penegakan UNCLOS/Putusan PCA 2016 dalam NSP 2023–2028, memperluas pangkalan EDCA dengan AS, dan secara konsisten membawa insiden maritim ke forum multilateral ASEAN
+1
+more_horiz
+.
+Perbandingan Posisi Diplomasi Filipina vs Konsensus Kolektif ASEAN mengenai Legally Binding COC
+Dapat Dibandingkan (Setara): Kedua aspek membandingkan tingkat komitmen normatif terhadap pembentukan Code of Conduct (COC).
+Hasil Perbandingan: Filipina sebagai claimant state secara konsisten mengendorse pembentukan COC yang mengikat secara hukum (legally binding), transparan, serta patuh pada UNCLOS 1982 dan Arbitral Award 2016
+4
+17
+. Sebaliknya, posisi kolektif ASEAN terhambat oleh mekanisme konsensus; negara-negara non-klaiman tertentu (seperti Kamboja dan Laos) cenderung lebih mengakomodasi preferensi China yang menginginkan mekanisme konsultasi sukarela atau non-binding, sehingga konsensus ASEAN seringkali menghasilkan kompromi bahasa deklaratif yang lebih lunak
+38
+47
+.
+Perbandingan Perubahan Substansi Posisi Filipina dari Forum ke Forum Internal ASEAN
+Tidak dapat dibandingkan langsung: Penelusuran tekstual tingkat mikro mengenai perubahan posisi klausul per baris Filipina dari satu draf dokumen bersama ASEAN ke draf berikutnya (Drafting Text internal) belum terpisahkan secara rinci dalam literatur terbuka yang tersedia di notebook saat ini, karena draf negosiasi internal ASEAN-China sebagian besar bersifat tertutup.
+5. PENUTUP
+Paket bukti sementara disusun; keputusan penelitian belum ditetapkan. STOP.
