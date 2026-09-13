@@ -565,8 +565,20 @@ export const Bab1ToolContainer: React.FC = () => {
   const bedahInput4C = useMemo<ResearchBedahInput4C | null>(() => {
     if (!parsedFoundationV1) return null;
     if (petaSiapTulis.siap.length === 0) return null;
-    return { prodi, areaEksplorasi, foundation: parsedFoundationV1 };
-  }, [parsedFoundationV1, prodi, areaEksplorasi, petaSiapTulis]);
+    // Register Tool 3 dibaca langsung di sini (bukan lewat `sumberUntukDiperiksa`
+    // yang dideklarasikan di bawah) karena urutan deklarasi dalam komponen.
+    return {
+      prodi,
+      areaEksplorasi,
+      foundation: parsedFoundationV1,
+      registerSumber: extractSumberPaketLiteratur(literaturePackage).length > 0
+        ? extractSumberPaketLiteratur(literaturePackage)
+        : (parsedPayloadV2?.source_weights ?? []).map((sw) => {
+            const x = sw as unknown as Record<string, unknown>;
+            return { sourceId: String(x.source_id ?? ""), authorsYear: String(x.penulis_tahun ?? "") };
+          }),
+    };
+  }, [parsedFoundationV1, prodi, areaEksplorasi, petaSiapTulis, literaturePackage, parsedPayloadV2]);
 
   const generatedPrompt4C = useMemo(() => {
     if (!bedahInput4C) return "";
@@ -851,6 +863,8 @@ export const Bab1ToolContainer: React.FC = () => {
         url: x.url,
         doi: x.doi,
         documentType: x.documentType,
+        authorsYear: x.authorsYear,
+        publication: x.publication,
       }));
     }
     return (parsedPayloadV2?.source_weights ?? []).map((sw) => {

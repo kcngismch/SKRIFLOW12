@@ -1909,6 +1909,27 @@ export function periksaDrafBab1(
     if (el.claim_id) ledgerById.set(el.claim_id.replace(/[\[\]]/g, "").trim().toUpperCase(), el);
   });
 
+  // Kumpulan sitasi yang SAH: nama penulis-tahun dan ID sumber dari paket bukti.
+  // Dipakai untuk menandai sitasi yang tidak punya pasangan — kandidat karangan AI.
+  const sahSitasi = new Set<string>();
+  const sahIdSumber = new Set<string>();
+  (foundation.paragraph_claims || []).forEach((pc) => {
+    (pc.sourceIds || []).forEach((sid, i) => {
+      const bersih = (sid || "").replace(/[\[\]]/g, "").trim().toLowerCase();
+      if (bersih) sahIdSumber.add(bersih);
+      const ay = (pc.sourceReferences?.[i]?.authorsYear || "").trim();
+      if (ay && !ay.startsWith("[")) sahSitasi.add(`(${ay.toLowerCase().replace(/\s+/g, " ")})`);
+    });
+  });
+  if (sahSitasi.size === 0) {
+    (foundation.evidence_ledger || []).forEach((el) => {
+      (el.source_ids || (el.source_id ? [el.source_id] : [])).forEach((sid) => {
+        const bersih = (sid || "").replace(/[\[\]]/g, "").trim().toLowerCase();
+        if (bersih) sahIdSumber.add(bersih);
+      });
+    });
+  }
+
   const totalKata = (draft.background || []).reduce((acc, p) => acc + hitungKata(p.paragraph_text || ""), 0);
 
   if (totalKata < 1000 || totalKata > 1300) {
@@ -2031,6 +2052,31 @@ export function periksaDrafBab1(
         });
       }
     });
+
+    // Sitasi yang tidak punya pasangan di Catatan Bukti = kandidat karangan.
+    // Daftar nama sah dibangun dari paragraph_claims (pasangan sourceIds[i] ↔
+    // sourceReferences[i]) — satu-satunya tempat nama penulis tersimpan.
+    if (sahSitasi.size > 0) {
+      // `ambilSitasi` sengaja huruf-kecil untuk pembandingan; simpan bentuk aslinya
+      // supaya pesan ke mahasiswa menampilkan sitasi apa adanya.
+      const asli = new Map<string, string>();
+      (teks.match(/\([^()]{2,60}?\b(19|20)\d{2}[a-z]?\)/g) || []).forEach((x) =>
+        asli.set(x.toLowerCase().replace(/\s+/g, " ").trim(), x.trim())
+      );
+      ambilSitasi(teks).forEach((sit) => {
+        if (sahSitasi.has(sit)) return;
+        // "(S4, 2024)" dan "(Bukti 1)" adalah gaya sah berbasis ID sumber —
+        // ambil bagian sebelum koma lalu cocokkan ke daftar ID.
+        const inti = sit.replace(/^\(|\)$/g, "").split(",")[0].trim();
+        if (sahIdSumber.has(inti)) return;
+        push({
+          code: "CITATION_UNKNOWN_SOURCE",
+          severity: "MAJOR",
+          message: `${lokasi} memuat sitasi "${asli.get(sit) || sit}" yang tidak ada di paket bukti. Cocokkan ke daftar sumber sebelum draf dipakai.`,
+          location: lokasi,
+        });
+      });
+    }
 
     const pakaiSitasi = /\((?:[^)]*)(?:19|20)\d{2}[^)]*\)|\bSRC-\d+|\bBukti \d+/.test(teks);
     if (p.function === "URGENCY_AND_DIRECTION" && pakaiSitasi) {
@@ -2566,6 +2612,10 @@ export interface SumberPaketLiteratur {
   documentType: string;
   url?: string;
   doi?: string;
+  /** Kolom "Penulis & Tahun" apa adanya, mis. "Yue Chen & Kan Wang (2024)". */
+  authorsYear?: string;
+  /** Nama publikasi/penerbit, mis. "Politika: Jurnal Ilmu Politik (UNDIP)". */
+  publication?: string;
 }
 
 /**
@@ -2603,7 +2653,14 @@ export function extractSumberPaketLiteratur(rawText: string): SumberPaketLiterat
       break; // tabel sudah berakhir
     }
   }
-  if (tabel.length < 2) return [];
+  // Dua bentuk tabel yang nyata muncul di lapangan:
+  //   (a) pipe markdown  "| S3 | INTI | ... |"  — dipakai sebagian model
+  //   (b) sel per baris dengan pemisah TAB       — yang keluar dari salinan NotebookLM
+  // Bentuk (b) dulu jatuh ke `tabel.length < 2` lalu keluar [], sehingga daftar
+  // pustaka kehilangan SELURUH sumber dan .bib keluar tanpa penulis.
+  if (tabel.length < 2) {
+    return ekstrakRegisterTab(baris, mulai);
+  }
 
   const potong = (r: string) =>
     r
@@ -2617,7 +2674,9 @@ export function extractSumberPaketLiteratur(rawText: string): SumberPaketLiterat
 
   const iId = cariKolom(["id"]);
   const iJudul = cariKolom(["judul"]);
+  const iPenulis = cariKolom(["penulis"]);
   const iJenis = cariKolom(["jenis"]);
+  const iPublikasi = cariKolom(["publikasi", "penerbit"]);
   // Kolom DOI/tautan tidak selalu ada di tabel ini.
   const iDoi = cariKolom(["doi"]);
   const iTautan = cariKolom(["tautan", "url", "link", "sumber"]);
@@ -2638,10 +2697,96 @@ export function extractSumberPaketLiteratur(rawText: string): SumberPaketLiterat
     hasil.push({
       sourceId: id,
       title: judul,
+      authorsYear: iPenulis > -1 ? bersih(kol[iPenulis]) : undefined,
+      publication: iPublikasi > -1 ? bersih(kol[iPublikasi]) : undefined,
       documentType: iJenis > -1 ? bersih(kol[iJenis]) : "",
       doi: iDoi > -1 ? bersih(kol[iDoi]) : undefined,
       url: iTautan > -1 ? bersih(kol[iTautan]) : undefined,
     });
+  }
+  return hasil;
+}
+
+/**
+ * Bentuk tabel TAB (salinan NotebookLM): setiap sel duduk di barisnya sendiri.
+ *
+ *   ID
+ *   \t
+ *   Kategori
+ *   ...
+ *   S3
+ *   \t
+ *   INTI
+ *
+ * Cara baca: pisah seluruh blok dengan TAB, buang sel kosong, lalu ANGKER pada sel
+ * yang berbentuk ID sumber (`S3`, `S-3`, `SRC-01`). Sampah antarmuka NotebookLM
+ * ("2", "more_horiz", ".") otomatis terlewati karena tidak cocok pola ID.
+ */
+function ekstrakRegisterTab(baris: string[], mulai: number): SumberPaketLiteratur[] {
+  const sisa = baris.slice(mulai + 1).join("\n");
+
+  // WAJIB dibatasi ke blok register saja. Bagian berikutnya (mis. "3. MATRIKS BUKTI")
+  // memuat ID sumber lagi di kolomnya, dan tanpa batas ini entri matriks ikut terbaca
+  // sebagai sumber palsu (judul berisi nomor halaman, penulis berisi teks lokasi).
+  const batas = sisa.search(/(^|\n)[ \t]*(?:\d{1,2}[.)][ \t]*[A-Z][A-Za-z ]{3,}|[A-F][.)][ \t]*[A-Z][A-Za-z ]{3,})/);
+  const blok = batas > 0 ? sisa.slice(0, batas) : sisa;
+
+  // Setiap sel duduk di barisnya sendiri, dipisah TAB. Pisah pada TAB **dan** baris
+  // baru sekaligus: ID sumber menempel di ekor sel sebelumnya ("Bukti Keterbacaan\n\n\nS3"),
+  // jadi memisah pada TAB saja akan menggabungkan ID ke sel terakhir header.
+  const sel = blok
+    .split(/[\t\n]+/)
+    .map((s) => s.replace(/\s+/g, " ").trim())
+    .filter(Boolean);
+
+  const POLA_ID = /^(?:S|SRC|SUMBER|BUKTI)[-_ ]?\d+$/i;
+
+  // Baris data pertama menandai akhir header — jumlah kolom tabel = indeks itu.
+  // (Menghitung dari N sel pertama salah: potongan itu sudah memuat data.)
+  const awalData = sel.findIndex((s) => POLA_ID.test(s));
+  if (awalData <= 0) return [];
+  const jumlahKolom = awalData;
+
+  const header = sel.slice(0, jumlahKolom);
+  // Prioritas per-KATA-KUNCI, bukan per-kolom: "Jenis Publikasi" juga memuat kata
+  // "publikasi", jadi pencarian yang menelusuri kolom lebih dulu akan salah ambil.
+  const cariKolom = (kata: string[]) => {
+    for (const k of kata) {
+      const i = header.findIndex((h) => h.toLowerCase().includes(k));
+      if (i > -1) return i;
+    }
+    return -1;
+  };
+
+  const iJudul = cariKolom(["judul"]);
+  const iPenulis = cariKolom(["penulis"]);
+  const iJenis = cariKolom(["jenis"]);
+  const iPublikasi = cariKolom(["nama publikasi", "penerbit", "publikasi"]);
+  const iTautan = cariKolom(["tautan", "doi"]);
+
+  // Tanpa kolom judul posisinya tidak bisa dipastikan — lebih baik tidak menebak.
+  if (iJudul === -1) return [];
+
+  const hasil: SumberPaketLiteratur[] = [];
+  // Telusuri token satu per satu, bukan berstride: salinan NotebookLM menyelipkan
+  // sampah antarmuka ("2", "more_horiz", ".") di antara baris sumber.
+  for (let i = awalData; i < sel.length; i++) {
+    if (!POLA_ID.test(sel[i])) continue;
+    const kol = sel.slice(i, i + jumlahKolom);
+    if (kol.length < jumlahKolom) break;
+    const id = kol[0].replace(/[\[\]]/g, "").trim();
+    const judul = (kol[iJudul] || "").replace(/[\[\]]/g, "").trim();
+    if (!id || !judul) continue;
+    hasil.push({
+      sourceId: id,
+      title: judul,
+      authorsYear: iPenulis > -1 ? kol[iPenulis] : undefined,
+      publication: iPublikasi > -1 ? kol[iPublikasi] : undefined,
+      documentType: iJenis > -1 ? kol[iJenis] : "",
+      doi: iTautan > -1 && /doi\.org|^10\./i.test(kol[iTautan] || "") ? kol[iTautan] : undefined,
+      url: iTautan > -1 && /^https?:\/\//i.test(kol[iTautan] || "") ? kol[iTautan] : undefined,
+    });
+    i += jumlahKolom - 1; // lompat ke akhir baris ini
   }
   return hasil;
 }

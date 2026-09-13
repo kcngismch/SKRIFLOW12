@@ -310,6 +310,8 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
         url: x.url,
         doi: x.doi,
         documentType: x.documentType,
+        authorsYear: x.authorsYear,
+        publication: x.publication,
       }));
     }
     return (parsedPayloadV2?.source_weights ?? []).map((sw) => {

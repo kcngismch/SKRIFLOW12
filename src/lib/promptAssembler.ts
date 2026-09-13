@@ -2817,6 +2817,11 @@ export interface ResearchBedahInput4C {
   foundation: import("@/types/tool").Bab1FoundationV1;
   /** Petunjuk gaya bahasa dari mahasiswa (opsional). */
   styleNote?: string;
+  /**
+   * Register sumber dari Tool 3 (kolom "Penulis & Tahun"). Dipakai sebagai cadangan
+   * saat fondasi 4B hanya menyebut sebagian sumber sehingga nama penulisnya hilang.
+   */
+  registerSumber?: { sourceId: string; authorsYear?: string }[];
 }
 
 export interface ResearchBedahInput4D {
@@ -2959,16 +2964,78 @@ function hitungKataPrompt(teks: string): number {
  * Prompt ini TIDAK menambah klaim baru; ia hanya menyusun ulang klaim yang
  * sudah lolos Catatan Bukti 4B menjadi kalimat siap tempel.
  */
+
+/**
+ * Peta `source_id` → label sitasi penulis-tahun, dibangun dari `paragraph_claims`.
+ *
+ * Data ini SUDAH ada di fondasi 4B (`sourceIds[i]` berpasangan dengan
+ * `sourceReferences[i]`), tetapi jalur 4C lama hanya membaca `source_ids` sehingga
+ * nama penulis hilang dan AI cuma bisa menulis ID sumber. Placeholder bertanda
+ * kurung siku (`[Judul ... tidak disediakan]`) DILEWATI — itu bukan nama penulis.
+ */
+export function bangunPetaSitasi(
+  foundation: { paragraph_claims?: import("@/types/tool").ParagraphClaim[] },
+  /** Register Tool 3 — sumber cadangan untuk sumber yang belum punya nama di fondasi. */
+  registerTool3?: { sourceId: string; authorsYear?: string }[]
+): Map<string, string> {
+  const peta = new Map<string, string>();
+  for (const pc of foundation.paragraph_claims || []) {
+    const ids = pc.sourceIds || [];
+    const refs = pc.sourceReferences || [];
+    ids.forEach((sid, i) => {
+      const authorsYear = (refs[i]?.authorsYear || "").trim();
+      if (!authorsYear || authorsYear.startsWith("[")) return;
+      const kunci = (sid || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      if (kunci && !peta.has(kunci)) peta.set(kunci, authorsYear);
+    });
+  }
+  // Cadangan: register Tool 3 memuat penulis untuk semua sumber yang ditemukan,
+  // sedangkan fondasi 4B kadang hanya menyebut sebagian (sisanya tinggal ID mentah).
+  for (const s of registerTool3 || []) {
+    const kunci = (s.sourceId || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+    const authorsYear = rapikanSitasi(s.authorsYear);
+    if (!kunci || !authorsYear) continue;
+    if (!peta.has(kunci)) peta.set(kunci, authorsYear);
+  }
+  return peta;
+}
+
+/**
+ * Seragamkan bentuk sitasi jadi "Nama, Tahun".
+ *
+ * Register Tool 3 menulis "Yue Chen & Kan Wang (2024)" sedangkan fondasi 4B menulis
+ * "Desy Nur Shafitri et al., 2024". Keduanya perlu jadi satu bentuk supaya tidak
+ * lahir kurung bersarang `((2024))` saat dibungkus di prompt.
+ */
+function rapikanSitasi(nilai?: string): string {
+  const t = (nilai || "").trim();
+  if (!t || t.startsWith("[")) return "";
+  const m = t.match(/^(.*?)[\s,]*\((\d{4}[a-z]?)\)\s*$/i);
+  if (m) return `${m[1].replace(/[,\s]+$/, "")}, ${m[2]}`;
+  return t;
+}
+
+/** Ubah daftar source_id jadi label sitasi bila namanya diketahui; sisanya tetap ID. */
+function labelSitasi(ids: string[], peta: Map<string, string>): string {
+  return ids
+    .map((id) => {
+      const nama = peta.get((id || "").replace(/[\[\]]/g, "").trim().toUpperCase());
+      return nama ? `(${nama})` : id;
+    })
+    .join("; ");
+}
+
 export function assembleBedahPrompt4C(input: ResearchBedahInput4C): string {
   const f = input.foundation;
   const prodi = (input.prodi || "").trim() || "Belum diketahui";
   const area = (input.areaEksplorasi || "").trim() || "Belum diketahui";
   const targetTotal = f.target_words_total || 1150;
+  const petaSitasi = bangunPetaSitasi(f, input.registerSumber);
 
   const peta = (f.background_map || [])
     .map((p) => {
       const aman = (p.safe_claims || [])
-        .map((c) => `    * [${c.claim_type || "SAFE"}] ${c.claim_id}: ${c.statement}${c.source_ids?.length ? ` (Sumber: ${c.source_ids.join(", ")})` : ""}`)
+        .map((c) => `    * [${c.claim_type || "SAFE"}] ${c.claim_id}: ${c.statement}${c.source_ids?.length ? ` | Rujukan: ${labelSitasi(c.source_ids, petaSitasi)}` : ""}`)
         .join("\n");
       const larangan = (p.prohibited_claims || []).map((c) => `    * ${c}`).join("\n");
       return [
@@ -2988,7 +3055,7 @@ export function assembleBedahPrompt4C(input: ResearchBedahInput4C): string {
   const ledger = (f.evidence_ledger || [])
     .map(
       (e) =>
-        `- [${e.claim_id}] (${e.support_status || "READY_TO_DRAFT"}) ${e.claim}\n    Fungsi di Bab 1: ${e.bab1_function || "-"}\n    Batas pakai: ${e.usage_limit || "-"}\n    Sumber: ${(e.source_ids || (e.source_id ? [e.source_id] : [])).join(", ") || "-"}`
+        `- [${e.claim_id}] (${e.support_status || "READY_TO_DRAFT"}) ${e.claim}\n    Fungsi di Bab 1: ${e.bab1_function || "-"}\n    Batas pakai: ${e.usage_limit || "-"}\n    Sumber: ${labelSitasi(e.source_ids || (e.source_id ? [e.source_id] : []), petaSitasi) || "-"}`
     )
     .join("\n");
 
@@ -3053,6 +3120,7 @@ ${belumFinal}
 6. Hubungan sebab-akibat HANYA boleh ditulis kalau klaimnya memang bertipe kausal di Catatan Bukti. Desain penelitian ini dokumenter/deskriptif, jadi kata seperti "menyebabkan", "mengakibatkan", atau "berpengaruh signifikan terhadap" dilarang kecuali untuk menyanggahnya secara eksplisit.
 7. Jangan menulis frasa gap sintetis seperti "belum ada penelitian tentang..." atau "belum pernah diteliti di...". Itu klaim yang dilarang.
 8. Kutip sumber dengan gaya penulis-tahun dalam tanda kurung, memakai nama yang ADA di Catatan Bukti. Kalau nama penulis tidak tersedia, jangan mengarang — pakai ID sumbernya.
+8b. Nama penulis-tahun di Catatan Bukti sudah diverifikasi berasal dari paket bukti mahasiswa. SALIN APA ADANYA — jangan mengubah urutan nama, jangan menerjemahkan, jangan menambah gelar, dan jangan menyusun sendiri tahun terbitnya.
 9. Satu paragraf = satu fungsi. Jangan menggabung dua fungsi peta ke dalam satu paragraf.
 10. Paragraf terakhir (URGENCY_AND_DIRECTION) adalah keputusan mahasiswa. Tulis sebagai kalimat keputusan/arah, tanpa sitasi, dan jangan menyamar sebagai temuan jurnal.
 11. Bahasa Indonesia akademik yang mengalir dan hemat, bukan daftar poin. Hindari kalimat pembuka klise seperti "Pada era globalisasi saat ini".

@@ -62,10 +62,13 @@ export interface EntriSitasi {
 
 /** Kunci BibTeX aman: huruf/angka saja, unik per entri. */
 export function kunciBibtex(e: EntriSitasi, i: number): string {
+  // NFD lalu buang tanda diakritik supaya "Péter" jadi "Peter", bukan "Pter".
   const dasar = (e.author || e.title || e.sourceId || "sumber")
-    .split(/[,;\s]+/)[0]
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .split(/[,;&\s]+/)[0]
     .replace(/[^A-Za-z0-9]/g, "");
-  return `${dasar || "sumber"}${e.year || ""}${i}`;
+  return `${dasar || "sumber"}${(e.year || "").replace(/\D/g, "") || ""}${i}`;
 }
 
 /**

@@ -17,6 +17,10 @@ export interface SumberUntukDiperiksa {
   url?: string;
   doi?: string;
   documentType?: string;
+  /** Kolom "Penulis & Tahun" dari register Tool 3, mis. "Yue Chen & Kan Wang (2024)". */
+  authorsYear?: string;
+  /** Nama publikasi/penerbit, mis. "Politika: Jurnal Ilmu Politik (UNDIP)". */
+  publication?: string;
 }
 
 export interface HasilVerifikasiSumber {
@@ -207,6 +211,10 @@ export function TombolUnduhBibtex({
         doi: s.doi || v?.doiDitemukan,
         year: v?.tahunDitemukan,
         url: s.url,
+        // Nama penulis dari register Tool 3 — tanpa ini Mendeley menerima entri
+        // berpenulis kosong walau datanya sudah ada sejak tahap pencarian literatur.
+        author: s.authorsYear,
+        journal: s.publication,
       };
     });
     const blob = new Blob([keBibtex(entri)], { type: "application/x-bibtex;charset=utf-8" });

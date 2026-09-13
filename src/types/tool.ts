@@ -1535,6 +1535,7 @@ export interface DraftCheckFinding {
     | "CAUSAL_CLAIM_FROM_CORRELATION"
     | "CITATION_ON_RESEARCHER_DECISION"
     | "SYNTHETIC_GAP_PHRASE"
+    | "CITATION_UNKNOWN_SOURCE"
     | "LEDGER_CLAIM_UNUSED";
   severity: "CRITICAL" | "MAJOR" | "MINOR";
   message: string;
