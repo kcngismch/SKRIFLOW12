@@ -81,14 +81,31 @@ export function periksaTempelan(
   // Daftar nama-tahun yang sah. Register menulis "Nama (2023)"; draf menyitasi
   // "(Nama, 2023)". Bentuknya diseragamkan dulu supaya tidak jadi alarm palsu.
   const sah = new Set<string>();
-  const sahKata = new Set<string>();
+  /**
+   * Nama keluarga -> tahun-tahun yang sah untuk nama itu.
+   *
+   * Sebelumnya hanya kata PERTAMA tiap sumber yang dicatat, sehingga menyitasi
+   * penulis kedua ("Ramadani" dari "Shintia Ramadani & Sofia Trisni") selalu
+   * ditandai sumber asing — padahal sumbernya ada di daftar. Sekarang seluruh
+   * kata nama dicatat, dan kecocokannya tetap mengikat tahun supaya "Sofia
+   * (2019)" tidak cocok dengan sumber Sofia yang lain.
+   */
+  const sahKata = new Map<string, Set<string>>();
   register.forEach((s) => {
     const ay = (s.authorsYear || "").replace(/\s*\((\d{4}[a-z]?)\)\s*$/, ", $1").trim();
     if (!ay) return;
-    sah.add(normalkan(ay));
-    // nama keluarga pertama saja, untuk mencocokkan sitasi yang disingkat
-    const kata = normalkan(ay).replace(/\b\d{4}[a-z]?\b/g, "").trim().split(" ").filter((k) => k.length > 3);
-    if (kata[0]) sahKata.add(kata[0]);
+    const n = normalkan(ay);
+    sah.add(n);
+    const tahun = (n.match(/\b(\d{4}[a-z]?)\b/) || [])[1];
+    const kata = n
+      .replace(/\b\d{4}[a-z]?\b/g, "")
+      .trim()
+      .split(" ")
+      .filter((k) => k.length > 3 && k !== "&");
+    kata.forEach((k) => {
+      if (!sahKata.has(k)) sahKata.set(k, new Set());
+      if (tahun) sahKata.get(k)!.add(tahun);
+    });
   });
 
   const paragraf = pecahTeksTempel(teks);
@@ -180,7 +197,7 @@ export function periksaTempelan(
   };
 }
 
-function cocok(sitasi: string, sah: Set<string>, sahKata: Set<string>): boolean {
+function cocok(sitasi: string, sah: Set<string>, sahKata: Map<string, Set<string>>): boolean {
   const dalam = normalkan(sitasi.replace(/[()]/g, ""));
   if (!dalam) return false;
   for (const s of sah) {
@@ -190,12 +207,9 @@ function cocok(sitasi: string, sah: Set<string>, sahKata: Set<string>): boolean 
   const tahun = dalam.match(/\b(\d{4}[a-z]?)\b/);
   if (tahun) {
     const namaKalimat = dalam.replace(/\b\d{4}[a-z]?\b/g, "").trim();
-    for (const k of sahKata) {
-      if (namaKalimat.includes(k)) {
-        for (const s of sah) {
-          if (s.includes(tahun[1]) && s.includes(k)) return true;
-        }
-      }
+    // Cukup satu kata nama yang cocok, asal tahunnya memang milik sumber itu.
+    for (const [kata, tahunSah] of sahKata) {
+      if (namaKalimat.includes(kata) && tahunSah.has(tahun[1])) return true;
     }
   }
   return false;

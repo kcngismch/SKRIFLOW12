@@ -24,6 +24,11 @@ const PHENOMENON_APPLIED_HANDOFF_FP_KEY = "skriflow_phenomenon_applied_handoff_f
 const PHENOMENON_SELECTED_KEY = "skriflow_selected_phenomenon";
 const PHENOMENON_DRAFT_KEY = "skriflow_phenomenon_paste_draft";
 const SHARED_CONTEXT_KEY = "skriflow_shared_research_context";
+// Bahan yang ditempel mahasiswa sendiri. Dulu isinya hanya hidup di state
+// React, jadi tombol "Pakai bahan ini" di Bab 2 tampak bekerja padahal tidak
+// menyimpan apa pun.
+const BAB1_TEMPELAN_KEY = "skriflow_bab1_tempelan";
+const BAB2_TEMPELAN_KEY = "skriflow_bab2_tempelan";
 
 // In-memory fallback store for Node.js test environment or restricted localStorage
 const memoryStorage: Record<string, string> = {};
@@ -46,7 +51,11 @@ function setStorageItem(key: string, value: string): void {
       window.dispatchEvent(new Event("skriflow_storage_update"));
       return;
     } catch {
-      // Fallback to memoryStorage if localStorage throws quota error
+      // Penyimpanan penuh. Nilai tetap dipegang di memori supaya halaman yang
+      // sedang dibuka tidak kehilangan isian, TAPI mahasiswa wajib diberi tahu:
+      // perubahan ini tidak akan bertahan setelah refresh. Sebelumnya kegagalan
+      // ini senyap total — data hilang tanpa satu pun peringatan.
+      window.dispatchEvent(new Event("skriflow_storage_gagal"));
     }
   }
   memoryStorage[key] = value;
@@ -1537,8 +1546,37 @@ export function clearPhenomenonTurunan(): void {
 }
 
 /** Bersihkan seluruh state Tool 6 (dipakai tombol reset). */
+/** Simpan bahan Bab 1 yang ditempel mahasiswa sendiri (draf/kerangka lama). */
+export function saveBab1Tempelan(teks: string): void {
+  setStorageItem(BAB1_TEMPELAN_KEY, teks);
+}
+export function loadBab1Tempelan(): string {
+  return getStorageItem(BAB1_TEMPELAN_KEY) || "";
+}
+export function clearBab1Tempelan(): void {
+  removeStorageItem(BAB1_TEMPELAN_KEY);
+}
+
+/** Simpan bahan Bab 2 yang ditempel mahasiswa sendiri. */
+export function saveBab2Tempelan(teks: string): void {
+  setStorageItem(BAB2_TEMPELAN_KEY, teks);
+}
+export function loadBab2Tempelan(): string {
+  return getStorageItem(BAB2_TEMPELAN_KEY) || "";
+}
+export function clearBab2Tempelan(): void {
+  removeStorageItem(BAB2_TEMPELAN_KEY);
+}
+
 export function clearSemuaBab2(): void {
-  [BAB2_MAP_KEY, BAB2_FOUNDATION_RAW_KEY, BAB2_FOUNDATION_KEY, BAB2_DRAFT_RAW_KEY, BAB2_DRAFT_KEY, BAB2_POLISH_RAW_KEY, BAB2_POLISH_KEY].forEach(
-    removeStorageItem
-  );
+  [
+    BAB2_MAP_KEY,
+    BAB2_FOUNDATION_RAW_KEY,
+    BAB2_FOUNDATION_KEY,
+    BAB2_DRAFT_RAW_KEY,
+    BAB2_DRAFT_KEY,
+    BAB2_POLISH_RAW_KEY,
+    BAB2_POLISH_KEY,
+    BAB2_TEMPELAN_KEY,
+  ].forEach(removeStorageItem);
 }

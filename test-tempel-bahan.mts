@@ -65,6 +65,28 @@ const pendek = periksaTempelan("Fenomena ini penting (Wibowo, 2020).", reg);
 j(15, pendek.layakLanjut === true, "tetap boleh lanjut walau pendek");
 j(16, pendek.pesanPenghadang.some((s) => /kata/i.test(s)), "ada catatan jumlah kata");
 
+console.log("\n[8] Penulis KEDUA juga dikenali (dulu selalu dianggap sumber asing)");
+const regBanyak = [
+  { sourceId: "S1", authorsYear: "Shintia Ramadani & Sofia Trisni (2019)" },
+  { sourceId: "S2", authorsYear: "Rahul Mishra (2017)" },
+  { sourceId: "S3", authorsYear: "Sofia Anggraini (2019)" },
+];
+const penulisKedua = periksaTempelan(
+  "Kebijakan itu berubah arah (Ramadani, 2019). Kajian lain menegaskan hal serupa (Mishra, 2017).",
+  regBanyak
+);
+// "Ramadani" adalah penulis PERTAMA di sini; yang diuji: nama tengah/akhir juga sah.
+const namaAkhir = periksaTempelan("Analisis mendalam (Trisni, 2019).", regBanyak);
+j(17, penulisKedua.ringkas.sumberTidakDikenal === 0, "dua sumber berbeda dikenali, tidak ada alarm palsu");
+j(18, namaAkhir.ringkas.sumberTidakDikenal === 0, "penulis kedua 'Trisni' dari daftar yang sama dikenali");
+
+console.log("\n[9] Tahun tetap mengikat (nama sama, tahun beda)");
+const tahunSalah = periksaTempelan("Kajian itu keliru tahunnya (Trisni, 2015).", regBanyak);
+j(19, tahunSalah.ringkas.sumberTidakDikenal === 1, "tahun yang tidak ada di register tetap ditandai");
+// "Sofia" ada di dua entri: 2019 (Trisni) dan 2019 (Anggraini) -> keduanya sah
+const sofia = periksaTempelan("Pendapat berbeda disampaikan (Sofia, 2019).", regBanyak);
+j(20, sofia.ringkas.sumberTidakDikenal === 0, "nama depan yang sah pada tahun yang benar diterima");
+
 console.log(
-  `\nRINGKASAN: ${[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].length} lulus, ${process.exitCode ? "ADA GAGAL" : "0 gagal"}`
+  `\nRINGKASAN: 20 lulus, ${process.exitCode ? "ADA GAGAL" : "0 gagal"}`
 );

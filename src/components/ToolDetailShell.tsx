@@ -10,6 +10,7 @@ import { Bab1ToolContainer } from "./generator/Bab1ToolContainer";
 import { Bab2ToolContainer } from "./generator/Bab2ToolContainer";
 import { AccessGate } from "./generator/AccessGate";
 import { LaporHasilPanel } from "./generator/LaporHasilPanel";
+import { PeringatanSimpanGagal } from "./generator/PeringatanSimpanGagal";
 
 /**
  * Paywall DITUNDA. Semua tool terbuka supaya orang bisa merasakan satu putaran
@@ -103,6 +104,9 @@ export const ToolDetailShell: React.FC<ToolDetailShellProps> = ({ tool }) => {
           </div>
         </div>
       </div>
+
+      {/* Peringatan penyimpanan penuh berlaku untuk SEMUA tool, bukan per tool. */}
+      <PeringatanSimpanGagal />
 
       {/* Active Container */}
       {(() => {

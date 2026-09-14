@@ -62,6 +62,8 @@ import {
   loadBab1PolishV1,
   clearBab1PolishV1,
   loadToolData,
+  loadBab1Tempelan,
+  saveBab1Tempelan,
 } from "@/lib/storage";
 import {
   validateLiteratureEvidencePackage,
@@ -585,8 +587,16 @@ export const Bab1ToolContainer: React.FC = () => {
     });
   }, [literaturePackage, parsedPayloadV2]);
 
+  // Bahan tempelan disimpan supaya tidak hilang saat refresh; sebelumnya hanya
+  // hidup di state React sehingga tertelan begitu halaman dimuat ulang.
+  useEffect(() => {
+    const tersimpan = loadBab1Tempelan();
+    if (tersimpan) setTempelanBab1(tersimpan);
+  }, []);
+
   const handleTerimaTempelanBab1 = (teks: string) => {
     setTempelanBab1(teks);
+    saveBab1Tempelan(teks);
     setToastMessage(
       "Bahanmu diterima dan sudah diperiksa sitasinya. Sisa paragraf bisa kamu tulis setelah ini."
     );
@@ -856,6 +866,43 @@ export const Bab1ToolContainer: React.FC = () => {
     // Jangan cabut URL tepat setelah klik: Chromium kadang belum selesai membaca
     // blob-nya, sehingga unduhan menggantung sebagai `.crdownload` dan berkas
     // tidak pernah muncul. Beri jeda sebelum dibersihkan.
+    setTimeout(() => URL.revokeObjectURL(url), 60_000);
+  };
+
+  /**
+   * Unduh bahan Bab 1 milik mahasiswa sendiri sebagai .rtf.
+   *
+   * Jalur tempelan tidak lewat 4C/4D, jadi `handleUnduhBab1Rtf` tidak bisa
+   * dipakai (butuh hasil poles). Tulisan mahasiswa diekspor apa adanya —
+   * Skriflow tidak mengubah satu kata pun.
+   */
+  const handleUnduhTempelanBab1 = () => {
+    if (!tempelanBab1.trim()) return;
+    const paragraf = tempelanBab1
+      .split(/\n\s*\n+/)
+      .map((p) => p.replace(/\s*\n\s*/g, " ").trim())
+      .filter(Boolean);
+
+    const blok: BlokRtf[] = [{ teks: "BAB I — PENDAHULUAN", gaya: "judul" }, { teks: "" }];
+    blok.push({ teks: "Latar Belakang", gaya: "subjudul" });
+    paragraf.forEach((p) => blok.push({ teks: p }));
+    blok.push({ teks: "" });
+    blok.push({ teks: "Catatan Penggunaan AI", gaya: "subjudul" });
+    blok.push({
+      teks:
+        "Latar belakang ini ditulis sendiri oleh penulis dan hanya diperiksa sitasinya dengan bantuan " +
+        "Skriflow (kerangka proses ilmiah). Tidak ada bagian yang ditulis ulang oleh AI. Cantumkan " +
+        "keterangan ini sesuai ketentuan kampus soal penggunaan AI.",
+    });
+
+    const blob = new Blob([keRtf(blok)], { type: "application/rtf;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = namaFileAman("Bab-1-bahan-sendiri", "rtf");
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
     setTimeout(() => URL.revokeObjectURL(url), 60_000);
   };
 
@@ -2499,6 +2546,22 @@ export const Bab1ToolContainer: React.FC = () => {
                     sudahAdaBahan={!!tempelanBab1}
                   />
                 </div>
+
+                {tempelanBab1 && (
+                  <div className="mb-3 flex flex-wrap items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={handleUnduhTempelanBab1}
+                      className="inline-flex items-center gap-2 rounded-xl border border-[#FFB84D] bg-[#FFB84D]/10 px-4 py-2.5 text-xs font-semibold text-[#FBFAFF] transition hover:bg-[#FFB84D]/20"
+                    >
+                      <FileDown className="h-3.5 w-3.5" />
+                      <span>Unduh bahan saya (.rtf)</span>
+                    </button>
+                    <span className="text-[12px] text-[#A79FC4]">
+                      Tulisanmu diekspor apa adanya — tidak ada yang ditulis ulang.
+                    </span>
+                  </div>
+                )}
 
                 {/* PILIHAN JALUR: kerangka saja, atau kerangka + draf berbantuan AI */}
                 <div className="grid gap-3 sm:grid-cols-2">

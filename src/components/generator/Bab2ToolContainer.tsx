@@ -61,6 +61,7 @@ import {
   type Bab2PromptInput,
 } from "@/lib/bab2Prompts";
 import { eksporBab2Rtf } from "@/lib/bab2Ekspor";
+import { susunDrafBab2DariTempelan } from "@/lib/bab2Tempelan";
 import {
   clearSemuaBab2,
   loadBab1DraftV1,
@@ -73,6 +74,7 @@ import {
   loadBab2Pendekatan,
   loadBab2Polish,
   loadBab2PolishRaw,
+  loadBab2Tempelan,
   loadBedahDirectionV2,
   loadBedahDraft,
   loadSelectedDirectionId,
@@ -85,6 +87,7 @@ import {
   saveBab2Pendekatan,
   saveBab2Polish,
   saveBab2PolishRaw,
+  saveBab2Tempelan,
 } from "@/lib/storage";
 import { copyToClipboard } from "@/lib/clipboard";
 import type { Bab2Finding, Bab2Pendekatan } from "@/types/bab2";
@@ -191,6 +194,8 @@ export const Bab2ToolContainer: React.FC = () => {
   const [teks6A, setTeks6A] = useState("");
   const [teks6B, setTeks6B] = useState("");
   const [teks6C, setTeks6C] = useState("");
+  /** Bahan Bab 2 milik mahasiswa sendiri (jalur cepat untuk yang sudah menulis). */
+  const [tempelanBab2, setTempelanBab2] = useState<string>("");
   const [galat, setGalat] = useState<string | null>(null);
   const [pesan, setPesan] = useState<string[]>([]);
   const [sedangVerifikasi, setSedangVerifikasi] = useState(false);
@@ -202,6 +207,8 @@ export const Bab2ToolContainer: React.FC = () => {
   const [arahTerpilih, setArahTerpilih] = useState<{ nama: string }>({ nama: "" });
   const [prodi, setProdi] = useState("");
   const [areaEksplorasi, setAreaEksplorasi] = useState("");
+  /** Data mentah Tool 3 — dipakai sebagai cadangan register sumber. */
+  const [dataTool3, setDataTool3] = useState<Record<string, string> | null>(null);
 
   const [fondasiBab2, setFondasiBab2] = useState(loadBab2Foundation());
   const [drafBab2, setDrafBab2] = useState(loadBab2Draft());
@@ -234,6 +241,7 @@ export const Bab2ToolContainer: React.FC = () => {
     setPaketLiteratur(paket);
     setFondasiBab1Teks(fondasi1 ? JSON.stringify(fondasi1) : "");
     setTeks6A(loadBab2FoundationRaw());
+    setTempelanBab2(loadBab2Tempelan());
     setTeks6B(loadBab2DraftRaw());
     setTeks6C(loadBab2PolishRaw());
     if (pendekatanTersimpan) setPendekatan(pendekatanTersimpan as Bab2Pendekatan);
@@ -241,6 +249,7 @@ export const Bab2ToolContainer: React.FC = () => {
     // Prodi & area: sama seperti Tool 5 — konteks riset bersama, fallback Tool 3.
     setProdi(shared?.prodi || t3Data?.prodi || "");
     setAreaEksplorasi(shared?.selectedArea || shared?.area_eksplorasi || t3Data?.area_eksplorasi || "");
+    setDataTool3((t3Data as Record<string, string> | null) ?? null);
 
     if (dir) {
       const dipilih = (dir.directions || []).find((d) => d.id === idTerpilih) || dir.directions?.[0];
@@ -259,7 +268,17 @@ export const Bab2ToolContainer: React.FC = () => {
     setSiap(true);
   }, []);
 
-  const register = useMemo(() => extractSumberPaketLiteratur(paketLiteratur), [paketLiteratur]);
+  /**
+   * Daftar sumber untuk memeriksa sitasi. Kalau paket Tool 4 belum ada, jatuh ke
+   * daftar Tool 3 — sama seperti Tool 5. Tanpa ini, mahasiswa yang sudah mengisi
+   * Tool 3 tapi belum lewat Tool 4 tidak pernah bisa memakai jalur tempelan:
+   * pemeriksa sitasi melihat register kosong dan tombolnya selalu mati.
+   */
+  const register = useMemo(() => {
+    const dariPaket = extractSumberPaketLiteratur(paketLiteratur);
+    if (dariPaket.length > 0) return dariPaket;
+    return extractSumberPaketLiteratur(dataTool3?.literaturePackage || "");
+  }, [paketLiteratur, dataTool3]);
   const fondasi4B = useMemo(() => {
     if (!fondasiBab1Teks) return null;
     try {
@@ -422,8 +441,36 @@ export const Bab2ToolContainer: React.FC = () => {
     setTimeout(() => URL.revokeObjectURL(url), 60_000);
   }, [polesBab2, drafBab2, prodi, fondasiBab2]);
 
+  /**
+   * Terima bahan Bab 2 milik mahasiswa. Sebelumnya tombol ini memanggil fungsi
+   * kosong: labelnya berubah jadi "Bahan Diterima" tetapi tidak ada yang
+   * tersimpan maupun dipakai. Sekarang bahan disimpan, diperiksa, lalu disusun
+   * jadi draf berstruktur supaya bisa diekspor dan lanjut ke Tahap 14.
+   */
+  const terimaTempelanBab2 = (teks: string) => {
+    saveBab2Tempelan(teks);
+    setTempelanBab2(teks);
+
+    const draf = susunDrafBab2DariTempelan(
+      teks,
+      register.map((s) => ({ sourceId: s.sourceId, authorsYear: String(s.authorsYear ?? "") })),
+      { fondasiBab1Ada: !!fondasiBab1Teks }
+    );
+    if (!draf) {
+      setGalat("Bahan yang ditempel belum bisa dibaca. Pisahkan antar paragraf dengan satu baris kosong.");
+      return;
+    }
+    saveBab2Draft(draf);
+    setDrafBab2(draf);
+    setGalat(null);
+    setPesan([
+      `${draf.background.length} paragraf dari tulisanmu tersimpan sebagai draf Bab 2. Isinya tidak diubah sama sekali.`,
+    ]);
+  };
+
   const reset = () => {
     clearSemuaBab2();
+    setTempelanBab2("");
     setFondasiBab2(null);
     setDrafBab2(null);
     setPolesBab2(null);
@@ -456,6 +503,14 @@ export const Bab2ToolContainer: React.FC = () => {
     foundation_status: fondasiBab2?.foundation_status,
     pendekatan,
   });
+
+  /**
+   * Apakah blok hasil Tahap 13 (6B) tampil? Blok itu baru muncul setelah fondasi
+   * 6A diproses DAN dikonfirmasi. Dipakai untuk memutuskan apakah hasil jalur
+   * tempelan perlu punya kartu sendiri — supaya bahan mahasiswa tidak tersimpan
+   * tanpa terlihat.
+   */
+  const blok6BTampil = !!fondasiBab2 && konfirmasiFondasi && gerbang13.status !== "BLOKIR";
 
   return (
     <div className="mt-8 space-y-6">
@@ -638,8 +693,8 @@ export const Bab2ToolContainer: React.FC = () => {
                 authorsYear: String(s.authorsYear ?? ""),
               }))}
               namaBahan="Bab 2 (tinjauan pustaka)"
-              onTerima={() => {}}
-              sudahAdaBahan={false}
+              onTerima={terimaTempelanBab2}
+              sudahAdaBahan={!!tempelanBab2}
             />
           </div>
         ) : gerbangSumber || gerbangPendekatan ? (
@@ -743,6 +798,94 @@ export const Bab2ToolContainer: React.FC = () => {
           </>
         )}
       </Kartu>
+
+      {/* Jalur cepat: mahasiswa yang sudah menulis Bab 2 sendiri. Sebelum ini
+          satu-satunya pintu masuk ada di dalam cabang "Tool 5 belum lengkap" —
+          jadi yang sudah menulis tetap tidak punya jalan. */}
+      {!tempelanBab2 && !bab1Terblokir && (
+        <Kartu>
+          <div className="flex items-center gap-2">
+            <FileText className="h-5 w-5 text-[#FFB84D]" aria-hidden="true" />
+            <h3 className="text-sm font-bold text-[#FBFAFF]">Sudah punya Bab 2 (tinjauan pustaka) sendiri?</h3>
+          </div>
+          <p className="mt-2 text-xs leading-relaxed text-[#A79FC4]">
+            Kamu tidak perlu mengulang dari awal. Tempel yang sudah kamu tulis — tulisanmu tidak diubah,
+            hanya diperiksa sitasinya terhadap daftar sumber Tool 3, lalu bisa langsung diekspor ke Word.
+          </p>
+          <div className="mt-3">
+            <TempelBahanPanel
+              register={register.map((s) => ({ sourceId: s.sourceId, authorsYear: String(s.authorsYear ?? "") }))}
+              namaBahan="Bab 2 (tinjauan pustaka)"
+              onTerima={terimaTempelanBab2}
+              sudahAdaBahan={!!tempelanBab2}
+            />
+          </div>
+          {tempelanBab2 && (
+            <p className="mt-3 text-[12px] leading-relaxed text-[#FFB84D]">
+              Bahanmu tersimpan. Lihat hasilnya di bagian bawah halaman ini — bisa langsung diunduh ke Word.
+            </p>
+          )}
+        </Kartu>
+      )}
+
+      {/* Hasil jalur tempelan. Blok hasil Tahap 13 ada di dalam cabang yang
+          menuntut fondasi 6A, jadi tanpa kartu ini bahan mahasiswa tersimpan
+          tetapi tidak terlihat sama sekali — sama saja tombolnya masih mati. */}
+      {tempelanBab2 && drafBab2 && !blok6BTampil && (
+        <Kartu>
+          <div className="flex flex-wrap items-center gap-3">
+            <h3 className="text-sm font-bold text-[#FBFAFF]">Bahanmu sudah masuk</h3>
+            <span className="rounded-md border border-[#2E2748] bg-[#0C0A1A] px-2 py-1 text-[12px] font-semibold text-[#FBFAFF]">
+              {drafBab2.word_count_total} kata · {drafBab2.background.length} paragraf
+            </span>
+          </div>
+          <p className="mt-2 text-xs leading-relaxed text-[#A79FC4]">
+            Tulisanmu disimpan apa adanya — tidak ada satu kata pun yang diubah Skriflow. Karena bahan ini
+            ditulis sendiri (bukan lewat Prompt 6B), peta klaim per paragraf belum diperiksa: itulah sebabnya
+            statusnya <span className="font-semibold text-[#FBFAFF]">{drafBab2.draft_status}</span>, bukan
+            DRAFT_COMPLETE. Pemeriksaan sitasi tetap sudah dijalankan di panel tempel di atas.
+          </p>
+
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={unduhRtf}
+              className="inline-flex items-center gap-2 rounded-xl bg-[#FFB84D] px-4 py-2.5 text-xs font-bold text-[#0C0A1A] transition hover:bg-[#F0A63C]"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              Unduh Bab 2 (.rtf)
+            </button>
+            <span className="text-[12px] text-[#A79FC4]">
+              Terbuka di Word/Google Docs tanpa peringatan format. Sitasi kamu pasang sendiri di Word.
+            </span>
+          </div>
+
+          {drafBab2.unresolved_notes.length > 0 && (
+            <ul className="mt-4 space-y-1.5 border-t border-[#2E2748] pt-3">
+              {drafBab2.unresolved_notes.map((c, i) => (
+                <li key={i} className="flex items-start gap-2 text-[12px] leading-relaxed text-[#FFB84D]">
+                  <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <details className="mt-3 border-t border-[#2E2748] pt-3">
+            <summary className="cursor-pointer text-xs font-semibold text-[#A79FC4] hover:text-[#FBFAFF]">
+              Lihat tulisan yang tersimpan ({drafBab2.background.length} paragraf)
+            </summary>
+            <div className="mt-2 space-y-3">
+              {drafBab2.background.map((p) => (
+                <div key={p.order}>
+                  <p className="text-[12px] font-semibold text-[#FFB84D]">{p.order}. {p.sub_bab}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-[#FBFAFF]">{p.paragraph_text}</p>
+                </div>
+              ))}
+            </div>
+          </details>
+        </Kartu>
+      )}
 
       {/* Tahap 13 — Draf (6B) */}
       {fondasiBab2 && konfirmasiFondasi && gerbang13.status === "BLOKIR" && (
@@ -862,6 +1005,24 @@ export const Bab2ToolContainer: React.FC = () => {
                 </span>
               </div>
               <DaftarTemuan temuan={temuanDraf} judul="Pemeriksa draf" />
+
+              {/* Jalur tempelan belum boleh lewat Tahap 14 (6C) karena peta klaim
+                  milik tulisan mahasiswa sendiri belum diperiksa. Kalau begitu,
+                  hasilnya mentok tanpa bisa dibawa ke Word. Tombol ini jalan
+                  keluar itu — RTF memuat seluruh sub-bab apa adanya. */}
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={unduhRtf}
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#FFB84D] bg-[#FFB84D]/10 px-3.5 py-2 text-xs font-semibold text-[#FBFAFF] hover:bg-[#FFB84D]/20 focus-visible:ring-2 focus-visible:ring-[#FFB84D] focus-visible:outline-none"
+                >
+                  <FileText className="h-3.5 w-3.5" />
+                  Unduh Bab 2 (.rtf)
+                </button>
+                <span className="text-[12px] text-[#A79FC4]">
+                  Terbuka di Word/Google Docs. Sitasi tetap kamu pasang sendiri di Word.
+                </span>
+              </div>
 
               {/* B2-13: D.11 ditegakkan sebagai ALUR, bukan cuma larangan. Temuan
                   saja tidak cukup — mahasiswa perlu tahu langkah berikutnya, kalau
