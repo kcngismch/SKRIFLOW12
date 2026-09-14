@@ -2343,6 +2343,12 @@ Tugasmu memformulasikan fondasi logis yang terstruktur dan terverifikasi untuk S
 
 [KONTEKS DAN ARAH TERPILIH]
 
+PENTING — memakai arah yang BENAR: pakai arah di bawah ini apa adanya.
+Pada "selected_direction" di JSON keluaranmu, tulis:
+  "id": "${dir.id}"
+dan "student_selected": true.
+DILARANG mengganti id ini dengan id lain, dan DILARANG menambah arah baru.
+
 - Program Studi: ${prodi}
 - Area Eksplorasi: ${area}
 - Arahan Dosen: ${supervisorDirection}

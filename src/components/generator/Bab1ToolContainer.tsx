@@ -111,6 +111,7 @@ import {
 import { copyToClipboard } from "@/lib/clipboard";
 import { susunOutlineLatarBelakang } from "@/lib/bab1Outline";
 import { ResetConfirmModal } from "./ResetConfirmModal";
+import { jelaskanGalat4B, judulGalat4B, sebabGalat4B } from "@/lib/bab1ErrorHelp";
 import { AiUsageDeclaration } from "./AiUsageDeclaration";
 import { TombolTempelClipboard } from "./TombolTempelClipboard";
 import { keRtf, namaFileAman, type BlokRtf } from "@/lib/ekspor";
@@ -1633,43 +1634,72 @@ export const Bab1ToolContainer: React.FC = () => {
                     <ShieldAlert className="h-5 w-5 shrink-0 text-rose-400" />
                     <div className="space-y-3 w-full">
                       <div>
-                        <h4 className="text-sm font-bold text-rose-300">{parseError4B.error}</h4>
-                        {parseError4B.details && (
-                          <ul className="mt-2 space-y-1 text-xs text-rose-200">
-                            {parseError4B.details.map((d, i) => (
-                              <li key={i}>• {d}</li>
-                            ))}
+                        <h4 className="text-sm font-bold text-rose-300">
+                          {judulGalat4B(parseError4B.details || [])}
+                        </h4>
+                        <p className="mt-1.5 text-xs leading-relaxed text-rose-200/90">
+                          {sebabGalat4B(parseError4B.details || [])}
+                        </p>
+                        {parseError4B.details && parseError4B.details.length > 0 && (
+                          <ul className="mt-3 space-y-2">
+                            {parseError4B.details.map((d, i) => {
+                              const g = jelaskanGalat4B(d);
+                              return (
+                                <li key={i} className="rounded-lg bg-rose-500/10 px-3 py-2 text-xs leading-relaxed text-rose-100">
+                                  <p className="font-semibold">{g.artinya}</p>
+                                  <p className="mt-1 text-rose-200/90">Yang bisa kamu lakukan: {g.langkah}</p>
+                                </li>
+                              );
+                            })}
                           </ul>
                         )}
                       </div>
-                      <div className="flex flex-wrap gap-2 pt-2 border-t border-rose-500/20">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const fixPrompt = generateBab1FoundationFixFormatPrompt(pastedLLMOutput4B, parseError4B.details);
-                            copyToClipboard(fixPrompt);
-                            setToastMessage("Prompt Perbaikan Format Fondasi tersalin!");
-                            setTimeout(() => setToastMessage(null), 3000);
-                          }}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/40 bg-rose-500/20 px-3 py-1.5 text-xs font-semibold text-rose-200 hover:bg-rose-500/30"
-                        >
-                          <Copy className="h-3 w-3" />
-                          <span>Salin Prompt Perbaikan Format 4B</span>
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const fixPrompt = generateBab1FoundationFixStructurePrompt(pastedLLMOutput4B, parseError4B.details);
-                            copyToClipboard(fixPrompt);
-                            setToastMessage("Prompt Perbaikan Struktur Fondasi tersalin!");
-                            setTimeout(() => setToastMessage(null), 3000);
-                          }}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/40 bg-rose-500/20 px-3 py-1.5 text-xs font-semibold text-rose-200 hover:bg-rose-500/30"
-                        >
-                          <Copy className="h-3 w-3" />
-                          <span>Salin Prompt Perbaikan Struktur 4B</span>
-                        </button>
-                      </div>
+                      {(() => {
+                        // Tombol disesuaikan dengan jenis galatnya. Sebelum ini kedua tombol
+                        // selalu tampil setara, dan mahasiswa yang galatnya soal ARAH menekan
+                        // "Perbaikan Format" — mengirim ulang, lalu gagal lagi karena formatnya
+                        // memang sudah benar.
+                        const kelas = new Set((parseError4B.details || []).map((d) => jelaskanGalat4B(d).kelas));
+                        const perluStruktur = kelas.has("arah") || kelas.has("struktur");
+                        const perluFormat = kelas.has("format");
+                        const salin = (teks: string, pesan: string) => {
+                          copyToClipboard(teks);
+                          setToastMessage(pesan);
+                          setTimeout(() => setToastMessage(null), 3000);
+                        };
+                        const tombol = (utama: boolean, teks: string, aksi: () => void) => (
+                          <button
+                            type="button"
+                            onClick={aksi}
+                            className={
+                              utama
+                                ? "inline-flex items-center gap-1.5 rounded-lg border border-rose-500/50 bg-rose-500/30 px-3 py-1.5 text-xs font-bold text-rose-100 hover:bg-rose-500/40"
+                                : "inline-flex items-center gap-1.5 rounded-lg border border-rose-500/25 px-3 py-1.5 text-xs font-semibold text-rose-200/80 hover:bg-rose-500/15"
+                            }
+                          >
+                            <Copy className="h-3 w-3" />
+                            <span>{teks}</span>
+                          </button>
+                        );
+                        return (
+                          <div className="flex flex-wrap gap-2 pt-2 border-t border-rose-500/20">
+                            {perluStruktur &&
+                              tombol(true, "Salin Prompt Perbaikan Isi 4B", () =>
+                                salin(
+                                  generateBab1FoundationFixStructurePrompt(pastedLLMOutput4B, parseError4B.details),
+                                  "Prompt Perbaikan Isi Fondasi tersalin!"
+                                )
+                              )}
+                            {perluFormat &&
+                              tombol(!perluStruktur, "Salin Prompt Perbaikan Format 4B", () =>
+                                salin(
+                                  generateBab1FoundationFixFormatPrompt(pastedLLMOutput4B, parseError4B.details),
+                                  "Prompt Perbaikan Format Fondasi tersalin!"
+                                )
+                              )}
+                          </div>
+                        );
+                      })()}
                     </div>
                   </div>
                 </div>
