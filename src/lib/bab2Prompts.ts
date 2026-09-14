@@ -39,6 +39,23 @@ export interface Bab2PromptInput {
   arahPenelitian?: string;
   rumusanMasalah?: string[];
   styleNote?: string;
+  /** Arahan/koreksi dosen pembimbing. Dikirim apa adanya — jangan ditafsirkan. */
+  arahanDosen?: string;
+}
+
+/**
+ * Arahan dosen pembimbing. Dikirim APA ADANYA sebagai kekangan, bukan sebagai
+ * bahan tulisan: mahasiswa menanggung akibatnya bila arahan ini dilanggar di
+ * sidang, jadi model tidak boleh memelintir atau mengarang isinya.
+ */
+function arahanDosenBab2(arahan?: string): string {
+  const isi = (arahan || "").trim();
+  if (!isi) return "- Arahan dosen pembimbing: belum ada.";
+  return `- Arahan dosen pembimbing (WAJIB DIPATUHI — diketik mahasiswa, jangan ditafsirkan ulang):
+${isi
+  .split("\n")
+  .map((b) => `  ${b}`)
+  .join("\n")}`;
 }
 
 /** Nama pendekatan versi manusia. */
@@ -94,6 +111,7 @@ Program Studi: ${prodi}
 Area eksplorasi: ${area}
 Pendekatan penelitian: ${labelPendekatan(input.pendekatan)}
 ${input.arahPenelitian ? `Arah penelitian terpilih: ${input.arahPenelitian}` : ""}
+${arahanDosenBab2(input.arahanDosen)}
 ${input.rumusanMasalah?.length ? `Rumusan masalah:\n${input.rumusanMasalah.map((r) => `- ${r}`).join("\n")}` : ""}
 
 # SUMBER YANG BOLEH DIPAKAI
@@ -246,6 +264,15 @@ function assembleBab2DraftFullPrompt(input: Bab2PromptInput, opts: { ringkasSumb
   return `# PERAN
 
 Kamu menulis LATAR/TINJAUAN PUSTAKA BAB 2 untuk skripsi mahasiswa S1 ${prodi}.
+
+# KONTEKS MAHASISWA
+
+Angka dan istilah di bawah ini mengikat. Jangan mengubah, membulatkan, atau menambah.
+
+Program Studi: ${prodi}
+Pendekatan penelitian: ${labelPendekatan(input.pendekatan)}
+${input.arahPenelitian ? `Arah penelitian terpilih: ${input.arahPenelitian}` : ""}
+${arahanDosenBab2(input.arahanDosen)}
 
 CAMBAH: Kamu BUKAN peneliti dan BUKAN penulis bebas. Kamu hanya merangkai pernyataan
 tentang literatur yang SUDAH ada di daftar sumber di bawah. Kamu tidak menambah temuan,

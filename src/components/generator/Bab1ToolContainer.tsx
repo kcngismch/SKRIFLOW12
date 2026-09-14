@@ -93,6 +93,7 @@ import {
 import { PanelRingkasanDanTerkait } from "./PanelRingkasanDanTerkait";
 import { SequentialNavigation } from "./SequentialNavigation";
 import { TempelBahanPanel } from "./TempelBahanPanel";
+import { CatatanPembimbingPanel } from "./CatatanPembimbingPanel";
 import {
   assembleBedahPrompt,
   analyzeBedahPrompt,
@@ -201,7 +202,7 @@ export const Bab1ToolContainer: React.FC = () => {
 
   const [additionalNotes] = useState("");
 
-  const [supervisorDirection] = useState<string>(() => {
+  const [supervisorDirection, setSupervisorDirection] = useState<string>(() => {
     if (typeof window === "undefined") return "";
     const shared = loadSharedResearchContext();
     const t3Data = loadToolData("cari-literatur-awal");
@@ -3262,6 +3263,12 @@ export const Bab1ToolContainer: React.FC = () => {
           )}
         </section>
       )}
+
+      {/* 07 tingkat A: dosen pembimbing memberi koreksi berkali-kali. Sebelum ini
+          arahan hanya bisa diketik sekali di Tool 1 dan tidak bisa diperbarui. */}
+      <div className="mb-6">
+        <CatatanPembimbingPanel onBerubah={setSupervisorDirection} />
+      </div>
 
       {/* HANDOFF: Bab 1 -> Bab 2. Sebelum ini halaman 48 layar berakhir di modal
           reset; satu-satunya jalan keluar adalah tautan kecil di header. */}

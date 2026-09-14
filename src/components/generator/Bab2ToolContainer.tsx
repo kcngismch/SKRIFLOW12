@@ -31,6 +31,8 @@ import {
 import { PlatformBadge } from "@/components/PlatformBadge";
 import { SequentialNavigation } from "./SequentialNavigation";
 import { TempelBahanPanel } from "./TempelBahanPanel";
+import { CatatanPembimbingPanel } from "./CatatanPembimbingPanel";
+import { ResetConfirmModal } from "./ResetConfirmModal";
 import { extractSumberPaketLiteratur } from "@/lib/bedahParser";
 import { bangunPetaBab2 } from "@/lib/bab2Map";
 import {
@@ -205,6 +207,10 @@ export const Bab2ToolContainer: React.FC = () => {
   const [drafBab2, setDrafBab2] = useState(loadBab2Draft());
   const [polesBab2, setPolesBab2] = useState(loadBab2Polish());
   const [konfirmasiFondasi, setKonfirmasiFondasi] = useState(false);
+  // Reset Bab 2 menghapus seluruh rantai (fondasi, draf, poles, 6A/6B/6C).
+  // Tool 5 sudah lama punya modal konfirmasi; Tool 6 tidak, jadi satu klik
+  // di tombol kecil di kaki halaman bisa membuang kerjaan berjam-jam.
+  const [konfirmasiReset, setKonfirmasiReset] = useState(false);
   const [gerbang, setGerbang] = useState(() =>
     evaluasiGerbangBab2({ foundation: null, draft: null, polish: null })
   );
@@ -272,6 +278,22 @@ export const Bab2ToolContainer: React.FC = () => {
     return (kandidat || []).map((q) => q.question || "").filter(Boolean);
   }, [fondasi4B]);
 
+  // 07 tingkat A: koreksi dosen bisa datang kapan saja, termasuk setelah Bab 2
+  // mulai ditulis. Dibaca dari konteks bersama supaya panel Tool 5 dan Tool 6
+  // selalu menunjuk sumber yang sama — tidak ada dua tempat penyimpanan.
+  const bacaArahan = () => {
+    if (typeof window === "undefined") return "";
+    const ctx = loadSharedResearchContext();
+    return ctx?.constraints?.arahanDosen || ctx?.supervisor_direction || "";
+  };
+  const [arahanDosen, setArahanDosen] = useState<string>(bacaArahan);
+
+  useEffect(() => {
+    setArahanDosen(bacaArahan());
+    // sekali saat mount: arahan biasanya sudah diketik di Tool 5 sebelum ke sini
+    // ponytail: tanpa polling; panel memanggil setArahanDosen sendiri saat disimpan.
+  }, []);
+
   const inputPrompt: Bab2PromptInput = useMemo(
     () => ({
       prodi,
@@ -282,8 +304,9 @@ export const Bab2ToolContainer: React.FC = () => {
       foundation: fondasi4B,
       arahPenelitian: arahTerpilih.nama,
       rumusanMasalah,
+      arahanDosen,
     }),
-    [prodi, areaEksplorasi, pendekatan, peta, register, fondasi4B, arahTerpilih, rumusanMasalah]
+    [prodi, areaEksplorasi, pendekatan, peta, register, fondasi4B, arahTerpilih, rumusanMasalah, arahanDosen]
   );
 
   // ---- Temuan ----
@@ -1051,7 +1074,8 @@ export const Bab2ToolContainer: React.FC = () => {
         </p>
         <button
           type="button"
-          onClick={reset}
+          onClick={() => setKonfirmasiReset(true)}
+          title="Mengosongkan paket fondasi, draf, dan hasil poles Bab 2."
           className="inline-flex items-center gap-2 rounded-lg border border-[#2E2748] bg-[#191430] px-3.5 py-2 text-xs font-semibold text-[#FBFAFF] hover:border-[#FF5C8A]/60 focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
         >
           <RotateCcw className="h-3.5 w-3.5" />
@@ -1069,6 +1093,27 @@ export const Bab2ToolContainer: React.FC = () => {
       {/* HANDOFF: Tool 6 adalah hulu Bab 3 (belum dibangun). Tanpa panel ini
           mahasiswa selesai Bab 2 tanpa ditunjukkan langkah berikutnya — halaman
           48 layar berakhir di catatan kecil. */}
+      {/* 07 tingkat A: pintu yang sama dengan Tool 5, supaya koreksi dosen yang
+          datang setelah Bab 2 mulai ditulis tetap bisa dimasukkan. */}
+      <div className="mb-6">
+        <CatatanPembimbingPanel onBerubah={setArahanDosen} />
+      </div>
+
+      {konfirmasiReset && (
+        <ResetConfirmModal
+          isOpen={konfirmasiReset}
+          onConfirm={() => {
+            reset();
+            setKonfirmasiReset(false);
+          }}
+          onCancel={() => setKonfirmasiReset(false)}
+          toolName="Bangun Bab 2"
+          title="Reset Paket &amp; Draf Bab 2?"
+          description="Tindakan ini mengosongkan paket fondasi Bab 2, draf, hasil poles bahasa, dan teks 6A/6B/6C. Source Register dari Tool 3 dan pilihan arah dari Tool 4 TIDAK terhapus — kamu bisa menyusun ulang Bab 2 tanpa mengulang dari nol."
+          confirmButtonText="Ya, Reset Bab 2"
+        />
+      )}
+
       <SequentialNavigation
         previousStep={{ label: "Kembali ke Susun Bab 1", href: "/tools/susun-bab-1" }}
         nextStep={{
