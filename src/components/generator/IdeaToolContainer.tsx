@@ -39,6 +39,7 @@ import {
   clearLastRecommendation,
   saveIdeaExplorationSession,
   loadIdeaExplorationSession,
+  clearPhenomenonTurunan,
 } from "@/lib/storage";
 import {
   parseIdeaTransfer,
@@ -205,12 +206,14 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
   const areaCardRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const outputPanelRef = useRef<HTMLDivElement | null>(null);
 
-  // Auto-scroll to output panel on mobile (< 1024px) after prompt generation
-  useEffect(() => {
-    if (generatedPrompt && window.innerWidth < 1024) {
+  // Auto-scroll ke panel hasil setelah prompt dirakit — semua ukuran layar.
+  // Dipanggil langsung dari tombol: kalau dipantau lewat nilai prompt, klik kedua dengan
+  // isian sama tidak menggulir karena nilainya tidak berubah.
+  const gulirKePanelHasil = useCallback(() => {
+    requestAnimationFrame(() => {
       outputPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [generatedPrompt]);
+    });
+  }, []);
 
   // Rejection & Alternative Prompt States
   const [rejectionRounds, setRejectionRounds] = useState<RejectedAreaRound[]>(() => {
@@ -328,6 +331,8 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
     (options: {
       preserveProfile: boolean;
       reason: "CHANGE_ISSUE" | "MANUAL_RESET" | "CONTEXT_CHANGED";
+      /** Ikut membersihkan data yang sudah terbawa ke Tool 2 (default: ya). */
+      bersihkanToolBerikutnya?: boolean;
     }) => {
       // 1. Reset results & parsing
       setPasteText("");
@@ -339,6 +344,12 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
       setSelectedAreaId(null);
       clearSelectedExplorationArea();
       clearIdeaToPhenomenonHandoff();
+
+      // Tool 2 menyimpan salinannya sendiri; kalau tidak ikut dibersihkan, isi lama
+      // tetap tampil di Tool 2 padahal Tool 1 sudah kosong.
+      if (options.bersihkanToolBerikutnya !== false) {
+        clearPhenomenonTurunan();
+      }
 
       // 3. Reset recommendations
       setRecommendationResult(null);
@@ -449,6 +460,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
     setErrors({});
     const promptText = assemblePrompt(tool, formValues);
     setGeneratedPrompt(promptText);
+    gulirKePanelHasil();
 
     // Update exploration session to round 1 if at round 0
     const currentFp = computeIdeaInputFingerprint(formValues);
@@ -2797,15 +2809,23 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
       {showFullResetModal && (
         <ResetConfirmModal
           isOpen={showFullResetModal}
-          onConfirm={() => {
+          onConfirm={(bersihkanLanjutan) => {
             setShowFullResetModal(false);
-            startNewIdeaExploration({ preserveProfile: false, reason: "MANUAL_RESET" });
+            startNewIdeaExploration({
+              preserveProfile: false,
+              reason: "MANUAL_RESET",
+              bersihkanToolBerikutnya: bersihkanLanjutan,
+            });
           }}
           onCancel={() => setShowFullResetModal(false)}
           toolName="Cari Ide Skripsi"
           title="Reset Seluruh Data Cari Ide?"
-          description="Tindakan ini akan menghapus input formulir, hasil yang ditempel, riwayat putaran, rekomendasi, pilihan area, dan handoff aktif dari Tool Cari Ide. Data yang sudah tersimpan pada tool berikutnya tidak ikut dihapus."
+          description="Tindakan ini akan menghapus input formulir, hasil yang ditempel, riwayat putaran, rekomendasi, pilihan area, dan handoff aktif dari Tool Cari Ide."
           confirmButtonText="Reset Tool Cari Ide"
+          opsiLanjutan={{
+            label:
+              "Sekaligus bersihkan isi yang sudah terbawa ke Tool 2 (Cari Fenomena Awal). Pilih ini kalau kamu ingin mulai dari nol — kalau tidak dicentang, Tool 2 masih menampilkan isi dari sesi sebelumnya.",
+          }}
         />
       )}
 

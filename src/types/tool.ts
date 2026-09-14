@@ -995,7 +995,35 @@ export interface DataVerificationQuestionV2 {
   question: string;
   critical: boolean;
   related_data_need: string;
+  /** ADDENDUM E: jalan mencari data. Wajib dihasilkan 4B, opsional saat dibaca
+      supaya paket 4B lama tetap lolos parser. */
+  where_to_look?: string[];
+  search_keywords?: string[];
+  site_type?: JenisSitusData;
 }
+
+/** ADDENDUM E §E.2 — daftar tertutup jenis situs tempat data biasa berada. */
+export const JENIS_SITUS_DATA = [
+  "BPS",
+  "KEMENTERIAN_LEMBAGA",
+  "BANK_SENTRAL",
+  "JURNAL_AKADEMIK",
+  "DATASET_INTERNASIONAL",
+  "LAPORAN_PERUSAHAAN",
+  "LAINNYA",
+] as const;
+
+export type JenisSitusData = typeof JENIS_SITUS_DATA[number];
+
+export const LABEL_JENIS_SITUS: Record<JenisSitusData, string> = {
+  BPS: "BPS (Badan Pusat Statistik)",
+  KEMENTERIAN_LEMBAGA: "Kementerian / Lembaga",
+  BANK_SENTRAL: "Bank Indonesia / OJK",
+  JURNAL_AKADEMIK: "Jurnal akademik",
+  DATASET_INTERNASIONAL: "Dataset internasional (World Bank, IMF, dll.)",
+  LAPORAN_PERUSAHAAN: "Laporan tahunan perusahaan",
+  LAINNYA: "Lainnya",
+};
 
 export interface DirectionMeasurementFocus {
   primary_outcome: string;

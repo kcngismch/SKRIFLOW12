@@ -94,6 +94,60 @@ interface BedahToolContainerProps {
   tool: Tool;
 }
 
+type ActiveTab4A =
+  | "audit"
+  | "evidence_basis"
+  | "phenomenon"
+  | "knowledge"
+  | "gaps"
+  | "directions"
+  | "recommendation";
+
+/**
+ * Addendum: Tool 4 punya tujuh tampilan. Menyodorkan tujuh tab sekaligus membuat
+ * mahasiswa tidak tahu harus mulai dari mana (keluhan: "terlalu ramai"). Di sini
+ * ketujuhnya dikelompokkan jadi tiga langkah nyata; isi tiap tampilan tidak berubah.
+ */
+const KELOMPOK_TAB_4A: Array<{
+  id: string;
+  label: string;
+  Ikon: typeof Compass;
+  buka: ActiveTab4A;
+  hitung?: (p: DirectionV2) => number;
+  isi: Array<{ id: ActiveTab4A; label: string }>;
+}> = [
+  {
+    id: "arah",
+    label: "Arah Penelitian",
+    Ikon: Compass,
+    buka: "directions",
+    isi: [{ id: "directions", label: "2–4 Alternatif Arah" }],
+  },
+  {
+    id: "celah",
+    label: "Celah & Dasar Bukti",
+    Ikon: BookOpen,
+    buka: "gaps",
+    hitung: (p) => p.candidate_gaps.length,
+    isi: [
+      { id: "gaps", label: "Kandidat Celah Penelitian" },
+      { id: "evidence_basis", label: "Dasar Bukti" },
+    ],
+  },
+  {
+    id: "periksa",
+    label: "Pemeriksaan & Catatan",
+    Ikon: ShieldAlert,
+    buka: "audit",
+    isi: [
+      { id: "audit", label: "Audit Bahan" },
+      { id: "phenomenon", label: "Fenomena yang Sudah Dicek" },
+      { id: "knowledge", label: "Peta Pengetahuan & Keterbandingan" },
+      { id: "recommendation", label: "Rekomendasi Sementara" },
+    ],
+  },
+];
+
 export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
   const isMounted = useIsMounted();
   // 1. Sync external stores
@@ -144,7 +198,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
   const [showAdjustDataModal, setShowAdjustDataModal] = useState(false);
   const [showResetModal, setShowResetModal] = useState(false);
   const [copyStatus4A, setCopyStatus4A] = useState<"idle" | "copied" | "error">("idle");
-  const [activeTab4A, setActiveTab4A] = useState<"audit" | "evidence_basis" | "phenomenon" | "knowledge" | "gaps" | "directions" | "recommendation">("directions");
+  const [activeTab4A, setActiveTab4A] = useState<ActiveTab4A>("directions");
   const [showRawLitInput, setShowRawLitInput] = useState(false);
 
   // Adjust Data Modal Form State
@@ -1018,93 +1072,53 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
         {/* ========================================================================= */}
         {parsedPayloadV2 && (
           <div className="mt-8 space-y-6">
-            {/* Tab Navigation */}
+            {/* Tab Navigation — dikelompokkan jadi 3 supaya mahasiswa tidak disodori
+                tujuh pintu sekaligus. Isi tiap tab tidak berubah; hanya cara memilihnya. */}
             <div className="flex flex-wrap gap-2 border-b border-[#2E2748] pb-3">
-              <button
-                type="button"
-                onClick={() => setActiveTab4A("directions")}
-                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition ${
-                  activeTab4A === "directions"
-                    ? "bg-[#6D5AE6] text-white"
-                    : "bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
-                }`}
-              >
-                <Compass className="h-3.5 w-3.5" />
-                <span>2–4 Alternatif Arah</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab4A("evidence_basis")}
-                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition ${
-                  activeTab4A === "evidence_basis"
-                    ? "bg-[#6D5AE6] text-white"
-                    : "bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
-                }`}
-              >
-                <Layers className="h-3.5 w-3.5" />
-                <span>Dasar Bukti</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab4A("gaps")}
-                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition ${
-                  activeTab4A === "gaps"
-                    ? "bg-[#6D5AE6] text-white"
-                    : "bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
-                }`}
-              >
-                <BookOpen className="h-3.5 w-3.5" />
-                <span>Kandidat Celah Penelitian ({parsedPayloadV2.candidate_gaps.length})</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab4A("knowledge")}
-                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition ${
-                  activeTab4A === "knowledge"
-                    ? "bg-[#6D5AE6] text-white"
-                    : "bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
-                }`}
-              >
-                <BookOpen className="h-3.5 w-3.5" />
-                <span>Peta Pengetahuan & Keterbandingan</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab4A("phenomenon")}
-                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition ${
-                  activeTab4A === "phenomenon"
-                    ? "bg-[#6D5AE6] text-white"
-                    : "bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
-                }`}
-              >
-                <FileCheck className="h-3.5 w-3.5" />
-                <span>Fenomena yang Sudah Dicek</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab4A("audit")}
-                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition ${
-                  activeTab4A === "audit"
-                    ? "bg-[#6D5AE6] text-white"
-                    : "bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
-                }`}
-              >
-                <ShieldAlert className="h-3.5 w-3.5" />
-                <span>Audit Bahan</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab4A("recommendation")}
-                className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition ${
-                  activeTab4A === "recommendation"
-                    ? "bg-[#6D5AE6] text-white"
-                    : "bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
-                }`}
-              >
-                <Sparkles className="h-3.5 w-3.5" />
-                <span>Rekomendasi Sementara</span>
-              </button>
+              {KELOMPOK_TAB_4A.map((k) => {
+                const aktif = k.isi.some((v) => v.id === activeTab4A);
+                return (
+                  <button
+                    key={k.id}
+                    type="button"
+                    onClick={() => setActiveTab4A(k.buka)}
+                    className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition ${
+                      aktif ? "bg-[#6D5AE6] text-white" : "bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
+                    }`}
+                  >
+                    <k.Ikon className="h-3.5 w-3.5" />
+                    <span>
+                      {k.label}
+                      {k.hitung ? ` (${k.hitung(parsedPayloadV2)})` : ""}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
+
+            {/* Sub-pilihan: hanya muncul untuk kelompok yang isinya lebih dari satu tampilan */}
+            {(() => {
+              const grup = KELOMPOK_TAB_4A.find((k) => k.isi.some((v) => v.id === activeTab4A));
+              if (!grup || grup.isi.length < 2) return null;
+              return (
+                <div className="flex flex-wrap gap-2">
+                  {grup.isi.map((v) => (
+                    <button
+                      key={v.id}
+                      type="button"
+                      onClick={() => setActiveTab4A(v.id)}
+                      className={`rounded-lg px-3 py-1.5 text-[13px] font-semibold transition ${
+                        activeTab4A === v.id
+                          ? "border border-[#FFB84D]/60 bg-[#FFB84D]/10 text-[#FFB84D]"
+                          : "border border-[#2E2748] bg-[#0C0A1A] text-[#A79FC4] hover:text-[#FBFAFF]"
+                      }`}
+                    >
+                      {v.label}
+                    </button>
+                  ))}
+                </div>
+              );
+            })()}
 
             {/* TAB 1: 2-4 ALTERNATIF ARAH */}
             {activeTab4A === "directions" && (

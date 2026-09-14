@@ -1902,6 +1902,11 @@ Badge hanya membantu mahasiswa membandingkan. Dilarang auto-select arah apa pun.
 2. Pertahankan periode, objek, angka, unit, metode, dan batas sumber secara presisi.
 3. Rumuskan 2–4 kandidat gap (atau 0 kandidat jika bukti tidak mencukupi / zero forced gap).
 4. Rumuskan 2–4 alternatif arah penelitian beserta pertanyaan verifikasi data (data_verification_questions).
+4b. [PANDUAN MENCARI DATA — WAJIB] Setiap pertanyaan verifikasi data WAJIB memuat tiga field berikut, supaya mahasiswa tahu harus mencari ke mana (bukan menebak):
+    - "where_to_look": 2–4 nama LEMBAGA/INSTANSI pemilik data yang benar-benar ada dan bisa dicari mahasiswa (contoh: "BPS — Statistik Kriminal", "Bank Indonesia — Statistik Ekonomi Keuangan"). Dilarang menulis tautan/domain mentah. Kalau tidak yakin sebuah lembaga menerbitkan data itu, tulis nama yang paling mungkin dengan tambahan "(perlu diperiksa)".
+    - "search_keywords": 2–5 kata kunci Bahasa Indonesia yang SIAP TEMPEL ke kotak pencarian situs (bukan kalimat pertanyaan lengkap). Sertakan singkatan resmi bila lazim (contoh: "Sakernas pengangguran terbuka").
+    - "site_type": tepat satu dari daftar tertutup: BPS, KEMENTERIAN_LEMBAGA, BANK_SENTRAL, JURNAL_AKADEMIK, DATASET_INTERNASIONAL, LAPORAN_PERUSAHAAN, LAINNYA. Nilai di luar daftar wajib memakai LAINNYA.
+    Field ini membantu mahasiswa MEMERIKSA ketersediaan data. Dilarang menyimpulkan data tersedia hanya karena lembaganya ada.
 5. Jangan auto-select arah; mahasiswa memilih secara manual.
 6. Jangan menetapkan judul final, variabel final, hipotesis final, sampel final, atau metode final.
 7. Jangan menulis draft Bab 1.
@@ -2069,7 +2074,10 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
           "id": "Q01",
           "question": "...",
           "critical": true,
-          "related_data_need": "..."
+          "related_data_need": "...",
+          "where_to_look": ["BPS — Statistik Kriminal", "Kementerian Keuangan — APBN KiTa"],
+          "search_keywords": ["tingkat kriminalitas per provinsi", "data kejahatan BPS 2020 2024"],
+          "site_type": "BPS"
         }
       ],
       "readiness": "LAYAK_DIPERIKSA|PERLU_SUMBER_TAMBAHAN|RISIKO_TINGGI|JANGAN_DIBAWA"

@@ -109,6 +109,7 @@ import {
   analyzeBab1DraftShortCommand,
 } from "@/lib/promptAssembler";
 import { copyToClipboard } from "@/lib/clipboard";
+import { PanduanCariData } from "./PanduanCariData";
 import { susunOutlineLatarBelakang } from "@/lib/bab1Outline";
 import { ResetConfirmModal } from "./ResetConfirmModal";
 import { jelaskanGalat4B, judulGalat4B, sebabGalat4B } from "@/lib/bab1ErrorHelp";
@@ -1249,9 +1250,11 @@ export const Bab1ToolContainer: React.FC = () => {
                   const currentAnswer = feasibilityAnswers[q.id] || "BELUM_DIPASTIKAN";
                   return (
                     <div key={q.id} className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4">
-                      <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-2">
+                      {/* Baris atas: pertanyaan + tombol jawaban. Panduan mencari ditaruh
+                          di bawah baris ini supaya terbaca SEBELUM mahasiswa menjawab. */}
+                      <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+                        <div className="min-w-0 flex-1 space-y-1">
+                          <div className="flex flex-wrap items-center gap-2">
                             {q.critical && (
                               <span className="rounded bg-rose-500/20 px-2 py-0.5 text-[13px] font-bold text-rose-400">
                                 Wajib / Kritis
@@ -1260,10 +1263,17 @@ export const Bab1ToolContainer: React.FC = () => {
                             <span className="text-xs font-semibold text-[#FBFAFF]">{q.question}</span>
                           </div>
                           <span className="text-[13px] text-[#A79FC4]">Terkait: {q.related_data_need}</span>
+
+                          {/* ADDENDUM E: jalan mencari data — dibaca SEBELUM tombol jawaban */}
+                          <PanduanCariData
+                            whereToLook={q.where_to_look}
+                            searchKeywords={q.search_keywords}
+                            siteType={q.site_type}
+                          />
                         </div>
 
                         {/* Answer Buttons */}
-                        <div className="flex items-center gap-1.5 self-start sm:self-auto">
+                        <div className="flex shrink-0 items-center gap-1.5 self-start">
                           <button
                             type="button"
                             onClick={() => handleFeasibilityAnswerChange(q.id, "SUDAH_DIPASTIKAN")}

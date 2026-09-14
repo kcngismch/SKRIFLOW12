@@ -5,12 +5,18 @@ import { AlertTriangle, X } from "lucide-react";
 
 interface ResetConfirmModalProps {
   isOpen: boolean;
-  onConfirm: () => void;
+  /** Menerima status opsi lanjutan (lihat `opsiLanjutan`). Pemanggil lama boleh mengabaikannya. */
+  onConfirm: (opsiLanjutanAktif: boolean) => void;
   onCancel: () => void;
   toolName: string;
   title?: string;
   description?: string;
   confirmButtonText?: string;
+  /**
+   * Opsi yang hanya muncul saat ada akibat lanjutan ke tool berikutnya.
+   * Dipakai Tool 1: reset di sini harus ikut membersihkan data yang sudah terbawa ke Tool 2.
+   */
+  opsiLanjutan?: { label: string; defaultChecked?: boolean };
 }
 
 export const ResetConfirmModal: React.FC<ResetConfirmModalProps> = ({
@@ -21,7 +27,9 @@ export const ResetConfirmModal: React.FC<ResetConfirmModalProps> = ({
   title = "Reset Input Formulir?",
   description,
   confirmButtonText = "Ya, Reset Formulir",
+  opsiLanjutan,
 }) => {
+  const [lanjutanAktif, setLanjutanAktif] = React.useState(opsiLanjutan?.defaultChecked ?? true);
   const modalRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
   const confirmBtnRef = useRef<HTMLButtonElement>(null);
@@ -103,6 +111,18 @@ export const ResetConfirmModal: React.FC<ResetConfirmModalProps> = ({
           {description || defaultDesc}
         </p>
 
+        {opsiLanjutan && (
+          <label className="mt-4 flex cursor-pointer items-start gap-2.5 rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-3">
+            <input
+              type="checkbox"
+              checked={lanjutanAktif}
+              onChange={(e) => setLanjutanAktif(e.target.checked)}
+              className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-[#FF5C8A]"
+            />
+            <span className="text-xs leading-relaxed text-[#FBFAFF]">{opsiLanjutan.label}</span>
+          </label>
+        )}
+
         <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 border-t border-[#2E2748]/70 pt-4">
           <button
             type="button"
@@ -115,7 +135,7 @@ export const ResetConfirmModal: React.FC<ResetConfirmModalProps> = ({
             ref={confirmBtnRef}
             type="button"
             id="btn-confirm-reset-action"
-            onClick={onConfirm}
+            onClick={() => onConfirm(lanjutanAktif)}
             className="w-full sm:w-auto rounded-xl bg-[#FF5C8A] px-5 py-2.5 text-xs font-bold text-white hover:bg-[#FA5747] transition-colors focus-visible:ring-2 focus-visible:ring-[#FF5C8A] focus-visible:outline-none shadow-md shadow-[#FF5C8A]/20 min-h-[44px] flex items-center justify-center cursor-pointer"
           >
             {confirmButtonText}

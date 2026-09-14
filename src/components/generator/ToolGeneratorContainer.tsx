@@ -56,14 +56,18 @@ export const ToolGeneratorContainer: React.FC<ToolGeneratorContainerProps> = ({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [generatedPrompt, setGeneratedPrompt] = useState<string | null>(null);
 
-  // Auto-scroll to output panel on mobile (< 1024px) after prompt generation
+  // Auto-scroll ke panel hasil setelah Generate, di semua ukuran layar.
+  //
+  // Sengaja dipanggil LANGSUNG dari tombol, bukan lewat useEffect yang memantau nilai
+  // prompt: kalau mahasiswa menekan Generate dua kali dengan isian yang sama, nilainya
+  // tidak berubah dan effect tidak jalan — halaman tidak kembali ke panel hasil.
   const outputPanelRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (generatedPrompt && window.innerWidth < 1024) {
+  const gulirKePanelHasil = useCallback(() => {
+    // Menunggu satu frame supaya panel sudah ter-render sebelum posisinya diukur.
+    requestAnimationFrame(() => {
       outputPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [generatedPrompt]);
+    });
+  }, []);
 
   // Field change handler with auto-save to localStorage
   const handleFieldChange = useCallback(
@@ -119,6 +123,7 @@ export const ToolGeneratorContainer: React.FC<ToolGeneratorContainerProps> = ({
     setErrors({});
     const promptText = assemblePrompt(tool, formValues);
     setGeneratedPrompt(promptText);
+    gulirKePanelHasil();
   };
 
   // Reset handler for the active tool

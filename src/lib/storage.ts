@@ -1518,6 +1518,24 @@ export function clearBab2Polish(): void {
   removeStorageItem(BAB2_POLISH_RAW_KEY);
 }
 
+/**
+ * Bersihkan data Tool 2 yang berasal dari Tool 1.
+ *
+ * Dipakai saat mahasiswa menekan "Reset" di Tool 1: handoff-nya sudah dihapus, tetapi
+ * Tool 2 menyimpan salinannya sendiri (form, asal-usul field, draf tempel, fenomena
+ * terpilih, sidik jari handoff yang sudah diterapkan). Tanpa pembersihan ini, Tool 2
+ * masih menampilkan isi lama padahal Tool 1 sudah dikosongkan — persis keluhan yang
+ * harus disambung.
+ *
+ * Hasil kandidat/hasil pilihan TIDAK ikut dihapus di sini; itu tanggung jawab reset Tool 2.
+ */
+export function clearPhenomenonTurunan(): void {
+  // Kunci isian formulir Tool 2 (`skriflow_tool_cari-fenomena-awal`) juga harus ikut:
+  // kalau tidak, Tool 2 tetap menampilkan isi sesi lama padahal Tool 1 sudah dikosongkan.
+  removeStorageItem(`${STORAGE_PREFIX}cari-fenomena-awal`);
+  [PHENOMENON_FIELD_ORIGINS_KEY, PHENOMENON_APPLIED_HANDOFF_FP_KEY].forEach(removeStorageItem);
+}
+
 /** Bersihkan seluruh state Tool 6 (dipakai tombol reset). */
 export function clearSemuaBab2(): void {
   [BAB2_MAP_KEY, BAB2_FOUNDATION_RAW_KEY, BAB2_FOUNDATION_KEY, BAB2_DRAFT_RAW_KEY, BAB2_DRAFT_KEY, BAB2_POLISH_RAW_KEY, BAB2_POLISH_KEY].forEach(

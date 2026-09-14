@@ -65,6 +65,8 @@ import { safeHref } from "@/lib/xss";
 import { ClipboardFallbackModal } from "./ClipboardFallbackModal";
 import { TombolTempelClipboard } from "./TombolTempelClipboard";
 import { SequentialNavigation } from "./SequentialNavigation";
+import { FenomenaRekomendasiPanel } from "./FenomenaRekomendasiPanel";
+import { rekomendasiFenomena } from "@/lib/fenomenaRekomendasi";
 import { resolveOptionLabel } from "@/data/researchOptions";
 import { getStudentLabel, getStudentStatus } from "@/lib/studentLanguage";
 import {
@@ -232,7 +234,29 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
   // Auto-sync effect: automatically apply fresh handoff data when user has not made manual edits
   React.useEffect(() => {
-    if (!isMounted || !ideaHandoff) return;
+    if (!isMounted) return;
+
+    // Handoff hilang (Tool 1 direset): ikut bersihkan isian yang dulu diisikan otomatis.
+    // Tanpa ini, Tool 2 tetap menampilkan isi lama padahal Tool 1 sudah kosong.
+    // Isian yang DIKETIK SENDIRI mahasiswa tidak disentuh.
+    if (!ideaHandoff) {
+      if (appliedHandoffFp) {
+        const berasalDariTool1 = Object.entries(fieldOrigins)
+          .filter(([k, origin]) => origin === "AUTOFILL_IDEA" && (formValues[k] || "").trim().length > 0)
+          .map(([k]) => k);
+        if (berasalDariTool1.length > 0) {
+          const nextValues = { ...formValues };
+          berasalDariTool1.forEach((k) => {
+            nextValues[k] = "";
+          });
+          saveToolData(tool.slug, nextValues);
+        }
+        savePhenomenonFieldOrigins({});
+        savePhenomenonAppliedHandoffFingerprint("");
+      }
+      return;
+    }
+
     if (ideaHandoff.sourcePayloadFingerprint === appliedHandoffFp) return;
 
     const anyUserEdited = Object.entries(fieldOrigins).some(
@@ -264,8 +288,15 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [generatedPrompt, setGeneratedPrompt] = useState<string | null>(null);
 
-  // Refs and auto-scroll to output panel on mobile (< 1024px) after prompt generation
+  // Auto-scroll ke panel hasil setelah prompt dirakit — semua ukuran layar.
+  // Dipanggil langsung dari tombol, bukan lewat useEffect atas nilai prompt: klik kedua
+  // dengan isian yang sama tidak mengubah nilai, jadi effect-nya tidak akan jalan.
   const outputPanelRef = useRef<HTMLDivElement | null>(null);
+  const gulirKePanelHasil = useCallback(() => {
+    requestAnimationFrame(() => {
+      outputPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, []);
 
   useEffect(() => {
     if (generatedPrompt && window.innerWidth < 1024) {
@@ -505,6 +536,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
     };
     const promptText = assemblePrompt(tool, fullContext);
     setGeneratedPrompt(promptText);
+    gulirKePanelHasil();
   };
 
   // Reset form handler
@@ -855,6 +887,12 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
       router.push("/tools/cari-literatur-awal");
     }, 1200);
   };
+
+  const rekomendasi = useMemo(() => {
+    const cands = parseResult?.payload?.candidates;
+    if (!cands || cands.length === 0) return null;
+    return rekomendasiFenomena(cands);
+  }, [parseResult]);
 
   const getStatusBadge = (status: PhenomenonStatus) => {
     const info = getStudentStatus(status);
@@ -1323,9 +1361,12 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                     {/* Pratinjau selalu tampil: beberapa baris pertama prompt, tanpa membuka prompt teknis penuh */}
                     <div className="mt-3 rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3">
-                      <pre className="font-mono text-xs leading-relaxed text-[#A79FC4] whitespace-pre-wrap line-clamp-4 select-all">
+                      <pre className="max-h-[9.5rem] overflow-hidden whitespace-pre-wrap break-words font-mono text-xs leading-relaxed text-[#A79FC4] select-all">
                         {generatedPrompt}
                       </pre>
+                      <p className="mt-2 text-[13px] text-[#8E86AB]">
+                        Pratinjau saja. Pakai tombol salin di bawah untuk mengambil teks utuhnya.
+                      </p>
                     </div>
                   </div>
 
@@ -1696,6 +1737,19 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
             </div>
           ) : (
             <div className="space-y-6">
+              {/* Rekomendasi: mulai dari kandidat mana */}
+              {rekomendasi && (
+                <FenomenaRekomendasiPanel
+                  rekomendasi={rekomendasi}
+                  selectedId={selectedCandidateId}
+                  onPilih={(id) => {
+                    setSelectedCandidateId(id);
+                    const el = document.getElementById("tool-output-panel");
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                />
+              )}
+
               {/* Candidates Comparison Overview Table */}
               <div className="rounded-xl border border-[#2E2748] bg-[#191430] p-5 space-y-3">
                 <div className="flex items-center justify-between border-b border-[#2E2748] pb-3">
@@ -1773,7 +1827,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
               <div className="space-y-6">
                 {parseResult.payload.candidates.map((cand) => {
                   const isSelected = selectedCandidateId === cand.id;
-                  const isEvidenceOpen = openEvidenceCandidateIds[cand.id] ?? true;
+                  const isEvidenceOpen = openEvidenceCandidateIds[cand.id] ?? false;
                   const uniqueCount = getUniqueSourceCount(cand.evidence);
                   const candEffectiveStatus = cand.effective_status || cand.status;
 

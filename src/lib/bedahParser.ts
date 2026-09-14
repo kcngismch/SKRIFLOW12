@@ -22,6 +22,8 @@ import {
   PhenomenonBasisStatus,
   CandidateGapV2,
   SourceIdentityAuditStatus,
+  JENIS_SITUS_DATA,
+  type JenisSitusData,
 } from "@/types/tool";
 import { normalizeEvidenceUrl } from "@/lib/phenomenonParser";
 import {
@@ -957,7 +959,28 @@ function parseDirectionV2Json(jsonString: string, isNonCompliantWrapper: boolean
       data_risks: Array.isArray(d.data_risks) ? d.data_risks : [],
       scope_boundaries: d.scope_boundaries || { in_scope: [], out_of_scope: [] },
       unresolved_items: Array.isArray(d.unresolved_items) ? d.unresolved_items : [],
-      data_verification_questions: Array.isArray(d.data_verification_questions) ? d.data_verification_questions : [],
+      data_verification_questions: Array.isArray(d.data_verification_questions)
+        ? d.data_verification_questions.map((q: DataVerificationQuestionV2) => {
+            // ADDENDUM E: field panduan pencarian bersifat opsional saat DIBACA
+            // (paket 4B lama tetap lolos). Jenis situs di luar daftar -> LAINNYA.
+            const situsRaw = (q as { site_type?: unknown }).site_type;
+            const situs = typeof situsRaw === "string" ? situsRaw.trim() : "";
+            const situsValid = (JENIS_SITUS_DATA as readonly string[]).includes(situs)
+              ? (situs as JenisSitusData)
+              : undefined;
+            const bersihkanList = (v: unknown): string[] | undefined => {
+              if (!Array.isArray(v)) return undefined;
+              const isi = v.map((x) => String(x ?? "").trim()).filter((x) => x.length > 0);
+              return isi.length > 0 ? isi : undefined;
+            };
+            return {
+              ...q,
+              where_to_look: bersihkanList((q as { where_to_look?: unknown }).where_to_look),
+              search_keywords: bersihkanList((q as { search_keywords?: unknown }).search_keywords),
+              site_type: situsValid,
+            };
+          })
+        : [],
       phenomenon_connection: d.phenomenon_connection || d.phenomenon_link || undefined,
       why_worth_considering: d.why_worth_considering || undefined,
       workload_risk: d.workload_risk || undefined,
