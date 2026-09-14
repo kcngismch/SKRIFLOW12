@@ -17,11 +17,11 @@ export const VisualHeroMockup: React.FC = () => {
             </div>
             <div>
               <h3 className="text-sm font-bold text-[#FBFAFF]">Cari Ide Skripsi</h3>
-              <p className="text-[11px] text-[#A79FC4]">Simulasi Konfigurasi Mahasiswa</p>
+              <p className="text-[12px] text-[#A79FC4]">Simulasi Konfigurasi Mahasiswa</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 rounded-full border border-[#FFB84D]/30 bg-[#FFB84D]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[#FFB84D]">
+          <div className="flex items-center gap-1.5 rounded-full border border-[#FFB84D]/30 bg-[#FFB84D]/10 px-2.5 py-0.5 text-[11px] font-semibold text-[#FFB84D]">
             <Sparkles className="h-3 w-3" aria-hidden="true" />
             <span>Simulasi tampilan</span>
           </div>
@@ -30,21 +30,21 @@ export const VisualHeroMockup: React.FC = () => {
         {/* Input Examples */}
         <div className="mt-4 space-y-2.5 text-xs">
           <div className="rounded-lg border border-[#2E2748] bg-[#0C0A1A]/80 p-2.5">
-            <span className="block text-[10px] font-medium uppercase tracking-wider text-[#A79FC4]">
+            <span className="block text-[11px] font-medium uppercase tracking-wider text-[#A79FC4]">
               Program Studi
             </span>
             <span className="mt-0.5 font-semibold text-[#FBFAFF]">Akuntansi</span>
           </div>
 
           <div className="rounded-lg border border-[#2E2748] bg-[#0C0A1A]/80 p-2.5">
-            <span className="block text-[10px] font-medium uppercase tracking-wider text-[#A79FC4]">
+            <span className="block text-[11px] font-medium uppercase tracking-wider text-[#A79FC4]">
               Jenis Data
             </span>
             <span className="mt-0.5 font-semibold text-[#FBFAFF]">Data sekunder (Laporan Keuangan IDX)</span>
           </div>
 
           <div className="rounded-lg border border-[#2E2748] bg-[#0C0A1A]/80 p-2.5">
-            <span className="block text-[10px] font-medium uppercase tracking-wider text-[#A79FC4]">
+            <span className="block text-[11px] font-medium uppercase tracking-wider text-[#A79FC4]">
               Yang Ingin Dihindari
             </span>
             <span className="mt-0.5 font-semibold text-[#FBFAFF]">Wawancara dan turun lapangan</span>
@@ -62,11 +62,11 @@ export const VisualHeroMockup: React.FC = () => {
         {/* Prompt Output Excerpt */}
         <div className="mt-4 rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3.5">
           <div className="flex items-center justify-between border-b border-[#2E2748]/60 pb-2 mb-2">
-            <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#FFB84D]">
+            <div className="flex items-center gap-1.5 text-[12px] font-mono text-[#FFB84D]">
               <Terminal className="h-3.5 w-3.5" aria-hidden="true" />
               <span>Prompt Terstruktur (Siap Pakai)</span>
             </div>
-            <span className="flex items-center gap-1 text-[10px] text-[#A79FC4]">
+            <span className="flex items-center gap-1 text-[11px] text-[#A79FC4]">
               <Check className="h-3 w-3 text-[#FFB84D]" aria-hidden="true" />
               Tersusun
             </span>
@@ -81,7 +81,7 @@ export const VisualHeroMockup: React.FC = () => {
 
         {/* Footer Badge Label */}
         <div className="mt-3.5 flex items-center justify-center">
-          <span className="text-[11px] font-medium text-[#FFB84D] bg-[#FFB84D]/10 border border-[#FFB84D]/20 px-3 py-1 rounded-full">
+          <span className="text-[12px] font-medium text-[#FFB84D] bg-[#FFB84D]/10 border border-[#FFB84D]/20 px-3 py-1 rounded-full">
             Simulasi tampilan
           </span>
         </div>

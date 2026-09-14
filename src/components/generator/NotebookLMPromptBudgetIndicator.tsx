@@ -139,7 +139,7 @@ export const NotebookLMPromptBudgetIndicator: React.FC<NotebookLMPromptBudgetInd
 
         {/* Detailed Character Metrics Breakdown */}
         {resolvedStatic !== undefined && (
-          <div className="flex flex-wrap items-center gap-1 text-[11px] text-[#A79FC4]">
+          <div className="flex flex-wrap items-center gap-1 text-[12px] text-[#A79FC4]">
             <span>Template: <strong className="text-[#FBFAFF]">{resolvedStatic}</strong></span>
             {resolvedEssential !== undefined && (
               <>

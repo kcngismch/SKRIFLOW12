@@ -875,7 +875,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
   const getQualityBadge = (level: string) => {
     const info = getStudentStatus(level);
     return (
-      <span className={`rounded px-1.5 py-0.5 text-[12px] font-semibold ${info.badgeClass}`}>
+      <span className={`rounded px-1.5 py-0.5 text-[13px] font-semibold ${info.badgeClass}`}>
         {info.label}
       </span>
     );
@@ -979,7 +979,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                     <div className="flex items-center gap-2.5">
                       <CheckCircle2 className="h-4 w-4 text-[#FFB84D] shrink-0" aria-hidden="true" />
                       <div className="text-[13px] space-y-0.5">
-                        <span className="text-[#A79FC4] block text-[12px] uppercase tracking-wider">
+                        <span className="text-[#A79FC4] block text-[13px] uppercase tracking-wider">
                           Data dari Cari Ide Skripsi
                         </span>
                         <span className="font-semibold text-[#FBFAFF]">
@@ -991,7 +991,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                       type="button"
                       onClick={handleRefreshFromT1}
                       title="Sinkronkan ulang data"
-                      className="inline-flex items-center gap-1 rounded border border-[#2E2748] px-2 py-1 text-[12px] text-[#A79FC4] hover:text-[#FBFAFF] hover:border-[#FFB84D] transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1 rounded border border-[#2E2748] px-2 py-1 text-[13px] text-[#A79FC4] hover:text-[#FBFAFF] hover:border-[#FFB84D] transition-colors cursor-pointer"
                     >
                       <RotateCw className="h-3 w-3 text-[#FFB84D]" />
                       <span>Sinkronkan Ulang</span>
@@ -1183,7 +1183,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                 *
                               </span>
                             ) : (
-                              <span className="text-[12px] font-normal text-[#A79FC4]">
+                              <span className="text-[13px] font-normal text-[#A79FC4]">
                                 (Opsional)
                               </span>
                             )}
@@ -1191,7 +1191,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                           {field.maxLength && (
                             <span
-                              className={`text-[12px] font-mono ${
+                              className={`text-[13px] font-mono ${
                                 Array.from(value).length > field.maxLength
                                   ? "text-[#FF5C8A] font-bold"
                                   : Array.from(value).length >= field.maxLength * 0.8
@@ -1259,7 +1259,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
 
                         {/* 80% Character Limit Warning */}
                         {field.maxLength && Array.from(value).length >= field.maxLength * 0.8 && Array.from(value).length <= field.maxLength && (
-                          <div className="flex items-center gap-1.5 text-[12px] text-amber-400/90 animate-in fade-in duration-150">
+                          <div className="flex items-center gap-1.5 text-[13px] text-amber-400/90 animate-in fade-in duration-150">
                             <AlertTriangle className="h-3 w-3 shrink-0" aria-hidden="true" />
                             <span>Batas ini disesuaikan dengan langkah berikutnya agar kamu tidak perlu menghapus atau meringkas ulang.</span>
                           </div>
@@ -1488,7 +1488,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         {tampil.map((x, i) => (
                           <li key={i} className="leading-relaxed">
                             <span
-                              className={`mr-1.5 rounded px-1 py-0.5 text-[10px] font-bold ${
+                              className={`mr-1.5 rounded px-1 py-0.5 text-[11px] font-bold ${
                                 x.severity === "ERROR"
                                   ? "bg-[#FF5C8A]/25 text-[#FF5C8A]"
                                   : "bg-[#FF9E5E]/25 text-[#FF9E5E]"
@@ -1501,7 +1501,7 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                         ))}
                       </ul>
                       {findings.length > tampil.length && (
-                        <p className="text-[11px] text-[#A79FC4]">
+                        <p className="text-[12px] text-[#A79FC4]">
                           +{findings.length - tampil.length} temuan lain pada bukti/sumber.
                         </p>
                       )}
@@ -1793,10 +1793,10 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                             {cand.id}
                           </span>
                           <h3 className="text-base font-bold text-[#FBFAFF]">{cand.name}</h3>
-                          <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[12px] font-semibold text-[#A79FC4]">
+                          <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[13px] font-semibold text-[#A79FC4]">
                             {getStudentLabel(cand.phenomenon_type)}
                           </span>
-                          <span className="rounded border border-[#2E2748] bg-[#0C0A1A] px-2 py-0.5 text-[12px] font-medium text-[#FFB84D]">
+                          <span className="rounded border border-[#2E2748] bg-[#0C0A1A] px-2 py-0.5 text-[13px] font-medium text-[#FFB84D]">
                             {cand.evidence.length} bukti • {uniqueCount} sumber unik
                           </span>
                         </div>
@@ -1966,11 +1966,11 @@ export const PhenomenonToolContainer: React.FC<PhenomenonToolContainerProps> = (
                                   <div className="flex flex-wrap items-start justify-between gap-2 border-b border-[#2E2748]/60 pb-2">
                                     <div className="space-y-1">
                                       <div className="flex flex-wrap items-center gap-2">
-                                        <span className="text-[12px] font-bold uppercase tracking-wider text-[#FFB84D]">
+                                        <span className="text-[13px] font-bold uppercase tracking-wider text-[#FFB84D]">
                                           Bukti #{idx + 1} • {getStudentLabel(ev.source_type)}
                                         </span>
                                         {isSharedSource && (
-                                          <span className="inline-flex items-center gap-1 rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 text-[12px] font-semibold text-[#FFB84D]">
+                                          <span className="inline-flex items-center gap-1 rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 text-[13px] font-semibold text-[#FFB84D]">
                                             Sumber yang sama
                                           </span>
                                         )}

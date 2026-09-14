@@ -67,7 +67,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
             >
               Rekomendasi Sementara untuk Diperiksa
             </h3>
-            <p className="text-[11px] text-[#A79FC4]">
+            <p className="text-[12px] text-[#A79FC4]">
               Dihitung berdasarkan kesesuaian data, beban pengerjaan, dan batasan metodologismu.
             </p>
           </div>
@@ -89,7 +89,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
             <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
             <div>
               <strong className="font-bold block">Belum ada area yang cukup selaras untuk direkomendasikan.</strong>
-              <p className="mt-0.5 text-[11px] text-[#FBFAFF]/90 leading-relaxed">
+              <p className="mt-0.5 text-[12px] text-[#FBFAFF]/90 leading-relaxed">
                 Seluruh opsi yang dihasilkan saat ini memiliki benturan signifikan dengan batasan yang kamu masukkan.
               </p>
             </div>
@@ -97,10 +97,10 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
 
           {conflictingConstraints && conflictingConstraints.length > 0 && (
             <div className="space-y-1">
-              <span className="font-semibold text-[#A79FC4] uppercase tracking-wider text-[10px]">
+              <span className="font-semibold text-[#A79FC4] uppercase tracking-wider text-[11px]">
                 Batasan yang Berbenturan:
               </span>
-              <ul className="list-disc list-inside space-y-0.5 text-[11px] text-[#FBFAFF]">
+              <ul className="list-disc list-inside space-y-0.5 text-[12px] text-[#FBFAFF]">
                 {conflictingConstraints.map((c, idx) => (
                   <li key={idx}>{c}</li>
                 ))}
@@ -109,7 +109,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
           )}
 
           {clarificationNeeded && clarificationNeeded.length > 0 && (
-            <div className="rounded-lg bg-[#0C0A1A] border border-[#2E2748] p-3 space-y-1.5 text-[11px]">
+            <div className="rounded-lg bg-[#0C0A1A] border border-[#2E2748] p-3 space-y-1.5 text-[12px]">
               <span className="font-semibold text-[#FF9E5E]">Hal yang Perlu Diperjelas:</span>
               <ul className="list-disc list-inside space-y-1 text-[#A79FC4]">
                 {clarificationNeeded.map((cl, idx) => (
@@ -149,7 +149,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
             <strong className="text-[#FFB84D] font-bold block">
               Ada dua area yang sama-sama layak diperiksa lebih dahulu.
             </strong>
-            <p className="text-[11px] text-[#A79FC4] leading-relaxed">
+            <p className="text-[12px] text-[#A79FC4] leading-relaxed">
               Kedua area memiliki skor kelayakan seimbang. Kamu dapat menimbang pembeda berikut:
             </p>
           </div>
@@ -159,7 +159,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
               <div className="rounded-lg bg-[#0C0A1A] p-3.5 border border-[#2E2748] space-y-2 flex flex-col justify-between">
                 <div>
                   <span className="font-bold text-[#FFB84D] block">{tieAreaIds[0]} — {tieAreaNames?.[0]}</span>
-                  <p className="text-[11px] text-[#A79FC4] mt-1">{tieDistinctions[0]}</p>
+                  <p className="text-[12px] text-[#A79FC4] mt-1">{tieDistinctions[0]}</p>
                 </div>
                 <button
                   type="button"
@@ -173,7 +173,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
               <div className="rounded-lg bg-[#0C0A1A] p-3.5 border border-[#2E2748] space-y-2 flex flex-col justify-between">
                 <div>
                   <span className="font-bold text-[#6D5AE6] block">{tieAreaIds[1]} — {tieAreaNames?.[1]}</span>
-                  <p className="text-[11px] text-[#A79FC4] mt-1">{tieDistinctions[1]}</p>
+                  <p className="text-[12px] text-[#A79FC4] mt-1">{tieDistinctions[1]}</p>
                 </div>
                 <button
                   type="button"
@@ -187,7 +187,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
           )}
 
           {/* Academic Principle Disclaimer */}
-          <div className="rounded-lg border border-[#FF9E5E]/30 bg-[#FF9E5E]/10 p-3 text-[11px] text-[#FBFAFF] flex items-start gap-2">
+          <div className="rounded-lg border border-[#FF9E5E]/30 bg-[#FF9E5E]/10 p-3 text-[12px] text-[#FBFAFF] flex items-start gap-2">
             <Info className="h-3.5 w-3.5 text-[#FF9E5E] shrink-0 mt-0.5" aria-hidden="true" />
             <p>
               <strong>Prinsip:</strong> Rekomendasi ini hanya menentukan area yang akan diperiksa melalui fenomena dan literatur. Ini belum menjadi judul, variabel, teori, metode, objek, sampel, atau keputusan penelitian final.
@@ -201,7 +201,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
         <div className="space-y-4 text-xs">
           {/* Primary Recommended Area Banner */}
           <div className="rounded-lg border border-[#FFB84D]/40 bg-[#FFB84D]/10 p-3.5 space-y-1">
-            <span className="text-[10px] uppercase font-bold text-[#FFB84D] tracking-wider block">
+            <span className="text-[11px] uppercase font-bold text-[#FFB84D] tracking-wider block">
               Area yang paling layak diperiksa lebih dahulu:
             </span>
             <h4 className="text-sm font-bold text-[#FBFAFF]">
@@ -212,7 +212,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
           {/* Why this area */}
           {reasons.length > 0 && (
             <div className="space-y-1">
-              <span className="font-semibold text-[#A79FC4] uppercase tracking-wider text-[10px]">
+              <span className="font-semibold text-[#A79FC4] uppercase tracking-wider text-[11px]">
                 Kenapa area ini:
               </span>
               <ul className="list-disc list-inside space-y-1 text-[#FBFAFF]">
@@ -224,7 +224,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
           )}
 
           {/* Assumptions & Risks */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[12px]">
             {assumptions.length > 0 && (
               <div className="rounded-lg bg-[#0C0A1A] p-2.5 border border-[#2E2748] space-y-0.5">
                 <span className="font-semibold text-[#FFB84D]">Asumsi yang masih digunakan:</span>
@@ -250,7 +250,7 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
 
           {/* Main Check Next */}
           {mainCheckNext && (
-            <div className="rounded-lg bg-[#0C0A1A] p-2.5 border border-[#2E2748] text-[11px]">
+            <div className="rounded-lg bg-[#0C0A1A] p-2.5 border border-[#2E2748] text-[12px]">
               <span className="font-semibold text-[#FF9E5E]">Hal yang wajib diperiksa selanjutnya:</span>
               <p className="text-[#FBFAFF] mt-0.5">{mainCheckNext}</p>
             </div>
@@ -258,14 +258,14 @@ export const RecommendationPanel: React.FC<RecommendationPanelProps> = ({
 
           {/* Secondary Alternative */}
           {secondaryAreaId && secondaryAreaName && (
-            <div className="text-[11px] text-[#A79FC4] border-t border-[#2E2748] pt-2">
+            <div className="text-[12px] text-[#A79FC4] border-t border-[#2E2748] pt-2">
               <span className="font-semibold text-[#FBFAFF]">Alternatif cadangan: </span>
               <span className="text-[#FFB84D] font-mono">[{secondaryAreaId}]</span> {secondaryAreaName}
             </div>
           )}
 
           {/* Academic Principle Warning */}
-          <div className="rounded-lg border border-[#FF9E5E]/30 bg-[#FF9E5E]/10 p-3 text-[11px] text-[#FBFAFF] flex items-start gap-2">
+          <div className="rounded-lg border border-[#FF9E5E]/30 bg-[#FF9E5E]/10 p-3 text-[12px] text-[#FBFAFF] flex items-start gap-2">
             <Info className="h-3.5 w-3.5 text-[#FF9E5E] shrink-0 mt-0.5" aria-hidden="true" />
             <p>
               <strong>Prinsip:</strong> Rekomendasi ini hanya menentukan area yang akan diperiksa melalui fenomena dan literatur. Ini belum menjadi judul, variabel, teori, metode, objek, sampel, atau keputusan penelitian final.

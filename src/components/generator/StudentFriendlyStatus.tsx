@@ -40,7 +40,7 @@ export const StudentFriendlyStatus: React.FC<StudentFriendlyStatusProps> = ({
   };
 
   const sizeClasses = {
-    sm: "px-2 py-0.5 text-[10px]",
+    sm: "px-2 py-0.5 text-[11px]",
     md: "px-2.5 py-1 text-xs",
     lg: "px-3 py-1.5 text-sm",
   }[size];
@@ -71,13 +71,13 @@ export const StudentFriendlyStatus: React.FC<StudentFriendlyStatusProps> = ({
         <div className="rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-2.5 text-xs text-[#A79FC4] space-y-1 animate-in fade-in duration-150">
           {info.description && <p className="text-[#FBFAFF] leading-relaxed">{info.description}</p>}
           {info.recommendedAction && (
-            <p className="text-amber-300/90 text-[11px]">
+            <p className="text-amber-300/90 text-[12px]">
               <strong>Saran Dosen: </strong>
               {info.recommendedAction}
             </p>
           )}
           {showRawOnExpand && status && (
-            <p className="text-[10px] text-[#A79FC4]/60 font-mono pt-1 border-t border-[#2E2748]/50">
+            <p className="text-[11px] text-[#A79FC4]/60 font-mono pt-1 border-t border-[#2E2748]/50">
               Internal Code: {status}
             </p>
           )}

@@ -39,7 +39,7 @@ export const AcademicExplainer: React.FC<AcademicExplainerProps> = ({
             <h4 className="font-bold text-[#FBFAFF] text-xs">{displayTitle}</h4>
             {displayMeaning && <p className="text-[#A79FC4] leading-relaxed">{displayMeaning}</p>}
             {displayWhy && (
-              <p className="text-[#FFB84D] text-[11px] font-medium leading-relaxed">
+              <p className="text-[#FFB84D] text-[12px] font-medium leading-relaxed">
                 <strong>Kenapa ini penting? </strong>
                 {displayWhy}
               </p>
@@ -51,7 +51,7 @@ export const AcademicExplainer: React.FC<AcademicExplainerProps> = ({
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center gap-1 rounded px-2 py-1 text-[11px] font-semibold text-[#6D5AE6] hover:text-[#FBFAFF] hover:bg-[#221A42] transition-colors focus-visible:ring-1 focus-visible:ring-[#6D5AE6] focus-visible:outline-none shrink-0"
+            className="inline-flex items-center gap-1 rounded px-2 py-1 text-[12px] font-semibold text-[#6D5AE6] hover:text-[#FBFAFF] hover:bg-[#221A42] transition-colors focus-visible:ring-1 focus-visible:ring-[#6D5AE6] focus-visible:outline-none shrink-0"
           >
             <span>{isOpen ? "Tutup Detail" : "Lihat Detail"}</span>
             {isOpen ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
@@ -60,9 +60,9 @@ export const AcademicExplainer: React.FC<AcademicExplainerProps> = ({
       </div>
 
       {isOpen && (technicalDetails || children || termInfo?.technicalTerm) && (
-        <div className="mt-3 pt-3 border-t border-[#2E2748]/60 text-[11px] text-[#A79FC4] space-y-2 animate-in fade-in duration-150">
+        <div className="mt-3 pt-3 border-t border-[#2E2748]/60 text-[12px] text-[#A79FC4] space-y-2 animate-in fade-in duration-150">
           {termInfo?.technicalTerm && (
-            <div className="text-[10px] font-mono text-[#A79FC4]/60">
+            <div className="text-[11px] font-mono text-[#A79FC4]/60">
               Istilah Akademik / Sistem: {termInfo.technicalTerm}
             </div>
           )}

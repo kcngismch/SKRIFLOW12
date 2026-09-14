@@ -1031,7 +1031,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
   const getDataOriginBadge = (origin: DataOrigin) => {
     const info = getDataOriginInfo(origin);
     return (
-      <span className={`rounded px-1.5 py-0.5 text-[12px] font-semibold ${info.badgeClass}`}>
+      <span className={`rounded px-1.5 py-0.5 text-[13px] font-semibold ${info.badgeClass}`}>
         {info.label}
       </span>
     );
@@ -1040,7 +1040,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
   const getAccessStatusBadge = (status: DataAccessStatus) => {
     const info = getDataAccessStatusInfo(status);
     return (
-      <span className={`rounded px-1.5 py-0.5 text-[11px] font-medium ${info.badgeClass}`}>
+      <span className={`rounded px-1.5 py-0.5 text-[12px] font-medium ${info.badgeClass}`}>
         {info.label}
       </span>
     );
@@ -1050,7 +1050,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
     const label = getStudentLabel(rating, domain);
     const status = getStudentStatus(rating);
     return (
-      <span className={`rounded px-1.5 py-0.5 text-[12px] font-semibold ${status.badgeClass}`}>
+      <span className={`rounded px-1.5 py-0.5 text-[13px] font-semibold ${status.badgeClass}`}>
         {label}
       </span>
     );
@@ -1202,7 +1202,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                               {field.required && <span className="text-[#FF5C8A] ml-1">*</span>}
                             </label>
                             {value && (
-                              <span className="text-[12px] text-[#A79FC4]">
+                              <span className="text-[13px] text-[#A79FC4]">
                                 {countChars(value)} karakter
                               </span>
                             )}
@@ -1240,7 +1240,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                             {field.required && <span className="text-[#FF5C8A] ml-1">*</span>}
                           </label>
                           {value && (
-                            <span className="text-[12px] text-[#A79FC4]">
+                            <span className="text-[13px] text-[#A79FC4]">
                               {countChars(value)} karakter
                             </span>
                           )}
@@ -1424,7 +1424,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                   >
                     {countChars(pasteText).toLocaleString()} / {IDEA_RESULT_HARD_LIMIT.toLocaleString()} karakter
                     {countChars(pasteText) > IDEA_RESULT_SOFT_LIMIT && countChars(pasteText) <= IDEA_RESULT_HARD_LIMIT && (
-                      <span className="ml-1 text-[12px] text-[#FF9E5E] font-normal">(Cukup panjang)</span>
+                      <span className="ml-1 text-[13px] text-[#FF9E5E] font-normal">(Cukup panjang)</span>
                     )}
                   </span>
                   <button
@@ -1636,29 +1636,29 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                   Ringkasan Konteks Mahasiswa
                 </h3>
               </div>
-              <span className="text-[12px] text-[#A79FC4]">Dasar Pembuatan Area</span>
+              <span className="text-[13px] text-[#A79FC4]">Dasar Pembuatan Area</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
               <div className="rounded-lg bg-[#0C0A1A] p-2.5 border border-[#2E2748]/60">
-                <span className="text-[12px] uppercase text-[#A79FC4] block">Program Studi</span>
+                <span className="text-[13px] uppercase text-[#A79FC4] block">Program Studi</span>
                 <span className="font-semibold text-[#FBFAFF] mt-0.5 block truncate">
                   {formValues.prodi || formValues.programStudi || "Belum ditentukan"}
                 </span>
               </div>
               <div className="rounded-lg bg-[#0C0A1A] p-2.5 border border-[#2E2748]/60">
-                <span className="text-[12px] uppercase text-[#A79FC4] block">Minat / Isu</span>
+                <span className="text-[13px] uppercase text-[#A79FC4] block">Minat / Isu</span>
                 <span className="font-semibold text-[#FBFAFF] mt-0.5 block truncate" title={formValues.minat || formValues.minatTopik || "-"}>
                   {formValues.minat || formValues.minatTopik || "Belum diisi"}
                 </span>
               </div>
               <div className="rounded-lg bg-[#0C0A1A] p-2.5 border border-[#2E2748]/60">
-                <span className="text-[12px] uppercase text-[#A79FC4] block">Pendekatan &amp; Data</span>
+                <span className="text-[13px] uppercase text-[#A79FC4] block">Pendekatan &amp; Data</span>
                 <span className="font-semibold text-[#FBFAFF] mt-0.5 block truncate">
                   {getStudentLabel(formValues.pendekatan || "unknown")} | {getStudentLabel(formValues.preferensi_data || "unknown")}
                 </span>
               </div>
               <div className="rounded-lg bg-[#0C0A1A] p-2.5 border border-[#2E2748]/60">
-                <span className="text-[12px] uppercase text-[#A79FC4] block">Akses Data &amp; Waktu</span>
+                <span className="text-[13px] uppercase text-[#A79FC4] block">Akses Data &amp; Waktu</span>
                 <span className="font-semibold text-[#FBFAFF] mt-0.5 block truncate">
                   {getStudentLabel(formValues.akses_data || "unknown")} ({getStudentLabel(formValues.target_waktu || "unknown")})
                 </span>
@@ -1793,7 +1793,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                   <div key={rd.roundId || rIdx} className="rounded bg-[#191430] p-3 border border-[#2E2748] space-y-1.5">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-[#FFB84D]">Putaran {rIdx + 1}</span>
-                      <span className="text-[12px] text-[#A79FC4]">{new Date(rd.createdAt).toLocaleTimeString()}</span>
+                      <span className="text-[13px] text-[#A79FC4]">{new Date(rd.createdAt).toLocaleTimeString()}</span>
                     </div>
                     <div className="text-[13px] text-[#FBFAFF]">
                       <strong>Area:</strong> {rd.rejectedAreas.map((a) => `${a.areaId} (${a.areaName})`).join(", ")}
@@ -1804,7 +1804,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                       </div>
                     )}
                     {rd.additionalNote && (
-                      <p className="text-[12px] text-[#A79FC4]/80 italic">Catatan: &ldquo;{rd.additionalNote}&rdquo;</p>
+                      <p className="text-[13px] text-[#A79FC4]/80 italic">Catatan: &ldquo;{rd.additionalNote}&rdquo;</p>
                     )}
                   </div>
                 ))}
@@ -1911,7 +1911,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
               <div className="hidden md:block overflow-x-auto">
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
-                    <tr className="border-b border-[#2E2748] text-[#A79FC4] uppercase tracking-wider text-[12px]">
+                    <tr className="border-b border-[#2E2748] text-[#A79FC4] uppercase tracking-wider text-[13px]">
                       <th className="py-2.5 pr-4">Area</th>
                       <th className="py-2.5 px-3">Minat</th>
                       <th className="py-2.5 px-3">Prodi</th>
@@ -1957,23 +1957,23 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                       </div>
                       <div className="grid grid-cols-2 gap-2 text-[13px]">
                         <div>
-                          <span className="text-[#A79FC4] block text-[12px] uppercase">Kedekatan Minat</span>
+                          <span className="text-[#A79FC4] block text-[13px] uppercase">Kedekatan Minat</span>
                           <div className="mt-0.5">{renderFitRatingBadge(comp.interestFit)}</div>
                         </div>
                         <div>
-                          <span className="text-[#A79FC4] block text-[12px] uppercase">Keterkaitan Prodi</span>
+                          <span className="text-[#A79FC4] block text-[13px] uppercase">Keterkaitan Prodi</span>
                           <div className="mt-0.5">{renderFitRatingBadge(comp.studyProgramFit)}</div>
                         </div>
                         <div>
-                          <span className="text-[#A79FC4] block text-[12px] uppercase">Kesesuaian Data</span>
+                          <span className="text-[#A79FC4] block text-[13px] uppercase">Kesesuaian Data</span>
                           <div className="mt-0.5">{renderFitRatingBadge(comp.dataFit)}</div>
                         </div>
                         <div>
-                          <span className="text-[12px] uppercase text-[#A79FC4] block">Beban Pengumpulan</span>
+                          <span className="text-[13px] uppercase text-[#A79FC4] block">Beban Pengumpulan</span>
                           <div className="mt-0.5">{renderFitRatingBadge(comp.collectionBurden, "beban")}</div>
                         </div>
                         <div className="col-span-2">
-                          <span className="text-[12px] uppercase text-[#A79FC4] block">Ketidakpastian Metodologis</span>
+                          <span className="text-[13px] uppercase text-[#A79FC4] block">Ketidakpastian Metodologis</span>
                           <div className="mt-0.5">{renderFitRatingBadge(comp.methodologicalUncertainty, "uncertainty")}</div>
                         </div>
                       </div>
@@ -2060,13 +2060,13 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                           </span>
                           {getConstraintBadge(area.constraintFit.status)}
                           {isSelected && (
-                            <span className="inline-flex items-center gap-1 rounded bg-[#FFB84D]/20 border border-[#FFB84D]/40 px-2 py-0.5 text-[12px] font-bold text-[#FFB84D]">
+                            <span className="inline-flex items-center gap-1 rounded bg-[#FFB84D]/20 border border-[#FFB84D]/40 px-2 py-0.5 text-[13px] font-bold text-[#FFB84D]">
                               <Check className="h-3 w-3" />
                               AREA TERPILIH
                             </span>
                           )}
                           {isBlocked && (
-                            <span className="inline-flex items-center gap-1 rounded bg-red-500/20 border border-red-500/40 px-2 py-0.5 text-[12px] font-bold text-red-300">
+                            <span className="inline-flex items-center gap-1 rounded bg-red-500/20 border border-red-500/40 px-2 py-0.5 text-[13px] font-bold text-red-300">
                               <ShieldX className="h-3 w-3" />
                               Diblokir
                             </span>
@@ -2121,7 +2121,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                         <button
                           type="button"
                           onClick={() => toggleScope(area.id)}
-                          className="text-[12px] font-semibold text-[#6D5AE6] hover:text-[#FFB84D] transition-colors pt-0.5 block cursor-pointer"
+                          className="text-[13px] font-semibold text-[#6D5AE6] hover:text-[#FFB84D] transition-colors pt-0.5 block cursor-pointer"
                         >
                           {isScopeOpen ? "Tutup ringkasan" : "Baca selengkapnya"}
                         </button>
@@ -2147,7 +2147,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                         {comp && (
                           <div>
                             <span className="font-semibold text-[#FBFAFF] text-[13px] block mb-1">Ringkasan Kelayakan:</span>
-                            <div className="flex flex-wrap gap-1.5 text-[12px]">
+                            <div className="flex flex-wrap gap-1.5 text-[13px]">
                               <div className="flex items-center gap-1 rounded bg-[#191430] border border-[#2E2748] px-2 py-0.5">
                                 <span className="text-[#A79FC4]">Data:</span>
                                 {renderFitRatingBadge(comp.dataFit)}
@@ -2404,7 +2404,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                                       </div>
                                     </div>
                                     {area.scopeBoundary.boundaryNote && (
-                                      <p className="text-[12px] text-[#A79FC4] border-t border-[#2E2748] pt-1.5">
+                                      <p className="text-[13px] text-[#A79FC4] border-t border-[#2E2748] pt-1.5">
                                         <strong>Catatan Batas:</strong> {area.scopeBoundary.boundaryNote}
                                       </p>
                                     )}
@@ -2452,7 +2452,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                                           <p className="font-semibold text-[#FFB84D] text-[13px]">
                                             {dir.label}: {dir.searchQuestion}
                                           </p>
-                                          <span className="rounded bg-[#6D5AE6]/20 px-1.5 py-0.5 text-[11px] font-mono text-[#6D5AE6]">
+                                          <span className="rounded bg-[#6D5AE6]/20 px-1.5 py-0.5 text-[12px] font-mono text-[#6D5AE6]">
                                             {dir.directionType}
                                           </span>
                                         </div>
@@ -2499,17 +2499,17 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                                   <div className="rounded bg-[#191430] p-3 border border-[#2E2748] space-y-2">
                                     {area.literatureSearchSeeds.concepts.length > 0 && (
                                       <div>
-                                        <span className="text-[12px] text-[#A79FC4] uppercase block">Konsep:</span>
+                                        <span className="text-[13px] text-[#A79FC4] uppercase block">Konsep:</span>
                                         <p className="text-[13px] text-[#FBFAFF]">{area.literatureSearchSeeds.concepts.join(", ")}</p>
                                       </div>
                                     )}
                                     <div>
-                                      <span className="text-[12px] text-[#A79FC4] uppercase block mb-1">Kata Kunci:</span>
+                                      <span className="text-[13px] text-[#A79FC4] uppercase block mb-1">Kata Kunci:</span>
                                       <div className="flex flex-wrap gap-1">
                                         {area.literatureSearchSeeds.keywordsId.map((k, kIdx) => (
                                           <span
                                             key={kIdx}
-                                            className="rounded bg-[#221A42] border border-[#2E2748] px-2 py-0.5 text-[12px] text-[#FFB84D]"
+                                            className="rounded bg-[#221A42] border border-[#2E2748] px-2 py-0.5 text-[13px] text-[#FFB84D]"
                                           >
                                             ID: {k}
                                           </span>
@@ -2517,7 +2517,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                                         {area.literatureSearchSeeds.keywordsEn.map((k, kIdx) => (
                                           <span
                                             key={kIdx}
-                                            className="rounded bg-[#221A42] border border-[#2E2748] px-2 py-0.5 text-[12px] text-[#6D5AE6]"
+                                            className="rounded bg-[#221A42] border border-[#2E2748] px-2 py-0.5 text-[13px] text-[#6D5AE6]"
                                           >
                                             EN: {k}
                                           </span>
@@ -2544,7 +2544,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                               <span className="flex items-center gap-2">
                                 <FileText className="h-3.5 w-3.5 text-[#FFB84D]" aria-hidden="true" />
                                 <span>Gambaran Bentuk Penelitian</span>
-                                <span className="ml-1 rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-1.5 py-0.2 font-mono text-[11px] font-bold text-[#FFB84D]">
+                                <span className="ml-1 rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-1.5 py-0.2 font-mono text-[12px] font-bold text-[#FFB84D]">
                                   BELUM MENJADI JUDUL
                                 </span>
                               </span>
@@ -2578,7 +2578,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
 
                                     {area.researchShapePreview.illustrativeTitlePattern && (
                                       <div className="rounded bg-[#191430] p-2.5 border border-[#2E2748] space-y-1">
-                                        <span className="text-[12px] font-semibold uppercase text-[#A79FC4] block">
+                                        <span className="text-[13px] font-semibold uppercase text-[#A79FC4] block">
                                           Pola Judul Ilustratif:
                                         </span>
                                         <p className="font-mono text-xs text-[#FFB84D] italic">
@@ -2598,7 +2598,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
                                       </div>
                                     )}
 
-                                    <div className="rounded bg-[#FF9E5E]/10 border border-[#FF9E5E]/30 p-2 text-[12px] text-[#FF9E5E] flex items-center gap-1.5">
+                                    <div className="rounded bg-[#FF9E5E]/10 border border-[#FF9E5E]/30 p-2 text-[13px] text-[#FF9E5E] flex items-center gap-1.5">
                                       <Info className="h-3 w-3 shrink-0" />
                                       <span>{area.researchShapePreview.warning || "Ilustrasi bentuk judul — belum layak diajukan ke dosen."}</span>
                                     </div>
@@ -2745,7 +2745,7 @@ export const IdeaToolContainer: React.FC<IdeaToolContainerProps> = ({ tool }) =>
             <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0C1427]/95 backdrop-blur-md border-t border-[#6D5AE6]/50 p-3 shadow-2xl safe-bottom animate-fade-in">
               <div className="flex items-center justify-between gap-2 max-w-lg mx-auto">
                 <div className="min-w-0 flex-1">
-                  <span className="text-[12px] text-[#A79FC4] uppercase tracking-wider block">
+                  <span className="text-[13px] text-[#A79FC4] uppercase tracking-wider block">
                     Area Terpilih:
                   </span>
                   <p className="text-xs font-bold text-[#FFB84D] truncate">

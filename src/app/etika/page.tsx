@@ -331,7 +331,7 @@ export default function EtikaPage() {
                 </p>
                 <div className="space-y-3 pt-2">
                   <div className="flex items-start gap-3 rounded-lg border border-[#2E2748] bg-[#0D1527] p-4 text-xs">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#6D5AE6]/20 text-[10px] font-bold text-[#FFB84D]">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#6D5AE6]/20 text-[11px] font-bold text-[#FFB84D]">
                       §4
                     </span>
                     <div>
@@ -345,7 +345,7 @@ export default function EtikaPage() {
                   </div>
 
                   <div className="flex items-start gap-3 rounded-lg border border-[#2E2748] bg-[#0D1527] p-4 text-xs">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#6D5AE6]/20 text-[10px] font-bold text-[#FFB84D]">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#6D5AE6]/20 text-[11px] font-bold text-[#FFB84D]">
                       §5
                     </span>
                     <div>
@@ -358,7 +358,7 @@ export default function EtikaPage() {
                   </div>
 
                   <div className="flex items-start gap-3 rounded-lg border border-[#2E2748] bg-[#0D1527] p-4 text-xs">
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#6D5AE6]/20 text-[10px] font-bold text-[#FFB84D]">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#6D5AE6]/20 text-[11px] font-bold text-[#FFB84D]">
                       §6
                     </span>
                     <div>
@@ -460,13 +460,13 @@ export default function EtikaPage() {
                 {COMPARISON_ITEMS.map((item, idx) => (
                   <div key={idx} className="grid grid-cols-1 md:grid-cols-2 transition-colors hover:bg-[#191430]/50">
                     <div className="flex items-start gap-3 p-4 border-b md:border-b-0 md:border-r border-[#2E2748]/70 text-[#A79FC4]">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FF5C8A]/10 text-[#FF5C8A] font-mono text-[10px]">
+                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FF5C8A]/10 text-[#FF5C8A] font-mono text-[11px]">
                         ✕
                       </span>
                       <span className="leading-relaxed">{item.notDone}</span>
                     </div>
                     <div className="flex items-start gap-3 p-4 text-[#FBFAFF]">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFB84D]/10 text-[#FFB84D] font-mono text-[10px]">
+                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#FFB84D]/10 text-[#FFB84D] font-mono text-[11px]">
                         ✓
                       </span>
                       <span className="leading-relaxed text-[#A79FC4]">{item.supported}</span>
@@ -501,7 +501,7 @@ export default function EtikaPage() {
                   <ScrollText className="h-4 w-4" aria-hidden="true" />
                   Pernyataan Kejujuran Akademik &amp; Deklarasi Bantuan AI
                 </span>
-                <span className="rounded bg-[#6D5AE6]/20 px-2 py-0.5 text-[10px] font-semibold text-[#FFB84D] border border-[#6D5AE6]/30">
+                <span className="rounded bg-[#6D5AE6]/20 px-2 py-0.5 text-[11px] font-semibold text-[#FFB84D] border border-[#6D5AE6]/30">
                   Draf Lampiran
                 </span>
               </div>

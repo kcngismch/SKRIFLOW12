@@ -33,10 +33,10 @@ export const Hero: React.FC = () => {
               <div className="absolute top-0 right-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full bg-[#6D5AE6]/10 blur-xl pointer-events-none" />
 
               <div className="flex items-center justify-between border-b border-[#2E2748] pb-3">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#FFB84D]">
+                <span className="text-[12px] font-bold uppercase tracking-wider text-[#FFB84D]">
                   TARGET PROTOTYPE
                 </span>
-                <span className="flex items-center gap-1 rounded bg-[#2E2748]/70 px-2 py-0.5 text-[11px] font-medium text-[#A79FC4]">
+                <span className="flex items-center gap-1 rounded bg-[#2E2748]/70 px-2 py-0.5 text-[12px] font-medium text-[#A79FC4]">
                   <Layers className="h-3 w-3 text-[#6D5AE6]" />
                   {toolCount} Tools Tersedia
                 </span>
@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#2E2748]/60 flex items-center justify-between text-[11px] text-[#A79FC4]">
+              <div className="mt-4 pt-3 border-t border-[#2E2748]/60 flex items-center justify-between text-[12px] text-[#A79FC4]">
                 <span>Empat tools pertama siap diuji</span>
                 <span className="text-[#FFB84D] font-medium">Form aktif</span>
               </div>

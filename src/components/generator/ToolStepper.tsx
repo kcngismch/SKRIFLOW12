@@ -42,7 +42,7 @@ export const ToolStepper: React.FC<{ currentStep: string }> = ({ currentStep }) 
                 className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none ${stateClass} hover:border-[#6D5AE6]/60`}
               >
                 <span
-                  className={`flex h-[18px] w-[18px] items-center justify-center rounded-full border text-[10px] font-bold ${
+                  className={`flex h-[18px] w-[18px] items-center justify-center rounded-full border text-[11px] font-bold ${
                     isDone
                       ? "border-[#FFB84D]/60 bg-[#FFB84D]/20 text-[#FFB84D]"
                       : isActive

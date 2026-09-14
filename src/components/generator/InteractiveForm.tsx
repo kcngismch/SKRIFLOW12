@@ -560,7 +560,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                   *
                 </span>
               ) : (
-                <span className="text-[10px] font-normal text-[#A79FC4]">
+                <span className="text-[11px] font-normal text-[#A79FC4]">
                   (Opsional)
                 </span>
               )}
@@ -576,7 +576,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
           {/* Character counter */}
           {field.maxLength && (
             <span
-              className={`text-[10px] font-mono ${
+              className={`text-[11px] font-mono ${
                 Array.from(value).length > field.maxLength
                   ? "text-[#FF5C8A] font-bold"
                   : Array.from(value).length >= field.maxLength * 0.8
@@ -656,7 +656,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
 
         {/* 80% Character Limit Warning */}
         {field.maxLength && Array.from(value).length >= field.maxLength * 0.8 && Array.from(value).length <= field.maxLength && (
-          <div className="flex items-center gap-1.5 text-[10px] text-amber-400/90 animate-in fade-in duration-150">
+          <div className="flex items-center gap-1.5 text-[11px] text-amber-400/90 animate-in fade-in duration-150">
             <AlertTriangle className="h-3 w-3 shrink-0" aria-hidden="true" />
             <span>Batas ini disesuaikan dengan langkah berikutnya agar kamu tidak perlu menghapus atau meringkas ulang.</span>
           </div>
@@ -667,13 +667,13 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
           <div
             id={errorId}
             role="alert"
-            className="flex items-center gap-1.5 text-[11px] font-medium text-[#FF5C8A] animate-in fade-in duration-150"
+            className="flex items-center gap-1.5 text-[12px] font-medium text-[#FF5C8A] animate-in fade-in duration-150"
           >
             <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
             <span>{fieldError}</span>
           </div>
         ) : field.helperText || field.helperLink ? (
-          <p id={helperId} className="text-[10px] text-[#A79FC4]/70">
+          <p id={helperId} className="text-[11px] text-[#A79FC4]/70">
             {field.helperText}
             {field.helperLink && (
               <Link
@@ -688,7 +688,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
 
         {/* Warning alert under fenomena_awal if status is PERLU_DIPERIKSA */}
         {isMounted && field.id === "fenomena_awal" && (selectedPhenomenon?.status === "PERLU_DIPERIKSA" || formValues.status_fenomena === "PERLU_DIPERIKSA") && (
-          <div className="mt-2 flex items-start gap-2 rounded-md border border-[#FF9E5E]/30 bg-[#FF9E5E]/10 p-2 text-[11px] text-[#FBFAFF]">
+          <div className="mt-2 flex items-start gap-2 rounded-md border border-[#FF9E5E]/30 bg-[#FF9E5E]/10 p-2 text-[12px] text-[#FBFAFF]">
             <AlertTriangle className="h-3.5 w-3.5 text-[#FF9E5E] shrink-0 mt-0.5" aria-hidden="true" />
             <span>Fenomena ini masih memiliki bukti yang perlu diperiksa. Gunakan literatur untuk memperkuat atau mengoreksi konteksnya.</span>
           </div>
@@ -713,7 +713,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
               <button
                 type="button"
                 onClick={handleResetClick}
-                className="inline-flex items-center gap-1 text-[11px] font-medium text-[#A79FC4] hover:text-[#FF5C8A] transition-colors focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none rounded px-1.5 py-0.5 cursor-pointer"
+                className="inline-flex items-center gap-1 text-[12px] font-medium text-[#A79FC4] hover:text-[#FF5C8A] transition-colors focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none rounded px-1.5 py-0.5 cursor-pointer"
                 aria-label={`Reset seluruh formulir ${tool.name}`}
               >
                 <RotateCcw className="h-3 w-3" aria-hidden="true" />
@@ -740,11 +740,11 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                   </div>
                 </div>
 
-                <div className="text-[11px] text-[#A79FC4] space-y-0.5">
+                <div className="text-[12px] text-[#A79FC4] space-y-0.5">
                   <p className="font-semibold text-[#FBFAFF]">
                     {selectedPhenomenon.candidateId} — {selectedPhenomenon.name}
                   </p>
-                  <p className="text-[10px] text-[#A79FC4]/80">
+                  <p className="text-[11px] text-[#A79FC4]/80">
                     {selectedPhenomenon.sourceConfirmationCount} sumber unik terkonfirmasi • Disimpan {new Date(selectedPhenomenon.updatedAt || selectedPhenomenon.createdAt).toLocaleDateString("id-ID")}
                   </p>
                 </div>
@@ -765,13 +765,13 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                   <AlertTriangle className="h-4 w-4 shrink-0" aria-hidden="true" />
                   <span>Data fenomena belum lengkap.</span>
                 </div>
-                <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+                <p className="text-[12px] leading-relaxed text-[#A79FC4]">
                   Data fenomena belum lengkap. Kembali ke Cari & Validasi Fenomena untuk menyimpan ulang kandidat.
                 </p>
                 <div className="pt-1">
                   <Link
                     href="/tools/cari-fenomena-awal"
-                    className="inline-flex items-center gap-1.5 rounded-md bg-[#6D5AE6] px-2.5 py-1 text-[11px] font-bold text-white hover:bg-[#2047D4] transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-md bg-[#6D5AE6] px-2.5 py-1 text-[12px] font-bold text-white hover:bg-[#2047D4] transition-colors"
                   >
                     <ArrowLeft className="h-3 w-3" aria-hidden="true" />
                     <span>Kembali ke Cari & Validasi Fenomena</span>
@@ -794,13 +794,13 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowLiteratureSeedsCard(false)}
-                  className="text-[11px] text-[#A79FC4] hover:text-[#FBFAFF] transition-colors cursor-pointer"
+                  className="text-[12px] text-[#A79FC4] hover:text-[#FBFAFF] transition-colors cursor-pointer"
                 >
                   Abaikan
                 </button>
               </div>
 
-              <div className="space-y-1.5 text-[11px]">
+              <div className="space-y-1.5 text-[12px]">
                 {"literatureSearchSeeds" in selectedExplorationArea && selectedExplorationArea.literatureSearchSeeds?.concepts?.length > 0 && (
                   <p className="text-[#A79FC4]">
                     <strong className="text-[#FBFAFF]">Konsep Awal:</strong> {selectedExplorationArea.literatureSearchSeeds.concepts.join(", ")}
@@ -809,7 +809,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                 <div className="flex flex-wrap items-center gap-1.5">
                   <strong className="text-[#FBFAFF]">Kata Kunci Awal:</strong>
                   {seedKeywords.map((k, idx) => (
-                    <span key={idx} className="rounded bg-[#221A42] border border-[#2E2748] px-1.5 py-0.5 text-[10px] text-[#FFB84D]">
+                    <span key={idx} className="rounded bg-[#221A42] border border-[#2E2748] px-1.5 py-0.5 text-[11px] text-[#FFB84D]">
                       {k}
                     </span>
                   ))}
@@ -845,7 +845,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
               </div>
 
               {terjemahGagal && (
-                <p className="text-[11px] text-[#FF9E5E] pt-1 border-t border-[#6D5AE6]/20">
+                <p className="text-[12px] text-[#FF9E5E] pt-1 border-t border-[#6D5AE6]/20">
                   Layanan terjemahan sedang tidak menjawab (kuota harian gratis habis atau tidak ada
                   koneksi). Coba lagi nanti, atau ketik sendiri istilah Inggrisnya.
                 </p>
@@ -853,26 +853,26 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
 
               {terjemahan && (
                 <div className="pt-2 border-t border-[#6D5AE6]/20 space-y-2">
-                  <p className="text-[11px] text-[#A79FC4]">
+                  <p className="text-[12px] text-[#A79FC4]">
                     Padanan Inggris — pakai ini di Google Scholar. Literatur internasional tidak
                     terindeks dengan kata Indonesia.
                   </p>
                   <ul className="space-y-1">
                     {terjemahan.map((t) => (
-                      <li key={t.istilah} className="flex flex-wrap items-center gap-1.5 text-[11px]">
+                      <li key={t.istilah} className="flex flex-wrap items-center gap-1.5 text-[12px]">
                         <span className="text-[#FBFAFF]">{t.istilah}</span>
                         <span className="text-[#A79FC4]">→</span>
                         {t.inggris ? (
                           <>
-                            <span className="rounded bg-[#221A42] border border-[#2E2748] px-1.5 py-0.5 text-[10px] text-[#FFB84D]">
+                            <span className="rounded bg-[#221A42] border border-[#2E2748] px-1.5 py-0.5 text-[11px] text-[#FFB84D]">
                               {t.inggris}
                             </span>
                             {t.dariKamus && (
-                              <span className="text-[10px] text-[#A79FC4]">(istilah baku)</span>
+                              <span className="text-[11px] text-[#A79FC4]">(istilah baku)</span>
                             )}
                           </>
                         ) : (
-                          <span className="text-[10px] text-[#A79FC4]">tidak ada padanan otomatis</span>
+                          <span className="text-[11px] text-[#A79FC4]">tidak ada padanan otomatis</span>
                         )}
                       </li>
                     ))}
@@ -931,8 +931,8 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
             <div className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#2E2748] bg-[#191430] p-3 text-xs text-[#FBFAFF]">
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-[#FFB84D] shrink-0" aria-hidden="true" />
-                <div className="text-[11px] space-y-0.5">
-                  <span className="text-[#A79FC4] block text-[10px] uppercase tracking-wider">
+                <div className="text-[12px] space-y-0.5">
+                  <span className="text-[#A79FC4] block text-[11px] uppercase tracking-wider">
                     Data dari Cari Ide Skripsi
                   </span>
                   <span className="font-semibold text-[#FBFAFF]">
@@ -948,14 +948,14 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
             <div className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#FFB84D]/30 bg-[#FFB84D]/10 p-3 text-xs text-[#FBFAFF]">
               <div className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-[#FFB84D] shrink-0" aria-hidden="true" />
-                <span className="text-[11px] text-[#A79FC4]">
+                <span className="text-[12px] text-[#A79FC4]">
                   Tersedia data riset dari <strong>{autofillData.sourceToolName}</strong>
                 </span>
               </div>
               <button
                 type="button"
                 onClick={handleTriggerAutofill}
-                className="shrink-0 rounded-md bg-[#FFB84D] px-2.5 py-1 text-[11px] font-bold text-[#0C0A1A] shadow-sm hover:bg-[#F0A63C] focus-visible:ring-2 focus-visible:ring-[#FFB84D] focus-visible:outline-none cursor-pointer"
+                className="shrink-0 rounded-md bg-[#FFB84D] px-2.5 py-1 text-[12px] font-bold text-[#0C0A1A] shadow-sm hover:bg-[#F0A63C] focus-visible:ring-2 focus-visible:ring-[#FFB84D] focus-visible:outline-none cursor-pointer"
               >
                 Gunakan Data dari {autofillData.sourceToolName}
               </button>
@@ -969,7 +969,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                 <ShieldAlert className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>Fenomena belum dipilih atau belum tervalidasi.</span>
               </div>
-              <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+              <p className="text-[12px] leading-relaxed text-[#A79FC4]">
                 Disarankan mencari dan memvalidasi bukti fenomena nyata terlebih dahulu agar pencarian literatur terarah.
               </p>
 
@@ -977,7 +977,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                 <div className="flex flex-wrap items-center gap-2 pt-1">
                   <Link
                     href="/tools/cari-fenomena-awal"
-                    className="inline-flex items-center gap-1.5 rounded-md bg-[#6D5AE6] px-2.5 py-1 text-[11px] font-bold text-white hover:bg-[#2047D4] transition-colors"
+                    className="inline-flex items-center gap-1.5 rounded-md bg-[#6D5AE6] px-2.5 py-1 text-[12px] font-bold text-white hover:bg-[#2047D4] transition-colors"
                   >
                     <ArrowLeft className="h-3 w-3" aria-hidden="true" />
                     <span>Kembali ke Cari & Validasi Fenomena</span>
@@ -985,7 +985,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowTempContinueOptions(true)}
-                    className="rounded-md border border-[#2E2748] bg-[#191430] px-2.5 py-1 text-[11px] font-semibold text-[#A79FC4] hover:text-[#FBFAFF] transition-colors cursor-pointer"
+                    className="rounded-md border border-[#2E2748] bg-[#191430] px-2.5 py-1 text-[12px] font-semibold text-[#A79FC4] hover:text-[#FBFAFF] transition-colors cursor-pointer"
                   >
                     Lanjut sementara tanpa fenomena tervalidasi
                   </button>
@@ -1000,7 +1000,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                       onChange={handleProceedTemporary}
                       className="h-4 w-4 rounded border-[#2E2748] bg-[#191430] text-[#FFB84D] focus:ring-[#FFB84D] mt-0.5"
                     />
-                    <span className="text-[11px] text-[#FBFAFF] leading-normal">
+                    <span className="text-[12px] text-[#FBFAFF] leading-normal">
                       Saya memahami bahwa saya melanjutkan tanpa fenomena tervalidasi. Status ini akan ditandai sebagai <strong>BELUM_TERVERIFIKASI</strong>.
                     </span>
                   </label>
@@ -1013,7 +1013,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
           {isMounted && tool.slug === "cari-literatur-awal" && (tempModeConfirmed || sharedContext?.fenomena_status === "BELUM_TERVERIFIKASI") && (
             <div className="mt-4 flex items-center gap-2 rounded-lg border border-[#FF9E5E]/30 bg-[#FF9E5E]/10 p-2.5 text-xs text-[#FBFAFF]">
               <ShieldAlert className="h-3.5 w-3.5 text-[#FF9E5E] shrink-0" aria-hidden="true" />
-              <span className="text-[11px]">
+              <span className="text-[12px]">
                 Berjalan dalam mode <strong>Fenomena Belum Tervalidasi</strong>.
               </span>
             </div>
@@ -1026,12 +1026,12 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                 <History className="h-3.5 w-3.5 text-[#6D5AE6]" aria-hidden="true" />
                 <span>Konteks Lama — Periksa Sebelum Digunakan</span>
               </div>
-              <p className="mt-1 text-[11px] text-[#A79FC4]">
+              <p className="mt-1 text-[12px] text-[#A79FC4]">
                 Ditemukan catatan format sebelumnya. Kamu dapat membaca atau menyalinnya ke formulir baru di bawah:
               </p>
               <div className="mt-2 space-y-1.5 border-t border-[#2E2748]/60 pt-2">
                 {autofillData.legacyItems.map((item) => (
-                  <div key={item.key} className="text-[11px]">
+                  <div key={item.key} className="text-[12px]">
                     <strong className="text-[#FBFAFF]">{item.label}:</strong>{" "}
                     <span className="text-[#A79FC4]">{item.value}</span>
                   </div>
@@ -1059,7 +1059,7 @@ export const InteractiveForm: React.FC<InteractiveFormProps> = ({
                   <span className="text-xs font-bold text-[#FBFAFF] block">
                     Pengaturan Lanjutan — Opsional
                   </span>
-                  <p className="text-[10px] text-[#A79FC4] mt-0.5">
+                  <p className="text-[11px] text-[#A79FC4] mt-0.5">
                     Lewati jika belum tahu. SKRIFLOW akan meminta NotebookLM memetakan landscape secara menyeluruh.
                   </p>
                 </div>

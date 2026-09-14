@@ -47,7 +47,7 @@ export const ToolCard: React.FC<ToolCardProps> = ({ tool }) => {
       </div>
 
       <div className="mt-6 flex items-center justify-between border-t border-[#2E2748]/70 pt-4 text-xs font-semibold text-[#A79FC4] transition-colors group-hover:text-[#FBFAFF]">
-        <span className="text-[11px] text-[#A79FC4]/80">Siap digunakan</span>
+        <span className="text-[12px] text-[#A79FC4]/80">Siap digunakan</span>
         <span className="inline-flex items-center gap-1.5 text-[#6D5AE6] transition-transform group-hover:translate-x-1 group-hover:text-[#FFB84D]">
           Buka Generator
           <ArrowRight className="h-3.5 w-3.5" />

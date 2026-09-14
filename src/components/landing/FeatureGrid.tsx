@@ -70,7 +70,7 @@ export const FeatureGrid: React.FC = () => {
                     </div>
 
                     {feature.badge && (
-                      <span className="rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 text-[10px] font-bold tracking-wider text-[#FFB84D]">
+                      <span className="rounded bg-[#6D5AE6]/20 border border-[#6D5AE6]/40 px-2 py-0.5 text-[11px] font-bold tracking-wider text-[#FFB84D]">
                         {feature.badge}
                       </span>
                     )}

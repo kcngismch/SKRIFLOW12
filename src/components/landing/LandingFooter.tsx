@@ -32,7 +32,7 @@ export const LandingFooter: React.FC = () => {
           {/* Quick Links Column */}
           <div className="md:col-span-7 flex flex-wrap gap-x-10 gap-y-4 md:justify-end">
             <div className="space-y-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#FBFAFF]">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#FBFAFF]">
                 Navigasi
               </span>
               <ul className="space-y-1.5">
@@ -55,7 +55,7 @@ export const LandingFooter: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#FBFAFF]">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#FBFAFF]">
                 Eksplorasi
               </span>
               <ul className="space-y-1.5">
@@ -78,7 +78,7 @@ export const LandingFooter: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#FBFAFF]">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#FBFAFF]">
                 Aplikasi &amp; Etika
               </span>
               <ul className="space-y-1.5">
@@ -104,7 +104,7 @@ export const LandingFooter: React.FC = () => {
         </div>
 
         {/* Academic Disclaimer & Copyright */}
-        <div className="mt-10 border-t border-[#2E2748]/70 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px]">
+        <div className="mt-10 border-t border-[#2E2748]/70 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[12px]">
           <p className="text-[#A79FC4]/80 max-w-xl text-center md:text-left">
             <strong className="text-[#FBFAFF]">Disclaimer:</strong> SKRIFLOW adalah alat bantu penyusunan prompt, bukan pengganti dosen pembimbing atau verifikasi akademik.{" "}
             <Link

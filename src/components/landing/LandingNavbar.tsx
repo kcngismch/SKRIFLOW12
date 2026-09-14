@@ -50,11 +50,11 @@ export const LandingNavbar: React.FC = () => {
               <span className="text-base font-bold tracking-tight text-[#FBFAFF]">
                 SKRIFLOW
               </span>
-              <span className="rounded bg-[#6D5AE6]/20 px-1.5 py-0.5 text-[10px] font-semibold tracking-wider text-[#FFB84D] border border-[#6D5AE6]/30">
+              <span className="rounded bg-[#6D5AE6]/20 px-1.5 py-0.5 text-[11px] font-semibold tracking-wider text-[#FFB84D] border border-[#6D5AE6]/30">
                 PROTOTYPE
               </span>
             </div>
-            <span className="text-[11px] font-medium text-[#A79FC4]">
+            <span className="text-[12px] font-medium text-[#A79FC4]">
               Prompt Tools
             </span>
           </div>

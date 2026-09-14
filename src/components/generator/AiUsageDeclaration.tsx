@@ -73,7 +73,7 @@ export const AiUsageDeclaration: React.FC<{
           <button
             type="button"
             onClick={handleCopy}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#221A42] px-3 py-1.5 text-[11px] font-semibold text-[#FBFAFF] hover:border-[#6D5AE6] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#6D5AE6]"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#2E2748] bg-[#221A42] px-3 py-1.5 text-[12px] font-semibold text-[#FBFAFF] hover:border-[#6D5AE6] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#6D5AE6]"
           >
             {copied ? (
               <>
@@ -89,7 +89,7 @@ export const AiUsageDeclaration: React.FC<{
           </button>
         </div>
       </div>
-      <p className="text-[10px] leading-relaxed text-[#A79FC4]/80">
+      <p className="text-[11px] leading-relaxed text-[#A79FC4]/80">
         Draf ini disusun otomatis dari jejak prosesmu di SKRIFLOW (bukan tulisan AI). Banyak kampus
         kini meminta deklarasi penggunaan AI; periksa aturan kampusmu lalu sesuaikan sebelum dilampirkan.
       </p>
@@ -101,7 +101,7 @@ export const AiUsageDeclaration: React.FC<{
           setEdited(true);
         }}
         aria-label="Draf deklarasi penggunaan AI"
-        className="w-full resize-y rounded-lg border border-[#2E2748] bg-[#191430] p-3 font-mono text-[11px] leading-relaxed text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none focus:ring-1 focus:ring-[#6D5AE6]"
+        className="w-full resize-y rounded-lg border border-[#2E2748] bg-[#191430] p-3 font-mono text-[12px] leading-relaxed text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none focus:ring-1 focus:ring-[#6D5AE6]"
       />
     </div>
   );

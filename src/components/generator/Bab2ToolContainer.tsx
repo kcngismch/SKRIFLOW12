@@ -162,14 +162,14 @@ const DaftarTemuan: React.FC<{ temuan: Bab2Finding[]; judul: string }> = ({ temu
       </p>
       {temuan.map((f, i) => (
         <div key={`${f.code}-${i}`} className={`rounded-lg border p-3 ${warna(f.severity)}`}>
-          <div className="flex flex-wrap items-center gap-2 text-[11px] font-semibold">
+          <div className="flex flex-wrap items-center gap-2 text-[12px] font-semibold">
             <span>{f.severity}</span>
             <span className="opacity-60">·</span>
             <span className="opacity-80">{f.where}</span>
           </div>
           <p className="mt-1 text-xs leading-relaxed text-[#FBFAFF]">{f.message}</p>
           {f.evidence_excerpt && (
-            <p className="mt-1.5 border-l-2 border-[#2E2748] pl-2 text-[11px] italic leading-relaxed text-[#A79FC4]">
+            <p className="mt-1.5 border-l-2 border-[#2E2748] pl-2 text-[12px] italic leading-relaxed text-[#A79FC4]">
               “{f.evidence_excerpt}”
             </p>
           )}
@@ -489,7 +489,7 @@ export const Bab2ToolContainer: React.FC = () => {
                 { label: "Target kata", nilai: `${BAB2_WORD_RANGE[0]}–${BAB2_WORD_RANGE[1]}` },
               ].map((k) => (
                 <div key={k.label} className="rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3">
-                  <p className="text-[11px] text-[#A79FC4]">{k.label}</p>
+                  <p className="text-[12px] text-[#A79FC4]">{k.label}</p>
                   <p className="mt-0.5 text-lg font-bold text-[#FBFAFF]">{k.nilai}</p>
                 </div>
               ))}
@@ -498,7 +498,7 @@ export const Bab2ToolContainer: React.FC = () => {
             {peta.map_notes.length > 0 && (
               <ul className="mt-3 space-y-1.5">
                 {peta.map_notes.map((n, i) => (
-                  <li key={i} className="flex items-start gap-2 text-[11px] leading-relaxed text-[#A79FC4]">
+                  <li key={i} className="flex items-start gap-2 text-[12px] leading-relaxed text-[#A79FC4]">
                     <Info className="mt-0.5 h-3 w-3 shrink-0" aria-hidden="true" />
                     <span>{n}</span>
                   </li>
@@ -507,7 +507,7 @@ export const Bab2ToolContainer: React.FC = () => {
             )}
 
             <div className="mt-4 overflow-x-auto rounded-lg border border-[#2E2748]">
-              <table className="w-full min-w-[640px] text-left text-[11px]">
+              <table className="w-full min-w-[640px] text-left text-[12px]">
                 <thead className="bg-[#0C0A1A] text-[#A79FC4]">
                   <tr>
                     <th className="px-3 py-2 font-semibold">ID</th>
@@ -546,7 +546,7 @@ export const Bab2ToolContainer: React.FC = () => {
                 </tbody>
               </table>
             </div>
-            <p className="mt-2 text-[11px] leading-relaxed text-[#A79FC4]">
+            <p className="mt-2 text-[12px] leading-relaxed text-[#A79FC4]">
               Dua kolom terakhir (<span className="text-[#FFB84D]">Metode</span> dan{" "}
               <span className="text-[#FFB84D]">Hasil</span>) selalu bertanda TIDAK TERCATAT — Source Register Tool 3 memang tidak
               memuatnya. Lengkapi dengan membaca sumbernya lalu salin ke tabel di Word; itu pekerjaanmu, bukan AI. Kalau kamu
@@ -586,7 +586,7 @@ export const Bab2ToolContainer: React.FC = () => {
           ))}
         </div>
         {pendekatan !== "BELUM_DITENTUKAN" && (
-          <p className="mt-3 text-[11px] leading-relaxed text-[#A79FC4]">
+          <p className="mt-3 text-[12px] leading-relaxed text-[#A79FC4]">
             Sub-bab yang akan dibangun:{" "}
             <span className="font-semibold text-[#FBFAFF]">{strukturBakuBab2(pendekatan).join(" → ")}</span>
             {!strukturBakuBab2(pendekatan).includes("Hipotesis") && (
@@ -631,7 +631,7 @@ export const Bab2ToolContainer: React.FC = () => {
                 label="Salin Prompt 6A"
                 disabled={bab1Terblokir}
               />
-              <span className="text-[11px] text-[#A79FC4]">
+              <span className="text-[12px] text-[#A79FC4]">
                 {assembleBab2FoundationPrompt(inputPrompt).length.toLocaleString("id-ID")} karakter
               </span>
             </div>
@@ -647,7 +647,7 @@ export const Bab2ToolContainer: React.FC = () => {
                 saveBab2FoundationRaw(e.target.value);
               }}
               rows={7}
-              className="mt-2 w-full rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 font-mono text-[11px] text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none"
+              className="mt-2 w-full rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 font-mono text-[12px] text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none"
               placeholder="=== BEGIN SKRIFLOW_BAB2_FOUNDATION_V1 === … === END SKRIFLOW_BAB2_FOUNDATION_V1 ==="
             />
             <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -659,7 +659,7 @@ export const Bab2ToolContainer: React.FC = () => {
                 Proses Fondasi Bab 2
               </button>
               {fondasiBab2 && (
-                <span className="text-[11px] text-[#FFB84D]">
+                <span className="text-[12px] text-[#FFB84D]">
                   Tersimpan · {fondasiBab2.structure_blueprint.length} sub-bab · {fondasiBab2.claim_ledger.length} klaim
                 </span>
               )}
@@ -671,7 +671,7 @@ export const Bab2ToolContainer: React.FC = () => {
                 <div>
                   <p className="text-xs font-semibold text-[#FBFAFF]">{galat}</p>
                   {pesan.length > 0 && (
-                    <ul className="mt-1 list-disc pl-4 text-[11px] text-[#A79FC4]">
+                    <ul className="mt-1 list-disc pl-4 text-[12px] text-[#A79FC4]">
                       {pesan.map((p, i) => (
                         <li key={i}>{p}</li>
                       ))}
@@ -684,7 +684,7 @@ export const Bab2ToolContainer: React.FC = () => {
             {!galat && pesan.length > 0 && (
               <ul className="mt-3 space-y-1.5">
                 {pesan.map((p, i) => (
-                  <li key={i} className="flex items-start gap-2 text-[11px] leading-relaxed text-[#A79FC4]">
+                  <li key={i} className="flex items-start gap-2 text-[12px] leading-relaxed text-[#A79FC4]">
                     <Info className="mt-0.5 h-3 w-3 shrink-0" aria-hidden="true" />
                     <span>{p}</span>
                   </li>
@@ -694,7 +694,7 @@ export const Bab2ToolContainer: React.FC = () => {
 
             {fondasiBab2 && (
               <div className="mt-4 space-y-3">
-                <div className="flex flex-wrap items-center gap-2 text-[11px]">
+                <div className="flex flex-wrap items-center gap-2 text-[12px]">
                   <span className="rounded-md border border-[#2E2748] bg-[#0C0A1A] px-2 py-1 font-semibold text-[#FBFAFF]">
                     {fondasiBab2.foundation_status}
                   </span>
@@ -702,7 +702,7 @@ export const Bab2ToolContainer: React.FC = () => {
                 </div>
                 <DaftarTemuan temuan={temuanFondasi} judul="Pemeriksa fondasi" />
                 {ringkasFondasi.kritis === 0 && (
-                  <label className="flex items-start gap-2 text-[11px] leading-relaxed text-[#A79FC4]">
+                  <label className="flex items-start gap-2 text-[12px] leading-relaxed text-[#A79FC4]">
                     <input
                       type="checkbox"
                       checked={konfirmasiFondasi}
@@ -759,12 +759,12 @@ export const Bab2ToolContainer: React.FC = () => {
               <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#FFB84D]" aria-hidden="true" />
               <div>
                 <p className="text-xs font-bold text-[#FBFAFF]">Fondasi Bab 2 belum sepenuhnya pasti</p>
-                <ul className="mt-1.5 list-disc space-y-1 pl-4 text-[11px] leading-relaxed text-[#A79FC4]">
+                <ul className="mt-1.5 list-disc space-y-1 pl-4 text-[12px] leading-relaxed text-[#A79FC4]">
                   {gerbang13.alasan.map((x, i) => (
                     <li key={i}>{x}</li>
                   ))}
                 </ul>
-                <p className="mt-1.5 text-[11px] leading-relaxed text-[#FBFAFF]">{gerbang13.tindakan}</p>
+                <p className="mt-1.5 text-[12px] leading-relaxed text-[#FBFAFF]">{gerbang13.tindakan}</p>
               </div>
             </div>
           )}
@@ -777,12 +777,12 @@ export const Bab2ToolContainer: React.FC = () => {
                 <button
                   type="button"
                   onClick={unduhBerkasSumber6B}
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#6D5AE6] bg-[#6D5AE6]/15 px-3 py-1.5 text-[11px] font-semibold text-[#FBFAFF] hover:bg-[#6D5AE6]/25 focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#6D5AE6] bg-[#6D5AE6]/15 px-3 py-1.5 text-[12px] font-semibold text-[#FBFAFF] hover:bg-[#6D5AE6]/25 focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
                 >
                   <Download className="h-3.5 w-3.5" />
                   Unduh Berkas Sumber 6B
                 </button>
-                <p className="mt-1 text-[11px] text-[#A79FC4]">
+                <p className="mt-1 text-[12px] text-[#A79FC4]">
                   Unggah berkas ini ke NotebookLM sebagai <span className="font-semibold">sumber</span>.
                 </p>
               </div>
@@ -791,7 +791,7 @@ export const Bab2ToolContainer: React.FC = () => {
               <span className="font-bold text-[#FFB84D]">2.</span>
               <div>
                 <TombolSalin teks={assembleBab2DraftShortCommand(inputPrompt)} label="Salin Perintah Pendek 6B" />
-                <p className="mt-1 text-[11px] text-[#A79FC4]">
+                <p className="mt-1 text-[12px] text-[#A79FC4]">
                   {analyzeBab2DraftShortCommand(inputPrompt).finalLength} karakter — aman untuk kolom chat NotebookLM.
                 </p>
               </div>
@@ -813,7 +813,7 @@ export const Bab2ToolContainer: React.FC = () => {
               saveBab2DraftRaw(e.target.value);
             }}
             rows={7}
-            className="mt-2 w-full rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 font-mono text-[11px] text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none"
+            className="mt-2 w-full rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 font-mono text-[12px] text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none"
             placeholder="=== BEGIN SKRIFLOW_BAB2_DRAFT_V1 === … === END SKRIFLOW_BAB2_DRAFT_V1 ==="
           />
           <div className="mt-2">
@@ -830,7 +830,7 @@ export const Bab2ToolContainer: React.FC = () => {
 
           {drafBab2 && (
             <div className="mt-4 space-y-3">
-              <div className="flex flex-wrap items-center gap-3 text-[11px] text-[#A79FC4]">
+              <div className="flex flex-wrap items-center gap-3 text-[12px] text-[#A79FC4]">
                 <span className="rounded-md border border-[#2E2748] bg-[#0C0A1A] px-2 py-1 font-semibold text-[#FBFAFF]">
                   {drafBab2.draft_status}
                 </span>
@@ -850,7 +850,7 @@ export const Bab2ToolContainer: React.FC = () => {
                     <p className="text-xs font-bold text-[#FBFAFF]">
                       {drafBab2.new_sources_introduced.length} sumber baru muncul di draf — belum boleh disitasi
                     </p>
-                    <ul className="mt-2 list-disc space-y-1 pl-4 text-[11px] leading-relaxed text-[#A79FC4]">
+                    <ul className="mt-2 list-disc space-y-1 pl-4 text-[12px] leading-relaxed text-[#A79FC4]">
                       {drafBab2.new_sources_introduced.map((s, i) => (
                         <li key={i}>
                           <span className="font-semibold text-[#FBFAFF]">{s.authors_year || s.id_sementara}</span>
@@ -858,14 +858,14 @@ export const Bab2ToolContainer: React.FC = () => {
                         </li>
                       ))}
                     </ul>
-                    <p className="mt-2 text-[11px] leading-relaxed text-[#FBFAFF]">
+                    <p className="mt-2 text-[12px] leading-relaxed text-[#FBFAFF]">
                       Langkah berikutnya: masukkan sumber itu lewat pencarian di Tool 3, jalankan penyaringan dan
                       verifikasi sampai masuk Source Register, baru boleh disitasi. Jangan hapus sitasinya hanya
                       supaya temuan ini hilang, dan jangan biarkan sumber ini di dalam naskah.
                     </p>
                     <a
                       href="/tools/cari-literatur-awal"
-                      className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[#6D5AE6] bg-[#6D5AE6]/15 px-3 py-1.5 text-[11px] font-semibold text-[#FBFAFF] hover:bg-[#6D5AE6]/25 focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
+                      className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-[#6D5AE6] bg-[#6D5AE6]/15 px-3 py-1.5 text-[12px] font-semibold text-[#FBFAFF] hover:bg-[#6D5AE6]/25 focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
                     >
                       Buka Tool 3 — Cari Literatur
                     </a>
@@ -880,19 +880,19 @@ export const Bab2ToolContainer: React.FC = () => {
                       teks={assembleBab2PolishPrompt({ prodi, areaEksplorasi, draft: drafBab2, foundation: fondasiBab2 })}
                       label="Salin Prompt 6C (Poles Bahasa)"
                     />
-                    <span className="text-[11px] text-[#A79FC4]">
+                    <span className="text-[12px] text-[#A79FC4]">
                       Langkah 5: buka ChatGPT — bahasa NotebookLM selalu kaku, tahap ini wajib.
                     </span>
                   </div>
                   <div className="rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3">
                     {drafBab2.background.map((p) => (
                       <div key={p.order} className="mb-3 last:mb-0">
-                        <p className="text-[11px] font-semibold text-[#FFB84D]">
+                        <p className="text-[12px] font-semibold text-[#FFB84D]">
                           {p.order}. {p.sub_bab}
                         </p>
                         <p className="mt-1 text-xs leading-relaxed text-[#FBFAFF]">{p.paragraph_text}</p>
                         {p.claim_ids.length > 0 && (
-                          <p className="mt-1 text-[10px] text-[#A79FC4]">klaim: {p.claim_ids.join(", ")}</p>
+                          <p className="mt-1 text-[11px] text-[#A79FC4]">klaim: {p.claim_ids.join(", ")}</p>
                         )}
                       </div>
                     ))}
@@ -924,7 +924,7 @@ export const Bab2ToolContainer: React.FC = () => {
               saveBab2PolishRaw(e.target.value);
             }}
             rows={7}
-            className="mt-2 w-full rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 font-mono text-[11px] text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none"
+            className="mt-2 w-full rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 font-mono text-[12px] text-[#FBFAFF] focus:border-[#6D5AE6] focus:outline-none"
             placeholder="=== BEGIN SKRIFLOW_BAB2_POLISH_V1 === … === END SKRIFLOW_BAB2_POLISH_V1 ==="
           />
           <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -936,7 +936,7 @@ export const Bab2ToolContainer: React.FC = () => {
               Proses Hasil Poles
             </button>
             {polesBab2 && (
-              <span className="text-[11px] text-[#FFB84D]">
+              <span className="text-[12px] text-[#FFB84D]">
                 Tersimpan · {polesBab2.word_count_total} kata · {polesBab2.changed_sections.length} sub-bab dipoles
               </span>
             )}
@@ -965,7 +965,7 @@ export const Bab2ToolContainer: React.FC = () => {
                     <FileText className="h-3.5 w-3.5" />
                     Unduh Bab 2 (.rtf)
                   </button>
-                  <span className="text-[11px] text-[#A79FC4]">
+                  <span className="text-[12px] text-[#A79FC4]">
                     Terbuka di Word/Google Docs tanpa peringatan format. Sitasi tetap kamu pasang sendiri di Word.
                   </span>
                 </div>
@@ -973,10 +973,10 @@ export const Bab2ToolContainer: React.FC = () => {
 
               {polesBab2.language_notes.length > 0 && (
                 <details className="rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3">
-                  <summary className="cursor-pointer text-[11px] font-semibold text-[#FBFAFF]">
+                  <summary className="cursor-pointer text-[12px] font-semibold text-[#FBFAFF]">
                     Catatan perubahan bahasa ({polesBab2.language_notes.length})
                   </summary>
-                  <ul className="mt-2 list-disc space-y-1 pl-4 text-[11px] text-[#A79FC4]">
+                  <ul className="mt-2 list-disc space-y-1 pl-4 text-[12px] text-[#A79FC4]">
                     {polesBab2.language_notes.map((n, i) => (
                       <li key={i}>{n}</li>
                     ))}
@@ -1045,7 +1045,7 @@ export const Bab2ToolContainer: React.FC = () => {
 
       {/* Footer */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#2E2748] pt-5">
-        <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+        <p className="text-[12px] leading-relaxed text-[#A79FC4]">
           Bab 2 menyiapkan alat analisis, bukan menyimpulkan hasil. Kerangka pemikiran dan hipotesis tetap{" "}
           <span className="font-semibold text-[#FBFAFF]">usulanmu</span> sampai kamu memutuskannya.
         </p>
@@ -1061,7 +1061,7 @@ export const Bab2ToolContainer: React.FC = () => {
 
       <div className="flex items-start gap-2 rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3">
         <BookOpenCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#FFB84D]" aria-hidden="true" />
-        <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+        <p className="text-[12px] leading-relaxed text-[#A79FC4]">
           Target panjang Bab 2: {BAB2_WORD_RANGE[0]}–{BAB2_WORD_RANGE[1]} kata (target kerja {BAB2_TARGET_WORDS}). Angka ini
           pedoman kerja, bukan aturan kampus — ikuti panduan prodi kalau berbeda.
         </p>

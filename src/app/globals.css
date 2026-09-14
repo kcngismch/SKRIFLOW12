@@ -35,6 +35,13 @@
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+/* Kepadatan: 1rem dinaikkan dari 16px -> 17px. Karena Tailwind memakai rem untuk
+   HURUF dan JARAK, satu baris ini membesarkan keduanya sekaligus — huruf 10-12px
+   naik ~6% dan padding ikut melonggar, tanpa menyentuh 94 berkas komponen. */
+html {
+  font-size: 17px;
+}
+
 * {
   box-sizing: border-box;
 }

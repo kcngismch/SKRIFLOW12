@@ -17,7 +17,7 @@ export default function ToolsLayout({
             <span>•</span>
             <span>Prompt Tools untuk Mahasiswa Skripsi</span>
           </div>
-          <p className="text-[11px] text-[#A79FC4]/70">
+          <p className="text-[12px] text-[#A79FC4]/70">
             Prototype Eksplorasi Awal • Berjalan di sisi peramban tanpa koneksi AI langsung
           </p>
         </div>

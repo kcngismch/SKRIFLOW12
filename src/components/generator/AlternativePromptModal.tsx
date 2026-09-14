@@ -84,7 +84,7 @@ export const AlternativePromptModal: React.FC<AlternativePromptModalProps> = ({
                 Prompt Alternatif Sudah Siap
               </h3>
               <div className="mt-1 flex items-center gap-2">
-                <span className="inline-flex items-center rounded-md bg-[#6D5AE6]/20 px-2 py-0.5 text-[11px] font-mono font-semibold text-[#FFB84D] border border-[#6D5AE6]/30">
+                <span className="inline-flex items-center rounded-md bg-[#6D5AE6]/20 px-2 py-0.5 text-[12px] font-mono font-semibold text-[#FFB84D] border border-[#6D5AE6]/30">
                   Putaran eksplorasi: {roundNumber} dari {maxRounds}
                 </span>
               </div>

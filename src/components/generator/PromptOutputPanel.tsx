@@ -183,12 +183,12 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
             </h2>
           </div>
           {isNotebookLM ? (
-            <span className="flex items-center gap-1 rounded bg-[#6D5AE6]/15 border border-[#6D5AE6]/30 px-2 py-0.5 text-[10px] font-semibold text-[#FFB84D]">
+            <span className="flex items-center gap-1 rounded bg-[#6D5AE6]/15 border border-[#6D5AE6]/30 px-2 py-0.5 text-[11px] font-semibold text-[#FFB84D]">
               <Layers className="h-3 w-3" aria-hidden="true" />
               Cari & Petakan Sumber
             </span>
           ) : (
-            <span className="text-[11px] text-[#A79FC4]">
+            <span className="text-[12px] text-[#A79FC4]">
               {prompt ? `${singleCharCount.toLocaleString()} karakter • ${singleWordCount.toLocaleString()} kata` : "Menunggu Input"}
             </span>
           )}
@@ -241,7 +241,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                           <Search className="h-4 w-4 text-[#FFB84D]" />
                           <span>Langkah 1 — Kumpulkan Literatur</span>
                         </h3>
-                        <p className="text-[10px] text-[#A79FC4]">
+                        <p className="text-[11px] text-[#A79FC4]">
                           Jalankan Prompt A di fitur Telusuri Web / Deep Research NotebookLM. NotebookLM akan mencari kandidat sumber. Pilih hanya artikel jurnal individual yang naskahnya terbuka penuh (full-text).
                         </p>
                       </div>
@@ -269,7 +269,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
 
                   {/* Action Buttons for Prompt A */}
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-                    <div className="text-[10px] text-[#A79FC4]">
+                    <div className="text-[11px] text-[#A79FC4]">
                       Deep Research: NotebookLM mencari artikel individual. Pilih hanya naskah lengkap (full-text).
                     </div>
 
@@ -307,12 +307,12 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                   </div>
 
                   {/* Panel Petunjuk: CHECKLIST LANGKAH 1 */}
-                  <div className="rounded-lg border border-[#2E2748]/80 bg-[#191430]/70 p-3 text-[11px] text-[#A79FC4] space-y-1.5">
+                  <div className="rounded-lg border border-[#2E2748]/80 bg-[#191430]/70 p-3 text-[12px] text-[#A79FC4] space-y-1.5">
                     <div className="font-bold text-[#FBFAFF] flex items-center gap-1.5 text-xs">
                       <CheckSquare className="h-3.5 w-3.5 text-[#FFB84D]" />
                       <span>CHECKLIST PENTING LANGKAH 1</span>
                     </div>
-                    <ol className="list-decimal list-inside space-y-1.5 text-[10.5px] leading-relaxed text-[#A79FC4]">
+                    <ol className="list-decimal list-inside space-y-1.5 text-[11.5px] leading-relaxed text-[#A79FC4]">
                       <li><strong className="text-amber-300">Penting:</strong> Jangan pilih &quot;Research Report&quot; atau &quot;Laporan Riset&quot; buatan AI. Pilih hanya naskah artikel jurnal individual.</li>
                       <li>Pastikan naskah lengkap (full-text). Halaman abstrak, DOI, atau metadata ringkas belum cukup untuk dibedah.</li>
                       <li><strong className="text-[#FFB84D]">Tips Terbaik:</strong> Jika kamu punya file PDF artikel langsung dari kampus/perpus, unggah file PDF langsung ke NotebookLM. Itu cara paling aman agar isi artikel terbaca penuh.</li>
@@ -338,7 +338,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                             <FileCheck2 className="h-4 w-4 text-[#6D5AE6]" />
                             <span>Langkah 2 — Buat Paket Bukti</span>
                           </h3>
-                          <p className="text-[10px] text-[#A79FC4]">
+                          <p className="text-[11px] text-[#A79FC4]">
                             Prompt B akan membaca seluruh artikel yang sudah masuk ke notebook dan menyusun Matriks Bukti terstruktur untuk dibawa ke tahap berikutnya.
                           </p>
                         </div>
@@ -365,12 +365,12 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
 
                     <div className="space-y-3 animate-in fade-in duration-200">
                       {/* Callout Petunjuk Penggunaan Paket Bukti */}
-                      <div className="rounded-lg border border-[#FFB84D]/30 bg-[#FFB84D]/10 p-3 text-[11px] text-[#FBFAFF] space-y-1.5">
+                      <div className="rounded-lg border border-[#FFB84D]/30 bg-[#FFB84D]/10 p-3 text-[12px] text-[#FBFAFF] space-y-1.5">
                         <p className="font-semibold text-[#FFB84D] flex items-center gap-1.5 text-xs">
                           <CheckSquare className="h-3.5 w-3.5" />
                           <span>Ketentuan Ekstraksi Paket Bukti</span>
                         </p>
-                        <ul className="list-disc list-inside space-y-1 text-[10.5px] leading-relaxed text-[#A79FC4]">
+                        <ul className="list-disc list-inside space-y-1 text-[11.5px] leading-relaxed text-[#A79FC4]">
                           <li><strong className="text-[#FBFAFF]">INTI (Prioritas Utama)</strong> dan <strong className="text-[#FBFAFF]">PENDUKUNG (Konteks)</strong> sama-sama wajib naskah lengkap (full-text).</li>
                           <li><strong className="text-[#FBFAFF]">TERBACA TAK DIPILIH</strong> adalah sumber valid yang belum masuk kuota (tetap aman, tidak perlu dihapus).</li>
                           <li><strong className="text-[#FBFAFF]">DIABAIKAN</strong> (sumber error/abstrak/laporan AI) otomatis tidak dimasukkan ke dalam Matriks Bukti.</li>
@@ -380,7 +380,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
 
                       {/* Action Buttons for Prompt B */}
                       <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-                        <div className="text-[10px] text-[#A79FC4]">
+                        <div className="text-[11px] text-[#A79FC4]">
                           Ekstraksi Bukti: Salin seluruh output Matriks Bukti ke Tool Bedah Fenomena & Literatur.
                         </div>
 
@@ -425,7 +425,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
             <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-dashed border-[#2E2748] p-6 text-center text-xs text-[#A79FC4]">
               <Search className="mb-2 h-8 w-8 text-[#A79FC4]/40" />
               <p className="font-semibold text-[#FBFAFF]">Belum Ada Prompt yang Dibuat</p>
-              <p className="mt-1 text-[11px]">
+              <p className="mt-1 text-[12px]">
                 Lengkapi formulir di samping untuk merakit Langkah 1 (Kumpulkan Literatur) dan Langkah 2 (Buat Paket Bukti).
               </p>
               <PromptExample variant="notebooklm" />
@@ -480,7 +480,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
             <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-dashed border-[#2E2748] p-6 text-center text-xs text-[#A79FC4]">
               <Terminal className="mb-2 h-8 w-8 text-[#A79FC4]/40" />
               <p className="font-semibold text-[#FBFAFF]">Belum Ada Prompt yang Dibuat</p>
-              <p className="mt-1 text-[11px]">
+              <p className="mt-1 text-[12px]">
                 Lengkapi formulir di samping dan klik &quot;Buat Prompt&quot; untuk melihat prompt akademik siap pakai.
               </p>
               <PromptExample variant="single" />

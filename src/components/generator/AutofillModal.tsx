@@ -88,10 +88,10 @@ export const AutofillModal: React.FC<AutofillModalProps> = ({
               <AlertTriangle className="h-4 w-4 shrink-0" aria-hidden="true" />
               <span>Data lama perlu disesuaikan</span>
             </div>
-            <p className="text-[11px] text-[#A79FC4] leading-relaxed">
+            <p className="text-[12px] text-[#A79FC4] leading-relaxed">
               Ada {validationResult.violations.length} field yang dibuat menggunakan batas versi sebelumnya dan melebihi batas langkah ini:
             </p>
-            <ul className="list-disc list-inside space-y-1 text-[11px] text-amber-300/90 pl-1">
+            <ul className="list-disc list-inside space-y-1 text-[12px] text-amber-300/90 pl-1">
               {validationResult.violations.map((v, i) => (
                 <li key={i}>
                   <span className="font-semibold text-white">{v.fieldLabel}</span>: {v.actualLength} karakter (maksimal {v.allowedLength} karakter)
@@ -116,7 +116,7 @@ export const AutofillModal: React.FC<AutofillModalProps> = ({
               <div className="font-semibold text-[#FFB84D] mb-1">
                 {item.fieldLabel}
               </div>
-              <div className="grid grid-cols-11 gap-2 items-center text-[11px]">
+              <div className="grid grid-cols-11 gap-2 items-center text-[12px]">
                 <div className="col-span-5 rounded bg-[#191430] p-1.5 text-[#A79FC4] truncate" title={item.currentDisplay}>
                   <span className="text-[9px] block text-[#A79FC4]/60 uppercase">Saat ini:</span>
                   {item.currentDisplay}

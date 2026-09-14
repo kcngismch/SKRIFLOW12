@@ -51,7 +51,7 @@ export const CompatibilityStrip: React.FC = () => {
                       {platform.name}
                     </span>
                   </div>
-                  <span className="mt-1 text-[11px] text-[#A79FC4]">
+                  <span className="mt-1 text-[12px] text-[#A79FC4]">
                     {platform.description}
                   </span>
                 </div>
@@ -59,7 +59,7 @@ export const CompatibilityStrip: React.FC = () => {
             })}
           </div>
 
-          <p className="mt-5 text-[11px] text-[#A79FC4]/60 max-w-md">
+          <p className="mt-5 text-[12px] text-[#A79FC4]/60 max-w-md">
             SKRIFLOW tidak berafiliasi dengan atau mewakili platform tersebut.
           </p>
         </div>

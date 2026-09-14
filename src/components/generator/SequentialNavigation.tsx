@@ -36,16 +36,16 @@ export const SequentialNavigation: React.FC<SequentialNavigationProps> = ({
       {/* Top Status & Caution Info */}
       <div className="flex flex-col gap-1 border-b border-[#2E2748]/60 pb-4">
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-[#FFB84D]">
+          <span className="text-[12px] font-bold uppercase tracking-wider text-[#FFB84D]">
             {nextStep.eyebrow || "LANGKAH BERIKUTNYA"}
           </span>
           {isEnabled ? (
-            <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#FFB84D]">
+            <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#FFB84D]">
               <CheckCircle2 className="h-3 w-3" aria-hidden="true" />
               <span>{nextStatusLabel || defaultEnabledLabel}</span>
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 text-[11px] font-medium text-[#A79FC4]">
+            <span className="inline-flex items-center gap-1 text-[12px] font-medium text-[#A79FC4]">
               <AlertCircle className="h-3 w-3 text-[#A79FC4]" aria-hidden="true" />
               <span>{nextDisabledReason || defaultDisabledReason}</span>
             </span>
@@ -62,7 +62,7 @@ export const SequentialNavigation: React.FC<SequentialNavigationProps> = ({
       <div className="border-b border-[#2E2748]/60 pb-3">
         <Link
           href="/tools"
-          className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#A79FC4] hover:text-[#FBFAFF] underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none rounded"
+          className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#A79FC4] hover:text-[#FBFAFF] underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none rounded"
         >
           <LayoutGrid className="h-3.5 w-3.5" aria-hidden="true" />
           <span>Semua tool</span>
@@ -109,7 +109,7 @@ export const SequentialNavigation: React.FC<SequentialNavigationProps> = ({
               <ArrowRight className="h-4 w-4 opacity-50" aria-hidden="true" />
             </button>
             {/* UX-04: alasan tombol mati ditempel di tombolnya, bukan cuma di kepala panel. */}
-            <p className="max-w-xs text-[11px] leading-relaxed text-[#A79FC4] sm:text-right">
+            <p className="max-w-xs text-[12px] leading-relaxed text-[#A79FC4] sm:text-right">
               {nextDisabledReason || defaultDisabledReason}
             </p>
             </>

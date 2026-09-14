@@ -37,15 +37,15 @@ dilengkapi ID sumber, bukti keterbacaan, dan status verifikasi.`;
 export const PromptExample: React.FC<{ variant: "single" | "notebooklm" }> = ({ variant }) => {
   return (
     <details className="mt-4 w-full max-w-md rounded-lg border border-[#2E2748] bg-[#0C0A1A]/60 text-left">
-      <summary className="flex cursor-pointer items-center gap-1.5 px-4 py-2.5 text-[11px] font-semibold text-[#FFB84D] hover:text-[#FBFAFF] focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none">
+      <summary className="flex cursor-pointer items-center gap-1.5 px-4 py-2.5 text-[12px] font-semibold text-[#FFB84D] hover:text-[#FBFAFF] focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none">
         <Eye className="h-3.5 w-3.5" aria-hidden="true" />
         Lihat contoh hasil nanti
       </summary>
       <div className="px-4 pb-4">
-        <pre className="max-h-56 overflow-y-auto whitespace-pre-wrap break-words rounded-md border border-[#2E2748] bg-[#0C0A1A] p-3 font-mono text-[10px] leading-relaxed text-[#A79FC4]">
+        <pre className="max-h-56 overflow-y-auto whitespace-pre-wrap break-words rounded-md border border-[#2E2748] bg-[#0C0A1A] p-3 font-mono text-[11px] leading-relaxed text-[#A79FC4]">
           {variant === "single" ? SINGLE_EXAMPLE : NOTEBOOKLM_EXAMPLE}
         </pre>
-        <p className="mt-2 text-[10px] text-[#A79FC4]/60">
+        <p className="mt-2 text-[11px] text-[#A79FC4]/60">
           Ilustrasi bentuk output — isi aslinya mengikuti formulirmu.
         </p>
       </div>

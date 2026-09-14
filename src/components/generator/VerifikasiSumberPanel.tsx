@@ -169,9 +169,9 @@ export function RingkasanVerifikasi({ hasil, catatan }: { hasil: Record<string, 
         )}
         {hitung("TIDAK_DAPAT_DIPERIKSA") > 0 && <li>• {hitung("TIDAK_DAPAT_DIPERIKSA")} tidak dapat diperiksa</li>}
       </ul>
-      {catatan && <p className="text-[11.5px] text-[#FF9E5E]">{catatan}</p>}
+      {catatan && <p className="text-[12.5px] text-[#FF9E5E]">{catatan}</p>}
       <p
-        className={`text-[11.5px] leading-relaxed pt-1 border-t border-[#2E2748]/60 ${
+        className={`text-[12.5px] leading-relaxed pt-1 border-t border-[#2E2748]/60 ${
           perluCek > 0 ? "text-rose-300 font-semibold" : "text-[#A79FC4]"
         }`}
       >
@@ -272,7 +272,7 @@ export function LencanaVerifikasi({ hasil }: { hasil?: HasilVerifikasiSumber }) 
         : "TIDAK DIAWASI"
       : "--";
   return (
-    <span title={hasil.catatan} className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${warna}`}>
+    <span title={hasil.catatan} className={`rounded-full px-2 py-0.5 text-[12px] font-bold ${warna}`}>
       {label}
     </span>
   );

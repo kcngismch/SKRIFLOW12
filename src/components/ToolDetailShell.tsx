@@ -9,6 +9,7 @@ import { BedahToolContainer } from "./generator/BedahToolContainer";
 import { Bab1ToolContainer } from "./generator/Bab1ToolContainer";
 import { Bab2ToolContainer } from "./generator/Bab2ToolContainer";
 import { AccessGate } from "./generator/AccessGate";
+import { LaporHasilPanel } from "./generator/LaporHasilPanel";
 
 /**
  * Paywall DITUNDA. Semua tool terbuka supaya orang bisa merasakan satu putaran
@@ -119,7 +120,16 @@ export const ToolDetailShell: React.FC<ToolDetailShellProps> = ({ tool }) => {
           ) : (
             <ToolGeneratorContainer key={tool.slug} tool={tool} />
           );
-        return BUKA_SEMUA_TOOL ? isi : <AccessGate>{isi}</AccessGate>;
+        return (
+          <>
+            {BUKA_SEMUA_TOOL ? isi : <AccessGate>{isi}</AccessGate>}
+            {/* 08: jalur lapor hasil salah. Ditaruh di dasar setiap tool — tempat
+                mahasiswa berada tepat setelah menemukan keluaran yang keliru. */}
+            <div className="mt-6">
+              <LaporHasilPanel namaTool={tool.name} konteks={`slug: ${tool.slug}`} />
+            </div>
+          </>
+        );
       })()}
     </div>
   );

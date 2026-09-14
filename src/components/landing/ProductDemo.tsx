@@ -96,11 +96,11 @@ export const ProductDemo: React.FC = () => {
               <span className="h-3 w-3 rounded-full bg-[#6D5AE6]/80" />
             </div>
 
-            <div className="flex items-center gap-2 rounded-md border border-[#2E2748] bg-[#0C0A1A] px-4 py-1 text-[11px] font-mono text-[#A79FC4]">
+            <div className="flex items-center gap-2 rounded-md border border-[#2E2748] bg-[#0C0A1A] px-4 py-1 text-[12px] font-mono text-[#A79FC4]">
               <span>skriflow.app{activeTab === "dashboard" ? "/tools" : `/tools/${selectedTool.slug}`}</span>
             </div>
 
-            <div className="text-[11px] font-semibold text-[#FFB84D]">
+            <div className="text-[12px] font-semibold text-[#FFB84D]">
               {activeTab === "dashboard" ? "Mode Katalog" : "Mode Perakit"}
             </div>
           </div>
@@ -150,7 +150,7 @@ export const ProductDemo: React.FC = () => {
                         </p>
                       </div>
 
-                      <div className="mt-4 flex items-center justify-between border-t border-[#2E2748]/60 pt-3 text-[11px] text-[#6D5AE6]">
+                      <div className="mt-4 flex items-center justify-between border-t border-[#2E2748]/60 pt-3 text-[12px] text-[#6D5AE6]">
                         <span>Tersedia</span>
                         <span className="inline-flex items-center gap-1 font-semibold text-[#FFB84D]">
                           Buka Generator →
@@ -174,7 +174,7 @@ export const ProductDemo: React.FC = () => {
                           <h4 className="text-base font-bold text-[#FBFAFF]">
                             {selectedTool.name}
                           </h4>
-                          <span className="rounded bg-[#6D5AE6]/20 px-2 py-0.5 text-[10px] font-semibold text-[#FFB84D] border border-[#6D5AE6]/30">
+                          <span className="rounded bg-[#6D5AE6]/20 px-2 py-0.5 text-[11px] font-semibold text-[#FFB84D] border border-[#6D5AE6]/30">
                             Template prototype
                           </span>
                         </div>
@@ -196,10 +196,10 @@ export const ProductDemo: React.FC = () => {
                         <Sliders className="h-3.5 w-3.5 text-[#6D5AE6]" aria-hidden="true" />
                         <span className="text-xs font-bold text-[#FBFAFF]">Input Data</span>
                       </div>
-                      <span className="text-[10px] text-[#A79FC4]">Konfigurasi Mahasiswa</span>
+                      <span className="text-[11px] text-[#A79FC4]">Konfigurasi Mahasiswa</span>
                     </div>
 
-                    <div className="mt-3 rounded border border-[#6D5AE6]/30 bg-[#6D5AE6]/10 p-2.5 text-[11px] text-[#FBFAFF] flex items-start gap-2">
+                    <div className="mt-3 rounded border border-[#6D5AE6]/30 bg-[#6D5AE6]/10 p-2.5 text-[12px] text-[#FBFAFF] flex items-start gap-2">
                       <Info className="h-3.5 w-3.5 text-[#FFB84D] shrink-0 mt-0.5" aria-hidden="true" />
                       <span className="text-[#A79FC4]">
                         Form terstruktur memandu mahasiswa menyusun parameter riset yang tepat.
@@ -213,7 +213,7 @@ export const ProductDemo: React.FC = () => {
                           <div key={i} className="space-y-1">
                             <label
                               htmlFor={demoFieldId}
-                              className="text-[11px] font-semibold text-[#FBFAFF]"
+                              className="text-[12px] font-semibold text-[#FBFAFF]"
                             >
                               {field.label}
                             </label>
@@ -222,7 +222,7 @@ export const ProductDemo: React.FC = () => {
                               type="text"
                               disabled
                               placeholder={field.placeholder}
-                              className="w-full rounded border border-[#2E2748] bg-[#0C0A1A] p-2 text-[11px] text-[#A79FC4]/60"
+                              className="w-full rounded border border-[#2E2748] bg-[#0C0A1A] p-2 text-[12px] text-[#A79FC4]/60"
                             />
                           </div>
                         );

@@ -132,7 +132,7 @@ export const ChangeIssueModal: React.FC<ChangeIssueModalProps> = ({
                 <span className="font-semibold text-[#FBFAFF] text-xs block">
                   Pertahankan profil dan preferensi pengerjaan
                 </span>
-                <p className="text-[11px] text-[#A79FC4] leading-relaxed">
+                <p className="text-[12px] text-[#A79FC4] leading-relaxed">
                   Program studi, pendekatan yang disukai, jenis data yang nyaman, akses data, hal yang dihindari, kondisi waktu, dan batasan umum akan tetap diisi. Hanya minat/isu yang akan dikosongkan.
                 </p>
               </div>

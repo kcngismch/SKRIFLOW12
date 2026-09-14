@@ -136,7 +136,7 @@ export const TempelBahanPanel: React.FC<TempelBahanPanelProps> = ({
                     <li key={i} className="rounded-lg bg-[#0C0A1A] p-2.5 text-xs leading-relaxed">
                       <div className="mb-1 flex items-center gap-2">
                         <span
-                          className={`rounded px-1.5 py-0.5 text-[10px] font-bold ${
+                          className={`rounded px-1.5 py-0.5 text-[11px] font-bold ${
                             k.status === "PUNYA_SITASI"
                               ? "bg-[#70E1B6]/15 text-[#70E1B6]"
                               : k.status === "SUMBER_TIDAK_DIKENAL"
@@ -150,11 +150,11 @@ export const TempelBahanPanel: React.FC<TempelBahanPanelProps> = ({
                               ? "SUMBER TIDAK DIKENAL"
                               : "TANPA SITASI"}
                         </span>
-                        <span className="text-[10px] text-[#A79FC4]">paragraf {k.paragraf}</span>
+                        <span className="text-[11px] text-[#A79FC4]">paragraf {k.paragraf}</span>
                       </div>
                       <p className="text-[#A79FC4]">{k.teks}</p>
                       {k.status !== "PUNYA_SITASI" && (
-                        <p className="mt-1 text-[11px] text-[#A79FC4]/80">{k.catatan}</p>
+                        <p className="mt-1 text-[12px] text-[#A79FC4]/80">{k.catatan}</p>
                       )}
                     </li>
                   ))}
@@ -180,7 +180,7 @@ export const TempelBahanPanel: React.FC<TempelBahanPanelProps> = ({
               </button>
 
               {!hasil.layakLanjut && (
-                <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+                <p className="text-[12px] leading-relaxed text-[#A79FC4]">
                   Belum bisa dilanjutkan sampai sitasi yang tidak dikenal dibereskan. Ini bukan hukuman — sitasi yang tidak
                   ada di daftar sumber tidak akan bisa kamu pertanggungjawabkan saat diuji dosen.
                 </p>
@@ -189,7 +189,7 @@ export const TempelBahanPanel: React.FC<TempelBahanPanelProps> = ({
           )}
 
           {!hasil && (
-            <p className="text-[11px] text-[#A79FC4]">
+            <p className="text-[12px] text-[#A79FC4]">
               Minimal beberapa kalimat supaya bisa diperiksa. Hitungan muncul begitu kamu menulis cukup banyak.
             </p>
           )}

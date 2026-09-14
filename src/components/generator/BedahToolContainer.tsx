@@ -915,7 +915,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                   {tampil.map((x, i) => (
                     <li key={i} className="leading-relaxed">
                       <span
-                        className={`mr-1.5 rounded px-1 py-0.5 text-[10px] font-bold ${
+                        className={`mr-1.5 rounded px-1 py-0.5 text-[11px] font-bold ${
                           x.severity === "ERROR"
                             ? "bg-rose-500/25 text-rose-300"
                             : "bg-[#FF9E5E]/25 text-[#FF9E5E]"
@@ -928,7 +928,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                   ))}
                 </ul>
                 {auditFindings4A.length > tampil.length && (
-                  <p className="text-[11px] text-[#A79FC4]">
+                  <p className="text-[12px] text-[#A79FC4]">
                     +{auditFindings4A.length - tampil.length} temuan lain pada daftar sumber.
                   </p>
                 )}
@@ -1159,7 +1159,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                                 {dir.id}
                               </span>
                               {dir.conditional_badge && (
-                                <span className={`rounded-full px-2.5 py-0.5 text-[12px] font-bold ${badgeClass}`}>
+                                <span className={`rounded-full px-2.5 py-0.5 text-[13px] font-bold ${badgeClass}`}>
                                   {dir.conditional_badge}
                                 </span>
                               )}
@@ -1170,7 +1170,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                             {(() => {
                               const readInfo = getStudentStatus(dir.readiness);
                               return (
-                                <span className={`rounded-full px-2.5 py-0.5 text-[12px] font-bold ${readInfo.badgeClass}`}>
+                                <span className={`rounded-full px-2.5 py-0.5 text-[13px] font-bold ${readInfo.badgeClass}`}>
                                   {readInfo.label}
                                 </span>
                               );
@@ -1197,12 +1197,12 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                           <p className="font-mono text-[13px] text-[#FFB84D] leading-snug">{polaJudul.pola}</p>
                           {polaJudul.contoh_terisi !== polaJudul.pola && (
                             <p className="text-[13px] text-[#FBFAFF] leading-snug">
-                              <span className="text-[11px] uppercase font-bold text-[#8A94B0] block">Contoh terisi:</span>
+                              <span className="text-[12px] uppercase font-bold text-[#8A94B0] block">Contoh terisi:</span>
                               {polaJudul.contoh_terisi}
                             </p>
                           )}
                           {polaJudul.slot_terisi.length > 0 && (
-                            <ul className="text-[12px] text-[#A79FC4] space-y-0.5">
+                            <ul className="text-[13px] text-[#A79FC4] space-y-0.5">
                               {polaJudul.slot_terisi.map((s) => (
                                 <li key={s.slot}>
                                   <span className="font-mono text-[#FFB84D]/80">[{s.slot}]</span> = {s.nilai}
@@ -1211,7 +1211,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                             </ul>
                           )}
                           {polaJudul.slot_belum_diputuskan.length > 0 && (
-                            <details className="text-[12px]">
+                            <details className="text-[13px]">
                               <summary className="cursor-pointer text-amber-300/90">
                                 {polaJudul.slot_belum_diputuskan.length} hal yang belum bisa diisi otomatis
                               </summary>
@@ -1222,7 +1222,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               </ul>
                             </details>
                           )}
-                          <p className="text-[11px] text-[#8A94B0] italic">{polaJudul.batas}</p>
+                          <p className="text-[12px] text-[#8A94B0] italic">{polaJudul.batas}</p>
                         </div>
 
                         {/* Measurement Focus */}
@@ -1239,7 +1239,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               </div>
                             )}
                             {dir.measurement_focus.non_equivalence_note && (
-                              <p className="text-[12px] text-amber-300/90 italic pt-0.5">
+                              <p className="text-[13px] text-amber-300/90 italic pt-0.5">
                                 * {dir.measurement_focus.non_equivalence_note}
                               </p>
                             )}
@@ -1252,7 +1252,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                             <span className="font-semibold text-[#FBFAFF] block">Batas Klaim yang Aman:</span>
                             {dir.claim_boundary.safe_to_say.length > 0 && (
                               <div className="text-[#FFB84D]">
-                                <span className="text-[12px] uppercase font-bold text-[#FFB84D]/70 block">Aman Dinyatakan:</span>
+                                <span className="text-[13px] uppercase font-bold text-[#FFB84D]/70 block">Aman Dinyatakan:</span>
                                 <ul className="list-disc pl-3.5 space-y-0.5">
                                   {dir.claim_boundary.safe_to_say.map((s, idx) => (
                                     <li key={idx}>{s}</li>
@@ -1262,7 +1262,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                             )}
                             {dir.claim_boundary.not_safe_to_say.length > 0 && (
                               <div className="text-amber-300/90">
-                                <span className="text-[12px] uppercase font-bold text-amber-400/70 block">Belum Aman Dinyatakan:</span>
+                                <span className="text-[13px] uppercase font-bold text-amber-400/70 block">Belum Aman Dinyatakan:</span>
                                 <ul className="list-disc pl-3.5 space-y-0.5">
                                   {dir.claim_boundary.not_safe_to_say.map((ns, idx) => (
                                     <li key={idx}>{ns}</li>
@@ -1284,7 +1284,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                                   ? getStudentStatus(matchingGap.gap_status).label
                                   : "Gap";
                                 return (
-                                  <span key={gid} className="inline-flex items-center gap-1 rounded bg-[#191430] px-1.5 py-0.5 text-[12px] text-[#FBFAFF]">
+                                  <span key={gid} className="inline-flex items-center gap-1 rounded bg-[#191430] px-1.5 py-0.5 text-[13px] text-[#FBFAFF]">
                                     <strong className="text-[#FFB84D]">{gid}</strong>
                                     {matchingGap?.gap_status && (
                                       <span className="text-[#A79FC4]">({statusLabel})</span>
@@ -1523,7 +1523,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                         <li key={idx} className="rounded bg-[#191430] p-2.5">
                           <div className="flex items-center justify-between">
                             <p className="font-medium text-[#FBFAFF]">{item.statement}</p>
-                            <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[12px] font-bold text-amber-300">
+                            <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[13px] font-bold text-amber-300">
                               {item.comparability}
                             </span>
                           </div>
@@ -1556,7 +1556,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               <td className="py-2.5 pr-4">{cg.source_ids.join(", ")}</td>
                               <td className="py-2.5 pr-4">{cg.construct_or_predictor} → {cg.outcome}</td>
                               <td className="py-2.5 pr-4">
-                                <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[12px] font-bold text-[#FFB84D]">
+                                <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[13px] font-bold text-[#FFB84D]">
                                   {getStudentLabel(cg.comparability)}
                                 </span>
                               </td>
@@ -1630,7 +1630,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                     <div className="flex items-center justify-between gap-2 flex-wrap">
                       <h5 className="text-xs font-bold text-[#FBFAFF]">Klasifikasi Bobot Kualitas Sumber:</h5>
                       <div className="flex items-center gap-2">
-                        <span className="text-[12px] text-[#A79FC4]">Klaim inti Bab 1 tidak boleh hanya bersandar pada sumber pendukung</span>
+                        <span className="text-[13px] text-[#A79FC4]">Klaim inti Bab 1 tidak boleh hanya bersandar pada sumber pendukung</span>
                         <TombolPeriksaSumber
                           jumlah={sumberUntukDiperiksa.length}
                           sedangProses={sedangVerifikasi}
@@ -1655,14 +1655,14 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
                               <span className="font-bold text-[#FBFAFF]">{sw.source_id}</span>
                               <span className="flex items-center gap-1">
                                 <LencanaVerifikasi hasil={verifikasiSumber[sw.source_id]} />
-                                <span className={`rounded-full px-2 py-0.5 text-[12px] font-bold ${swStatus.badgeClass}`}>
+                                <span className={`rounded-full px-2 py-0.5 text-[13px] font-bold ${swStatus.badgeClass}`}>
                                   {swStatus.label}
                                 </span>
                               </span>
                             </div>
                             <p className="text-[13px] text-[#A79FC4] leading-snug">{sw.reason || sw.note}</p>
                             {verifikasiSumber[sw.source_id]?.judulDitemukan && (
-                              <p className="text-[11.5px] text-[#FFB84D]/90 leading-snug">
+                              <p className="text-[12.5px] text-[#FFB84D]/90 leading-snug">
                                 Terdaftar: {String(verifikasiSumber[sw.source_id].judulDitemukan ?? "").slice(0, 90)}
                               </p>
                             )}
@@ -1680,7 +1680,7 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-5 space-y-3">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-bold text-[#FFB84D] uppercase">Rekomendasi Sementara (Bukan Pilihan Otomatis)</h4>
-                  <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[12px] text-[#A79FC4]">
+                  <span className="rounded bg-[#2E2748] px-2 py-0.5 text-[13px] text-[#A79FC4]">
                     Pilihan Akhir di Mahasiswa
                   </span>
                 </div>

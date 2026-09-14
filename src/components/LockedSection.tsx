@@ -27,7 +27,7 @@ export const LockedSection: React.FC = () => {
               <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#2E2748] bg-[#0C0A1A] text-[#A79FC4]/60">
                 <Lock className="h-4 w-4 text-[#A79FC4]" />
               </div>
-              <span className="inline-flex items-center rounded border border-[#2E2748] bg-[#191430] px-2 py-0.5 text-[10px] font-bold tracking-wider text-[#A79FC4]">
+              <span className="inline-flex items-center rounded border border-[#2E2748] bg-[#191430] px-2 py-0.5 text-[11px] font-bold tracking-wider text-[#A79FC4]">
                 {phase.badge}
               </span>
             </div>

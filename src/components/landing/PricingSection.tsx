@@ -80,7 +80,7 @@ export const PricingSection: React.FC = () => {
             </div>
 
             {/* Micro Note */}
-            <p className="mt-4 text-center text-[11px] text-[#A79FC4]/70">
+            <p className="mt-4 text-center text-[12px] text-[#A79FC4]/70">
               Paket lengkap dan harga peluncuran akan diumumkan setelah prototype selesai diuji.
             </p>
           </div>

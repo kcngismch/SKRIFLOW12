@@ -121,7 +121,7 @@ export const AccessGate: React.FC<AccessGateProps> = ({ children }) => {
                 <CheckCircle2 className="h-3.5 w-3.5 text-[#FFB84D] shrink-0" />
                 <span>Tool 2: Cari Fenomena</span>
               </div>
-              <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+              <p className="text-[12px] leading-relaxed text-[#A79FC4]">
                 Eksplorasi kondisi riil, uji keterlacakan bukti, dan pastikan isu bukan asumsi kosong.
               </p>
             </div>
@@ -131,7 +131,7 @@ export const AccessGate: React.FC<AccessGateProps> = ({ children }) => {
                 <CheckCircle2 className="h-3.5 w-3.5 text-[#FFB84D] shrink-0" />
                 <span>Tool 3: Cari Literatur</span>
               </div>
-              <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+              <p className="text-[12px] leading-relaxed text-[#A79FC4]">
                 Prompt terstruktur NotebookLM untuk mencari & memetakan jurnal acuan relevan.
               </p>
             </div>
@@ -141,7 +141,7 @@ export const AccessGate: React.FC<AccessGateProps> = ({ children }) => {
                 <CheckCircle2 className="h-3.5 w-3.5 text-[#FFB84D] shrink-0" />
                 <span>Tool 4: Bedah & Paket Fondasi</span>
               </div>
-              <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+              <p className="text-[12px] leading-relaxed text-[#A79FC4]">
                 Rekonsiliasi fenomena dan literatur menjadi fondasi arah penelitian siap bimbingan + gratis update ke depan.
               </p>
             </div>
@@ -154,7 +154,7 @@ export const AccessGate: React.FC<AccessGateProps> = ({ children }) => {
         {/* Kolom Kiri: QRIS & WhatsApp */}
         <div className="rounded-2xl border border-[#2E2748] bg-[#191430] p-5 sm:p-6 space-y-5">
           <div className="space-y-1">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#FFB84D]">
+            <span className="text-[12px] font-bold uppercase tracking-wider text-[#FFB84D]">
               LANGKAH 1
             </span>
             <h3 className="text-sm sm:text-base font-semibold text-[#FBFAFF]">
@@ -182,12 +182,12 @@ export const AccessGate: React.FC<AccessGateProps> = ({ children }) => {
                 <p className="text-xs font-medium text-[#FBFAFF]">
                   QRIS sedang disiapkan
                 </p>
-                <p className="text-[11px] max-w-xs text-[#A79FC4]">
+                <p className="text-[12px] max-w-xs text-[#A79FC4]">
                   Gambar QRIS belum dimuat. Silakan chat admin WhatsApp untuk meminta QRIS atau nomor rekening transfer.
                 </p>
               </div>
             )}
-            <span className="mt-2 text-[10px] text-[#A79FC4]/70">
+            <span className="mt-2 text-[11px] text-[#A79FC4]/70">
               Total transfer: Rp 39.000 (tanpa biaya admin tersembunyi)
             </span>
           </div>
@@ -198,7 +198,7 @@ export const AccessGate: React.FC<AccessGateProps> = ({ children }) => {
               <MessageCircle className="h-4 w-4 text-[#FFB84D]" />
               <span>Instruksi Konfirmasi WhatsApp</span>
             </div>
-            <ol className="list-decimal list-inside space-y-1.5 text-[11px] leading-relaxed text-[#A79FC4]">
+            <ol className="list-decimal list-inside space-y-1.5 text-[12px] leading-relaxed text-[#A79FC4]">
               <li>Lakukan pembayaran Rp 39.000 via QRIS.</li>
               <li>
                 Kirim bukti transfer ke WhatsApp admin:{" "}
@@ -218,7 +218,7 @@ export const AccessGate: React.FC<AccessGateProps> = ({ children }) => {
         <div className="flex flex-col justify-between rounded-2xl border border-[#2E2748] bg-[#191430] p-5 sm:p-6 space-y-5">
           <div className="space-y-4">
             <div className="space-y-1">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#6D5AE6]">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-[#6D5AE6]">
                 LANGKAH 2
               </span>
               <h3 className="text-sm sm:text-base font-semibold text-[#FBFAFF]">
@@ -292,7 +292,7 @@ export const AccessGate: React.FC<AccessGateProps> = ({ children }) => {
               <Sparkles className="h-3.5 w-3.5 text-[#FF5C8A]" />
               <span>Info Penyimpanan</span>
             </div>
-            <p className="text-[11px] leading-relaxed text-[#A79FC4]">
+            <p className="text-[12px] leading-relaxed text-[#A79FC4]">
               Setelah aktif, status pass kamu tersimpan otomatis di browser ini (localStorage). Jika ganti perangkat atau membersihkan cache browser, kamu cukup masukkan kembali kode akses yang sama tanpa harus bayar lagi.
             </p>
           </div>

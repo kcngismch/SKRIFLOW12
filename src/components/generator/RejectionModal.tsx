@@ -139,7 +139,7 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
                       onChange={() => handleToggleReason(opt.id)}
                       className="mt-0.5 h-3.5 w-3.5 rounded border-[#2E2748] bg-[#191430] text-[#6D5AE6] focus:ring-[#6D5AE6] focus:ring-offset-0 accent-[#6D5AE6]"
                     />
-                    <span className="text-[11px] leading-tight select-none">{opt.label}</span>
+                    <span className="text-[12px] leading-tight select-none">{opt.label}</span>
                   </label>
                 );
               })}
@@ -152,7 +152,7 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
               <label htmlFor="textarea-rejection-note" className="font-semibold text-[#FBFAFF]">
                 Catatan tambahan (opsional):
               </label>
-              <span className="text-[10px] text-[#A79FC4]">{additionalNote.length}/500</span>
+              <span className="text-[11px] text-[#A79FC4]">{additionalNote.length}/500</span>
             </div>
             <textarea
               id="textarea-rejection-note"
@@ -166,7 +166,7 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
           </div>
 
           {!isFormValid && (
-            <div className="flex items-center gap-2 text-[11px] text-[#FF9E5E]">
+            <div className="flex items-center gap-2 text-[12px] text-[#FF9E5E]">
               <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
               <span>Pilih minimal satu alasan atau isi catatan tambahan untuk melanjutkan.</span>
             </div>
