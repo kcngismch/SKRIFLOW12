@@ -782,6 +782,14 @@ function parseDirectionV2Json(jsonString: string, isNonCompliantWrapper: boolean
 
   // Directions validation
   const directionIdSet = new Set<string>();
+  // ID sumber yang benar-benar ada di register payload (source_weights). Dipakai untuk
+  // menolak anchor_source_ids karangan: sebelum ini parser hanya memeriksa "array tidak
+  // kosong", sehingga ID yang tidak ada di paket bukti lolos dan terlihat seolah
+  // tertelusuri. Normalisasi mengikuti gaya yang dipakai penormal bobot di bawah.
+  const normSourceId = (s: unknown) => String(s ?? "").replace(/[\[\]]/g, "").trim().toUpperCase();
+  const sourceIdSet = new Set<string>(
+    (Array.isArray(payload.source_weights) ? payload.source_weights : []).map((sw) => normSourceId(sw.source_id)),
+  );
   if (!Array.isArray(payload.directions)) {
     if (!isInsufficientEvidence) {
       errorDetails.push("directions wajib berupa array berisi 2–4 arah penelitian.");
@@ -817,7 +825,16 @@ function parseDirectionV2Json(jsonString: string, isNonCompliantWrapper: boolean
       }
 
       if (!Array.isArray(dir.anchor_source_ids) || dir.anchor_source_ids.length === 0) {
-        errorDetails.push(`${label}: anchor_source_ids wajib diisi.`);
+        errorDetails.push(`${label}: anchor_source_ids wajib diisi — sebutkan minimal 1 source_id dari paket bukti yang menjadi sumber pijakan arah ini (field ini tidak boleh kosong dan tidak boleh diisi ID karangan).`);
+      } else if (sourceIdSet.size > 0) {
+        // Diperiksa hanya bila payload memuat register sumber (source_weights). Payload
+        // lama tanpa register tetap lolos, supaya kompatibilitas ke belakang tidak pecah.
+        dir.anchor_source_ids.forEach((sId) => {
+          const clean = normSourceId(sId);
+          if (clean.length === 0 || !sourceIdSet.has(clean)) {
+            errorDetails.push(`${label}: anchor_source_id '${String(sId)}' tidak ada di Source Register paket bukti. Pakai ID sumber yang benar-benar ada di paket, jangan mengarang ID.`);
+          }
+        });
       }
 
       if (!dir.readiness || !VALID_DIRECTION_READINESS_V2.includes(dir.readiness as DirectionReadinessV2)) {
@@ -2501,6 +2518,69 @@ ${rawText}`;
 }
 
 /**
+ * Penerjemah galat validasi Tahap 4A ke bahasa mahasiswa.
+ *
+ * Alasan: pesan galat 4A berbunyi "Data transfer V2 tidak lolos validasi skema: ..."
+ * dan tampil sebagai deretan tulisan teknis merah — mahasiswa mengira aplikasinya
+ * rusak, padahal isinya cuma "jawaban AI belum lengkap, kirim ulang". Fungsi murni
+ * supaya bisa diuji tanpa browser.
+ */
+export interface Galat4ADijelaskan {
+  judul: string;
+  artinya: string;
+  kenapaDitolak: string;
+}
+
+export function jelaskanGalat4A(details: string[]): Galat4ADijelaskan {
+  const d = details.join(" ").toLowerCase();
+  const n = details.length;
+
+  if (d.includes("anchor_source_ids") || d.includes("anchor_source_id '")) {
+    if (d.includes("tidak ada di source register")) {
+      return {
+        judul: "AI memakai sumber yang tidak ada di paket buktimu",
+        artinya:
+          "Tiap arah penelitian wajib menyebut \"sumber jangkar\": sumber di paket buktimu yang jadi dasar arah itu. AI menulis kode sumber (mis. S99) yang tidak ada di paket buktimu.",
+        kenapaDitolak:
+          "Skriflow menolak ID yang tidak ada di paket supaya arah penelitianmu bisa ditelusuri sampai sumber aslinya. Sumber karangan membuat arah itu terlihat berdasar padahal tidak.",
+      };
+    }
+    return {
+      judul: "AI belum menyebutkan sumber pijakan untuk arah penelitiannya",
+      artinya:
+        "Setiap arah penelitian wajib punya \"sumber jangkar\": sumber di paket buktimu yang jadi dasar arah itu. AI tidak mengisinya.",
+      kenapaDitolak:
+        "Skriflow menolak supaya arah penelitianmu bisa ditelusuri sampai sumber aslinya. Kalau bagian ini dibiarkan kosong, dosen tidak bisa memeriksa dari mana arah itu muncul.",
+    };
+  }
+  if (d.includes("gap_ids") || d.includes("candidate_gaps")) {
+    return {
+      judul: "AI belum menghubungkan arah penelitian dengan celah penelitiannya",
+      artinya:
+        "Tiap arah harus menyebut celah penelitian (gap) yang jadi alasannya, dan setiap celah wajib punya sumber pendukung dari paket buktimu.",
+      kenapaDitolak:
+        "Skriflow menolak arah yang tidak punya celah jelas, supaya kamu tidak menulis latar belakang di atas alasan yang tidak berdasar.",
+    };
+  }
+  if (d.includes("blok data transfer tidak ditemukan") || d.includes("format json")) {
+    return {
+      judul: "Sistem belum menemukan bagian data di jawaban AI",
+      artinya:
+        "Jawaban AI belum memuat blok data dengan penanda yang benar, atau penandanya ikut rusak waktu disalin.",
+      kenapaDitolak:
+        "Skriflow hanya bisa membaca satu blok data bertanda. Tanpa penanda itu, isi jawabannya tidak bisa dipakai.",
+    };
+  }
+  return {
+    judul: `Jawaban AI belum lengkap — ${n} bagian yang kurang`,
+    artinya:
+      "AI melewati sebagian bagian yang diwajibkan, jadi hasilnya belum bisa diproses Skriflow.",
+    kenapaDitolak:
+      "Skriflow menolak jawaban yang belum lengkap supaya hasil analisisnya bisa ditelusuri, bukan sekadar diterima.",
+  };
+}
+
+/**
  * Generates prompt to fix structure for Tahap 4A.
  */
 export function generateBedahFixStructurePrompt4A(rawText: string, errorDetails?: string[]): string {
@@ -2513,6 +2593,7 @@ Pastikan:
 - automatic_selection bernilai false
 - candidate_gaps memuat 1–4 gap dengan source_ids
 - directions memuat 2–4 arah penelitian dengan gap_ids dan data_verification_questions
+- SETIAP arah memuat anchor_source_ids berisi minimal 1 ID sumber yang PERSIS ada di Source Register/source_weights (jangan mengarang ID, jangan dikosongkan)
 - Hasil dibungkus di antara:
 === BEGIN SKRIFLOW_DIRECTION_V2 ===
 {JSON}

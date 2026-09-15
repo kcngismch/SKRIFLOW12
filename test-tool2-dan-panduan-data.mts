@@ -100,13 +100,13 @@ cek("jenis situs = daftar tertutup, tidak menerima nilai karangan", () => {
 });
 
 cek("paket 4B ASLI (tanpa field panduan) tetap lolos — Addendum E tidak memutus paket lama", () => {
-  const asli = fs.readFileSync("/tmp/uji-hi/fixture-4a-asli.txt", "utf-8");
+  const asli = fs.readFileSync("fixtures/direction-4a-asli.txt", "utf-8");
   const hasil = parseBedahTransfer(asli);
   assert.equal(hasil.success, true, `paket asli harus tetap lolos: ${hasil.error}`);
 });
 
 cek("paket 4B yang MEMUAT panduan: panduan terbaca apa adanya", () => {
-  const asli = fs.readFileSync("/tmp/uji-hi/fixture-4a-asli.txt", "utf-8");
+  const asli = fs.readFileSync("fixtures/direction-4a-asli.txt", "utf-8");
   const payload = JSON.parse(asli.slice(asli.indexOf("{", asli.indexOf("BEGIN")), asli.lastIndexOf("}") + 1));
   const q = payload.directions[0].data_verification_questions[0];
   q.where_to_look = ["BPS — Statistik Kriminal"];
@@ -123,7 +123,7 @@ cek("paket 4B yang MEMUAT panduan: panduan terbaca apa adanya", () => {
 });
 
 cek("jenis situs di luar daftar dibuang, bukan diteruskan apa adanya", () => {
-  const asli = fs.readFileSync("/tmp/uji-hi/fixture-4a-asli.txt", "utf-8");
+  const asli = fs.readFileSync("fixtures/direction-4a-asli.txt", "utf-8");
   const payload = JSON.parse(asli.slice(asli.indexOf("{", asli.indexOf("BEGIN")), asli.lastIndexOf("}") + 1));
   payload.directions[0].data_verification_questions[0].site_type = "SITUS_KARANGAN";
   const mentah = `=== BEGIN SKRIFLOW_DIRECTION_V2 ===\n${JSON.stringify(payload)}\n=== END SKRIFLOW_DIRECTION_V2 ===`;

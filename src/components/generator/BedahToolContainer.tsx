@@ -34,6 +34,7 @@ import {
   parseBedahTransfer,
   generateBedahFixFormatPrompt4A,
   generateBedahFixStructurePrompt4A,
+  jelaskanGalat4A,
   extractSumberPaketLiteratur,
 } from "@/lib/bedahParser";
 import {
@@ -996,42 +997,66 @@ export const BedahToolContainer: React.FC<BedahToolContainerProps> = () => {
               <div className="flex items-start gap-3">
                 <ShieldAlert className="h-5 w-5 shrink-0 text-rose-400" />
                 <div className="space-y-3 w-full">
-                  <div>
-                    <h4 className="text-sm font-bold text-rose-300">{parseError4A.error}</h4>
-                    {parseError4A.details && (
-                      <ul className="mt-2 space-y-1 text-xs text-rose-200">
+                  {(() => {
+                    const g4a = jelaskanGalat4A(parseError4A.details || []);
+                    return (
+                      <div>
+                        <p className="text-[12px] font-bold uppercase tracking-wide text-rose-300/80">
+                          Bukan error aplikasi — jawaban AI-nya yang belum lengkap
+                        </p>
+                        <h4 className="mt-1 text-base font-bold text-rose-200">{g4a.judul}</h4>
+                        <p className="mt-2 text-sm leading-relaxed text-rose-100">{g4a.artinya}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-rose-200/90">
+                          <span className="font-semibold">Kenapa Skriflow menolak: </span>
+                          {g4a.kenapaDitolak}
+                        </p>
+                        <p className="mt-3 rounded-lg bg-rose-500/15 px-3 py-2 text-sm font-semibold leading-relaxed text-rose-100">
+                          Yang perlu kamu lakukan: jangan isi ulang form. Kembali ke chat AI yang
+                          tadi (ChatGPT / Gemini), tempel jawaban barusan, lalu kirim tombol
+                          &quot;Salin Prompt Perbaikan&quot; di bawah ini. AI akan memperbaiki
+                          jawabannya, dan hasil barunya kamu tempel lagi ke kolom atas.
+                        </p>
+                      </div>
+                    );
+                  })()}
+                  {parseError4A.details && parseError4A.details.length > 0 && (
+                    <details className="rounded-lg bg-rose-500/10 px-3 py-2">
+                      <summary className="cursor-pointer text-xs font-semibold text-rose-200/80">
+                        Lihat rincian teknis ({parseError4A.details.length} bagian)
+                      </summary>
+                      <ul className="mt-2 space-y-1 text-xs text-rose-200/70">
                         {parseError4A.details.map((d, i) => (
                           <li key={i}>• {d}</li>
                         ))}
                       </ul>
-                    )}
-                  </div>
+                    </details>
+                  )}
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-rose-500/20">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        const fixPrompt = generateBedahFixFormatPrompt4A(pastedLLMOutput4A, parseError4A.details);
-                        copyToClipboard(fixPrompt);
-                        setToastMessage("Prompt Perbaikan Format V2 tersalin!");
-                        setTimeout(() => setToastMessage(null), 3000);
-                      }}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/40 bg-rose-500/20 px-3 py-1.5 text-xs font-semibold text-rose-200 hover:bg-rose-500/30"
-                    >
-                      <Copy className="h-3 w-3" />
-                      <span>Salin Prompt Perbaikan Format</span>
-                    </button>
                     <button
                       type="button"
                       onClick={() => {
                         const fixPrompt = generateBedahFixStructurePrompt4A(pastedLLMOutput4A, parseError4A.details);
                         copyToClipboard(fixPrompt);
-                        setToastMessage("Prompt Perbaikan Struktur V2 tersalin!");
+                        setToastMessage("Prompt Perbaikan Isi tersalin — tempel ke chat AI yang sama.");
                         setTimeout(() => setToastMessage(null), 3000);
                       }}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/40 bg-rose-500/20 px-3 py-1.5 text-xs font-semibold text-rose-200 hover:bg-rose-500/30"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/50 bg-rose-500/30 px-3 py-1.5 text-xs font-bold text-rose-100 hover:bg-rose-500/40"
                     >
                       <Copy className="h-3 w-3" />
-                      <span>Salin Prompt Perbaikan Struktur</span>
+                      <span>Salin Prompt Perbaikan Isi (disarankan)</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const fixPrompt = generateBedahFixFormatPrompt4A(pastedLLMOutput4A, parseError4A.details);
+                        copyToClipboard(fixPrompt);
+                        setToastMessage("Prompt Perbaikan Format tersalin — pakai kalau masalahnya cuma soal penulisan.");
+                        setTimeout(() => setToastMessage(null), 3000);
+                      }}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-rose-500/25 px-3 py-1.5 text-xs font-semibold text-rose-200/80 hover:bg-rose-500/15"
+                    >
+                      <Copy className="h-3 w-3" />
+                      <span>Salin Prompt Perbaikan Format (kalau penandanya rusak)</span>
                     </button>
                   </div>
                 </div>

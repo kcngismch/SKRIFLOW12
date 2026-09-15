@@ -1,0 +1,811 @@
+=== BEGIN SKRIFLOW_DIRECTION_V2 ===
+{
+  "schema_version": 2,
+  "automatic_selection": false,
+  "input_audit": {
+    "status": "CUKUP_UNTUK_ARAH",
+    "phenomenon_source_count": 0,
+    "core_source_count": 10,
+    "supporting_source_count": 1,
+    "ignored_source_count": 2,
+    "source_integrity_notes": [
+      "Terdapat 10 sumber berkategori INTI yang seluruh teks artikelnya terakses lengkap, memiliki DOI atau tautan repositori akademik terverifikasi, dan memuat data empiris yang dapat ditelusuri.",
+      "Sumber S1 (halaman blokir Cloudflare) dan S2 (halaman pembatasan akses ResearchGate) diabaikan secara total dari analisis.",
+      "Sumber S5 merupakan naskah karya ilmiah repositori universitas, S11 merupakan policy commentary RSIS, S12 merupakan prosiding konferensi, dan S13 merupakan discussion paper IDE-JETRO; seluruhnya diberi bobot proporsional sesuai kaidah akademik."
+    ],
+    "main_limitations": [
+      "Paket bukti fenomena primer tersendiri (seperti arsip siaran pers resmi Departemen Luar Negeri Filipina atau log harian Philippine Coast Guard) belum diunggah secara terpisah oleh mahasiswa.",
+      "Bukti peristiwa empiris dunia nyata saat ini dirangkum dari rekaman fakta yang dilaporkan di dalam artikel literatur akademik inti (B1 sampai B11).",
+      "Naskah tawar-menawar klausul mikro Single Draft Negotiating Text (SDNT) COC ASEAN-China bersifat tertutup (confidential), sehingga penelitian terbuka harus bersandar pada dokumen publik resmi."
+    ],
+    "recovery_actions": [
+      "Mengunduh teks asli dokumen National Security Policy 2023–2028 melalui portal resmi National Security Council Filipina.",
+      "Mengunduh arsip komunike bersama dan Chairman Statement resmi KTT ASEAN melalui situs Sekretariat ASEAN.",
+      "Menghimpun rilis pers berkala mengenai insiden maritim dari Philippine Coast Guard untuk memperkuat data empiris Bab 1."
+    ]
+  },
+  "evidence_basis": {
+    "observed_phenomenon": [
+      "Pemerintah Filipina mengesahkan Dokumen National Security Policy (NSP) 2023–2028 yang secara eksplisit menempatkan wilayah West Philippine Sea sebagai pilar utama kepentingan keamanan nasional (B3).",
+      "Peningkatan eskalasi insiden fisik di laut antara kapal penjaga pantai China dan Filipina, termasuk penembakan meriam air dan laser militer di perairan Ayungin Shoal sepanjang tahun 2023 (B7).",
+      "Reorientasi kebijakan pertahanan Filipina di bawah Ferdinand Marcos Jr. yang memperluas akses pangkalan militer EDCA dan memperbesar skala latihan Balikatan bersama Amerika Serikat (B1, B6).",
+      "Persiapan diplomasi Filipina dalam mengemban Keketuaan ASEAN pada tahun 2026 dengan agenda mempercepat perundingan Code of Conduct (B2, B11)."
+    ],
+    "prior_study_findings": [
+      "Pemerintahan Rodrigo Duterte (2016–2022) menerapkan pendekatan diplomasi kooperatif dan pragmatis dengan menunda penegasan Putusan Arbitrase 2016 demi hubungan ekonomi dan membentuk Bilateral Consultation Mechanism (S6, B5).",
+      "Putusan Permanent Court of Arbitration (PCA) 2016 secara yuridis membatalkan klaim historis sembilan garis putus-putus China di bawah kerangka UNCLOS 1982, namun China menolak kepatuhan atas putusan tersebut (S7, B4).",
+      "Perundingan Code of Conduct (COC) antara ASEAN dan China mengalami kebuntuan struktural akibat perbedaan preferensi antara negara pengklaim yang menuntut aturan mengikat secara hukum dengan negara non-pengklaim yang menjaga relasi ekonomi dengan China (S8, S11, S13, B10, B11).",
+      "Pemerintahan Marcos Jr. (2022–2025) melakukan reorientasi kebijakan luar negeri menuju perimbangan strategis berbasis aliansi pertahanan dan internasionalisasi sengketa di forum ASEAN (S3, S10, S12, B1, B6)."
+    ],
+    "not_yet_established": [
+      "Belum dapat dipastikan secara ilmiah apakah Keketuaan ASEAN Filipina pada tahun 2026 mampu memecahkan kebuntuan dan mengesahkan klausul COC yang berkekuatan hukum penuh (legally binding).",
+      "Belum terbukti secara empiris apakah penambahan pangkalan pertahanan EDCA secara langsung menurunkan frekuensi intrusi kapal maritim China di ZEE Filipina.",
+      "Belum terpetakan secara rinci posisi tawar baris demi baris yang diajukan negosiator Filipina dalam forum perundingan tertutup draf negosiasi COC."
+    ]
+  },
+  "calibrated_phenomenon": {
+    "summary": "Pergeseran substansial pola respons kebijakan luar negeri dan maritim Filipina dari pendekatan akomodasi bilateral era Duterte (2016–2022) menjadi perimbangan strategis berbasis aliansi pertahanan (EDCA) dan diplomasi hukum multilateral di forum ASEAN di bawah kepemimpinan Marcos Jr. (2022–sekarang), di tengah eskalasi konfrontasi fisik di Ayungin Shoal dan persiapan Keketuaan ASEAN 2026.",
+    "empirical_problem": "Filipina menghadapi ancaman kedaulatan maritim nyata akibat meningkatnya intrusi dan intimidasi fisik kapal penjaga pantai China di ZEE Filipina, sementara mekanisme konsultasi bilateral (BCM) maupun instrumen regional (DOC 2002) terbukti tidak berdaya meredam eskalasi di perairan sengketa.",
+    "knowledge_problem": "Literatur akademik telah merekam perubahan retorika politik luar negeri Filipina dan hambatan umum konsensus ASEAN, namun masih terbatas dalam menjelaskan bagaimana Filipina menyelaraskan strategi ganda (penguatan aliansi militer bilateral dengan AS sekaligus kepemimpinan diplomasi multilateral normatif di ASEAN) tanpa merusak kohesi internal kawasan menuju Keketuaan 2026.",
+    "scope": {
+      "object_or_population": "Kebijakan luar negeri dan pertahanan maritim Pemerintah Filipina (Department of Foreign Affairs dan National Security Council) dalam interaksi regional dengan ASEAN dan China.",
+      "geography": "Kawasan Laut China Selatan / West Philippine Sea dan forum multilateral Asia Tenggara.",
+      "reference_period": "2016–2026 (periode transisi era Duterte 2016–2022, era Marcos Jr. 2022–2025, dan proyeksi Keketuaan ASEAN 2026).",
+      "event_or_context": "Dinamika sengketa maritim pasca-Putusan PCA 2016, pengesahan NSP 2023–2028, insiden fisik Ayungin Shoal 2023, perluasan EDCA, dan negosiasi Code of Conduct."
+    },
+    "evidence": [
+      {
+        "source_id": "S10",
+        "source_title": "President Ferdinand Marcos Jr.’s “Independent” Foreign Policy and the Philippines’ Position in the New World Order",
+        "claim": "Pemerintahan Ferdinand Marcos Jr. mengadopsi prinsip kebijakan luar negeri independen dengan menyeimbangkan diplomasi maritim di Laut China Selatan dan memperkuat aliansi pertahanan.",
+        "evidence_location": "Hlm. 5 & 10 / Section Interpreting Marcos's foreign policy",
+        "context": "Menganalisis reorientasi kebijakan luar negeri Filipina periode 2022–2025 dalam merespons ketegangan maritim.",
+        "limitations": "Analisis berfokus pada dinamika diplomasi makro dan aliansi pertahanan hingga tahun 2025."
+      },
+      {
+        "source_id": "S3",
+        "source_title": "The Evolution of the Philippines’ Policy Towards Taiwan Since 2016",
+        "claim": "Dokumen National Security Policy (NSP) 2023–2028 secara eksplisit menetapkan West Philippine Sea sebagai kepentingan nasional utama dan mengaitkan stabilitas maritim dengan keamanan nasional.",
+        "evidence_location": "Hlm. 5 / Section 3.1",
+        "context": "Menjelaskan pilar normatif doktrin pertahanan Filipina era Marcos Jr. dibandingkan era Duterte.",
+        "limitations": "Terbatas pada komparasi tekstual dokumen resmi NSP 2017–2022 dan NSP 2023–2028."
+      },
+      {
+        "source_id": "S5",
+        "source_title": "Dampak Declaration on Conduct (DOC) antara ASEAN dan RRC terhadap Stabilitas Keamanan Maritim di Kawasan LCS",
+        "claim": "Eskalasi insiden maritim berupa penggunaan laser militer dan meriam air di Ayungin Shoal menguji efektivitas instrumen Declaration on Conduct (DOC).",
+        "evidence_location": "Hlm. 2 & 8–9 / Section Pembahasan",
+        "context": "Mengkaji ketidakmampuan instrumen DOC 2002 dalam mengendalikan insiden fisik maritim di perairan sengketa.",
+        "limitations": "Terbatas pada pencatatan insiden maritim empiris hingga tahun 2023."
+      },
+      {
+        "source_id": "S11",
+        "source_title": "Can ASEAN Deliver a Binding South China Sea Code of Conduct Under Manila’s Chairship in 2026?",
+        "claim": "Filipina memegang posisi strategis sebagai Ketua ASEAN 2026 untuk mengarahkan percepatan negosiasi Code of Conduct berbasis UNCLOS 1982 dan Putusan PCA 2016.",
+        "evidence_location": "Hlm. 1–2 / Section Opportunities for Leadership",
+        "context": "Proyeksi kepemimpinan diplomatik Filipina dan tantangan konsensus ASEAN pada agenda 2026.",
+        "limitations": "Merupakan policy commentary berbasis proyeksi strategis masa depan."
+      }
+    ],
+    "why_it_matters": [
+      {
+        "statement": "Respons kebijakan Filipina memengaruhi kohesi sentralitas ASEAN serta stabilitas tata kelola keamanan maritim kawasan Asia Tenggara di tengah rivalitas hegemoni AS-China.",
+        "source_ids": [
+          "S4",
+          "S10",
+          "S12"
+        ],
+        "limitations": "Ketergantungan ekonomi beberapa negara anggota ASEAN terhadap China membatasi ruang kesepakatan bersama."
+      },
+      {
+        "statement": "Konsistensi Filipina menuntut kepatuhan atas Putusan PCA 2016 menjadi preseden penting dalam mempertahankan tatanan maritim berbasis aturan hukum internasional (UNCLOS 1982).",
+        "source_ids": [
+          "S7",
+          "S9",
+          "S11"
+        ],
+        "limitations": "Ketiadaan mekanisme sanksi pemaksa dalam sistem hukum internasional membatasi implementasi putusan."
+      }
+    ],
+    "what_is_not_proven": [
+      "Belum terbukti bahwa diplomasi asertif Filipina berhasil mengubah pendirian politik China terkait klaim kedaulatannya di Laut China Selatan.",
+      "Belum terbukti bahwa kehadiran pangkalan militer EDCA secara langsung menghentikan aktivitas kapal riset dan milisi maritim China di ZEE Filipina."
+    ],
+    "prohibited_claims": [
+      "Dilarang mengklaim bahwa ASEAN telah berhasil merumuskan mekanisme penyelesaian sengketa maritim yang mengikat dan efektif.",
+      "Dilarang mengklaim bahwa seluruh negara anggota ASEAN secara mutlak mendukung langkah konfrontatif Filipina terhadap China.",
+      "Dilarang menyatakan bahwa negosiasi COC pasti rampung menjadi dokumen legally binding pada Keketuaan ASEAN 2026."
+    ]
+  },
+  "knowledge_map": {
+    "established_knowledge": [
+      {
+        "statement": "Putusan Arbitrase PCA 2016 membatalkan klaim hak historis sembilan garis putus-putus China karena tidak memiliki dasar dalam UNCLOS 1982.",
+        "source_ids": [
+          "S7",
+          "S8"
+        ],
+        "scope_limit": "Terikat pada amar putusan sengketa hukum PCA Case No. 2013-01."
+      },
+      {
+        "statement": "Mekanisme resolusi sengketa ASEAN bersandar pada norma musyawarah mufakat, non-intervensi, dan resolusi damai sesuai Piagam ASEAN Bab VIII dan TAC 1976.",
+        "source_ids": [
+          "S9"
+        ],
+        "scope_limit": "Berlaku sebagai prinsip normatif umum bagi anggota penandatangan traktat."
+      },
+      {
+        "statement": "Pemerintahan Duterte menerapkan strategi akomodatif dengan membentuk forum Bilateral Consultation Mechanism (BCM) pada 2017.",
+        "source_ids": [
+          "S6"
+        ],
+        "scope_limit": "Berlaku pada rentang masa jabatan pemerintahan Duterte (2016–2022)."
+      }
+    ],
+    "relatively_consistent_findings": [
+      {
+        "statement": "Studi terdahulu secara konsisten mengonfirmasi bahwa era Marcos Jr. menandai perubahan nyata menuju penguatan aliansi militer dengan Amerika Serikat (EDCA) dan penegasan terbuka atas wilayah maritim.",
+        "source_ids": [
+          "S3",
+          "S10",
+          "S12"
+        ],
+        "comparability_note": "Ketiga studi meneliti aktor negara yang sama (Filipina) pada periode pemerintahan berurutan menggunakan dokumen kebijakan publik."
+      }
+    ],
+    "differing_findings": [
+      {
+        "statement": "Evaluasi terhadap peran dan efektivitas kelembagaan ASEAN dalam meredam sengketa maritim Laut China Selatan.",
+        "source_ids": [
+          "S4",
+          "S5",
+          "S8",
+          "S9"
+        ],
+        "comparability": "SEBANDING_SEBAGIAN",
+        "explanation": "Studi S5 dan S8 mengevaluasi instrumen DOC/COC dari sudut pandang efektivitas operasional di lapangan yang dinilai rentan kebuntuan, sedangkan S4 dan S9 mengevaluasi peran ASEAN dari sudut pandang norma kelembagaan jangka panjang yang mencegah eskalasi perang terbuka."
+      }
+    ],
+    "measurement_limits": [
+      "Studi hubungan internasional dan kebijakan luar negeri menggunakan analisis isi dokumen doktrin dan pernyataan diplomatik, bukan indeks kuantitatif numerik tunggal."
+    ],
+    "context_limits": [
+      "Dinamika keamanan maritim Filipina sangat dipengaruhi oleh persaingan pengaruh geopolitik global antara Amerika Serikat dan China di kawasan Indo-Pasifik."
+    ],
+    "data_limits": [
+      "Transkrip perundingan Single Draft Negotiating Text (SDNT) COC ASEAN-China bersifat tertutup sehingga analisis bertumpu pada dokumen resmi publik dan tinjauan analis kebijakan."
+    ],
+    "methodological_limits": [
+      "Mayoritas studi menggunakan metode deskriptif kualitatif berbasis kajian pustaka sekunder, dengan keterbatasan akses wawancara mendalam langsung ke pembuat kebijakan aktif."
+    ],
+    "conclusions_not_allowed": [
+      "Tidak boleh menyimpulkan bahwa kegagalan penegakan hukum di Laut China Selatan semata-mata diakibatkan oleh kelemahan diplomasi Filipina.",
+      "Tidak boleh menyimpulkan bahwa salah satu strategi (Duterte vs Marcos Jr.) mutlak berhasil atau gagal tanpa menyertakan indikator evaluasi kebijakan yang jelas."
+    ]
+  },
+  "comparability_groups": [
+    {
+      "id": "CG01",
+      "source_ids": [
+        "S3",
+        "S6",
+        "S10",
+        "S12"
+      ],
+      "construct_or_predictor": "Pergantian Kepemimpinan Nasional Filipina (Rezim Duterte vs Rezim Marcos Jr.)",
+      "outcome": "Pola Orientasi Kebijakan Luar Negeri dan Pertahanan Maritim Filipina",
+      "proxies": [
+        "Pendekatan diplomasi bilateral vs multilateral",
+        "Tingkat aliansi keamanan eksternal (EDCA)",
+        "Artikulasi kepentingan nasional dalam Dokumen Keamanan Nasional (NSP)"
+      ],
+      "objects_and_periods": [
+        "Pemerintah Filipina periode 2016–2022 (Duterte) dan 2022–2025 (Marcos Jr.)"
+      ],
+      "relationship_type": "Komparasi kebijakan luar negeri antar-era kepemimpinan",
+      "comparability": "SEBANDING",
+      "reason": "Keempat studi meneliti objek negara yang sama (Filipina) dalam merespons tekanan maritim yang sama di Laut China Selatan dengan mengandalkan dokumen kebijakan resmi yang dapat diverifikasi."
+    },
+    {
+      "id": "CG02",
+      "source_ids": [
+        "S4",
+        "S5",
+        "S8",
+        "S9",
+        "S11",
+        "S13"
+      ],
+      "construct_or_predictor": "Mekanisme Kelembagaan dan Konsensus ASEAN (DOC, COC, TAC)",
+      "outcome": "Efektivitas Manajemen Konflik Maritim Kawasan",
+      "proxies": [
+        "Kepatuhan negara pihak terhadap norma DOC 2002",
+        "Kemajuan perumusan klausul mengikat COC",
+        "Konsensus sikap bersama dalam komunike ASEAN"
+      ],
+      "objects_and_periods": [
+        "Kerangka kelembagaan ASEAN dan ASEAN-China (2012–2026)"
+      ],
+      "relationship_type": "Analisis efektivitas resolusi sengketa multilateral",
+      "comparability": "SEBANDING_SEBAGIAN",
+      "reason": "Sebagian sumber meneliti kepatuhan hukum konkret di laut (S5), sebagian meneliti dinamika internal konsensus politik (S8, S13), dan sebagian meneliti kepemimpinan agenda masa depan (S11)."
+    }
+  ],
+  "candidate_gaps": [
+    {
+      "id": "G01",
+      "gap_type": "EMPIRICAL_INCONSISTENCY",
+      "gap_status": "CUKUP_DIDUKUNG",
+      "statement": "Terdapat perdebatan dalam literatur mengenai efektivitas komparatif antara strategi hedging/akomodasi bilateral era Duterte versus balancing/asertif era Marcos Jr. dalam meredam agresivitas maritim China di ZEE Filipina.",
+      "what_is_known": [
+        "Pemerintahan Duterte menerapkan de-eskalasi hukum lewat forum BCM dan kerja sama ekonomi bilateral dengan menahan implementasi putusan arbitrase (S6).",
+        "Pemerintahan Marcos Jr. menerapkan penegasan kedaulatan berbasis aliansi militer EDCA dan internasionalisasi insiden maritim (S3, S10, S12)."
+      ],
+      "what_is_unexplained": "Literatur belum menyajikan analisis komparatif sistematis yang mengevaluasi sejauh mana perbedaan kedua strategi tersebut berdampak nyata terhadap penurunan atau peningkatan frekuensi konfrontasi fisik di lapangan (seperti di Ayungin Shoal).",
+      "phenomenon_link": "Berkaitan langsung dengan eskalasi insiden maritim tahun 2023 pasca-perubahan arah kebijakan luar negeri Filipina yang menjadi lebih asertif.",
+      "source_ids": [
+        "S3",
+        "S5",
+        "S6",
+        "S10",
+        "S12"
+      ],
+      "comparability_basis": "Membandingkan dua rezim kepemimpinan pada negara yang sama dalam menghadapi tekanan maritim di kawasan perairan yang identik.",
+      "strength": "DIDUKUNG_DALAM_PAKET",
+      "scope_limits": [
+        "Terbatas pada kebijakan luar negeri Filipina kurun waktu 2016–2025 dan insiden maritim yang terdokumentasi secara publik."
+      ],
+      "verification_needed": [
+        "Memeriksa catatan kronologis resmi insiden maritim dari Philippine Coast Guard pada kurun 2016–2022 dibandingkan 2022–2024."
+      ],
+      "prohibited_claims": [
+        "Dilarang mengklaim bahwa salah satu strategi secara mutlak lebih unggul atau gagal total tanpa didasari kriteria evaluasi keamanan yang terukur."
+      ],
+      "assessment": {
+        "phenomenon_relevance": "KUAT",
+        "traceability": "KUAT",
+        "comparability": "KUAT",
+        "evidence_strength": "KUAT",
+        "feasibility": "KUAT",
+        "overclaim_risk": "RENDAH"
+      }
+    },
+    {
+      "id": "G02",
+      "gap_type": "CONTEXTUAL_BOUNDARY",
+      "gap_status": "PERLU_VERIFIKASI",
+      "statement": "Keterbatasan pemahaman mengenai strategi manuver diplomasi Filipina dalam mempertemukan tuntutan COC yang mengikat secara hukum dengan keterbatasan aturan konsensus internal ASEAN menuju Keketuaan 2026.",
+      "what_is_known": [
+        "Filipina secara konsisten menuntut COC yang patuh pada UNCLOS 1982 dan Putusan PCA 2016 serta berkekuatan hukum mengikat (S4, S7, S11).",
+        "Mekanisme konsensus ASEAN rentan terfragmentasi akibat perbedaan kepentingan ekonomi dan kedekatan geopolitik anggota tertentu dengan China (S8, S13)."
+      ],
+      "what_is_unexplained": "Bagaimana diplomasi multilateral Filipina mengelola potensi kebuntuan institusional agar ambisi COC legally binding tidak memicu kegagalan konsensus sebagaimana peristiwa KTT ASEAN 2012.",
+      "phenomenon_link": "Berkaitan erat dengan agenda persiapan peran Filipina sebagai Ketua ASEAN pada tahun 2026.",
+      "source_ids": [
+        "S4",
+        "S8",
+        "S9",
+        "S11",
+        "S13"
+      ],
+      "comparability_basis": "Membandingkan aspirasi negara klaiman utama dengan realitas mekanisme pengambilan keputusan konsensus ASEAN.",
+      "strength": "TERDUKUNG_SEMENTARA",
+      "scope_limits": [
+        "Terbatas pada forum diplomasi resmi ASEAN dan proyeksi peran kepemimpinan Manila hingga 2026."
+      ],
+      "verification_needed": [
+        "Menelusuri apakah terdapat inisiatif diplomasi minilateral (seperti komunikasi maritim khusus sesama negara klaiman ASEAN) yang sedang dirintis oleh Filipina."
+      ],
+      "prohibited_claims": [
+        "Dilarang mengklaim bahwa konsensus ASEAN pasti gagal atau bahwa seluruh negara non-klaiman menolak usulan Filipina."
+      ],
+      "assessment": {
+        "phenomenon_relevance": "KUAT",
+        "traceability": "SEDANG",
+        "comparability": "SEDANG",
+        "evidence_strength": "SEDANG",
+        "feasibility": "SEDANG",
+        "overclaim_risk": "SEDANG"
+      }
+    },
+    {
+      "id": "G03",
+      "gap_type": "METHODOLOGICAL_LIMITATION",
+      "gap_status": "TERINDIKASI",
+      "statement": "Kajian terdahulu cenderung memisahkan analisis normatif hukum internasional (Putusan PCA 2016) dengan analisis pertahanan militer konvensional (EDCA) dalam membedah kebijakan maritim Filipina.",
+      "what_is_known": [
+        "Kajian hukum internasional berfokus pada analisis teks yuridis kepatuhan putusan PCA dan Piagam ASEAN (S7, S9).",
+        "Kajian pertahanan strategis berfokus pada perimbangan kekuatan militer dan aliansi AS-Filipina secara terpisah (S4, S12)."
+      ],
+      "what_is_unexplained": "Belum banyak kajian yang secara terpadu mengkaji bagaimana Filipina mengintegrasikan diplomasi hukum (lawfare) dengan penangkalan militer (deterrence) dalam satu doktrin keamanan maritim nasional.",
+      "phenomenon_link": "Tercermin dalam integrasi instrumen hukum dan pertahanan pada dokumen National Security Policy 2023–2028.",
+      "source_ids": [
+        "S3",
+        "S4",
+        "S7",
+        "S9",
+        "S12"
+      ],
+      "comparability_basis": "Memadukan dua instrumen kebijakan luar negeri yang diimplementasikan secara paralel oleh pemerintahan yang sama.",
+      "strength": "TERDUKUNG_SEMENTARA",
+      "scope_limits": [
+        "Terbatas pada kebijakan maritim terpadu Filipina periode 2022–2025."
+      ],
+      "verification_needed": [
+        "Menyusun justifikasi konseptual yang kokoh mengenai penggabungan teori hukum internasional normatif dengan kerangka deterrence realisme."
+      ],
+      "prohibited_claims": [
+        "Dilarang mengklaim bahwa perpaduan hukum dan pertahanan Filipina merupakan doktrin yang sepenuhnya belum pernah dipraktikkan negara lain."
+      ],
+      "assessment": {
+        "phenomenon_relevance": "SEDANG",
+        "traceability": "SEDANG",
+        "comparability": "SEDANG",
+        "evidence_strength": "SEDANG",
+        "feasibility": "SEDANG",
+        "overclaim_risk": "SEDANG"
+      }
+    }
+  ],
+  "directions": [
+    {
+      "id": "D01",
+      "name": "Analisis Komparatif Respons Kebijakan Luar Negeri Filipina: Model Hedging Duterte vs Asersi Strategis Marcos Jr.",
+      "problem_focus": "Menganalisis perbedaan orientasi, kalkulasi rasional, dan implikasi keamanan dari pergeseran kebijakan luar negeri Filipina antara era Duterte dan Marcos Jr. dalam merespons tekanan maritim China di Laut China Selatan.",
+      "phenomenon_link": "Menjawab pergeseran doktrin keamanan nasional pada NSP 2023–2028 serta peningkatan ketegangan insiden maritim di Ayungin Shoal pasca-reorientasi kebijakan.",
+      "gap_ids": [
+        "G01"
+      ],
+      "anchor_source_ids": [
+        "S3",
+        "S6",
+        "S10"
+      ],
+      "potential_unit_of_analysis": [
+        "Pemerintah Filipina (Departemen Luar Negeri / DFA dan Kantor Kepresidenan)"
+      ],
+      "potential_objects": [
+        "Kebijakan luar negeri dan dokumen keamanan nasional Filipina periode 2016–2025"
+      ],
+      "potential_constructs": [
+        "Orientasi kebijakan luar negeri (hedging vs balancing)",
+        "Respon terhadap ancaman maritim",
+        "Kalkulasi rasional kepentingan nasional"
+      ],
+      "candidate_outcomes": [
+        "Pola interaksi diplomatik bilateral dan multilateral",
+        "Postur kerja sama keamanan pertahanan maritim"
+      ],
+      "measurement_focus": {
+        "primary_outcome": "Pola Orientasi Kebijakan Luar Negeri Maritim Filipina",
+        "supporting_outcome": "Frekuensi dan Intensitas Ketegangan Insiden Maritim di West Philippine Sea",
+        "non_equivalence_note": "Orientasi kebijakan luar negeri diukur dari arah tindakan diplomatik dan rumusan doktrin resmi negara, sedangkan intensitas insiden maritim diukur dari peristiwa fisik di lapangan; keduanya merupakan tingkat analisis yang berbeda dan tidak dapat diperlakukan sebagai variabel identik."
+      },
+      "claim_boundary": {
+        "safe_to_say": [
+          "Pemerintahan Marcos Jr. menunjukkan pergeseran nyata menuju penguatan aliansi pertahanan dan penegasan norma hukum internasional dibanding pendekatan bilateral akomodatif era Duterte.",
+          "Kedua rezim menerapkan strategi kebijakan luar negeri yang berbeda secara signifikan dalam merespons dinamika sengketa maritim yang sama."
+        ],
+        "not_safe_to_say": [
+          "Belum aman menyatakan bahwa kebijakan asertif Marcos Jr. secara sepihak menjadi penyebab tunggal meningkatnya insiden konfrontasi di Ayungin Shoal.",
+          "Belum aman menyatakan bahwa kebijakan Duterte sepenuhnya mengorbankan kedaulatan wilayah demi keuntungan investasi ekonomi semata."
+        ]
+      },
+      "conditional_badge": "Paling Dekat dengan Fenomena",
+      "previously_used_proxies": [
+        "Dokumen doktrin keamanan nasional (NSP 2017–2022 vs NSP 2023–2028)",
+        "Perjanjian kerja sama pertahanan eksternal (EDCA / Balikatan)",
+        "Mekanisme konsultasi bilateral (BCM 2017)"
+      ],
+      "data_needs": [
+        "Naskah resmi dokumen National Security Policy 2023–2028 Filipina",
+        "Arsip pernyataan resmi DFA Filipina terkait Laut China Selatan",
+        "Data kronologi insiden maritim terverifikasi dari Philippine Coast Guard"
+      ],
+      "data_sources_to_check": [
+        "Situs resmi Department of Foreign Affairs (DFA) Filipina",
+        "Situs resmi National Security Council (NSC) Filipina",
+        "Portal berita resmi Philippine News Agency"
+      ],
+      "possible_design_families": [
+        "Kualitatif Komparatif Studi Kasus",
+        "Analisis Kebijakan Luar Negeri (Foreign Policy Analysis)"
+      ],
+      "constraint_fit": "KUAT",
+      "workload": "SEDANG",
+      "main_work": [
+        "Melakukan analisis komparatif teks dokumen doktrin pertahanan era Duterte dan Marcos Jr.",
+        "Memetakan keputusan strategis diplomasi dan pertahanan pada masing-masing era kepemimpinan.",
+        "Mengevaluasi korelasi antara perubahan doktrin kebijakan dengan dinamika insiden maritim."
+      ],
+      "academic_risks": [
+        "Risiko penyederhanaan berlebih (oversimplification) menjadi dikotomi hitam-putih antara pro-China vs pro-AS jika tidak diperkuat landasan teori rasionalitas kebijakan."
+      ],
+      "data_risks": [
+        "Dokumen internal pertimbangan rapat kabinet Filipina bersifat tertutup, sehingga analisis harus bertumpu pada dokumen kebijakan publik terbuka dan pernyataan pers resmi."
+      ],
+      "scope_boundaries": {
+        "in_scope": [
+          "Kebijakan luar negeri Filipina era Duterte (2016–2022) dan Marcos Jr. (2022–2025)",
+          "Respons kebijakan terhadap dinamika sengketa Laut China Selatan / West Philippine Sea"
+        ],
+        "out_of_scope": [
+          "Sengketa batas wilayah darat atau urusan keamanan domestik Filipina di luar isu maritim",
+          "Kajian komparatif kebijakan negara klaiman lain secara mendalam"
+        ]
+      },
+      "unresolved_items": [
+        "Data pencatatan resmi frekuensi insiden maritim tahunan yang terstandardisasi masih perlu diverifikasi dari laporan berkala penjaga pantai."
+      ],
+      "data_verification_questions": [
+        {
+          "id": "Q01",
+          "question": "Apakah naskah utuh Dokumen National Security Policy (NSP) 2023–2028 Filipina dapat diunduh bebas dari portal resmi pemerintah untuk dianalisis bagian pilar maritimnya?",
+          "critical": true,
+          "related_data_need": "Dokumen resmi doktrin keamanan nasional Filipina"
+        },
+        {
+          "id": "Q02",
+          "question": "Bagaimana data kronologi insiden maritim resmi di Ayungin Shoal selama periode 2022–2024 dapat diperoleh secara lengkap dan terverifikasi?",
+          "critical": false,
+          "related_data_need": "Catatan resmi insiden maritim di perairan sengketa"
+        }
+      ],
+      "readiness": "LAYAK_DIPERIKSA"
+    },
+    {
+      "id": "D02",
+      "name": "Strategi Diplomasi Multilateral Filipina dalam Mengakselerasi Code of Conduct (COC) Menuju Keketuaan ASEAN 2026",
+      "problem_focus": "Menganalisis strategi agendasi dan manuver diplomatik Filipina di forum ASEAN dalam mengupayakan percepatan perumusan Code of Conduct yang mengikat secara hukum di tengah kendala konsensus regional.",
+      "phenomenon_link": "Menghubungkan mandat Keketuaan ASEAN Filipina tahun 2026 dengan sejarah kebuntuan penyusunan aturan maritim mengikat pasca-Putusan Arbitrase 2016.",
+      "gap_ids": [
+        "G02"
+      ],
+      "anchor_source_ids": [
+        "S4",
+        "S8",
+        "S9",
+        "S11"
+      ],
+      "potential_unit_of_analysis": [
+        "Diplomasi multilateral Filipina dalam kerangka ASEAN"
+      ],
+      "potential_objects": [
+        "Proses perundingan DOC/COC ASEAN-China dan forum KTT ASEAN"
+      ],
+      "potential_constructs": [
+        "Kepemimpinan kelembagaan (institutional leadership)",
+        "Kepatuhan norma hukum internasional (UNCLOS 1982)",
+        "Konsensus regional ASEAN"
+      ],
+      "candidate_outcomes": [
+        "Artikulasi norma mengikat dalam pernyataan bersama KTT ASEAN",
+        "Kemajuan tahapan perundingan kerangka COC"
+      ],
+      "measurement_focus": {
+        "primary_outcome": "Strategi Agendasi Kebijakan Filipina dalam Kerangka ASEAN",
+        "supporting_outcome": "Tingkat Pengakomodasian Norma UNCLOS 1982 dalam Pernyataan Bersama ASEAN",
+        "non_equivalence_note": "Strategi agendasi mengukur inisiatif dan manuver diplomatik kepemimpinan Manila, sedangkan pengakomodasian norma mengukur hasil kompromi konsensus antar-anggota ASEAN; keduanya merupakan dimensi proses dan hasil yang tidak boleh disamakan."
+      },
+      "claim_boundary": {
+        "safe_to_say": [
+          "Filipina berada pada posisi kelembagaan strategis sebagai Ketua ASEAN 2026 untuk mendorong prioritas penyelesaian COC berbasis aturan hukum internasional.",
+          "Perbedaan kepentingan nasional dan tingkat ketergantungan ekonomi antar-anggota ASEAN menjadi tantangan struktural nyata bagi inisiatif Filipina."
+        ],
+        "not_safe_to_say": [
+          "Belum aman menyatakan bahwa Filipina pasti berhasil menghasilkan dokumen COC yang legally binding pada tahun 2026.",
+          "Belum aman menyatakan bahwa negara non-klaiman di ASEAN beroposisi secara formal terhadap inisiatif diplomasi Filipina."
+        ]
+      },
+      "conditional_badge": "Lebih Aman untuk Tenggat",
+      "previously_used_proxies": [
+        "Pernyataan resmi Chairman's Statement KTT ASEAN",
+        "Komunike Bersama Pertemuan Menteri Luar Negeri ASEAN (AMM)",
+        "Perkembangan dokumen Single Draft Negotiating Text (SDNT)"
+      ],
+      "data_needs": [
+        "Dokumen resmi Chairman's Statement KTT ASEAN dari tahun 2017 hingga 2024",
+        "Siaran pers resmi Sekretariat ASEAN mengenai perundingan COC",
+        "Pernyataan resmi delegasi Filipina dalam pertemuan ASEAN Senior Officials' Meeting (SOM)"
+      ],
+      "data_sources_to_check": [
+        "Repositori Dokumen Publik Sekretariat ASEAN",
+        "Biro Kerja Sama ASEAN Departemen Luar Negeri Filipina",
+        "Publikasi berkala RSIS Commentary dan CSIS AMTI"
+      ],
+      "possible_design_families": [
+        "Kualitatif Analisis Kebijakan Luar Negeri",
+        "Kajian Institusionalisme Hubungan Internasional"
+      ],
+      "constraint_fit": "KUAT",
+      "workload": "RENDAH",
+      "main_work": [
+        "Menganalisis evolusi posisi Filipina dalam pernyataan resmi KTT ASEAN dari tahun 2017 hingga 2024.",
+        "Mengidentifikasi strategi kepemimpinan agenda yang dipersiapkan Manila menuju Keketuaan 2026.",
+        "Memetakan potensi kompromi konsensus antar-negara anggota ASEAN terkait status keterikatan hukum COC."
+      ],
+      "academic_risks": [
+        "Keterbatasan akses langsung ke draf perundingan tertutup (closed-door negotiations) COC."
+      ],
+      "data_risks": [
+        "Komunike resmi ASEAN umumnya menggunakan bahasa kompromi diplomatik umum yang memerlukan pembacaan kritis."
+      ],
+      "scope_boundaries": {
+        "in_scope": [
+          "Diplomasi Filipina di forum ASEAN dan ASEAN-China terkait DOC dan negosiasi COC",
+          "Keketuaan Filipina di ASEAN (evaluasi 2017 dan persiapan 2026)"
+        ],
+        "out_of_scope": [
+          "Sengketa perbatasan bilateral darat antar sesama anggota ASEAN",
+          "Rincian operasional aliansi militer bilateral di luar forum multilateral"
+        ]
+      },
+      "unresolved_items": [
+        "Draf perkembangan Single Draft Negotiating Text (SDNT) terbaru masih berstatus terbatas dan hanya kutipan tertentu yang dipublikasikan pengamat."
+      ],
+      "data_verification_questions": [
+        {
+          "id": "Q03",
+          "question": "Apakah dokumen resmi Chairman's Statement KTT ASEAN dan Joint Communique AMM terkini dapat diunduh bebas melalui repositori publik Sekretariat ASEAN?",
+          "critical": true,
+          "related_data_need": "Dokumen komunike bersama dan pernyataan resmi KTT ASEAN"
+        },
+        {
+          "id": "Q04",
+          "question": "Sejauh mana publikasi kajian kebijakan mutakhir mengulas perkembangan substansi klausul Single Draft Negotiating Text COC?",
+          "critical": false,
+          "related_data_need": "Kajian analisis perkembangan klausul COC"
+        }
+      ],
+      "readiness": "LAYAK_DIPERIKSA"
+    },
+    {
+      "id": "D03",
+      "name": "Integrasi Diplomasi Hukum (Lawfare) dan Penangkalan Militer (EDCA) dalam Doktrin Keamanan Maritim Filipina",
+      "problem_focus": "Menganalisis bagaimana Filipina mengintegrasikan instrumen supremasi hukum internasional (Putusan Arbitrase 2016) dengan kerja sama penangkalan militer (EDCA) sebagai doktrin ganda menghadapi ancaman maritim di Laut China Selatan.",
+      "phenomenon_link": "Menjawab pertautan antara komitmen hukum atas Putusan PCA 2016 dengan penambahan pangkalan militer bersama AS di bawah kerangka NSP 2023–2028.",
+      "gap_ids": [
+        "G03"
+      ],
+      "anchor_source_ids": [
+        "S3",
+        "S7",
+        "S9",
+        "S12"
+      ],
+      "potential_unit_of_analysis": [
+        "Doktrin pertahanan dan keamanan maritim Filipina"
+      ],
+      "potential_objects": [
+        "Implementasi pangkalan EDCA, latihan Balikatan, dan instrumen hukum Putusan PCA 2016"
+      ],
+      "potential_constructs": [
+        "Diplomasi hukum internasional (lawfare)",
+        "Penangkalan militer (deterrence)",
+        "Perimbangan keamanan eksternal"
+      ],
+      "candidate_outcomes": [
+        "Integrasi konseptual doktrin pertahanan maritim",
+        "Kekuatan posisi tawar penangkalan di perairan sengketa"
+      ],
+      "measurement_focus": {
+        "primary_outcome": "Konvergensi Konseptual Instrumen Hukum dan Pertahanan Maritim",
+        "supporting_outcome": "Tingkat Efektivitas Penangkalan (Deterrence) terhadap Pelanggaran Zona Maritim",
+        "non_equivalence_note": "Konvergensi konseptual mengukur integrasi gagasan pada tingkat dokumen kebijakan negara, sedangkan efektivitas penangkalan mengukur perubahan perilaku aktor eksternal di lapangan; keduanya tidak dapat diperlakukan sama."
+      },
+      "claim_boundary": {
+        "safe_to_say": [
+          "Filipina secara sadar mengombinasikan legitimasi yuridis Putusan PCA 2016 dengan penguatan kapabilitas militer melalui kerja sama EDCA.",
+          "Perluasan lokasi pangkalan EDCA ditujukan untuk meningkatkan postur pertahanan eksternal Filipina di wilayah perairan yang rentan intrusi."
+        ],
+        "not_safe_to_say": [
+          "Belum aman menyatakan bahwa perluasan EDCA secara langsung menghentikan manuver kapal maritim China di seluruh titik sengketa.",
+          "Belum aman menyatakan bahwa instrumen hukum internasional sendirian mampu menjamin keamanan perairan Filipina tanpa kekuatan penangkal fisik."
+        ]
+      },
+      "conditional_badge": "Perlu Fokus Lebih Sempit",
+      "previously_used_proxies": [
+        "Penetapan lokasi pangkalan EDCA",
+        "Frekuensi dan skala latihan bersama Balikatan 2024",
+        "Nota diplomatik protes pelanggaran hak berdaulat maritim"
+      ],
+      "data_needs": [
+        "Naskah perjanjian kerja sama implementasi EDCA",
+        "Salinan putusan resmi PCA Case No. 2013-01",
+        "Dokumen pernyataan resmi Department of National Defense (DND) Filipina"
+      ],
+      "data_sources_to_check": [
+        "Situs resmi Department of National Defense (DND) Filipina",
+        "Basis data putusan Permanent Court of Arbitration (PCA)",
+        "Fact sheet resmi kerja sama pertahanan AS-Filipina"
+      ],
+      "possible_design_families": [
+        "Kualitatif Deskriptif-Eksplanatif",
+        "Studi Hubungan Internasional dan Hukum Internasional"
+      ],
+      "constraint_fit": "SEDANG",
+      "workload": "SEDANG",
+      "main_work": [
+        "Menelaah putusan PCA 2016 sebagai instrumen legitimasi hukum maritim Filipina.",
+        "Menganalisis peran pangkalan EDCA dalam postur geostrategi maritim Filipina.",
+        "Mengkaji integrasi konseptual antara pendekatan diplomasi hukum dan penangkalan militer."
+      ],
+      "academic_risks": [
+        "Kajian lintas disiplin (hukum internasional dan kajian keamanan strategis) membutuhkan ketajaman konseptual agar tidak terjadi tumpang-tindih teori."
+      ],
+      "data_risks": [
+        "Data teknis operasional pangkalan pertahanan EDCA terikat kerahasiaan militer negara."
+      ],
+      "scope_boundaries": {
+        "in_scope": [
+          "Kebijakan maritim Filipina pasca-putusan PCA 2016 hingga implementasi EDCA 2024",
+          "Interaksi antara instrumen hukum dan aliansi pertahanan militer"
+        ],
+        "out_of_scope": [
+          "Rincian spesifikasi teknis alutsista militer",
+          "Sengketa maritim di luar perairan West Philippine Sea"
+        ]
+      },
+      "unresolved_items": [
+        "Perlu memastikan persetujuan dosen pembimbing terkait penggabungan kerangka hukum normatif dengan kajian strategis pertahanan."
+      ],
+      "data_verification_questions": [
+        {
+          "id": "Q05",
+          "question": "Apakah dokumen naskah resmi perjanjian kerja sama perluasan lokasi EDCA dapat diakses secara publik untuk keperluan penelitian akademik?",
+          "critical": true,
+          "related_data_need": "Naskah resmi perjanjian kerja sama pertahanan EDCA"
+        },
+        {
+          "id": "Q06",
+          "question": "Bagaimana data pencatatan nota protes diplomatik Filipina terkait pelanggaran di ZEE pasca-2016 dapat diakses secara kronologis?",
+          "critical": false,
+          "related_data_need": "Data kronologi nota protes diplomatik Filipina"
+        }
+      ],
+      "readiness": "LAYAK_DIPERIKSA"
+    }
+  ],
+  "comparison_summary": "Ketiga arah penelitian menawarkan keunggulan yang berbeda sesuai prioritas mahasiswa. Arah D01 memiliki kedekatan tertinggi dengan fenomena pergeseran kebijakan nyata di lapangan, didukung perbandingan literatur yang matang antara dua era kepemimpinan. Arah D02 merupakan opsi paling aman untuk tenggat waktu pengerjaan skripsi karena bersandar pada dokumen publik komunike ASEAN yang terbuka dan mudah diakses. Arah D03 memberikan kebaruan analitis konseptual yang kuat dengan memadukan hukum internasional dan kajian strategis militer, namun menuntut pembatasan skop yang ketat agar tidak terbentur kerahasiaan data pertahanan.",
+  "conditional_recommendation": {
+    "recommended_direction_ids": [
+      "D01"
+    ],
+    "reasoning": "Arah D01 direkomendasikan secara bersyarat karena berpijak langsung pada fenomena pergeseran kebijakan riil di lapangan (dokumen NSP 2023–2028 dan eskalasi Ayungin Shoal 2023) serta didukung oleh literatur inti komparatif yang paling lengkap di dalam paket bukti (S3, S6, S10).",
+    "conditions": [
+      "Jika mahasiswa memiliki waktu pengerjaan skripsi yang terbatas dan mengutamakan kemudahan akses dokumen publik multilateral terbuka, Arah D02 (Diplomasi ASEAN Menuju 2026) lebih disarankan.",
+      "Jika mahasiswa memiliki peminatan kuat pada kajian keamanan maritim dan hukum internasional serta mendapatkan persetujuan dosen pembimbing untuk riset terpadu, Arah D03 dapat dipertimbangkan dengan pembatasan fokus pada dokumen publik."
+    ],
+    "not_a_selection": true
+  },
+  "source_weights": [
+    {
+      "source_id": "S1",
+      "title": "Just a moment... / URL",
+      "url": "-",
+      "doi": "-",
+      "document_type": "Halaman Verifikasi Web",
+      "weight": "PERLU_DIPERIKSA",
+      "note": "Halaman verifikasi Cloudflare tanpa teks akademik, diabaikan sepenuhnya dari analisis."
+    },
+    {
+      "source_id": "S2",
+      "title": "ResearchGate - Temporarily Unavailable / URL",
+      "url": "-",
+      "doi": "-",
+      "document_type": "Halaman Pembatasan Akses",
+      "weight": "PERLU_DIPERIKSA",
+      "note": "Halaman pembatasan akses network ResearchGate tanpa teks artikel, diabaikan sepenuhnya dari analisis."
+    },
+    {
+      "source_id": "S3",
+      "title": "The Evolution of the Philippines’ Policy Towards Taiwan Since 2016",
+      "url": "https://doi.org/10.20849/ajsss.v9i3.1455",
+      "doi": "10.20849/ajsss.v9i3.1455",
+      "document_type": "Jurnal Peer-Reviewed",
+      "weight": "UTAMA",
+      "note": "Artikel jurnal peer-reviewed teks utuh terakses (hlm. 1–14), menganalisis perbandingan NSP 2017–2022 vs NSP 2023–2028 serta era Duterte dan Marcos Jr."
+    },
+    {
+      "source_id": "S4",
+      "title": "Respon ASEAN atas Keterlibatan Amerika Serikat di Laut China Selatan: Tinjauan Teori Balance of Threat",
+      "url": "https://doi.org/10.14710/politika.15.1.2024.55-78",
+      "doi": "10.14710/politika.15.1.2024.55-78",
+      "document_type": "Jurnal Peer-Reviewed",
+      "weight": "UTAMA",
+      "note": "Artikel jurnal peer-reviewed teks utuh terakses (hlm. 55–78), memuat wawancara pakar dan analisis data insiden maritim LCS."
+    },
+    {
+      "source_id": "S5",
+      "title": "Dampak Declaration on Conduct (DOC) antara ASEAN dan RRC terhadap Stabilitas Keamanan Maritim di Kawasan LCS",
+      "url": "https://eprints.unram.ac.id/44585/3/Jurnal_Fitri%20Chintya%20Febriani_L1A019044%281%29.pdf",
+      "doi": "-",
+      "document_type": "Manuskrip / Tesis (Eprints)",
+      "weight": "PENDUKUNG",
+      "note": "Manuskrip karya ilmiah universitas, teks utuh terakses (hlm. 1–11) namun belum melalui proses peer-review jurnal terindeks."
+    },
+    {
+      "source_id": "S6",
+      "title": "Analisis Kebijakan Luar Negeri Filipina Terkait Sengketa Laut Cina Selatan pada Masa Duterte",
+      "url": "https://doi.org/10.24198/intermestic.v4n1.4",
+      "doi": "10.24198/intermestic.v4n1.4",
+      "document_type": "Jurnal Peer-Reviewed",
+      "weight": "UTAMA",
+      "note": "Artikel jurnal peer-reviewed teks utuh terakses (hlm. 46–67), menganalisis kalkulasi rasional kebijakan Duterte dan forum BCM 2017."
+    },
+    {
+      "source_id": "S7",
+      "title": "Implementasi Prinsip Good Faith dalam Putusan Permanent Court of Arbitration oleh China pada Sengketa Laut China Selatan",
+      "url": "https://jurnal.uns.ac.id/belli/article/download/47812/pdf",
+      "doi": "-",
+      "document_type": "Jurnal Peer-Reviewed",
+      "weight": "UTAMA",
+      "note": "Artikel jurnal hukum internasional peer-reviewed teks utuh terakses (hlm. 107–127), tautan unduh artikel PDF aktif dan dapat ditelusuri."
+    },
+    {
+      "source_id": "S8",
+      "title": "Code of Conduct in the South China Sea: More Discord than Accord",
+      "url": "https://doi.org/10.1080/09733159.2017.1412098",
+      "doi": "10.1080/09733159.2017.1412098",
+      "document_type": "Jurnal Peer-Reviewed",
+      "weight": "UTAMA",
+      "note": "Artikel jurnal internasional peer-reviewed (Taylor & Francis) teks utuh terakses (hlm. 62–75), membedah sejarah negosiasi DOC/COC dan konsensus ASEAN."
+    },
+    {
+      "source_id": "S9",
+      "title": "Peran Association Of South East Asian Nations (ASEAN) Dalam Menyelesaikan Sengketa Laut China Selatan",
+      "url": "https://doi.org/10.47268/palasrev.v1i2.11782",
+      "doi": "10.47268/palasrev.v1i2.11782",
+      "document_type": "Jurnal Peer-Reviewed",
+      "weight": "UTAMA",
+      "note": "Artikel jurnal peer-reviewed teks utuh terakses (hlm. 199–207), mengkaji Bab VIII Piagam ASEAN dan mekanisme TAC 1976."
+    },
+    {
+      "source_id": "S10",
+      "title": "President Ferdinand Marcos Jr.’s “Independent” Foreign Policy and the Philippines’ Position in the New World Order",
+      "url": "https://doi.org/10.32576/nb.2025.4.2",
+      "doi": "10.32576/nb.2025.4.2",
+      "document_type": "Jurnal Peer-Reviewed",
+      "weight": "UTAMA",
+      "note": "Artikel jurnal peer-reviewed mutakhir teks utuh terakses (hlm. 3–16), menganalisis diplomasi maritim dan aliansi Marcos Jr. 2022–2025."
+    },
+    {
+      "source_id": "S11",
+      "title": "Can ASEAN Deliver a Binding South China Sea Code of Conduct Under Manila’s Chairship in 2026?",
+      "url": "https://rsis.edu.sg/wp-content/uploads/2026/09/CO26192.pdf",
+      "doi": "-",
+      "document_type": "Working Paper / Commentary",
+      "weight": "PENDUKUNG",
+      "note": "Naskah policy commentary RSIS teks utuh terakses (hlm. 1–3), naskah analisis strategis kebijakan Keketuaan ASEAN 2026."
+    },
+    {
+      "source_id": "S12",
+      "title": "The United States' Strategy of Containing China through the Philippines in the China–U.S. Game over the South China Sea",
+      "url": "https://www.atlantis-press.com/article/126024306.pdf",
+      "doi": "-",
+      "document_type": "Prosiding Konferensi",
+      "weight": "PENDUKUNG",
+      "note": "Prosiding konferensi internasional Atlantis Press teks utuh terakses (hlm. 1052–1062), menganalisis pangkalan EDCA dan Balikatan 2024."
+    },
+    {
+      "source_id": "S13",
+      "title": "Conflict among ASEAN members over the South China Sea issue",
+      "url": "https://www.ide.go.jp/library/English/Research/Region/Asia/pdf/201209_suzuki.pdf",
+      "doi": "-",
+      "document_type": "Working Paper / Discussion Paper",
+      "weight": "PENDUKUNG",
+      "note": "Discussion paper IDE-JETRO teks utuh terakses (hlm. 1–3), memberikan rujukan historis perpecahan konsensus KTT ASEAN 2012."
+    }
+  ],
+  "guidance_points": [
+    "Konsultasikan ketiga alternatif arah penelitian ini dengan dosen pembimbing untuk menyelaraskan dengan peminatan konsentrasi studi (Politik Luar Negeri, Keamanan Internasional, atau Organisasi Internasional).",
+    "Pastikan ketersediaan naskah asli dokumen kebijakan primer (NSP 2023–2028 dan arsip komunike ASEAN) sebelum menyusun draf Bab 1.",
+    "Gunakan bahasa akademik yang berhati-hati dengan menghindari klaim absolut bahwa salah satu strategi kebijakan luar negeri pasti berhasil atau gagal total."
+  ],
+  "recovery_actions": [
+    "Mengunduh naskah resmi National Security Policy 2023–2028 melalui portal resmi National Security Council Filipina.",
+    "Mengunduh Chairman's Statement KTT ASEAN periode 2017–2024 dari repositori publik Sekretariat ASEAN.",
+    "Memeriksa apakah dosen pembimbing menyetujui pendekatan komparatif dua rezim atau lebih merekomendasikan fokus pada diplomasi multilateral ASEAN."
+  ]
+}
+=== END SKRIFLOW_DIRECTION_V2 ===

@@ -1907,6 +1907,12 @@ Badge hanya membantu mahasiswa membandingkan. Dilarang auto-select arah apa pun.
     - "search_keywords": 2–5 kata kunci Bahasa Indonesia yang SIAP TEMPEL ke kotak pencarian situs (bukan kalimat pertanyaan lengkap). Sertakan singkatan resmi bila lazim (contoh: "Sakernas pengangguran terbuka").
     - "site_type": tepat satu dari daftar tertutup: BPS, KEMENTERIAN_LEMBAGA, BANK_SENTRAL, JURNAL_AKADEMIK, DATASET_INTERNASIONAL, LAPORAN_PERUSAHAAN, LAINNYA. Nilai di luar daftar wajib memakai LAINNYA.
     Field ini membantu mahasiswa MEMERIKSA ketersediaan data. Dilarang menyimpulkan data tersedia hanya karena lembaganya ada.
+4c. [SUMBER JANGKAR TIAP ARAH — WAJIB, DILARANG DIKARANG] Setiap entri di "directions" WAJIB memuat "anchor_source_ids":
+    - Artinya: sumber dari Paket Bukti Literatur yang menjadi pijakan LANGSUNG arah itu — sumber yang membuat arah tersebut masuk akal, bukan daftar bacaan umum.
+    - Isi minimal 1 ID. ID disalin PERSIS dari "source_id" yang benar-benar ada di Source Register / Matriks Bukti paket bukti. Dilarang mengarang ID, dilarang memakai ID yang tidak muncul di paket, dan dilarang mengosongkan field.
+    - Field ini yang dipakai sistem untuk menelusuri dari mana arah itu berasal; arah tanpa sumber jangkar ditolak.
+    - Kalau satu kandidat arah tidak punya satu pun sumber jangkar nyata: JANGAN mengisi ID karangan, dan JANGAN mengosongkan field. Turunkan "readiness" arah itu (PERLU_SUMBER_TAMBAHAN atau JANGAN_DIBAWA), tulis alasannya di "unresolved_items", dan keluarkan arah itu hanya bila memang ada sumber di paket yang menopangnya. Bila SELURUH arah tidak bisa dijangkarkan, tetapkan "input_audit.status" = BUKTI_TIDAK_CUKUP dan jangan keluarkan arah yang tidak punya sumber jangkar.
+    - Research Report / Laporan Riset AI / dokumen gabungan tetap DILARANG menjadi sumber jangkar, walau ada di paket.
 5. Jangan auto-select arah; mahasiswa memilih secara manual.
 6. Jangan menetapkan judul final, variabel final, hipotesis final, sampel final, atau metode final.
 7. Jangan menulis draft Bab 1.
@@ -2040,7 +2046,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "problem_focus": "...",
       "phenomenon_link": "...",
       "gap_ids": ["G01"],
-      "anchor_source_ids": ["..."],
+      "anchor_source_ids": ["<source_id persis dari paket bukti, mis. S01>"],
       "potential_unit_of_analysis": ["..."],
       "potential_objects": ["..."],
       "potential_constructs": ["..."],
