@@ -292,6 +292,43 @@ export function validateLiteratureEvidencePackage(
     };
   }
 
+  // Identitas sumber yang tidak bisa dipertanggungjawabkan.
+  // Kasus nyata (audit 16 Sep 2026): NotebookLM mengimpor Laporan Deep Research-nya
+  // sendiri sebagai sumber, lalu Prompt B memberinya kategori INTI dengan penulis
+  // "Anonim / N.A." dan tautan "-". Prompt sudah melarangnya, tetapi prompt bukan
+  // penegak — jadi diperiksa di sini. Dihitung sebelum keputusan status supaya
+  // temuan ini ikut terpakai di semua jalur keluar, bukan cuma jalur terakhir.
+  const sumber = auditSumberPaketLiteratur(text);
+  // ponytail: app tak punya akses ke NotebookLM, jadi jumlah sumber asli di notebook
+  // tak bisa dibaca langsung. Yang bisa dilakukan: bandingkan angka rekap AI dengan
+  // entri register yang benar-benar ditulis, lalu minta mahasiswa mencocokkan sisanya.
+  const catatanSumber: string[] = [];
+  if (sumber.anonim.length > 0) {
+    catatanSumber.push(
+      `${sumber.anonim.length} sumber tanpa penulis yang jelas (${sumber.anonim.join(", ")}). ` +
+        `Ciri paling sering: sumber itu sebenarnya laporan riset buatan AI, bukan artikel akademik. ` +
+        `Buka kembali notebook, keluarkan sumber tersebut, lalu jalankan ulang Prompt B.`
+    );
+  }
+  if (sumber.tanpaTautan.length > 0) {
+    catatanSumber.push(
+      `${sumber.tanpaTautan.length} sumber tanpa tautan maupun DOI (${sumber.tanpaTautan.join(", ")}) — ` +
+        `pembaca tidak bisa menelusuri aslinya.`
+    );
+  }
+  if (sumber.totalNotebook !== undefined && sumber.totalNotebook !== sumber.registerCount) {
+    catatanSumber.push(
+      `AI menulis TOTAL NOTEBOOK ${sumber.totalNotebook}, tetapi Source Register hanya memuat ` +
+        `${sumber.registerCount} entri. Sebagian sumber di notebook tidak ikut terpetakan — ` +
+        `periksa kembali notebook sebelum memakai paket ini.`
+    );
+  } else if (sumber.registerCount > 0) {
+    catatanSumber.push(
+      `Cocokkan sendiri: buka notebook, hitung jumlah sumber di panel Sources, lalu bandingkan ` +
+        `dengan ${sumber.registerCount} entri di register ini. Selisih berarti Prompt B tidak membaca semua sumber.`
+    );
+  }
+
   // Bagian C/D ada judulnya tetapi tidak ada isinya -> tetap perlu diperiksa.
   // Sebaliknya, paket dengan isi nyata tidak ditolak hanya karena bagian
   // pendukung memakai judul berbeda.
@@ -308,11 +345,12 @@ export function validateLiteratureEvidencePackage(
         hasEvidence,
         hasStopSentence,
         isPromptAOutput: false,
-        isResearchReport: false,
+        isResearchReport: sumber.anonim.length > 0,
         missingParts: [],
         notes: [
           `Paket Bukti Literatur memuat ${content3.sourceCount} entri sumber dan ${content3.evidenceRowCount} baris bukti. Bagian inti lengkap.`,
           `Bagian pendukung tidak terdeteksi: ${softMissing.join(", ")}. Paket tetap bisa dipakai, tetapi lengkapi bila tersedia.`,
+          ...catatanSumber,
           "Catatan: pemeriksaan ini menilai kelengkapan bentuk dan identitas sumber, bukan kebenaran isinya. Bukti tetap perlu ditelusuri sendiri.",
         ],
       };
@@ -342,6 +380,7 @@ export function validateLiteratureEvidencePackage(
     };
   }
 
+  // Identitas sumber sudah diperiksa di atas (blok `sumber`/`catatanSumber`).
   return {
     status: "STRUKTUR_LENGKAP",
     hasKonteks: true,
@@ -352,12 +391,87 @@ export function validateLiteratureEvidencePackage(
     hasEvidence: true,
     hasStopSentence: true,
     isPromptAOutput: false,
-    isResearchReport: false,
+    isResearchReport: sumber.anonim.length > 0,
     missingParts: [],
     notes: [
       `Paket Bukti Literatur dari NotebookLM memuat ${content.sourceCount} entri sumber dan ${content.evidenceRowCount} baris bukti. Struktur lengkap.`,
+      ...catatanSumber,
       "Catatan: pemeriksaan ini menilai kelengkapan dan bentuk identitas sumber, bukan kebenaran isinya. Bukti tetap perlu ditelusuri sendiri.",
     ],
+  };
+}
+
+/**
+ * Deteksi sumber yang tidak bisa dipertanggungjawabkan di Paket Bukti Tool 3.
+ *
+ * ponytail: app tidak punya akses ke NotebookLM, jadi jumlah sumber asli di notebook
+ * tidak bisa diperiksa langsung. Yang bisa diperiksa: (a) sumber tanpa identitas
+ * penulis, (b) sumber tanpa URL/DOI, dan (c) konsistensi rekap TOTAL NOTEBOOK vs
+ * jumlah entri register. Mahasiswa tetap diminta mencocokkan sendiri ke notebook.
+ */
+export interface SumberTidakLayakAudit {
+  /** ID sumber yang penulisnya tidak jelas (Anonim/N.A.) — ciri laporan AI. */
+  anonim: string[];
+  /** ID sumber tanpa URL maupun DOI — tidak bisa ditelusuri pembaca. */
+  tanpaTautan: string[];
+  /** Angka yang ditulis AI di baris TOTAL NOTEBOOK, bila ada. */
+  totalNotebook?: number;
+  /** Jumlah entri register yang benar-benar terbaca dari tabel. */
+  registerCount: number;
+}
+
+// Nilai penulis tidak bisa dipertanggungjawabkan bila seluruh bagiannya cuma
+// penanda "tak ada penulis". Bagian dipisah dulu karena lapangan menulisnya
+// majemuk: "Anonim / N.A.". Tanda baca dibuang karena "N.A." vs "NA" vs "n/a"
+// sama-sama muncul.
+const PENANDA_TANPA_PENULIS = new Set([
+  "",
+  "anonim",
+  "anonym",
+  "anonymous",
+  "na",
+  "tanpanama",
+  "noauthor",
+  "unknownauthor",
+  "tidakdiketahui",
+  "noname",
+  "namatidakdiketahui",
+]);
+
+function penulisTidakJelas(penulis: string): boolean {
+  const bagian = penulis
+    .split(/[/,&]|(?:\bdan\b)/i)
+    .map((b) => b.replace(/[^a-z]/gi, "").toLowerCase())
+    .filter((b) => b.length > 0);
+  // Kosong total berarti kolom penulis memang tidak terisi.
+  if (bagian.length === 0) return true;
+  return bagian.every((b) => PENANDA_TANPA_PENULIS.has(b));
+}
+
+export function auditSumberPaketLiteratur(rawText: string): SumberTidakLayakAudit {
+  const kosong: SumberTidakLayakAudit = { anonim: [], tanpaTautan: [], registerCount: 0 };
+  if (!rawText || rawText.trim().length === 0) return kosong;
+
+  const register = extractSumberPaketLiteratur(rawText);
+  const anonim: string[] = [];
+  const tanpaTautan: string[] = [];
+
+  for (const s of register) {
+    const penulis = (s.authorsYear || "").trim();
+    // Kolom penulis kosong pada register Tool 3 berarti AI tidak menemukan penulisnya
+    // — sama tidak bisanya dipertanggungjawabkan seperti "Anonim".
+    if (penulisTidakJelas(penulis)) anonim.push(s.sourceId);
+    if (!s.url && !s.doi) tanpaTautan.push(s.sourceId);
+  }
+
+  // "TOTAL NOTEBOOK" lazim diikuti angkanya di baris/tab berikutnya.
+  const m = /TOTAL\s+NOTEBOOK[\s\S]{0,40}?(\d{1,3})/i.exec(rawText);
+
+  return {
+    anonim,
+    tanpaTautan,
+    totalNotebook: m ? Number(m[1]) : undefined,
+    registerCount: register.length,
   };
 }
 
