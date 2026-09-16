@@ -154,10 +154,74 @@ kasus("Ketidakcocokan jumlah sumber jadi peringatan di UI", () => {
   );
 });
 
-kasus("Sumber anonim menyalakan isResearchReport dan catatan tindakan", () => {
+kasus("Sumber anonim dilaporkan sebagai catatan tindakan", () => {
   const v = validateLiteratureEvidencePackage(REGISTER_TAB);
-  assert.strictEqual(v.isResearchReport, true);
   assert.ok(v.notes.some((n) => n.includes("tanpa penulis yang jelas")));
+  // Field ini berarti "paketnya laporan riset AI" — tidak boleh diisi dari temuan
+  // anonim, karena sumber tanpa penulis belum tentu laporan AI.
+  assert.strictEqual(v.isResearchReport, false);
+});
+
+kasus("Catatan sumber tetap muncul di jalur STRUKTUR_PERLU_DIPERIKSA", () => {
+  // Register + matriks bukti ada, tapi bagian pendukung hilang -> jalur ini masih
+  // bisa lanjut ke Tool 4 setelah dicentang, jadi temuan anonim wajib ikut tampil.
+  const t = `A. KONTEKS
+Prodi: Akuntansi
+Catatan: baris B01 menyusul.
+
+B. STATUS SUMBER
+TOTAL NOTEBOOK: 21
+INTI: S1
+
+C. SOURCE REGISTER
+| ID | Kategori | Judul | Penulis-Tahun | Jenis | Publikasi | Tautan/DOI |
+| S1 | INTI | Analisis Ketimpangan Keterbukaan | Anonim / N.A. | Makalah | Portal Resmi | - |
+
+D. MATRIKS BUKTI
+
+E. PENUTUP
+Paket bukti sementara disusun; keputusan penelitian belum ditetapkan. STOP.`;
+  const v = validateLiteratureEvidencePackage(t);
+  assert.strictEqual(v.status, "STRUKTUR_PERLU_DIPERIKSA");
+  assert.ok(
+    v.notes.some((n) => n.includes("tanpa penulis yang jelas")),
+    `catatan anonim harus ikut, dapat: ${JSON.stringify(v.notes)}`
+  );
+});
+
+kasus("Kolom penulis TIDAK terbaca tidak dituduh sebagai laporan AI", () => {
+  // Header gaya Inggris: kolom penulis tidak ketemu. Sebelumnya seluruh sumber
+  // dilaporkan anonim -> mahasiswa melihat tuduhan palsu.
+  const t = `2. SOURCE REGISTER
+| ID | Kategori | Judul | Penerbit | Tahun |
+| S1 | INTI | Judul Pertama | JAR | 2024 |
+| S2 | INTI | Judul Kedua | TAR | 2023 |
+
+3. MATRIKS BUKTI
+| ID | Fungsi | Klaim Netral | ID Sumber | Lokasi | Konteks | Batas |
+| B01 | Hubungan | klaim uji | S1 | Hal 10 | konteks | batas |
+`;
+  const a = auditSumberPaketLiteratur(t);
+  assert.deepStrictEqual(a.anonim, [], `tidak boleh menuduh anonim, dapat: ${JSON.stringify(a.anonim)}`);
+  const v = validateLiteratureEvidencePackage(t);
+  assert.ok(
+    !v.notes.some((n) => n.includes("laporan riset buatan AI")),
+    `tidak boleh muncul tuduhan laporan AI, dapat: ${JSON.stringify(v.notes)}`
+  );
+});
+
+kasus("Label antarmuka di kolom tautan NOT counted as tautan (bentuk PIPA)", () => {
+  const t = `2. SOURCE REGISTER
+| ID | Kategori | Judul | Penulis-Tahun | Tautan/DOI |
+| S1 | INTI | Judul Pertama | Chen & Wang (2024) | Akses Artikel |
+| S2 | INTI | Judul Kedua | Klemensits (2025) | DOI Link |
+
+3. MATRIKS BUKTI
+| ID | Fungsi | Klaim Netral | ID Sumber | Lokasi | Konteks | Batas |
+| B01 | Hubungan | klaim uji | S1 | Hal 10 | konteks | batas |
+`;
+  const a = auditSumberPaketLiteratur(t);
+  assert.deepStrictEqual(a.tanpaTautan, ["S1", "S2"], `dapat: ${JSON.stringify(a.tanpaTautan)}`);
 });
 
 kasus("Sumber tanpa URL/DOI dilaporkan (S1, S2 tanpa tautan)", () => {
@@ -183,6 +247,7 @@ kasus("Paket bersih tetap STRUKTUR_LENGKAP (temuan tidak memblokir)", () => {
 kasus("Input kosong/sampah tidak meledak", () => {
   assert.deepStrictEqual(auditSumberPaketLiteratur(""), {
     anonim: [],
+    penulisTakTerbaca: [],
     tanpaTautan: [],
     registerCount: 0,
   });

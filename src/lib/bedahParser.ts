@@ -310,6 +310,13 @@ export function validateLiteratureEvidencePackage(
         `Buka kembali notebook, keluarkan sumber tersebut, lalu jalankan ulang Prompt B.`
     );
   }
+  if (sumber.penulisTakTerbaca.length > 0) {
+    catatanSumber.push(
+      `${sumber.penulisTakTerbaca.length} sumber tidak memuat nama penulis pada daftar ini ` +
+        `(${sumber.penulisTakTerbaca.join(", ")}). Bisa jadi kolomnya tidak ikut tersalin — ` +
+        `cek langsung di notebook sebelum menyimpulkan apa pun.`
+    );
+  }
   if (sumber.tanpaTautan.length > 0) {
     catatanSumber.push(
       `${sumber.tanpaTautan.length} sumber tanpa tautan maupun DOI (${sumber.tanpaTautan.join(", ")}) — ` +
@@ -345,7 +352,10 @@ export function validateLiteratureEvidencePackage(
         hasEvidence,
         hasStopSentence,
         isPromptAOutput: false,
-        isResearchReport: sumber.anonim.length > 0,
+        // Tidak diisi dari temuan anonim: nama field ini berarti "paketnya laporan
+        // riset AI", sedangkan yang bisa diperiksa cuma "ada sumber tanpa penulis".
+        // Dua hal itu tidak sama, dan tidak ada konsumen yang membacanya.
+        isResearchReport: false,
         missingParts: [],
         notes: [
           `Paket Bukti Literatur memuat ${content3.sourceCount} entri sumber dan ${content3.evidenceRowCount} baris bukti. Bagian inti lengkap.`,
@@ -376,6 +386,11 @@ export function validateLiteratureEvidencePackage(
       missingParts: content.missing,
       notes: [
         `Judul bagian lengkap, tetapi isinya belum memenuhi syarat: ${content.missing.join(", ")}. Paket ini belum bisa dipakai sebagai dasar analisis.`,
+        // Jalur ini masih bisa lanjut ke Tool 4 setelah dicentang, jadi temuan
+        // identitas sumber WAJIB ikut tampil di sini juga — bukan cuma di jalur
+        // STRUKTUR_LENGKAP. Tanpa ini mahasiswa bisa centang lalu lanjut tanpa
+        // pernah diberi tahu ada sumber anonim di paketnya.
+        ...catatanSumber,
       ],
     };
   }
@@ -391,7 +406,9 @@ export function validateLiteratureEvidencePackage(
     hasEvidence: true,
     hasStopSentence: true,
     isPromptAOutput: false,
-    isResearchReport: sumber.anonim.length > 0,
+    // Sama seperti jalur di atas: temuan "sumber tanpa penulis" bukan berarti
+    // paketnya laporan riset AI. Temuannya ada di `notes`, bukan di field ini.
+    isResearchReport: false,
     missingParts: [],
     notes: [
       `Paket Bukti Literatur dari NotebookLM memuat ${content.sourceCount} entri sumber dan ${content.evidenceRowCount} baris bukti. Struktur lengkap.`,
@@ -410,8 +427,11 @@ export function validateLiteratureEvidencePackage(
  * jumlah entri register. Mahasiswa tetap diminta mencocokkan sendiri ke notebook.
  */
 export interface SumberTidakLayakAudit {
-  /** ID sumber yang penulisnya tidak jelas (Anonim/N.A.) — ciri laporan AI. */
+  /** Sumber yang penulisnya ditulis sebagai tanpa-nama ("Anonim", "N.A.") — ciri laporan AI. */
   anonim: string[];
+  /** Sumber yang kolom penulisnya TIDAK TERBACA. Belum tentu anonim — bisa jadi
+   *  header tabelnya bergaya lain. Dilaporkan terpisah supaya tidak menuduh. */
+  penulisTakTerbaca: string[];
   /** ID sumber tanpa URL maupun DOI — tidak bisa ditelusuri pembaca. */
   tanpaTautan: string[];
   /** Angka yang ditulis AI di baris TOTAL NOTEBOOK, bila ada. */
@@ -438,29 +458,38 @@ const PENANDA_TANPA_PENULIS = new Set([
   "namatidakdiketahui",
 ]);
 
-function penulisTidakJelas(penulis: string): boolean {
+function penulisMenjelaskanDiri(penulis: string): boolean {
   const bagian = penulis
     .split(/[/,&]|(?:\bdan\b)/i)
     .map((b) => b.replace(/[^a-z]/gi, "").toLowerCase())
     .filter((b) => b.length > 0);
-  // Kosong total berarti kolom penulis memang tidak terisi.
-  if (bagian.length === 0) return true;
+  if (bagian.length === 0) return false;
+  // Semua bagian hanya penanda tanpa-nama → AI memang menyatakan tak ada penulis.
   return bagian.every((b) => PENANDA_TANPA_PENULIS.has(b));
 }
 
 export function auditSumberPaketLiteratur(rawText: string): SumberTidakLayakAudit {
-  const kosong: SumberTidakLayakAudit = { anonim: [], tanpaTautan: [], registerCount: 0 };
+  const kosong: SumberTidakLayakAudit = {
+    anonim: [],
+    penulisTakTerbaca: [],
+    tanpaTautan: [],
+    registerCount: 0,
+  };
   if (!rawText || rawText.trim().length === 0) return kosong;
 
   const register = extractSumberPaketLiteratur(rawText);
   const anonim: string[] = [];
+  const penulisTakTerbaca: string[] = [];
   const tanpaTautan: string[] = [];
 
   for (const s of register) {
     const penulis = (s.authorsYear || "").trim();
-    // Kolom penulis kosong pada register Tool 3 berarti AI tidak menemukan penulisnya
-    // — sama tidak bisanya dipertanggungjawabkan seperti "Anonim".
-    if (penulisTidakJelas(penulis)) anonim.push(s.sourceId);
+    // Dua hal yang berbeda dan tidak boleh dicampur:
+    //   - "Anonim / N.A."  → AI MENYATAKAN tidak ada penulis. Ini tuduhan yang sah.
+    //   - kolom kosong     → app TIDAK BERHASIL membacanya (header tabel beda gaya).
+    //     Menuduh ini sebagai "laporan riset AI" = alarm palsu.
+    if (penulis.length === 0) penulisTakTerbaca.push(s.sourceId);
+    else if (penulisMenjelaskanDiri(penulis)) anonim.push(s.sourceId);
     if (!s.url && !s.doi) tanpaTautan.push(s.sourceId);
   }
 
@@ -469,6 +498,7 @@ export function auditSumberPaketLiteratur(rawText: string): SumberTidakLayakAudi
 
   return {
     anonim,
+    penulisTakTerbaca,
     tanpaTautan,
     totalNotebook: m ? Number(m[1]) : undefined,
     registerCount: register.length,
@@ -2906,13 +2936,17 @@ export function extractSumberPaketLiteratur(rawText: string): SumberPaketLiterat
     header.findIndex((h) => kata.some((k) => h.toLowerCase().includes(k)));
 
   const iId = cariKolom(["id"]);
-  const iJudul = cariKolom(["judul"]);
-  const iPenulis = cariKolom(["penulis"]);
-  const iJenis = cariKolom(["jenis"]);
-  const iPublikasi = cariKolom(["publikasi", "penerbit"]);
+  const iJudul = cariKolom(["judul", "title"]);
+  // "penulis"/"author" saja tidak cukup: header gaya Inggris sering hanya menulis
+  // "Author" atau "Tahun". Tanpa cadangan ini, kolom penulis tak ketemu → SEMUA
+  // sumber dilaporkan anonim, dan mahasiswa melihat tuduhan "laporan riset AI"
+  // pada register yang penulisnya lengkap.
+  const iPenulis = cariKolom(["penulis", "author", "tahun", "year"]);
+  const iJenis = cariKolom(["jenis", "type", "document"]);
+  const iPublikasi = cariKolom(["publikasi", "penerbit", "publication", "journal", "publisher"]);
   // Kolom DOI/tautan tidak selalu ada di tabel ini.
   const iDoi = cariKolom(["doi"]);
-  const iTautan = cariKolom(["tautan", "url", "link", "sumber"]);
+  const iTautan = cariKolom(["tautan", "url", "link", "sumber", "source"]);
 
   if (iId === -1 || iJudul === -1) return [];
 
@@ -2933,11 +2967,31 @@ export function extractSumberPaketLiteratur(rawText: string): SumberPaketLiterat
       authorsYear: iPenulis > -1 ? bersih(kol[iPenulis]) : undefined,
       publication: iPublikasi > -1 ? bersih(kol[iPublikasi]) : undefined,
       documentType: iJenis > -1 ? bersih(kol[iJenis]) : "",
-      doi: iDoi > -1 ? bersih(kol[iDoi]) : undefined,
-      url: iTautan > -1 ? bersih(kol[iTautan]) : undefined,
+      // Sel yang berisi label antarmuka ("Akses Artikel") bukan tautan: aturan
+      // yang sama dipakai bentuk TAB, supaya pemeriksa tautan menyala konsisten.
+      ...tautanDariSel(iTautan > -1 ? kol[iTautan] : ""),
+      ...(iDoi > -1 && /doi\.org\/|^10\.\d{4,}\//i.test(kol[iDoi] || "") ? { doi: bersih(kol[iDoi]) } : {}),
     });
   }
   return hasil;
+}
+
+/**
+ * Tentukan URL/DOI sah dari isi satu sel register.
+ *
+ * Label antarmuka NotebookLM ("Akses Artikel", "DOI Link", "Link Jurnal") HARUS
+ * gugur di sini. Sebelumnya jalur tabel PIPA memakai pembersih markdown biasa,
+ * sehingga label itu masuk ke `url` dan membuat pemeriksa "sumber tanpa tautan"
+ * tidak pernah menyala — justru pada paket yang tautannya paling rusak.
+ * Bentuk PIPA dan bentuk TAB sekarang memakai aturan yang sama.
+ */
+function tautanDariSel(raw: string): { url?: string; doi?: string } {
+  const v = (raw || "").trim();
+  if (!v || v === "-" || v.toLowerCase() === "n/a") return {};
+  return {
+    url: /^https?:\/\//i.test(v) ? v : undefined,
+    doi: /doi\.org\/|^10\.\d{4,}\//i.test(v) ? v : undefined,
+  };
 }
 
 /**
