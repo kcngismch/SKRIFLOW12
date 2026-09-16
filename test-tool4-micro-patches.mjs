@@ -298,8 +298,16 @@ console.log("=== RUNNING TOOL 4 MICRO-PATCH REGRESSION TEST SUITE ===\n");
   assert.strictEqual(res.success, true);
   // S01 must be normalized back to UTAMA
   assert.strictEqual(res.data.evidence_ledger[0].source_weights[0].weight, "UTAMA");
-  // Non-blocking warning recorded
-  assert.ok(res.warnings && res.warnings.some((w) => w.includes("disesuaikan dari PENDUKUNG menjadi UTAMA")));
+  // Non-blocking warning recorded — teks yang dibaca mahasiswa memakai LABEL, bukan enum mentah
+  assert.ok(
+    res.warnings &&
+      res.warnings.some((w) => w.includes("Bobot S01 disesuaikan dari Sumber Pendukung menjadi Sumber Utama"))
+  );
+  // Guard aturan "jangan bocorkan enum ke mahasiswa": enum mentah tidak boleh muncul di pesan warning
+  assert.ok(
+    !res.warnings.some((w) => /\b(PENDUKUNG|UTAMA|PERLU_DIPERIKSA)\b/.test(w)),
+    "enum mentah (PENDUKUNG/UTAMA/PERLU_DIPERIKSA) tidak boleh bocor ke pesan warning"
+  );
 
   // 3b: C02 is a primary claim (Fenomena) supported ONLY by S02 (PENDUKUNG) -> downgraded to NEEDS_VERIFICATION
   assert.strictEqual(res.data.evidence_ledger[1].support_status, "NEEDS_VERIFICATION");
