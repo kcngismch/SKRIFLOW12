@@ -36,11 +36,28 @@ ok("Tool 3 rentang publikasi default terjaga (kekinian pustaka)", () => {
   assert.ok(field && field.defaultValue && /tahun terakhir/.test(field.defaultValue), "default rentang tahun ada");
 });
 
-ok("Deklarasi AI: kontrak teks di depan (draf dari jejak proses, bukan tulisan AI)", () => {
+ok("Deklarasi AI: kontrak teks di depan (fakta proses saja, bukan pernyataan tanggung jawab mahasiswa)", () => {
   const src = readFileSync("src/components/generator/AiUsageDeclaration.tsx", "utf8");
   assert.ok(src.includes("bukan tulisan AI"), "penegasan bukan tulisan AI ada");
   assert.ok(src.includes("Deklarasi Penggunaan AI"), "judul section ada");
   assert.ok(src.includes("textarea"), "editable oleh mahasiswa");
+  // Aturan BARU: prefill hanya memuat fakta proses. Tiga klaim pertanggungjawaban orang pertama
+  // yang dulu di-prefill tanpa pemeriksaan penopang WAJIB tidak ada lagi di berkas ini.
+  const klaimTerlarang = [
+    "memeriksa dan menyeleksi bukti tersebut",
+    "meninjau dokumen full-text",
+    "naskah saya tulis serta pertanggungjawabkan",
+  ];
+  for (const frasa of klaimTerlarang) {
+    assert.ok(!src.includes(frasa), `frase klaim pertanggungjawaban tidak boleh di-prefill: "${frasa}"`);
+  }
+  // Gantinya: field kosong yang ditulis mahasiswa sendiri.
+  assert.ok(
+    (src.match(/\[isi sendiri/g) || []).length >= 2,
+    "ada minimal dua field [isi sendiri] sebagai ganti klaim yang dihapus"
+  );
+  // Label tombol tidak boleh menyiratkan teks final siap tempel.
+  assert.ok(!src.includes("Salin Deklarasi"), "label tombol tidak lagi menyiratkan deklarasi final");
   // Deklarasi AI ikut pindah ke Tool 5 (Susun Bab 1) karena draf kini ditulis di sana.
   const bab1 = readFileSync("src/components/generator/Bab1ToolContainer.tsx", "utf8");
   assert.ok(bab1.includes("AiUsageDeclaration"), "terpasang di Tool 5 (Susun Bab 1)");
