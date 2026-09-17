@@ -2099,35 +2099,42 @@ export function periksaDrafBab1(
     if (el.claim_id) ledgerById.set(el.claim_id.replace(/[\[\]]/g, "").trim().toUpperCase(), el);
   });
 
-  // Kumpulan sitasi yang SAH: nama penulis-tahun dan ID sumber dari paket bukti.
+  // Kumpulan sitasi yang SAH: ID sumber + penulis-tahun dari paket bukti & register.
   // Dipakai untuk menandai sitasi yang tidak punya pasangan — kandidat karangan AI.
-  const sahSitasi = new Set<string>();
-  const sahIdSumber = new Set<string>();
+  //
+  // Pencocokan per TOKEN NAMA + TAHUN, bukan string utuh: draf lazim menyingkat nama
+  // ("Chen & Wang, 2024" untuk "Yue Chen & Kan Wang") dan menggabung beberapa sumber
+  // dalam satu kurung ("(A, 2024; B, 2025)"). Pencocokan string utuh membuat sitasi
+  // seperti itu SELALU dituduh karangan — sumber alarm palsu yang dilaporkan Aul.
+  const idSitasiSah = new Set<string>(); // "s4", "src-7"
+  const idBuktiSah = new Set<string>(); // "1" dari "(Bukti 1)"
+  const tahuId = (t: string) => idSitasiSah.has(t) || idBuktiSah.has(t);
+  const tambahId = (sid?: string) => {
+    const bersih = (sid || "").replace(/[\[\]]/g, "").trim().toLowerCase();
+    if (!bersih) return;
+    if (/^bukti\b/.test(bersih) || /^\d+$/.test(bersih)) idBuktiSah.add(bersih.replace(/^bukti[\s-]*/, ""));
+    else idSitasiSah.add(bersih);
+  };
+  const entitasSah: EntitasSitasi[] = [];
+  const tambahEntitas = (nama?: string) => {
+    const e = penulisSah(nama);
+    if (e) entitasSah.push(e);
+  };
   (foundation.paragraph_claims || []).forEach((pc) => {
-    (pc.sourceIds || []).forEach((sid, i) => {
-      const bersih = (sid || "").replace(/[\[\]]/g, "").trim().toLowerCase();
-      if (bersih) sahIdSumber.add(bersih);
-      const ay = (pc.sourceReferences?.[i]?.authorsYear || "").trim();
-      if (ay && !ay.startsWith("[")) sahSitasi.add(`(${ay.toLowerCase().replace(/\s+/g, " ")})`);
-    });
+    (pc.sourceIds || []).forEach((sid) => tambahId(sid));
+    (pc.sourceReferences || []).forEach((ref) => tambahEntitas(ref?.authorsYear));
   });
   // Nama dari register Tool 3 juga sah — sumber ini benar-benar dipakai mahasiswa.
-  // Register menulis "Nama (2023)" di satu sel sedangkan draf menyitasi "(Nama, 2023)",
-  // jadi bentuknya diseragamkan dulu; tanpa ini tiap sitasi sah jadi alarm palsu.
+  // Register menulis "Nama (2023)" di satu sel sedangkan draf menyitasi "(Nama, 2023)";
+  // pencocokan token menyeragamkan keduanya.
   (registerSumber || []).forEach((s) => {
-    const sid = (s.sourceId || "").replace(/[\[\]]/g, "").trim().toLowerCase();
-    if (sid) sahIdSumber.add(sid);
-    const ay = (s.authorsYear || "").replace(/\s*\((\d{4}[a-z]?)\)\s*$/, ", $1").trim();
-    if (ay && !ay.startsWith("[")) sahSitasi.add(`(${ay.toLowerCase().replace(/\s+/g, " ")})`);
+    tambahId(s.sourceId);
+    tambahEntitas(s.authorsYear);
   });
-  if (sahSitasi.size === 0) {
-    (foundation.evidence_ledger || []).forEach((el) => {
-      (el.source_ids || (el.source_id ? [el.source_id] : [])).forEach((sid) => {
-        const bersih = (sid || "").replace(/[\[\]]/g, "").trim().toLowerCase();
-        if (bersih) sahIdSumber.add(bersih);
-      });
-    });
-  }
+  // ID sumber di Catatan Bukti juga sah — menyitasi ID ledger bukan karangan.
+  (foundation.evidence_ledger || []).forEach((el) => {
+    (el.source_ids || (el.source_id ? [el.source_id] : [])).forEach((sid) => tambahId(sid));
+  });
 
   const totalKata = (draft.background || []).reduce((acc, p) => acc + hitungKata(p.paragraph_text || ""), 0);
 
@@ -2253,29 +2260,38 @@ export function periksaDrafBab1(
     });
 
     // Sitasi yang tidak punya pasangan di Catatan Bukti = kandidat karangan.
-    // Daftar nama sah dibangun dari paragraph_claims (pasangan sourceIds[i] ↔
-    // sourceReferences[i]) — satu-satunya tempat nama penulis tersimpan.
-    if (sahSitasi.size > 0) {
-      // `ambilSitasi` sengaja huruf-kecil untuk pembandingan; simpan bentuk aslinya
-      // supaya pesan ke mahasiswa menampilkan sitasi apa adanya.
-      const asli = new Map<string, string>();
-      (teks.match(/\([^()]{2,60}?\b(19|20)\d{2}[a-z]?\)/g) || []).forEach((x) =>
-        asli.set(x.toLowerCase().replace(/\s+/g, " ").trim(), x.trim())
-      );
-      ambilSitasi(teks).forEach((sit) => {
-        if (sahSitasi.has(sit)) return;
-        // "(S4, 2024)" dan "(Bukti 1)" adalah gaya sah berbasis ID sumber —
-        // ambil bagian sebelum koma lalu cocokkan ke daftar ID.
-        const inti = sit.replace(/^\(|\)$/g, "").split(",")[0].trim();
-        if (sahIdSumber.has(inti)) return;
-        push({
-          code: "CITATION_UNKNOWN_SOURCE",
-          severity: "MAJOR",
-          message: `${lokasi} memuat sitasi "${asli.get(sit) || sit}" yang tidak ada di paket bukti. Cocokkan ke daftar sumber sebelum draf dipakai.`,
-          location: lokasi,
+    // Pencocokan per BAGIAN sitasi (dipisah `;`) dan per token nama+TAHUN, bukan string
+    // utuh: nama boleh disingkat, digabung dalam satu kurung, atau ditulis lengkap.
+    // Kalau ragu, jangan lapor — alarm palsu membuat mahasiswa mengabaikan panelnya.
+    const asli = new Map<string, string>();
+    (teks.match(/\([^()]{2,60}?\b(19|20)\d{2}[a-z]?\)/g) || []).forEach((x) =>
+      asli.set(x.toLowerCase().replace(/\s+/g, " ").trim(), x.trim())
+    );
+    const tidakDikenal: string[] = [];
+    ambilSitasi(teks).forEach((sit) => {
+      const isi = sit.replace(/^\(|\)$/g, "").trim();
+      const adaYangTidakDikenal = isi
+        .split(";")
+        .map((b) => b.trim())
+        .filter(Boolean)
+        .some((bagian) => {
+          const { nama, tahun } = tokenSitasi(bagian);
+          // Tanpa nama penulis sama sekali (hanya ID/tahun), cocokkan ke daftar ID.
+          if (nama.length === 0) return !idBagianSah(bagian, tahuId);
+          // Tidak ada nama pembanding di paket bukti → tidak bisa dinilai, jangan tuduh.
+          if (entitasSah.length === 0) return false;
+          return !cocokEntitas(nama, tahun, entitasSah);
         });
+      if (adaYangTidakDikenal) tidakDikenal.push(asli.get(sit) || sit);
+    });
+    tidakDikenal.forEach((sitAsli) => {
+      push({
+        code: "CITATION_UNKNOWN_SOURCE",
+        severity: "MAJOR",
+        message: `${lokasi} memuat sitasi "${sitAsli}" yang belum ditemukan di paket bukti. Cocokkan ke daftar sumbermu sebelum draf dipakai.`,
+        location: lokasi,
       });
-    }
+    });
 
     const pakaiSitasi = /\((?:[^)]*)(?:19|20)\d{2}[^)]*\)|\bSRC-\d+|\bBukti \d+/.test(teks);
     if (p.function === "URGENCY_AND_DIRECTION" && pakaiSitasi) {
@@ -2404,11 +2420,86 @@ function ambilAngka(teks: string): Set<string> {
   return hasil;
 }
 
-/** Pola sitasi penulis-tahun, mis. (Ramayana, 2025) atau (PSAK 117, 2024). */
+/** Satu sumber sah dari paket bukti, dipecah jadi token nama-keluarga + tahun. */
+interface EntitasSitasi {
+  nama: string[];
+  tahun: string | null;
+}
+
+/** Token huruf kecil: tanda baca & "et al." dibuang supaya "Wang," == "Wang". */
+function tokenNama(teks: string): string[] {
+  return (teks || "")
+    .toLowerCase()
+    .replace(/\bet al\.?/g, " ")
+    .replace(/[^a-z\u00c0-\u024f\s]/g, " ")
+    .split(/\s+/)
+    .filter((t) => t.length >= 3);
+}
+
+/**
+ * Pecah nama penulis tahun dari register/paket bukti.
+ * Menerima dua bentuk nyata: register Tool 3 "Yue Chen & Kan Wang (2024)"
+ * dan `paragraph_claims.sourceReferences` "Desy Nur Shafitri et al., 2024".
+ */
+function penulisSah(authorsYear?: string): EntitasSitasi | null {
+  const mentah = (authorsYear || "").trim();
+  if (!mentah || mentah.startsWith("[")) return null;
+  const m = mentah.match(/\(?(19|20)\d{2}[a-z]?\)?/);
+  const tahun = m ? m[0].replace(/[()]/g, "").toLowerCase() : null;
+  const nama = m && m.index !== undefined
+    ? mentah.slice(0, m.index) + " " + mentah.slice(m.index + m[0].length)
+    : mentah;
+  const tokens = tokenNama(nama);
+  if (tokens.length === 0) return null;
+  return { nama: tokens, tahun };
+}
+
+/** Token nama & tahun dari satu bagian sitasi ("Chen & Wang, 2024"). */
+function tokenSitasi(bagian: string): { nama: string[]; tahun: string[] } {
+  const rendah = (bagian || "").toLowerCase();
+  const tahun = [...rendah.matchAll(/\b(19|20)\d{2}[a-z]?\b/g)].map((x) => x[0]);
+  const nama = tokenNama(rendah.replace(/\b(19|20)\d{2}[a-z]?\b/g, " "));
+  return { nama, tahun };
+}
+
+/** Bagian sitasi tanpa nama penulis: sah hanya kalau kuncinya ada di daftar ID. */
+function idBagianSah(bagian: string, tahuId: (t: string) => boolean): boolean {
+  const kata = (bagian || "").toLowerCase().replace(/[(),]/g, " ").trim().split(/\s+/).filter(Boolean);
+  return kata.some((k, i) => tahuId(k) || tahuId(kata.slice(0, i + 1).join(" ")));
+}
+
+/** Bandingkan tahun tanpa huruf penanda ("2024a" == "2024"). */
+const tahunDasar = (t: string) => (t || "").replace(/[^0-9]/g, "");
+
+/**
+ * Cocokkan satu bagian sitasi ke daftar sumber sah.
+ *
+ * Aturan "kalau ragu, anggap sah": minimal satu token nama bagian itu harus muncul di
+ * salah satu entitas sumber. Tahun jadi penguat saat entitas punya tahun, tapi tahun
+ * yang tidak sama sendirian TIDAK cukup untuk menuduh (preprint/terbitan berbeda tahun
+ * itu kasus nyata). Nama yang tidak menempel sama sekali baru dilaporkan.
+ */
+function cocokEntitas(nama: string[], tahun: string[], entitasSah: EntitasSitasi[]): boolean {
+  return entitasSah.some((e) => {
+    if (!nama.some((t) => e.nama.includes(t))) return false;
+    if (e.tahun && tahun.length > 0) return tahun.map(tahunDasar).includes(tahunDasar(e.tahun));
+    return true;
+  });
+}
+
+/**
+ * Pola sitasi penulis-tahun, mis. (Ramayana, 2025) atau (PSAK 117, 2024).
+ * Rentang tahun "(2016–2022)" / "(2022–2024)" DITOLAK di sini: pola "tahun di dalam
+ * kurung" saja terlalu longgar dan membuat periode penelitian dilaporkan sebagai sitasi.
+ */
 function ambilSitasi(teks: string): Set<string> {
   const hasil = new Set<string>();
   const m = teks.match(/\([^()]{2,60}?\b(19|20)\d{2}[a-z]?\)/g) || [];
-  m.forEach((x) => hasil.add(x.toLowerCase().replace(/\s+/g, " ").trim()));
+  m.forEach((x) => {
+    const bersih = x.toLowerCase().replace(/\s+/g, " ").trim();
+    if (!/[a-z]{3}/.test(bersih)) return;
+    hasil.add(bersih);
+  });
   return hasil;
 }
 
