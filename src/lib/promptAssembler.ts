@@ -12,6 +12,7 @@ import {
 import {
   NOTEBOOKLM_LIMITS,
   BEDAH_LIMITS,
+  NOTEBOOK_PROMPT_PROJECTION_LIMITS,
   PromptBudgetStatus,
   PromptBudgetBreakdown,
   getPromptBudgetStatus,
@@ -716,6 +717,30 @@ export function projectOptionalText(
  * Assembles Canonical Prompt A for Tool 3 (NotebookLM Source Discovery & Import).
  * Manifest ID: literature-source-search-a
  */
+/**
+ * Memilih plafon konteks opsional yang PALING LONGGAR namun masih muat di batas.
+ *
+ * Kenapa bertingkat: memotong semua field langsung ke plafon terkecil membuang
+ * konteks mahasiswa yang sebenarnya masih muat. Dengan mencoba dari yang paling
+ * longgar, hanya field yang benar-benar perlu yang dipadatkan.
+ */
+function pilihPlafonOpsional(
+  panjangField: number[],
+  staticText: number,
+  essentialContext: number,
+  hardLimit: number,
+  safetyBuffer: number
+): number {
+  const totalAsli = panjangField.reduce((a, b) => a + b, 0);
+  const anggaran = hardLimit - safetyBuffer - staticText - essentialContext;
+
+  for (const plafon of [Number.MAX_SAFE_INTEGER, 200, 150, 100, 60, 40, 0]) {
+    const hasil = panjangField.reduce((acc, len) => acc + Math.min(len, plafon), 0);
+    if (hasil <= anggaran) return plafon;
+  }
+  return 0;
+}
+
 export function assembleLiteraturePromptA(
   input: LiteraturePromptInput
 ): PromptAssemblyResult {
@@ -731,32 +756,8 @@ export function assembleLiteraturePromptA(
   const rawFokus = (input.fokus_literatur || input.fokus_aspek || "").trim();
   const rawLainnya = (input.hal_belum_ditentukan || input.hal_terbuka || "").trim();
 
-  const contextLines: string[] = [
-    `Prodi: ${prodi}`,
-    `Area: ${area}`,
-    `Fenomena: ${fenomena}`,
-  ];
-
-  if (rawPrioritas.length > 0) {
-    contextLines.push(`Prioritas: ${rawPrioritas}`);
-  }
-  if (rawRentang.length > 0) {
-    contextLines.push(`Rentang: ${rawRentang}`);
-  }
-  if (rawKataKunci.length > 0) {
-    contextLines.push(`Kata Kunci: ${rawKataKunci}`);
-  }
-  if (rawFokus.length > 0) {
-    contextLines.push(`Fokus: ${rawFokus}`);
-  }
-  if (rawLainnya.length > 0) {
-    contextLines.push(`Belum Ditentukan: ${rawLainnya}`);
-  }
-
-  const contextBlock = contextLines.join("\n");
-
-  const template = `Cari 15-25 artikel akademik individual via Deep Research (jangan paksa kuota):
-${contextBlock}
+  const renderTemplate = (blok: string) => `Cari 15-25 artikel akademik individual via Deep Research (jangan paksa kuota):
+${blok}
 
 Sensor:
 1. Tolak Research Report AI/dokumen gabungan. Utamakan peer-reviewed; labeli review/SLR, preprint, working paper, tesis.
@@ -777,51 +778,57 @@ Output:
 - Tampilkan seluruh kartu valid (1-2: awal kerangka; 3-5: kerangka sementara; 6-8: draft sehat). Jangan STOP sebelum hasil ditampilkan.
 - Tulis statistik singkat (jumlah valid & catatan aspek yang kurang), lalu STOP.`;
 
-  const finalPrompt = normalizePromptLineEndings(template.trim())
+  // Static text measurement (empty values with all 8 lines)
+  const staticTemplate = renderTemplate(
+    ["Prodi: ", "Area: ", "Fenomena: ", "Prioritas: ", "Rentang: ", "Kata Kunci: ", "Fokus: ", "Belum Ditentukan: "].join("\n")
+  );
+  const staticText = countPromptCharacters(normalizePromptLineEndings(staticTemplate.trim()));
+  const essentialContext =
+    countPromptCharacters(prodi) + countPromptCharacters(area) + countPromptCharacters(fenomena);
+
+  // Pemadatan bertingkat. Fenomena TIDAK pernah dipotong (konteks inti); hanya
+  // konteks opsional yang dipadatkan sampai muat, mulai dari plafon paling longgar.
+  // Inilah yang membuat tombol Salin tidak lagi mati saat form diisi lengkap.
+  const opsional = [rawPrioritas, rawRentang, rawKataKunci, rawFokus, rawLainnya];
+  const plafon = pilihPlafonOpsional(
+    opsional.map((v) => v.length),
+    staticText,
+    essentialContext,
+    NOTEBOOKLM_LIMITS.hardLimit,
+    NOTEBOOKLM_LIMITS.safetyBufferA
+  );
+
+  const NAMA_FIELD: PromptProjectionField[] = [
+    "prioritas_sumber",
+    "rentang_publikasi",
+    "kata_kunci",
+    "fokus_literatur",
+    "hal_belum_ditentukan",
+  ];
+  const compactedFields: PromptProjectionField[] = [];
+  const opsionalFinal = opsional.map((v, i) => {
+    const proj = projectOptionalText(v, plafon);
+    if (proj.wasCompacted) compactedFields.push(NAMA_FIELD[i]);
+    return proj.projected;
+  });
+
+  const garisOpsional = [
+    opsionalFinal[0] ? `Prioritas: ${opsionalFinal[0]}` : "",
+    opsionalFinal[1] ? `Rentang: ${opsionalFinal[1]}` : "",
+    opsionalFinal[2] ? `Kata Kunci: ${opsionalFinal[2]}` : "",
+    opsionalFinal[3] ? `Fokus: ${opsionalFinal[3]}` : "",
+    opsionalFinal[4] ? `Belum Ditentukan: ${opsionalFinal[4]}` : "",
+  ].filter(Boolean);
+
+  const contextBlock = [`Prodi: ${prodi}`, `Area: ${area}`, `Fenomena: ${fenomena}`, ...garisOpsional].join("\n");
+
+  const finalPrompt = normalizePromptLineEndings(renderTemplate(contextBlock).trim())
     .replace(/\bundefined\b/g, "")
     .replace(/\bnull\b/g, "")
     .replace(/\[object Object\]/g, "");
 
   const totalLength = countPromptCharacters(finalPrompt);
-
-  // Static text measurement (empty values with all 8 lines)
-  const staticTemplate = `Cari 15-25 artikel akademik individual via Deep Research (jangan paksa kuota):
-Prodi: 
-Area: 
-Fenomena: 
-Prioritas: 
-Rentang: 
-Kata Kunci: 
-Fokus: 
-Belum Ditentukan: 
-
-Sensor:
-1. Tolak Research Report AI/dokumen gabungan. Utamakan peer-reviewed; labeli review/SLR, preprint, working paper, tesis.
-2. Full-text wajib: empiris ada metode & hasil; review/SLR ada metode & sintesis. Hanya PDF/HTML berbadan artikel. Tolak abstrak/metadata/landing page.
-3. Tolak error/login/paywall/CAPTCHA/Cloudflare/naskah parsial.
-4. Jangan karang identitas (judul/penulis/tahun/jurnal/DOI/URL). Cocokkan ke metadata resmi.
-5. Pilih hanya sumber cocok pada fenomena/fokus. Beda event/outcome bukan inti.
-6. Deduplikasi; pakai versi terbaik (PDF legal penerbit/repositori/manuscript/arXiv).
-7. Semua metode artikel boleh masuk jika relevan & full-text.
-8. Tolak withdrawn/retracted resmi.
-
-Larangan:
-- Dilarang membuat sintesis, gap, novelty, judul, variabel final, atau draft Bab 1.
-
-Output:
-- Source Import Cards native hanya kandidat; jangan ganti teks lain.
-- Jangan auto-import. Tinjau tautan; pilih PDF/HTML utuh; jangan pilih Research Report.
-- Tampilkan seluruh kartu valid (1-2: awal kerangka; 3-5: kerangka sementara; 6-8: draft sehat). Jangan STOP sebelum hasil ditampilkan.
-- Tulis statistik singkat (jumlah valid & catatan aspek yang kurang), lalu STOP.`;
-
-  const staticText = countPromptCharacters(normalizePromptLineEndings(staticTemplate.trim()));
-  const essentialContext = countPromptCharacters(prodi) + countPromptCharacters(area) + countPromptCharacters(fenomena);
-  const optionalContext =
-    countPromptCharacters(rawPrioritas) +
-    countPromptCharacters(rawRentang) +
-    countPromptCharacters(rawKataKunci) +
-    countPromptCharacters(rawFokus) +
-    countPromptCharacters(rawLainnya);
+  const optionalContext = countPromptCharacters(opsionalFinal.join(""));
 
   const phenomenonLength = countPromptCharacters(fenomena);
   const phenomenonPreserved = fenomena.length === 0 || finalPrompt.includes(fenomena);
@@ -835,7 +842,7 @@ Output:
     isValid,
     phenomenonLength,
     phenomenonPreserved,
-    compactedFields: [],
+    compactedFields,
     breakdown: {
       staticText,
       essentialContext,
@@ -843,7 +850,6 @@ Output:
     },
   };
 }
-
 /**
  * Assembles Canonical Prompt B for Tool 3 (NotebookLM Evidence Extraction).
  * Manifest ID: literature-synthesis-b
@@ -885,8 +891,8 @@ export function assembleLiteraturePromptB(
 ${contextBlock}
 
 KELAYAKAN & PRINSIP:
-- Artikel empiris cukup jika metode/konteks data & hasil utamanya terbaca untuk dikutip; review/SLR cukup jika metode tinjauan & sintesisnya terkenali.
-- Kategori sumber:
+- Artikel empiris cukup jika metode & hasil utamanya terbaca; review cukup jika metode tinjauannya terkenali.
+- Kategori:
   * INTI: relevan langsung, metode/hasil terbaca.
   * PENDUKUNG (maks. 5): tak langsung / konteks teori / metode.
   * PERLU CEK MANUAL: metadata/akses butuh konfirmasi.
@@ -894,17 +900,18 @@ KELAYAKAN & PRINSIP:
 - Jika INTI <8: tetap susun Paket Bukti sementara dari sumber valid; jelaskan yang kurang, jangan STOP.
 
 LARANGAN KERAS:
-- Dilarang mengarang sumber atau klaim tanpa sitasi.
+- Dilarang mengarang sumber/klaim tanpa sitasi.
 - Dilarang membuat gap otomatis, kesimpulan final, judul, novelty, variabel final, atau klaim kausal di luar sumber.
 - Dilarang menggunakan Research Report AI sebagai artikel akademik.
-- Jangan kata "membuktikan". Pakai: "penelitian melaporkan", "hasil analisis menunjukkan", atau batasi ke sampel/periode.
+- Tautan/DOI wajib bila ada; "-" hanya bila benar-benar tak ada.
+- Jangan kata "membuktikan". Pakai "penelitian melaporkan" atau batasi ke sampel/periode.
 
 OUTPUT:
 1. REKONSILIASI
 INTI + PENDUKUNG + PERLU CEK MANUAL + ABAIKAN = TOTAL NOTEBOOK. Cantumkan jumlah, ID, dan alasannya.
 
 2. SOURCE REGISTER
-ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Metode/sampel | Bukti keterbacaan.
+ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Tautan/DOI | Metode/sampel | Bukti keterbacaan.
 Review/SLR bukan bukti empiris independen; labeli preprint/working paper/tesis.
 
 3. MATRIKS BUKTI (maks. 16)
@@ -929,8 +936,8 @@ Prodi:  | Area:
 Fenomena: 
 
 KELAYAKAN & PRINSIP:
-- Artikel empiris cukup jika metode/konteks data & hasil utamanya terbaca untuk dikutip; review/SLR cukup jika metode tinjauan & sintesisnya terkenali.
-- Kategori sumber:
+- Artikel empiris cukup jika metode & hasil utamanya terbaca; review cukup jika metode tinjauannya terkenali.
+- Kategori:
   * INTI: relevan langsung, metode/hasil terbaca.
   * PENDUKUNG (maks. 5): tak langsung / konteks teori / metode.
   * PERLU CEK MANUAL: metadata/akses butuh konfirmasi.
@@ -938,17 +945,18 @@ KELAYAKAN & PRINSIP:
 - Jika INTI <8: tetap susun Paket Bukti sementara dari sumber valid; jelaskan yang kurang, jangan STOP.
 
 LARANGAN KERAS:
-- Dilarang mengarang sumber atau klaim tanpa sitasi.
+- Dilarang mengarang sumber/klaim tanpa sitasi.
 - Dilarang membuat gap otomatis, kesimpulan final, judul, novelty, variabel final, atau klaim kausal di luar sumber.
 - Dilarang menggunakan Research Report AI sebagai artikel akademik.
-- Jangan kata "membuktikan". Pakai: "penelitian melaporkan", "hasil analisis menunjukkan", atau batasi ke sampel/periode.
+- Tautan/DOI wajib bila ada; "-" hanya bila benar-benar tak ada.
+- Jangan kata "membuktikan". Pakai "penelitian melaporkan" atau batasi ke sampel/periode.
 
 OUTPUT:
 1. REKONSILIASI
 INTI + PENDUKUNG + PERLU CEK MANUAL + ABAIKAN = TOTAL NOTEBOOK. Cantumkan jumlah, ID, dan alasannya.
 
 2. SOURCE REGISTER
-ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Metode/sampel | Bukti keterbacaan.
+ID | Kategori | Judul | Penulis-tahun | Jenis | Publikasi | Tautan/DOI | Metode/sampel | Bukti keterbacaan.
 Review/SLR bukan bukti empiris independen; labeli preprint/working paper/tesis.
 
 3. MATRIKS BUKTI (maks. 16)
@@ -1438,6 +1446,10 @@ Ketentuan tipe sumber:
 * WORKING_PAPER harus diberi label working paper dan tidak boleh diperlakukan sebagai artikel peer-reviewed;
 * Research Report atau laporan riset buatan AI atau dokumen gabungan NotebookLM tetap wajib dikeluarkan dan dilarang digunakan.
 
+Setiap sumber wajib memuat identitas yang bisa diperiksa: judul, penerbit/lembaga, tahun atau periode, dan tautan atau DOI bila ada.
+Sumber tanpa tautan/DOI tetap boleh dipakai HANYA jika judul, penerbit, dan tahunnya jelas; tandai status sumbernya sebagai belum terverifikasi.
+Jangan menulis DOI atau tautan yang tidak kamu yakini ada. Bila ragu, kosongkan dan jelaskan pada access_note.
+
 Jangan menggunakan:
 * Research Report atau laporan riset gabungan buatan AI;
 * dokumen hasil olahan AI tanpa verifikasi sumber primer;
@@ -1862,10 +1874,14 @@ Setiap arah penelitian wajib memiliki batas klaim (claim_boundary):
 
 [BOBOT KUALITAS SUMBER]
 
-Klasifikasikan fungsi sumber (source_weights):
-- UTAMA: artikel peer-reviewed full-text atau sumber primer/resmi yang dapat ditelusuri;
-- PENDUKUNG: proceeding, working paper, tesis, review, atau laporan institusi yang masih relevan;
-- PERLU_DIPERIKSA: identitas, akses, full-text, atau status akademiknya belum pasti.
+Klasifikasikan fungsi sumber (source_weights). SETIAP entri WAJIB memuat identitas sumber:
+- source_id: ID sumber persis seperti pada paket bukti;
+- title: judul dokumen (bukan nama lembaga saja);
+- url atau doi: SALIN PERSIS tautan/DOI dari paket bukti; jangan dikarang, jangan diubah. Tulis "-" hanya bila paket bukti memang tidak memuatnya.
+- document_type: jenis dokumen apa adanya;
+- weight: UTAMA (artikel peer-reviewed full-text atau sumber primer/resmi yang dapat ditelusuri), PENDUKUNG (proceeding, working paper, tesis, review, laporan institusi yang masih relevan), atau PERLU_DIPERIKSA (identitas, akses, full-text, atau status akademiknya belum pasti).
+
+Sumber tanpa judul dan tanpa tautan/DOI tidak boleh diberi bobot UTAMA. Turunkan ke PERLU_DIPERIKSA dan jelaskan alasannya pada note. Sumber berjenis artikel peer-reviewed WAJIB memuat tautan/DOI bila paket bukti menyediakannya; menyebut sumber artikel tanpa tautan membuat mahasiswa tidak bisa memeriksanya.
 
 Klaim inti untuk Bab 1 tidak boleh hanya bergantung pada sumber PENDUKUNG atau PERLU_DIPERIKSA. Jangan otomatis membuang seluruh Paket Bukti jika ada beberapa sumber lemah; turunkan bobot klaimnya dan beri catatan pemeriksaan.
 
@@ -1886,6 +1902,17 @@ Badge hanya membantu mahasiswa membandingkan. Dilarang auto-select arah apa pun.
 2. Pertahankan periode, objek, angka, unit, metode, dan batas sumber secara presisi.
 3. Rumuskan 2–4 kandidat gap (atau 0 kandidat jika bukti tidak mencukupi / zero forced gap).
 4. Rumuskan 2–4 alternatif arah penelitian beserta pertanyaan verifikasi data (data_verification_questions).
+4b. [PANDUAN MENCARI DATA — WAJIB] Setiap pertanyaan verifikasi data WAJIB memuat tiga field berikut, supaya mahasiswa tahu harus mencari ke mana (bukan menebak):
+    - "where_to_look": 2–4 nama LEMBAGA/INSTANSI pemilik data yang benar-benar ada dan bisa dicari mahasiswa (contoh: "BPS — Statistik Kriminal", "Bank Indonesia — Statistik Ekonomi Keuangan"). Dilarang menulis tautan/domain mentah. Kalau tidak yakin sebuah lembaga menerbitkan data itu, tulis nama yang paling mungkin dengan tambahan "(perlu diperiksa)".
+    - "search_keywords": 2–5 kata kunci Bahasa Indonesia yang SIAP TEMPEL ke kotak pencarian situs (bukan kalimat pertanyaan lengkap). Sertakan singkatan resmi bila lazim (contoh: "Sakernas pengangguran terbuka").
+    - "site_type": tepat satu dari daftar tertutup: BPS, KEMENTERIAN_LEMBAGA, BANK_SENTRAL, JURNAL_AKADEMIK, DATASET_INTERNASIONAL, LAPORAN_PERUSAHAAN, LAINNYA. Nilai di luar daftar wajib memakai LAINNYA.
+    Field ini membantu mahasiswa MEMERIKSA ketersediaan data. Dilarang menyimpulkan data tersedia hanya karena lembaganya ada.
+4c. [SUMBER JANGKAR TIAP ARAH — WAJIB, DILARANG DIKARANG] Setiap entri di "directions" WAJIB memuat "anchor_source_ids":
+    - Artinya: sumber dari Paket Bukti Literatur yang menjadi pijakan LANGSUNG arah itu — sumber yang membuat arah tersebut masuk akal, bukan daftar bacaan umum.
+    - Isi minimal 1 ID. ID disalin PERSIS dari "source_id" yang benar-benar ada di Source Register / Matriks Bukti paket bukti. Dilarang mengarang ID, dilarang memakai ID yang tidak muncul di paket, dan dilarang mengosongkan field.
+    - Field ini yang dipakai sistem untuk menelusuri dari mana arah itu berasal; arah tanpa sumber jangkar ditolak.
+    - Kalau satu kandidat arah tidak punya satu pun sumber jangkar nyata: JANGAN mengisi ID karangan, dan JANGAN mengosongkan field. Turunkan "readiness" arah itu (PERLU_SUMBER_TAMBAHAN atau JANGAN_DIBAWA), tulis alasannya di "unresolved_items", dan keluarkan arah itu hanya bila memang ada sumber di paket yang menopangnya. Bila SELURUH arah tidak bisa dijangkarkan, tetapkan "input_audit.status" = BUKTI_TIDAK_CUKUP dan jangan keluarkan arah yang tidak punya sumber jangkar.
+    - Research Report / Laporan Riset AI / dokumen gabungan tetap DILARANG menjadi sumber jangkar, walau ada di paket.
 5. Jangan auto-select arah; mahasiswa memilih secara manual.
 6. Jangan menetapkan judul final, variabel final, hipotesis final, sampel final, atau metode final.
 7. Jangan menulis draft Bab 1.
@@ -2019,7 +2046,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "problem_focus": "...",
       "phenomenon_link": "...",
       "gap_ids": ["G01"],
-      "anchor_source_ids": ["..."],
+      "anchor_source_ids": ["<source_id persis dari paket bukti, mis. S01>"],
       "potential_unit_of_analysis": ["..."],
       "potential_objects": ["..."],
       "potential_constructs": ["..."],
@@ -2053,7 +2080,10 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
           "id": "Q01",
           "question": "...",
           "critical": true,
-          "related_data_need": "..."
+          "related_data_need": "...",
+          "where_to_look": ["BPS — Statistik Kriminal", "Kementerian Keuangan — APBN KiTa"],
+          "search_keywords": ["tingkat kriminalitas per provinsi", "data kejahatan BPS 2020 2024"],
+          "site_type": "BPS"
         }
       ],
       "readiness": "LAYAK_DIPERIKSA|PERLU_SUMBER_TAMBAHAN|RISIKO_TINGGI|JANGAN_DIBAWA"
@@ -2069,6 +2099,9 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
   "source_weights": [
     {
       "source_id": "ID-09",
+      "title": "Judul dokumen sumber apa adanya",
+      "url": "https://tautan-langsung-ke-dokumen atau \"-\"",
+      "doi": "10.xxxx/yyyy atau \"-\"",
       "document_type": "Systematic Literature Review (SLR)",
       "weight": "PENDUKUNG",
       "note": "..."
@@ -2324,6 +2357,12 @@ Tugasmu memformulasikan fondasi logis yang terstruktur dan terverifikasi untuk S
 
 [KONTEKS DAN ARAH TERPILIH]
 
+PENTING — memakai arah yang BENAR: pakai arah di bawah ini apa adanya.
+Pada "selected_direction" di JSON keluaranmu, tulis:
+  "id": "${dir.id}"
+dan "student_selected": true.
+DILARANG mengganti id ini dengan id lain, dan DILARANG menambah arah baru.
+
 - Program Studi: ${prodi}
 - Area Eksplorasi: ${area}
 - Arahan Dosen: ${supervisorDirection}
@@ -2398,6 +2437,18 @@ ${input.relevantLiteratureEvidence || "Paket bukti terlampir pada konteks arah."
 3. Petakan kontribusi sementara (empiris, praktis, akademik, metodologis) dan klaim kontribusi yang dilarang.
 4. Buat maksimal 3 gambaran bentuk judul (bukan judul final) dengan asumsi dan keputusan yang masih belum ditentukan.
 5. Susun Peta Narasi Latar Belakang tepat 7–9 bagian (background_map) dengan fungsi paragraf jelas, pesan utama, safe_claims yang merujuk source_ids, transisi logis, dan prohibited_claims.
+   - [PANJANG] Total keseluruhan latar belakang yang akan ditulis dari peta ini wajib berada di rentang 1000–1300 kata (target kerja 1150 kata). Ini untuk 7–9 bagian, jadi setiap bagian rata-rata 120–200 kata.
+   - Jika membuat 7 bagian, gunakan pembagian target berikut sebagai acuan (boleh digeser maksimal ±20 kata antarparagraf, syaratnya total tetap 1000–1300):
+     * SPECIFIC_CONTEXT: 130–170 kata sebagai pembuka yang langsung menyentuh konteks nyata, bukan definisi umum.
+     * OBJECT_AND_SCOPE: 130–170 kata untuk objek, cakupan, dan periode.
+     * EMPIRICAL_PHENOMENON: 180–220 kata sebagai bagian terberat, karena memuat bukti fenomena aktual.
+     * WHY_IT_IS_A_PROBLEM: 160–200 kata untuk menjelaskan mengapa kondisi itu menjadi masalah empiris.
+     * PRIOR_RESEARCH: 170–210 kata untuk memetakan penelitian terdahulu beserta batasnya.
+     * KNOWLEDGE_LIMIT_OR_GAP: 150–190 kata untuk keterbatasan pengetahuan (kandidat gap, bukan gap final).
+     * URGENCY_AND_DIRECTION: 130–170 kata yang menutup dengan urgensi dan arah penelitian.
+   - Jika membuat 8–9 bagian, pecah bagian terpanjang (EMPIRICAL_PHENOMENON atau PRIOR_RESEARCH) menjadi dua bagian. Jangan menambah panjang total di luar 1000–1300 kata.
+   - Cantumkan target kata tiap bagian pada field target_word_range beserta target_words_total pada pembuka output.
+   - JANGAN menyusun latar belakang yang jauh lebih pendek (di bawah 1000 kata) karena terlalu tipis untuk skripsi, dan jangan melebihi 1300 kata karena akan melebar dari fokus.
    - Bedakan claim_type pada safe_claims:
      * EMPIRICAL_FACT: fakta langsung dari sumber (source_ids wajib minimal 1, claim_id wajib ada di evidence_ledger).
      * CROSS_SOURCE_SYNTHESIS: sintesis antar-sumber (source_ids wajib minimal 2 unik, claim_id wajib ada di evidence_ledger).
@@ -2431,6 +2482,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
   "foundation_status": "BAB1_READY|BAB1_CONDITIONAL|BAB1_BLOCKED",
   "phenomenon_basis_status": "${phenStatus}",
   "status_reason": "...",
+  "target_words_total": 1150,
   "blocking_items": ["..."],
   "selected_direction": {
     "id": "${dir.id.replace(/"/g, '\\"')}",
@@ -2561,6 +2613,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "130–170",
       "readiness": "READY"
     },
     {
@@ -2579,6 +2632,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "130–170",
       "readiness": "READY"
     },
     {
@@ -2597,6 +2651,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "180–220",
       "readiness": "READY"
     },
     {
@@ -2615,6 +2670,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "160–200",
       "readiness": "READY"
     },
     {
@@ -2633,6 +2689,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "170–210",
       "readiness": "READY"
     },
     {
@@ -2651,6 +2708,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "150–190",
       "readiness": "READY"
     },
     {
@@ -2669,6 +2727,7 @@ Keluarkan tepat satu blok transfer berikut tanpa Markdown code fence:
       "prohibited_claims": ["..."],
       "transition_to_next": "...",
       "missing_information": ["..."],
+      "target_word_range": "130–170",
       "readiness": "READY"
     }
   ],
@@ -2760,6 +2819,466 @@ export function analyzeBedahPrompt(input: ResearchBedahInput) {
     promptId: "bedah-fenomena-literatur",
     staticTemplateLength,
     dynamicContextLength,
+    finalLength,
+    safeTarget: BEDAH_LIMITS.safeTarget,
+    hardLimit: BEDAH_LIMITS.hardLimit,
+    status: getBedahPromptBudgetStatus(finalLength),
+  };
+}
+
+
+// =========================================================================
+// TAHAP 4C: PROMPT PENULISAN DRAF BAB 1 (Addendum B)
+// =========================================================================
+
+export interface ResearchBedahInput4C {
+  prodi: string;
+  areaEksplorasi: string;
+  foundation: import("@/types/tool").Bab1FoundationV1;
+  /** Petunjuk gaya bahasa dari mahasiswa (opsional). */
+  styleNote?: string;
+  /**
+   * Register sumber dari Tool 3 (kolom "Penulis & Tahun"). Dipakai sebagai cadangan
+   * saat fondasi 4B hanya menyebut sebagian sumber sehingga nama penulisnya hilang.
+   */
+  registerSumber?: { sourceId: string; authorsYear?: string }[];
+}
+
+export interface ResearchBedahInput4D {
+  prodi: string;
+  areaEksplorasi: string;
+  /** Draf 4C yang akan dipoles bahasanya. */
+  draft: import("@/types/tool").Bab1DraftV1;
+  foundation: import("@/types/tool").Bab1FoundationV1;
+  /** Arahan gaya bahasa dari mahasiswa (opsional). */
+  styleNote?: string;
+}
+
+/**
+ * Menyusun Prompt Tahap 4D (Addendum C): memoles bahasa draf 4C.
+ * Prompt ini HANYA mengubah bahasa. Isi, klaim, angka, dan sitasi tidak boleh berubah.
+ */
+export function assembleBedahPrompt4D(input: ResearchBedahInput4D): string {
+  const d = input.draft;
+  const f = input.foundation;
+  const prodi = (input.prodi || "").trim() || "Belum diketahui";
+  const area = (input.areaEksplorasi || "").trim() || "Belum diketahui";
+  const targetTotal = d.target_words_total || 1150;
+
+  const paragraf = (d.background || [])
+    .map((p) => {
+      const ids = (p.claim_ids || []).join(", ");
+      return [
+        `[Paragraf ${p.order}] ${p.function}`,
+        `  Jumlah kata saat ini: ${p.word_count || hitungKataPrompt(p.paragraph_text || "")}`,
+        `  claim_ids WAJIB dipertahankan persis: ${ids || "(kosong)"}`,
+        `  Teks draf 4C:`,
+        p.paragraph_text || "",
+      ].join("\n");
+    })
+    .join("\n\n");
+
+  const larangan = (f.prohibited_claims || []).map((c) => `- ${c}`).join("\n");
+
+  return `[PERAN]
+
+Kamu adalah editor bahasa akademik untuk skripsi S1. Kamu menerima DRAF LATAR BELAKANG BAB 1 hasil Tahap 4C SKRIFLOW yang tulisannya masih kaku dan terlalu berat. Tugasmu SATU: membuat bahasanya lebih mengalir dan wajar untuk mahasiswa S1.
+
+Kamu BUKAN penulis baru dan BUKAN peneliti. Kamu editor.
+
+[KONTEKS]
+
+- Program Studi: ${prodi}
+- Area Eksplorasi: ${area}
+- Status fondasi 4B: ${f.foundation_status}
+- Status draf 4C: ${d.draft_status}
+- Target total: 1000–1300 kata (target kerja ${targetTotal})
+${input.styleNote ? `- Arahan gaya bahasa: ${input.styleNote}\n` : "- Arahan gaya bahasa: bahasa Indonesia akademik yang wajar dan mengalir, tidak kaku, tidak berlebihan, mudah dibaca dosen maupun mahasiswa.\n"}
+[EMPAT LARANGAN KERAS]
+
+1. JANGAN menambah klaim, temuan, atau pernyataan faktual baru. Kalau tidak ada di draf 4C, jangan ditulis.
+2. JANGAN menambah angka, statistik, persentase, tahun, nama jurnal, DOI, atau sitasi baru. Sekali lagi: TIDAK ADA data baru.
+3. JANGAN menghapus klaim yang sudah ada di draf 4C. Kalau sebuah kalimat terasa janggal, perbaiki bahasanya, jangan buang isinya.
+4. JANGAN mengubah claim_ids, urutan paragraf, fungsi paragraf, atau jumlah paragraf.
+
+[BATAS GAYA]
+
+- Register tetap akademik, tapi wajar untuk mahasiswa S1. Bukan bahasa jurnal, bukan bahasa percakapan.
+- Pangkas kalimat yang berputar-putar. Satu paragraf satu gagasan pokok.
+- Hindari kata yang terdengar seperti mesin atau terlalu formal-bersayap: "oleh karena itu demikian", "pada hakikatnya", "dapat dikatakan bahwa", "sebagaimana telah diuraikan".
+- Hindari klise pembuka seperti "Pada era globalisasi saat ini".
+- Pertahankan istilah teknis yang memang harus ada (nama standar, nama lembaga, nama rasio).
+- Boleh memecah satu kalimat panjang menjadi dua, atau menggabung dua kalimat pendek. Boleh mengubah urutan kalimat dalam satu paragraf selama klaimnya tidak berubah.
+
+[ATURAN YANG TIDAK BERUBAH DARI 4C]
+
+1. Hubungan sebab-akibat hanya boleh bila klaimnya memang kausal. Kata "menyebabkan", "mengakibatkan", "berpengaruh signifikan terhadap" tetap dilarang kecuali untuk menyanggahnya.
+2. Frasa gap sintetis seperti "belum ada penelitian tentang..." atau "belum pernah diteliti di..." tetap dilarang.
+3. Klaim berstatus NEEDS_VERIFICATION tetap harus dibingkai hati-hati ("indikasi awal menunjukkan", "perlu penelusuran lanjutan"). Memperhalus bahasa TIDAK membuat klaim tidak aman menjadi aman.
+4. Paragraf keputusan mahasiswa (URGENCY_AND_DIRECTION) tetap tanpa sitasi.
+5. Jangan menambah sitasi dalam tanda kurung yang belum ada di draf 4C.
+
+[DRAF 4C YANG HARUS DIPOLES — ISINYA MENGIKAT]
+
+${paragraf}
+
+[KLAIM YANG TETAP DILARANG MUNCUL]
+
+${larangan || "- Tidak ada."}
+
+[FORMAT KELUARAN]
+
+Balas dengan SATU blok JSON di antara penanda berikut. Jangan tambahkan teks lain di luar penanda.
+
+=== BEGIN SKRIFLOW_BAB1_POLISH_V1 ===
+{
+  "schema_version": 1,
+  "polish_status": "POLISH_COMPLETE|POLISH_PARTIAL|POLISH_BLOCKED",
+  "draft_status_ref": "${d.draft_status}",
+  "foundation_status_ref": "${f.foundation_status}",
+  "word_count_total": 0,
+  "target_words_total": ${targetTotal},
+  "background": [
+    {
+      "order": 1,
+      "function": "SPECIFIC_CONTEXT",
+      "paragraph_text": "Prosa hasil perbaikan bahasa di sini.",
+      "claim_ids": ["CLM01"],
+      "researcher_decision_note": null,
+      "withheld_claims": []
+    }
+  ],
+  "language_changes": ["Paragraf 1: memecah kalimat panjang dan mengganti istilah kaku menjadi istilah yang lebih wajar"],
+  "preserved_claim_ids": ["CLM01"],
+  "removed_claims": [],
+  "prohibited_claims_respected": [],
+  "unresolved_notes": []
+}
+=== END SKRIFLOW_BAB1_POLISH_V1 ===
+
+Keterangan field:
+- "paragraph_text": prosa hasil perbaikan bahasa. Jumlah paragraf, urutan, fungsi, dan claim_ids WAJIB sama dengan draf 4C.
+- "language_changes": daftar perubahan bahasa yang kamu lakukan, per paragraf. Ini bukti bahwa kamu mengerjakan tugasnya.
+- "preserved_claim_ids": seluruh claim_id yang dipertahankan. Wajib sama dengan seluruh claim_id di draf 4C.
+- "removed_claims": klaim yang sengaja tidak ditulis, beserta alasannya. Kosongkan bila tidak ada.
+- "prohibited_claims_respected": klaim terlarang yang berhasil kamu hindari.
+- "unresolved_notes": keterbatasan yang harus disebut di bagian keterbatasan penelitian.
+
+[PEMBAHASAN SETELAH SELESAI]
+
+Setelah blok JSON, tulis bagian singkat berjudul "Catatan Penyuntingan" berisi:
+1. Total kata hasil perbaikan dan apakah sudah dalam 1000–1300.
+2. Ringkasan jenis perubahan bahasa yang dilakukan.
+3. Pernyataan eksplisit bahwa tidak ada klaim, angka, atau sitasi baru yang ditambahkan.
+4. Bila ada klaim yang sengaja tidak ditulis, sebutkan alasannya.
+`;
+}
+
+/** Hitung kata untuk pemakaian internal prompt 4D. */
+function hitungKataPrompt(teks: string): number {
+  return teks.split(/\s+/).filter(Boolean).length;
+}
+
+/**
+ * Menyusun Prompt Tahap 4C: mengubah Peta Narasi 4B menjadi draf prosa Bab 1.
+ * Prompt ini TIDAK menambah klaim baru; ia hanya menyusun ulang klaim yang
+ * sudah lolos Catatan Bukti 4B menjadi kalimat siap tempel.
+ */
+
+/**
+ * Peta `source_id` → label sitasi penulis-tahun, dibangun dari `paragraph_claims`.
+ *
+ * Data ini SUDAH ada di fondasi 4B (`sourceIds[i]` berpasangan dengan
+ * `sourceReferences[i]`), tetapi jalur 4C lama hanya membaca `source_ids` sehingga
+ * nama penulis hilang dan AI cuma bisa menulis ID sumber. Placeholder bertanda
+ * kurung siku (`[Judul ... tidak disediakan]`) DILEWATI — itu bukan nama penulis.
+ */
+export function bangunPetaSitasi(
+  foundation: { paragraph_claims?: import("@/types/tool").ParagraphClaim[] },
+  /** Register Tool 3 — sumber cadangan untuk sumber yang belum punya nama di fondasi. */
+  registerTool3?: { sourceId: string; authorsYear?: string }[]
+): Map<string, string> {
+  const peta = new Map<string, string>();
+  for (const pc of foundation.paragraph_claims || []) {
+    const ids = pc.sourceIds || [];
+    const refs = pc.sourceReferences || [];
+    ids.forEach((sid, i) => {
+      const authorsYear = (refs[i]?.authorsYear || "").trim();
+      if (!authorsYear || authorsYear.startsWith("[")) return;
+      const kunci = (sid || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+      if (kunci && !peta.has(kunci)) peta.set(kunci, authorsYear);
+    });
+  }
+  // Cadangan: register Tool 3 memuat penulis untuk semua sumber yang ditemukan,
+  // sedangkan fondasi 4B kadang hanya menyebut sebagian (sisanya tinggal ID mentah).
+  for (const s of registerTool3 || []) {
+    const kunci = (s.sourceId || "").replace(/[\[\]]/g, "").trim().toUpperCase();
+    const authorsYear = rapikanSitasi(s.authorsYear);
+    if (!kunci || !authorsYear) continue;
+    if (!peta.has(kunci)) peta.set(kunci, authorsYear);
+  }
+  return peta;
+}
+
+/**
+ * Seragamkan bentuk sitasi jadi "Nama, Tahun".
+ *
+ * Register Tool 3 menulis "Yue Chen & Kan Wang (2024)" sedangkan fondasi 4B menulis
+ * "Desy Nur Shafitri et al., 2024". Keduanya perlu jadi satu bentuk supaya tidak
+ * lahir kurung bersarang `((2024))` saat dibungkus di prompt.
+ */
+function rapikanSitasi(nilai?: string): string {
+  const t = (nilai || "").trim();
+  if (!t || t.startsWith("[")) return "";
+  const m = t.match(/^(.*?)[\s,]*\((\d{4}[a-z]?)\)\s*$/i);
+  if (m) return `${m[1].replace(/[,\s]+$/, "")}, ${m[2]}`;
+  return t;
+}
+
+/** Ubah daftar source_id jadi label sitasi bila namanya diketahui; sisanya tetap ID. */
+function labelSitasi(ids: string[], peta: Map<string, string>): string {
+  return ids
+    .map((id) => {
+      const nama = peta.get((id || "").replace(/[\[\]]/g, "").trim().toUpperCase());
+      return nama ? `(${nama})` : id;
+    })
+    .join("; ");
+}
+
+export function assembleBedahPrompt4C(input: ResearchBedahInput4C): string {
+  const f = input.foundation;
+  const prodi = (input.prodi || "").trim() || "Belum diketahui";
+  const area = (input.areaEksplorasi || "").trim() || "Belum diketahui";
+  const targetTotal = f.target_words_total || 1150;
+  const petaSitasi = bangunPetaSitasi(f, input.registerSumber);
+
+  const peta = (f.background_map || [])
+    .map((p) => {
+      const aman = (p.safe_claims || [])
+        .map((c) => `    * [${c.claim_type || "SAFE"}] ${c.claim_id}: ${c.statement}${c.source_ids?.length ? ` | Rujukan: ${labelSitasi(c.source_ids, petaSitasi)}` : ""}`)
+        .join("\n");
+      const larangan = (p.prohibited_claims || []).map((c) => `    * ${c}`).join("\n");
+      return [
+        `[Paragraf ${p.order}] ${p.function} — ${p.readiness}`,
+        `  Pesan utama: ${p.key_message}`,
+        `  Target panjang: ${p.target_word_range || "130–185"} kata`,
+        aman ? `  Klaim yang aman dipakai:\n${aman}` : "  Klaim yang aman dipakai: (belum ada)",
+        larangan ? `  DILARANG di paragraf ini:\n${larangan}` : "",
+        `  Transisi ke paragraf berikutnya: ${p.transition_to_next || "-"}`,
+        p.missing_information?.length ? `  Info yang belum ada: ${p.missing_information.join("; ")}` : "",
+      ]
+        .filter(Boolean)
+        .join("\n");
+    })
+    .join("\n\n");
+
+  const ledger = (f.evidence_ledger || [])
+    .map(
+      (e) =>
+        `- [${e.claim_id}] (${e.support_status || "READY_TO_DRAFT"}) ${e.claim}\n    Fungsi di Bab 1: ${e.bab1_function || "-"}\n    Batas pakai: ${e.usage_limit || "-"}\n    Sumber: ${labelSitasi(e.source_ids || (e.source_id ? [e.source_id] : []), petaSitasi) || "-"}`
+    )
+    .join("\n");
+
+  const larangan = (f.prohibited_claims || []).map((c) => `- ${c}`).join("\n");
+  const belumFinal = (f.unresolved_decisions || []).map((c) => `- ${c}`).join("\n") || "- Tidak ada.";
+  const ahli = (f.background_map || []).flatMap((p) => p.prohibited_claims || []).slice(0, 12).join("; ");
+  const pertanyaanDosen = (f.supervisor_questions || []).map((q, i) => `${i + 1}. ${q}`).join("\n") || "- Tidak ada.";
+  const kontribusi = f.provisional_contributions;
+
+  const perParagraf = (f.background_map || [])
+    .map((p) => `    { "order": ${p.order}, "function": "${p.function}", "target_range": "${p.target_word_range || "130–185"}" }`)
+    .join(",\n");
+
+  return `[PERAN]
+
+Kamu adalah partner akademik senior S1 yang membantu mahasiswa menyusun DRAF LATAR BELAKANG BAB 1 pada Tahap 4C SKRIFLOW.
+
+Tugasmu SATU: mengubah Peta Narasi Latar Belakang yang sudah disusun pada Tahap 4B menjadi prosa akademik siap tempel. Kamu BUKAN peneliti baru. Kamu TIDAK menambah temuan, TIDAK menambah sitasi baru, dan TIDAK menambah klaim yang belum ada di Catatan Bukti.
+
+Tiga larangan keras:
+1. Jangan menulis klaim apa pun yang tidak ada di Catatan Bukti (evidence_ledger).
+2. Jangan mengarang sitasi, DOI, nama jurnal, atau angka statistik. Kalau tidak ada di Catatan Bukti, jangan ditulis.
+3. Jangan mengubah arah, rumusan masalah, atau tujuan. Semuanya sudah dikunci di Tahap 4B.
+
+[KONTEKS]
+
+- Program Studi: ${prodi}
+- Area Eksplorasi: ${area}
+- Status Fondasi 4B: ${f.foundation_status}
+- Alasan Status: ${f.status_reason}
+- Target total latar belakang: 1000–1300 kata (target kerja: ${targetTotal} kata)
+${input.styleNote ? `- Catatan gaya bahasa: ${input.styleNote}\n` : ""}
+[RUMUSAN MASALAH DAN TUJUAN YANG SUDAH DIKUNCI]
+
+${(f.candidate_research_questions || []).map((q, i) => `RM${i + 1} [${q.id}]: ${q.question}${q.unresolved_terms?.length ? ` (Istilah belum tetap: ${q.unresolved_terms.join(", ")})` : ""}`).join("\n") || "- Belum ada"}
+
+${(f.candidate_objectives || []).map((o, i) => `T${i + 1} [${o.id}]: ${o.objective} (menjawab ${o.linked_question_id})`).join("\n") || "- Belum ada"}
+
+[PETA NARASI YANG WAJIB DIIKUTI — URUTAN, FUNGSI, DAN TARGET PANJANG TIDAK BOLEH DIUBAH]
+
+${peta}
+
+[CATATAN BUKTI — SATU-SATUNYA SUMBER KLAIM YANG BOLEH KAMU PAKAI]
+
+${ledger || "- Belum ada klaim."}
+
+[KLAIM YANG DILARANG MUNCUL DI SELURUH DRAF]
+
+${larangan || "- Tidak ada."}
+
+[KEPUTUSAN YANG BELUM FINAL — JANGAN DITULIS SEBAGAI KEPASTIAN]
+
+${belumFinal}
+
+[ATURAN MENULIS]
+
+1. Setiap kalimat yang menyatakan fakta, temuan, atau keadaan empiris WAJIB berasal dari satu atau lebih claim_id di Catatan Bukti. Catat claim_id-nya di field claim_ids.
+2. Klaim berstatus READY_TO_DRAFT boleh ditulis sebagai pernyataan langsung.
+3. Klaim berstatus NEEDS_VERIFICATION boleh disebut, tetapi harus dibingkai hati-hati (misalnya "indikasi awal menunjukkan", "perlu penelusuran lanjutan"). Jangan ditulis sebagai fakta mapan.
+4. Klaim berstatus DO_NOT_USE tidak boleh muncul sama sekali, dalam bentuk apa pun, termasuk parafrase.
+5. Kalau sebuah paragraf menandai BLOCKED, JANGAN tulis paragraf itu. Masukkan fungsinya ke skipped_sections.
+6. Hubungan sebab-akibat HANYA boleh ditulis kalau klaimnya memang bertipe kausal di Catatan Bukti. Desain penelitian ini dokumenter/deskriptif, jadi kata seperti "menyebabkan", "mengakibatkan", atau "berpengaruh signifikan terhadap" dilarang kecuali untuk menyanggahnya secara eksplisit.
+7. Jangan menulis frasa gap sintetis seperti "belum ada penelitian tentang..." atau "belum pernah diteliti di...". Itu klaim yang dilarang.
+8. Kutip sumber dengan gaya penulis-tahun dalam tanda kurung, memakai nama yang ADA di Catatan Bukti. Kalau nama penulis tidak tersedia, jangan mengarang — pakai ID sumbernya.
+8b. Nama penulis-tahun di Catatan Bukti sudah diverifikasi berasal dari paket bukti mahasiswa. SALIN APA ADANYA — jangan mengubah urutan nama, jangan menerjemahkan, jangan menambah gelar, dan jangan menyusun sendiri tahun terbitnya.
+9. Satu paragraf = satu fungsi. Jangan menggabung dua fungsi peta ke dalam satu paragraf.
+10. Paragraf terakhir (URGENCY_AND_DIRECTION) adalah keputusan mahasiswa. Tulis sebagai kalimat keputusan/arah, tanpa sitasi, dan jangan menyamar sebagai temuan jurnal.
+11. Bahasa Indonesia akademik yang mengalir dan hemat, bukan daftar poin. Hindari kalimat pembuka klise seperti "Pada era globalisasi saat ini".
+12. Kalau total kata belum mencapai 1000, kembangkan penjelasan pada paragraf yang klaimnya paling kuat. Jangan menambah klaim baru. Kalau melebihi 1300, padatkan kalimat, jangan buang paragraf.
+
+[PANJANG]
+
+Total draf WAJIB 1000–1300 kata (target kerja ${targetTotal}). Rincian per paragraf:
+
+${perParagraf}
+
+Hitung ulang jumlah kata sebelum menjawab, lalu isi word_count_total dengan angka hasil hitunganmu.
+
+[FORMAT KELUARAN]
+
+Balas dengan SATU blok JSON di antara penanda berikut. Jangan tambahkan teks lain di luar penanda.
+
+=== BEGIN SKRIFLOW_BAB1_DRAFT_V1 ===
+{
+  "schema_version": 1,
+  "draft_status": "DRAFT_COMPLETE|DRAFT_PARTIAL|DRAFT_BLOCKED",
+  "foundation_status_ref": "${f.foundation_status}",
+  "word_count_total": 0,
+  "target_words_total": ${targetTotal},
+  "background": [
+    {
+      "order": 1,
+      "function": "SPECIFIC_CONTEXT",
+      "paragraph_text": "Prosa paragraf jadi di sini.",
+      "claim_ids": ["CLM01"],
+      "researcher_decision_note": null,
+      "withheld_claims": []
+    }
+  ],
+  "skipped_sections": [],
+  "used_claim_ids": ["CLM01"],
+  "avoided_claims": [],
+  "consistency_notes": [],
+  "prohibited_claims_respected": [],
+  "unresolved_notes": []
+}
+=== END SKRIFLOW_BAB1_DRAFT_V1 ===
+
+Keterangan field:
+- "paragraph_text": prosa jadi, boleh beberapa kalimat, tanpa penomoran dan tanpa tanda kutip di awal/akhir.
+- "claim_ids": daftar claim_id yang dipakai di paragraf itu. Kosongkan HANYA untuk paragraf keputusan mahasiswa.
+- "researcher_decision_note": hanya untuk paragraf URGENCY_AND_DIRECTION — tulis satu kalimat penanda bahwa ini keputusan mahasiswa, bukan temuan.
+- "withheld_claims": klaim dari peta yang sengaja tidak ditulis di paragraf itu, beserta alasannya.
+- "avoided_claims": klaim berstatus DO_NOT_USE yang kamu hindari.
+- "prohibited_claims_respected": daftar klaim terlarang yang berhasil kamu hindari.
+- "consistency_notes": hal yang perlu dicek mahasiswa (misalnya angka atau istilah yang belum seragam).
+- "unresolved_notes": keterbatasan yang harus disebut di bagian keterbatasan penelitian.
+
+[PEMBAHASAN SETELAH SELESAI]
+
+Setelah blok JSON, tulis bagian singkat berjudul "Catatan Kepatuhan" berisi:
+1. Total kata draf dan apakah sudah dalam 1000–1300.
+2. Daftar claim_id yang dipakai, dan claim_id READY_TO_DRAFT yang belum terpakai beserta alasannya.
+3. Klaim terlarang yang hampir terpakai dan bagaimana kamu menghindarinya.
+4. Satu hal yang paling perlu dikonfirmasi ke dosen${pertanyaanDosen !== "- Tidak ada." ? ` (bahan yang sudah ada: ${pertanyaanDosen.replace(/\n/g, " | ")})` : ""}.
+
+[CATATAN KONTRIBUSI SEMENTARA — untuk memastikan draf tidak melampaui batas klaim]
+
+${kontribusi ? `- Kontribusi empiris: ${kontribusi.empirical || "-"}\n- Kontribusi praktis: ${kontribusi.practical || "-"}\n- Kontribusi akademik: ${kontribusi.academic || "-"}\n- Kontribusi metodologis: ${kontribusi.methodological || "-"}` : "- Belum ada."}${ahli ? `\n- Klaim yang wajib dihindari: ${ahli}` : ""}
+`;
+}
+
+/**
+ * Addendum D — Berkas Sumber NotebookLM.
+ *
+ * Pengukuran (data nyata, 7 paragraf): prompt 4C = 5.473 char dengan data penuh,
+ * dan INSTRUKSINYA SENDIRI saja sudah 4.883 char (PERAN 706 + ATURAN MENULIS 1.877
+ * + FORMAT KELUARAN 1.624 + PANJANG 190 + PEMBAHASAN 486). Artinya memindahkan
+ * hanya DATA ke source TIDAK cukup — instruksinya tetap melewati batas chat box
+ * NotebookLM (~3.900). Karena itu SELURUH prompt dikirim sebagai berkas sumber,
+ * dan chat box hanya menerima perintah pendek yang mengacu ke berkas itu.
+ */
+export function assembleBab1DraftSourceFile(input: ResearchBedahInput4C): string {
+  const prodi = (input.prodi || "").trim() || "Belum diketahui";
+  const jumlahParagraf = (input.foundation?.background_map || []).length;
+
+  return `# Berkas Sumber Skriflow — Tahap 4C: Menulis Draf Latar Belakang Bab 1
+
+Program Studi: ${prodi}
+Jumlah paragraf yang harus ditulis: ${jumlahParagraf}
+
+PENTING — cara membaca berkas ini:
+Berkas ini adalah ATURAN PENULISAN, bukan sumber penelitian dan bukan bahan bacaan.
+Sumber penelitian (artikel jurnal, data) adalah dokumen LAIN yang sudah ada di notebook ini.
+Pakai berkas ini sebagai aturan kerja saat menulis draf.
+
+==============================================================================
+ISI INSTRUKSI LENGKAP
+==============================================================================
+
+${assembleBedahPrompt4C(input)}
+`;
+}
+
+/** Perintah pendek untuk kolom chat NotebookLM — mengacu ke berkas sumber di atas. */
+export function assembleBab1DraftShortCommand(input: ResearchBedahInput4C): string {
+  const f = input.foundation;
+  const jumlahParagraf = (f?.background_map || []).length;
+  const target = f?.target_words_total || 1150;
+
+  return `Kerjakan Tahap 4C memakai BERKAS SUMBER berjudul "Berkas Sumber Skriflow — Tahap 4C" yang sudah kuunggah di notebook ini.
+
+Tulis DRAF LATAR BELAKANG BAB 1 dengan mengikuti SELURUH aturan di berkas sumber itu: peran, peta narasi, catatan bukti, klaim terlarang, dan format keluaran.
+
+Wajib dipatuhi:
+1. Setiap pernyataan faktual harus berasal dari claim_id di berkas sumber. Tulis claim_id paragraf itu.
+2. Paragraf terakhir adalah keputusan mahasiswa — tanpa sitasi, bukan temuan jurnal.
+3. Jangan menambah sitasi, DOI, angka, atau klaim baru di luar berkas sumber.
+4. Susun ${jumlahParagraf} paragraf, total 1000–1300 kata (target kerja ${target} kata). Jangan mengubah urutan, fungsi, atau target panjang paragraf.
+5. Balas HANYA satu blok JSON di antara penanda === BEGIN SKRIFLOW_BAB1_DRAFT_V1 === dan === END SKRIFLOW_BAB1_DRAFT_V1 ===, dengan struktur field persis seperti di berkas sumber.`;
+}
+
+/** Metrik perintah pendek 4C — dipakai panel anggaran karakter. */
+export function analyzeBab1DraftShortCommand(input: ResearchBedahInput4C) {
+  const perintah = assembleBab1DraftShortCommand(input);
+  const finalLength = countPromptCharacters(perintah);
+
+  return {
+    promptId: "bab1-draft-short-command-4c",
+    finalLength,
+    safeTarget: NOTEBOOKLM_LIMITS.safeTarget,
+    hardLimit: NOTEBOOKLM_LIMITS.hardLimit,
+    status: getPromptBudgetStatus(finalLength),
+  };
+}
+
+/** Metrik Prompt 4C untuk panel anggaran karakter. */
+export function analyzeBedahPrompt4C(input: ResearchBedahInput4C) {
+  const finalPrompt = assembleBedahPrompt4C(input);
+  const finalLength = countPromptCharacters(finalPrompt);
+
+  return {
+    promptId: "bedah-bab1-draft-4c",
     finalLength,
     safeTarget: BEDAH_LIMITS.safeTarget,
     hardLimit: BEDAH_LIMITS.hardLimit,

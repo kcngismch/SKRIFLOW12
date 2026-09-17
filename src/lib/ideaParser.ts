@@ -17,6 +17,21 @@ import {
   ConstraintFitAssessment,
 } from "@/types/tool";
 import { RESEARCH_FIELD_LIMITS } from "@/config/researchFieldLimits";
+import { filterNegatedCausal, CAUSAL_CLAIM_TERMS, hasAbsenceClaim } from "@/lib/academicGates";
+
+/**
+ * Pola penulisan judul/kesimpulan final (R-11).
+ *
+ * Tool 1 hanya boleh menghasilkan arah eksplorasi, bukan judul jadi atau
+ * kesimpulan. Frasa ini dulu lolos tanpa catatan.
+ */
+const FINAL_TITLE_PATTERNS: readonly RegExp[] = [
+  /\b(judul|title)\s*(final|akhir|skripsi|penelitian)?\s*[:=]/i,
+  /\bjudul\s+(yang\s+)?(di)?(rekomendasikan|disarankan|dipilih|final)\b/i,
+  /\bkesimpulan\s*(akhir|final|sementara)?\s*[:=]/i,
+  /\bkesimpulan\s+penelitian\s+ini\s+adalah\b/i,
+  /\b(abstrak|abstract)\s*[:=]/i,
+];
 
 export const IDEA_START_MARKER = "=== BEGIN SKRIFLOW_IDEA_V3 ===";
 export const IDEA_END_MARKER = "=== END SKRIFLOW_IDEA_V3 ===";
@@ -85,6 +100,16 @@ export const EXPERIMENT_PROCEDURE_PATTERNS: readonly RegExp[] = [
   /\b(lakukan|melakukan|jalankan|buat)\s+eksperimen\b/i,
   /\b(uji\s+coba\s+mandiri|eksperimen\s+baru)\b/i,
   /\blalu\s+(ukur|periksa|cek|lihat)\s+(akurasinya|jawabannya|responsnya|hasilnya)\b/i,
+  // Niat pengumpulan data primer (R-16). Versi lama hanya menangkap frasa
+  // eksplisit seperti "sebar kuesioner", sehingga "wawancara 100 responden"
+  // dan "ambil sampel" lolos.
+  /\b(lakukan|melakukan|mengadakan|adakan)\s+(survei|kuesioner|angket|wawancara|observasi|pengamatan)\b/i,
+  /\b(survei|kuesioner|angket|wawancara|observasi|pengamatan)\s+(kepada|terhadap|ke|pada)\s+\d+\b/i,
+  /\bwawancara\s+\d+\s+(responden|narasumber|subjek|orang|informan)\b/i,
+  /\b(sebarkan|menyebarkan|sebar|bagikan|membagikan)\s+(kuesioner|angket|survei|formulir)\b/i,
+  /\b(ambil|mengambil|kumpulkan|mengumpulkan)\s+(sampel|data\s+primer|data\s+lapangan)\b/i,
+  /\b(sampel|responden|partisipan)\s+sebanyak\s+\d+\b/i,
+  /\b(menyebar|mengirim)\s+(angket|kuesioner)\s+ke\s+\d+\b/i,
 ] as const;
 
 export const VALID_CONSTRAINT_FIT_STATUSES = [
@@ -324,19 +349,91 @@ export function parseIdeaTransfer(
   const startMatches = [...normalizedText.matchAll(startRegex)];
   const endMatches = [...normalizedText.matchAll(endRegex)];
 
-  // Check duplicate blocks
-  if (startMatches.length > 1 || endMatches.length > 1) {
+  // Duplicate / echo handling: respons AI sering ikut mengutip marker di teks
+  // instruksi (echo prompt), sehingga marker muncul >1 kali padahal blok asli
+  // cuma satu. Kumpulkan semua kandidat span START->END, urutkan dari yang
+  // terpendek, pilih span yang JSON-nya benar-benar blok V3 valid. Tolak HANYA
+  // jika ada lebih dari satu blok valid (ambigu).
+  const candidateSpans: {
+    startMatch: RegExpMatchArray;
+    endMatch: RegExpMatchArray;
+    text: string;
+  }[] = [];
+  for (const sm of startMatches) {
+    const sIdx = sm.index!;
+    for (const em of endMatches) {
+      const eIdx = em.index!;
+      if (eIdx <= sIdx + sm[0].length) continue;
+      const blockText = normalizedText
+        .substring(sIdx + sm[0].length, eIdx)
+        .replace(/^```(?:json)?\s*/i, "")
+        .replace(/\s*```$/, "")
+        .trim();
+      candidateSpans.push({ startMatch: sm, endMatch: em, text: blockText });
+    }
+  }
+  candidateSpans.sort((a, b) => a.text.length - b.text.length);
+
+  const validSpans = candidateSpans.filter((span) => {
+    if (countChars(span.text) > IDEA_TRANSFER_BLOCK_HARD_LIMIT) return false;
+    try {
+      const probe = JSON.parse(span.text) as Record<string, unknown>;
+      return (
+        !!probe &&
+        typeof probe === "object" &&
+        !Array.isArray(probe) &&
+        probe.schema_version === 3 &&
+        Array.isArray(probe.areas)
+      );
+    } catch {
+      return false;
+    }
+  });
+
+  if (validSpans.length > 1) {
     return {
       success: false,
       status: "HASIL_TIDAK_DIKENALI",
       error:
         "Terdeteksi lebih dari satu blok SKRIFLOW_IDEA_V3. Pastikan hanya menempel satu hasil lengkap.",
       errorDetails: [
-        `Ditemukan ${startMatches.length} marker pembuka dan ${endMatches.length} marker penutup dalam teks.`,
+        `Ditemukan ${validSpans.length} blok SKRIFLOW_IDEA_V3 yang valid dalam teks.`,
       ],
       warnings,
     };
   }
+
+  if (
+    validSpans.length === 0 &&
+    (startMatches.length > 1 || endMatches.length > 1)
+  ) {
+    return {
+      success: false,
+      status: "HASIL_TIDAK_DIKENALI",
+      error:
+        "Terdeteksi lebih dari satu blok SKRIFLOW_IDEA_V3, tetapi tidak ada yang lengkap dan valid. Tempel satu hasil lengkap saja (dari === BEGIN sampai === END).",
+      errorDetails: [
+        `Ditemukan ${startMatches.length} marker pembuka dan ${endMatches.length} marker penutup, tetapi tidak ada blok JSON V3 valid.`,
+      ],
+      warnings,
+    };
+  }
+
+  // Tepat satu blok valid + marker mentah >1 = kemungkinan echo instruksi;
+  // proses blok itu dengan catatan nonfatal.
+  if (
+    validSpans.length === 1 &&
+    (startMatches.length > 1 || endMatches.length > 1)
+  ) {
+    warnings.push(
+      "Terdeteksi teks tambahan di luar blok transfer (misal instruksi yang ikut tersalin). Blok SKRIFLOW_IDEA_V3 yang valid tetap diproses."
+    );
+  }
+
+  const chosenStart =
+    validSpans.length === 1 ? validSpans[0].startMatch : startMatches[0];
+  const chosenEnd =
+    validSpans.length === 1 ? validSpans[0].endMatch : endMatches[0];
 
   // Check start without end
   if (startMatches.length === 1 && endMatches.length === 0) {
@@ -407,8 +504,8 @@ export function parseIdeaTransfer(
     };
   }
 
-  const startMatch = startMatches[0];
-  const endMatch = endMatches[0];
+  const startMatch = chosenStart;
+  const endMatch = chosenEnd;
   const startIndex = startMatch.index!;
   const markerLength = startMatch[0].length;
   const endIndex = endMatch.index!;
@@ -843,6 +940,19 @@ export function parseIdeaTransfer(
     }
 
     // Check experiment procedure in phenomenonSearchBrief
+    if (FINAL_TITLE_PATTERNS.some((rx) => rx.test(phenomenonSearchBrief))) {
+      warnings.push(
+        `${areaId}: 'phenomenon_search_brief' memuat frasa judul/kesimpulan final. Tool ini hanya menghasilkan arah eksplorasi.`
+      );
+    }
+
+    const briefCausal = filterNegatedCausal(phenomenonSearchBrief, CAUSAL_CLAIM_TERMS);
+    if (briefCausal.length > 0) {
+      warnings.push(
+        `${areaId}: 'phenomenon_search_brief' memuat frasa sebab-akibat (${briefCausal.join(", ")}). Petunjuk ini sebaiknya memandu pemeriksaan kondisi teramati.`
+      );
+    }
+
     const briefExpMatch = EXPERIMENT_PROCEDURE_PATTERNS.some((p) => p.test(phenomenonSearchBrief));
     if (briefExpMatch) {
       errorDetails.push(
@@ -886,6 +996,27 @@ export function parseIdeaTransfer(
       if (searchExpMatch) {
         errorDetails.push(
           `HASIL BELUM AMAN — ${areaId} arah[${dIdx}]: 'search_question' memuat instruksi prosedur eksperimen/pembuatan data baru ('${searchQuestion}'). Arah fenomena tidak boleh meminta mahasiswa menghasilkan output AI, menjalankan prompt, membuat simulasi, melakukan scoring/coding, menyurvei responden, atau membandingkan data yang baru akan dibuat.`
+        );
+      }
+
+      // R-11: judul/kesimpulan final tidak boleh muncul di arah eksplorasi.
+      if (FINAL_TITLE_PATTERNS.some((rx) => rx.test(searchQuestion))) {
+        warnings.push(
+          `${areaId} arah[${dIdx}]: 'search_question' memuat frasa judul/kesimpulan final. Tool ini hanya menghasilkan arah eksplorasi, bukan judul atau simpulan jadi.`
+        );
+      }
+
+      // R-17: klaim kausal / klaim ketiadaan bukti tidak boleh hanya tertangkap
+      // saat kebetulan ada frasa literatur. Periksa tiap field teks bebas.
+      const causalHits = filterNegatedCausal(searchQuestion, CAUSAL_CLAIM_TERMS);
+      if (causalHits.length > 0) {
+        warnings.push(
+          `${areaId} arah[${dIdx}]: 'search_question' memuat frasa sebab-akibat (${causalHits.join(", ")}). Arah pencarian fenomena sebaiknya menanyakan kondisi teramati, bukan hubungan sebab-akibat.`
+        );
+      }
+      if (hasAbsenceClaim(searchQuestion)) {
+        warnings.push(
+          `${areaId} arah[${dIdx}]: 'search_question' menyatakan ketiadaan penelitian. Hasil pencarian tidak membuktikan penelitian tidak ada.`
         );
       }
 

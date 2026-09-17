@@ -28,7 +28,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   READY: {
     label: "Siap Digunakan",
     description: "Kondisi dan bukti sudah memenuhi syarat untuk dilanjutkan.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   CONDITIONAL: {
@@ -50,7 +50,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   STRONG: {
     label: "Dukungan Kuat",
     description: "Didukung oleh bukti atau sumber yang jelas dan terverifikasi.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   MEDIUM: {
@@ -70,7 +70,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   KUAT: {
     label: "Kuat",
     description: "Didukung oleh data empiris atau sumber akademik yang jelas.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   SEDANG: {
@@ -90,7 +90,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   SELARAS_SEMENTARA: {
     label: "Sementara Cocok dengan Kondisimu",
     description: "Sesuai dengan preferensi, akses data, dan batasan waktu yang kamu tentukan.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   PERLU_DIPERIKSA: {
@@ -109,12 +109,12 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   },
   SANGAT_DEKAT: {
     label: "Sangat Sesuai",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   DEKAT: {
     label: "Sesuai",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   CUKUP_DEKAT: {
@@ -124,12 +124,12 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   },
   RENDAH_SEMENTARA: {
     label: "Beban Relatif Ringan",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   RENDAH: {
     label: "Rendah",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   TINGGI: {
@@ -142,7 +142,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   SIAP_DIBAWA: {
     label: "Bisa Dilanjutkan",
     description: "Bukti empiris cukup jelas dan sumbernya dapat ditelusuri.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   JANGAN_DIGUNAKAN: {
@@ -159,7 +159,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   COHERENT_ENOUGH: {
     label: "Fenomena Terfokus",
     description: "Keluarga peristiwa dan ukuran respons sudah terdefinisi secara jelas.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   NEEDS_NARROWING: {
@@ -181,7 +181,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   VERIFIED: {
     label: "Identitas Terverifikasi",
     description: "Identitas naskah dan metadata resmi penerbit konsisten.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   INDICATED: {
@@ -208,7 +208,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   INTI_LANGSUNG: {
     label: "Sumber Inti Langsung",
     description: "Artikel empiris lengkap yang langsung menguji peristiwa dan respons yang sama.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   INTI_SEBAGIAN: {
@@ -240,7 +240,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   EMPIRICAL_FACT: {
     label: "Fakta dari Sumber",
     description: "Fakta langsung dari sumber literatur yang memiliki rujukan halaman/tabel terverifikasi.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   CROSS_SOURCE_SYNTHESIS: {
@@ -265,7 +265,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   READY_TO_DRAFT: {
     label: "Siap Tulis",
     description: "Klaim dan bukti sudah cukup kuat dan siap digunakan dalam penulisan Bab 1.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   DO_NOT_USE: {
@@ -279,7 +279,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   VERIFIED_REAL_WORLD: {
     label: "Fenomena Dunia Nyata Terverifikasi",
     description: "Fenomena didukung oleh bukti konkret dunia nyata dari Tool 2.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   LITERATURE_INDICATED: {
@@ -321,7 +321,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   CUKUP_UNTUK_ARAH: {
     label: "Cukup untuk Memilih Arah",
     description: "Paket bukti jurnal lengkap dan memadai untuk memilih serta membedah arah penelitian.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
 
@@ -329,7 +329,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   DIDUKUNG_DALAM_PAKET: {
     label: "Cukup Didukung oleh Sumber yang Tersedia",
     description: "Jurnal dalam paket bukti menunjukkan adanya celah atau perbedaan temuan yang nyata.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   TERDUKUNG_SEMENTARA: {
@@ -354,13 +354,13 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   CUKUP_DIDUKUNG: {
     label: "Cukup Didukung Sumber Tersedia",
     description: "Keterbatasan pengetahuan didukung beberapa sumber relevan dan dapat dibawa ke konsultasi dosen.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   UTAMA: {
     label: "Sumber Utama",
     description: "Artikel peer-reviewed full-text atau sumber primer/resmi yang dapat ditelusuri.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   PENDUKUNG: {
@@ -414,7 +414,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   LAYAK_DIPERIKSA: {
     label: "Layak Diperiksa Lebih Lanjut",
     description: "Arah ini memiliki landasan bukti yang masuk akal dan relevan untuk diteliti.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   RISIKO_TINGGI: {
@@ -434,7 +434,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   SUDAH_DIPASTIKAN: {
     label: "Sudah Dipastikan Tersedia",
     description: "Kamu sudah memastikan dapat mengakses atau memperoleh data ini.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   BELUM_DIPASTIKAN: {
@@ -459,14 +459,14 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   PUBLICLY_ACCESSIBLE_CONFIRMED: {
     label: "Data Publik Terkonfirmasi",
     description: "Data terbuka dan aksesibilitasnya sudah terverifikasi.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
 
   DATA_READY: {
     label: "Data Utama Sudah Dipastikan",
     description: "Seluruh kebutuhan data penting untuk arah ini siap diakses.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   DATA_CONDITIONAL: {
@@ -488,7 +488,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   BAB1_READY: {
     label: "Siap Dilanjutkan ke Bab 1",
     description: "Fondasi masalah, bukti fenomena, rujukan literatur, dan kesiapan data sudah terkalibrasi.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   BAB1_CONDITIONAL: {
@@ -509,7 +509,7 @@ export const STUDENT_STATUS_MAP: Record<string, StudentStatusInfo> = {
   // Comparability Ratings
   SEBANDING: {
     label: "Dapat Dibandingkan",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     iconType: "check",
   },
   SEBANDING_SEBAGIAN: {
@@ -532,7 +532,7 @@ export const DATA_ORIGIN_MAP: Record<string, { label: string; description: strin
   PUBLIC_SECONDARY: {
     label: "Data Publik yang Sudah Tersedia",
     description: "Laporan keuangan, data BPS, arsip regulasi, atau data publik yang tidak perlu kamu buat sendiri.",
-    badgeClass: "bg-[#2959FF]/15 border border-[#2959FF]/30 text-[#2959FF]",
+    badgeClass: "bg-[#6D5AE6]/15 border border-[#6D5AE6]/30 text-[#6D5AE6]",
   },
   RESEARCHER_GENERATED: {
     label: "Dibuat Sendiri Saat Penelitian",
@@ -547,7 +547,7 @@ export const DATA_ORIGIN_MAP: Record<string, { label: string; description: strin
   INSTITUTIONAL_METADATA: {
     label: "Dokumen & Regulasi Resmi",
     description: "Peraturan perundang-undangan, standar profesi, atau laporan audit dari lembaga resmi.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
   },
 };
 
@@ -555,7 +555,7 @@ export const DATA_ACCESS_STATUS_MAP: Record<string, { label: string; description
   INDICATED: {
     label: "Data Siap Diakses",
     description: "Sumber data terbuka dan bisa kamu peroleh langsung.",
-    badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+    badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
   },
   NEEDS_CHECKING: {
     label: "Perlu Cek Akses & Izin",
@@ -1190,7 +1190,7 @@ export function getSourceWeightInfo(weight: string | undefined | null): { label:
   if (weight === "UTAMA") {
     return {
       label: "Sumber Utama",
-      badgeClass: "bg-[#70E1B6]/15 border border-[#70E1B6]/30 text-[#70E1B6]",
+      badgeClass: "bg-[#FFB84D]/15 border border-[#FFB84D]/30 text-[#FFB84D]",
     };
   }
   if (weight === "PENDUKUNG") {

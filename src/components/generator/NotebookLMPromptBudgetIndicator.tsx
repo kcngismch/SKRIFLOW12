@@ -130,31 +130,31 @@ export const NotebookLMPromptBudgetIndicator: React.FC<NotebookLMPromptBudgetInd
 
           {/* Phenomenon Integrity Badge */}
           {resolvedPhenomenonLen > 0 && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#16213D] border border-[#273352] px-2.5 py-1 text-xs font-medium text-[#70E1B6]">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#221A42] border border-[#2E2748] px-2.5 py-1 text-xs font-medium text-[#FFB84D]">
               <span>Fenomena lengkap:</span>
-              <span className="font-bold text-[#FFF9EE]">{resolvedPhenomenonLen}/{maxPhenomenonLength}</span>
+              <span className="font-bold text-[#FBFAFF]">{resolvedPhenomenonLen}/{maxPhenomenonLength}</span>
             </span>
           )}
         </div>
 
         {/* Detailed Character Metrics Breakdown */}
         {resolvedStatic !== undefined && (
-          <div className="flex flex-wrap items-center gap-1 text-[11px] text-[#AAB4D0]">
-            <span>Template: <strong className="text-[#FFF9EE]">{resolvedStatic}</strong></span>
+          <div className="flex flex-wrap items-center gap-1 text-[12px] text-[#A79FC4]">
+            <span>Template: <strong className="text-[#FBFAFF]">{resolvedStatic}</strong></span>
             {resolvedEssential !== undefined && (
               <>
                 <span>•</span>
-                <span>Konteks inti: <strong className="text-[#FFF9EE]">{resolvedEssential}</strong></span>
+                <span>Konteks inti: <strong className="text-[#FBFAFF]">{resolvedEssential}</strong></span>
               </>
             )}
             {resolvedOptional !== undefined && resolvedOptional > 0 && (
               <>
                 <span>•</span>
-                <span>Konteks opsional: <strong className="text-[#FFF9EE]">{resolvedOptional}</strong></span>
+                <span>Konteks opsional: <strong className="text-[#FBFAFF]">{resolvedOptional}</strong></span>
               </>
             )}
             <span>•</span>
-            <span>Sisa: <strong className="text-[#70E1B6]">{resolvedRemaining}</strong></span>
+            <span>Sisa: <strong className="text-[#FFB84D]">{resolvedRemaining}</strong></span>
           </div>
         )}
       </div>

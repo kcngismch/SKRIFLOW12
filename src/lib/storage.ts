@@ -24,6 +24,11 @@ const PHENOMENON_APPLIED_HANDOFF_FP_KEY = "skriflow_phenomenon_applied_handoff_f
 const PHENOMENON_SELECTED_KEY = "skriflow_selected_phenomenon";
 const PHENOMENON_DRAFT_KEY = "skriflow_phenomenon_paste_draft";
 const SHARED_CONTEXT_KEY = "skriflow_shared_research_context";
+// Bahan yang ditempel mahasiswa sendiri. Dulu isinya hanya hidup di state
+// React, jadi tombol "Pakai bahan ini" di Bab 2 tampak bekerja padahal tidak
+// menyimpan apa pun.
+const BAB1_TEMPELAN_KEY = "skriflow_bab1_tempelan";
+const BAB2_TEMPELAN_KEY = "skriflow_bab2_tempelan";
 
 // In-memory fallback store for Node.js test environment or restricted localStorage
 const memoryStorage: Record<string, string> = {};
@@ -46,7 +51,11 @@ function setStorageItem(key: string, value: string): void {
       window.dispatchEvent(new Event("skriflow_storage_update"));
       return;
     } catch {
-      // Fallback to memoryStorage if localStorage throws quota error
+      // Penyimpanan penuh. Nilai tetap dipegang di memori supaya halaman yang
+      // sedang dibuka tidak kehilangan isian, TAPI mahasiswa wajib diberi tahu:
+      // perubahan ini tidak akan bertahan setelah refresh. Sebelumnya kegagalan
+      // ini senyap total — data hilang tanpa satu pun peringatan.
+      window.dispatchEvent(new Event("skriflow_storage_gagal"));
     }
   }
   memoryStorage[key] = value;
@@ -851,6 +860,19 @@ const BEDAH_RAW_TRANSFER_KEY = "skriflow_bedah_raw_transfer";
 const BEDAH_DIRECTION_V2_KEY = "skriflow_bedah_direction_v2";
 const BEDAH_FEASIBILITY_KEY = "skriflow_bedah_direction_feasibility";
 const BEDAH_FOUNDATION_V1_KEY = "skriflow_bedah_bab1_foundation_v1";
+const BEDAH_DRAFT_4C_RAW_KEY = "skriflow_bedah_4c_chat_output";
+const BEDAH_DRAFT_4C_KEY = "skriflow_bedah_bab1_draft_v1";
+const BEDAH_POLISH_4D_RAW_KEY = "skriflow_bedah_4d_chat_output";
+const BEDAH_POLISH_4D_KEY = "skriflow_bedah_bab1_polish_v1";
+// --- Tool 6 (Bangun Bab 2) — Addendum D v3.3.4 ---
+const BAB2_MAP_KEY = "skriflow_bab2_map_v1";
+const BAB2_FOUNDATION_RAW_KEY = "skriflow_bab2_6a_chat_output";
+const BAB2_FOUNDATION_KEY = "skriflow_bab2_foundation_v1";
+const BAB2_DRAFT_RAW_KEY = "skriflow_bab2_6b_chat_output";
+const BAB2_DRAFT_KEY = "skriflow_bab2_draft_v1";
+const BAB2_POLISH_RAW_KEY = "skriflow_bab2_6c_chat_output";
+const BAB2_POLISH_KEY = "skriflow_bab2_polish_v1";
+const BAB2_PENDEKATAN_KEY = "skriflow_bab2_pendekatan";
 const BEDAH_PACKAGE_V2_KEY = "skriflow_bedah_saved_package_v2";
 const BEDAH_SELECTED_DIRECTION_KEY = "skriflow_bedah_selected_direction_id";
 
@@ -1102,6 +1124,119 @@ export function clearBab1FoundationV1(): void {
   removeStorageItem(BEDAH_FOUNDATION_V1_KEY);
 }
 
+
+/**
+ * Saves pasted LLM output for Tool 4 Bedah (Tahap 4C).
+ */
+export function saveBedahOutput4C(output: string): void {
+  setStorageItem(BEDAH_DRAFT_4C_RAW_KEY, output);
+}
+
+/**
+ * Loads pasted LLM output for Tool 4 Bedah (Tahap 4C).
+ */
+export function loadBedahOutput4C(): string {
+  return getStorageItem(BEDAH_DRAFT_4C_RAW_KEY) || "";
+}
+
+/**
+ * Clears pasted LLM output for Tool 4 Bedah (Tahap 4C).
+ */
+export function clearBedahOutput4C(): void {
+  removeStorageItem(BEDAH_DRAFT_4C_RAW_KEY);
+}
+
+/**
+ * Saves parsed Bab1DraftV1 payload (Tahap 4C).
+ */
+export function saveBab1DraftV1(payload: import("@/types/tool").Bab1DraftV1): void {
+  try {
+    setStorageItem(BEDAH_DRAFT_4C_KEY, JSON.stringify(payload));
+  } catch {
+    // Gracefully handle storage quota
+  }
+}
+
+/**
+ * Loads parsed Bab1DraftV1 payload (Tahap 4C).
+ */
+export function loadBab1DraftV1(): import("@/types/tool").Bab1DraftV1 | null {
+  try {
+    const raw = getStorageItem(BEDAH_DRAFT_4C_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object" && parsed.schema_version === 1) {
+      return parsed as import("@/types/tool").Bab1DraftV1;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Clears parsed Bab1DraftV1 payload (Tahap 4C).
+ */
+export function clearBab1DraftV1(): void {
+  removeStorageItem(BEDAH_DRAFT_4C_KEY);
+}
+
+/**
+ * Saves pasted LLM output for Tahap 4D (poles bahasa).
+ */
+export function saveBedahOutput4D(output: string): void {
+  setStorageItem(BEDAH_POLISH_4D_RAW_KEY, output);
+}
+
+/**
+ * Loads pasted LLM output for Tahap 4D (poles bahasa).
+ */
+export function loadBedahOutput4D(): string {
+  return getStorageItem(BEDAH_POLISH_4D_RAW_KEY) || "";
+}
+
+/**
+ * Clears pasted LLM output for Tahap 4D (poles bahasa).
+ */
+export function clearBedahOutput4D(): void {
+  removeStorageItem(BEDAH_POLISH_4D_RAW_KEY);
+}
+
+/**
+ * Saves parsed Bab1PolishV1 payload (Tahap 4D).
+ */
+export function saveBab1PolishV1(payload: import("@/types/tool").Bab1PolishV1): void {
+  try {
+    setStorageItem(BEDAH_POLISH_4D_KEY, JSON.stringify(payload));
+  } catch {
+    // Gracefully handle storage quota
+  }
+}
+
+/**
+ * Loads parsed Bab1PolishV1 payload (Tahap 4D).
+ */
+export function loadBab1PolishV1(): import("@/types/tool").Bab1PolishV1 | null {
+  try {
+    const raw = getStorageItem(BEDAH_POLISH_4D_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object" && parsed.schema_version === 1) {
+      return parsed as import("@/types/tool").Bab1PolishV1;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Clears parsed Bab1PolishV1 payload (Tahap 4D).
+ */
+export function clearBab1PolishV1(): void {
+  removeStorageItem(BEDAH_POLISH_4D_KEY);
+}
+
 /**
  * Saves final SavedBab1FoundationPackage (Schema Version 2).
  */
@@ -1268,3 +1403,180 @@ export function getToolDataSnapshot(slug: string): string {
   }
 }
 
+// =========================================================================
+// TOOL 6 — BANGUN BAB 2 (Addendum D v3.3.4)
+// =========================================================================
+
+export function saveBab2Map(peta: import("@/types/bab2").Bab2MapV1): void {
+  try {
+    setStorageItem(BAB2_MAP_KEY, JSON.stringify(peta));
+  } catch {
+    // quota
+  }
+}
+
+export function loadBab2Map(): import("@/types/bab2").Bab2MapV1 | null {
+  try {
+    const raw = getStorageItem(BAB2_MAP_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" && parsed.schema_version === 1
+      ? (parsed as import("@/types/bab2").Bab2MapV1)
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+export function clearBab2Map(): void {
+  removeStorageItem(BAB2_MAP_KEY);
+}
+
+/** Pendekatan penelitian yang dipilih mahasiswa (Addendum D.8). */
+export function saveBab2Pendekatan(p: string): void {
+  setStorageItem(BAB2_PENDEKATAN_KEY, p);
+}
+
+export function loadBab2Pendekatan(): string {
+  return getStorageItem(BAB2_PENDEKATAN_KEY) || "";
+}
+
+export function clearBab2Pendekatan(): void {
+  removeStorageItem(BAB2_PENDEKATAN_KEY);
+}
+
+function simpanHasilGenerik<T>(key: string, payload: T): void {
+  try {
+    setStorageItem(key, JSON.stringify(payload));
+  } catch {
+    // quota
+  }
+}
+
+function muatHasilGenerik<T>(key: string): T | null {
+  try {
+    const raw = getStorageItem(key);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" && parsed.schema_version === 1 ? (parsed as T) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveBab2FoundationRaw(teks: string): void {
+  setStorageItem(BAB2_FOUNDATION_RAW_KEY, teks);
+}
+
+export function loadBab2FoundationRaw(): string {
+  return getStorageItem(BAB2_FOUNDATION_RAW_KEY) || "";
+}
+
+export function saveBab2Foundation(payload: import("@/types/bab2").Bab2FoundationV1): void {
+  simpanHasilGenerik(BAB2_FOUNDATION_KEY, payload);
+}
+
+export function loadBab2Foundation(): import("@/types/bab2").Bab2FoundationV1 | null {
+  return muatHasilGenerik<import("@/types/bab2").Bab2FoundationV1>(BAB2_FOUNDATION_KEY);
+}
+
+export function clearBab2Foundation(): void {
+  removeStorageItem(BAB2_FOUNDATION_KEY);
+  removeStorageItem(BAB2_FOUNDATION_RAW_KEY);
+}
+
+export function saveBab2DraftRaw(teks: string): void {
+  setStorageItem(BAB2_DRAFT_RAW_KEY, teks);
+}
+
+export function loadBab2DraftRaw(): string {
+  return getStorageItem(BAB2_DRAFT_RAW_KEY) || "";
+}
+
+export function saveBab2Draft(payload: import("@/types/bab2").Bab2DraftV1): void {
+  simpanHasilGenerik(BAB2_DRAFT_KEY, payload);
+}
+
+export function loadBab2Draft(): import("@/types/bab2").Bab2DraftV1 | null {
+  return muatHasilGenerik<import("@/types/bab2").Bab2DraftV1>(BAB2_DRAFT_KEY);
+}
+
+export function clearBab2Draft(): void {
+  removeStorageItem(BAB2_DRAFT_KEY);
+  removeStorageItem(BAB2_DRAFT_RAW_KEY);
+}
+
+export function saveBab2PolishRaw(teks: string): void {
+  setStorageItem(BAB2_POLISH_RAW_KEY, teks);
+}
+
+export function loadBab2PolishRaw(): string {
+  return getStorageItem(BAB2_POLISH_RAW_KEY) || "";
+}
+
+export function saveBab2Polish(payload: import("@/types/bab2").Bab2PolishV1): void {
+  simpanHasilGenerik(BAB2_POLISH_KEY, payload);
+}
+
+export function loadBab2Polish(): import("@/types/bab2").Bab2PolishV1 | null {
+  return muatHasilGenerik<import("@/types/bab2").Bab2PolishV1>(BAB2_POLISH_KEY);
+}
+
+export function clearBab2Polish(): void {
+  removeStorageItem(BAB2_POLISH_KEY);
+  removeStorageItem(BAB2_POLISH_RAW_KEY);
+}
+
+/**
+ * Bersihkan data Tool 2 yang berasal dari Tool 1.
+ *
+ * Dipakai saat mahasiswa menekan "Reset" di Tool 1: handoff-nya sudah dihapus, tetapi
+ * Tool 2 menyimpan salinannya sendiri (form, asal-usul field, draf tempel, fenomena
+ * terpilih, sidik jari handoff yang sudah diterapkan). Tanpa pembersihan ini, Tool 2
+ * masih menampilkan isi lama padahal Tool 1 sudah dikosongkan — persis keluhan yang
+ * harus disambung.
+ *
+ * Hasil kandidat/hasil pilihan TIDAK ikut dihapus di sini; itu tanggung jawab reset Tool 2.
+ */
+export function clearPhenomenonTurunan(): void {
+  // Kunci isian formulir Tool 2 (`skriflow_tool_cari-fenomena-awal`) juga harus ikut:
+  // kalau tidak, Tool 2 tetap menampilkan isi sesi lama padahal Tool 1 sudah dikosongkan.
+  removeStorageItem(`${STORAGE_PREFIX}cari-fenomena-awal`);
+  [PHENOMENON_FIELD_ORIGINS_KEY, PHENOMENON_APPLIED_HANDOFF_FP_KEY].forEach(removeStorageItem);
+}
+
+/** Bersihkan seluruh state Tool 6 (dipakai tombol reset). */
+/** Simpan bahan Bab 1 yang ditempel mahasiswa sendiri (draf/kerangka lama). */
+export function saveBab1Tempelan(teks: string): void {
+  setStorageItem(BAB1_TEMPELAN_KEY, teks);
+}
+export function loadBab1Tempelan(): string {
+  return getStorageItem(BAB1_TEMPELAN_KEY) || "";
+}
+export function clearBab1Tempelan(): void {
+  removeStorageItem(BAB1_TEMPELAN_KEY);
+}
+
+/** Simpan bahan Bab 2 yang ditempel mahasiswa sendiri. */
+export function saveBab2Tempelan(teks: string): void {
+  setStorageItem(BAB2_TEMPELAN_KEY, teks);
+}
+export function loadBab2Tempelan(): string {
+  return getStorageItem(BAB2_TEMPELAN_KEY) || "";
+}
+export function clearBab2Tempelan(): void {
+  removeStorageItem(BAB2_TEMPELAN_KEY);
+}
+
+export function clearSemuaBab2(): void {
+  [
+    BAB2_MAP_KEY,
+    BAB2_FOUNDATION_RAW_KEY,
+    BAB2_FOUNDATION_KEY,
+    BAB2_DRAFT_RAW_KEY,
+    BAB2_DRAFT_KEY,
+    BAB2_POLISH_RAW_KEY,
+    BAB2_POLISH_KEY,
+    BAB2_TEMPELAN_KEY,
+  ].forEach(removeStorageItem);
+}

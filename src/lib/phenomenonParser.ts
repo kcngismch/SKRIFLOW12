@@ -1,5 +1,6 @@
 import {
   PhenomenonTransferPayload,
+  SourceIdentityAuditStatus,
   RawPhenomenonCandidate,
   RawPhenomenonEvidence,
   SelectedPhenomenon,
@@ -12,6 +13,12 @@ import {
   auditSourceIndependence,
   calculateEffectivePhenomenonStatus,
   normalizeEventFamily,
+  auditEvidenceMetadata,
+  auditFreeTextContent,
+  auditSourceEntry,
+  auditSourceRegister,
+  RANK,
+  type ContentAuditFinding,
 } from "./academicGates";
 
 export const FENOMENA_START_MARKER = "=== BEGIN SKRIFLOW_FENOMENA_V1 ===";
@@ -77,6 +84,8 @@ export interface ParsePhenomenonResult {
     | "Format tidak valid";
   warnings: string[];
   urlCorrections?: UrlCorrectionDetail[];
+  /** Temuan audit konten (red line akademik) atas payload mentah dari AI. */
+  contentFindings?: ContentAuditFinding[];
 }
 
 /**
@@ -735,6 +744,8 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
   const validatedCandidates: RawPhenomenonCandidate[] = [];
   const urlCorrections: UrlCorrectionDetail[] = [];
 
+  const contentFindings: ContentAuditFinding[] = [];
+
   for (let i = 0; i < data.candidates.length; i++) {
     const cand = data.candidates[i];
     const candidateIdx = i + 1;
@@ -816,6 +827,16 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
 
     const validatedEvidence: RawPhenomenonEvidence[] = [];
     const seenUrls = new Set<string>();
+    const candidateFindings: ContentAuditFinding[] = [];
+
+    // R-13: klaim kausal dan klaim ketiadaan bukti tidak boleh lolos hanya
+    // karena aturan ini ditulis di prompt. Periksa teks bebas kandidat.
+    candidateFindings.push(
+      ...auditFreeTextContent(phenomenonSummary, `candidates.${id}.phenomenon_summary`),
+      ...auditFreeTextContent(String(candObj.observed_condition ?? ""), `candidates.${id}.observed_condition`),
+      ...auditFreeTextContent(String(candObj.relation_to_area ?? ""), `candidates.${id}.relation_to_area`),
+      ...auditFreeTextContent(String(candObj.what_is_not_proven ?? ""), `candidates.${id}.what_is_not_proven`)
+    );
 
     for (let j = 0; j < candObj.evidence.length; j++) {
       const ev = candObj.evidence[j];
@@ -937,6 +958,60 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
       }
     }
 
+    // R-12: identitas sumber diperiksa, bukan sekadar diterima. Sumber karangan
+    // (domain contoh, DOI pola palsu) ditandai agar tidak lolos di pangkal rantai.
+    const registerEntries: Parameters<typeof auditSourceRegister>[0] = [];
+
+    // Audit metadata tiap bukti: rating AI tidak dipercaya, dihitung ulang dari
+    // kelengkapan identitas sumber (F20/F21). Rating yang berlebihan diturunkan.
+    for (let j = 0; j < validatedEvidence.length; j++) {
+      const ev = validatedEvidence[j];
+
+      // R-07: status identitas sumber disertakan di output agar mahasiswa (dan
+      // dosen) bisa membedakan sumber yang bisa dilacak dari asumsi AI.
+      const idStatus: SourceIdentityAuditStatus =
+        ev.url && !/^(https?:\/\/)?(www\.)?(example\.(com|org|net)|localhost)/i.test(ev.url) && ev.source_title && !/^Sumber Data/i.test(ev.source_title)
+          ? "VERIFIED"
+          : ev.url || (/^Sumber Data/i.test(ev.source_title) ? false : ev.source_title)
+          ? "NEEDS_CHECK"
+          : "MISSING";
+      (ev as unknown as Record<string, unknown>).identity_status = idStatus;
+
+      const mAudit = auditEvidenceMetadata({
+        candidateId: id,
+        evidenceIndex: j + 1,
+        metadata: {
+          sourceTitle: ev.source_title,
+          publisherOrInstitution: ev.publisher_or_institution,
+          publicationDate: ev.publication_date,
+          referencePeriod: ev.reference_period,
+          url: ev.url,
+          evidenceLocation: ev.evidence_location,
+        },
+        declaredQuality: quality.metadata_quality,
+        declaredTraceability: quality.traceability,
+        sourceType: ev.source_type,
+      });
+      candidateFindings.push(...mAudit.findings);
+
+      const entry = {
+        sourceId: `${id}-EV${j + 1}`,
+        url: ev.url,
+        doi: "",
+        title: /^Sumber Data/i.test(ev.source_title) ? "" : ev.source_title,
+        declaredType: ev.source_type,
+      };
+      registerEntries.push(entry);
+      candidateFindings.push(...auditSourceEntry(entry));
+      // Rating dihitung dari bukti TERLEMAH, bukan dari klaim AI
+      if (RANK[mAudit.metadataQuality] < RANK[quality.metadata_quality]) {
+        quality.metadata_quality = mAudit.metadataQuality;
+      }
+      if (RANK[mAudit.traceability] < RANK[quality.traceability]) {
+        quality.traceability = mAudit.traceability;
+      }
+    }
+
     const keywordsId = Array.isArray(candObj.keywords_id) ? candObj.keywords_id.map((k) => String(k).trim()).filter(Boolean) : [];
     const keywordsEn = Array.isArray(candObj.keywords_en) ? candObj.keywords_en.map((k) => String(k).trim()).filter(Boolean) : [];
     const unresolvedItems = Array.isArray(candObj.unresolved_items) ? candObj.unresolved_items.map((u) => String(u).trim()).filter(Boolean) : [];
@@ -1035,6 +1110,17 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
       traceabilityIsNotStrong: isTraceabilityWeak,
     });
 
+    // R-13: klaim kausal di dalam butir bukti itu sendiri
+    for (let j = 0; j < validatedEvidence.length; j++) {
+      const ev = validatedEvidence[j];
+      candidateFindings.push(
+        ...auditFreeTextContent(ev.claim, `candidates.${id}.evidence[${j + 1}].claim`)
+      );
+    }
+
+    candidateFindings.push(...auditSourceRegister(registerEntries));
+    contentFindings.push(...candidateFindings);
+
     validatedCandidates.push({
       id,
       name,
@@ -1081,6 +1167,7 @@ export function parsePhenomenonTransfer(rawText: string): ParsePhenomenonResult 
     structuralStatus,
     warnings,
     urlCorrections: urlCorrections.length > 0 ? urlCorrections : undefined,
+    contentFindings: contentFindings.length > 0 ? contentFindings : undefined,
   };
 }
 

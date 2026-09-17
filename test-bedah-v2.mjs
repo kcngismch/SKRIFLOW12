@@ -734,6 +734,52 @@ test("Test H3: Backward compatibility allows older V2 without new fields to pars
   assert.ok(Array.isArray(res.dataV2.directions[0].claim_boundary.safe_to_say));
 });
 
+test("Test REG1: anchor_source_ids dikarang (tidak ada di Source Register) ditolak", () => {
+  const withRegister = {
+    ...sampleValidV2Json,
+    source_weights: [
+      { source_id: "S3", weight: "UTAMA" },
+      { source_id: "S6", weight: "PENDUKUNG" },
+    ],
+    directions: sampleValidV2Json.directions.map((d, i) => ({
+      ...d,
+      anchor_source_ids: i === 0 ? ["S3"] : ["S99"],
+    })),
+  };
+  const raw = `=== BEGIN SKRIFLOW_DIRECTION_V2 ===\n${JSON.stringify(withRegister, null, 2)}\n=== END SKRIFLOW_DIRECTION_V2 ===`;
+  const res = parseBedahTransfer(raw);
+  assert.strictEqual(res.success, false);
+  assert.ok(
+    res.errorDetails.some((d) => d.includes("S99") && d.includes("tidak ada di Source Register")),
+    `errorDetails harus menyebut S99 tidak ada di register, dapat: ${JSON.stringify(res.errorDetails)}`,
+  );
+});
+
+test("Test REG2: anchor_source_ids yang ada di Source Register tetap diterima (dan register bentuk [] / lowercase cocok)", () => {
+  const withRegister = {
+    ...sampleValidV2Json,
+    source_weights: [
+      { source_id: "[s3]", weight: "UTAMA" },
+      { source_id: "S6", weight: "PENDUKUNG" },
+    ],
+    directions: sampleValidV2Json.directions.map((d, i) => ({
+      ...d,
+      anchor_source_ids: i === 0 ? ["S3", "S6"] : ["s6"],
+    })),
+  };
+  const raw = `=== BEGIN SKRIFLOW_DIRECTION_V2 ===\n${JSON.stringify(withRegister, null, 2)}\n=== END SKRIFLOW_DIRECTION_V2 ===`;
+  const res = parseBedahTransfer(raw);
+  assert.strictEqual(res.success, true, `harus lolos, error: ${res.error}`);
+  assert.deepStrictEqual(res.dataV2.directions[0].anchor_source_ids, ["S3", "S6"]);
+});
+
+test("Test REG3: tanpa source_weights (payload lama) anchor_source_ids tidak divalidasi ke register", () => {
+  // sampleValidV2Json tidak punya source_weights; arahnya memakai ID yang tidak ada di register mana pun.
+  const raw = `=== BEGIN SKRIFLOW_DIRECTION_V2 ===\n${JSON.stringify(sampleValidV2Json, null, 2)}\n=== END SKRIFLOW_DIRECTION_V2 ===`;
+  const res = parseBedahTransfer(raw);
+  assert.strictEqual(res.success, true, `kompatibilitas ke belakang harus tetap jalan, error: ${res.error}`);
+});
+
 test("Test H4: Non-critical question marked TIDAK_TERSEDIA produces DATA_CONDITIONAL, not DATA_BLOCKED", () => {
   const questions = [
     { id: "Q01", question: "Data kritis lapkeu", critical: true, related_data_need: "Lapkeu" },

@@ -90,15 +90,15 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
       <div
         ref={modalRef}
         tabIndex={-1}
-        className="w-full max-w-lg rounded-xl border border-[#273352] bg-[#0E1528] shadow-2xl overflow-hidden focus:outline-none max-h-[90vh] flex flex-col"
+        className="w-full max-w-lg rounded-xl border border-[#2E2748] bg-[#0E1528] shadow-2xl overflow-hidden focus:outline-none max-h-[90vh] flex flex-col"
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#273352] p-5 pb-4 bg-[#11182D]">
+        <div className="flex items-center justify-between border-b border-[#2E2748] p-5 pb-4 bg-[#191430]">
           <div className="flex items-center gap-2.5">
-            <div className="rounded-lg bg-[#2959FF]/20 p-2 text-[#2959FF] border border-[#2959FF]/30">
+            <div className="rounded-lg bg-[#6D5AE6]/20 p-2 text-[#6D5AE6] border border-[#6D5AE6]/30">
               <RefreshCw className="h-4 w-4" aria-hidden="true" />
             </div>
-            <h3 id="rejection-modal-title" className="text-base font-bold text-[#FFF9EE]">
+            <h3 id="rejection-modal-title" className="text-base font-bold text-[#FBFAFF]">
               Apa yang belum cocok?
             </h3>
           </div>
@@ -106,7 +106,7 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
             type="button"
             onClick={handleClose}
             aria-label="Tutup dialog"
-            className="rounded-lg p-1.5 text-[#AAB4D0] hover:bg-[#16213D] hover:text-[#FFF9EE] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2959FF]"
+            className="rounded-lg p-1.5 text-[#A79FC4] hover:bg-[#221A42] hover:text-[#FBFAFF] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5AE6]"
           >
             <X className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -114,13 +114,13 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
 
         {/* Content Body */}
         <form onSubmit={handleSubmit} className="p-5 overflow-y-auto space-y-4 text-xs">
-          <p id="rejection-modal-desc" className="text-[#AAB4D0] leading-relaxed">
+          <p id="rejection-modal-desc" className="text-[#A79FC4] leading-relaxed">
             Pilih alasan yang paling sesuai. Jawabanmu akan digunakan untuk membuat alternatif area baru tanpa mengulang arah yang sama.
           </p>
 
           {/* Options Checklist */}
           <div className="space-y-2 pt-1">
-            <span className="font-semibold text-[#FFF9EE] block">Pilih satu atau beberapa alasan:</span>
+            <span className="font-semibold text-[#FBFAFF] block">Pilih satu atau beberapa alasan:</span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {REJECTION_OPTIONS.map((opt) => {
                 const checked = selectedReasons.includes(opt.id);
@@ -129,17 +129,17 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
                     key={opt.id}
                     className={`flex items-start gap-2.5 rounded-lg border p-2.5 cursor-pointer transition-colors ${
                       checked
-                        ? "border-[#2959FF] bg-[#16213D] text-[#FFF9EE]"
-                        : "border-[#273352] bg-[#080D1D] text-[#AAB4D0] hover:border-[#273352]/90 hover:text-[#FFF9EE]"
+                        ? "border-[#6D5AE6] bg-[#221A42] text-[#FBFAFF]"
+                        : "border-[#2E2748] bg-[#0C0A1A] text-[#A79FC4] hover:border-[#2E2748]/90 hover:text-[#FBFAFF]"
                     }`}
                   >
                     <input
                       type="checkbox"
                       checked={checked}
                       onChange={() => handleToggleReason(opt.id)}
-                      className="mt-0.5 h-3.5 w-3.5 rounded border-[#273352] bg-[#11182D] text-[#2959FF] focus:ring-[#2959FF] focus:ring-offset-0 accent-[#2959FF]"
+                      className="mt-0.5 h-3.5 w-3.5 rounded border-[#2E2748] bg-[#191430] text-[#6D5AE6] focus:ring-[#6D5AE6] focus:ring-offset-0 accent-[#6D5AE6]"
                     />
-                    <span className="text-[11px] leading-tight select-none">{opt.label}</span>
+                    <span className="text-[12px] leading-tight select-none">{opt.label}</span>
                   </label>
                 );
               })}
@@ -149,10 +149,10 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
           {/* Optional Additional Notes */}
           <div className="space-y-1.5 pt-2">
             <div className="flex items-center justify-between">
-              <label htmlFor="textarea-rejection-note" className="font-semibold text-[#FFF9EE]">
+              <label htmlFor="textarea-rejection-note" className="font-semibold text-[#FBFAFF]">
                 Catatan tambahan (opsional):
               </label>
-              <span className="text-[10px] text-[#AAB4D0]">{additionalNote.length}/500</span>
+              <span className="text-[11px] text-[#A79FC4]">{additionalNote.length}/500</span>
             </div>
             <textarea
               id="textarea-rejection-note"
@@ -161,23 +161,23 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
               placeholder="Contoh: Saya lebih tertarik pada kualitas informasi AI daripada perilaku investor."
               value={additionalNote}
               onChange={(e) => setAdditionalNote(e.target.value)}
-              className="w-full rounded-lg border border-[#273352] bg-[#080D1D] p-3 text-xs text-[#FFF9EE] placeholder-[#AAB4D0]/40 focus:border-[#2959FF] focus:outline-none focus:ring-1 focus:ring-[#2959FF] leading-relaxed"
+              className="w-full rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-3 text-xs text-[#FBFAFF] placeholder-[#A79FC4]/40 focus:border-[#6D5AE6] focus:outline-none focus:ring-1 focus:ring-[#6D5AE6] leading-relaxed"
             />
           </div>
 
           {!isFormValid && (
-            <div className="flex items-center gap-2 text-[11px] text-[#F5A623]">
+            <div className="flex items-center gap-2 text-[12px] text-[#FF9E5E]">
               <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
               <span>Pilih minimal satu alasan atau isi catatan tambahan untuk melanjutkan.</span>
             </div>
           )}
 
           {/* Footer Actions */}
-          <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#273352]">
+          <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#2E2748]">
             <button
               type="button"
               onClick={handleClose}
-              className="rounded-lg border border-[#273352] bg-[#11182D] px-4 py-2.5 text-xs font-semibold text-[#FFF9EE] hover:bg-[#16213D] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2959FF]"
+              className="rounded-lg border border-[#2E2748] bg-[#191430] px-4 py-2.5 text-xs font-semibold text-[#FBFAFF] hover:bg-[#221A42] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5AE6]"
             >
               Batal
             </button>
@@ -185,7 +185,7 @@ export const RejectionModal: React.FC<RejectionModalProps> = ({
               type="submit"
               id="btn-confirm-rejection-prompt"
               disabled={!isFormValid}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#2959FF] px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-[#2959FF]/20 hover:bg-[#1f48db] transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2959FF]"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#6D5AE6] px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-[#6D5AE6]/20 hover:bg-[#5A46D6] transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5AE6]"
             >
               <RefreshCw className="h-3.5 w-3.5" aria-hidden="true" />
               <span>Buat Prompt Alternatif Baru</span>

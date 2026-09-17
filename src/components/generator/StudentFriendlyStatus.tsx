@@ -40,7 +40,7 @@ export const StudentFriendlyStatus: React.FC<StudentFriendlyStatusProps> = ({
   };
 
   const sizeClasses = {
-    sm: "px-2 py-0.5 text-[10px]",
+    sm: "px-2 py-0.5 text-[11px]",
     md: "px-2.5 py-1 text-xs",
     lg: "px-3 py-1.5 text-sm",
   }[size];
@@ -59,7 +59,7 @@ export const StudentFriendlyStatus: React.FC<StudentFriendlyStatusProps> = ({
           <button
             type="button"
             onClick={() => setExpanded(!expanded)}
-            className="rounded p-0.5 text-[#AAB4D0] hover:text-[#FFF9EE] transition-colors focus-visible:ring-1 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+            className="rounded p-0.5 text-[#A79FC4] hover:text-[#FBFAFF] transition-colors focus-visible:ring-1 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
             aria-label={expanded ? "Sembunyikan penjelasan status" : "Lihat penjelasan status"}
           >
             {expanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
@@ -68,16 +68,16 @@ export const StudentFriendlyStatus: React.FC<StudentFriendlyStatusProps> = ({
       </div>
 
       {expanded && (info.description || showRawOnExpand) && (
-        <div className="rounded-lg border border-[#273352] bg-[#080D1D] p-2.5 text-xs text-[#AAB4D0] space-y-1 animate-in fade-in duration-150">
-          {info.description && <p className="text-[#FFF9EE] leading-relaxed">{info.description}</p>}
+        <div className="rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-2.5 text-xs text-[#A79FC4] space-y-1 animate-in fade-in duration-150">
+          {info.description && <p className="text-[#FBFAFF] leading-relaxed">{info.description}</p>}
           {info.recommendedAction && (
-            <p className="text-amber-300/90 text-[11px]">
+            <p className="text-amber-300/90 text-[12px]">
               <strong>Saran Dosen: </strong>
               {info.recommendedAction}
             </p>
           )}
           {showRawOnExpand && status && (
-            <p className="text-[10px] text-[#AAB4D0]/60 font-mono pt-1 border-t border-[#273352]/50">
+            <p className="text-[11px] text-[#A79FC4]/60 font-mono pt-1 border-t border-[#2E2748]/50">
               Internal Code: {status}
             </p>
           )}

@@ -1,0 +1,1014 @@
+=== BEGIN SKRIFLOW_BAB1_FOUNDATION_V1 ===
+{
+"schema_version": 1,
+"foundation_status": "BAB1_CONDITIONAL",
+"phenomenon_basis_status": "VERIFIED_REAL_WORLD",
+"status_reason": "Fenomena penggunaan forum ASEAN dan ASEAN-China oleh Filipina telah memiliki dasar empiris yang terverifikasi melalui sumber resmi 2022-2025. Namun, kesiapan data masih bersyarat karena belum dipastikan bahwa tersedia korpus pernyataan resmi Filipina yang cukup, berurutan, dan dapat dibandingkan sepanjang periode penelitian. Karena itu, fondasi ini layak digunakan sebagai rancangan sementara, tetapi belum dapat diperlakukan sebagai BAB1_READY.",
+"target_words_total": 1150,
+"blocking_items": [
+"Korpus pernyataan resmi Filipina dari forum ASEAN dan ASEAN-China sepanjang 2022-2025 belum dipastikan kelengkapan dan kesinambungannya.",
+"Locator halaman atau bagian dokumen yang presisi belum tersedia dalam paket sehingga verifikasi akhir terhadap setiap klaim literatur masih diperlukan.",
+"Batas antara pernyataan Filipina dan bahasa kolektif ASEAN sudah dinyatakan dapat dipisahkan, tetapi implementasi pemisahan tersebut tetap perlu diperiksa pada korpus aktual."
+],
+"selected_direction": {
+"id": "D01",
+"name": "Pemetaan pola diplomasi ASEAN Filipina",
+"student_selected": true,
+"selection_reason": "Arah ini dipilih mahasiswa karena paling langsung terhubung dengan fenomena yang telah dibuktikan, yaitu penggunaan berulang forum ASEAN dan ASEAN-China oleh Filipina untuk menyampaikan respons terhadap Laut China Selatan, sementara fokus analisis tetap berada pada perilaku satu negara ASEAN sesuai arahan dosen.",
+"direction_readiness": "LAYAK_DIPERIKSA",
+"data_readiness": "DATA_CONDITIONAL"
+},
+"problem_structure": {
+"empirical_phenomenon": "Pemerintah Filipina secara berulang menggunakan forum ASEAN dan ASEAN-China untuk menyampaikan respons terhadap dinamika Laut China Selatan, termasuk penyelesaian damai, UNCLOS, kerja sama maritim, dan kemajuan Code of Conduct.",
+"empirical_problem": "Filipina menghadapi kebutuhan untuk merespons dinamika Laut China Selatan melalui lingkungan regional yang bekerja dengan mekanisme dan kepentingan kolektif. Meskipun penggunaan forum ASEAN dan ASEAN-China berlanjut, bukti yang tersedia belum memetakan secara rinci apakah substansi respons Filipina menunjukkan kesinambungan, penekanan tema tertentu, atau perubahan dari satu forum ke forum berikutnya.",
+"knowledge_problem": "Literatur yang tersedia telah membahas kebijakan luar negeri Filipina, keterlibatan ASEAN, hukum UNCLOS, COC, diplomasi bilateral, dan dinamika maritim, tetapi paket ini belum menunjukkan pemetaan rinci mengenai bentuk dan perubahan substansi respons diplomatik Filipina melalui forum ASEAN dan ASEAN-China selama 2022-2025.",
+"candidate_gap_statement": "Sebagai kandidat gap, masih terdapat ruang untuk memetakan secara sistematis bentuk, tema, kesinambungan, dan kemungkinan perubahan substansi respons Filipina dalam penggunaan forum ASEAN dan ASEAN-China pada 2022-2025. Pernyataan ini merupakan kandidat gap dan belum diperlakukan sebagai fakta bahwa belum pernah ada penelitian serupa.",
+"gap_ids": [
+"G01"
+],
+"gap_strengths": [
+"DIDUKUNG_DALAM_PAKET"
+],
+"provisional_research_problem": "Bagaimana pola substansi respons diplomatik Filipina terhadap Laut China Selatan ditampilkan dan dipertahankan atau diubah melalui forum ASEAN dan ASEAN-China selama 2022-2025?"
+},
+"research_logic_chain": [
+{
+"order": 1,
+"stage": "CONTEXT",
+"statement": "Laut China Selatan tetap menjadi konteks penting bagi kebijakan luar negeri Filipina, sementara ASEAN dan mekanisme ASEAN-China menyediakan ruang diplomatik regional untuk membahas isu maritim, UNCLOS, dan COC.",
+"evidence_source_ids": [
+"S4",
+"S7",
+"S8",
+"S9",
+"S10"
+],
+"limitations": "Sumber literatur memberikan konteks normatif, kelembagaan, dan kebijakan, tetapi tidak semuanya secara langsung mengukur perilaku Filipina dalam forum ASEAN pada 2022-2025."
+},
+{
+"order": 2,
+"stage": "PHENOMENON",
+"statement": "Filipina menggunakan forum ASEAN-China pada 2022 dan kembali menggunakan forum tersebut pada 2023 untuk menyampaikan isu Laut China Selatan, termasuk COC, UNCLOS, dan kerja sama maritim; mekanisme ASEAN-China terkait DOC dan COC juga tetap berjalan pada 2024, sementara keterlibatan institusional Filipina berlanjut menuju Keketuaan ASEAN 2026.",
+"evidence_source_ids": [
+"Bukti 1",
+"Bukti 2",
+"Bukti 3",
+"Bukti 4"
+],
+"limitations": "Bukti tersebut menunjukkan keberulangan penggunaan mekanisme regional, tetapi belum dengan sendirinya membuktikan adanya pola substansi yang konsisten atau perubahan tertentu sepanjang seluruh periode."
+},
+{
+"order": 3,
+"stage": "EMPIRICAL_PROBLEM",
+"statement": "Keberlanjutan penggunaan forum belum menjelaskan secara rinci bagaimana substansi respons Filipina disampaikan, tema apa yang berulang, dan apakah terdapat perubahan penekanan antarkonteks forum selama 2022-2025.",
+"evidence_source_ids": [
+"Bukti 1",
+"Bukti 2",
+"Bukti 3",
+"S10"
+],
+"limitations": "Pernyataan tentang pola perubahan belum boleh dianggap sebagai temuan sebelum korpus dokumen dibandingkan secara sistematis."
+},
+{
+"order": 4,
+"stage": "PRIOR_KNOWLEDGE",
+"statement": "Literatur telah membahas respons ASEAN dan Filipina terhadap klaim teritorial China, orientasi kebijakan luar negeri Marcos Jr., diplomasi bilateral, dinamika maritim, hukum UNCLOS, serta kelembagaan COC.",
+"evidence_source_ids": [
+"S4",
+"S6",
+"S7",
+"S8",
+"S9",
+"S10"
+],
+"limitations": "Tidak semua sumber tersebut berfokus pada perilaku forum ASEAN Filipina 2022-2025 sehingga penggunaannya harus dibatasi sesuai fokus masing-masing."
+},
+{
+"order": 5,
+"stage": "KNOWLEDGE_LIMIT",
+"statement": "Paket literatur belum memperlihatkan pemetaan rinci mengenai kesinambungan dan kemungkinan perubahan substansi respons Filipina dari satu forum ASEAN atau ASEAN-China ke forum berikutnya pada 2022-2025.",
+"evidence_source_ids": [
+"S4",
+"S10",
+"Bukti 1",
+"Bukti 2",
+"Bukti 3"
+],
+"limitations": "Ini adalah keterbatasan pengetahuan yang dirumuskan dari cakupan paket bukti, bukan klaim bahwa penelitian serupa tidak pernah ada."
+},
+{
+"order": 6,
+"stage": "RESEARCH_DIRECTION",
+"statement": "Penelitian diarahkan untuk memetakan substansi respons diplomatik Filipina dalam forum ASEAN dan ASEAN-China, dengan perhatian pada tema, kesinambungan, serta perubahan yang dapat ditelusuri dari dokumen resmi.",
+"evidence_source_ids": [
+"Bukti 1",
+"Bukti 2",
+"S10"
+],
+"limitations": "Arah ini merupakan keputusan penelitian sementara mahasiswa dan tidak boleh diperlakukan sebagai temuan dari sumber."
+},
+{
+"order": 7,
+"stage": "RESEARCH_QUESTION",
+"statement": "Bagaimana pola substansi respons diplomatik Filipina terhadap Laut China Selatan ditampilkan dalam forum ASEAN dan ASEAN-China selama 2022-2025?",
+"evidence_source_ids": [],
+"limitations": "Rumusan pertanyaan merupakan keputusan penelitian sementara; cakupan final bergantung pada hasil verifikasi korpus dokumen."
+}
+],
+"candidate_research_questions": [
+{
+"id": "RQ01",
+"question": "Bagaimana pola substansi respons diplomatik Filipina terhadap Laut China Selatan ditampilkan dalam forum ASEAN dan ASEAN-China selama 2022-2025?",
+"linked_gap_ids": [
+"G01"
+],
+"linked_source_ids": [
+"Bukti 1",
+"Bukti 2",
+"Bukti 3",
+"S4",
+"S10"
+],
+"assumptions": [
+"Tersedia korpus pernyataan resmi Filipina yang cukup dan dapat dibandingkan.",
+"Dokumen memungkinkan pemisahan antara posisi Filipina dan bahasa kolektif ASEAN.",
+"Substansi respons dapat dianalisis melalui tema dan isi pernyataan tanpa mengklaim dampak terhadap kebijakan kolektif ASEAN."
+],
+"unresolved_terms": [
+"Definisi operasional pola substansi respons diplomatik.",
+"Kriteria untuk membedakan kesinambungan dan perubahan substansi.",
+"Batas forum ASEAN dan ASEAN-China yang akan dimasukkan."
+]
+},
+{
+"id": "RQ02",
+"question": "Bagaimana kesinambungan dan perubahan tema respons Filipina terhadap Laut China Selatan dapat ditelusuri melalui pernyataan dalam forum ASEAN dan ASEAN-China selama 2022-2025?",
+"linked_gap_ids": [
+"G01"
+],
+"linked_source_ids": [
+"Bukti 1",
+"Bukti 2",
+"Bukti 3",
+"S10"
+],
+"assumptions": [
+"Tersedia dokumen yang cukup untuk melakukan perbandingan temporal.",
+"Tema yang muncul dalam dokumen dapat dibedakan secara konsisten."
+],
+"unresolved_terms": [
+"Unit perbandingan antardokumen.",
+"Kriteria perubahan tema."
+]
+},
+{
+"id": "RQ03",
+"question": "Apa saja tema utama yang muncul secara berulang dalam respons diplomatik Filipina mengenai Laut China Selatan melalui forum ASEAN dan ASEAN-China pada 2022-2025?",
+"linked_gap_ids": [
+"G01"
+],
+"linked_source_ids": [
+"Bukti 1",
+"Bukti 2",
+"S10"
+],
+"assumptions": [
+"Korpus dokumen mencukupi untuk mengidentifikasi tema berulang.",
+"Kemunculan tema diperlakukan sebagai karakteristik substansi pernyataan, bukan ukuran keberhasilan diplomatik."
+],
+"unresolved_terms": [
+"Kriteria penentuan tema utama.",
+"Batas jumlah dan jenis forum yang dianalisis."
+]
+}
+],
+"candidate_objectives": [
+{
+"id": "OBJ01",
+"linked_question_id": "RQ01",
+"objective": "Menganalisis pola substansi respons diplomatik Filipina terhadap Laut China Selatan yang ditampilkan dalam forum ASEAN dan ASEAN-China selama 2022-2025."
+},
+{
+"id": "OBJ02",
+"linked_question_id": "RQ02",
+"objective": "Menganalisis kesinambungan dan perubahan tema respons Filipina terhadap Laut China Selatan melalui pernyataan dalam forum ASEAN dan ASEAN-China selama 2022-2025."
+},
+{
+"id": "OBJ03",
+"linked_question_id": "RQ03",
+"objective": "Mengidentifikasi dan memetakan tema utama yang muncul secara berulang dalam respons diplomatik Filipina mengenai Laut China Selatan melalui forum ASEAN dan ASEAN-China pada 2022-2025."
+}
+],
+"provisional_contributions": {
+"empirical": [
+"Menyediakan pemetaan empiris mengenai substansi respons diplomatik Filipina dalam forum ASEAN dan ASEAN-China selama periode penelitian.",
+"Menunjukkan bagian yang relatif berkelanjutan maupun berubah dalam tema respons Filipina berdasarkan dokumen yang dianalisis."
+],
+"practical": [
+"Memberikan gambaran yang lebih terstruktur mengenai cara Filipina menggunakan ruang diplomatik regional dalam menyampaikan respons terhadap Laut China Selatan.",
+"Dapat menjadi bahan pembanding untuk memahami pilihan diplomatik Filipina tanpa mengasumsikan bahwa forum regional merupakan satu-satunya jalur kebijakan."
+],
+"academic": [
+"Memperjelas posisi perilaku diplomatik Filipina dalam literatur mengenai ASEAN, Laut China Selatan, dan kebijakan luar negeri Filipina.",
+"Mengisi ruang analitis yang teridentifikasi dalam paket penelitian mengenai pemetaan substansi respons Filipina melalui forum ASEAN dan ASEAN-China."
+],
+"methodological": [
+"Menunjukkan kegunaan perbandingan dokumen resmi lintas waktu untuk menelusuri kesinambungan dan perubahan substansi diplomatik.",
+"Membedakan secara analitis pernyataan negara Filipina dari bahasa kolektif ASEAN."
+],
+"prohibited_contribution_claims": [
+"Membuktikan bahwa Filipina menentukan agenda ASEAN.",
+"Membuktikan bahwa seluruh anggota ASEAN mengikuti posisi Filipina.",
+"Membuktikan bahwa diplomasi Filipina menyebabkan percepatan penyelesaian COC.",
+"Menyatakan bahwa forum ASEAN merupakan jalur paling dominan dalam keseluruhan kebijakan Filipina terhadap Laut China Selatan.",
+"Menyatakan keberhasilan diplomatik hanya berdasarkan frekuensi forum, jumlah pernyataan, atau kemunculan istilah."
+]
+},
+"tentative_scope": {
+"unit_of_analysis": "Pernyataan atau intervensi resmi pemerintah Filipina dalam forum ASEAN dan ASEAN-China yang berkaitan dengan Laut China Selatan.",
+"object_or_population": "Presiden dan pemerintah Filipina sebagai aktor yang menyampaikan posisi resmi dalam forum yang menjadi cakupan penelitian.",
+"geography": "Forum ASEAN dan ASEAN-China dalam konteks regional Asia Tenggara.",
+"event_or_context": "Respons diplomatik Filipina terhadap dinamika Laut China Selatan, terutama penyelesaian damai, UNCLOS, kerja sama maritim, dan Code of Conduct.",
+"potential_period": "November 2022-Oktober 2025, dengan konteks institusional menuju Keketuaan ASEAN Filipina pada 2026 bila relevan sebagai kelanjutan, bukan sebagai periode utama analisis.",
+"potential_data_sources": [
+"Pernyataan resmi Presiden atau pemerintah Filipina.",
+"Dokumen resmi ASEAN dan ASEAN-China.",
+"Pemberitaan resmi atau media nasional sebagai triangulasi bila diperlukan."
+],
+"in_scope": [
+"Substansi respons diplomatik Filipina mengenai Laut China Selatan.",
+"Forum ASEAN dan ASEAN-China.",
+"Tema seperti penyelesaian damai, UNCLOS, kerja sama maritim, dan COC.",
+"Kesinambungan dan perubahan substansi antardokumen."
+],
+"out_of_scope": [
+"Penilaian keberhasilan Filipina dalam mengarahkan agenda ASEAN.",
+"Pengukuran pengaruh Filipina terhadap seluruh anggota ASEAN.",
+"Pembuktian hubungan sebab-akibat antara forum ASEAN dan penyelesaian COC.",
+"Keseluruhan hubungan bilateral Filipina-China di luar konteks yang muncul dalam forum regional.",
+"Keseluruhan kerja sama pertahanan atau eksternal Filipina kecuali diperlukan sebagai konteks pembatas."
+],
+"unresolved_items": [
+"Kelengkapan korpus pernyataan resmi 2022-2025.",
+"Daftar forum yang secara final akan dianalisis.",
+"Definisi dan indikator analitis untuk pola substansi, kesinambungan, dan perubahan.",
+"Apakah konteks 2026 akan digunakan hanya sebagai epilog kelembagaan atau dikeluarkan sepenuhnya dari analisis."
+]
+},
+"working_title_previews": [
+{
+"id": "T01",
+"title": "Pola Respons Diplomatik Filipina terhadap Laut China Selatan melalui Forum ASEAN dan ASEAN-China, 2022-2025",
+"label": "GAMBARAN_BUKAN_JUDUL_FINAL",
+"assumptions": [
+"Korpus forum ASEAN dan ASEAN-China tersedia secara memadai.",
+"Analisis berfokus pada substansi respons diplomatik."
+],
+"missing_decisions": [
+"Definisi pola yang digunakan.",
+"Daftar forum final.",
+"Pilihan metode analisis dokumen yang lebih spesifik."
+]
+},
+{
+"id": "T02",
+"title": "Kesinambungan dan Perubahan Respons Diplomatik Filipina dalam Forum ASEAN dan ASEAN-China terhadap Laut China Selatan, 2022-2025",
+"label": "GAMBARAN_BUKAN_JUDUL_FINAL",
+"assumptions": [
+"Dokumen lintas waktu cukup untuk membandingkan kesinambungan dan perubahan.",
+"Perubahan akan ditentukan dari substansi dokumen, bukan dari frekuensi forum."
+],
+"missing_decisions": [
+"Kriteria kesinambungan dan perubahan.",
+"Unit perbandingan dokumen.",
+"Cakupan forum ASEAN yang final."
+]
+},
+{
+"id": "T03",
+"title": "Pemetaan Substansi Diplomasi Filipina melalui Mekanisme ASEAN dan ASEAN-China dalam Merespons Laut China Selatan, 2022-2025",
+"label": "GAMBARAN_BUKAN_JUDUL_FINAL",
+"assumptions": [
+"Fokus penelitian tetap pada pemetaan, bukan evaluasi keberhasilan diplomatik.",
+"Dokumen resmi dapat membedakan posisi Filipina dari bahasa kolektif ASEAN."
+],
+"missing_decisions": [
+"Apakah istilah diplomasi atau respons diplomatik paling tepat digunakan.",
+"Batas mekanisme yang dimasukkan.",
+"Finalisasi korpus data."
+]
+}
+],
+"background_map": [
+{
+"order": 1,
+"function": "SPECIFIC_CONTEXT",
+"key_message": "Dinamika Laut China Selatan menjadi konteks yang dihadapi Filipina, sementara ASEAN dan ASEAN-China menyediakan ruang institusional untuk menyampaikan respons diplomatik mengenai isu maritim.",
+"safe_claims": [
+{
+"claim_id": "CLM01",
+"statement": "Literatur membahas keterlibatan Filipina dan ASEAN dalam merespons persoalan Laut China Selatan, termasuk dimensi klaim teritorial, hukum internasional, dan mekanisme regional.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"S4",
+"S7",
+"S8",
+"S9",
+"S10"
+],
+"decision_basis": null
+}
+],
+"prohibited_claims": [
+"Laut China Selatan merupakan satu-satunya prioritas kebijakan luar negeri Filipina.",
+"ASEAN telah menyelesaikan persoalan Laut China Selatan.",
+"Filipina selalu menggunakan ASEAN sebagai jalur utama."
+],
+"transition_to_next": "Konteks tersebut kemudian dipersempit pada perilaku Filipina dalam forum ASEAN dan ASEAN-China selama periode penelitian.",
+"missing_information": [
+"Korpus forum final."
+],
+"target_word_range": "130-170",
+"readiness": "READY"
+},
+{
+"order": 2,
+"function": "OBJECT_AND_SCOPE",
+"key_message": "Penelitian memusatkan perhatian pada Filipina sebagai satu negara ASEAN dan pada pernyataan resmi pemerintahnya dalam forum ASEAN dan ASEAN-China selama 2022-2025.",
+"safe_claims": [
+{
+"claim_id": "CLM02",
+"statement": "Bukti yang tersedia menunjukkan Filipina menggunakan forum ASEAN-China pada 2022 dan 2023 untuk menyampaikan isu yang berkaitan dengan Laut China Selatan.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 1",
+"Bukti 2"
+],
+"decision_basis": null
+}
+],
+"prohibited_claims": [
+"Seluruh kebijakan Filipina terhadap Laut China Selatan dicakup oleh forum ASEAN.",
+"Jalur bilateral dan eksternal tidak lagi digunakan Filipina."
+],
+"transition_to_next": "Pembatasan objek tersebut memungkinkan fenomena diamati melalui bukti konkret dari intervensi dan dokumen regional.",
+"missing_information": [
+"Daftar lengkap dokumen dan forum yang tersedia."
+],
+"target_word_range": "130-170",
+"readiness": "READY"
+},
+{
+"order": 3,
+"function": "EMPIRICAL_PHENOMENON",
+"key_message": "Penggunaan forum ASEAN-China oleh Filipina muncul secara berulang, dengan substansi yang mencakup COC, UNCLOS, penyelesaian damai, dan kerja sama maritim; mekanisme ASEAN-China juga berlanjut secara institusional.",
+"safe_claims": [
+{
+"claim_id": "CLM03",
+"statement": "Pada 2022, Presiden Filipina menggunakan 25th ASEAN-China Summit untuk menyampaikan dukungan terhadap penyelesaian awal COC di Laut China Selatan.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 1"
+],
+"decision_basis": null
+},
+{
+"claim_id": "CLM04",
+"statement": "Pada 2023, Presiden Filipina kembali menyampaikan isu kerja sama maritim, UNCLOS, dan Code of Conduct dalam forum ASEAN-China.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 2"
+],
+"decision_basis": null
+},
+{
+"claim_id": "CLM05",
+"statement": "Pada 2024, mekanisme ASEAN-China terkait DOC dan COC tetap berjalan.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 3"
+],
+"decision_basis": null
+},
+{
+"claim_id": "CLM06",
+"statement": "Pada 2025, Filipina menerima Keketuaan ASEAN untuk periode berikutnya, yang menunjukkan kelanjutan keterlibatan institusional Filipina dalam ASEAN.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 4"
+],
+"decision_basis": null
+}
+],
+"prohibited_claims": [
+"Penggunaan forum tersebut membuktikan Filipina berhasil memengaruhi ASEAN.",
+"Penggunaan forum menyebabkan COC lebih cepat selesai.",
+"Tema yang muncul pada 2022-2023 pasti tidak berubah hingga 2025."
+],
+"transition_to_next": "Keberulangan forum belum cukup untuk memahami pola diplomasi sehingga perlu dijelaskan persoalan empiris yang muncul dari keberulangan tersebut.",
+"missing_information": [
+"Pernyataan resmi Filipina 2024-2025 yang setara dengan bukti 2022-2023.",
+"Korpus lengkap untuk menguji kesinambungan atau perubahan substansi."
+],
+"target_word_range": "180-220",
+"readiness": "READY"
+},
+{
+"order": 4,
+"function": "WHY_IT_IS_A_PROBLEM",
+"key_message": "Masalah empiris terletak pada belum terpetakannya secara rinci bagaimana Filipina menggunakan forum tersebut dan apakah substansi responsnya relatif berkelanjutan atau berubah.",
+"safe_claims": [
+{
+"claim_id": "CLM07",
+"statement": "Bukti fenomena menunjukkan keberulangan penggunaan forum regional, tetapi bukti yang tersedia dalam paket belum menyediakan pemetaan sistematis mengenai kesinambungan dan perubahan substansi respons Filipina antardokumen.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"Bukti 1",
+"Bukti 2",
+"Bukti 3",
+"S10"
+],
+"decision_basis": null
+}
+],
+"prohibited_claims": [
+"Filipina gagal menggunakan ASEAN.",
+"ASEAN tidak efektif dalam menangani Laut China Selatan.",
+"Ketidakjelasan pola substansi membuktikan adanya kegagalan diplomatik."
+],
+"transition_to_next": "Persoalan tersebut perlu ditempatkan dalam penelitian terdahulu agar dapat dibedakan antara pengetahuan yang sudah tersedia dan ruang yang masih perlu ditelusuri.",
+"missing_information": [
+"Korpus primer yang memungkinkan pembandingan langsung antartahun."
+],
+"target_word_range": "160-200",
+"readiness": "READY"
+},
+{
+"order": 5,
+"function": "PRIOR_RESEARCH",
+"key_message": "Penelitian terdahulu telah membahas berbagai dimensi kebijakan Filipina dan ASEAN, tetapi fokus dan kontribusinya berbeda-beda.",
+"safe_claims": [
+{
+"claim_id": "CLM08",
+"statement": "S4 membahas respons ASEAN dan Filipina terhadap klaim teritorial China, arbitrase 2016, dan keketuaan Filipina di ASEAN, sedangkan S10 membahas reorientasi diplomasi maritim Marcos Jr., dinamika Second Thomas Shoal, dan posisi Filipina dalam forum ASEAN.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"S4",
+"S10"
+],
+"decision_basis": null
+},
+{
+"claim_id": "CLM09",
+"statement": "S6, S7, S8, dan S9 memberikan landasan mengenai kebijakan luar negeri Filipina, UNCLOS, Putusan PCA, serta konteks kelembagaan dan normatif COC dan ASEAN.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"S6",
+"S7",
+"S8",
+"S9"
+],
+"decision_basis": null
+}
+],
+"prohibited_claims": [
+"Belum pernah ada penelitian mengenai diplomasi Filipina melalui ASEAN.",
+"Semua penelitian terdahulu mengabaikan ASEAN.",
+"Sumber-sumber tersebut memiliki fokus dan ukuran analisis yang identik."
+],
+"transition_to_next": "Perbedaan fokus penelitian terdahulu membuka ruang untuk memeriksa secara lebih spesifik substansi respons Filipina dalam forum regional selama periode yang dipilih.",
+"missing_information": [
+"Locator persis untuk setiap sumber literatur.",
+"Pemeriksaan tambahan terhadap studi yang secara khusus memetakan pernyataan Filipina 2022-2025."
+],
+"target_word_range": "170-210",
+"readiness": "READY"
+},
+{
+"order": 6,
+"function": "KNOWLEDGE_LIMIT_OR_GAP",
+"key_message": "Kandidat gap terletak pada kebutuhan memetakan secara rinci bentuk, tema, kesinambungan, dan kemungkinan perubahan substansi respons Filipina melalui forum ASEAN dan ASEAN-China.",
+"safe_claims": [
+{
+"claim_id": "CLM10",
+"statement": "Jika dibandingkan dengan fokus S4 dan S10 serta bukti primer yang tersedia, paket penelitian belum memperlihatkan pemetaan rinci dan berurutan mengenai substansi respons Filipina dari satu forum ASEAN atau ASEAN-China ke forum berikutnya selama 2022-2025.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"S4",
+"S10",
+"Bukti 1",
+"Bukti 2",
+"Bukti 3"
+],
+"decision_basis": null
+}
+],
+"prohibited_claims": [
+"G01 merupakan gap final yang sudah terbukti secara menyeluruh.",
+"Tidak ada penelitian lain di luar paket yang membahas topik tersebut.",
+"Pemetaan yang dilakukan pasti menghasilkan novelty tertentu."
+],
+"transition_to_next": "Karena itu, penelitian diarahkan secara terbatas pada pemetaan dokumen, bukan evaluasi keberhasilan Filipina atau dampaknya terhadap ASEAN.",
+"missing_information": [
+"Verifikasi literatur tambahan di luar paket.",
+"Verifikasi korpus primer lengkap."
+],
+"target_word_range": "150-190",
+"readiness": "READY"
+},
+{
+"order": 7,
+"function": "URGENCY_AND_DIRECTION",
+"key_message": "Penelitian diarahkan untuk membaca pola substansi respons diplomatik Filipina secara hati-hati melalui dokumen resmi, dengan mempertahankan perbedaan antara perilaku Filipina dan hasil kolektif ASEAN.",
+"safe_claims": [
+{
+"claim_id": "CLM11",
+"statement": "Penelitian sementara diarahkan pada analisis dokumen kualitatif dan perbandingan dokumen untuk menelusuri tema, kesinambungan, dan perubahan substansi respons Filipina.",
+"claim_type": "RESEARCHER_DECISION",
+"source_ids": [],
+"decision_basis": "Arah ini dipilih karena sesuai dengan fokus mahasiswa pada pemetaan perilaku satu negara, paling langsung terhubung dengan fenomena yang telah diverifikasi, dan tidak memerlukan klaim mengenai keberhasilan atau pengaruh Filipina terhadap keputusan kolektif ASEAN."
+}
+],
+"prohibited_claims": [
+"Metode tersebut pasti membuktikan efektivitas diplomasi Filipina.",
+"Pola pernyataan Filipina secara otomatis merepresentasikan hasil kebijakan ASEAN.",
+"Keberlanjutan forum membuktikan keberhasilan diplomatik."
+],
+"transition_to_next": "Fondasi ini kemudian dapat diteruskan ke penyusunan Bab 1 setelah korpus data kritis dipastikan dan istilah pola substansi ditetapkan.",
+"missing_information": [
+"Korpus primer final.",
+"Kriteria analisis pola substansi."
+],
+"target_word_range": "130-170",
+"readiness": "READY"
+}
+],
+"evidence_ledger": [
+{
+"claim_id": "CLM01",
+"claim": "Literatur membahas keterlibatan Filipina dan ASEAN dalam merespons persoalan Laut China Selatan, termasuk dimensi klaim teritorial, hukum internasional, dan mekanisme regional.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"S4",
+"S7",
+"S8",
+"S9",
+"S10"
+],
+"source_weights": [
+{
+"source_id": "S4",
+"weight": "UTAMA"
+},
+{
+"source_id": "S7",
+"weight": "UTAMA"
+},
+{
+"source_id": "S8",
+"weight": "UTAMA"
+},
+{
+"source_id": "S9",
+"weight": "UTAMA"
+},
+{
+"source_id": "S10",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Bagian sumber yang membahas ASEAN, Filipina, Laut China Selatan, hukum internasional, dan kebijakan luar negeri sebagaimana diringkas dalam paket sumber.",
+"original_context": "Sumber-sumber memiliki fokus berbeda; S7 terutama relevan untuk UNCLOS dan PCA, S8 untuk COC, S9 untuk norma dan kelembagaan ASEAN, sedangkan S4 dan S10 lebih langsung pada Filipina dan ASEAN.",
+"bab1_function": "Latar belakang konteks",
+"usage_limit": "Tidak digunakan untuk menyatakan bahwa seluruh sumber secara khusus meneliti forum ASEAN Filipina 2022-2025.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": null
+},
+{
+"claim_id": "CLM02",
+"claim": "Filipina menggunakan forum ASEAN-China pada 2022 dan 2023 untuk menyampaikan isu yang berkaitan dengan Laut China Selatan.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 1",
+"Bukti 2"
+],
+"source_weights": [
+{
+"source_id": "Bukti 1",
+"weight": "UTAMA"
+},
+{
+"source_id": "Bukti 2",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Intervensi Presiden Filipina pada 25th ASEAN-China Summit pada 2022 dan intervensi pada forum ASEAN-China pada September 2023.",
+"original_context": "Bukti primer resmi menunjukkan pembahasan COC pada 2022 serta kerja sama maritim, UNCLOS, dan COC pada 2023.",
+"bab1_function": "Penetapan objek dan fenomena",
+"usage_limit": "Tidak digunakan untuk menyimpulkan keberhasilan atau pengaruh Filipina terhadap keputusan ASEAN-China.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": null
+},
+{
+"claim_id": "CLM03",
+"claim": "Pada 2022, Presiden Filipina menggunakan 25th ASEAN-China Summit untuk menyampaikan dukungan terhadap penyelesaian awal COC di Laut China Selatan.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 1"
+],
+"source_weights": [
+{
+"source_id": "Bukti 1",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Bagian berita mengenai intervensi Presiden Marcos pada 25th ASEAN-China Summit.",
+"original_context": "Intervensi Presiden Filipina mengenai dukungan terhadap penyelesaian awal Code of Conduct.",
+"bab1_function": "Bukti fenomena 2022",
+"usage_limit": "Hanya membuktikan isi intervensi dan penggunaan forum pada 2022.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": null
+},
+{
+"claim_id": "CLM04",
+"claim": "Pada 2023, Presiden Filipina kembali menyampaikan isu kerja sama maritim, UNCLOS, dan Code of Conduct dalam forum ASEAN-China.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 2"
+],
+"source_weights": [
+{
+"source_id": "Bukti 2",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Bagian intervensi Presiden Filipina mengenai maritime cooperation, UNCLOS, dan Code of Conduct in the South China Sea.",
+"original_context": "Intervensi Presiden Marcos pada forum ASEAN-China pada September 2023.",
+"bab1_function": "Bukti kesinambungan fenomena",
+"usage_limit": "Tidak digunakan untuk menyatakan bahwa substansi 2023 identik sepenuhnya dengan 2022.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": null
+},
+{
+"claim_id": "CLM05",
+"claim": "Pada 2024, mekanisme ASEAN-China terkait DOC dan COC tetap berjalan.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 3"
+],
+"source_weights": [
+{
+"source_id": "Bukti 3",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Bagian utama halaman mengenai 22nd ASEAN-China SOM-DOC.",
+"original_context": "Dokumen institusional ASEAN mengenai kelanjutan agenda DOC dan COC.",
+"bab1_function": "Konteks keberlanjutan mekanisme regional",
+"usage_limit": "Membuktikan keberlanjutan mekanisme ASEAN-China, bukan isi posisi Filipina secara spesifik.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": null
+},
+{
+"claim_id": "CLM06",
+"claim": "Pada 2025, Filipina menerima Keketuaan ASEAN untuk periode berikutnya, yang menunjukkan kelanjutan keterlibatan institusional Filipina dalam ASEAN.",
+"claim_type": "EMPIRICAL_FACT",
+"source_ids": [
+"Bukti 4"
+],
+"source_weights": [
+{
+"source_id": "Bukti 4",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Bagian utama mengenai handover ASEAN Chairmanship dari Malaysia kepada Filipina pada Oktober 2025.",
+"original_context": "Transisi Keketuaan ASEAN kepada Filipina dan kelanjutan peran institusionalnya.",
+"bab1_function": "Konteks penutup periode",
+"usage_limit": "Tidak digunakan sebagai bukti isi pernyataan Filipina tentang Laut China Selatan.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": null
+},
+{
+"claim_id": "CLM07",
+"claim": "Bukti fenomena menunjukkan keberulangan penggunaan forum regional, tetapi bukti yang tersedia dalam paket belum menyediakan pemetaan sistematis mengenai kesinambungan dan perubahan substansi respons Filipina antardokumen.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"Bukti 1",
+"Bukti 2",
+"Bukti 3",
+"S10"
+],
+"source_weights": [
+{
+"source_id": "Bukti 1",
+"weight": "UTAMA"
+},
+{
+"source_id": "Bukti 2",
+"weight": "UTAMA"
+},
+{
+"source_id": "Bukti 3",
+"weight": "UTAMA"
+},
+{
+"source_id": "S10",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Kombinasi bukti primer 2022-2024 dan pembahasan S10 mengenai kebijakan Marcos Jr. dan posisi Filipina dalam forum ASEAN.",
+"original_context": "Paket menunjukkan penggunaan forum dan pembahasan kebijakan, tetapi belum menyediakan korpus komparatif lengkap.",
+"bab1_function": "Perumusan masalah empiris",
+"usage_limit": "Harus diposisikan sebagai keterbatasan paket bukti, bukan sebagai bukti bahwa tidak ada penelitian lain.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": null
+},
+{
+"claim_id": "CLM08",
+"claim": "S4 membahas respons ASEAN dan Filipina terhadap klaim teritorial China, arbitrase 2016, dan keketuaan Filipina di ASEAN, sedangkan S10 membahas reorientasi diplomasi maritim Marcos Jr., dinamika Second Thomas Shoal, dan posisi Filipina dalam forum ASEAN.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"S4",
+"S10"
+],
+"source_weights": [
+{
+"source_id": "S4",
+"weight": "UTAMA"
+},
+{
+"source_id": "S10",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Bagian-bagian sumber yang diringkas dalam paket bukti literatur relevan.",
+"original_context": "S4 berfokus pada respons ASEAN dan Filipina; S10 pada reorientasi diplomasi maritim Marcos Jr. dan posisi dalam forum ASEAN.",
+"bab1_function": "Pemetaan penelitian terdahulu",
+"usage_limit": "Locator halaman spesifik belum tersedia dan harus diverifikasi sebelum sitasi final.",
+"support_status": "NEEDS_VERIFICATION",
+"decision_basis": null
+},
+{
+"claim_id": "CLM09",
+"claim": "S6, S7, S8, dan S9 memberikan landasan mengenai kebijakan luar negeri Filipina, UNCLOS, Putusan PCA, serta konteks kelembagaan dan normatif COC dan ASEAN.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"S6",
+"S7",
+"S8",
+"S9"
+],
+"source_weights": [
+{
+"source_id": "S6",
+"weight": "UTAMA"
+},
+{
+"source_id": "S7",
+"weight": "UTAMA"
+},
+{
+"source_id": "S8",
+"weight": "UTAMA"
+},
+{
+"source_id": "S9",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Deskripsi fungsi masing-masing sumber dalam klasifikasi bobot sumber.",
+"original_context": "S6 berfokus pada kebijakan luar negeri Filipina era Duterte; S7 pada UNCLOS dan PCA; S8 pada COC; S9 pada norma dan kelembagaan ASEAN.",
+"bab1_function": "Konteks penelitian terdahulu",
+"usage_limit": "Tidak digunakan sebagai bukti langsung bahwa sumber-sumber tersebut memetakan perilaku forum Filipina 2022-2025.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": null
+},
+{
+"claim_id": "CLM10",
+"claim": "Jika dibandingkan dengan fokus S4 dan S10 serta bukti primer yang tersedia, paket penelitian belum memperlihatkan pemetaan rinci dan berurutan mengenai substansi respons Filipina dari satu forum ASEAN atau ASEAN-China ke forum berikutnya selama 2022-2025.",
+"claim_type": "CROSS_SOURCE_SYNTHESIS",
+"source_ids": [
+"S4",
+"S10",
+"Bukti 1",
+"Bukti 2",
+"Bukti 3"
+],
+"source_weights": [
+{
+"source_id": "S4",
+"weight": "UTAMA"
+},
+{
+"source_id": "S10",
+"weight": "UTAMA"
+},
+{
+"source_id": "Bukti 1",
+"weight": "UTAMA"
+},
+{
+"source_id": "Bukti 2",
+"weight": "UTAMA"
+},
+{
+"source_id": "Bukti 3",
+"weight": "UTAMA"
+}
+],
+"evidence_location": "Perbandingan cakupan S4 dan S10 dengan bukti primer 2022-2024 yang tersedia dalam paket.",
+"original_context": "Paket menunjukkan pembahasan kebijakan dan bukti penggunaan forum, tetapi belum menyediakan pemetaan berurutan seluruh substansi pernyataan.",
+"bab1_function": "Kandidat knowledge gap",
+"usage_limit": "Harus ditulis sebagai kandidat gap; perlu pemeriksaan literatur tambahan sebelum dinyatakan sebagai gap penelitian final.",
+"support_status": "NEEDS_VERIFICATION",
+"decision_basis": null
+},
+{
+"claim_id": "CLM11",
+"claim": "Penelitian sementara diarahkan pada analisis dokumen kualitatif dan perbandingan dokumen untuk menelusuri tema, kesinambungan, dan perubahan substansi respons Filipina.",
+"claim_type": "RESEARCHER_DECISION",
+"source_ids": [],
+"source_weights": [],
+"evidence_location": "Keputusan penelitian mahasiswa dalam paket arah terpilih.",
+"original_context": "Desain yang dipertimbangkan adalah analisis dokumen kualitatif dan rekonstruksi pola diplomatik berbasis perbandingan dokumen.",
+"bab1_function": "Penutup latar belakang dan arah penelitian",
+"usage_limit": "Tidak boleh diberi sitasi jurnal seolah-olah merupakan temuan literatur.",
+"support_status": "READY_TO_DRAFT",
+"decision_basis": "Keputusan sementara dipilih karena sesuai dengan tujuan pemetaan perilaku satu negara dan sifat data berupa pernyataan serta dokumen resmi."
+}
+],
+"paragraph_claims": [
+{
+"function": "EMPIRICAL_PHENOMENON",
+"claimType": "EMPIRICAL_FACT",
+"proposedClaim": "Pada 2022, Presiden Filipina menggunakan 25th ASEAN-China Summit untuk menyampaikan dukungan terhadap penyelesaian awal COC di Laut China Selatan.",
+"sourceIds": [
+"Bukti 1"
+],
+"sourceReferences": [
+{
+"authorsYear": "Pemerintah Filipina, 2022",
+"title": "[Judul dokumen tidak disediakan dalam paket]",
+"doiOrUrl": "[URL tidak disediakan dalam paket]",
+"locator": "Bagian intervensi Presiden Marcos pada 25th ASEAN-China Summit"
+}
+],
+"sampleContext": "Intervensi Presiden Filipina pada forum ASEAN-China 2022.",
+"usageLimit": "Hanya membuktikan isi intervensi dan penggunaan forum pada 2022.",
+"readiness": "READY_TO_DRAFT"
+},
+{
+"function": "EMPIRICAL_PHENOMENON",
+"claimType": "EMPIRICAL_FACT",
+"proposedClaim": "Pada 2023, Presiden Filipina kembali membahas kerja sama maritim, UNCLOS, dan Code of Conduct dalam forum ASEAN-China.",
+"sourceIds": [
+"Bukti 2"
+],
+"sourceReferences": [
+{
+"authorsYear": "Pemerintah Filipina, 2023",
+"title": "[Judul dokumen tidak disediakan dalam paket]",
+"doiOrUrl": "[URL tidak disediakan dalam paket]",
+"locator": "Bagian intervensi mengenai maritime cooperation, UNCLOS, dan Code of Conduct in the South China Sea"
+}
+],
+"sampleContext": "Intervensi Presiden Filipina pada forum ASEAN-China September 2023.",
+"usageLimit": "Tidak digunakan untuk menyatakan identitas penuh substansi antara 2022 dan 2023.",
+"readiness": "READY_TO_DRAFT"
+},
+{
+"function": "PRIOR_RESEARCH",
+"claimType": "CROSS_SOURCE_SYNTHESIS",
+"proposedClaim": "Penelitian terdahulu telah membahas respons ASEAN dan Filipina serta reorientasi diplomasi maritim Marcos Jr., tetapi fokus keduanya tidak identik dengan pemetaan berurutan substansi pernyataan Filipina pada forum ASEAN dan ASEAN-China 2022-2025.",
+"sourceIds": [
+"S4",
+"S10"
+],
+"sourceReferences": [
+{
+"authorsYear": "Desy Nur Shafitri et al., 2024",
+"title": "[Judul artikel tidak disediakan secara lengkap dalam paket]",
+"doiOrUrl": "[URL/DOI tidak disediakan dalam paket]",
+"locator": "[Locator spesifik belum tersedia]"
+},
+{
+"authorsYear": "Péter Klemensits, 2025",
+"title": "[Judul artikel tidak disediakan secara lengkap dalam paket]",
+"doiOrUrl": "[URL/DOI tidak disediakan dalam paket]",
+"locator": "[Locator spesifik belum tersedia]"
+}
+],
+"sampleContext": "Literatur mengenai ASEAN, Filipina, kebijakan Marcos Jr., dan diplomasi maritim.",
+"usageLimit": "Perlu verifikasi full-text dan locator sebelum digunakan sebagai sitasi final.",
+"readiness": "NEEDS_VERIFICATION"
+},
+{
+"function": "KNOWLEDGE_LIMIT_OR_GAP",
+"claimType": "CROSS_SOURCE_SYNTHESIS",
+"proposedClaim": "Paket penelitian belum memperlihatkan pemetaan rinci dan berurutan mengenai kesinambungan atau perubahan substansi respons Filipina melalui forum ASEAN dan ASEAN-China selama 2022-2025.",
+"sourceIds": [
+"S4",
+"S10",
+"Bukti 1",
+"Bukti 2",
+"Bukti 3"
+],
+"sourceReferences": [
+{
+"authorsYear": "Desy Nur Shafitri et al., 2024",
+"title": "[Judul artikel tidak disediakan secara lengkap dalam paket]",
+"doiOrUrl": "[URL/DOI tidak disediakan dalam paket]",
+"locator": "[Locator spesifik belum tersedia]"
+},
+{
+"authorsYear": "Péter Klemensits, 2025",
+"title": "[Judul artikel tidak disediakan secara lengkap dalam paket]",
+"doiOrUrl": "[URL/DOI tidak disediakan dalam paket]",
+"locator": "[Locator spesifik belum tersedia]"
+}
+],
+"sampleContext": "Perbandingan cakupan literatur dengan bukti primer yang tersedia.",
+"usageLimit": "Merupakan kandidat gap, bukan klaim final mengenai novelty atau ketiadaan penelitian.",
+"readiness": "NEEDS_VERIFICATION"
+},
+{
+"function": "URGENCY_AND_DIRECTION",
+"claimType": "RESEARCHER_DECISION",
+"proposedClaim": "Penelitian diarahkan untuk memetakan pola substansi respons diplomatik Filipina melalui forum ASEAN dan ASEAN-China selama 2022-2025.",
+"sourceIds": [],
+"sourceReferences": [],
+"sampleContext": "Keputusan arah penelitian mahasiswa.",
+"usageLimit": "Tidak diberi sitasi sebagai temuan literatur.",
+"readiness": "READY_TO_DRAFT"
+}
+],
+"academic_audit": {
+"directCoreSourceCount": 2,
+"partialCoreSourceCount": 0,
+"independentAuthorTeamCount": 2,
+"metadataConflictCount": 0,
+"exactLocatorCount": 0,
+"phenomenonCoherence": "COHERENT_ENOUGH",
+"status": "ENOUGH_FOR_GAP_ANALYSIS",
+"blockers": [
+"Korpus pernyataan resmi Filipina 2022-2025 belum dipastikan lengkap dan berurutan.",
+"Locator presisi untuk sumber literatur belum tersedia dalam paket.",
+"Kandidat gap masih perlu pemeriksaan literatur tambahan agar tidak berubah menjadi klaim ketiadaan penelitian."
+]
+},
+"feasibility_summary": {
+"confirmed_data": [
+"Bukti primer 2022 mengenai intervensi Filipina dalam 25th ASEAN-China Summit.",
+"Bukti primer 2023 mengenai kerja sama maritim, UNCLOS, dan COC dalam forum ASEAN-China.",
+"Bukti institusional ASEAN mengenai keberlanjutan mekanisme ASEAN-China terkait DOC dan COC pada 2024.",
+"Bukti institusional mengenai transisi Keketuaan ASEAN kepada Filipina pada 2025.",
+"Kemungkinan memisahkan posisi Filipina dari bahasa kolektif ASEAN telah dinyatakan terkonfirmasi."
+],
+"unconfirmed_data": [
+"Kelengkapan korpus pernyataan resmi Filipina dari 2022 sampai 2025.",
+"Ketersediaan dokumen yang cukup untuk setiap tahap waktu dan forum.",
+"Kriteria final untuk menentukan pola, kesinambungan, dan perubahan substansi."
+],
+"unavailable_data": [
+"Locator halaman atau bagian presisi untuk sumber literatur S4 dan S10.",
+"Metadata bibliografis lengkap dan DOI/URL untuk seluruh sumber dalam paket."
+],
+"implications": [
+"Fondasi dapat digunakan untuk merancang Bab 1 tetapi belum boleh dinyatakan siap final.",
+"Jika korpus primer ternyata terlalu tipis, periode atau cakupan forum perlu dipersempit tanpa mengubah arah penelitian secara otomatis.",
+"Analisis harus membedakan keberulangan penggunaan forum dari keberhasilan diplomatik."
+]
+},
+"supervisor_questions": [
+"Apakah fokus penelitian sebaiknya dibatasi pada forum ASEAN-China tertentu yang memiliki pernyataan resmi Filipina paling lengkap, atau tetap mencakup seluruh forum ASEAN dan ASEAN-China yang relevan selama 2022-2025?",
+"Apakah istilah pola diplomasi dalam penelitian cukup diarahkan pada kesinambungan dan perubahan substansi pernyataan, tanpa menilai efektivitas atau pengaruh Filipina terhadap keputusan kolektif ASEAN?",
+"Apakah konteks Keketuaan ASEAN Filipina 2026 perlu dimasukkan sebagai kelanjutan institusional dalam Bab 1, atau periode analisis sebaiknya ditutup sepenuhnya pada Oktober 2025?"
+],
+"unresolved_decisions": [
+"Finalisasi RQ yang paling sesuai antara pemetaan pola umum, kesinambungan-perubahan, atau pemetaan tema.",
+"Definisi analitis mengenai pola substansi respons diplomatik.",
+"Daftar forum ASEAN dan ASEAN-China yang menjadi korpus final.",
+"Kriteria pemilihan dokumen dan batas periode yang diterapkan secara konsisten.",
+"Keputusan mengenai posisi konteks Keketuaan ASEAN 2026."
+],
+"prohibited_claims": [
+"Filipina menentukan agenda ASEAN.",
+"ASEAN mengikuti posisi Filipina.",
+"Filipina berhasil memengaruhi seluruh anggota ASEAN.",
+"Penggunaan forum ASEAN menyebabkan percepatan penyelesaian COC.",
+"Forum ASEAN merupakan satu-satunya atau jalur paling dominan kebijakan Filipina terhadap Laut China Selatan.",
+"Belum pernah ada penelitian mengenai respons Filipina melalui ASEAN.",
+"Posisi Filipina selalu identik dengan posisi kolektif ASEAN.",
+"Frekuensi forum, jumlah pernyataan, atau kemunculan istilah otomatis merupakan ukuran keberhasilan diplomatik."
+],
+"recovery_actions": [
+"Inventarisasi seluruh pernyataan resmi Presiden dan pemerintah Filipina dalam forum ASEAN dan ASEAN-China dari November 2022 sampai Oktober 2025.",
+"Pisahkan dokumen yang memuat pernyataan Filipina dari dokumen yang hanya merepresentasikan bahasa kolektif ASEAN.",
+"Buat tabel korpus dengan tanggal, forum, aktor Filipina, isu Laut China Selatan, tema substansi, dan locator dokumen.",
+"Verifikasi full-text S4 dan S10 serta sumber literatur utama lain untuk memperoleh locator presisi sebelum penulisan sitasi final.",
+"Lakukan pemeriksaan literatur tambahan sebelum mengubah G01 dari kandidat gap menjadi gap penelitian final.",
+"Jika korpus tidak mencukupi, persempit forum atau periode berdasarkan ketersediaan data tanpa mengubah arah utama D01 secara otomatis."
+]
+}
+=== END SKRIFLOW_BAB1_FOUNDATION_V1 ===

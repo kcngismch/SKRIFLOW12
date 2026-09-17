@@ -11,8 +11,6 @@ import {
   Layers,
   CheckSquare,
   FileCheck2,
-  ChevronDown,
-  ChevronUp,
   X,
 } from "lucide-react";
 import {
@@ -49,9 +47,6 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"promptA" | "promptB">("promptA");
-  const [showTechnicalPromptA, setShowTechnicalPromptA] = useState(false);
-  const [showTechnicalPromptB, setShowTechnicalPromptB] = useState(false);
-  const [showSingleTechnicalPrompt, setShowSingleTechnicalPrompt] = useState(false);
   const [fallbackModal, setFallbackModal] = useState<{
     isOpen: boolean;
     url: string;
@@ -154,22 +149,22 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
   const singleWordCount = prompt ? prompt.trim().split(/\s+/).filter(Boolean).length : 0;
 
   return (
-    <div className="relative flex h-full flex-col justify-between rounded-xl border border-[#273352] bg-[#11182D] p-5 sm:p-6">
+    <div className="relative flex h-full flex-col justify-between rounded-xl border border-[#2E2748] bg-[#191430] p-5 sm:p-6">
       {/* Floating Toast Notification */}
       {toastMessage && (
         <div
           role="status"
           aria-live="polite"
-          className="absolute -top-4 left-4 right-4 z-40 flex items-center justify-between gap-3 rounded-lg border border-[#70E1B6]/40 bg-[#080D1D] p-3 shadow-xl backdrop-blur animate-in fade-in slide-in-from-top-2 duration-200"
+          className="absolute -top-4 left-4 right-4 z-40 flex items-center justify-between gap-3 rounded-lg border border-[#FFB84D]/40 bg-[#0C0A1A] p-3 shadow-xl backdrop-blur animate-in fade-in slide-in-from-top-2 duration-200"
         >
-          <div className="flex items-center gap-2 text-xs font-semibold text-[#70E1B6]">
-            <Check className="h-4 w-4 shrink-0 text-[#70E1B6]" aria-hidden="true" />
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#FFB84D]">
+            <Check className="h-4 w-4 shrink-0 text-[#FFB84D]" aria-hidden="true" />
             <span>{toastMessage}</span>
           </div>
           <button
             type="button"
             onClick={() => setToastMessage(null)}
-            className="rounded p-1 text-[#AAB4D0] hover:text-[#FFF9EE] focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+            className="rounded p-1 text-[#A79FC4] hover:text-[#FBFAFF] focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
             aria-label="Tutup notifikasi"
           >
             <X className="h-3.5 w-3.5" aria-hidden="true" />
@@ -180,20 +175,20 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
       {/* Main Container */}
       <div className="space-y-5">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#273352] pb-4">
+        <div className="flex items-center justify-between border-b border-[#2E2748] pb-4">
           <div className="flex items-center gap-2">
-            <Terminal className="h-4 w-4 text-[#70E1B6]" aria-hidden="true" />
-            <h2 className="text-base font-bold text-[#FFF9EE]">
+            <Terminal className="h-4 w-4 text-[#FFB84D]" aria-hidden="true" />
+            <h2 className="text-base font-bold text-[#FBFAFF]">
               {isNotebookLM ? "Alur 2 Tahap NotebookLM" : "Hasil Prompt"}
             </h2>
           </div>
           {isNotebookLM ? (
-            <span className="flex items-center gap-1 rounded bg-[#2959FF]/15 border border-[#2959FF]/30 px-2 py-0.5 text-[10px] font-semibold text-[#70E1B6]">
+            <span className="flex items-center gap-1 rounded bg-[#6D5AE6]/15 border border-[#6D5AE6]/30 px-2 py-0.5 text-[11px] font-semibold text-[#FFB84D]">
               <Layers className="h-3 w-3" aria-hidden="true" />
               Cari & Petakan Sumber
             </span>
           ) : (
-            <span className="text-[11px] text-[#AAB4D0]">
+            <span className="text-[12px] text-[#A79FC4]">
               {prompt ? `${singleCharCount.toLocaleString()} karakter • ${singleWordCount.toLocaleString()} kata` : "Menunggu Input"}
             </span>
           )}
@@ -206,14 +201,14 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
           prompt ? (
             <div className="space-y-5">
               {/* Tab Navigation for 2 Stages */}
-              <div className="flex rounded-lg border border-[#273352] bg-[#080D1D] p-1 gap-1">
+              <div className="flex rounded-lg border border-[#2E2748] bg-[#0C0A1A] p-1 gap-1">
                 <button
                   type="button"
                   onClick={() => setActiveTab("promptA")}
                   className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2 px-3 text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === "promptA"
-                      ? "bg-[#2959FF] text-white shadow"
-                      : "text-[#AAB4D0] hover:text-[#FFF9EE] hover:bg-[#11182D]"
+                      ? "bg-[#6D5AE6] text-white shadow"
+                      : "text-[#A79FC4] hover:text-[#FBFAFF] hover:bg-[#191430]"
                   }`}
                 >
                   <Search className="h-3.5 w-3.5" />
@@ -224,11 +219,11 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                   onClick={() => setActiveTab("promptB")}
                   className={`flex-1 flex items-center justify-center gap-2 rounded-md py-2 px-3 text-xs font-semibold transition-all cursor-pointer ${
                     activeTab === "promptB"
-                      ? "bg-[#2959FF] text-white shadow"
-                      : "text-[#AAB4D0] hover:text-[#FFF9EE] hover:bg-[#11182D]"
+                      ? "bg-[#6D5AE6] text-white shadow"
+                      : "text-[#A79FC4] hover:text-[#FBFAFF] hover:bg-[#191430]"
                   }`}
                 >
-                  <FileCheck2 className="h-3.5 w-3.5 text-[#70E1B6]" />
+                  <FileCheck2 className="h-3.5 w-3.5 text-[#FFB84D]" />
                   <span>Langkah 2 — Buat Paket Bukti</span>
                 </button>
               </div>
@@ -237,16 +232,16 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
               {/* TAB 1: PROMPT A — KUMPULKAN LITERATUR */}
               {/* ==================================================== */}
               {activeTab === "promptA" && (
-                <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 space-y-4 animate-in fade-in duration-150">
+                <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 space-y-4 animate-in fade-in duration-150">
                   {/* Prompt A Header & Reusable Budget Indicator */}
-                  <div className="space-y-2 border-b border-[#273352]/70 pb-3">
+                  <div className="space-y-2 border-b border-[#2E2748]/70 pb-3">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <div>
-                        <h3 className="text-xs font-bold text-[#FFF9EE] flex items-center gap-1.5">
-                          <Search className="h-4 w-4 text-[#70E1B6]" />
+                        <h3 className="text-xs font-bold text-[#FBFAFF] flex items-center gap-1.5">
+                          <Search className="h-4 w-4 text-[#FFB84D]" />
                           <span>Langkah 1 — Kumpulkan Literatur</span>
                         </h3>
-                        <p className="text-[10px] text-[#AAB4D0]">
+                        <p className="text-[11px] text-[#A79FC4]">
                           Jalankan Prompt A di fitur Telusuri Web / Deep Research NotebookLM. NotebookLM akan mencari kandidat sumber. Pilih hanya artikel jurnal individual yang naskahnya terbuka penuh (full-text).
                         </p>
                       </div>
@@ -272,29 +267,9 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                     />
                   </div>
 
-                  {/* Prompt A Collapsible Code Block */}
-                  <div className="flex items-center justify-end">
-                    <button
-                      type="button"
-                      onClick={() => setShowTechnicalPromptA(!showTechnicalPromptA)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                    >
-                      <span>{showTechnicalPromptA ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                      {showTechnicalPromptA ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                    </button>
-                  </div>
-
-                  {showTechnicalPromptA && (
-                    <div className="relative overflow-hidden rounded-lg border border-[#273352] bg-[#11182D] p-3 font-mono text-[11px] leading-relaxed text-[#FFF9EE] animate-fade-in">
-                      <pre className="whitespace-pre-wrap break-words max-h-[240px] overflow-y-auto pr-1">
-                        {promptA}
-                      </pre>
-                    </div>
-                  )}
-
                   {/* Action Buttons for Prompt A */}
                   <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-                    <div className="text-[10px] text-[#AAB4D0]">
+                    <div className="text-[11px] text-[#A79FC4]">
                       Deep Research: NotebookLM mencari artikel individual. Pilih hanya naskah lengkap (full-text).
                     </div>
 
@@ -303,12 +278,12 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                         type="button"
                         disabled={isPromptABlocked}
                         onClick={() => handleCopyText(promptA || "", "promptA", "Prompt Langkah 1")}
-                        className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none ${
+                        className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none ${
                           isPromptABlocked
-                            ? "border border-[#273352] bg-[#11182D] text-[#AAB4D0]/40 cursor-not-allowed"
+                            ? "border border-[#2E2748] bg-[#191430] text-[#A79FC4]/40 cursor-not-allowed"
                             : copiedKey === "promptA"
-                            ? "bg-[#70E1B6] text-[#080D1D] font-bold cursor-pointer"
-                            : "border border-[#273352] bg-[#16213D] text-[#FFF9EE] hover:bg-[#202E52] cursor-pointer"
+                            ? "bg-[#FFB84D] text-[#0C0A1A] font-bold cursor-pointer"
+                            : "border border-[#2E2748] bg-[#221A42] text-[#FBFAFF] hover:bg-[#202E52] cursor-pointer"
                         }`}
                       >
                         {copiedKey === "promptA" ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
@@ -319,10 +294,10 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                         type="button"
                         disabled={isPromptABlocked}
                         onClick={() => handleOpenPlatform(promptA || "", PLATFORM_URLS.notebooklm, "NotebookLM")}
-                        className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold shadow-md transition-all focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none ${
+                        className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold shadow-md transition-all focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none ${
                           isPromptABlocked
-                            ? "bg-[#2959FF]/40 text-white/50 cursor-not-allowed"
-                            : "bg-[#2959FF] text-white hover:bg-[#1E46D9] shadow-[#2959FF]/20 hover:shadow-[#2959FF]/35 cursor-pointer"
+                            ? "bg-[#6D5AE6]/40 text-white/50 cursor-not-allowed"
+                            : "bg-[#6D5AE6] text-white hover:bg-[#5A46D6] shadow-[#6D5AE6]/20 hover:shadow-[#6D5AE6]/35 cursor-pointer"
                         }`}
                       >
                         <span>Buka di NotebookLM</span>
@@ -332,15 +307,15 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                   </div>
 
                   {/* Panel Petunjuk: CHECKLIST LANGKAH 1 */}
-                  <div className="rounded-lg border border-[#273352]/80 bg-[#11182D]/70 p-3 text-[11px] text-[#AAB4D0] space-y-1.5">
-                    <div className="font-bold text-[#FFF9EE] flex items-center gap-1.5 text-xs">
-                      <CheckSquare className="h-3.5 w-3.5 text-[#70E1B6]" />
+                  <div className="rounded-lg border border-[#2E2748]/80 bg-[#191430]/70 p-3 text-[12px] text-[#A79FC4] space-y-1.5">
+                    <div className="font-bold text-[#FBFAFF] flex items-center gap-1.5 text-xs">
+                      <CheckSquare className="h-3.5 w-3.5 text-[#FFB84D]" />
                       <span>CHECKLIST PENTING LANGKAH 1</span>
                     </div>
-                    <ol className="list-decimal list-inside space-y-1.5 text-[10.5px] leading-relaxed text-[#AAB4D0]">
+                    <ol className="list-decimal list-inside space-y-1.5 text-[11.5px] leading-relaxed text-[#A79FC4]">
                       <li><strong className="text-amber-300">Penting:</strong> Jangan pilih &quot;Research Report&quot; atau &quot;Laporan Riset&quot; buatan AI. Pilih hanya naskah artikel jurnal individual.</li>
                       <li>Pastikan naskah lengkap (full-text). Halaman abstrak, DOI, atau metadata ringkas belum cukup untuk dibedah.</li>
-                      <li><strong className="text-[#70E1B6]">Tips Terbaik:</strong> Jika kamu punya file PDF artikel langsung dari kampus/perpus, unggah file PDF langsung ke NotebookLM. Itu cara paling aman agar isi artikel terbaca penuh.</li>
+                      <li><strong className="text-[#FFB84D]">Tips Terbaik:</strong> Jika kamu punya file PDF artikel langsung dari kampus/perpus, unggah file PDF langsung ke NotebookLM. Itu cara paling aman agar isi artikel terbaca penuh.</li>
                       <li>Halaman error, login tertutup, Cloudflare, dan &quot;Just a moment...&quot; bukan naskah yang siap dipakai.</li>
                       <li>Sebagian artikel yang gagal diakses wajar terjadi; lanjutkan dengan artikel yang berhasil masuk utuh.</li>
                       <li>Setelah minimal 8 naskah masuk ke notebook, buka tab <strong>Langkah 2</strong> di atas dan jalankan Prompt B.</li>
@@ -355,15 +330,15 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
               {activeTab === "promptB" && (
                 <div className="space-y-4 animate-in fade-in duration-150">
                   {/* PROMPT B SECTION */}
-                  <div className="rounded-xl border border-[#273352] bg-[#080D1D] p-4 space-y-3">
-                    <div className="space-y-2 border-b border-[#273352]/70 pb-3">
+                  <div className="rounded-xl border border-[#2E2748] bg-[#0C0A1A] p-4 space-y-3">
+                    <div className="space-y-2 border-b border-[#2E2748]/70 pb-3">
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <div>
-                          <h3 className="text-xs font-bold text-[#FFF9EE] flex items-center gap-1.5">
-                            <FileCheck2 className="h-4 w-4 text-[#2959FF]" />
+                          <h3 className="text-xs font-bold text-[#FBFAFF] flex items-center gap-1.5">
+                            <FileCheck2 className="h-4 w-4 text-[#6D5AE6]" />
                             <span>Langkah 2 — Buat Paket Bukti</span>
                           </h3>
-                          <p className="text-[10px] text-[#AAB4D0]">
+                          <p className="text-[11px] text-[#A79FC4]">
                             Prompt B akan membaca seluruh artikel yang sudah masuk ke notebook dan menyusun Matriks Bukti terstruktur untuk dibawa ke tahap berikutnya.
                           </p>
                         </div>
@@ -389,43 +364,23 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                     </div>
 
                     <div className="space-y-3 animate-in fade-in duration-200">
-                      {/* Prompt B Collapsible Code Block */}
-                      <div className="flex items-center justify-end">
-                        <button
-                          type="button"
-                          onClick={() => setShowTechnicalPromptB(!showTechnicalPromptB)}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                        >
-                          <span>{showTechnicalPromptB ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                          {showTechnicalPromptB ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                        </button>
-                      </div>
-
-                      {showTechnicalPromptB && (
-                        <div className="relative overflow-hidden rounded-lg border border-[#273352] bg-[#11182D] p-3 font-mono text-[11px] leading-relaxed text-[#FFF9EE] animate-fade-in">
-                          <pre className="whitespace-pre-wrap break-words max-h-[260px] overflow-y-auto pr-1">
-                            {promptB}
-                          </pre>
-                        </div>
-                      )}
-
                       {/* Callout Petunjuk Penggunaan Paket Bukti */}
-                      <div className="rounded-lg border border-[#70E1B6]/30 bg-[#70E1B6]/10 p-3 text-[11px] text-[#FFF9EE] space-y-1.5">
-                        <p className="font-semibold text-[#70E1B6] flex items-center gap-1.5 text-xs">
+                      <div className="rounded-lg border border-[#FFB84D]/30 bg-[#FFB84D]/10 p-3 text-[12px] text-[#FBFAFF] space-y-1.5">
+                        <p className="font-semibold text-[#FFB84D] flex items-center gap-1.5 text-xs">
                           <CheckSquare className="h-3.5 w-3.5" />
                           <span>Ketentuan Ekstraksi Paket Bukti</span>
                         </p>
-                        <ul className="list-disc list-inside space-y-1 text-[10.5px] leading-relaxed text-[#AAB4D0]">
-                          <li><strong className="text-[#FFF9EE]">INTI (Prioritas Utama)</strong> dan <strong className="text-[#FFF9EE]">PENDUKUNG (Konteks)</strong> sama-sama wajib naskah lengkap (full-text).</li>
-                          <li><strong className="text-[#FFF9EE]">TERBACA TAK DIPILIH</strong> adalah sumber valid yang belum masuk kuota (tetap aman, tidak perlu dihapus).</li>
-                          <li><strong className="text-[#FFF9EE]">DIABAIKAN</strong> (sumber error/abstrak/laporan AI) otomatis tidak dimasukkan ke dalam Matriks Bukti.</li>
+                        <ul className="list-disc list-inside space-y-1 text-[11.5px] leading-relaxed text-[#A79FC4]">
+                          <li><strong className="text-[#FBFAFF]">INTI (Prioritas Utama)</strong> dan <strong className="text-[#FBFAFF]">PENDUKUNG (Konteks)</strong> sama-sama wajib naskah lengkap (full-text).</li>
+                          <li><strong className="text-[#FBFAFF]">TERBACA TAK DIPILIH</strong> adalah sumber valid yang belum masuk kuota (tetap aman, tidak perlu dihapus).</li>
+                          <li><strong className="text-[#FBFAFF]">DIABAIKAN</strong> (sumber error/abstrak/laporan AI) otomatis tidak dimasukkan ke dalam Matriks Bukti.</li>
                           <li>Jika naskah INTI kurang dari 8, kembali ke Langkah 1 untuk mencari tambahan naskah full-text.</li>
                         </ul>
                       </div>
 
                       {/* Action Buttons for Prompt B */}
                       <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-                        <div className="text-[10px] text-[#AAB4D0]">
+                        <div className="text-[11px] text-[#A79FC4]">
                           Ekstraksi Bukti: Salin seluruh output Matriks Bukti ke Tool Bedah Fenomena & Literatur.
                         </div>
 
@@ -434,12 +389,12 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                             type="button"
                             disabled={isPromptBBlocked}
                             onClick={() => handleCopyText(promptB || "", "promptB", "Prompt Langkah 2")}
-                            className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none ${
+                            className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none ${
                               isPromptBBlocked
-                                ? "border border-[#273352] bg-[#11182D] text-[#AAB4D0]/40 cursor-not-allowed"
+                                ? "border border-[#2E2748] bg-[#191430] text-[#A79FC4]/40 cursor-not-allowed"
                                 : copiedKey === "promptB"
-                                ? "bg-[#70E1B6] text-[#080D1D] font-bold cursor-pointer"
-                                : "border border-[#273352] bg-[#16213D] text-[#FFF9EE] hover:bg-[#202E52] cursor-pointer"
+                                ? "bg-[#FFB84D] text-[#0C0A1A] font-bold cursor-pointer"
+                                : "border border-[#2E2748] bg-[#221A42] text-[#FBFAFF] hover:bg-[#202E52] cursor-pointer"
                             }`}
                           >
                             {copiedKey === "promptB" ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
@@ -450,10 +405,10 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                             type="button"
                             disabled={isPromptBBlocked}
                             onClick={() => handleOpenPlatform(promptB || "", PLATFORM_URLS.notebooklm, "NotebookLM")}
-                            className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold shadow-md transition-all focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none ${
+                            className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold shadow-md transition-all focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none ${
                               isPromptBBlocked
-                                ? "bg-[#2959FF]/40 text-white/50 cursor-not-allowed"
-                                : "bg-[#2959FF] text-white hover:bg-[#1E46D9] shadow-[#2959FF]/20 hover:shadow-[#2959FF]/35 cursor-pointer"
+                                ? "bg-[#6D5AE6]/40 text-white/50 cursor-not-allowed"
+                                : "bg-[#6D5AE6] text-white hover:bg-[#5A46D6] shadow-[#6D5AE6]/20 hover:shadow-[#6D5AE6]/35 cursor-pointer"
                             }`}
                           >
                             <span>Buka di NotebookLM</span>
@@ -467,10 +422,10 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
               )}
             </div>
           ) : (
-            <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-dashed border-[#273352] p-6 text-center text-xs text-[#AAB4D0]">
-              <Search className="mb-2 h-8 w-8 text-[#AAB4D0]/40" />
-              <p className="font-semibold text-[#FFF9EE]">Belum Ada Prompt yang Dibuat</p>
-              <p className="mt-1 text-[11px]">
+            <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-dashed border-[#2E2748] p-6 text-center text-xs text-[#A79FC4]">
+              <Search className="mb-2 h-8 w-8 text-[#A79FC4]/40" />
+              <p className="font-semibold text-[#FBFAFF]">Belum Ada Prompt yang Dibuat</p>
+              <p className="mt-1 text-[12px]">
                 Lengkapi formulir di samping untuk merakit Langkah 1 (Kumpulkan Literatur) dan Langkah 2 (Buat Paket Bukti).
               </p>
               <PromptExample variant="notebooklm" />
@@ -483,36 +438,20 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
           prompt ? (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-[#AAB4D0]">
+                <span className="text-xs text-[#A79FC4]">
                   {singleCharCount.toLocaleString()} karakter • {singleWordCount.toLocaleString()} kata
                 </span>
-                <button
-                  type="button"
-                  onClick={() => setShowSingleTechnicalPrompt(!showSingleTechnicalPrompt)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#70E1B6] hover:underline cursor-pointer"
-                >
-                  <span>{showSingleTechnicalPrompt ? "Sembunyikan Prompt Teknis" : "Lihat Prompt Teknis"}</span>
-                  {showSingleTechnicalPrompt ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-                </button>
               </div>
-
-              {showSingleTechnicalPrompt && (
-                <div className="relative overflow-hidden rounded-lg border border-[#273352] bg-[#080D1D] p-4 font-mono text-xs leading-relaxed text-[#FFF9EE] animate-fade-in">
-                  <pre className="whitespace-pre-wrap break-words max-h-[380px] overflow-y-auto pr-2">
-                    {prompt}
-                  </pre>
-                </div>
-              )}
 
               {/* Action Buttons for Single Prompt */}
               <div className="flex flex-wrap items-center justify-end gap-3 pt-2">
                 <button
                   type="button"
                   onClick={() => handleCopyText(prompt, "single", "Prompt")}
-                  className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none ${
+                  className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-semibold transition-all focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none ${
                     copiedKey === "single"
-                      ? "bg-[#70E1B6] text-[#080D1D] font-bold cursor-pointer"
-                      : "border border-[#273352] bg-[#16213D] text-[#FFF9EE] hover:bg-[#202E52] cursor-pointer"
+                      ? "bg-[#FFB84D] text-[#0C0A1A] font-bold cursor-pointer"
+                      : "border border-[#2E2748] bg-[#221A42] text-[#FBFAFF] hover:bg-[#202E52] cursor-pointer"
                   }`}
                 >
                   {copiedKey === "single" ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
@@ -530,7 +469,7 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
                       platform
                     )
                   }
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#2959FF] px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-[#2959FF]/20 hover:bg-[#1E46D9] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#2959FF] focus-visible:outline-none"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#6D5AE6] px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-[#6D5AE6]/20 hover:bg-[#5A46D6] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#6D5AE6] focus-visible:outline-none"
                 >
                   <span>Buka {platform}</span>
                   <ExternalLink className="h-3.5 w-3.5 opacity-70" />
@@ -538,10 +477,10 @@ export const PromptOutputPanel: React.FC<PromptOutputPanelProps> = ({
               </div>
             </div>
           ) : (
-            <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-dashed border-[#273352] p-6 text-center text-xs text-[#AAB4D0]">
-              <Terminal className="mb-2 h-8 w-8 text-[#AAB4D0]/40" />
-              <p className="font-semibold text-[#FFF9EE]">Belum Ada Prompt yang Dibuat</p>
-              <p className="mt-1 text-[11px]">
+            <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-dashed border-[#2E2748] p-6 text-center text-xs text-[#A79FC4]">
+              <Terminal className="mb-2 h-8 w-8 text-[#A79FC4]/40" />
+              <p className="font-semibold text-[#FBFAFF]">Belum Ada Prompt yang Dibuat</p>
+              <p className="mt-1 text-[12px]">
                 Lengkapi formulir di samping dan klik &quot;Buat Prompt&quot; untuk melihat prompt akademik siap pakai.
               </p>
               <PromptExample variant="single" />

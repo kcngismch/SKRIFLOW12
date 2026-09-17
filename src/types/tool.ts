@@ -1,7 +1,7 @@
 import { SelectOption } from "@/data/researchOptions";
 
-export type PlatformTarget = "ChatGPT / Gemini" | "NotebookLM";
-export type ToolIconName = "Lightbulb" | "BookOpen" | "GitCompare" | "Compass";
+export type PlatformTarget = "ChatGPT / Gemini" | "NotebookLM" | "ChatGPT / NotebookLM";
+export type ToolIconName = "Lightbulb" | "BookOpen" | "GitCompare" | "Compass" | "Library";
 
 export interface FormFieldHelperLink {
   text: string;
@@ -84,6 +84,8 @@ export interface PhenomenonEvidence {
 }
 
 export interface RawPhenomenonEvidence {
+  /** Jejak audit identitas sumber (R-07). Diisi parser, bukan oleh AI. */
+  identity_status?: SourceIdentityAuditStatus;
   claim: string;
   observed_data_or_event: string;
   source_title: string;
@@ -993,7 +995,35 @@ export interface DataVerificationQuestionV2 {
   question: string;
   critical: boolean;
   related_data_need: string;
+  /** ADDENDUM E: jalan mencari data. Wajib dihasilkan 4B, opsional saat dibaca
+      supaya paket 4B lama tetap lolos parser. */
+  where_to_look?: string[];
+  search_keywords?: string[];
+  site_type?: JenisSitusData;
 }
+
+/** ADDENDUM E §E.2 — daftar tertutup jenis situs tempat data biasa berada. */
+export const JENIS_SITUS_DATA = [
+  "BPS",
+  "KEMENTERIAN_LEMBAGA",
+  "BANK_SENTRAL",
+  "JURNAL_AKADEMIK",
+  "DATASET_INTERNASIONAL",
+  "LAPORAN_PERUSAHAAN",
+  "LAINNYA",
+] as const;
+
+export type JenisSitusData = typeof JENIS_SITUS_DATA[number];
+
+export const LABEL_JENIS_SITUS: Record<JenisSitusData, string> = {
+  BPS: "BPS (Badan Pusat Statistik)",
+  KEMENTERIAN_LEMBAGA: "Kementerian / Lembaga",
+  BANK_SENTRAL: "Bank Indonesia / OJK",
+  JURNAL_AKADEMIK: "Jurnal akademik",
+  DATASET_INTERNASIONAL: "Dataset internasional (World Bank, IMF, dll.)",
+  LAPORAN_PERUSAHAAN: "Laporan tahunan perusahaan",
+  LAINNYA: "Lainnya",
+};
 
 export interface DirectionMeasurementFocus {
   primary_outcome: string;
@@ -1069,7 +1099,22 @@ export interface SourceWeightItem {
   reason?: string;
   note?: string;
   document_type?: string;
+  /** Judul dokumen sumber. Dipakai untuk jejak audit mahasiswa/dosen. */
+  title?: string;
+  /** Tautan dokumen. Null bila AI tidak menyertakan. */
+  url?: string;
+  /** DOI bila sumber berupa artikel jurnal. */
+  doi?: string;
+  /**
+   * Status identitas sumber hasil audit deterministik:
+   * VERIFIED = punya identitas yang bisa dicek (URL/DOI),
+   * NEEDS_CHECK = identitas ada tetapi belum diverifikasi ke sumber luar,
+   * MISSING = tidak ada URL maupun DOI.
+   */
+  identity_status?: SourceIdentityAuditStatus;
 }
+
+export type SourceIdentityAuditStatus = "VERIFIED" | "NEEDS_CHECK" | "MISSING";
 
 export interface DirectionV2 {
   schema_version: 2;
@@ -1214,6 +1259,8 @@ export interface BackgroundMapItemV2 {
   transition_to_next: string;
   missing_information: string[];
   readiness: "READY" | "NEEDS_VERIFICATION" | "BLOCKED";
+  /** Target panjang paragraf saat draf ditulis. Redaksi awal sebelum revisi prompt tidak memuatnya. */
+  target_word_range?: string;
 }
 
 export type EvidenceLedgerSupportStatus =
@@ -1253,6 +1300,8 @@ export interface Bab1FoundationV1 {
   schema_version: 1;
   foundation_status: Bab1FoundationStatus;
   status_reason: string;
+  /** Target total kata latar belakang (1000–1300). Redaksi awal sebelum revisi prompt tidak memuatnya. */
+  target_words_total?: number;
   blocking_items: string[];
   selected_direction: {
     id: string;
@@ -1407,4 +1456,118 @@ export interface LanguagePresentation {
   academicArtifactText?: string;
   nextActionText?: string;
 }
+
+// =========================================================================
+// TAHAP 4C: DRAF BAB 1 (SKRIFLOW_BAB1_DRAFT_V1) — Addendum B
+// =========================================================================
+
+export type Bab1DraftStatus = "DRAFT_COMPLETE" | "DRAFT_PARTIAL" | "DRAFT_BLOCKED";
+
+export interface Bab1DraftParagraph {
+  order: number;
+  /** Sama dengan background_map.function pada Paket Fondasi (4B). */
+  function: BackgroundParagraphFunction;
+  /** Prosa jadi. Setiap kalimat wajib bisa ditelusuri ke claim_id di evidence_ledger. */
+  paragraph_text: string;
+  word_count: number;
+  /** claim_id dari evidence_ledger 4B yang dipakai di paragraf ini. */
+  claim_ids: string[];
+  /** Hanya untuk RESEARCHER_DECISION: ditulis sebagai keputusan mahasiswa, tanpa sitasi. */
+  researcher_decision_note?: string | null;
+  /** Kalimat yang sengaja TIDAK ditulis karena klaimnya belum aman. */
+  withheld_claims?: string[];
+}
+
+export interface Bab1DraftV1 {
+  schema_version: 1;
+  draft_status: Bab1DraftStatus;
+  foundation_status_ref: Bab1FoundationStatus;
+  /** Total kata draf, dihitung AI; tool menghitung ulang dan menandai bila selisih. */
+  word_count_total: number;
+  target_words_total: number;
+  background: Bab1DraftParagraph[];
+  /** Paragraf 4B yang tidak ditulis karena readiness BLOCKED. */
+  skipped_sections?: string[];
+  /** Semua claim_id yang dipakai, untuk pemeriksaan cakupan ledger. */
+  used_claim_ids: string[];
+  /** Klaim yang sengaja dihindari beserta alasannya. */
+  avoided_claims?: string[];
+  consistency_notes?: string[];
+  prohibited_claims_respected?: string[];
+  unresolved_notes?: string[];
+}
+
+/**
+ * Tahap 4D (Addendum C): hasil poles bahasa draf Bab 1.
+ * Isi wajib identik dengan draf 4C; hanya bahasa yang boleh berubah.
+ */
+export interface Bab1PolishParagraph {
+  order: number;
+  function: BackgroundParagraphFunction;
+  /** Prosa hasil perbaikan bahasa. claim_ids wajib sama dengan draf 4C. */
+  paragraph_text: string;
+  word_count: number;
+  claim_ids: string[];
+  researcher_decision_note?: string | null;
+  withheld_claims?: string[];
+}
+
+export interface Bab1PolishV1 {
+  schema_version: 1;
+  polish_status: "POLISH_COMPLETE" | "POLISH_PARTIAL" | "POLISH_BLOCKED";
+  draft_status_ref: Bab1DraftStatus;
+  foundation_status_ref: Bab1FoundationStatus;
+  word_count_total: number;
+  target_words_total: number;
+  background: Bab1PolishParagraph[];
+  /** Perubahan bahasa yang dilakukan, per paragraf. */
+  language_changes?: string[];
+  /** Seluruh claim_id yang dipertahankan; wajib sama dengan draf 4C. */
+  preserved_claim_ids: string[];
+  /** Klaim yang sengaja tidak ditulis, beserta alasannya. */
+  removed_claims?: string[];
+  prohibited_claims_respected?: string[];
+  unresolved_notes?: string[];
+}
+
+/** Temuan pemeriksa poles 4D (Addendum C). Membandingkan hasil 4D dengan draf 4C. */
+export interface PolishCheckFinding {
+  code:
+    | "POLISH_PARAGRAPH_COUNT_CHANGED"
+    | "POLISH_CLAIM_IDS_CHANGED"
+    | "POLISH_PARAGRAPH_ORDER_CHANGED"
+    | "POLISH_NEW_NUMBER"
+    | "POLISH_NEW_CITATION"
+    | "POLISH_NEW_ABSOLUTE_PHRASE"
+    | "POLISH_WORD_DRIFT"
+    | "POLISH_NO_CHANGES";
+  severity: "CRITICAL" | "MAJOR" | "MINOR";
+  message: string;
+  location?: string;
+}
+
+/** Temuan pemeriksa draf (Langkah 4). Tidak memblokir render; mengarahkan revisi. */
+export interface DraftCheckFinding {
+  code:
+    | "WORD_COUNT_OUT_OF_RANGE"
+    | "WORD_COUNT_MISMATCH"
+    | "PARAGRAPH_COUNT_MISMATCH"
+    | "PARAGRAPH_FUNCTION_MISMATCH"
+    | "CLAIM_ID_UNKNOWN"
+    | "CLAIM_NOT_IN_LEDGER"
+    | "CLAIM_STATUS_DO_NOT_USE"
+    | "CLAIM_STATUS_NEEDS_VERIFICATION"
+    | "BLOCKED_SECTION_WRITTEN"
+    | "PROHIBITED_CLAIM_PHRASE"
+    | "ABSOLUTE_CLAIM_PHRASE"
+    | "CAUSAL_CLAIM_FROM_CORRELATION"
+    | "CITATION_ON_RESEARCHER_DECISION"
+    | "SYNTHETIC_GAP_PHRASE"
+    | "CITATION_UNKNOWN_SOURCE"
+    | "LEDGER_CLAIM_UNUSED";
+  severity: "CRITICAL" | "MAJOR" | "MINOR";
+  message: string;
+  location?: string;
+}
+
 

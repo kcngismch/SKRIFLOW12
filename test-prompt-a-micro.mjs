@@ -112,7 +112,10 @@ assert(analysis3.status === "WARNING", `3.11 Status pada batas maksimum adalah W
 // ----------------------------------------------------
 // TEST 4 — RUNTIME LEBIH DARI 3.900 (ACCEPTANCE TEST 4)
 // ----------------------------------------------------
-console.log("\n--- TEST 4: RUNTIME LEBIH DARI 3.900 (BLOCKED) ---");
+console.log("\n--- TEST 4: INPUT PENUH DIPADATKAN OTOMATIS (bukan diblokir) ---");
+// Perilaku lama: input penuh -> prompt > 3.900 -> BLOCKED, tombol Salin mati,
+// mahasiswa mentok. Perilaku baru: konteks opsional dipadatkan bertingkat sampai
+// muat, sedangkan konteks inti (prodi/area/fenomena) tidak pernah dipotong.
 const test4OverInput = {
   prodi: "P".repeat(100),
   area_eksplorasi: "A".repeat(350),
@@ -120,16 +123,30 @@ const test4OverInput = {
   prioritas_sumber: "S".repeat(250),
   rentang_tahun: "R".repeat(100),
   kata_kunci: "K".repeat(200),
-  fokus_aspek: "O".repeat(900), // Melebihi batas -> menyebabkan total > 3900
+  fokus_aspek: "O".repeat(900), // field terpanjang
   hal_terbuka: "B".repeat(150),
 };
 const res4 = assembleLiteraturePromptA(test4OverInput);
 const analysis4 = analyzePromptA(t3, test4OverInput);
 
-assert(res4.totalLength > 3900, `4.1 Runtime total (${res4.totalLength}) > 3900`);
-assert(res4.isValid === false, "4.2 isValid adalah false");
-assert(analysis4.status === "BLOCKED", "4.3 Status menjadi BLOCKED");
-assert(analysis4.longestField !== null && analysis4.longestField.length > 0, "4.4 longestField dilaporkan untuk mengarahkan perbaikan");
+assert(res4.totalLength <= 3900, `4.1 Runtime total (${res4.totalLength}) <= 3900`);
+assert(res4.isValid === true, "4.2 isValid adalah true (tombol Salin tetap aktif)");
+assert(analysis4.status === "READY_WITH_OPTIONAL_COMPACTION", `4.3 Status READY_WITH_OPTIONAL_COMPACTION (dapat: ${analysis4.status})`);
+assert(res4.compactedFields.length > 0, "4.4 field yang dipadatkan dilaporkan ke mahasiswa");
+assert(res4.phenomenonPreserved === true, "4.5 fenomena tidak pernah dipotong");
+assert(!res4.compactedFields.includes("fenomena"), "4.6 fenomena tidak masuk daftar yang dipadatkan");
+assert(res4.prompt.includes("F".repeat(800)), "4.7 teks fenomena 800 char tetap utuh di prompt");
+assert(analysis4.longestField !== null && analysis4.longestField.length > 0, "4.8 longestField dilaporkan untuk mengarahkan perbaikan");
+
+// 4B. Yang benar-benar tidak bisa dipadatkan tetap diblokir: template statis +
+// konteks inti saja sudah melebihi batas.
+const test4TakBisaDipadatkan = {
+  prodi: "P".repeat(5000), // melampaui batas field inti
+  area_eksplorasi: "A".repeat(5000),
+  fenomena_awal: "F".repeat(5000),
+};
+const res4b = assembleLiteraturePromptA(test4TakBisaDipadatkan);
+assert(res4b.isValid === false, "4.9 konteks inti kelewat besar tetap diblokir (bukan diam-diam dipotong)");
 
 // ----------------------------------------------------
 // TEST 5 — REGRESSION (ACCEPTANCE TEST 5)

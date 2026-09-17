@@ -33,7 +33,7 @@ function assert(condition, message) {
 // 1. TOOL REGISTRATION & CATALOG TESTS
 // ==========================================
 console.log("\n=== 1. TOOL REGISTRATION & CATALOG TESTS ===");
-assert(ACTIVE_TOOLS.length === 4, "Tepat 4 tool aktif dalam katalog");
+assert(ACTIVE_TOOLS.length === 6, "Tepat 6 tool aktif dalam katalog (4 bedah + Susun Bab 1 + Bangun Bab 2)");
 
 const t1 = getToolBySlug("cari-ide-skripsi");
 const t2 = getToolBySlug("cari-fenomena-awal");
